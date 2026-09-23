@@ -1,0 +1,8 @@
+{
+  "topics_per_run": 1,
+  "core_technologies": ["go", "ruby", "rails", "postgres", "architecture"],
+  "discovery": {
+    "enabled": true,
+    "max_new_technologies_per_month": 1
+  }
+}

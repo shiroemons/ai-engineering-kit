@@ -49,3 +49,18 @@ check: fmt-check fix-check
     just freshness
     just index
     go run ./cmd/kb search context --json
+
+research:
+    bash scripts/research-next.sh
+
+research-dry-run:
+    RESEARCH_DRY_RUN=1 bash scripts/research-next.sh
+
+research-status:
+    @launchctl print gui/$(id -u)/com.shiroemons.ai-engineering-kit.research
+
+research-install:
+    bash scripts/install-research-agent.sh
+
+research-uninstall:
+    bash scripts/uninstall-research-agent.sh

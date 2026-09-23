@@ -76,6 +76,6 @@ index は事前に生成する。入力や設定が変わると検索が再生�
 
 ## 適用範囲
 
-自動のネット調査・期限更新・Embedding・Vector DB は未実装。検索の差し替え方針は [ADR](docs/adr/0001-local-knowledge-base.md) に記録する。検証は形式や参照整合性を確かめるもので、記述の真実性や人間のレビュー完了を保証しない。
+自動のネット調査は [Research Pipeline](docs/research-automation.md) を参照する。Embedding・Vector DB は未実装。検索の差し替え方針は [ADR](docs/adr/0001-local-knowledge-base.md) に記録する。検証は形式や参照整合性を確かめるもので、記述の真実性や人間のレビュー完了を保証しない。
 
 本リポジトリの配布ライセンスは未選定。source のライセンス表記は参照資料の識別であり、本リポジトリへ適用する宣言ではない。
