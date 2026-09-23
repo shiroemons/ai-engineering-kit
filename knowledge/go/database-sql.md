@@ -54,7 +54,7 @@
 - `Rows` は `Next` が false を返し後続の result set がなければ自動で閉じられ、以後は `Rows.Err` を確認すれば足りる。`Close` は冪等で `Rows.Err` には影響しない。書き込みを含む処理では公式 example が `rows.Close()` のエラーを確認する（auto-commit error が起きて rollback される場合があるため）。
 - `QueryRow` / `QueryRowContext` は常に非 nil を返し、エラーは `Scan` まで遅延する。行が無ければ `Scan` は `ErrNoRows` を返す。`Row.Err` は `Scan` を呼ばずに query エラーの有無を確認できる。
 - `Stmt` は並行利用可能。`Tx` や `Conn` で作った `Stmt` は1本の接続に永久に束縛され、その `Tx` / `Conn` が閉じると全ての操作がエラーになる。`DB` で作った `Stmt` は `DB` の寿命まで有効で、新しい接続で実行するときは自動でその接続に prepare し直す。`DB.Prepare` の `Stmt` は呼び出し側が `Close` する責務を持つ。
-- `Conn` は単一 connection で、公式は「連続した単一 DB session が必要な場合以外は `DB` からの実行を優先」と明記する。`Conn.Close` でプールに戻し、以降の操作は `ErrConnDone`。`Close` は他の操作の完了を待つ。`DB.Conn(ctx)` は接続が得られるか context が取消されるまで待ち、同一 `Conn` 上の query は同一 session で実行される。`DB.Close` は新しい query の開始を止め、サーバ上で処理中 の query が終わるのを待つ。
+- `Conn` は単一 connection で、公式は「連続した単一 DB session が必要な場合以外は `DB` からの実行を優先」と明記する。`Conn.Close` でプールに戻し、以降の操作は `ErrConnDone`。`Close` は他の操作の完了を待つ。`DB.Conn(ctx)` は接続が得られるか context が取消されるまで待ち、同一 `Conn` 上の query は同一 session で実行される。`DB.Close` は新しい query の開始を止め、サーバ上で処理中の query が終わるのを待つ。
 - エラー変数は `ErrNoRows`・`ErrTxDone`・`ErrConnDone`。`Result.LastInsertId` / `RowsAffected` は全データベース・全 driver がサポートするとは限らない。
 
 ## 推奨方法
@@ -78,8 +78,8 @@
 - `Commit` も `Rollback` も呼ばずに `Tx` を放棄する。`Tx` はどちらかで終える契約で、以後の操作は `ErrTxDone` になる。
 - `BeginTx` に渡した context が commit 前に取消されても commit できると考える。公式は取消時に自動 rollback され、`Commit` はエラーを返すと明記する。
 - `LastInsertId` / `RowsAffected` を全環境で使えると信頼する。公式は対応が一様でないと明記する。
-- `Scan` で受け取った `[]byte`（`Scanner` の reference 型）や `RawBytes` を次回の `Rows.Next` / `Scan` / `Close` の後も保持する。値は driver のメモリを参照し、必要なら保持前にコピーする。
-- isolation level を指定しただけで全 driver で同じ保証を得られると考える。非対応の level はエラーになり得し、既定レベルは driver 依存。
+- `RawBytes` を次回の `Rows.Next` / `Scan` / `Close` の後も保持する。`RawBytes` は元データへの参照なので、保持するならコピーする。一方、`Scan` の宛先が `*[]byte` の場合は呼び出し側が所有するコピーが作られる。独自 `Scanner` に渡される `[]byte` も必要なら次の `Scan` 前にコピーする。
+- isolation level を指定しただけで全 driver で同じ保証を得られると考える。非対応の level はエラーになり得る。既定レベルは driver 依存。
 - `Conn` を通常経路に使う。公式は単一 session が必要な場合以外は `DB` 利用を優先と明記する。
 
 ## 適用版と本番での注意
