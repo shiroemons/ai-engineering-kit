@@ -23,6 +23,6 @@ just research
 
 ## 安全条件
 
-runner は main・clean working tree・排他 lock を確認し、`git pull --ff-only` の失敗時に停止する。OpenCode は repo 内の custom agent とコマンドを使い、通常 Research の編集範囲を `knowledge/`・`sources/catalog/`・`evals/knowledge/` に制限する。runner が実際の差分を再検査し、各領域の成果物、検証成功、staged diff を確認してから commit する。異常時に自動 rollback はしない。失敗後の変更は調査してから手動で扱う。ログには OpenCode の応答全文を保存しない。
+runner は main・clean working tree・排他 lock を確認し、`git pull --ff-only` の失敗時に停止する。OpenCode は repo 内の custom agent とコマンドを使い、通常 Research の編集範囲を `knowledge/`・`sources/catalog/`・`evals/knowledge/` に制限する。runner が実際の差分を再検査し、knowledge と eval の成果物、source catalog の参照整合性、検証成功、staged diff を確認してから commit する。既存の検証済み source は再利用できる。異常時に自動 rollback はしない。失敗後の変更は調査してから手動で扱う。ログには OpenCode の応答全文を保存しない。
 
 dry run は OpenCode に読み取りだけの topic 選択を依頼し、変更がなかったことと既存データの validation を確認する。dry run では pull と commit をしない。

@@ -92,10 +92,12 @@ if [[ "${RESEARCH_DRY_RUN:-0}" == 1 ]]; then
   exit 0
 fi
 
-for prefix in knowledge/ sources/catalog/ evals/knowledge/; do
+for prefix in knowledge/ evals/knowledge/; do
   git status --porcelain --untracked-files=all -- "$prefix" | grep -q . \
     || fail "required research artifact missing: $prefix"
 done
+# A verified, already-cataloged primary source may be reused. `just validate`
+# checks that the knowledge source ID, URL, and type match that catalog.
 
 mise exec -- just validate >/dev/null 2>&1 || fail 'just validate failed'
 log 'just validate: passed'
