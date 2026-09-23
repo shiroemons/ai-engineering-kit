@@ -8,5 +8,5 @@
   "license": "BSD-3-Clause",
   "trust": "official",
   "type": "official_docs",
-  "purpose": "NewTimer と Stop の API 契約を確認する"
+  "purpose": "monotonic clock の比較・削除条件、Timer の Stop/Reset と stale value の契約、Go 1.23 での channel 同期化と GC 回収、Ticker の panic 条件と Stop の非クローズ、Duration の上限と ParseDuration の単位、Timer resolution を確認する"
 }

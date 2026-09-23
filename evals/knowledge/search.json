@@ -94,6 +94,26 @@
       "name": "database-sql-isolation-level",
       "query": "isolation level",
       "expected_ids": ["go-database-sql"]
+    },
+    {
+      "name": "time-timer-stop-reset",
+      "query": "timer stop reset",
+      "expected_ids": ["go-time"]
+    },
+    {
+      "name": "time-monotonic-clock",
+      "query": "monotonic clock",
+      "expected_ids": ["go-time"]
+    },
+    {
+      "name": "time-ticker-interval",
+      "query": "ticker interval",
+      "expected_ids": ["go-time"]
+    },
+    {
+      "name": "time-deadline-until",
+      "query": "deadline until",
+      "expected_ids": ["go-time"]
     }
   ]
 }
