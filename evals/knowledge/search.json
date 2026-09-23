@@ -64,6 +64,36 @@
       "name": "http-server-response-controller",
       "query": "response controller",
       "expected_ids": ["go-http-server"]
+    },
+    {
+      "name": "database-sql-connection-pool",
+      "query": "connection pool",
+      "expected_ids": ["go-database-sql"]
+    },
+    {
+      "name": "database-sql-transaction-rollback",
+      "query": "transaction rollback",
+      "expected_ids": ["go-database-sql"]
+    },
+    {
+      "name": "database-sql-context-cancellation",
+      "query": "context cancellation",
+      "expected_ids": ["go-database-sql", "go-http-client", "go-context"]
+    },
+    {
+      "name": "database-sql-rows-scan",
+      "query": "rows scan",
+      "expected_ids": ["go-database-sql"]
+    },
+    {
+      "name": "database-sql-prepared-statement",
+      "query": "prepared statement",
+      "expected_ids": ["go-database-sql"]
+    },
+    {
+      "name": "database-sql-isolation-level",
+      "query": "isolation level",
+      "expected_ids": ["go-database-sql"]
     }
   ]
 }

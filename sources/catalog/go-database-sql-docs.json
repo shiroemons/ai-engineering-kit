@@ -1,0 +1,12 @@
+{
+  "id": "go-database-sql-docs",
+  "url": "https://pkg.go.dev/database/sql",
+  "repository_url": "https://github.com/golang/go",
+  "commit_sha": "",
+  "version": "go1.27.1 (retrieved page label; not a latest-version claim)",
+  "retrieved_at": "2026-09-23",
+  "license": "BSD-3-Clause",
+  "trust": "official",
+  "type": "official_docs",
+  "purpose": "database/sql の DB・接続プール上限・context cancellation・BeginTx の rollback 契約・Rows/Stmt/Conn の閉じ方・isolation level・エラー変数・導入版を確認する"
+}
