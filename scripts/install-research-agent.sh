@@ -19,6 +19,7 @@ PLIST="$HOME/Library/LaunchAgents/$LABEL.plist"
 mkdir -p "$HOME/Library/LaunchAgents" "$HOME/Library/Logs/ai-engineering-kit"
 /usr/bin/python3 - "$PLIST" "$LABEL" "$ROOT/scripts/research-next.sh" "$HOUR" "$MINUTE" "$HOME/Library/Logs/ai-engineering-kit" <<'PY'
 import plistlib
+import os
 import sys
 
 path, label, script, hour, minute, logs = sys.argv[1:]
@@ -31,7 +32,8 @@ data = {
     "StandardErrorPath": logs + "/launchd.err.log",
     "RunAtLoad": False,
     "EnvironmentVariables": {
-        "PATH": "/opt/homebrew/bin:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin"
+        "PATH": os.path.expanduser("~/.local/share/mise/shims")
+        + ":/opt/homebrew/bin:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin"
     },
 }
 with open(path, "wb") as output:
