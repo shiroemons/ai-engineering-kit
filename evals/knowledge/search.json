@@ -34,6 +34,36 @@
       "name": "http-context-cancellation",
       "query": "context cancellation",
       "expected_ids": ["go-http-client", "go-context", "context-cancellation"]
+    },
+    {
+      "name": "http-server-production",
+      "query": "http server",
+      "expected_ids": ["go-http-server"]
+    },
+    {
+      "name": "http-server-graceful-shutdown",
+      "query": "graceful shutdown",
+      "expected_ids": ["go-http-server"]
+    },
+    {
+      "name": "http-server-timeout-config",
+      "query": "server timeout",
+      "expected_ids": ["go-http-server"]
+    },
+    {
+      "name": "http-server-middleware",
+      "query": "middleware handler",
+      "expected_ids": ["go-http-server"]
+    },
+    {
+      "name": "http-server-tls-http2",
+      "query": "tls http2",
+      "expected_ids": ["go-http-server"]
+    },
+    {
+      "name": "http-server-response-controller",
+      "query": "response controller",
+      "expected_ids": ["go-http-server"]
     }
   ]
 }

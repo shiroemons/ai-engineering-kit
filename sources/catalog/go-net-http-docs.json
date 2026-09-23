@@ -8,5 +8,5 @@
   "license": "BSD-3-Clause",
   "trust": "official",
   "type": "official_docs",
-  "purpose": "net/http の Client・Transport・timeout・context cancellation・connection pooling・redirect・response body・retry の契約を確認する"
+  "purpose": "net/http の Client・Transport・Server・Handler・ServeMux・timeout・context cancellation・connection pooling・redirect・response body・retry の契約を確認する"
 }
