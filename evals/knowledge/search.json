@@ -4,6 +4,36 @@
       "name": "context-all-kinds",
       "query": "context",
       "expected_ids": ["go-context", "context-cancellation", "go-contextwait"]
+    },
+    {
+      "name": "http-client-production",
+      "query": "http client",
+      "expected_ids": ["go-http-client"]
+    },
+    {
+      "name": "http-transport-timeout",
+      "query": "transport timeout",
+      "expected_ids": ["go-http-client"]
+    },
+    {
+      "name": "http-connection-pooling-idle",
+      "query": "connection pooling idle",
+      "expected_ids": ["go-http-client"]
+    },
+    {
+      "name": "http-redirect-response-body",
+      "query": "redirect response body",
+      "expected_ids": ["go-http-client"]
+    },
+    {
+      "name": "http-retry-separation",
+      "query": "retry",
+      "expected_ids": ["go-http-client"]
+    },
+    {
+      "name": "http-context-cancellation",
+      "query": "context cancellation",
+      "expected_ids": ["go-http-client", "go-context", "context-cancellation"]
     }
   ]
 }
