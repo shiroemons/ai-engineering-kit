@@ -10,7 +10,13 @@ ERROR_FILE="$LOG_DIR/research-error.log"
 LOCK_DIR="$LOG_DIR/research.lock"
 timestamp() { date '+%Y-%m-%dT%H:%M:%S%z'; }
 log() { printf '%s %s\n' "$(timestamp)" "$*" >> "$LOG_FILE"; }
-fail() { log "failure: $*"; printf '%s %s\n' "$(timestamp)" "$*" >> "$ERROR_FILE"; exit 1; }
+fail() {
+  local message="$*"
+  log "failure: $message"
+  printf '%s %s\n' "$(timestamp)" "$message" >> "$ERROR_FILE"
+  printf 'research: %s (details: %s)\n' "$message" "$ERROR_FILE" >&2
+  exit 1
+}
 
 if ! mkdir "$LOCK_DIR" 2>/dev/null; then
   log 'skipped: another run holds the lock (remove stale lock only after confirming no run exists)'
@@ -37,7 +43,8 @@ done
 
 # Both current availability and current zero input/output price must be confirmed.
 AVAILABLE="$(opencode models --print-logs --log-level debug 2>/dev/null)" || fail 'OpenCode model listing failed'
-printf '%s\n' "$AVAILABLE" | grep -Fxq "$MODEL" || fail 'configured model is unavailable'
+printf '%s\n' "$AVAILABLE" | grep -Fxq "$MODEL" \
+  || fail "configured model is unavailable: $MODEL (check 'opencode models' and $CONFIG_FILE)"
 PRICE_JSON="$(curl -fsSL --max-time 20 https://models.dev/api.json)" || fail 'current model pricing unavailable'
 printf '%s\n' "$PRICE_JSON" | jq -e --arg id "${MODEL#opencode/}" \
   '.opencode.models[$id] | .cost.input == 0 and .cost.output == 0' >/dev/null \
@@ -64,7 +71,7 @@ if (cd "$ROOT" && opencode run --standalone --agent knowledge-researcher --model
 else
   status=$?
   log "OpenCode exit status: $status"
-  fail 'OpenCode research failed; inspect its local session for details'
+  fail "OpenCode research failed (exit status: $status); inspect its local session for details"
 fi
 
 TOPIC="$(sed -nE 's/.*TOPIC:[[:space:]]*//p' "$OUTPUT_FILE" | tail -n 1 | sed -E 's/\*\*$//' | tr -cd '[:print:]' | cut -c 1-120)"

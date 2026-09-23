@@ -19,7 +19,7 @@ just research-dry-run
 just research
 ```
 
-時刻変更は `bash scripts/install-research-agent.sh --hour 5 --minute 30`。停止は `just research-uninstall`、再開は `just research-install`。`~/Library/Logs/ai-engineering-kit/research.log` に実行結果、`research-error.log` に失敗理由を記録する。
+時刻変更は `bash scripts/install-research-agent.sh --hour 5 --minute 30`。停止は `just research-uninstall`、再開は `just research-install`。失敗理由は端末の標準エラーと `~/Library/Logs/ai-engineering-kit/research-error.log` に表示・記録する。`research.log` には実行結果を記録する。
 
 ## 安全条件
 

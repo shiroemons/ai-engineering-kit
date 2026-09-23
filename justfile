@@ -13,6 +13,7 @@ build:
 
 test:
     go test -race ./...
+    bash scripts/test-research-next.sh
 
 validate:
     go run ./cmd/kb validate
