@@ -30,6 +30,9 @@ data = {
     "StandardOutPath": logs + "/launchd.out.log",
     "StandardErrorPath": logs + "/launchd.err.log",
     "RunAtLoad": False,
+    "EnvironmentVariables": {
+        "PATH": "/opt/homebrew/bin:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin"
+    },
 }
 with open(path, "wb") as output:
     plistlib.dump(data, output)
