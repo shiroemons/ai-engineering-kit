@@ -1,0 +1,12 @@
+{
+  "id": "sample-source",
+  "url": "https://example.com/replace",
+  "repository_url": "https://github.com/OWNER/REPO",
+  "commit_sha": "REPLACE_WITH_VERIFIED_40_HEX_SHA",
+  "version": "SAMPLE: replace with verified tag or version",
+  "retrieved_at": "2000-01-01",
+  "license": "unknown",
+  "trust": "unknown",
+  "type": "github_repository_analysis",
+  "purpose": "SAMPLE ONLY: excluded from validation and indexing; replace every field"
+}

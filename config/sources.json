@@ -1,0 +1,12 @@
+{
+  "trust_order": [
+    "official",
+    "maintainer",
+    "primary-source",
+    "community",
+    "unknown"
+  ],
+  "allowed_url_schemes": [
+    "https"
+  ]
+}

@@ -1,0 +1,14 @@
+{
+  "source_types": {
+    "official_docs": 90,
+    "release_notes": 30,
+    "github_repository_analysis": 90,
+    "architecture_pattern": 180
+  },
+  "technologies": {
+    "go": 90,
+    "ruby": 90,
+    "rails": 60,
+    "postgres": 90
+  }
+}

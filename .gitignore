@@ -1,0 +1,11 @@
+/bin/
+/.cache/
+/.workbench/repositories/
+/rag/documents/
+/rag/metadata/
+/rag/index/
+.DS_Store
+
+# グローバルの除外設定があっても、共有する作業原則とツール設定は追跡する。
+!/AGENTS.md
+!/mise.toml

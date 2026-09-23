@@ -1,0 +1,9 @@
+{
+  "cases": [
+    {
+      "name": "context-all-kinds",
+      "query": "context",
+      "expected_ids": ["go-context", "context-cancellation", "go-contextwait"]
+    }
+  ]
+}

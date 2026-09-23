@@ -1,0 +1,59 @@
+{
+  "module": "go-contextwait",
+  "cases": [
+    {
+      "name": "positive wait completes",
+      "context": "background",
+      "duration": "1ms",
+      "want": "nil"
+    },
+    {
+      "name": "zero returns immediately",
+      "context": "background",
+      "duration": "0s",
+      "want": "nil"
+    },
+    {
+      "name": "negative returns immediately",
+      "context": "background",
+      "duration": "-1s",
+      "want": "nil"
+    },
+    {
+      "name": "pre-canceled does not wait",
+      "context": "canceled",
+      "duration": "24h",
+      "want": "canceled"
+    },
+    {
+      "name": "cancellation precedes zero",
+      "context": "canceled",
+      "duration": "0s",
+      "want": "canceled"
+    },
+    {
+      "name": "cancellation precedes negative",
+      "context": "canceled",
+      "duration": "-1s",
+      "want": "canceled"
+    },
+    {
+      "name": "expired deadline does not wait",
+      "context": "expired",
+      "duration": "24h",
+      "want": "deadline_exceeded"
+    },
+    {
+      "name": "nil rejected",
+      "context": "nil",
+      "duration": "24h",
+      "want": "nil_context"
+    },
+    {
+      "name": "nil precedes negative",
+      "context": "nil",
+      "duration": "-1s",
+      "want": "nil_context"
+    }
+  ]
+}
