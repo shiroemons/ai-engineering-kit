@@ -9,7 +9,7 @@ OpenCode v2、`mise`、`just`、`jq`、`curl` を利用する。`opencode models
 `~/Library/Application Support/ai-engineering-kit/research.env` に以下の1行を保存する。このローカル設定は Git 管理しない。モデルが利用不能、または最新の料金をゼロと確認できない場合、runner は実行を中止する。
 
 ```text
-OPENCODE_RESEARCH_MODEL=opencode/nemotron-3-ultra-free
+OPENCODE_RESEARCH_MODEL=opencode/<verified-free-model-id>
 ```
 
 ```sh
