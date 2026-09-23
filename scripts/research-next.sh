@@ -67,7 +67,7 @@ else
   fail 'OpenCode research failed; inspect its local session for details'
 fi
 
-TOPIC="$(sed -n 's/^TOPIC: //p' "$OUTPUT_FILE" | tail -n 1 | tr -cd '[:print:]' | cut -c 1-120)"
+TOPIC="$(sed -nE 's/.*TOPIC:[[:space:]]*//p' "$OUTPUT_FILE" | tail -n 1 | sed -E 's/\*\*$//' | tr -cd '[:print:]' | cut -c 1-120)"
 [[ -n "$TOPIC" ]] || fail 'OpenCode did not report a selected topic'
 log "selected topic: $TOPIC"
 
