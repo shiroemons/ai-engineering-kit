@@ -34,21 +34,100 @@ log 'start'
 # This local file contains one non-secret assignment, never shell-evaluate it.
 MODEL="$(sed -nE 's/^OPENCODE_RESEARCH_MODEL=([A-Za-z0-9._\/-]+)$/\1/p' "$CONFIG_FILE")"
 [[ -n "$MODEL" && "$(wc -l < "$CONFIG_FILE" | tr -d ' ')" == 1 ]] || fail 'invalid research.env'
-[[ "$MODEL" == opencode/*-free ]] || fail 'configured model is not a recognized free-only OpenCode model'
-log "selected model: $MODEL"
+[[ "$MODEL" =~ ^opencode/[A-Za-z0-9._/-]+$ ]] || fail 'configured model must use the opencode provider'
 
 for command in git opencode curl jq just mise; do
   command -v "$command" >/dev/null || fail "missing command: $command"
 done
 
-# Both current availability and current zero input/output price must be confirmed.
-AVAILABLE="$(opencode models --print-logs --log-level debug 2>/dev/null)" || fail 'OpenCode model listing failed'
-printf '%s\n' "$AVAILABLE" | grep -Fxq "$MODEL" \
-  || fail "configured model is unavailable: $MODEL (check 'opencode models' and $CONFIG_FILE)"
-PRICE_JSON="$(curl -fsSL --max-time 20 https://models.dev/api.json)" || fail 'current model pricing unavailable'
-printf '%s\n' "$PRICE_JSON" | jq -e --arg id "${MODEL#opencode/}" \
-  '.opencode.models[$id] | .cost.input == 0 and .cost.output == 0' >/dev/null \
-  || fail 'configured model is not verified as free'
+# Retry transient catalog and pricing failures. Then keep the configured model
+# first and add at most two currently available OpenCode models whose live
+# catalog price is exactly zero for both input and output.
+AVAILABLE=''
+for attempt in 1 2 3; do
+  if AVAILABLE="$(opencode models --print-logs --log-level debug 2>/dev/null)" && [[ -n "$AVAILABLE" ]]; then
+    log "OpenCode model listing: passed (attempt $attempt/3)"
+    break
+  fi
+  AVAILABLE=''
+  if [[ "$attempt" -lt 3 ]]; then
+    delay=$((attempt * 5))
+    log "OpenCode model listing failed; retrying in ${delay}s (attempt $attempt/3)"
+    sleep "$delay"
+  fi
+done
+[[ -n "$AVAILABLE" ]] || fail 'OpenCode model listing failed after 3 attempts'
+
+PRICE_JSON=''
+for attempt in 1 2 3; do
+  if PRICE_JSON="$(curl -fsSL --max-time 20 https://models.dev/api.json)" \
+    && printf '%s\n' "$PRICE_JSON" | jq -e 'type == "object" and (.opencode.models | type == "object")' >/dev/null 2>&1; then
+    log "current model pricing: passed (attempt $attempt/3)"
+    break
+  fi
+  PRICE_JSON=''
+  if [[ "$attempt" -lt 3 ]]; then
+    delay=$((attempt * 5))
+    log "current model pricing unavailable; retrying in ${delay}s (attempt $attempt/3)"
+    sleep "$delay"
+  fi
+done
+[[ -n "$PRICE_JSON" ]] || fail 'current model pricing unavailable after 3 attempts'
+
+FREE_MODEL_IDS="$(printf '%s\n' "$PRICE_JSON" | jq -r \
+  '.opencode.models | to_entries[] | select(.value.cost.input == 0 and .value.cost.output == 0) | .key')" \
+  || fail 'current model pricing could not be parsed'
+is_verified_free_model() {
+  local candidate="$1" model_id
+  [[ "$candidate" =~ ^opencode/[A-Za-z0-9._/-]+$ ]] || return 1
+  printf '%s\n' "$AVAILABLE" | grep -Fxq "$candidate" || return 1
+  model_id="${candidate#opencode/}"
+  printf '%s\n' "$FREE_MODEL_IDS" | grep -Fxq "$model_id"
+}
+
+MODEL_CANDIDATES=()
+MODEL_CANDIDATE_FOUND=0
+find_model_candidates() {
+  local candidate fallback_count
+  MODEL_CANDIDATES=()
+  MODEL_CANDIDATE_FOUND=0
+  if is_verified_free_model "$MODEL"; then
+    MODEL_CANDIDATES+=("$MODEL")
+    MODEL_CANDIDATE_FOUND=1
+  else
+    log "configured model is unavailable or not currently free: $MODEL"
+  fi
+  fallback_count=0
+  while IFS= read -r candidate; do
+    [[ "$candidate" == "$MODEL" ]] && continue
+    [[ "$candidate" == opencode/* ]] || continue
+    if is_verified_free_model "$candidate"; then
+      MODEL_CANDIDATES+=("$candidate")
+      MODEL_CANDIDATE_FOUND=1
+      fallback_count=$((fallback_count + 1))
+      log "verified free fallback available: $candidate"
+      [[ "$fallback_count" -ge 2 ]] && break
+    fi
+  done <<< "$AVAILABLE"
+  return 0
+}
+
+find_model_candidates
+while [[ "$MODEL_CANDIDATE_FOUND" != 1 && "$attempt" -lt 3 ]]; do
+  attempt=$((attempt + 1))
+  delay=$((attempt * 5))
+  log "no currently available zero-priced model; retrying model discovery in ${delay}s (attempt $attempt/3)"
+  sleep "$delay"
+  AVAILABLE="$(opencode models --print-logs --log-level debug 2>/dev/null)" || AVAILABLE=''
+  if [[ -n "$AVAILABLE" ]]; then
+    log "OpenCode model listing: passed (attempt $attempt/3)"
+    find_model_candidates
+  else
+    log "OpenCode model listing failed (attempt $attempt/3)"
+  fi
+done
+[[ "$MODEL_CANDIDATE_FOUND" == 1 ]] \
+  || fail 'no currently available OpenCode model has zero input and output price after 3 attempts'
 
 if [[ "${RESEARCH_DRY_RUN:-0}" != 1 ]]; then
   # A failed fetch or a non-fast-forward update stops before any research edits.
@@ -66,17 +145,33 @@ else
   PROMPT='/research-next'
 fi
 
-if (cd "$ROOT" && opencode run --standalone --agent knowledge-researcher --model "$MODEL" "$PROMPT") > "$OUTPUT_FILE" 2>&1; then
-  log 'OpenCode exit status: 0'
-else
-  status=$?
-  log "OpenCode exit status: $status"
-  fail "OpenCode research failed (exit status: $status); inspect its local session for details"
-fi
+TOPIC=''
+for candidate in "${MODEL_CANDIDATES[@]}"; do
+  for attempt in 1 2; do
+    log "research attempt: model=$candidate attempt=$attempt/2"
+    if (cd "$ROOT" && opencode run --standalone --agent knowledge-researcher --model "$candidate" "$PROMPT") > "$OUTPUT_FILE" 2>&1; then
+      log "OpenCode exit status: 0 (model=$candidate attempt=$attempt/2)"
+      TOPIC="$(sed -nE 's/.*TOPIC:[[:space:]]*//p' "$OUTPUT_FILE" | tail -n 1 | sed -E 's/\*\*$//' | tr -cd '[:print:]' | cut -c 1-120)"
+      if [[ -n "$TOPIC" ]]; then
+        log "selected topic: $TOPIC"
+        break 2
+      fi
+      log "OpenCode did not report a selected topic (model=$candidate attempt=$attempt/2)"
+    else
+      status=$?
+      log "OpenCode exit status: $status (model=$candidate attempt=$attempt/2)"
+    fi
 
-TOPIC="$(sed -nE 's/.*TOPIC:[[:space:]]*//p' "$OUTPUT_FILE" | tail -n 1 | sed -E 's/\*\*$//' | tr -cd '[:print:]' | cut -c 1-120)"
-[[ -n "$TOPIC" ]] || fail 'OpenCode did not report a selected topic'
-log "selected topic: $TOPIC"
+    if [[ -n "$(git status --porcelain --untracked-files=all)" ]]; then
+      fail 'OpenCode left file changes after a failed attempt; automatic retry stopped to avoid duplicate edits'
+    fi
+    if [[ "$attempt" -lt 2 ]]; then
+      log "retrying research with the same model in 10s: $candidate"
+      sleep 10
+    fi
+  done
+done
+[[ -n "$TOPIC" ]] || fail 'research failed with all currently available, verified-free models'
 
 check_paths() {
   local entry path status

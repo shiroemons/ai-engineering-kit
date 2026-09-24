@@ -4,9 +4,11 @@
 
 ## セットアップ
 
-OpenCode v2、`mise`、`just`、`jq`、`curl` を利用する。`opencode models --print-logs --log-level debug` で現在利用可能なモデルを確認し、[OpenCode の料金表](https://opencode.ai/docs/zen) と models.dev の料金情報で input/output がゼロのモデルだけを選ぶ。現在の CLI では `models --refresh --verbose` および `agent list` は使えず、agent の確認は `opencode debug agents` を使う。
+OpenCode v2、`mise`、`just`、`jq`、`curl` を利用する。runner は `opencode models --print-logs --log-level debug` で利用可能なモデルを調べ、models.dev の最新料金情報で input/output がともにゼロの候補だけを使う。設定モデルを最初に試し、利用できない場合は一覧にある無料モデルを最大2つ候補に加える。モデル一覧と料金情報の取得は最大3回、各モデルでの Research は最大2回試す。OpenCode が失敗して作業ツリーに変更が残った場合は、重複編集を防ぐため再試行せず停止する。
 
-`~/Library/Application Support/ai-engineering-kit/research.env` に以下の1行を保存する。このローカル設定は Git 管理しない。モデルが利用不能、または最新の料金をゼロと確認できない場合、runner は実行を中止する。
+現在の CLI では `models --refresh --verbose` および `agent list` は使えず、agent の確認は `opencode debug agents` を使う。
+
+`~/Library/Application Support/ai-engineering-kit/research.env` に以下の1行を保存する。このローカル設定は Git 管理しない。設定モデルが利用不能、または最新の料金をゼロと確認できない場合は、利用可能な無料モデルへ切り替える。無料と確認できる候補がなければ実行を中止する。
 
 ```text
 OPENCODE_RESEARCH_MODEL=opencode/<verified-free-model-id>
@@ -23,6 +25,6 @@ just research
 
 ## 安全条件
 
-runner は main・clean working tree・排他 lock を確認し、`git pull --ff-only` の失敗時に停止する。OpenCode は repo 内の custom agent とコマンドを使い、通常 Research の編集範囲を `knowledge/`・`sources/catalog/`・`evals/knowledge/` に制限する。runner が実際の差分を再検査し、knowledge と eval の成果物、source catalog の参照整合性、検証成功、staged diff を確認してから commit する。既存の検証済み source は再利用できる。異常時に自動 rollback はしない。失敗後の変更は調査してから手動で扱う。ログには OpenCode の応答全文を保存しない。
+runner は main・clean working tree・排他 lock を確認し、`git pull --ff-only` の失敗時に停止する。OpenCode は repo 内の custom agent とコマンドを使い、通常 Research の編集範囲を `knowledge/`・`sources/catalog/`・`evals/knowledge/` に制限する。runner が実際の差分を再検査し、knowledge と eval の成果物、source catalog の参照整合性、検証成功、staged diff を確認してから commit する。既存の検証済み source は再利用できる。異常時に自動 rollback はしない。途中変更が残った場合は調査してから手動で扱う。ログには OpenCode の応答全文を保存しない。
 
 dry run は OpenCode に読み取りだけの topic 選択を依頼し、変更がなかったことと既存データの validation を確認する。dry run では pull と commit をしない。
