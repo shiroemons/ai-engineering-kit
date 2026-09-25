@@ -130,8 +130,12 @@ done
   || fail 'no currently available OpenCode model has zero input and output price after 3 attempts'
 
 if [[ "${RESEARCH_DRY_RUN:-0}" != 1 ]]; then
-  # A failed fetch or a non-fast-forward update stops before any research edits.
-  GIT_TERMINAL_PROMPT=0 git pull --ff-only >/dev/null 2>&1 || fail 'git pull --ff-only failed'
+  # Keep the daily research moving if remote synchronization is unavailable.
+  if GIT_TERMINAL_PROMPT=0 git pull --ff-only >/dev/null 2>&1; then
+    log 'git pull --ff-only: passed'
+  else
+    log 'warning: git pull --ff-only failed; continuing from current local main'
+  fi
   [[ -z "$(git status --porcelain --untracked-files=all)" ]] || fail 'working tree became dirty after pull'
 fi
 
