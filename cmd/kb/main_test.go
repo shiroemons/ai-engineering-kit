@@ -10,12 +10,14 @@ import (
 	"os"
 	"os/exec"
 	"path/filepath"
+	"regexp"
 	"strings"
 	"testing"
 	"time"
 )
 
 var testDate = time.Date(2026, 9, 23, 0, 0, 0, 0, time.UTC)
+var retrievedAtField = regexp.MustCompile(`"retrieved_at":\s*"\d{4}-\d{2}-\d{2}"`)
 
 func TestParseArgs(t *testing.T) {
 	tests := []struct {
@@ -357,6 +359,11 @@ func copyRepository(t *testing.T) string {
 			data, err := os.ReadFile(path)
 			if err != nil {
 				return err
+			}
+			relativePath := filepath.ToSlash(relative)
+			if strings.HasPrefix(relativePath, "knowledge/") || strings.HasPrefix(relativePath, "sources/catalog/") {
+				fixtureDate := testDate.Format("2006-01-02")
+				data = retrievedAtField.ReplaceAll(data, []byte(`"retrieved_at": "`+fixtureDate+`"`))
 			}
 			return os.WriteFile(target, data, 0o644)
 		})
