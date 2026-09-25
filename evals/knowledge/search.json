@@ -114,6 +114,36 @@
       "name": "time-deadline-until",
       "query": "deadline until",
       "expected_ids": ["go-time"]
+    },
+    {
+      "name": "http-server-serve-mux-pattern",
+      "query": "serve mux pattern",
+      "expected_ids": ["go-http-server"]
+    },
+    {
+      "name": "http-server-method-pattern-routing",
+      "query": "method pattern routing",
+      "expected_ids": ["go-http-server"]
+    },
+    {
+      "name": "http-server-path-wildcard-value",
+      "query": "path wildcard value",
+      "expected_ids": ["go-http-server"]
+    },
+    {
+      "name": "http-server-pattern-conflict-panic",
+      "query": "pattern conflict panic",
+      "expected_ids": ["go-http-server"]
+    },
+    {
+      "name": "http-server-trailing-slash-redirect",
+      "query": "trailing slash redirect",
+      "expected_ids": ["go-http-server"]
+    },
+    {
+      "name": "http-server-godebug-legacy-mux",
+      "query": "godebug httpmuxgo121",
+      "expected_ids": ["go-http-server"]
     }
   ]
 }
