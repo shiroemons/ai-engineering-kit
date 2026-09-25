@@ -8,6 +8,9 @@ mkdir -p "$LOG_DIR"
 LOG_FILE="$LOG_DIR/research.log"
 ERROR_FILE="$LOG_DIR/research-error.log"
 LOCK_DIR="$LOG_DIR/research.lock"
+RESEARCH_BRANCH=''
+OUTPUT_FILE=''
+PR_BODY_FILE=''
 timestamp() { date '+%Y-%m-%dT%H:%M:%S%z'; }
 log() { printf '%s %s\n' "$(timestamp)" "$*" >> "$LOG_FILE"; }
 fail() {
@@ -17,12 +20,41 @@ fail() {
   printf 'research: %s (details: %s)\n' "$message" "$ERROR_FILE" >&2
   exit 1
 }
+cleanup() {
+  local exit_code="$1"
+  local current_branch=''
+
+  [[ -z "$OUTPUT_FILE" ]] || rm -f "$OUTPUT_FILE"
+  [[ -z "$PR_BODY_FILE" ]] || rm -f "$PR_BODY_FILE"
+
+  if [[ -n "$RESEARCH_BRANCH" ]]; then
+    current_branch="$(git branch --show-current 2>/dev/null || true)"
+    if [[ "$current_branch" == "$RESEARCH_BRANCH" ]]; then
+      if [[ -z "$(git status --porcelain --untracked-files=all 2>/dev/null)" ]]; then
+        if git switch main >/dev/null 2>&1; then
+          log 'returned to main'
+        else
+          log 'warning: could not return to main after research run'
+          if ((exit_code == 0)); then
+            exit_code=1
+          fi
+        fi
+      else
+        log "warning: left $RESEARCH_BRANCH checked out because the working tree contains changes"
+      fi
+    fi
+  fi
+
+  rm -f "$LOCK_DIR/pid" 2>/dev/null || true
+  rmdir "$LOCK_DIR" 2>/dev/null || true
+  return "$exit_code"
+}
 
 if ! mkdir "$LOCK_DIR" 2>/dev/null; then
   log 'skipped: another run holds the lock (remove stale lock only after confirming no run exists)'
   exit 0
 fi
-trap 'rm -f "$LOCK_DIR/pid"; rmdir "$LOCK_DIR"' EXIT
+trap 'cleanup "$?"' EXIT
 printf '%s\n' "$$" > "$LOCK_DIR/pid"
 
 cd "$ROOT"
@@ -39,6 +71,10 @@ MODEL="$(sed -nE 's/^OPENCODE_RESEARCH_MODEL=([A-Za-z0-9._\/-]+)$/\1/p' "$CONFIG
 for command in git opencode curl jq just mise; do
   command -v "$command" >/dev/null || fail "missing command: $command"
 done
+if [[ "${RESEARCH_DRY_RUN:-0}" != 1 ]]; then
+  command -v gh >/dev/null || fail 'missing command: gh'
+  GH_PROMPT_DISABLED=1 gh auth status >/dev/null 2>&1 || fail 'GitHub CLI is not authenticated'
+fi
 
 # Retry transient catalog and pricing failures. Then keep the configured model
 # first and add at most two currently available OpenCode models whose live
@@ -137,11 +173,14 @@ if [[ "${RESEARCH_DRY_RUN:-0}" != 1 ]]; then
     log 'warning: git pull --ff-only failed; continuing from current local main'
   fi
   [[ -z "$(git status --porcelain --untracked-files=all)" ]] || fail 'working tree became dirty after pull'
+
+  RESEARCH_BRANCH="research/$(date '+%Y-%m-%d-%H%M%S')"
+  git switch -c "$RESEARCH_BRANCH" >/dev/null 2>&1 || fail 'could not create research branch'
+  log "research branch: $RESEARCH_BRANCH"
 fi
 
 OUTPUT_FILE="$(mktemp "$LOG_DIR/opencode.XXXXXXXX")"
 chmod 600 "$OUTPUT_FILE"
-trap 'rm -f "$OUTPUT_FILE" "$LOCK_DIR/pid"; rmdir "$LOCK_DIR"' EXIT
 
 if [[ "${RESEARCH_DRY_RUN:-0}" == 1 ]]; then
   PROMPT='Inspect the repository and choose the next research topic. This is a dry run: do not edit any file or run modifying commands. Explain your choice and finish with TOPIC: <technology and topic>.'
@@ -222,7 +261,135 @@ git diff --cached --name-only | while IFS= read -r path; do
 done || fail 'staged path outside allowlist'
 git diff --cached --stat >> "$LOG_FILE"
 git diff --cached --quiet && fail 'no staged research change'
-git commit -m "knowledge: automated research update" >/dev/null 2>&1 || fail 'research commit failed'
+git commit -m "docs: 自動リサーチ結果を更新" >/dev/null 2>&1 || fail 'research commit failed'
 SHA="$(git rev-parse HEAD)"
 log "commit SHA: $SHA"
 [[ -z "$(git status --porcelain --untracked-files=all)" ]] || fail 'working tree is dirty after commit'
+
+PUSH_SUCCEEDED=0
+for attempt in 1 2 3; do
+  if git push --set-upstream origin "$RESEARCH_BRANCH" >/dev/null 2>&1; then
+    log "research branch push: passed (attempt $attempt/3)"
+    PUSH_SUCCEEDED=1
+    break
+  fi
+  if [[ "$attempt" -lt 3 ]]; then
+    delay=$((attempt * 5))
+    log "research branch push failed; retrying in ${delay}s (attempt $attempt/3)"
+    sleep "$delay"
+  fi
+done
+[[ "$PUSH_SUCCEEDED" == 1 ]] || fail 'research branch push failed after 3 attempts'
+
+PR_TITLE="docs: 自動リサーチ - $TOPIC"
+PR_BODY_FILE="$(mktemp "$LOG_DIR/research-pr.XXXXXXXX")"
+chmod 600 "$PR_BODY_FILE"
+printf '自動 Research Pipeline による更新です。\n\n対象テーマ: %s\n\n`just validate`・`just index`・`just check` は成功しました。\n' \
+  "$TOPIC" > "$PR_BODY_FILE"
+
+PR_URL=''
+for attempt in 1 2 3; do
+  if PR_URL="$(GH_PROMPT_DISABLED=1 gh pr create \
+    --base main \
+    --head "$RESEARCH_BRANCH" \
+    --title "$PR_TITLE" \
+    --body-file "$PR_BODY_FILE" 2>/dev/null)"; then
+    break
+  fi
+
+  # A request may have created the PR even if the client lost its response.
+  PR_URL="$(GH_PROMPT_DISABLED=1 gh pr view "$RESEARCH_BRANCH" --json url --jq '.url' 2>/dev/null || true)"
+  [[ -n "$PR_URL" ]] && break
+  if [[ "$attempt" -lt 3 ]]; then
+    delay=$((attempt * 5))
+    log "pull request creation failed; retrying in ${delay}s (attempt $attempt/3)"
+    sleep "$delay"
+  fi
+done
+[[ -n "$PR_URL" ]] || fail 'research pull request creation failed after 3 attempts'
+log "pull request: $PR_URL"
+
+git switch main >/dev/null 2>&1 || fail 'could not return to main after creating pull request'
+log 'returned to main after creating pull request'
+
+PR_MERGEABLE=''
+PR_MERGE_STATE=''
+for attempt in 1 2 3 4 5 6; do
+  if PR_DETAILS="$(GH_PROMPT_DISABLED=1 gh pr view "$PR_URL" \
+    --json mergeable,mergeStateStatus \
+    --jq '[.mergeable, .mergeStateStatus] | @tsv' 2>/dev/null)"; then
+    IFS=$'\t' read -r PR_MERGEABLE PR_MERGE_STATE <<< "$PR_DETAILS"
+    case "$PR_MERGEABLE" in
+      MERGEABLE|CONFLICTING) break ;;
+    esac
+  fi
+  if [[ "$attempt" -lt 6 ]]; then
+    log "pull request mergeability is not ready; retrying in 5s (attempt $attempt/6)"
+    sleep 5
+  fi
+done
+
+if [[ "$PR_MERGEABLE" == MERGEABLE && "$PR_MERGE_STATE" == BEHIND ]]; then
+  if GH_PROMPT_DISABLED=1 gh pr update-branch "$PR_URL" >/dev/null 2>&1; then
+    log 'research PR branch updated from main'
+    PR_MERGEABLE=''
+    PR_MERGE_STATE=''
+    for attempt in 1 2 3 4 5 6; do
+      if PR_DETAILS="$(GH_PROMPT_DISABLED=1 gh pr view "$PR_URL" \
+        --json mergeable,mergeStateStatus \
+        --jq '[.mergeable, .mergeStateStatus] | @tsv' 2>/dev/null)"; then
+        IFS=$'\t' read -r PR_MERGEABLE PR_MERGE_STATE <<< "$PR_DETAILS"
+        case "$PR_MERGEABLE" in
+          MERGEABLE|CONFLICTING) break ;;
+        esac
+      fi
+      if [[ "$attempt" -lt 6 ]]; then
+        log "updated PR mergeability is not ready; retrying in 5s (attempt $attempt/6)"
+        sleep 5
+      fi
+    done
+  else
+    log "warning: could not update research PR branch from main: $PR_URL"
+    PR_MERGEABLE='UPDATE_FAILED'
+  fi
+fi
+
+case "$PR_MERGEABLE" in
+  CONFLICTING)
+    log "warning: research PR has conflicts; left open for resolution: $PR_URL"
+    ;;
+  UPDATE_FAILED)
+    log "warning: research PR branch is behind main and could not be updated; left open: $PR_URL"
+    ;;
+  *)
+    AUTO_MERGE_REQUESTED=0
+    for attempt in 1 2 3; do
+      if GH_PROMPT_DISABLED=1 gh pr merge "$PR_URL" --squash --auto --delete-branch >/dev/null 2>&1; then
+        AUTO_MERGE_REQUESTED=1
+        break
+      fi
+      if [[ "$attempt" -lt 3 ]]; then
+        delay=$((attempt * 5))
+        log "auto-merge request failed; retrying in ${delay}s (attempt $attempt/3)"
+        sleep "$delay"
+      fi
+    done
+
+    if [[ "$AUTO_MERGE_REQUESTED" == 1 ]]; then
+      PR_STATE="$(GH_PROMPT_DISABLED=1 gh pr view "$PR_URL" --json state --jq '.state' 2>/dev/null || true)"
+      if [[ "$PR_STATE" == MERGED ]]; then
+        log "GitHub auto-merge completed with squash (merge state: ${PR_MERGE_STATE:-unknown})"
+      else
+        log "GitHub auto-merge enabled with squash (merge state: ${PR_MERGE_STATE:-unknown})"
+      fi
+    else
+      log "warning: GitHub did not accept auto-merge; PR remains open: $PR_URL"
+    fi
+    ;;
+esac
+
+if GIT_TERMINAL_PROMPT=0 git pull --ff-only >/dev/null 2>&1; then
+  log 'local main refresh after PR: passed'
+else
+  log 'warning: local main refresh after PR failed; next run will retry'
+fi
