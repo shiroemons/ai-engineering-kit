@@ -52,6 +52,7 @@ OPENCODE_RESEARCH_MODEL=opencode/<verified-free-model-id>
 ```sh
 just research-install
 just research-status
+just research-preflight
 just research-dry-run
 just research
 just research-loop
@@ -72,6 +73,12 @@ Macのスリープ中に複数の予定時刻を過ぎた場合、復帰時の�
 連続実行は `continuous.hours` の8時間以内で開始・調査を行い、完了後に30秒待って次へ進む。期限に達したworkerは停止する。PRなどの後処理は期限後に終了する場合がある。次のテーマを選ぶ前に、そのPRのマージを最大10分待つ。マージ待ちが続く場合、競合、検証失敗、モデルエラーでは連続実行を終了する。端末で `Ctrl+C` を押すとworkerとその子プロセスを停止する。
 
 停止は `just research-uninstall`、再開は `just research-install`。失敗理由は端末の標準エラーと `~/Library/Logs/ai-engineering-kit/research-error.log` に表示・記録する。`research.log` には実行結果を記録する。繰り返し失敗する場合は停止し、保守者がモデルの利用可否、GitHub接続、作業ツリーを確認する。lock は実行中のプロセスがないことを確認してから除去する。
+
+`just research-preflight` は、main・作業ツリー・lock・cooldown・必要コマンド・GitHub CLI認証・モデル一覧・無料料金を確認する。選んだモデルを表示して終了し、調査・worktree作成・fetch・commit・push・PR作成は行わない。モデルへの推論要求は送らないが、一覧と料金の取得には通信する。GitHubへのpush権限や調査の成功までは保証しない。
+
+`working tree is dirty` の場合、`research.log` に変更パスを最大20件記録する。評価成果物の `.workbench/evaluations/` はGitの除外対象とし、レポートを保存したまま起動できる。それ以外の未commit変更に対する停止条件は維持する。
+
+OpenCode v2.0.18では初期化直後にモデル一覧が空でも終了コード0となることを確認した。[公式API仕様](https://github.com/anomalyco/opencode/blob/v2.0.18/packages/protocol/src/groups/model.ts)でも初期化完了前の一覧を返し得る。空応答とコマンド失敗をログで区別し、同じ常駐サービスへの再試行で確認する。初期化を毎回やり直す `models --standalone` へ置き換えない。3回とも空なら無料モデルを推測せず停止する。
 
 ## 安全条件
 

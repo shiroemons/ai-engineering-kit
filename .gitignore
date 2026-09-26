@@ -1,6 +1,7 @@
 /bin/
 /.cache/
 /.workbench/repositories/
+/.workbench/evaluations/
 /rag/documents/
 /rag/metadata/
 /rag/index/

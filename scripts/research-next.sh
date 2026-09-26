@@ -61,7 +61,12 @@ printf '%s\n' "$$" > "$LOCK_DIR/pid"
 cd "$ROOT"
 log 'start'
 [[ "$(git branch --show-current)" == main ]] || fail 'branch is not main'
-[[ -z "$(git status --porcelain --untracked-files=all)" ]] || fail 'working tree is dirty'
+WORKTREE_STATUS="$(git status --porcelain --untracked-files=all)" || fail 'could not inspect working tree'
+if [[ -n "$WORKTREE_STATUS" ]]; then
+  log 'working tree changes (first 20 entries):'
+  printf '%s\n' "$WORKTREE_STATUS" | sed -n '1,20p' >> "$LOG_FILE"
+  fail 'working tree is dirty; see changed paths in research.log'
+fi
 if [[ -f "$LOG_DIR/cooldown-until" ]]; then
   read -r COOLDOWN_UNTIL < "$LOG_DIR/cooldown-until" || fail 'invalid cooldown state'
   [[ "$COOLDOWN_UNTIL" =~ ^[0-9]+$ ]] || fail 'invalid cooldown state'
@@ -89,9 +94,14 @@ fi
 # Continuous execution accepts only its exact configured model.
 AVAILABLE=''
 for attempt in 1 2 3; do
-  if AVAILABLE="$(opencode models --print-logs --log-level debug 2>/dev/null)" && [[ -n "$AVAILABLE" ]]; then
-    log "OpenCode model listing: passed (attempt $attempt/3)"
-    break
+  if AVAILABLE="$(opencode models --print-logs --log-level debug 2>/dev/null)"; then
+    if [[ -n "$AVAILABLE" ]]; then
+      log "OpenCode model listing: passed (attempt $attempt/3)"
+      break
+    fi
+    log 'OpenCode model listing returned no models; catalog may still be initializing'
+  else
+    log 'OpenCode model listing command failed'
   fi
   AVAILABLE=''
   if [[ "$attempt" -lt 3 ]]; then
@@ -175,6 +185,12 @@ while [[ "$MODEL_CANDIDATE_FOUND" != 1 && "$attempt" -lt 3 ]]; do
 done
 [[ "$MODEL_CANDIDATE_FOUND" == 1 ]] \
   || fail 'no currently available OpenCode model has zero input and output price after 3 attempts'
+
+if [[ "${RESEARCH_PREFLIGHT:-0}" == 1 ]]; then
+  log "preflight: passed; selected models: ${MODEL_CANDIDATES[*]}"
+  printf 'Preflight passed; selected models: %s\n' "${MODEL_CANDIDATES[*]}"
+  exit 0
+fi
 
 BASE_REF=main
 if [[ "${RESEARCH_DRY_RUN:-0}" != 1 ]]; then

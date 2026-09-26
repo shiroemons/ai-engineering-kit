@@ -62,6 +62,9 @@ research-loop:
 research-dry-run:
     RESEARCH_DRY_RUN=1 bash scripts/research-next.sh
 
+research-preflight:
+    RESEARCH_PREFLIGHT=1 bash scripts/research-next.sh
+
 research-status:
     @launchctl print gui/$(id -u)/com.shiroemons.ai-engineering-kit.research
 

@@ -16,8 +16,9 @@ cat > "$TEST_DIR/bin/git" <<'EOF'
 #!/bin/bash
 case "$1" in
   branch) printf 'main\n' ;;
-  status) ;;
+  status) [[ "${MOCK_DIRTY:-0}" != 1 ]] || printf '?? notes.md\n' ;;
   worktree)
+    [[ "${MOCK_NO_WORKTREE:-0}" != 1 ]] || exit 1
     if [[ "$2" == add ]]; then mkdir -p "$4"; fi
     ;;
   *) exit 1 ;;
@@ -29,6 +30,8 @@ cat > "$TEST_DIR/bin/opencode" <<'EOF'
 count=0
 [[ ! -f "$RESEARCH_TEST_DIR/list-count" ]] || read -r count < "$RESEARCH_TEST_DIR/list-count"
 printf '%s\n' "$((count + 1))" > "$RESEARCH_TEST_DIR/list-count"
+[[ "${MOCK_EMPTY_MODELS:-0}" != 1 ]] || exit 0
+if [[ "${MOCK_COLD_MODELS:-0}" == 1 && "$count" == 0 ]]; then exit 0; fi
 ((count != 0)) || exit 1
 printf '%s\n' opencode/muse-spark-1.3-contributor-free opencode/mimo-v2.6-flash-free opencode/paid-cache opencode/decisions-only
 EOF
@@ -81,6 +84,26 @@ grep -Fq 'OpenCode model listing failed; retrying' "$RESEARCH_LOG_DIR/research.l
 grep -Fq 'current model pricing unavailable; retrying' "$RESEARCH_LOG_DIR/research.log"
 [[ "$(tail -n 2 "$TEST_DIR/batch-args")" == $'opencode/muse-spark-1.3-contributor-free\nopencode/mimo-v2.6-flash-free' ]]
 ! grep -Eq 'paid-cache|decisions-only' "$TEST_DIR/batch-args"
+
+# A successful CLI exit can precede initial model catalog settlement.
+rm "$TEST_DIR/list-count"
+MOCK_COLD_MODELS=1 bash "$RUNNER"
+grep -Fq 'catalog may still be initializing' "$RESEARCH_LOG_DIR/research.log"
+[[ "$(< "$TEST_DIR/list-count")" == 2 ]]
+
+# Preflight never starts a research coordinator or creates a worktree.
+rm "$TEST_DIR/batch-args"
+RESEARCH_PREFLIGHT=1 MOCK_NO_WORKTREE=1 bash "$RUNNER"
+[[ ! -f "$TEST_DIR/batch-args" ]]
+grep -Fq 'preflight: passed' "$RESEARCH_LOG_DIR/research.log"
+export MOCK_DIRTY=1
+expect_failure 'working tree is dirty'
+grep -Fq '?? notes.md' "$RESEARCH_LOG_DIR/research.log"
+unset MOCK_DIRTY
+export MOCK_EMPTY_MODELS=1
+expect_failure 'OpenCode model listing failed after 3 attempts'
+[[ ! -f "$TEST_DIR/batch-args" ]]
+unset MOCK_EMPTY_MODELS
 
 # Scheduled and continuous executions have independent locks.
 mkdir "$RESEARCH_LOG_DIR/research.lock"
