@@ -1,0 +1,12 @@
+{
+  "id": "debezium-outbox-pattern-blog-2019",
+  "url": "https://debezium.io/blog/2019/02/19/reliable-microservices-data-exchange-with-the-outbox-pattern/",
+  "repository_url": "",
+  "commit_sha": "",
+  "version": "Reliable Microservices Data Exchange With the Outbox Pattern, published 2019-02-19, updated 2019-09-13 (site Rev: 731be53)",
+  "retrieved_at": "2026-09-26",
+  "license": "CC BY 3.0 (Debezium website and documentation。サイト footer に記載)",
+  "trust": "maintainer",
+  "type": "maintainer_article",
+  "purpose": "dual write 問題 (XA 非対応)、同一トランザクションでの outbox insert と read your own writes、CDC による near-realtime 取得、aggregateid を Kafka key にする順序保証、event UUID を header に載せた重複検出、MessageLog による消費側冪等、イベント構造の API 互換性を確認する"
+}

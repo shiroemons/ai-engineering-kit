@@ -49,6 +49,56 @@
       "name": "http-rate-limiting-retry-after",
       "query": "rate limiting retry-after",
       "expected_ids": ["http-retry-idempotency"]
+    },
+    {
+      "name": "messaging-transactional-outbox-pattern",
+      "query": "transactional outbox pattern",
+      "expected_ids": ["messaging-transactional-outbox"]
+    },
+    {
+      "name": "messaging-dual-write-atomicity",
+      "query": "dual write",
+      "expected_ids": ["messaging-transactional-outbox"]
+    },
+    {
+      "name": "messaging-polling-publisher-ordering",
+      "query": "polling publisher tricky",
+      "expected_ids": ["messaging-transactional-outbox"]
+    },
+    {
+      "name": "messaging-cdc-transaction-log-tailing",
+      "query": "transaction log tailing cdc",
+      "expected_ids": ["messaging-transactional-outbox"]
+    },
+    {
+      "name": "messaging-at-least-once-dedup",
+      "query": "at-least-once dedup",
+      "expected_ids": ["messaging-transactional-outbox"]
+    },
+    {
+      "name": "messaging-idempotent-consumer-duplicate",
+      "query": "idempotent consumer duplicate",
+      "expected_ids": ["messaging-transactional-outbox"]
+    },
+    {
+      "name": "messaging-debezium-outbox-event-router",
+      "query": "debezium outbox event router",
+      "expected_ids": ["messaging-transactional-outbox"]
+    },
+    {
+      "name": "messaging-exactly-once-kafka-connect",
+      "query": "exactly-once kafka connect",
+      "expected_ids": ["messaging-transactional-outbox"]
+    },
+    {
+      "name": "messaging-aggregateid-partition-ordering",
+      "query": "aggregateid partition ordering",
+      "expected_ids": ["messaging-transactional-outbox"]
+    },
+    {
+      "name": "messaging-outbox-table-insert-only",
+      "query": "outbox table insert only",
+      "expected_ids": ["messaging-transactional-outbox"]
     }
   ]
 }

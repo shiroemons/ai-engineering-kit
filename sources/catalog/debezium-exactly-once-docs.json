@@ -1,0 +1,12 @@
+{
+  "id": "debezium-exactly-once-docs",
+  "url": "https://debezium.io/documentation/reference/stable/configuration/eos.html",
+  "repository_url": "",
+  "commit_sha": "",
+  "version": "Debezium Documentation 3.6 (ページ表示 Version: 3.6、site Rev: eb98831e)",
+  "retrieved_at": "2026-09-26",
+  "license": "CC BY 3.0 (Debezium website and documentation。サイト footer に記載)",
+  "trust": "official",
+  "type": "official_docs",
+  "purpose": "Debezium の at-least-once 保証と内部 dedup layer なしの明記、Kafka Connect exactly-once (KIP-618/KIP-98) の前提・worker/connector 設定・transaction.boundary=poll、対象 connector 一覧、correctness 未確立という既知課題 (KAFKA-17734/17754/17582、Jepsen report) を確認する"
+}
