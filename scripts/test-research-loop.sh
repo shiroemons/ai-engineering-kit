@@ -4,6 +4,7 @@ ROOT="$(cd "$(dirname "$0")/.." && pwd -P)"
 TEST_DIR="$(mktemp -d)"
 trap 'rm -rf "$TEST_DIR"' EXIT
 export RESEARCH_TEST_DIR="$TEST_DIR"
+export RESEARCH_TEST_TIME_STEP=1000
 export RESEARCH_LOG_DIR="$TEST_DIR/logs"
 mkdir -p "$TEST_DIR/bin" "$TEST_DIR/repo/scripts" "$TEST_DIR/repo/config"
 cp "$ROOT/scripts/research-loop.sh" "$TEST_DIR/repo/scripts/"
@@ -13,7 +14,7 @@ cat > "$TEST_DIR/bin/date" <<'EOF'
 if [[ "$1" == +%s ]]; then
   count=0
   [[ ! -f "$RESEARCH_TEST_DIR/time" ]] || read -r count < "$RESEARCH_TEST_DIR/time"
-  count=$((count + 1000))
+  count=$((count + RESEARCH_TEST_TIME_STEP))
   printf '%s\n' "$count" > "$RESEARCH_TEST_DIR/time"
   printf '%s\n' "$count"
 else
@@ -23,7 +24,14 @@ EOF
 printf '#!/bin/bash\nexit 0\n' > "$TEST_DIR/bin/sleep"
 cat > "$TEST_DIR/repo/scripts/research-next.sh" <<'EOF'
 #!/bin/bash
-[[ "$RESEARCH_CONTINUOUS" == 1 && "$RESEARCH_DEADLINE" == 4600 ]] || exit 8
+expected_deadline=4600
+[[ "$RESEARCH_TEST_TIME_STEP" != 300 ]] || expected_deadline=3900
+[[ "$RESEARCH_CONTINUOUS" == 1 && "$RESEARCH_DEADLINE" == "$expected_deadline" ]] || exit 8
+if [[ -e "$RESEARCH_PROGRESS_FILE" ]]; then
+  touch "$RESEARCH_TEST_DIR/stale-progress"
+  exit 9
+fi
+printf '{"percent":92,"topic":"previous topic"}\n' > "$RESEARCH_PROGRESS_FILE"
 printf 'run\n' >> "$RESEARCH_TEST_DIR/runs"
 if [[ "${MOCK_LOOP_STATUS:-0}" == stop ]]; then
   trap 'touch "$RESEARCH_TEST_DIR/stopped"; exit 143' TERM
@@ -37,13 +45,15 @@ export PATH="$TEST_DIR/bin:$PATH"
 LOOP="$TEST_DIR/repo/scripts/research-loop.sh"
 bash "$LOOP" > "$TEST_DIR/output"
 [[ "$(wc -l < "$TEST_DIR/runs" | tr -d ' ')" == 2 ]]
+[[ ! -e "$TEST_DIR/stale-progress" ]]
 grep -Fq 'time limit reached' "$TEST_DIR/output"
 [[ ! -d "$RESEARCH_LOG_DIR/research-loop.lock" ]]
 
 rm "$TEST_DIR/time" "$TEST_DIR/runs"
-MOCK_LOOP_STATUS=1 bash "$LOOP" > "$TEST_DIR/output" 2>&1
-[[ "$(wc -l < "$TEST_DIR/runs" | tr -d ' ')" == 2 ]]
+RESEARCH_TEST_TIME_STEP=300 MOCK_LOOP_STATUS=1 bash "$LOOP" > "$TEST_DIR/output" 2>&1
+[[ "$(wc -l < "$TEST_DIR/runs" | tr -d ' ')" -ge 4 ]]
 grep -Fq 'retrying in 1s' "$TEST_DIR/output"
+! grep -Fq 'stopped after 3 consecutive' "$TEST_DIR/output"
 grep -Fq 'time limit reached' "$TEST_DIR/output"
 
 rm "$TEST_DIR/time" "$TEST_DIR/runs"

@@ -37,6 +37,7 @@ failure_delay="$PAUSE"
 while [[ "$(date +%s)" -lt "$DEADLINE" ]]; do
   status=0
   retry_delay="$PAUSE"
+  rm -f "$PROGRESS_FILE"
   RESEARCH_CONTINUOUS=1 RESEARCH_DEADLINE="$DEADLINE" RESEARCH_PROGRESS_FILE="$PROGRESS_FILE" bash "$ROOT/scripts/research-next.sh" &
   child=$!
   wait "$child" || status=$?
@@ -54,11 +55,6 @@ while [[ "$(date +%s)" -lt "$DEADLINE" ]]; do
     *)
       failures=$((failures + 1))
       retry_delay="$failure_delay"
-      if ((failures >= 3)); then
-        printf 'research-loop: stopped after %d consecutive research failures; details: %s\n' \
-          "$failures" "$LOG_DIR/research-error.log" >&2
-        exit "$status"
-      fi
       printf 'research-loop: research failed (exit code %d); retrying in %ss (%d consecutive failures); details: %s\n' \
         "$status" "$retry_delay" "$failures" "$LOG_DIR/research-error.log" >&2
       if ((failure_delay < 300)); then
