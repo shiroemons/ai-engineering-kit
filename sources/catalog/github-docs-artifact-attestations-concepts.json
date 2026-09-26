@@ -1,0 +1,12 @@
+{
+  "id": "github-docs-artifact-attestations-concepts",
+  "url": "https://docs.github.com/en/actions/concepts/security/artifact-attestations",
+  "repository_url": "",
+  "commit_sha": "",
+  "version": "GitHub Docs current page (no page version label)",
+  "retrieved_at": "2026-09-26",
+  "license": "GitHub, Inc. documentation terms (no open license stated on the fetched page)",
+  "trust": "official",
+  "type": "official_docs",
+  "purpose": "attestation の構成要素 (workflow link、repository/organization/environment/commit SHA/triggering event、GitHub Actions OIDC token 由来)、Sigstore による署名、public リポジトリは Sigstore Public Good Instance で透明性ログあり・private リポジトリは GitHub の Sigstore instance で透明性ログなし・GitHub Actions のみ federation、artifact attestations 単体は SLSA v1.0 Build Level 2・reusable workflow が Level 3 の文書化された経路、attestation はセキュリティの保証ではなく source と build instructions へのリンクに留まる警告、署名対象は release/binary/package で test build や個別ファイルは非推奨を確認する"
+}
