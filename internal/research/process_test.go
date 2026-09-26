@@ -19,7 +19,7 @@ func TestCancellationStopsStandaloneChildren(t *testing.T) {
 	done := make(chan error, 1)
 	go func() {
 		d := domain{ID: "two"}
-		_, err := runOpenCode(ctx, root, "opencode/muse", prompt(d, false), cancel, d, func(Progress) error { return nil })
+		_, err := runOpenCode(ctx, root, "opencode/muse", topicSelectionPrompt(d, false), cancel, d, func(Progress) error { return nil })
 		done <- err
 	}()
 	var childPID int
@@ -85,7 +85,7 @@ func TestTopicSelectionDoesNotCompleteResearch(t *testing.T) {
 	e := &events{Cancel: cancel, StopBatch: cancel}
 
 	e.text("TOPIC_SELECTED: react form errors\nPROGRESS: sources-verified\n")
-	if e.Topic != "react form errors" || e.TopicFinal {
+	if e.Topic != "react form errors" || !e.TopicSelected || e.TopicFinal {
 		t.Fatalf("topic selection incorrectly completed research: %+v", e)
 	}
 
@@ -95,10 +95,16 @@ func TestTopicSelectionDoesNotCompleteResearch(t *testing.T) {
 	}
 }
 
-func TestPromptDefersTopicUpdateUntilSourcesAreVerified(t *testing.T) {
-	value := prompt(domain{ID: "frontend", Name: "Frontend", Technologies: []string{"react"}}, false)
-	if strings.Contains(value, "immediately emit") || !strings.Contains(value, "While choosing a topic, do not emit a topic or progress marker") || !strings.Contains(value, "Only after that verification, emit TOPIC_SELECTED") {
-		t.Fatalf("prompt does not defer topic updates until sources are verified: %s", value)
+func TestPromptsSeparateTopicSelectionFromArtifactResearch(t *testing.T) {
+	d := domain{ID: "frontend", Name: "Frontend", Technologies: []string{"react"}}
+	selection := topicSelectionPrompt(d, false)
+	if !strings.Contains(selection, "PHASE: TOPIC_SELECTION") || !strings.Contains(selection, "Do not emit TOPIC or any PROGRESS marker") || !strings.Contains(selection, "Stop after the selected topic") {
+		t.Fatalf("selection phase is not bounded: %s", selection)
+	}
+
+	research := researchPrompt(d, "react controlled form errors")
+	if !strings.Contains(research, "PHASE: ARTIFACT_RESEARCH") || !strings.Contains(research, "Selected topic: react controlled form errors") || !strings.Contains(research, "Do not emit TOPIC_SELECTED") {
+		t.Fatalf("research phase does not preserve the selected topic: %s", research)
 	}
 }
 
@@ -108,7 +114,7 @@ func TestRunOpenCodeRequiresFinalTopicMarker(t *testing.T) {
 	ctx, cancel := context.WithCancelCause(t.Context())
 	defer cancel(nil)
 
-	_, err := runOpenCode(ctx, root, "opencode/muse", prompt(d, false), cancel, d, nil)
+	_, err := runOpenCode(ctx, root, "opencode/muse", researchPrompt(d, "two research"), cancel, d, nil)
 	if err == nil || !strings.Contains(err.Error(), "without a final TOPIC marker") {
 		t.Fatalf("expected incomplete research error, got %v", err)
 	}

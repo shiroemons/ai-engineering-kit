@@ -26,12 +26,19 @@ func TestOpenCodeProcess(t *testing.T) {
 	prompt := os.Args[len(os.Args)-1]
 	domainText, _, _ := strings.Cut(strings.Split(prompt, "Assigned domain: ")[1], " ")
 	mode := os.Getenv("RESEARCH_TEST_MODE")
+	phase := "research"
+	if strings.Contains(prompt, "PHASE: TOPIC_SELECTION") {
+		phase = "selection"
+	}
 	if mode == "rate" {
 		fmt.Println(`{"type":"error","error":{"status":429,"message":"quota exceeded"}}`)
 		time.Sleep(time.Minute)
 		os.Exit(2)
 	}
 	state := os.Getenv("RESEARCH_TEST_STATE")
+	if err := os.WriteFile(filepath.Join(state, domainText+"."+phase), []byte("started"), 0600); err != nil {
+		panic(err)
+	}
 	if err := os.WriteFile(filepath.Join(state, domainText+".ready"), []byte("ready"), 0600); err != nil {
 		panic(err)
 	}
@@ -70,10 +77,15 @@ func TestOpenCodeProcess(t *testing.T) {
 	if mode == "partial" && domainText == "three" {
 		os.Exit(1)
 	}
-	if mode == "early" {
+	topic := domainText + " research"
+	if strings.Contains(prompt, "Selected topic: ") {
+		selected := strings.SplitN(prompt, "Selected topic: ", 2)[1]
+		topic = strings.SplitN(selected, "\n", 2)[0]
+	}
+	if phase == "selection" || mode == "early" {
 		text, err := json.Marshal(map[string]any{
 			"type": "text",
-			"part": map[string]string{"text": "TOPIC_SELECTED: " + domainText + " research\nPROGRESS: sources-verified"},
+			"part": map[string]string{"text": "TOPIC_SELECTED: " + topic},
 		})
 		if err != nil {
 			panic(err)
@@ -81,7 +93,7 @@ func TestOpenCodeProcess(t *testing.T) {
 		fmt.Println(string(text))
 		os.Exit(0)
 	}
-	if !strings.HasPrefix(prompt, "DRY RUN:") {
+	if !strings.Contains(prompt, "DRY RUN:") {
 		id := domainText + "-research"
 		meta := kb.Metadata{ID: id, Title: id, Kind: "knowledge", Technology: "go", Version: "Go 1.27.1", Tags: []string{"research-domain:" + domainText}, Sources: []kb.SourceRef{{ID: "go-context-docs", URL: "https://pkg.go.dev/context", Type: "official_docs"}}, RetrievedAt: "2026-09-23", ExpiresAt: "2026-12-22", Trust: "official", Status: "active", Evals: []string{"evals/knowledge/" + domainText + ".json"}}
 		data, err := json.Marshal(meta)
@@ -123,7 +135,7 @@ func TestOpenCodeProcess(t *testing.T) {
 			}
 		}
 	}
-	text, err := json.Marshal(map[string]any{"type": "text", "part": map[string]string{"text": "TOPIC_SELECTED: " + domainText + " research\nPROGRESS: sources-verified\nTOPIC: " + domainText + " research"}})
+	text, err := json.Marshal(map[string]any{"type": "text", "part": map[string]string{"text": "PROGRESS: sources-verified\nTOPIC: " + topic}})
 	if err != nil {
 		panic(err)
 	}
@@ -196,6 +208,11 @@ func TestParallelResearchAndIsolation(t *testing.T) {
 	for _, id := range []string{"two", "three"} {
 		if _, err := os.Stat(filepath.Join(root, "knowledge/go/"+id+"-research.md")); err != nil {
 			t.Fatal(err)
+		}
+		for _, phase := range []string{"selection", "research"} {
+			if _, err := os.Stat(filepath.Join(state, id+"."+phase)); err != nil {
+				t.Fatalf("worker %s did not complete the %s phase: %v", id, phase, err)
+			}
 		}
 	}
 	trees, err := git(t.Context(), root, "worktree", "list", "--porcelain")

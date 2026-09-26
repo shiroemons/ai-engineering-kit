@@ -203,18 +203,31 @@ func RunWithProgress(ctx context.Context, root, state string, models []string, d
 			defer cancel()
 			w.Progress = 3
 			workerReport := func(progress Progress) error {
+				if progress.Topic == "" {
+					progress.Topic = w.Topic
+				}
 				if progress.Percent < w.Progress {
 					return nil
 				}
 				w.Progress = progress.Percent
 				return publish(progress)
 			}
-			w.Topic, w.Err = runOpenCode(workerCtx, w.Path, w.Model, prompt(w.Domain, dry), stopBatch, w.Domain, workerReport)
+			w.Topic, w.Err = runOpenCodeTopicSelection(workerCtx, w.Path, w.Model, topicSelectionPrompt(w.Domain, dry), stopBatch, w.Domain, workerReport)
 			if w.Err == nil {
 				if dry {
 					w.Err = requireClean(workerCtx, w.Path)
 				} else {
-					w.Err = workerReport(Progress{Percent: 92, Domain: w.Domain.ID, DomainName: w.Domain.Name, Topic: w.Topic, Phase: "成果物と検索 eval を検証中"})
+					w.Err = workerReport(Progress{Percent: 15, Domain: w.Domain.ID, DomainName: w.Domain.Name, Topic: w.Topic, Phase: "選定テーマの調査と成果物作成を開始"})
+					if w.Err == nil {
+						var completedTopic string
+						completedTopic, w.Err = runOpenCode(workerCtx, w.Path, w.Model, researchPrompt(w.Domain, w.Topic), stopBatch, w.Domain, workerReport)
+						if w.Err == nil && !strings.EqualFold(strings.TrimSpace(completedTopic), strings.TrimSpace(w.Topic)) {
+							w.Err = fmt.Errorf("research changed the selected topic: selected %q, completed %q", w.Topic, completedTopic)
+						}
+					}
+					if w.Err == nil {
+						w.Err = workerReport(Progress{Percent: 92, Domain: w.Domain.ID, DomainName: w.Domain.Name, Topic: w.Topic, Phase: "成果物と検索 eval を検証中"})
+					}
 					if w.Err == nil {
 						w.Files, w.Patch, w.Err = artifacts(workerCtx, w.Path, w.Domain)
 					}
@@ -362,20 +375,30 @@ func requireClean(ctx context.Context, root string) error {
 	return nil
 }
 
-func prompt(d domain, dry bool) string {
-	mode := "Research and update exactly one knowledge document."
+func topicSelectionPrompt(d domain, dry bool) string {
+	mode := "Select one concrete, high-value research topic in the assigned domain. Inspect repository coverage and recent research as instructed. Do not research sources or edit files in this phase; the next phase will research the fixed topic."
 	if dry {
-		mode = "DRY RUN: select a topic only. Do not edit files. Do not perform research or write artifacts."
+		mode = "DRY RUN: select one concrete topic in the assigned domain only. Do not research sources or edit files."
 	}
-	return fmt.Sprintf(`%s
-Assigned domain: %s (%s). Stay within these technologies: %s. Other workers cover other domains; do not change domain. Use config/research.json for sources and selection within this domain. Write evals ONLY to evals/knowledge/%s.json, preserving existing cases. Follow knowledge-researcher validation and source instructions.
+	return fmt.Sprintf(`PHASE: TOPIC_SELECTION
+%s
+Assigned domain: %s (%s). Stay within these technologies: %s. Other workers cover other domains; do not change domain. Use config/research.json and repository coverage to choose a topic. Follow knowledge-researcher topic-selection instructions.
 
-Progress protocol:
-- While choosing a topic, do not emit a topic or progress marker. In a research run, first inspect coverage and verify the selected topic against primary sources. Only after that verification, emit TOPIC_SELECTED: <technology and topic> and PROGRESS: sources-verified on separate lines. This is an interim update; continue with artifact writing and validation.
+This is a complete, separate phase. Finish it by emitting exactly one line: TOPIC_SELECTED: <technology and topic>. Do not emit TOPIC or any PROGRESS marker. Stop after the selected topic; do not begin artifact research.
+`, mode, d.ID, d.Name, strings.Join(d.Technologies, ", "))
+}
+
+func researchPrompt(d domain, topic string) string {
+	return fmt.Sprintf(`PHASE: ARTIFACT_RESEARCH
+Research and update exactly one knowledge document for the already-selected topic below. This topic is fixed: do not reselect, broaden, or replace it. If it cannot be supported by suitable primary sources, report the concrete reason and do not emit TOPIC.
+Assigned domain: %s (%s). Stay within these technologies: %s. Other workers cover other domains; do not change domain. Use config/research.json for source policy. Write evals ONLY to evals/knowledge/%s.json, preserving existing cases. Follow knowledge-researcher artifact, source, and validation instructions.
+Selected topic: %s
+
+Progress protocol for this phase:
+- Verify the topic against primary sources before writing, then emit PROGRESS: sources-verified.
 - Emit each remaining milestone only after it is complete: PROGRESS: knowledge-written after the knowledge document is complete; PROGRESS: eval-written after writing search evals; PROGRESS: eval-search-verified after every new query returns the expected ID; PROGRESS: ready-to-validate before final validation.
-- Emit TOPIC: <technology and topic> exactly once, only after the required sources are verified, the knowledge document and assigned eval are written, every new eval query returns the expected ID, and final validation passes. If a required step fails, report its concrete reason and do not emit TOPIC.
-- In a DRY RUN, after selecting a topic, emit TOPIC_SELECTED: <technology and topic> and PROGRESS: topic-selected, then emit TOPIC: <technology and topic> and stop without research or edits.
-`, mode, d.ID, d.Name, strings.Join(d.Technologies, ", "), d.ID)
+- Do not emit TOPIC_SELECTED. Emit TOPIC: %s exactly once, only after required sources are verified, the knowledge document and assigned eval are written, every new eval query returns the expected ID, and final validation passes. If a required step fails, report its concrete reason and do not emit TOPIC.
+`, d.ID, d.Name, strings.Join(d.Technologies, ", "), d.ID, topic, topic)
 }
 
 func artifacts(ctx context.Context, root string, d domain) (map[string][]byte, []byte, error) {

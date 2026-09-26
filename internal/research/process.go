@@ -18,16 +18,17 @@ var errRateLimit = errors.New("provider rate or quota limit; batch stopped")
 // OpenCode can retry internally for a long time. Inspect error events as they
 // arrive, and kill the entire standalone server group on cancellation.
 type events struct {
-	pending      []byte
-	Topic        string
-	TopicFinal   bool
-	Err          error
-	Cancel       context.CancelCauseFunc
-	StopBatch    context.CancelCauseFunc
-	Domain       domain
-	Report       ProgressReporter
-	lastProgress string
-	textPending  string
+	pending       []byte
+	Topic         string
+	TopicSelected bool
+	TopicFinal    bool
+	Err           error
+	Cancel        context.CancelCauseFunc
+	StopBatch     context.CancelCauseFunc
+	Domain        domain
+	Report        ProgressReporter
+	lastProgress  string
+	textPending   string
 }
 
 func (e *events) Write(p []byte) (int, error) {
@@ -148,7 +149,11 @@ func (e *events) setTopic(topic string, final bool) {
 		return
 	}
 	e.Topic = topic
-	e.TopicFinal = final
+	if final {
+		e.TopicFinal = true
+		return
+	}
+	e.TopicSelected = true
 	e.publish(10, "テーマを選定")
 }
 
@@ -165,6 +170,14 @@ func (e *events) publish(percent int, phase string) {
 }
 
 func runOpenCode(ctx context.Context, root, model, prompt string, stopBatch context.CancelCauseFunc, d domain, report ProgressReporter) (string, error) {
+	return runOpenCodePhase(ctx, root, model, prompt, stopBatch, d, report, false)
+}
+
+func runOpenCodeTopicSelection(ctx context.Context, root, model, prompt string, stopBatch context.CancelCauseFunc, d domain, report ProgressReporter) (string, error) {
+	return runOpenCodePhase(ctx, root, model, prompt, stopBatch, d, report, true)
+}
+
+func runOpenCodePhase(ctx context.Context, root, model, prompt string, stopBatch context.CancelCauseFunc, d domain, report ProgressReporter, topicSelection bool) (string, error) {
 	ctx, cancel := context.WithCancelCause(ctx)
 	defer cancel(nil)
 	e := &events{Cancel: cancel, StopBatch: stopBatch, Domain: d, Report: report}
@@ -191,8 +204,17 @@ func runOpenCode(ctx context.Context, root, model, prompt string, stopBatch cont
 	if err != nil {
 		return "", fmt.Errorf("OpenCode process: %w", err)
 	}
+	if topicSelection {
+		if e.TopicFinal {
+			return "", errors.New("OpenCode emitted a final TOPIC marker during topic selection")
+		}
+		if !e.TopicSelected {
+			return "", errors.New("OpenCode returned no TOPIC_SELECTED marker")
+		}
+		return e.Topic, nil
+	}
 	if !e.TopicFinal {
-		if e.Topic != "" {
+		if e.TopicSelected {
 			return "", errors.New("OpenCode stopped after topic selection without a final TOPIC marker")
 		}
 		return "", errors.New("OpenCode returned no final TOPIC marker")
