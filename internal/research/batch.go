@@ -470,7 +470,7 @@ func validateSourceInventory(output string) (string, error) {
 		}
 	}
 	if len(records) < 2 {
-		return "", errors.New("source verification returned fewer than two usable primary sources")
+		return "", fmt.Errorf("source verification returned fewer than two usable primary sources: parsed=%d markers=%d output_bytes=%d", len(records), strings.Count(output, "SOURCE:"), len(output))
 	}
 	return strings.Join(records, "\n"), nil
 }

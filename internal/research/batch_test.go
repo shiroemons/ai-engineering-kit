@@ -227,6 +227,11 @@ func TestValidateSourceInventory(t *testing.T) {
 	if err != nil || strings.Count(got, "SOURCE:") != 2 {
 		t.Fatalf("valid source inventory rejected: %q %v", got, err)
 	}
+	redisInventory := "SOURCE: https://redis.io/commands/expire/ | EXPIRE command reference (since 1.0.0; NX/XX/GT/LT since 7.0.0) | verified volatile-key semantics, SET/DEL/*STORE overwrite clears TTL while INCR/LPUSH/HSET leave TTL untouched, PERSIST clears TTL, RENAME transfers TTL, non-positive/past expiry deletes with del not expired event, passive plus sampled-active expiry, absolute Unix timestamp storage, DEL synthesized to AOF/replicas, 0-1ms accuracy since 2.6.\nSOURCE: https://redis.io/docs/latest/develop/reference/eviction/ | Key eviction (maxmemory/maxmemory-policy; redis.conf 7.4.0; LRM since 8.6) | verified maxmemory enforcement on writes, maxmemory-policy list noeviction/allkeys-lru/allkeys-lrm/allkeys-lfu/allkeys-random/volatile-lru/volatile-lrm/volatile-lfu/volatile-random/volatile-ttl with volatile fallback to noeviction, allkeys-lru default guidance, expiry costs memory, approximated LRU via maxmemory-samples, LFU via lfu-log-factor/lfu-decay-time, LRM write-only timestamp, INFO keyspace_hits/misses and evicted_keys/expired_keys tuning.\nPROGRESS: sources-verified"
+	got, err = validateSourceInventory(redisInventory)
+	if err != nil || strings.Count(got, "SOURCE:") != 2 {
+		t.Fatalf("recorded Redis source inventory rejected: %q %v", got, err)
+	}
 	for _, invalid := range []string{
 		"SOURCE: https://example.test/spec | Spec 1.0 | One source is insufficient",
 		"SOURCE: http://example.test/spec | Spec 1.0 | Insecure scheme\nSOURCE: https://docs.example.test/api | API 2.0 | Claims",
