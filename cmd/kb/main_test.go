@@ -158,8 +158,16 @@ func TestCommandsAndRetrievalEvals(t *testing.T) {
 			}
 		})
 	}
-	for _, evalPath := range []string{"evals/knowledge/search.json", "evals/patterns/search.json"} {
-		data, err := os.ReadFile(filepath.Join(repositoryRoot(t), evalPath))
+	evalPaths, err := filepath.Glob(filepath.Join(repositoryRoot(t), "evals/knowledge/*.json"))
+	if err != nil {
+		t.Fatal(err)
+	}
+	if len(evalPaths) == 0 {
+		t.Fatal("no knowledge evals")
+	}
+	evalPaths = append(evalPaths, filepath.Join(repositoryRoot(t), "evals/patterns/search.json"))
+	for _, evalPath := range evalPaths {
+		data, err := os.ReadFile(evalPath)
 		if err != nil {
 			t.Fatal(err)
 		}

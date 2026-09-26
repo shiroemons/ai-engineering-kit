@@ -2,17 +2,21 @@
 set -Eeuo pipefail
 
 ROOT="$(cd "$(dirname "${BASH_SOURCE[0]}")/.." && pwd -P)"
-LOG_DIR="$HOME/Library/Logs/ai-engineering-kit"
-CONFIG_FILE="$HOME/Library/Application Support/ai-engineering-kit/research.env"
+BASE_ROOT="$ROOT"
+LOG_DIR="${RESEARCH_LOG_DIR:-$HOME/Library/Logs/ai-engineering-kit}"
+CONFIG_FILE="${RESEARCH_ENV_FILE:-$HOME/Library/Application Support/ai-engineering-kit/research.env}"
 mkdir -p "$LOG_DIR"
 LOG_FILE="$LOG_DIR/research.log"
 ERROR_FILE="$LOG_DIR/research-error.log"
 LOCK_DIR="$LOG_DIR/research.lock"
+[[ "${RESEARCH_CONTINUOUS:-0}" != 1 ]] || LOCK_DIR="$LOG_DIR/research-continuous.lock"
 RESEARCH_BRANCH=''
+RUN_WORKTREE=''
 OUTPUT_FILE=''
 PR_BODY_FILE=''
+BATCH_PID=''
 timestamp() { date '+%Y-%m-%dT%H:%M:%S%z'; }
-log() { printf '%s %s\n' "$(timestamp)" "$*" >> "$LOG_FILE"; }
+log() { printf '%s mode=%s pid=%s %s\n' "$(timestamp)" "${RESEARCH_CONTINUOUS:-0}" "$$" "$*" >> "$LOG_FILE"; }
 fail() {
   local message="$*"
   log "failure: $message"
@@ -22,26 +26,21 @@ fail() {
 }
 cleanup() {
   local exit_code="$1"
-  local current_branch=''
+
+  if [[ -n "$BATCH_PID" ]] && kill -0 "$BATCH_PID" 2>/dev/null; then
+    kill -TERM "$BATCH_PID"
+    wait "$BATCH_PID" || true
+  fi
 
   [[ -z "$OUTPUT_FILE" ]] || rm -f "$OUTPUT_FILE"
   [[ -z "$PR_BODY_FILE" ]] || rm -f "$PR_BODY_FILE"
 
-  if [[ -n "$RESEARCH_BRANCH" ]]; then
-    current_branch="$(git branch --show-current 2>/dev/null || true)"
-    if [[ "$current_branch" == "$RESEARCH_BRANCH" ]]; then
-      if [[ -z "$(git status --porcelain --untracked-files=all 2>/dev/null)" ]]; then
-        if git switch main >/dev/null 2>&1; then
-          log 'returned to main'
-        else
-          log 'warning: could not return to main after research run'
-          if ((exit_code == 0)); then
-            exit_code=1
-          fi
-        fi
-      else
-        log "warning: left $RESEARCH_BRANCH checked out because the working tree contains changes"
-      fi
+  if [[ -n "$RUN_WORKTREE" ]]; then
+    cd "$BASE_ROOT"
+    if git worktree remove "$RUN_WORKTREE" >/dev/null 2>&1; then
+      log "removed clean integration worktree: $RUN_WORKTREE"
+    else
+      log "recovery: retained integration worktree: $RUN_WORKTREE branch=$RESEARCH_BRANCH"
     fi
   fi
 
@@ -52,15 +51,25 @@ cleanup() {
 
 if ! mkdir "$LOCK_DIR" 2>/dev/null; then
   log 'skipped: another run holds the lock (remove stale lock only after confirming no run exists)'
-  exit 0
+  exit 3
 fi
 trap 'cleanup "$?"' EXIT
+trap 'exit 130' INT
+trap 'exit 143' TERM
 printf '%s\n' "$$" > "$LOCK_DIR/pid"
 
 cd "$ROOT"
 log 'start'
 [[ "$(git branch --show-current)" == main ]] || fail 'branch is not main'
 [[ -z "$(git status --porcelain --untracked-files=all)" ]] || fail 'working tree is dirty'
+if [[ -f "$LOG_DIR/cooldown-until" ]]; then
+  read -r COOLDOWN_UNTIL < "$LOG_DIR/cooldown-until" || fail 'invalid cooldown state'
+  [[ "$COOLDOWN_UNTIL" =~ ^[0-9]+$ ]] || fail 'invalid cooldown state'
+  if [[ "$(date +%s)" -lt "$COOLDOWN_UNTIL" ]]; then
+    log "skipped: provider cooldown until $COOLDOWN_UNTIL"
+    exit 4
+  fi
+fi
 [[ -f "$CONFIG_FILE" ]] || fail 'research.env is missing'
 
 # This local file contains one non-secret assignment, never shell-evaluate it.
@@ -76,9 +85,8 @@ if [[ "${RESEARCH_DRY_RUN:-0}" != 1 ]]; then
   GH_PROMPT_DISABLED=1 gh auth status >/dev/null 2>&1 || fail 'GitHub CLI is not authenticated'
 fi
 
-# Retry transient catalog and pricing failures. Then keep the configured model
-# first and add at most two currently available OpenCode models whose live
-# catalog price is exactly zero for both input and output.
+# Retry transient discovery failures, then prefer the configured model pair.
+# Continuous execution accepts only its exact configured model.
 AVAILABLE=''
 for attempt in 1 2 3; do
   if AVAILABLE="$(opencode models --print-logs --log-level debug 2>/dev/null)" && [[ -n "$AVAILABLE" ]]; then
@@ -111,7 +119,7 @@ done
 [[ -n "$PRICE_JSON" ]] || fail 'current model pricing unavailable after 3 attempts'
 
 FREE_MODEL_IDS="$(printf '%s\n' "$PRICE_JSON" | jq -r \
-  '.opencode.models | to_entries[] | select(.value.cost.input == 0 and .value.cost.output == 0) | .key')" \
+  '.opencode.models | to_entries[] | select(.value.tool_call == true and .value.cost.input == 0 and .value.cost.output == 0 and ((.value.cost.cache_read // 0) == 0) and ((.value.cost.cache_write // 0) == 0)) | .key')" \
   || fail 'current model pricing could not be parsed'
 is_verified_free_model() {
   local candidate="$1" model_id
@@ -124,31 +132,34 @@ is_verified_free_model() {
 MODEL_CANDIDATES=()
 MODEL_CANDIDATE_FOUND=0
 find_model_candidates() {
-  local candidate fallback_count
+  local candidate preferred
   MODEL_CANDIDATES=()
   MODEL_CANDIDATE_FOUND=0
-  if is_verified_free_model "$MODEL"; then
-    MODEL_CANDIDATES+=("$MODEL")
-    MODEL_CANDIDATE_FOUND=1
-  else
+  if [[ "${RESEARCH_CONTINUOUS:-0}" == 1 ]]; then
+    preferred="$(jq -er '.continuous.model' "$BASE_ROOT/config/research.json")" || fail 'invalid continuous model'
+    if is_verified_free_model "$preferred"; then
+      MODEL_CANDIDATES+=("$preferred")
+      MODEL_CANDIDATE_FOUND=1
+    fi
+    return 0
+  fi
+  preferred="$(jq -er '.parallel.preferred_models[]' "$BASE_ROOT/config/research.json")" || fail 'invalid preferred models'
+  if ! is_verified_free_model "$MODEL"; then
     log "configured model is unavailable or not currently free: $MODEL"
   fi
-  fallback_count=0
   while IFS= read -r candidate; do
-    [[ "$candidate" == "$MODEL" ]] && continue
-    [[ "$candidate" == opencode/* ]] || continue
-    if is_verified_free_model "$candidate"; then
+    if is_verified_free_model "$candidate" && ! printf '%s\n' "${MODEL_CANDIDATES[@]:-}" | grep -Fxq "$candidate"; then
       MODEL_CANDIDATES+=("$candidate")
       MODEL_CANDIDATE_FOUND=1
-      fallback_count=$((fallback_count + 1))
-      log "verified free fallback available: $candidate"
-      [[ "$fallback_count" -ge 2 ]] && break
+      log "verified free model selected: $candidate"
+      [[ "${#MODEL_CANDIDATES[@]}" -ge 2 ]] && break
     fi
-  done <<< "$AVAILABLE"
+  done <<< "$(printf '%s\n%s\n%s\n' "$preferred" "$MODEL" "$AVAILABLE")"
   return 0
 }
 
 find_model_candidates
+attempt=1
 while [[ "$MODEL_CANDIDATE_FOUND" != 1 && "$attempt" -lt 3 ]]; do
   attempt=$((attempt + 1))
   delay=$((attempt * 5))
@@ -165,56 +176,51 @@ done
 [[ "$MODEL_CANDIDATE_FOUND" == 1 ]] \
   || fail 'no currently available OpenCode model has zero input and output price after 3 attempts'
 
+BASE_REF=main
 if [[ "${RESEARCH_DRY_RUN:-0}" != 1 ]]; then
-  # Keep the daily research moving if remote synchronization is unavailable.
-  if GIT_TERMINAL_PROMPT=0 git pull --ff-only >/dev/null 2>&1; then
-    log 'git pull --ff-only: passed'
+  if GIT_TERMINAL_PROMPT=0 git fetch origin main >/dev/null 2>&1; then
+    BASE_REF=refs/remotes/origin/main
+    log 'git fetch origin main: passed'
   else
-    log 'warning: git pull --ff-only failed; continuing from current local main'
+    log 'warning: git fetch failed; continuing from current local main'
   fi
-  [[ -z "$(git status --porcelain --untracked-files=all)" ]] || fail 'working tree became dirty after pull'
-
-  RESEARCH_BRANCH="research/$(date '+%Y-%m-%d-%H%M%S')"
-  git switch -c "$RESEARCH_BRANCH" >/dev/null 2>&1 || fail 'could not create research branch'
-  log "research branch: $RESEARCH_BRANCH"
 fi
+
+RESEARCH_BRANCH="research/$(date '+%Y-%m-%d-%H%M%S')-$$"
+RUN_WORKTREE="$BASE_ROOT/.workbench/repositories/research/run-${RESEARCH_BRANCH#research/}"
+mkdir -p "$(dirname "$RUN_WORKTREE")"
+if [[ "${RESEARCH_DRY_RUN:-0}" == 1 ]]; then
+  git worktree add --detach "$RUN_WORKTREE" "$BASE_REF" >/dev/null 2>&1 || fail 'could not create dry-run worktree'
+else
+  git worktree add -b "$RESEARCH_BRANCH" "$RUN_WORKTREE" "$BASE_REF" >/dev/null 2>&1 || fail 'could not create research worktree'
+fi
+ROOT="$RUN_WORKTREE"
+cd "$ROOT"
+log "research worktree: $RUN_WORKTREE branch=$RESEARCH_BRANCH"
 
 OUTPUT_FILE="$(mktemp "$LOG_DIR/opencode.XXXXXXXX")"
 chmod 600 "$OUTPUT_FILE"
 
-if [[ "${RESEARCH_DRY_RUN:-0}" == 1 ]]; then
-  PROMPT='Inspect the repository and choose the next research topic. This is a dry run: do not edit any file or run modifying commands. Explain your choice and finish with TOPIC: <technology and topic>.'
+DRY_FLAG=false
+[[ "${RESEARCH_DRY_RUN:-0}" != 1 ]] || DRY_FLAG=true
+mise exec -- go build -o bin/research-batch ./cmd/research-batch > "$OUTPUT_FILE" 2>&1 || fail 'could not build research coordinator'
+"$ROOT/bin/research-batch" --root "$ROOT" --state-dir "$LOG_DIR" \
+  --dry-run="$DRY_FLAG" --deadline="${RESEARCH_DEADLINE:-0}" "${MODEL_CANDIDATES[@]}" > "$OUTPUT_FILE" 2>&1 &
+BATCH_PID=$!
+if wait "$BATCH_PID"; then
+  BATCH_PID=''
+  log 'research batch: passed'
 else
-  PROMPT='/research-next'
+  BATCH_PID=''
+  sed -n '1,80p' "$OUTPUT_FILE" >> "$ERROR_FILE"
+  fail "research batch failed; inspect retained worktrees under $BASE_ROOT/.workbench/repositories/research"
 fi
-
-TOPIC=''
-for candidate in "${MODEL_CANDIDATES[@]}"; do
-  for attempt in 1 2; do
-    log "research attempt: model=$candidate attempt=$attempt/2"
-    if (cd "$ROOT" && opencode run --standalone --agent knowledge-researcher --model "$candidate" "$PROMPT") > "$OUTPUT_FILE" 2>&1; then
-      log "OpenCode exit status: 0 (model=$candidate attempt=$attempt/2)"
-      TOPIC="$(sed -nE 's/.*TOPIC:[[:space:]]*//p' "$OUTPUT_FILE" | tail -n 1 | sed -E 's/\*\*$//' | tr -cd '[:print:]' | cut -c 1-120)"
-      if [[ -n "$TOPIC" ]]; then
-        log "selected topic: $TOPIC"
-        break 2
-      fi
-      log "OpenCode did not report a selected topic (model=$candidate attempt=$attempt/2)"
-    else
-      status=$?
-      log "OpenCode exit status: $status (model=$candidate attempt=$attempt/2)"
-    fi
-
-    if [[ -n "$(git status --porcelain --untracked-files=all)" ]]; then
-      fail 'OpenCode left file changes after a failed attempt; automatic retry stopped to avoid duplicate edits'
-    fi
-    if [[ "$attempt" -lt 2 ]]; then
-      log "retrying research with the same model in 10s: $candidate"
-      sleep 10
-    fi
-  done
-done
-[[ -n "$TOPIC" ]] || fail 'research failed with all currently available, verified-free models'
+sed -n '1,80p' "$OUTPUT_FILE" >> "$LOG_FILE"
+TOPIC="$(sed -n 's/^TOPIC: //p' "$OUTPUT_FILE" | tail -n 1)"
+[[ -n "$TOPIC" ]] || fail 'research batch returned no topic'
+log "selected topic: $TOPIC"
+PARTIAL=0
+if grep -Fxq 'BATCH: partial' "$OUTPUT_FILE"; then PARTIAL=1; fi
 
 check_paths() {
   local entry path status
@@ -309,9 +315,6 @@ done
 [[ -n "$PR_URL" ]] || fail 'research pull request creation failed after 3 attempts'
 log "pull request: $PR_URL"
 
-git switch main >/dev/null 2>&1 || fail 'could not return to main after creating pull request'
-log 'returned to main after creating pull request'
-
 PR_MERGEABLE=''
 PR_MERGE_STATE=''
 for attempt in 1 2 3 4 5 6; do
@@ -356,15 +359,15 @@ fi
 
 case "$PR_MERGEABLE" in
   CONFLICTING)
-    log "warning: research PR has conflicts; left open for resolution: $PR_URL"
+    fail "research PR has conflicts; left open for resolution: $PR_URL"
     ;;
   UPDATE_FAILED)
-    log "warning: research PR branch is behind main and could not be updated; left open: $PR_URL"
+    fail "research PR branch is behind main and could not be updated; left open: $PR_URL"
     ;;
   *)
     AUTO_MERGE_REQUESTED=0
     for attempt in 1 2 3; do
-      if GH_PROMPT_DISABLED=1 gh pr merge "$PR_URL" --squash --auto --delete-branch >/dev/null 2>&1; then
+      if GH_PROMPT_DISABLED=1 gh pr merge "$PR_URL" --squash --auto >/dev/null 2>&1; then
         AUTO_MERGE_REQUESTED=1
         break
       fi
@@ -383,13 +386,21 @@ case "$PR_MERGEABLE" in
         log "GitHub auto-merge enabled with squash (merge state: ${PR_MERGE_STATE:-unknown})"
       fi
     else
-      log "warning: GitHub did not accept auto-merge; PR remains open: $PR_URL"
+      fail "GitHub did not accept auto-merge; PR remains open: $PR_URL"
     fi
     ;;
 esac
 
-if GIT_TERMINAL_PROMPT=0 git pull --ff-only >/dev/null 2>&1; then
-  log 'local main refresh after PR: passed'
-else
-  log 'warning: local main refresh after PR failed; next run will retry'
+if [[ "${RESEARCH_CONTINUOUS:-0}" == 1 && "${PR_STATE:-}" != MERGED ]]; then
+  # Wait for this result before selecting another topic from remote main.
+  for attempt in {1..60}; do
+    [[ "$(date +%s)" -lt "${RESEARCH_DEADLINE:-0}" ]] || fail "continuous deadline reached; PR retained: $PR_URL"
+    sleep 10
+    PR_STATE="$(GH_PROMPT_DISABLED=1 gh pr view "$PR_URL" --json state --jq '.state' 2>/dev/null || true)"
+    [[ "$PR_STATE" != MERGED ]] || break
+    [[ "$PR_STATE" != CLOSED ]] || fail "research PR closed without merge: $PR_URL"
+  done
+  [[ "$PR_STATE" == MERGED ]] || fail "research PR awaiting merge; continuous run stopped: $PR_URL"
 fi
+[[ "$PARTIAL" != 1 ]] || fail 'successful research published; failed worker retained for inspection'
+log 'research completed; original checkout unchanged'

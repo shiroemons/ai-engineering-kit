@@ -1,7 +1,17 @@
 {
-  "topics_per_run": 1,
+  "topics_per_run": 2,
+  "parallel": {
+    "preferred_models": ["opencode/muse-spark-1.3-contributor-free", "opencode/mimo-v2.6-flash-free"],
+    "worker_timeout_minutes": 45,
+    "rate_limit_cooldown_minutes": 180
+  },
+  "continuous": {
+    "model": "opencode/muse-spark-1.3-contributor-free",
+    "hours": 8,
+    "pause_seconds": 30
+  },
   "schedule": {
-    "interval_hours": 3,
+    "interval_hours": 1,
     "minute": 0
   },
   "domains": [

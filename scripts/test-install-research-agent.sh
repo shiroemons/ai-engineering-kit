@@ -22,7 +22,7 @@ reject() {
 }
 
 generate
-assert_plist '.StartCalendarInterval == [range(0; 24; 3) | {Hour: ., Minute: 0}]'
+assert_plist '.StartCalendarInterval == [range(0; 24) | {Hour: ., Minute: 0}]'
 assert_plist '.RunAtLoad == false and (.ProgramArguments | length) == 1
   and .ProgramArguments[0] == (.WorkingDirectory + "/scripts/research-next.sh")
   and (.EnvironmentVariables.PATH | contains("/.local/share/mise/shims:"))'

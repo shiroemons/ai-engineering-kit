@@ -14,6 +14,7 @@ build:
 test:
     go test -race ./...
     bash scripts/test-research-next.sh
+    bash scripts/test-research-loop.sh
     bash scripts/test-install-research-agent.sh
 
 validate:
@@ -54,6 +55,9 @@ check: fmt-check fix-check
 
 research:
     bash scripts/research-next.sh
+
+research-loop:
+    bash scripts/research-loop.sh
 
 research-dry-run:
     RESEARCH_DRY_RUN=1 bash scripts/research-next.sh

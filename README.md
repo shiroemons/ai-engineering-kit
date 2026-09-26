@@ -76,7 +76,7 @@ index は事前に生成する。入力や設定が変わると検索が再生�
 
 ## 適用範囲
 
-自動のネット調査は3時間ごと、1日8回の予定で1テーマずつ進める。8領域の未調査分野を優先し、公式文書に加えてOSS設計や実務事例を調べる。設定と停止条件は [Research Pipeline](docs/research-automation.md) を参照する。
+自動のネット調査は毎時、無料モデル2つで別テーマを並列に調べる。予定上は1日24回・最大48テーマ。`just research-loop` はMuse Sparkだけで最長8時間繰り返す。定期実行と連続実行は別ワークツリーで同時に動く。8領域の未調査分野を優先し、公式文書に加えてOSS設計や実務事例を調べる。設定と停止条件は [Research Pipeline](docs/research-automation.md) を参照する。
 
 Embedding・Vector DB は未実装。検索の差し替え方針は [ADR](docs/adr/0001-local-knowledge-base.md) に記録する。検証は形式や参照整合性を確かめるもので、記述の真実性や人間のレビュー完了を保証しない。
 
