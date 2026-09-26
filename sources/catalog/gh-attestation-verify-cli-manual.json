@@ -1,0 +1,12 @@
+{
+  "id": "gh-attestation-verify-cli-manual",
+  "url": "https://cli.github.com/manual/gh_attestation_verify",
+  "repository_url": "",
+  "commit_sha": "",
+  "version": "GitHub CLI manual current page (no page version label; © 2026 GitHub, Inc.)",
+  "retrieved_at": "2026-09-26",
+  "license": "GitHub, Inc. documentation terms (© 2026 GitHub, Inc.; no open license stated on the fetched page)",
+  "trust": "official",
+  "type": "official_docs",
+  "purpose": "`gh attestation verify` の構文 (file-path / oci://image-uri)、既定 predicate-type `https://slsa.dev/provenance/v1`、identity 照合キー (SourceRepository / SourceRepositoryOwner / SubjectAlternativeName)、`--owner`/`--repo` 必須と `--signer-workflow`/`--cert-identity` 推奨、reusable workflow 検証に必要なフラグ、`--bundle-from-oci`/`--bundle`/`--custom-trusted-root`、`--format=json` で非改竄可能な `signature.certificate` と `verifiedTimestamps`、`statement.predicate` が workflow 制御者に偽装可能である旨、`--cert-oidc-issuer`/`--deny-self-hosted-runners`/`--digest-alg`/`--limit`/`--no-public-good` を確認する"
+}

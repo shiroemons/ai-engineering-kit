@@ -1,0 +1,12 @@
+{
+  "id": "github-docs-verify-attestations-offline",
+  "url": "https://docs.github.com/en/actions/how-tos/secure-your-work/use-artifact-attestations/verify-attestations-offline",
+  "repository_url": "",
+  "commit_sha": "",
+  "version": "GitHub Docs current page (no page version label)",
+  "retrieved_at": "2026-09-26",
+  "license": "GitHub, Inc. documentation terms (no open license stated on the fetched page)",
+  "trust": "official",
+  "type": "official_docs",
+  "purpose": "offline 検証手順 (`gh attestation download <file> -R owner/repo` が sha256:….jsonl bundle を生成し以前の内容を上書き、`gh attestation trusted-root > trusted_root.jsonl`、`gh attestation verify … --bundle … --custom-trusted-root …`)、trusted_root.jsonl に組み込みの有効期限がなく生成前の署名素材は検証し続けられるが生成後の署名は Sigstore の鍵素材ローテーション (typically a few times per year) まで、生成以降の revocation は検知できず新規署名素材の取り込み時に trusted root を再生成するのが best practice である点、public は Sigstore public good instance・private は GitHub の Sigstore instance を確認する"
+}
