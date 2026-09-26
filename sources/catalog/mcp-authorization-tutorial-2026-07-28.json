@@ -1,0 +1,12 @@
+{
+  "id": "mcp-authorization-tutorial-2026-07-28",
+  "url": "https://modelcontextprotocol.io/docs/2026-07-28/tutorials/security/authorization.md",
+  "repository_url": "https://github.com/modelcontextprotocol/modelcontextprotocol",
+  "commit_sha": "",
+  "version": "MCP documentation 2026-07-28",
+  "retrieved_at": "2026-09-26",
+  "license": "CC-BY-4.0 (documentation excluding specifications; per repository LICENSE)",
+  "trust": "official",
+  "type": "official_docs",
+  "purpose": "認可実装の公式チュートリアル: 401 チャレンジからの手順、Keycloak での audience 設定、実装落とし穴一覧"
+}

@@ -1,0 +1,12 @@
+{
+  "id": "mcp-authorization-client-registration-2026-07-28",
+  "url": "https://modelcontextprotocol.io/specification/2026-07-28/basic/authorization/client-registration.md",
+  "repository_url": "https://github.com/modelcontextprotocol/modelcontextprotocol",
+  "commit_sha": "",
+  "version": "MCP specification 2026-07-28 revision",
+  "retrieved_at": "2026-09-26",
+  "license": "Apache-2.0 or MIT (specification; transition per repository LICENSE)",
+  "trust": "official",
+  "type": "official_docs",
+  "purpose": "クライアント登録3方式 (Client ID Metadata Documents / pre-registration / Dynamic Client Registration) の優先順位と要件、Authorization Server への資格情報紐付け"
+}

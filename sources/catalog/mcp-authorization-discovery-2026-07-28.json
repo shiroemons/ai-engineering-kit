@@ -1,0 +1,12 @@
+{
+  "id": "mcp-authorization-discovery-2026-07-28",
+  "url": "https://modelcontextprotocol.io/specification/2026-07-28/basic/authorization/authorization-server-discovery.md",
+  "repository_url": "https://github.com/modelcontextprotocol/modelcontextprotocol",
+  "commit_sha": "",
+  "version": "MCP specification 2026-07-28 revision",
+  "retrieved_at": "2026-09-26",
+  "license": "Apache-2.0 or MIT (specification; transition per repository LICENSE)",
+  "trust": "official",
+  "type": "official_docs",
+  "purpose": "RFC 9728 Protected Resource Metadata と Authorization Server Metadata の discovery 手順、well-known の試行順、issuer 一致検証"
+}

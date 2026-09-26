@@ -1,0 +1,79 @@
+{
+  "cases": [
+    {
+      "name": "mcp-authorization-flow",
+      "query": "authorization flow",
+      "expected_ids": ["mcp-authorization"]
+    },
+    {
+      "name": "mcp-protected-resource-metadata",
+      "query": "protected resource metadata",
+      "expected_ids": ["mcp-authorization"]
+    },
+    {
+      "name": "mcp-authorization-server-discovery",
+      "query": "authorization server discovery",
+      "expected_ids": ["mcp-authorization"]
+    },
+    {
+      "name": "mcp-client-id-metadata-documents",
+      "query": "client id metadata documents",
+      "expected_ids": ["mcp-authorization"]
+    },
+    {
+      "name": "mcp-dynamic-client-registration-deprecated",
+      "query": "dynamic client registration deprecated",
+      "expected_ids": ["mcp-authorization"]
+    },
+    {
+      "name": "mcp-pkce-code-challenge",
+      "query": "pkce code challenge",
+      "expected_ids": ["mcp-authorization"]
+    },
+    {
+      "name": "mcp-resource-indicator-audience",
+      "query": "resource indicator audience",
+      "expected_ids": ["mcp-authorization"]
+    },
+    {
+      "name": "mcp-step-up-authorization-scope",
+      "query": "step-up authorization scope",
+      "expected_ids": ["mcp-authorization"]
+    },
+    {
+      "name": "mcp-www-authenticate-challenge",
+      "query": "www-authenticate challenge",
+      "expected_ids": ["mcp-authorization"]
+    },
+    {
+      "name": "mcp-token-passthrough",
+      "query": "token passthrough",
+      "expected_ids": ["mcp-authorization"]
+    },
+    {
+      "name": "mcp-iss-mix-up-validation",
+      "query": "iss mix-up",
+      "expected_ids": ["mcp-authorization"]
+    },
+    {
+      "name": "mcp-insufficient-scope-403",
+      "query": "insufficient_scope 403",
+      "expected_ids": ["mcp-authorization"]
+    },
+    {
+      "name": "mcp-confused-deputy-consent",
+      "query": "confused deputy",
+      "expected_ids": ["mcp-authorization"]
+    },
+    {
+      "name": "mcp-refresh-token-offline-access",
+      "query": "offline_access refresh token",
+      "expected_ids": ["mcp-authorization"]
+    },
+    {
+      "name": "mcp-oauth-remote-server",
+      "query": "mcp oauth authorization",
+      "expected_ids": ["mcp-authorization"]
+    }
+  ]
+}
