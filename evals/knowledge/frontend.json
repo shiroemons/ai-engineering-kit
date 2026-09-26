@@ -1,0 +1,34 @@
+{
+  "cases": [
+    {
+      "name": "react-form-validation-error-display",
+      "query": "form validation error display",
+      "expected_ids": ["react-form-validation"]
+    },
+    {
+      "name": "react-aria-invalid-describedby",
+      "query": "aria-invalid aria-describedby",
+      "expected_ids": ["react-form-validation"]
+    },
+    {
+      "name": "react-useactionstate-validation-error",
+      "query": "useActionState validation error",
+      "expected_ids": ["react-form-validation"]
+    },
+    {
+      "name": "react-error-summary-alert",
+      "query": "error summary alert",
+      "expected_ids": ["react-form-validation"]
+    },
+    {
+      "name": "react-formdata-onsubmit-preventdefault",
+      "query": "FormData onSubmit preventDefault",
+      "expected_ids": ["react-form-validation"]
+    },
+    {
+      "name": "react-live-region-polite-assertive",
+      "query": "live region polite assertive",
+      "expected_ids": ["react-form-validation"]
+    }
+  ]
+}

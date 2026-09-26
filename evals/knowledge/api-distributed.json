@@ -1,0 +1,54 @@
+{
+  "cases": [
+    {
+      "name": "http-idempotent-methods-definition",
+      "query": "idempotent methods",
+      "expected_ids": ["http-retry-idempotency"]
+    },
+    {
+      "name": "http-retry-after-semantics",
+      "query": "retry-after delay-seconds",
+      "expected_ids": ["http-retry-idempotency"]
+    },
+    {
+      "name": "http-429-too-many-requests-rfc6585",
+      "query": "429 too many requests",
+      "expected_ids": ["http-retry-idempotency"]
+    },
+    {
+      "name": "http-service-unavailable-retry",
+      "query": "service unavailable retry",
+      "expected_ids": ["http-retry-idempotency"]
+    },
+    {
+      "name": "http-proxy-must-not-retry",
+      "query": "proxy must not automatically retry",
+      "expected_ids": ["http-retry-idempotency"]
+    },
+    {
+      "name": "http-connection-failure-retry",
+      "query": "connection failure retry",
+      "expected_ids": ["http-retry-idempotency"]
+    },
+    {
+      "name": "http-idempotency-key-expired-draft",
+      "query": "idempotency key expired draft",
+      "expected_ids": ["http-retry-idempotency"]
+    },
+    {
+      "name": "http-misdirected-request-retry",
+      "query": "misdirected request",
+      "expected_ids": ["http-retry-idempotency"]
+    },
+    {
+      "name": "http-stripe-idempotency-example",
+      "query": "stripe idempotency",
+      "expected_ids": ["http-retry-idempotency"]
+    },
+    {
+      "name": "http-rate-limiting-retry-after",
+      "query": "rate limiting retry-after",
+      "expected_ids": ["http-retry-idempotency"]
+    }
+  ]
+}
