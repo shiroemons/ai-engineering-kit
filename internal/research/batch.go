@@ -8,6 +8,7 @@ import (
 	"fmt"
 	"io"
 	"maps"
+	"net/url"
 	"os"
 	"os/exec"
 	"path/filepath"
@@ -16,11 +17,14 @@ import (
 	"strings"
 	"sync"
 	"time"
+
+	"github.com/shiroemons/ai-engineering-kit/internal/kb"
 )
 
 type worker struct {
 	Domain             domain
 	Model, Path, Topic string
+	Evidence           string
 	Progress           int
 	Patch              []byte
 	Files              map[string][]byte
@@ -217,10 +221,28 @@ func RunWithProgress(ctx context.Context, root, state string, models []string, d
 				if dry {
 					w.Err = requireClean(workerCtx, w.Path)
 				} else {
-					w.Err = workerReport(Progress{Percent: 15, Domain: w.Domain.ID, DomainName: w.Domain.Name, Topic: w.Topic, Phase: "選定テーマの調査と成果物作成を開始"})
+					w.Err = workerReport(Progress{Percent: 15, Domain: w.Domain.ID, DomainName: w.Domain.Name, Topic: w.Topic, Phase: "選定テーマの一次資料を確認中"})
+					if w.Err == nil {
+						w.Evidence, w.Err = runOpenCodeSourceVerification(workerCtx, w.Path, w.Model, sourceVerificationPrompt(w.Domain, w.Topic), stopBatch, w.Domain, workerReport)
+						if w.Err == nil {
+							w.Evidence, w.Err = validateSourceInventory(w.Evidence)
+						}
+					}
+					if w.Err == nil {
+						w.Err = workerReport(Progress{Percent: 40, Domain: w.Domain.ID, DomainName: w.Domain.Name, Topic: w.Topic, Phase: "一次資料を確認、knowledge 文書を作成中"})
+					}
+					if w.Err == nil {
+						w.Err = runOpenCodeKnowledgeWriting(workerCtx, w.Path, w.Model, knowledgeWritingPrompt(w.Domain, w.Topic, w.Evidence), stopBatch, w.Domain, workerReport)
+						if w.Err == nil {
+							w.Err = knowledgeStage(workerCtx, w.Path, w.Domain)
+						}
+					}
+					if w.Err == nil {
+						w.Err = workerReport(Progress{Percent: 60, Domain: w.Domain.ID, DomainName: w.Domain.Name, Topic: w.Topic, Phase: "knowledge 作成完了、検索 eval と検証を開始"})
+					}
 					if w.Err == nil {
 						var completedTopic string
-						completedTopic, w.Err = runOpenCode(workerCtx, w.Path, w.Model, researchPrompt(w.Domain, w.Topic), stopBatch, w.Domain, workerReport)
+						completedTopic, w.Err = runOpenCode(workerCtx, w.Path, w.Model, evalValidationPrompt(w.Domain, w.Topic), stopBatch, w.Domain, workerReport)
 						if w.Err == nil && !strings.EqualFold(strings.TrimSpace(completedTopic), strings.TrimSpace(w.Topic)) {
 							w.Err = fmt.Errorf("research changed the selected topic: selected %q, completed %q", w.Topic, completedTopic)
 						}
@@ -388,17 +410,137 @@ This is a complete, separate phase. Finish it by emitting exactly one line: TOPI
 `, mode, d.ID, d.Name, strings.Join(d.Technologies, ", "))
 }
 
-func researchPrompt(d domain, topic string) string {
-	return fmt.Sprintf(`PHASE: ARTIFACT_RESEARCH
-Research and update exactly one knowledge document for the already-selected topic below. This topic is fixed: do not reselect, broaden, or replace it. If it cannot be supported by suitable primary sources, report the concrete reason and do not emit TOPIC.
-Assigned domain: %s (%s). Stay within these technologies: %s. Other workers cover other domains; do not change domain. Use config/research.json for source policy. Write evals ONLY to evals/knowledge/%s.json, preserving existing cases. Follow knowledge-researcher artifact, source, and validation instructions.
+func sourceVerificationPrompt(d domain, topic string) string {
+	return fmt.Sprintf(`PHASE: SOURCE_VERIFICATION
+Verify the fixed selected topic below using official primary sources. Do not reselect or broaden it. Do not edit files, write knowledge or evals, or run repository validation in this phase.
+Assigned domain: %s (%s). Stay within these technologies: %s. Follow config/research.json source policy and knowledge-researcher source instructions.
 Selected topic: %s
 
-Progress protocol for this phase:
-- Verify the topic against primary sources before writing, then emit PROGRESS: sources-verified.
-- Emit each remaining milestone only after it is complete: PROGRESS: knowledge-written after the knowledge document is complete; PROGRESS: eval-written after writing search evals; PROGRESS: eval-search-verified after every new query returns the expected ID; PROGRESS: ready-to-validate before final validation.
-- Do not emit TOPIC_SELECTED. Emit TOPIC: %s exactly once, only after required sources are verified, the knowledge document and assigned eval are written, every new eval query returns the expected ID, and final validation passes. If a required step fails, report its concrete reason and do not emit TOPIC.
+Use webfetch to inspect at least two suitable official primary sources. Confirm exact versions and claims. Finish with exactly one line per source in this format: SOURCE: <https URL> | <title and version> | <verified claims>. Then emit PROGRESS: sources-verified as the final line and stop. If adequate sources cannot verify the topic, explain why and do not emit the marker or a topic marker.
+`, d.ID, d.Name, strings.Join(d.Technologies, ", "), topic)
+}
+
+func knowledgeWritingPrompt(d domain, topic, evidence string) string {
+	return fmt.Sprintf(`PHASE: KNOWLEDGE_WRITING
+Write the knowledge document and any required source catalog records for this already-selected, source-verified topic. Do not reselect or broaden it. Do not write evals or run final validation in this phase.
+Assigned domain: %s (%s). Stay within these technologies: %s. Reuse verified catalog records when sufficient; otherwise add only verified records under sources/catalog/. Follow docs/metadata.md and all knowledge-researcher document requirements.
+Selected topic: %s
+Evidence inventory from the preceding verified-source phase:
+%s
+
+Write exactly one knowledge document, keep claims grounded in the inventory, and update retrieval/expiry dates only when sources were rechecked. After the document and source records are saved, emit PROGRESS: knowledge-written as the final line and stop. If the evidence is insufficient, report the concrete gap and do not emit the marker.
+`, d.ID, d.Name, strings.Join(d.Technologies, ", "), topic, evidence)
+}
+
+func evalValidationPrompt(d domain, topic string) string {
+	return fmt.Sprintf(`PHASE: EVAL_AND_VALIDATION
+Finish the assigned research by creating or updating search evals and validating the completed topic. The topic is fixed: do not reselect, broaden, or replace it.
+Assigned domain: %s (%s). Stay within these technologies: %s. Write evals only to evals/knowledge/%s.json and preserve existing cases. Keep changes focused on this topic; make a minimal knowledge or source-catalog correction only if validation identifies an error that blocks completion.
+Selected topic: %s
+
+Run just index after the knowledge document exists. Build eval queries only from words in that document, run every new query with go run ./cmd/kb search "<query>" --json, and ensure each returns the expected document ID. Run just validate as the final check.
+Emit PROGRESS: eval-written after writing evals, PROGRESS: eval-search-verified after all new queries return the expected ID, and PROGRESS: ready-to-validate immediately before final validation. After validation passes, emit TOPIC: %s as the final line. If any required check fails, report the concrete reason and do not emit TOPIC.
 `, d.ID, d.Name, strings.Join(d.Technologies, ", "), d.ID, topic, topic)
+}
+
+func validateSourceInventory(output string) (string, error) {
+	var records []string
+	seen := map[string]bool{}
+	for line := range strings.SplitSeq(output, "\n") {
+		line = strings.TrimSpace(line)
+		value, ok := strings.CutPrefix(line, "SOURCE:")
+		if !ok {
+			continue
+		}
+		if len(line) > 2048 {
+			return "", errors.New("source inventory line exceeds 2 KiB")
+		}
+		fields := strings.SplitN(strings.TrimSpace(value), "|", 3)
+		if len(fields) != 3 || strings.TrimSpace(fields[1]) == "" || strings.TrimSpace(fields[2]) == "" {
+			return "", errors.New("source inventory must include URL, title/version, and verified claims")
+		}
+		sourceURL, err := url.Parse(strings.TrimSpace(fields[0]))
+		if err != nil || sourceURL.Scheme != "https" || sourceURL.Host == "" || sourceURL.User != nil {
+			return "", fmt.Errorf("source inventory contains an invalid HTTPS URL: %q", strings.TrimSpace(fields[0]))
+		}
+		canonicalURL := sourceURL.String()
+		if seen[canonicalURL] {
+			return "", fmt.Errorf("source inventory repeats URL: %s", canonicalURL)
+		}
+		seen[canonicalURL] = true
+		records = append(records, "SOURCE: "+strings.TrimSpace(fields[0])+" | "+strings.TrimSpace(fields[1])+" | "+strings.TrimSpace(fields[2]))
+		if len(records) > 8 {
+			return "", errors.New("source inventory exceeds eight records")
+		}
+	}
+	if len(records) < 2 {
+		return "", errors.New("source verification returned fewer than two usable primary sources")
+	}
+	return strings.Join(records, "\n"), nil
+}
+
+func knowledgeStage(ctx context.Context, root string, d domain) error {
+	status, err := git(ctx, root, "status", "--porcelain=v1", "-z", "--untracked-files=all")
+	if err != nil {
+		return err
+	}
+	knowledgePaths := map[string]bool{}
+	for entry := range bytes.SplitSeq(status, []byte{0}) {
+		if len(entry) == 0 {
+			continue
+		}
+		if len(entry) < 4 || strings.ContainsAny(string(entry[:2]), "DRCUT!") {
+			return errors.New("knowledge phase contains deletion, rename, conflict, or type change")
+		}
+		path := string(entry[3:])
+		if filepath.Clean(path) != path || filepath.IsAbs(path) || strings.Contains(path, "\\") {
+			return errors.New("knowledge phase contains an invalid path")
+		}
+		if strings.HasPrefix(path, "knowledge/") {
+			knowledgePaths[path] = true
+		} else if !strings.HasPrefix(path, "sources/catalog/") {
+			return fmt.Errorf("knowledge phase changed outside knowledge or source catalog: %s", path)
+		}
+	}
+	if len(knowledgePaths) != 1 {
+		return fmt.Errorf("knowledge phase must create or update exactly one document; found %d", len(knowledgePaths))
+	}
+	for path := range knowledgePaths {
+		fullPath := filepath.Join(root, path)
+		resolved, err := filepath.EvalSymlinks(fullPath)
+		if err != nil || resolved != fullPath {
+			return fmt.Errorf("knowledge document must not use symlinks: %s", path)
+		}
+		info, err := os.Stat(fullPath)
+		if err != nil || !info.Mode().IsRegular() || info.Size() > 2<<20 {
+			return fmt.Errorf("knowledge document is not a regular file below 2 MiB: %s", path)
+		}
+		data, err := os.ReadFile(fullPath)
+		if err != nil {
+			return err
+		}
+		if !bytes.HasPrefix(data, []byte("---\n")) {
+			return fmt.Errorf("knowledge document has no JSON front matter: %s", path)
+		}
+		frontMatter, _, ok := bytes.Cut(data[4:], []byte("\n---\n"))
+		if !ok {
+			return fmt.Errorf("knowledge document has unclosed front matter: %s", path)
+		}
+		var metadata kb.Metadata
+		if err := json.Unmarshal(frontMatter, &metadata); err != nil {
+			return fmt.Errorf("knowledge document has invalid JSON front matter: %s: %w", path, err)
+		}
+		if metadata.Kind != "knowledge" || !slices.Contains(metadata.Tags, "research-domain:"+d.ID) || !slices.Contains(d.Technologies, metadata.Technology) {
+			return errors.New("knowledge document metadata does not match its assigned research domain")
+		}
+		for _, tag := range metadata.Tags {
+			if strings.HasPrefix(tag, "research-domain:") && tag != "research-domain:"+d.ID {
+				return errors.New("knowledge document has a conflicting research-domain tag")
+			}
+		}
+		return nil
+	}
+	return errors.New("knowledge-written marker has no knowledge document")
 }
 
 func artifacts(ctx context.Context, root string, d domain) (map[string][]byte, []byte, error) {

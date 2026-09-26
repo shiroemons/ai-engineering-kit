@@ -85,8 +85,12 @@ func TestTopicSelectionDoesNotCompleteResearch(t *testing.T) {
 	e := &events{Cancel: cancel, StopBatch: cancel}
 
 	e.text("TOPIC_SELECTED: react form errors\nPROGRESS: sources-verified\n")
-	if e.Topic != "react form errors" || !e.TopicSelected || e.TopicFinal {
+	if e.Topic != "react form errors" || !e.TopicSelected || e.TopicFinal || !e.SourcesVerified {
 		t.Fatalf("topic selection incorrectly completed research: %+v", e)
+	}
+	e.text("PROGRESS: knowledge-written\n")
+	if !e.KnowledgeWritten {
+		t.Fatalf("knowledge completion milestone was not recorded: %+v", e)
 	}
 
 	e.text("TOPIC: react form errors\n")
@@ -95,16 +99,27 @@ func TestTopicSelectionDoesNotCompleteResearch(t *testing.T) {
 	}
 }
 
-func TestPromptsSeparateTopicSelectionFromArtifactResearch(t *testing.T) {
+func TestPromptsSeparateResearchPhases(t *testing.T) {
 	d := domain{ID: "frontend", Name: "Frontend", Technologies: []string{"react"}}
 	selection := topicSelectionPrompt(d, false)
 	if !strings.Contains(selection, "PHASE: TOPIC_SELECTION") || !strings.Contains(selection, "Do not emit TOPIC or any PROGRESS marker") || !strings.Contains(selection, "Stop after the selected topic") {
 		t.Fatalf("selection phase is not bounded: %s", selection)
 	}
 
-	research := researchPrompt(d, "react controlled form errors")
-	if !strings.Contains(research, "PHASE: ARTIFACT_RESEARCH") || !strings.Contains(research, "Selected topic: react controlled form errors") || !strings.Contains(research, "Do not emit TOPIC_SELECTED") {
-		t.Fatalf("research phase does not preserve the selected topic: %s", research)
+	topic := "react controlled form errors"
+	sources := sourceVerificationPrompt(d, topic)
+	if !strings.Contains(sources, "PHASE: SOURCE_VERIFICATION") || !strings.Contains(sources, "Selected topic: "+topic) || !strings.Contains(sources, "Do not edit files") || !strings.Contains(sources, "PROGRESS: sources-verified") {
+		t.Fatalf("source phase is not bounded to verification: %s", sources)
+	}
+
+	knowledge := knowledgeWritingPrompt(d, topic, "SOURCE: https://example.test/spec")
+	if !strings.Contains(knowledge, "PHASE: KNOWLEDGE_WRITING") || !strings.Contains(knowledge, "Selected topic: "+topic) || !strings.Contains(knowledge, "https://example.test/spec") || !strings.Contains(knowledge, "PROGRESS: knowledge-written") {
+		t.Fatalf("knowledge phase does not receive the verified evidence: %s", knowledge)
+	}
+
+	validation := evalValidationPrompt(d, topic)
+	if !strings.Contains(validation, "PHASE: EVAL_AND_VALIDATION") || !strings.Contains(validation, "Selected topic: "+topic) || !strings.Contains(validation, "evals/knowledge/frontend.json") || !strings.Contains(validation, "Run just validate") {
+		t.Fatalf("final phase does not preserve the topic or assigned eval: %s", validation)
 	}
 }
 
@@ -114,7 +129,7 @@ func TestRunOpenCodeRequiresFinalTopicMarker(t *testing.T) {
 	ctx, cancel := context.WithCancelCause(t.Context())
 	defer cancel(nil)
 
-	_, err := runOpenCode(ctx, root, "opencode/muse", researchPrompt(d, "two research"), cancel, d, nil)
+	_, err := runOpenCode(ctx, root, "opencode/muse", evalValidationPrompt(d, "two research"), cancel, d, nil)
 	if err == nil || !strings.Contains(err.Error(), "without a final TOPIC marker") {
 		t.Fatalf("expected incomplete research error, got %v", err)
 	}

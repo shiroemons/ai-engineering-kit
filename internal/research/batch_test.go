@@ -26,9 +26,14 @@ func TestOpenCodeProcess(t *testing.T) {
 	prompt := os.Args[len(os.Args)-1]
 	domainText, _, _ := strings.Cut(strings.Split(prompt, "Assigned domain: ")[1], " ")
 	mode := os.Getenv("RESEARCH_TEST_MODE")
-	phase := "research"
-	if strings.Contains(prompt, "PHASE: TOPIC_SELECTION") {
+	phase := "final"
+	switch {
+	case strings.Contains(prompt, "PHASE: TOPIC_SELECTION"):
 		phase = "selection"
+	case strings.Contains(prompt, "PHASE: SOURCE_VERIFICATION"):
+		phase = "sources"
+	case strings.Contains(prompt, "PHASE: KNOWLEDGE_WRITING"):
+		phase = "knowledge"
 	}
 	if mode == "rate" {
 		fmt.Println(`{"type":"error","error":{"status":429,"message":"quota exceeded"}}`)
@@ -82,18 +87,29 @@ func TestOpenCodeProcess(t *testing.T) {
 		selected := strings.SplitN(prompt, "Selected topic: ", 2)[1]
 		topic = strings.SplitN(selected, "\n", 2)[0]
 	}
-	if phase == "selection" || mode == "early" {
-		text, err := json.Marshal(map[string]any{
-			"type": "text",
-			"part": map[string]string{"text": "TOPIC_SELECTED: " + topic},
-		})
+	emit := func(text string) {
+		data, err := json.Marshal(map[string]any{"type": "text", "part": map[string]string{"text": text}})
 		if err != nil {
 			panic(err)
 		}
-		fmt.Println(string(text))
+		fmt.Println(string(data))
+	}
+	if phase == "selection" {
+		emit("TOPIC_SELECTED: " + topic)
 		os.Exit(0)
 	}
-	if !strings.Contains(prompt, "DRY RUN:") {
+	if mode == "early" {
+		emit("TOPIC_SELECTED: " + topic)
+		os.Exit(0)
+	}
+	if phase == "sources" {
+		emit("SOURCE: https://pkg.go.dev/context | Go context API | cancellation behavior\nSOURCE: https://go.dev/doc/effective_go | Effective Go | context conventions\nPROGRESS: sources-verified")
+		os.Exit(0)
+	}
+	if phase == "knowledge" {
+		if !strings.Contains(prompt, "https://pkg.go.dev/context") {
+			os.Exit(4)
+		}
 		id := domainText + "-research"
 		meta := kb.Metadata{ID: id, Title: id, Kind: "knowledge", Technology: "go", Version: "Go 1.27.1", Tags: []string{"research-domain:" + domainText}, Sources: []kb.SourceRef{{ID: "go-context-docs", URL: "https://pkg.go.dev/context", Type: "official_docs"}}, RetrievedAt: "2026-09-23", ExpiresAt: "2026-12-22", Trust: "official", Status: "active", Evals: []string{"evals/knowledge/" + domainText + ".json"}}
 		data, err := json.Marshal(meta)
@@ -101,13 +117,6 @@ func TestOpenCodeProcess(t *testing.T) {
 			panic(err)
 		}
 		if err := os.WriteFile("knowledge/go/"+id+".md", []byte("---\n"+string(data)+"\n---\n\n# "+id+"\n\nVerified context behavior.\n"), 0644); err != nil {
-			panic(err)
-		}
-		eval := fmt.Sprintf(`{"cases":[{"name":%q,"query":%q,"expected_ids":[%q]}]}`, id, id, id)
-		if mode == "bad-eval" {
-			eval = `{"cases":[{"name":"missing","query":"nonexistenttoken","expected_ids":["missing"]}]}`
-		}
-		if err := os.WriteFile("evals/knowledge/"+domainText+".json", []byte(eval), 0644); err != nil {
 			panic(err)
 		}
 		if mode == "forbidden" {
@@ -134,13 +143,22 @@ func TestOpenCodeProcess(t *testing.T) {
 				panic(err)
 			}
 		}
+		emit("PROGRESS: knowledge-written")
+		os.Exit(0)
 	}
-	text, err := json.Marshal(map[string]any{"type": "text", "part": map[string]string{"text": "PROGRESS: sources-verified\nTOPIC: " + topic}})
-	if err != nil {
-		panic(err)
+	if phase == "final" {
+		id := domainText + "-research"
+		eval := fmt.Sprintf(`{"cases":[{"name":%q,"query":%q,"expected_ids":[%q]}]}`, id, id, id)
+		if mode == "bad-eval" {
+			eval = `{"cases":[{"name":"missing","query":"nonexistenttoken","expected_ids":["missing"]}]}`
+		}
+		if err := os.WriteFile("evals/knowledge/"+domainText+".json", []byte(eval), 0644); err != nil {
+			panic(err)
+		}
+		emit("PROGRESS: eval-written\nPROGRESS: eval-search-verified\nPROGRESS: ready-to-validate\nTOPIC: " + topic)
+		os.Exit(0)
 	}
-	fmt.Println(string(text))
-	os.Exit(0)
+	panic("unknown test prompt phase")
 }
 
 func fixture(t *testing.T, mode string) (string, string) {
@@ -196,6 +214,24 @@ func writeFile(t *testing.T, path string, data []byte, mode os.FileMode) {
 	}
 }
 
+func TestValidateSourceInventory(t *testing.T) {
+	valid := "SOURCE: https://example.test/spec | Spec 1.0 | Defines the request contract\nSOURCE: https://docs.example.test/api | API docs 2.0 | Documents the implementation behavior"
+	got, err := validateSourceInventory(valid)
+	if err != nil || strings.Count(got, "SOURCE:") != 2 {
+		t.Fatalf("valid source inventory rejected: %q %v", got, err)
+	}
+	for _, invalid := range []string{
+		"SOURCE: https://example.test/spec | Spec 1.0 | One source is insufficient",
+		"SOURCE: http://example.test/spec | Spec 1.0 | Insecure scheme\nSOURCE: https://docs.example.test/api | API 2.0 | Claims",
+		"SOURCE: https://example.test/spec | Spec 1.0 | Claims\nSOURCE: https://example.test/spec | Spec 1.0 | Duplicate",
+		"SOURCE: https://example.test/spec | Spec 1.0\nSOURCE: https://docs.example.test/api | API 2.0 | Claims",
+	} {
+		if _, err := validateSourceInventory(invalid); err == nil {
+			t.Fatalf("invalid source inventory accepted: %q", invalid)
+		}
+	}
+}
+
 func TestParallelResearchAndIsolation(t *testing.T) {
 	root, state := fixture(t, "parallel")
 	var out bytes.Buffer
@@ -209,7 +245,7 @@ func TestParallelResearchAndIsolation(t *testing.T) {
 		if _, err := os.Stat(filepath.Join(root, "knowledge/go/"+id+"-research.md")); err != nil {
 			t.Fatal(err)
 		}
-		for _, phase := range []string{"selection", "research"} {
+		for _, phase := range []string{"selection", "sources", "knowledge", "final"} {
 			if _, err := os.Stat(filepath.Join(state, id+"."+phase)); err != nil {
 				t.Fatalf("worker %s did not complete the %s phase: %v", id, phase, err)
 			}

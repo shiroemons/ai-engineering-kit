@@ -18,17 +18,20 @@ var errRateLimit = errors.New("provider rate or quota limit; batch stopped")
 // OpenCode can retry internally for a long time. Inspect error events as they
 // arrive, and kill the entire standalone server group on cancellation.
 type events struct {
-	pending       []byte
-	Topic         string
-	TopicSelected bool
-	TopicFinal    bool
-	Err           error
-	Cancel        context.CancelCauseFunc
-	StopBatch     context.CancelCauseFunc
-	Domain        domain
-	Report        ProgressReporter
-	lastProgress  string
-	textPending   string
+	pending          []byte
+	textOutput       bytes.Buffer
+	Topic            string
+	TopicSelected    bool
+	TopicFinal       bool
+	SourcesVerified  bool
+	KnowledgeWritten bool
+	Err              error
+	Cancel           context.CancelCauseFunc
+	StopBatch        context.CancelCauseFunc
+	Domain           domain
+	Report           ProgressReporter
+	lastProgress     string
+	textPending      string
 }
 
 func (e *events) Write(p []byte) (int, error) {
@@ -80,6 +83,13 @@ func (e *events) line(line []byte) {
 }
 
 func (e *events) text(text string) {
+	if e.textOutput.Len()+len(text) > 32<<10 {
+		e.Err = errors.New("OpenCode text output exceeds 32 KiB")
+		e.Cancel(e.Err)
+		e.StopBatch(e.Err)
+		return
+	}
+	_, _ = e.textOutput.WriteString(text)
 	combined := e.textPending + text
 	lines := strings.Split(combined, "\n")
 	for _, line := range lines[:len(lines)-1] {
@@ -131,6 +141,12 @@ func (e *events) textLine(line string) {
 		return
 	}
 	e.lastProgress = marker
+	switch marker {
+	case "sources-verified":
+		e.SourcesVerified = true
+	case "knowledge-written":
+		e.KnowledgeWritten = true
+	}
 	e.publish(percent, phase)
 }
 
@@ -170,14 +186,40 @@ func (e *events) publish(percent int, phase string) {
 }
 
 func runOpenCode(ctx context.Context, root, model, prompt string, stopBatch context.CancelCauseFunc, d domain, report ProgressReporter) (string, error) {
-	return runOpenCodePhase(ctx, root, model, prompt, stopBatch, d, report, false)
+	result, err := runOpenCodePhase(ctx, root, model, prompt, stopBatch, d, report, completeResearch)
+	return result.Topic, err
 }
 
 func runOpenCodeTopicSelection(ctx context.Context, root, model, prompt string, stopBatch context.CancelCauseFunc, d domain, report ProgressReporter) (string, error) {
-	return runOpenCodePhase(ctx, root, model, prompt, stopBatch, d, report, true)
+	result, err := runOpenCodePhase(ctx, root, model, prompt, stopBatch, d, report, completeTopicSelection)
+	return result.Topic, err
 }
 
-func runOpenCodePhase(ctx context.Context, root, model, prompt string, stopBatch context.CancelCauseFunc, d domain, report ProgressReporter, topicSelection bool) (string, error) {
+func runOpenCodeSourceVerification(ctx context.Context, root, model, prompt string, stopBatch context.CancelCauseFunc, d domain, report ProgressReporter) (string, error) {
+	result, err := runOpenCodePhase(ctx, root, model, prompt, stopBatch, d, report, completeSourceVerification)
+	return result.Text, err
+}
+
+func runOpenCodeKnowledgeWriting(ctx context.Context, root, model, prompt string, stopBatch context.CancelCauseFunc, d domain, report ProgressReporter) error {
+	_, err := runOpenCodePhase(ctx, root, model, prompt, stopBatch, d, report, completeKnowledgeWriting)
+	return err
+}
+
+type phaseCompletion uint8
+
+const (
+	completeTopicSelection phaseCompletion = iota
+	completeSourceVerification
+	completeKnowledgeWriting
+	completeResearch
+)
+
+type modelOutput struct {
+	Topic string
+	Text  string
+}
+
+func runOpenCodePhase(ctx context.Context, root, model, prompt string, stopBatch context.CancelCauseFunc, d domain, report ProgressReporter, completion phaseCompletion) (modelOutput, error) {
 	ctx, cancel := context.WithCancelCause(ctx)
 	defer cancel(nil)
 	e := &events{Cancel: cancel, StopBatch: stopBatch, Domain: d, Report: report}
@@ -196,30 +238,47 @@ func runOpenCodePhase(ctx context.Context, root, model, prompt string, stopBatch
 		e.textLine(e.textPending)
 	}
 	if e.Err != nil {
-		return "", e.Err
+		return modelOutput{}, e.Err
 	}
 	if ctx.Err() != nil {
-		return "", context.Cause(ctx)
+		return modelOutput{}, context.Cause(ctx)
 	}
 	if err != nil {
-		return "", fmt.Errorf("OpenCode process: %w", err)
+		return modelOutput{}, fmt.Errorf("OpenCode process: %w", err)
 	}
-	if topicSelection {
+	switch completion {
+	case completeTopicSelection:
 		if e.TopicFinal {
-			return "", errors.New("OpenCode emitted a final TOPIC marker during topic selection")
+			return modelOutput{}, errors.New("OpenCode emitted a final TOPIC marker during topic selection")
 		}
 		if !e.TopicSelected {
-			return "", errors.New("OpenCode returned no TOPIC_SELECTED marker")
+			return modelOutput{}, errors.New("OpenCode returned no TOPIC_SELECTED marker")
 		}
-		return e.Topic, nil
-	}
-	if !e.TopicFinal {
-		if e.TopicSelected {
-			return "", errors.New("OpenCode stopped after topic selection without a final TOPIC marker")
+	case completeSourceVerification:
+		if e.TopicSelected || e.TopicFinal {
+			return modelOutput{}, errors.New("OpenCode emitted a topic completion marker during source verification")
 		}
-		return "", errors.New("OpenCode returned no final TOPIC marker")
+		if !e.SourcesVerified {
+			return modelOutput{}, errors.New("OpenCode returned without the sources-verified milestone")
+		}
+	case completeKnowledgeWriting:
+		if e.TopicSelected || e.TopicFinal {
+			return modelOutput{}, errors.New("OpenCode emitted a topic completion marker during knowledge writing")
+		}
+		if !e.KnowledgeWritten {
+			return modelOutput{}, errors.New("OpenCode returned without the knowledge-written milestone")
+		}
+	case completeResearch:
+		if !e.TopicFinal {
+			if e.TopicSelected {
+				return modelOutput{}, errors.New("OpenCode stopped after topic selection without a final TOPIC marker")
+			}
+			return modelOutput{}, errors.New("OpenCode returned no final TOPIC marker")
+		}
+	default:
+		return modelOutput{}, errors.New("unknown OpenCode completion phase")
 	}
-	return e.Topic, nil
+	return modelOutput{Topic: e.Topic, Text: e.textOutput.String()}, nil
 }
 
 func progressMilestone(marker string) (int, string, bool) {
