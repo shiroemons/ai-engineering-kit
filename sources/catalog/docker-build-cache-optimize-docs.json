@@ -1,0 +1,12 @@
+{
+  "id": "docker-build-cache-optimize-docs",
+  "url": "https://docs.docker.com/build/cache/optimize/",
+  "repository_url": "",
+  "commit_sha": "",
+  "version": "Docker Docs Build pages (no page version label; cache mount syntax type=cache,target=...)",
+  "retrieved_at": "2026-09-26",
+  "license": "Docker documentation terms (no open license stated on the retrieved page)",
+  "trust": "official",
+  "type": "official_docs",
+  "purpose": "cache mount（type=cache,target=... のビルド間保持、npm/Go/apt/pip/cargo/NuGet/composer の用途別パス、apt の sharing=locked）と bind mount の read-only 既定・非保持、cache 内容を best-effort と扱う注意を確認する"
+}
