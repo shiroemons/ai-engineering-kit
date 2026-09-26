@@ -29,6 +29,26 @@
       "name": "postgres-bitmap-heap-scan",
       "query": "bitmap heap scan",
       "expected_ids": ["postgres-index-explain"]
+    },
+    {
+      "name": "redis-maxmemory-eviction-cache",
+      "query": "maxmemory eviction cache",
+      "expected_ids": ["redis-eviction-policy-cache"]
+    },
+    {
+      "name": "redis-noeviction-maxmemory-policy",
+      "query": "noeviction maxmemory-policy",
+      "expected_ids": ["redis-eviction-policy-cache"]
+    },
+    {
+      "name": "redis-volatile-ttl-expire",
+      "query": "volatile-ttl expire",
+      "expected_ids": ["redis-eviction-policy-cache"]
+    },
+    {
+      "name": "redis-allkeys-lru-cache",
+      "query": "allkeys-lru cache",
+      "expected_ids": ["redis-eviction-policy-cache"]
     }
   ]
 }
