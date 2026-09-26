@@ -1,6 +1,6 @@
 {
-  "id": "go-synctest-docs",
-  "url": "https://pkg.go.dev/testing/synctest",
+  "id": "go-httptest-docs",
+  "url": "https://pkg.go.dev/net/http/httptest",
   "repository_url": "https://github.com/golang/go",
   "commit_sha": "",
   "version": "go1.27.1 (retrieved page label; not a latest-version claim)",
@@ -8,5 +8,5 @@
   "license": "BSD-3-Clause",
   "trust": "official",
   "type": "official_docs",
-  "purpose": "仮想時計と待機状態を使い、キャンセル・期限・並行性のテストを決定的に実行する"
+  "purpose": "HTTP の end-to-end テスト用サーバを in-memory ネットワークで構成し、synctest bubble の外部 I/O を避ける契約を確認する"
 }

@@ -144,6 +144,41 @@
       "name": "http-server-godebug-legacy-mux",
       "query": "godebug httpmuxgo121",
       "expected_ids": ["go-http-server"]
+    },
+    {
+      "name": "synctest-bubble-package",
+      "query": "synctest",
+      "expected_ids": ["go-synctest"]
+    },
+    {
+      "name": "synctest-durably-blocked",
+      "query": "durably blocked",
+      "expected_ids": ["go-synctest"]
+    },
+    {
+      "name": "synctest-bubble-clock",
+      "query": "bubble clock",
+      "expected_ids": ["go-synctest"]
+    },
+    {
+      "name": "synctest-deterministic-virtual-clock",
+      "query": "deterministic test virtual clock",
+      "expected_ids": ["go-synctest"]
+    },
+    {
+      "name": "synctest-httptest-in-memory-network",
+      "query": "in-memory network test server",
+      "expected_ids": ["go-synctest"]
+    },
+    {
+      "name": "synctest-sleep-settle",
+      "query": "wait sleep settle",
+      "expected_ids": ["go-synctest"]
+    },
+    {
+      "name": "synctest-forbidden-parallel-deadline",
+      "query": "parallel deadline",
+      "expected_ids": ["go-synctest"]
     }
   ]
 }
