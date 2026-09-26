@@ -1,0 +1,12 @@
+{
+  "id": "redis-conf-7-4-maxmemory",
+  "url": "https://raw.githubusercontent.com/redis/redis/7.4.0/redis.conf",
+  "repository_url": "https://github.com/redis/redis",
+  "commit_sha": "",
+  "version": "redis/redis tag 7.4.0 redis.conf example (retrieved 2026-09-26; not a latest-version claim)",
+  "retrieved_at": "2026-09-26",
+  "license": "Redis 7.4 licensing under RSALv2 and SSPLv1 dual terms (verify LICENSE/COPYING at tag 7.4.0 before reuse)",
+  "trust": "official",
+  "type": "official_docs",
+  "purpose": "maxmemory が使用量上限（byte）を定めること、上限到達時に maxmemory-policy に従って key を除去すること、noeviction 時または除去可能 key がない時はメモリを使う書き込み（SET・LPUSH 等）が error になり GET のような read-only は動き続けることを確認する"
+}

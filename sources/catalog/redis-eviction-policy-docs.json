@@ -1,0 +1,12 @@
+{
+  "id": "redis-eviction-policy-docs",
+  "url": "https://redis.io/docs/latest/operate/rs/databases/memory-performance/eviction-policy/",
+  "repository_url": "",
+  "commit_sha": "",
+  "version": "Redis official docs latest label eviction-policy page (retrieved 2026-09-26; not a latest-version claim)",
+  "retrieved_at": "2026-09-26",
+  "license": "Redis documentation terms (no open license stated on the retrieved page)",
+  "trust": "official",
+  "type": "official_docs",
+  "purpose": "cache 用の eviction policy 群（noeviction / allkeys-lru / allkeys-lfu / allkeys-random / volatile-lru / volatile-lfu / volatile-random / volatile-ttl と Enterprise LRM 系の存在）、volatile-* が expire 設定済み key のみを対象にすること、volatile-ttl が残り TTL 最短を選ぶこと、ページ記載の既定（standard volatile-lru / Active-Active noeviction）と OSS redis.conf の既定は別確認が必要なことを確認する"
+}
