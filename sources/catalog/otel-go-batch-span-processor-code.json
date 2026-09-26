@@ -1,0 +1,12 @@
+{
+  "id": "otel-go-batch-span-processor-code",
+  "url": "https://github.com/open-telemetry/opentelemetry-go/blob/sdk/v1.46.0/sdk/trace/batch_span_processor.go",
+  "repository_url": "https://github.com/open-telemetry/opentelemetry-go",
+  "commit_sha": "",
+  "version": "sdk/v1.46.0 tag-pinned file view",
+  "retrieved_at": "2026-09-26",
+  "license": "Apache-2.0",
+  "trust": "official",
+  "type": "official_docs",
+  "purpose": "sdk/v1.46.0 タグ固定で batch_span_processor.go の実装を確認する（停止時・exporter nil 時の OnEnd ドロップ、非サンプリングスパンの非 enqueue、enqueueDrop の非ブロックドロップと dropped カウンタ、enqueueBlockOnQueueFull のブロック、Shutdown の停止・drain・exporter Shutdown と一度きり実行、ForceFlush のフラッシュマーカーと ExportTimeout 付き exportSpans、BatchTimeout タイマーのリセット、exporter 側のリトライ責務）"
+}

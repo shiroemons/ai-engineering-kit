@@ -1,0 +1,12 @@
+{
+  "id": "otel-go-sdk-trace-docs",
+  "url": "https://pkg.go.dev/go.opentelemetry.io/otel/sdk/trace",
+  "repository_url": "https://github.com/open-telemetry/opentelemetry-go",
+  "commit_sha": "",
+  "version": "sdk/v1.46.0 (package page display version)",
+  "retrieved_at": "2026-09-26",
+  "license": "Apache-2.0",
+  "trust": "official",
+  "type": "official_docs",
+  "purpose": "BatchSpanProcessor の既定値（DefaultMaxQueueSize 2048 / DefaultScheduleDelay 5000ms / DefaultExportTimeout 30000ms / DefaultMaxExportBatchSize 512）、WithMaxQueueSize・WithMaxExportBatchSize・WithBatchTimeout・WithExportTimeout・WithBlocking オプション、キュー満杯時のドロップ既定と BlockOnQueueFull、Shutdown・ForceFlush の context 契約と Shutdown の一度きり実行を確認する"
+}
