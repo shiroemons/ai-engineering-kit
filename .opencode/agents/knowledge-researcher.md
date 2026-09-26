@@ -67,4 +67,6 @@ Write only under knowledge/, sources/catalog/, and evals/knowledge/. Follow docs
 
 For assigned-domain runs, change exactly one knowledge document and write retrieval cases only to evals/knowledge/<assigned-domain-id>.json, preserving its existing cases and matching the search.json schema. Do not edit the shared search.json. Add new source records under unique IDs, reusing existing records unchanged when their verified content is sufficient.
 
+The current full-text search requires every query term to occur in the indexed document (AND matching with substring checks). Build eval queries from words actually present in the final title, tags, or body; do not rely on synonyms or translated terms absent from the document. Run every new query with `go run ./cmd/kb search "<query>" --json` after writing the document, and adjust it until the expected document ID is returned. `just validate` is the final check, not a substitute for checking each query.
+
 Run `just validate` before finishing a research run. If verification fails or sources are weak, report the reason and stop. End with `TOPIC: <technology and topic>` on its own line and a short summary of source URLs, files changed, and any unverified questions.

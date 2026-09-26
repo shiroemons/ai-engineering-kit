@@ -165,9 +165,13 @@ func validateEvals(ctx context.Context, root string, r *kb.Repository) error {
 			if err != nil {
 				return err
 			}
+			matchedIDs := make([]string, 0, len(results))
+			for _, result := range results {
+				matchedIDs = append(matchedIDs, result.ID)
+			}
 			for _, id := range c.ExpectedIDs {
 				if !slices.ContainsFunc(results, func(result kb.Result) bool { return result.ID == id }) {
-					return fmt.Errorf("eval %s: expected %s not found", c.Name, id)
+					return fmt.Errorf("eval %s query %q: expected ID %q not found; every query term must occur in the target document (matched IDs: %s)", c.Name, c.Query, id, strings.Join(matchedIDs, ", "))
 				}
 			}
 		}

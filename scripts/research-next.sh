@@ -10,11 +10,13 @@ LOG_FILE="$LOG_DIR/research.log"
 ERROR_FILE="$LOG_DIR/research-error.log"
 LOCK_DIR="$LOG_DIR/research.lock"
 [[ "${RESEARCH_CONTINUOUS:-0}" != 1 ]] || LOCK_DIR="$LOG_DIR/research-continuous.lock"
+PROGRESS_FILE="${RESEARCH_PROGRESS_FILE:-}"
 RESEARCH_BRANCH=''
 RUN_WORKTREE=''
 OUTPUT_FILE=''
 PR_BODY_FILE=''
 BATCH_PID=''
+PROGRESS_PID=''
 timestamp() { date '+%Y-%m-%dT%H:%M:%S%z'; }
 log() { printf '%s mode=%s pid=%s %s\n' "$(timestamp)" "${RESEARCH_CONTINUOUS:-0}" "$$" "$*" >> "$LOG_FILE"; }
 fail() {
@@ -24,6 +26,33 @@ fail() {
   printf 'research: %s (details: %s)\n' "$message" "$ERROR_FILE" >&2
   exit 1
 }
+monitor_progress() {
+  local last='' current percent domain_name domain topic phase monitor_sleep=''
+  trap '[[ -z "$monitor_sleep" ]] || kill "$monitor_sleep" 2>/dev/null || true; exit 0' INT TERM
+  while [[ -n "$BATCH_PID" ]] && kill -0 "$BATCH_PID" 2>/dev/null; do
+    current=''
+    if [[ -f "$PROGRESS_FILE" ]]; then
+      current="$(jq -r '[(.percent | tostring), (.domain_name // "-"), (.domain // "-"), (.topic // "テーマ選定中"), (.phase // "-")] | @tsv' "$PROGRESS_FILE" 2>/dev/null)" || current=''
+    fi
+    if [[ -n "$current" && "$current" != "$last" ]]; then
+      IFS=$'\t' read -r percent domain_name domain topic phase <<< "$current"
+      printf '調査進捗（推定）: %s%% | 領域=%s (%s) | テーマ=%s | 段階=%s\n' \
+        "$percent" "$domain_name" "$domain" "$topic" "$phase"
+      last="$current"
+    fi
+    sleep 2 &
+    monitor_sleep=$!
+    wait "$monitor_sleep" || true
+    monitor_sleep=''
+  done
+}
+stop_progress_monitor() {
+  if [[ -n "$PROGRESS_PID" ]] && kill -0 "$PROGRESS_PID" 2>/dev/null; then
+    kill "$PROGRESS_PID" 2>/dev/null || true
+    wait "$PROGRESS_PID" || true
+  fi
+  PROGRESS_PID=''
+}
 cleanup() {
   local exit_code="$1"
 
@@ -31,6 +60,7 @@ cleanup() {
     kill -TERM "$BATCH_PID"
     wait "$BATCH_PID" || true
   fi
+  stop_progress_monitor
 
   [[ -z "$OUTPUT_FILE" ]] || rm -f "$OUTPUT_FILE"
   [[ -z "$PR_BODY_FILE" ]] || rm -f "$PR_BODY_FILE"
@@ -220,17 +250,25 @@ chmod 600 "$OUTPUT_FILE"
 DRY_FLAG=false
 [[ "${RESEARCH_DRY_RUN:-0}" != 1 ]] || DRY_FLAG=true
 mise exec -- go build -o bin/research-batch ./cmd/research-batch > "$OUTPUT_FILE" 2>&1 || fail 'could not build research coordinator'
+PROGRESS_ARGS=(--progress-file "$PROGRESS_FILE")
 "$ROOT/bin/research-batch" --root "$ROOT" --state-dir "$LOG_DIR" \
+  "${PROGRESS_ARGS[@]}" \
   --dry-run="$DRY_FLAG" --deadline="${RESEARCH_DEADLINE:-0}" "${MODEL_CANDIDATES[@]}" > "$OUTPUT_FILE" 2>&1 &
 BATCH_PID=$!
+if [[ -n "$PROGRESS_FILE" ]]; then
+  monitor_progress &
+  PROGRESS_PID=$!
+fi
 if wait "$BATCH_PID"; then
   BATCH_PID=''
   log 'research batch: passed'
 else
   BATCH_PID=''
   sed -n '1,80p' "$OUTPUT_FILE" >> "$ERROR_FILE"
-  fail "research batch failed; inspect retained worktrees under $BASE_ROOT/.workbench/repositories/research"
+  sed -n '1,80p' "$OUTPUT_FILE" >&2
+  fail "research batch failed; recovery worktrees: $BASE_ROOT/.workbench/repositories/research"
 fi
+stop_progress_monitor
 sed -n '1,80p' "$OUTPUT_FILE" >> "$LOG_FILE"
 TOPIC="$(sed -n 's/^TOPIC: //p' "$OUTPUT_FILE" | tail -n 1)"
 [[ -n "$TOPIC" ]] || fail 'research batch returned no topic'
@@ -283,7 +321,7 @@ git diff --cached --name-only | while IFS= read -r path; do
 done || fail 'staged path outside allowlist'
 git diff --cached --stat >> "$LOG_FILE"
 git diff --cached --quiet && fail 'no staged research change'
-git commit -m "docs: 自動リサーチ結果を更新" >/dev/null 2>&1 || fail 'research commit failed'
+git commit -m "docs: ${TOPIC}の根拠と適用条件を記録" -m "一次資料に基づく知識と検索 eval を残し、後続の実装・運用で根拠を再利用できるようにする。" >/dev/null 2>&1 || fail 'research commit failed'
 SHA="$(git rev-parse HEAD)"
 log "commit SHA: $SHA"
 [[ -z "$(git status --porcelain --untracked-files=all)" ]] || fail 'working tree is dirty after commit'

@@ -21,6 +21,7 @@ import (
 type worker struct {
 	Domain             domain
 	Model, Path, Topic string
+	Progress           int
 	Patch              []byte
 	Files              map[string][]byte
 	Err                error
@@ -29,6 +30,22 @@ type worker struct {
 // Run accepts only the model IDs verified by the outer runner's live pricing
 // check. Workers never edit the integration checkout or publish Git changes.
 func Run(ctx context.Context, root, state string, models []string, dry bool, out io.Writer) (resultErr error) {
+	return RunWithProgress(ctx, root, state, models, dry, out, nil)
+}
+
+// RunWithProgress reports fixed research milestones through report. Percentages
+// are estimates until validation and integration are confirmed by the runner.
+func RunWithProgress(ctx context.Context, root, state string, models []string, dry bool, out io.Writer, report ProgressReporter) (resultErr error) {
+	publish := func(progress Progress) error {
+		if report == nil {
+			return nil
+		}
+		progress.UpdatedAt = time.Now().UTC()
+		return report(progress)
+	}
+	if err := publish(Progress{Percent: 1, Phase: "既存知識と調査履歴を確認中"}); err != nil {
+		return err
+	}
 	root, err := filepath.Abs(root)
 	if err != nil {
 		return err
@@ -115,6 +132,11 @@ func Run(ctx context.Context, root, state string, models []string, dry bool, out
 		return errors.New("all research domains are already assigned")
 	}
 	models = models[:len(assigned)]
+	for _, d := range assigned {
+		if err := publish(Progress{Percent: 3, Domain: d.ID, DomainName: d.Name, Topic: "選定中", Phase: "調査領域を決定、テーマを選定中"}); err != nil {
+			return err
+		}
+	}
 	// Use the original repository's ignored workbench even from a worktree.
 	common, err := git(ctx, root, "rev-parse", "--path-format=absolute", "--git-common-dir")
 	if err != nil {
@@ -179,12 +201,30 @@ func Run(ctx context.Context, root, state string, models []string, dry bool, out
 			w := &workers[i]
 			workerCtx, cancel := context.WithTimeout(batchCtx, time.Duration(c.Parallel.TimeoutMinutes)*time.Minute)
 			defer cancel()
-			w.Topic, w.Err = runOpenCode(workerCtx, w.Path, w.Model, prompt(w.Domain, dry), stopBatch)
+			w.Progress = 3
+			workerReport := func(progress Progress) error {
+				if progress.Percent < w.Progress {
+					return nil
+				}
+				w.Progress = progress.Percent
+				return publish(progress)
+			}
+			w.Topic, w.Err = runOpenCode(workerCtx, w.Path, w.Model, prompt(w.Domain, dry), stopBatch, w.Domain, workerReport)
 			if w.Err == nil {
 				if dry {
 					w.Err = requireClean(workerCtx, w.Path)
 				} else {
-					w.Files, w.Patch, w.Err = artifacts(workerCtx, w.Path, w.Domain)
+					w.Err = workerReport(Progress{Percent: 92, Domain: w.Domain.ID, DomainName: w.Domain.Name, Topic: w.Topic, Phase: "成果物と検索 eval を検証中"})
+					if w.Err == nil {
+						w.Files, w.Patch, w.Err = artifacts(workerCtx, w.Path, w.Domain)
+					}
+				}
+				if w.Err == nil {
+					phase := "検索 eval と成果物の検証を通過"
+					if dry {
+						phase = "dry run のテーマ選定を確認"
+					}
+					w.Err = workerReport(Progress{Percent: 95, Domain: w.Domain.ID, DomainName: w.Domain.Name, Topic: w.Topic, Phase: phase})
 				}
 			}
 		})
@@ -220,6 +260,9 @@ func Run(ctx context.Context, root, state string, models []string, dry bool, out
 		}
 		if w.Err != nil {
 			partial = true
+			if err := publish(Progress{Percent: w.Progress, Domain: w.Domain.ID, DomainName: w.Domain.Name, Topic: w.Topic, Phase: "検証に失敗、成果を保留", Error: w.Err.Error()}); err != nil {
+				return errors.Join(w.Err, err)
+			}
 			if _, err := fmt.Fprintf(out, "worker failed: model=%s domain=%s reason=%v recovery=%s\n", w.Model, w.Domain.ID, w.Err, w.Path); err != nil {
 				return err
 			}
@@ -230,6 +273,9 @@ func Run(ctx context.Context, root, state string, models []string, dry bool, out
 			return err
 		}
 		maps.Copy(accepted, w.Files)
+		if err := publish(Progress{Percent: 96, Domain: w.Domain.ID, DomainName: w.Domain.Name, Topic: w.Topic, Phase: "候補成果の統合可否を確認"}); err != nil {
+			return err
+		}
 	}
 	if len(topics) == 0 {
 		return errors.New("no worker produced valid research; worktrees preserved")
@@ -250,6 +296,13 @@ func Run(ctx context.Context, root, state string, models []string, dry bool, out
 		if err := applyAccepted(ctx, root, batch, base, accepted); err != nil {
 			return err
 		}
+	}
+	phase := "検証済み成果を統合"
+	if dry {
+		phase = "dry run の成果を確認"
+	}
+	if err := publish(Progress{Percent: 98, Domain: assigned[0].ID, DomainName: assigned[0].Name, Topic: strings.Join(topics, " / "), Phase: phase}); err != nil {
+		return err
 	}
 	for i := range workers {
 		w := &workers[i]
@@ -288,7 +341,14 @@ func Run(ctx context.Context, root, state string, models []string, dry bool, out
 		}
 	}
 	_, err = fmt.Fprintln(out, "TOPIC:", strings.Join(topics, " / "))
-	return err
+	if err != nil {
+		return err
+	}
+	phase = "調査成果を統合"
+	if dry {
+		phase = "dry run のテーマ選定を完了"
+	}
+	return publish(Progress{Percent: 100, Domain: assigned[0].ID, DomainName: assigned[0].Name, Topic: strings.Join(topics, " / "), Phase: phase})
 }
 
 func requireClean(ctx context.Context, root string) error {
@@ -307,7 +367,7 @@ func prompt(d domain, dry bool) string {
 	if dry {
 		mode = "DRY RUN: select a topic only. Do not edit files. Do not perform research or write artifacts."
 	}
-	return fmt.Sprintf("%s\nAssigned domain: %s (%s). Stay within these technologies: %s. Other workers cover other domains; do not change domain. Use config/research.json for sources and selection within this domain. Write evals ONLY to evals/knowledge/%s.json, preserving existing cases. Follow knowledge-researcher validation and source instructions. Finish with TOPIC: <technology and topic> on its own line.", mode, d.ID, d.Name, strings.Join(d.Technologies, ", "), d.ID)
+	return fmt.Sprintf("%s\nAssigned domain: %s (%s). Stay within these technologies: %s. Other workers cover other domains; do not change domain. Use config/research.json for sources and selection within this domain. Write evals ONLY to evals/knowledge/%s.json, preserving existing cases. Follow knowledge-researcher validation and source instructions.\nFor continuous progress reporting, after choosing a topic immediately emit `TOPIC: <technology and topic>` and `PROGRESS: topic-selected` on separate lines. Emit these exact milestone lines only after each milestone is complete: `PROGRESS: sources-verified` after checking claims against primary sources; `PROGRESS: knowledge-written` after the knowledge document is complete; `PROGRESS: eval-written` after writing search evals; `PROGRESS: eval-search-verified` after every new query returns the expected ID; `PROGRESS: ready-to-validate` before final validation. Do not claim a milestone early. End with TOPIC: <technology and topic> on its own line.", mode, d.ID, d.Name, strings.Join(d.Technologies, ", "), d.ID)
 }
 
 func artifacts(ctx context.Context, root string, d domain) (map[string][]byte, []byte, error) {
