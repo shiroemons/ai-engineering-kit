@@ -1,0 +1,34 @@
+{
+  "cases": [
+    {
+      "name": "postgres-index-btree-default",
+      "query": "postgres index B-tree",
+      "expected_ids": ["postgres-index-explain"]
+    },
+    {
+      "name": "postgres-gin-array-index",
+      "query": "GIN array index",
+      "expected_ids": ["postgres-index-explain"]
+    },
+    {
+      "name": "postgres-brin-block-range",
+      "query": "BRIN block range",
+      "expected_ids": ["postgres-index-explain"]
+    },
+    {
+      "name": "postgres-create-index-concurrently",
+      "query": "CREATE INDEX CONCURRENTLY",
+      "expected_ids": ["postgres-index-explain"]
+    },
+    {
+      "name": "postgres-explain-analyze-buffers",
+      "query": "EXPLAIN ANALYZE buffers",
+      "expected_ids": ["postgres-index-explain"]
+    },
+    {
+      "name": "postgres-bitmap-heap-scan",
+      "query": "bitmap heap scan",
+      "expected_ids": ["postgres-index-explain"]
+    }
+  ]
+}

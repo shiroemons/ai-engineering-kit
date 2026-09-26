@@ -1,0 +1,12 @@
+{
+  "id": "postgres-create-index-docs",
+  "url": "https://www.postgresql.org/docs/current/sql-createindex.html",
+  "repository_url": "",
+  "commit_sha": "",
+  "version": "PostgreSQL 18.6 (retrieved page label; not a latest-version claim)",
+  "retrieved_at": "2026-09-26",
+  "license": "PostgreSQL Licence",
+  "trust": "official",
+  "type": "official_docs",
+  "purpose": "USING method の既定 btree、CONCURRENTLY の二回スキャン・待機・制約（transaction block 不可、同時一本、INVALID 残存時の復旧）を確認する"
+}
