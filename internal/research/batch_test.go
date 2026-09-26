@@ -70,7 +70,18 @@ func TestOpenCodeProcess(t *testing.T) {
 	if mode == "partial" && domainText == "three" {
 		os.Exit(1)
 	}
-	if !strings.Contains(prompt, "DRY RUN") {
+	if mode == "early" {
+		text, err := json.Marshal(map[string]any{
+			"type": "text",
+			"part": map[string]string{"text": "TOPIC_SELECTED: " + domainText + " research\nPROGRESS: topic-selected"},
+		})
+		if err != nil {
+			panic(err)
+		}
+		fmt.Println(string(text))
+		os.Exit(0)
+	}
+	if !strings.HasPrefix(prompt, "DRY RUN:") {
 		id := domainText + "-research"
 		meta := kb.Metadata{ID: id, Title: id, Kind: "knowledge", Technology: "go", Version: "Go 1.27.1", Tags: []string{"research-domain:" + domainText}, Sources: []kb.SourceRef{{ID: "go-context-docs", URL: "https://pkg.go.dev/context", Type: "official_docs"}}, RetrievedAt: "2026-09-23", ExpiresAt: "2026-12-22", Trust: "official", Status: "active", Evals: []string{"evals/knowledge/" + domainText + ".json"}}
 		data, err := json.Marshal(meta)
@@ -112,7 +123,7 @@ func TestOpenCodeProcess(t *testing.T) {
 			}
 		}
 	}
-	text, err := json.Marshal(map[string]any{"type": "text", "part": map[string]string{"text": "TOPIC: " + domainText + " research"}})
+	text, err := json.Marshal(map[string]any{"type": "text", "part": map[string]string{"text": "TOPIC_SELECTED: " + domainText + " research\nPROGRESS: topic-selected\nTOPIC: " + domainText + " research"}})
 	if err != nil {
 		panic(err)
 	}

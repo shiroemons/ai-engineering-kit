@@ -68,7 +68,7 @@ func TestEventsIgnoreToolTextAndRecognizeProviderErrors(t *testing.T) {
 			t.Fatal(err)
 		}
 	}
-	if e.Topic != "actual topic" || ctx.Err() != nil {
+	if e.Topic != "actual topic" || !e.TopicFinal || ctx.Err() != nil {
 		t.Fatalf("%+v", e)
 	}
 	if _, err := e.Write([]byte(`{"type":"error","error":{"status":429}}` + "\n")); err != nil {
@@ -76,6 +76,34 @@ func TestEventsIgnoreToolTextAndRecognizeProviderErrors(t *testing.T) {
 	}
 	if !errors.Is(context.Cause(ctx), errRateLimit) {
 		t.Fatal("rate limit not propagated")
+	}
+}
+
+func TestTopicSelectionDoesNotCompleteResearch(t *testing.T) {
+	_, cancel := context.WithCancelCause(t.Context())
+	defer cancel(nil)
+	e := &events{Cancel: cancel, StopBatch: cancel}
+
+	e.text("TOPIC_SELECTED: react form errors\nPROGRESS: topic-selected\n")
+	if e.Topic != "react form errors" || e.TopicFinal {
+		t.Fatalf("topic selection incorrectly completed research: %+v", e)
+	}
+
+	e.text("TOPIC: react form errors\n")
+	if e.Topic != "react form errors" || !e.TopicFinal {
+		t.Fatalf("final topic marker was not accepted: %+v", e)
+	}
+}
+
+func TestRunOpenCodeRequiresFinalTopicMarker(t *testing.T) {
+	root, _ := fixture(t, "early")
+	d := domain{ID: "two", Name: "two", Technologies: []string{"go"}}
+	ctx, cancel := context.WithCancelCause(t.Context())
+	defer cancel(nil)
+
+	_, err := runOpenCode(ctx, root, "opencode/muse", prompt(d, false), cancel, d, nil)
+	if err == nil || !strings.Contains(err.Error(), "without a final TOPIC marker") {
+		t.Fatalf("expected incomplete research error, got %v", err)
 	}
 }
 

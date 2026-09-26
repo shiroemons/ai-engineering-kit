@@ -367,7 +367,15 @@ func prompt(d domain, dry bool) string {
 	if dry {
 		mode = "DRY RUN: select a topic only. Do not edit files. Do not perform research or write artifacts."
 	}
-	return fmt.Sprintf("%s\nAssigned domain: %s (%s). Stay within these technologies: %s. Other workers cover other domains; do not change domain. Use config/research.json for sources and selection within this domain. Write evals ONLY to evals/knowledge/%s.json, preserving existing cases. Follow knowledge-researcher validation and source instructions.\nFor continuous progress reporting, after choosing a topic immediately emit `TOPIC: <technology and topic>` and `PROGRESS: topic-selected` on separate lines. Emit these exact milestone lines only after each milestone is complete: `PROGRESS: sources-verified` after checking claims against primary sources; `PROGRESS: knowledge-written` after the knowledge document is complete; `PROGRESS: eval-written` after writing search evals; `PROGRESS: eval-search-verified` after every new query returns the expected ID; `PROGRESS: ready-to-validate` before final validation. Do not claim a milestone early. End with TOPIC: <technology and topic> on its own line.", mode, d.ID, d.Name, strings.Join(d.Technologies, ", "), d.ID)
+	return fmt.Sprintf(`%s
+Assigned domain: %s (%s). Stay within these technologies: %s. Other workers cover other domains; do not change domain. Use config/research.json for sources and selection within this domain. Write evals ONLY to evals/knowledge/%s.json, preserving existing cases. Follow knowledge-researcher validation and source instructions.
+
+Progress protocol:
+- After choosing a topic, immediately emit TOPIC_SELECTED: <technology and topic> and PROGRESS: topic-selected on separate lines. TOPIC_SELECTED is provisional and never means the work is complete.
+- In a research run, continue after those markers. Emit each milestone only after it is complete: PROGRESS: sources-verified after checking claims against primary sources; PROGRESS: knowledge-written after the knowledge document is complete; PROGRESS: eval-written after writing search evals; PROGRESS: eval-search-verified after every new query returns the expected ID; PROGRESS: ready-to-validate before final validation.
+- Emit TOPIC: <technology and topic> exactly once, only after the required sources are verified, the knowledge document and assigned eval are written, every new eval query returns the expected ID, and final validation passes. If a required step fails, report its concrete reason and do not emit TOPIC.
+- In a DRY RUN, emit TOPIC_SELECTED and PROGRESS: topic-selected, then emit TOPIC and stop without research or edits.
+`, mode, d.ID, d.Name, strings.Join(d.Technologies, ", "), d.ID)
 }
 
 func artifacts(ctx context.Context, root string, d domain) (map[string][]byte, []byte, error) {

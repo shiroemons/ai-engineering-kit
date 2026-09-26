@@ -20,6 +20,7 @@ var errRateLimit = errors.New("provider rate or quota limit; batch stopped")
 type events struct {
 	pending      []byte
 	Topic        string
+	TopicFinal   bool
 	Err          error
 	Cancel       context.CancelCauseFunc
 	StopBatch    context.CancelCauseFunc
@@ -89,16 +90,16 @@ func (e *events) text(text string) {
 	} else {
 		e.textPending = ""
 	}
-	// TOPIC and PROGRESS are short protocol lines. Parse them while they stream,
-	// even if OpenCode has not emitted the trailing newline yet.
+	// Topic and progress markers are short protocol lines. Parse them while
+	// they stream, even if OpenCode has not emitted the trailing newline yet.
 	trimmed := strings.TrimSpace(e.textPending)
-	if strings.HasPrefix(trimmed, "TOPIC:") || strings.HasPrefix(trimmed, "PROGRESS:") {
+	if protocolPrefixCandidate(trimmed) {
 		e.textLine(trimmed)
 	}
 }
 
 func protocolPrefixCandidate(text string) bool {
-	for _, prefix := range []string{"TOPIC:", "PROGRESS:"} {
+	for _, prefix := range []string{"TOPIC_SELECTED:", "TOPIC:", "PROGRESS:"} {
 		if strings.HasPrefix(prefix, text) || strings.HasPrefix(text, prefix) {
 			return true
 		}
@@ -108,21 +109,13 @@ func protocolPrefixCandidate(text string) bool {
 
 func (e *events) textLine(line string) {
 	line = strings.TrimSpace(line)
+	if topic, ok := strings.CutPrefix(line, "TOPIC_SELECTED:"); ok {
+		e.setTopic(topic, false)
+		return
+	}
 	if topic, ok := strings.CutPrefix(line, "TOPIC:"); ok {
-		topic = strings.Map(func(r rune) rune {
-			if unicode.IsControl(r) {
-				return -1
-			}
-			return r
-		}, strings.TrimSpace(topic))
-		runes := []rune(topic)
-		if len(runes) > 120 {
-			topic = string(runes[:120])
-		}
-		if topic != "" && topic != e.Topic {
-			e.Topic = topic
-			e.publish(10, "テーマを選定")
-		}
+		e.setTopic(topic, true)
+		return
 	}
 	marker, ok := strings.CutPrefix(line, "PROGRESS:")
 	if !ok {
@@ -138,6 +131,25 @@ func (e *events) textLine(line string) {
 	}
 	e.lastProgress = marker
 	e.publish(percent, phase)
+}
+
+func (e *events) setTopic(topic string, final bool) {
+	topic = strings.Map(func(r rune) rune {
+		if unicode.IsControl(r) {
+			return -1
+		}
+		return r
+	}, strings.TrimSpace(topic))
+	runes := []rune(topic)
+	if len(runes) > 120 {
+		topic = string(runes[:120])
+	}
+	if topic == "" || (e.TopicFinal && !final) {
+		return
+	}
+	e.Topic = topic
+	e.TopicFinal = final
+	e.publish(10, "テーマを選定")
 }
 
 func (e *events) publish(percent int, phase string) {
@@ -179,8 +191,11 @@ func runOpenCode(ctx context.Context, root, model, prompt string, stopBatch cont
 	if err != nil {
 		return "", fmt.Errorf("OpenCode process: %w", err)
 	}
-	if e.Topic == "" {
-		return "", errors.New("OpenCode returned no TOPIC")
+	if !e.TopicFinal {
+		if e.Topic != "" {
+			return "", errors.New("OpenCode stopped after topic selection without a final TOPIC marker")
+		}
+		return "", errors.New("OpenCode returned no final TOPIC marker")
 	}
 	return e.Topic, nil
 }
