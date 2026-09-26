@@ -19,7 +19,7 @@ func TestCancellationStopsStandaloneChildren(t *testing.T) {
 	done := make(chan error, 1)
 	go func() {
 		d := domain{ID: "two"}
-		_, err := runOpenCode(ctx, root, "opencode/muse", topicSelectionPrompt(d, false), cancel, d, func(Progress) error { return nil })
+		_, err := runOpenCodeTopicSelection(ctx, root, "opencode/muse", topicSelectionPrompt(d, false), cancel, d, func(Progress) error { return nil })
 		done <- err
 	}()
 	var childPID int
@@ -117,21 +117,20 @@ func TestPromptsSeparateResearchPhases(t *testing.T) {
 		t.Fatalf("knowledge phase does not receive the verified evidence: %s", knowledge)
 	}
 
-	validation := evalValidationPrompt(d, topic)
-	if !strings.Contains(validation, "PHASE: EVAL_AND_VALIDATION") || !strings.Contains(validation, "Selected topic: "+topic) || !strings.Contains(validation, "evals/knowledge/frontend.json") || !strings.Contains(validation, "Run just validate") {
-		t.Fatalf("final phase does not preserve the topic or assigned eval: %s", validation)
+	evalWriting := evalWritingPrompt(d, topic)
+	if !strings.Contains(evalWriting, "PHASE: EVAL_WRITING") || !strings.Contains(evalWriting, "Selected topic: "+topic) || !strings.Contains(evalWriting, "evals/knowledge/frontend.json") || !strings.Contains(evalWriting, "runner performs deterministic artifact and eval validation") || strings.Contains(evalWriting, "emit TOPIC:") {
+		t.Fatalf("eval phase does not preserve the topic or delegate completion checks to the runner: %s", evalWriting)
 	}
 }
 
-func TestRunOpenCodeRequiresFinalTopicMarker(t *testing.T) {
-	root, _ := fixture(t, "early")
+func TestRunOpenCodeEvalWritingDoesNotRequireTopicMarker(t *testing.T) {
+	root, _ := fixture(t, "no-final-topic")
 	d := domain{ID: "two", Name: "two", Technologies: []string{"go"}}
 	ctx, cancel := context.WithCancelCause(t.Context())
 	defer cancel(nil)
 
-	_, err := runOpenCode(ctx, root, "opencode/muse", evalValidationPrompt(d, "two research"), cancel, d, nil)
-	if err == nil || !strings.Contains(err.Error(), "without a final TOPIC marker") {
-		t.Fatalf("expected incomplete research error, got %v", err)
+	if err := runOpenCodeEvalWriting(ctx, root, "opencode/muse", evalWritingPrompt(d, "two research"), cancel, d, nil); err != nil {
+		t.Fatalf("eval writing was rejected without a model-authored topic marker: %v", err)
 	}
 }
 

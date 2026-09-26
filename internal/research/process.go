@@ -185,9 +185,9 @@ func (e *events) publish(percent int, phase string) {
 	}
 }
 
-func runOpenCode(ctx context.Context, root, model, prompt string, stopBatch context.CancelCauseFunc, d domain, report ProgressReporter) (string, error) {
-	result, err := runOpenCodePhase(ctx, root, model, prompt, stopBatch, d, report, completeResearch)
-	return result.Topic, err
+func runOpenCodeEvalWriting(ctx context.Context, root, model, prompt string, stopBatch context.CancelCauseFunc, d domain, report ProgressReporter) error {
+	_, err := runOpenCodePhase(ctx, root, model, prompt, stopBatch, d, report, completeEvalWriting)
+	return err
 }
 
 func runOpenCodeTopicSelection(ctx context.Context, root, model, prompt string, stopBatch context.CancelCauseFunc, d domain, report ProgressReporter) (string, error) {
@@ -211,7 +211,7 @@ const (
 	completeTopicSelection phaseCompletion = iota
 	completeSourceVerification
 	completeKnowledgeWriting
-	completeResearch
+	completeEvalWriting
 )
 
 type modelOutput struct {
@@ -268,13 +268,9 @@ func runOpenCodePhase(ctx context.Context, root, model, prompt string, stopBatch
 		if !e.KnowledgeWritten {
 			return modelOutput{}, errors.New("OpenCode returned without the knowledge-written milestone")
 		}
-	case completeResearch:
-		if !e.TopicFinal {
-			if e.TopicSelected {
-				return modelOutput{}, errors.New("OpenCode stopped after topic selection without a final TOPIC marker")
-			}
-			return modelOutput{}, errors.New("OpenCode returned no final TOPIC marker")
-		}
+	case completeEvalWriting:
+		// Artifact and eval checks in the runner decide whether this phase completed.
+		return modelOutput{Text: e.textOutput.String()}, nil
 	default:
 		return modelOutput{}, errors.New("unknown OpenCode completion phase")
 	}

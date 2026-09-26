@@ -147,6 +147,9 @@ func TestOpenCodeProcess(t *testing.T) {
 		os.Exit(0)
 	}
 	if phase == "final" {
+		if mode == "missing-eval" {
+			os.Exit(0)
+		}
 		id := domainText + "-research"
 		eval := fmt.Sprintf(`{"cases":[{"name":%q,"query":%q,"expected_ids":[%q]}]}`, id, id, id)
 		if mode == "bad-eval" {
@@ -155,7 +158,11 @@ func TestOpenCodeProcess(t *testing.T) {
 		if err := os.WriteFile("evals/knowledge/"+domainText+".json", []byte(eval), 0644); err != nil {
 			panic(err)
 		}
-		emit("PROGRESS: eval-written\nPROGRESS: eval-search-verified\nPROGRESS: ready-to-validate\nTOPIC: " + topic)
+		if mode == "no-final-topic" {
+			emit("PROGRESS: eval-written\nPROGRESS: eval-search-verified")
+		} else {
+			emit("PROGRESS: eval-written\nPROGRESS: eval-search-verified\nPROGRESS: ready-to-validate\nTOPIC: " + topic)
+		}
 		os.Exit(0)
 	}
 	panic("unknown test prompt phase")
@@ -260,6 +267,20 @@ func TestParallelResearchAndIsolation(t *testing.T) {
 	}
 }
 
+func TestResearchCompletesWithoutFinalTopicMarker(t *testing.T) {
+	root, _ := fixture(t, "no-final-topic")
+	var out bytes.Buffer
+	if err := Run(t.Context(), root, t.TempDir(), []string{"opencode/muse"}, false, &out); err != nil {
+		t.Fatalf("research failed despite valid artifacts and evals:\n%v\n%s", err, &out)
+	}
+	if !strings.Contains(out.String(), "BATCH: complete") || !strings.Contains(out.String(), "TOPIC: two research") {
+		t.Fatal(out.String())
+	}
+	if _, err := os.Stat(filepath.Join(root, "knowledge/go/two-research.md")); err != nil {
+		t.Fatal(err)
+	}
+}
+
 func TestPartialAndConflictingResults(t *testing.T) {
 	for _, mode := range []string{"partial", "conflict"} {
 		t.Run(mode, func(t *testing.T) {
@@ -285,7 +306,7 @@ func TestPartialAndConflictingResults(t *testing.T) {
 }
 
 func TestInvalidResultsAndCooldown(t *testing.T) {
-	for _, mode := range []string{"forbidden", "bad-eval", "rate"} {
+	for _, mode := range []string{"forbidden", "bad-eval", "missing-eval", "rate"} {
 		t.Run(mode, func(t *testing.T) {
 			root, state := fixture(t, mode)
 			var out bytes.Buffer

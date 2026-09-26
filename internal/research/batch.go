@@ -238,14 +238,10 @@ func RunWithProgress(ctx context.Context, root, state string, models []string, d
 						}
 					}
 					if w.Err == nil {
-						w.Err = workerReport(Progress{Percent: 60, Domain: w.Domain.ID, DomainName: w.Domain.Name, Topic: w.Topic, Phase: "knowledge 作成完了、検索 eval と検証を開始"})
+						w.Err = workerReport(Progress{Percent: 60, Domain: w.Domain.ID, DomainName: w.Domain.Name, Topic: w.Topic, Phase: "knowledge 作成完了、検索 eval を作成中"})
 					}
 					if w.Err == nil {
-						var completedTopic string
-						completedTopic, w.Err = runOpenCode(workerCtx, w.Path, w.Model, evalValidationPrompt(w.Domain, w.Topic), stopBatch, w.Domain, workerReport)
-						if w.Err == nil && !strings.EqualFold(strings.TrimSpace(completedTopic), strings.TrimSpace(w.Topic)) {
-							w.Err = fmt.Errorf("research changed the selected topic: selected %q, completed %q", w.Topic, completedTopic)
-						}
+						w.Err = runOpenCodeEvalWriting(workerCtx, w.Path, w.Model, evalWritingPrompt(w.Domain, w.Topic), stopBatch, w.Domain, workerReport)
 					}
 					if w.Err == nil {
 						w.Err = workerReport(Progress{Percent: 92, Domain: w.Domain.ID, DomainName: w.Domain.Name, Topic: w.Topic, Phase: "成果物と検索 eval を検証中"})
@@ -432,15 +428,15 @@ Write exactly one knowledge document, keep claims grounded in the inventory, and
 `, d.ID, d.Name, strings.Join(d.Technologies, ", "), topic, evidence)
 }
 
-func evalValidationPrompt(d domain, topic string) string {
-	return fmt.Sprintf(`PHASE: EVAL_AND_VALIDATION
-Finish the assigned research by creating or updating search evals and validating the completed topic. The topic is fixed: do not reselect, broaden, or replace it.
+func evalWritingPrompt(d domain, topic string) string {
+	return fmt.Sprintf(`PHASE: EVAL_WRITING
+Create or update search evals for the fixed selected topic. Do not reselect, broaden, or replace it.
 Assigned domain: %s (%s). Stay within these technologies: %s. Write evals only to evals/knowledge/%s.json and preserve existing cases. Keep changes focused on this topic; make a minimal knowledge or source-catalog correction only if validation identifies an error that blocks completion.
 Selected topic: %s
 
-Run just index after the knowledge document exists. Build eval queries only from words in that document, run every new query with go run ./cmd/kb search "<query>" --json, and ensure each returns the expected document ID. Run just validate as the final check.
-Emit PROGRESS: eval-written after writing evals, PROGRESS: eval-search-verified after all new queries return the expected ID, and PROGRESS: ready-to-validate immediately before final validation. After validation passes, emit TOPIC: %s as the final line. If any required check fails, report the concrete reason and do not emit TOPIC.
-`, d.ID, d.Name, strings.Join(d.Technologies, ", "), d.ID, topic, topic)
+Run just index after the knowledge document exists. Build eval queries only from words in that document, run every new query with go run ./cmd/kb search "<query>" --json, and adjust them until each returns the expected document ID. The runner performs deterministic artifact and eval validation after this phase; do not run just validate here.
+You may emit PROGRESS: eval-written after saving evals and PROGRESS: eval-search-verified after the new queries pass. These markers report progress only and are not completion requirements. Do not emit TOPIC or TOPIC_SELECTED. Finish with a short summary of source URLs and files changed.
+`, d.ID, d.Name, strings.Join(d.Technologies, ", "), d.ID, topic)
 }
 
 func validateSourceInventory(output string) (string, error) {
