@@ -74,9 +74,9 @@ bash scripts/install-research-agent.sh --output /tmp/research-preview.plist
 
 Macのスリープ中に複数の予定時刻を過ぎた場合、復帰時の起動は1回にまとめられる。同じ実行モードの重複起動はlockで抑止する。このため1日48件の成果物を保証する設定ではない。スリープ解除やスリープ防止は設定しない。
 
-連続実行は `continuous.hours` の8時間以内で開始・調査を行い、完了後に30秒待って次へ進む。期限に達したworkerは停止する。PRなどの後処理は期限後に終了する場合がある。次のテーマを選ぶ前に、そのPRのマージを最大10分待つ。マージ待ちが続く場合、競合、検証失敗、モデルエラーでは連続実行を終了する。端末で `Ctrl+C` を押すとworkerとその子プロセスを停止する。
+連続実行は `continuous.hours` の8時間以内で開始・調査を行い、完了後に30秒待って次へ進む。期限に達したworkerは停止する。PRなどの後処理は期限後に終了する場合がある。次のテーマを選ぶ前に、そのPRのマージを最大10分待つ。調査に失敗した場合は即時終了せず、`pause_seconds` から最大300秒まで段階的に待って再試行する。調査実行が3回連続で失敗した場合は停止し、成功後は失敗回数と待ち時間を初期化する。プロバイダのcooldown中も同じ間隔で再試行する。設定不備や認証エラー、PRの競合・未マージなど、再試行で解消しない状態では連続実行を終了する。端末で `Ctrl+C` を押すとworkerとその子プロセスを停止する。
 
-停止は `just research-uninstall`、再開は `just research-install`。失敗理由は端末の標準エラーと `~/Library/Logs/ai-engineering-kit/research-error.log` に表示・記録する。`research.log` には実行結果を記録する。繰り返し失敗する場合は停止し、保守者がモデルの利用可否、GitHub接続、作業ツリーを確認する。lock は実行中のプロセスがないことを確認してから除去する。
+停止は `just research-uninstall`、再開は `just research-install`。失敗理由は端末の標準エラーと `~/Library/Logs/ai-engineering-kit/research-error.log` に表示・記録する。`research.log` には実行結果を記録し、`just check` の失敗時は最初の120行も `research-error.log` に保存する。再試行が続く場合はログを確認し、モデルの利用可否、GitHub接続、作業ツリーを調べる。lock は実行中のプロセスがないことを確認してから除去する。
 
 `just research-preflight` は、main・作業ツリー・lock・cooldown・必要コマンド・GitHub CLI認証・モデル一覧・無料料金を確認する。選んだモデルを表示して終了し、調査・worktree作成・fetch・commit・push・PR作成は行わない。モデルへの推論要求は送らないが、一覧と料金の取得には通信する。GitHubへのpush権限や調査の成功までは保証しない。
 

@@ -20,11 +20,12 @@ PROGRESS_PID=''
 timestamp() { date '+%Y-%m-%dT%H:%M:%S%z'; }
 log() { printf '%s mode=%s pid=%s %s\n' "$(timestamp)" "${RESEARCH_CONTINUOUS:-0}" "$$" "$*" >> "$LOG_FILE"; }
 fail() {
-  local message="$*"
-  log "failure: $message"
-  printf '%s %s\n' "$(timestamp)" "$message" >> "$ERROR_FILE"
+  local message="$1"
+  local status="${2:-1}"
+  log "failure (exit $status): $message"
+  printf '%s exit=%s %s\n' "$(timestamp)" "$status" "$message" >> "$ERROR_FILE"
   printf 'research: %s (details: %s)\n' "$message" "$ERROR_FILE" >&2
-  exit 1
+  exit "$status"
 }
 monitor_progress() {
   local last='' current percent domain_name domain topic phase monitor_sleep=''
@@ -90,34 +91,34 @@ printf '%s\n' "$$" > "$LOCK_DIR/pid"
 
 cd "$ROOT"
 log 'start'
-[[ "$(git branch --show-current)" == main ]] || fail 'branch is not main'
-WORKTREE_STATUS="$(git status --porcelain --untracked-files=all)" || fail 'could not inspect working tree'
+[[ "$(git branch --show-current)" == main ]] || fail 'branch is not main' 2
+WORKTREE_STATUS="$(git status --porcelain --untracked-files=all)" || fail 'could not inspect working tree' 2
 if [[ -n "$WORKTREE_STATUS" ]]; then
   log 'working tree changes (first 20 entries):'
   printf '%s\n' "$WORKTREE_STATUS" | sed -n '1,20p' >> "$LOG_FILE"
-  fail 'working tree is dirty; see changed paths in research.log'
+  fail 'working tree is dirty; see changed paths in research.log' 2
 fi
 if [[ -f "$LOG_DIR/cooldown-until" ]]; then
-  read -r COOLDOWN_UNTIL < "$LOG_DIR/cooldown-until" || fail 'invalid cooldown state'
-  [[ "$COOLDOWN_UNTIL" =~ ^[0-9]+$ ]] || fail 'invalid cooldown state'
+  read -r COOLDOWN_UNTIL < "$LOG_DIR/cooldown-until" || fail 'invalid cooldown state' 2
+  [[ "$COOLDOWN_UNTIL" =~ ^[0-9]+$ ]] || fail 'invalid cooldown state' 2
   if [[ "$(date +%s)" -lt "$COOLDOWN_UNTIL" ]]; then
     log "skipped: provider cooldown until $COOLDOWN_UNTIL"
     exit 4
   fi
 fi
-[[ -f "$CONFIG_FILE" ]] || fail 'research.env is missing'
+[[ -f "$CONFIG_FILE" ]] || fail 'research.env is missing' 2
 
 # This local file contains one non-secret assignment, never shell-evaluate it.
 MODEL="$(sed -nE 's/^OPENCODE_RESEARCH_MODEL=([A-Za-z0-9._\/-]+)$/\1/p' "$CONFIG_FILE")"
-[[ -n "$MODEL" && "$(wc -l < "$CONFIG_FILE" | tr -d ' ')" == 1 ]] || fail 'invalid research.env'
-[[ "$MODEL" =~ ^opencode/[A-Za-z0-9._/-]+$ ]] || fail 'configured model must use the opencode provider'
+[[ -n "$MODEL" && "$(wc -l < "$CONFIG_FILE" | tr -d ' ')" == 1 ]] || fail 'invalid research.env' 2
+[[ "$MODEL" =~ ^opencode/[A-Za-z0-9._/-]+$ ]] || fail 'configured model must use the opencode provider' 2
 
 for command in git opencode curl jq just mise; do
-  command -v "$command" >/dev/null || fail "missing command: $command"
+  command -v "$command" >/dev/null || fail "missing command: $command" 2
 done
 if [[ "${RESEARCH_DRY_RUN:-0}" != 1 ]]; then
-  command -v gh >/dev/null || fail 'missing command: gh'
-  GH_PROMPT_DISABLED=1 gh auth status >/dev/null 2>&1 || fail 'GitHub CLI is not authenticated'
+  command -v gh >/dev/null || fail 'missing command: gh' 2
+  GH_PROMPT_DISABLED=1 gh auth status >/dev/null 2>&1 || fail 'GitHub CLI is not authenticated' 2
 fi
 
 # Retry transient discovery failures, then prefer the configured model pair.
@@ -176,14 +177,14 @@ find_model_candidates() {
   MODEL_CANDIDATES=()
   MODEL_CANDIDATE_FOUND=0
   if [[ "${RESEARCH_CONTINUOUS:-0}" == 1 ]]; then
-    preferred="$(jq -er '.continuous.model' "$BASE_ROOT/config/research.json")" || fail 'invalid continuous model'
+    preferred="$(jq -er '.continuous.model' "$BASE_ROOT/config/research.json")" || fail 'invalid continuous model' 2
     if is_verified_free_model "$preferred"; then
       MODEL_CANDIDATES+=("$preferred")
       MODEL_CANDIDATE_FOUND=1
     fi
     return 0
   fi
-  preferred="$(jq -er '.parallel.preferred_models[]' "$BASE_ROOT/config/research.json")" || fail 'invalid preferred models'
+  preferred="$(jq -er '.parallel.preferred_models[]' "$BASE_ROOT/config/research.json")" || fail 'invalid preferred models' 2
   if ! is_verified_free_model "$MODEL"; then
     log "configured model is unavailable or not currently free: $MODEL"
   fi
@@ -249,7 +250,7 @@ chmod 600 "$OUTPUT_FILE"
 
 DRY_FLAG=false
 [[ "${RESEARCH_DRY_RUN:-0}" != 1 ]] || DRY_FLAG=true
-mise exec -- go build -o bin/research-batch ./cmd/research-batch > "$OUTPUT_FILE" 2>&1 || fail 'could not build research coordinator'
+mise exec -- go build -o bin/research-batch ./cmd/research-batch > "$OUTPUT_FILE" 2>&1 || fail 'could not build research coordinator' 2
 PROGRESS_ARGS=(--progress-file "$PROGRESS_FILE")
 "$ROOT/bin/research-batch" --root "$ROOT" --state-dir "$LOG_DIR" \
   "${PROGRESS_ARGS[@]}" \
@@ -308,7 +309,12 @@ mise exec -- just validate >/dev/null 2>&1 || fail 'just validate failed'
 log 'just validate: passed'
 mise exec -- just index >/dev/null 2>&1 || fail 'just index failed'
 log 'just index: passed'
-mise exec -- just check >/dev/null 2>&1 || fail 'just check failed'
+if ! mise exec -- just check > "$OUTPUT_FILE" 2>&1; then
+  printf '%s just check output (first 120 lines):\n' "$(timestamp)" >> "$ERROR_FILE"
+  sed -n '1,120p' "$OUTPUT_FILE" >> "$ERROR_FILE"
+  sed -n '1,120p' "$OUTPUT_FILE" >&2
+  fail 'just check failed'
+fi
 log 'just check: passed'
 check_paths
 
@@ -366,7 +372,7 @@ for attempt in 1 2 3; do
     sleep "$delay"
   fi
 done
-[[ -n "$PR_URL" ]] || fail 'research pull request creation failed after 3 attempts'
+[[ -n "$PR_URL" ]] || fail 'research pull request creation failed after 3 attempts' 2
 log "pull request: $PR_URL"
 
 PR_MERGEABLE=''
@@ -413,10 +419,10 @@ fi
 
 case "$PR_MERGEABLE" in
   CONFLICTING)
-    fail "research PR has conflicts; left open for resolution: $PR_URL"
+    fail "research PR has conflicts; left open for resolution: $PR_URL" 2
     ;;
   UPDATE_FAILED)
-    fail "research PR branch is behind main and could not be updated; left open: $PR_URL"
+    fail "research PR branch is behind main and could not be updated; left open: $PR_URL" 2
     ;;
   *)
     AUTO_MERGE_REQUESTED=0
@@ -440,7 +446,7 @@ case "$PR_MERGEABLE" in
         log "GitHub auto-merge enabled with squash (merge state: ${PR_MERGE_STATE:-unknown})"
       fi
     else
-      fail "GitHub did not accept auto-merge; PR remains open: $PR_URL"
+      fail "GitHub did not accept auto-merge; PR remains open: $PR_URL" 2
     fi
     ;;
 esac
@@ -448,13 +454,13 @@ esac
 if [[ "${RESEARCH_CONTINUOUS:-0}" == 1 && "${PR_STATE:-}" != MERGED ]]; then
   # Wait for this result before selecting another topic from remote main.
   for attempt in {1..60}; do
-    [[ "$(date +%s)" -lt "${RESEARCH_DEADLINE:-0}" ]] || fail "continuous deadline reached; PR retained: $PR_URL"
+    [[ "$(date +%s)" -lt "${RESEARCH_DEADLINE:-0}" ]] || fail "continuous deadline reached; PR retained: $PR_URL" 2
     sleep 10
     PR_STATE="$(GH_PROMPT_DISABLED=1 gh pr view "$PR_URL" --json state --jq '.state' 2>/dev/null || true)"
     [[ "$PR_STATE" != MERGED ]] || break
-    [[ "$PR_STATE" != CLOSED ]] || fail "research PR closed without merge: $PR_URL"
+    [[ "$PR_STATE" != CLOSED ]] || fail "research PR closed without merge: $PR_URL" 2
   done
-  [[ "$PR_STATE" == MERGED ]] || fail "research PR awaiting merge; continuous run stopped: $PR_URL"
+  [[ "$PR_STATE" == MERGED ]] || fail "research PR awaiting merge; continuous run stopped: $PR_URL" 2
 fi
 [[ "$PARTIAL" != 1 ]] || fail 'successful research published; failed worker retained for inspection'
 log 'research completed; original checkout unchanged'

@@ -41,13 +41,15 @@ grep -Fq 'time limit reached' "$TEST_DIR/output"
 [[ ! -d "$RESEARCH_LOG_DIR/research-loop.lock" ]]
 
 rm "$TEST_DIR/time" "$TEST_DIR/runs"
-if MOCK_LOOP_STATUS=1 bash "$LOOP" > "$TEST_DIR/output" 2>&1; then exit 1; fi
-[[ "$(wc -l < "$TEST_DIR/runs" | tr -d ' ')" == 1 ]]
-grep -Fq 'stopped after research failure' "$TEST_DIR/output"
+MOCK_LOOP_STATUS=1 bash "$LOOP" > "$TEST_DIR/output" 2>&1
+[[ "$(wc -l < "$TEST_DIR/runs" | tr -d ' ')" == 2 ]]
+grep -Fq 'retrying in 1s' "$TEST_DIR/output"
+grep -Fq 'time limit reached' "$TEST_DIR/output"
 
 rm "$TEST_DIR/time" "$TEST_DIR/runs"
 MOCK_LOOP_STATUS=4 bash "$LOOP" > "$TEST_DIR/output"
-grep -Fq 'provider cooldown active' "$TEST_DIR/output"
+[[ "$(wc -l < "$TEST_DIR/runs" | tr -d ' ')" == 2 ]]
+grep -Fq 'provider cooldown active; waiting to retry' "$TEST_DIR/output"
 
 rm "$TEST_DIR/time" "$TEST_DIR/runs"
 MOCK_LOOP_STATUS=stop bash "$LOOP" > "$TEST_DIR/output" 2>&1 &

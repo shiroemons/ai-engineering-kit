@@ -18,7 +18,8 @@ func TestCancellationStopsStandaloneChildren(t *testing.T) {
 	defer cancel(nil)
 	done := make(chan error, 1)
 	go func() {
-		_, err := runOpenCode(ctx, root, "opencode/muse", prompt(domain{ID: "two"}, false), cancel)
+		d := domain{ID: "two"}
+		_, err := runOpenCode(ctx, root, "opencode/muse", prompt(d, false), cancel, d, func(Progress) error { return nil })
 		done <- err
 	}()
 	var childPID int

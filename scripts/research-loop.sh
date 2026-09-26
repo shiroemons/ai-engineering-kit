@@ -32,22 +32,45 @@ IFS=$'\t' read -r HOURS PAUSE MODEL <<< "$SETTINGS"
 DEADLINE=$(($(date +%s) + HOURS * 3600))
 printf 'Continuous research: model=%s hours=%s; Ctrl+C to stop\n' "$MODEL" "$HOURS"
 completed=0
+failures=0
+failure_delay="$PAUSE"
 while [[ "$(date +%s)" -lt "$DEADLINE" ]]; do
   status=0
+  retry_delay="$PAUSE"
   RESEARCH_CONTINUOUS=1 RESEARCH_DEADLINE="$DEADLINE" RESEARCH_PROGRESS_FILE="$PROGRESS_FILE" bash "$ROOT/scripts/research-next.sh" &
   child=$!
   wait "$child" || status=$?
   child=''
   case "$status" in
-    0) completed=$((completed + 1)); printf '%s completed one research topic (loop total: %d)\n' "$(date '+%Y-%m-%dT%H:%M:%S%z')" "$completed" ;;
+    0)
+      completed=$((completed + 1))
+      failures=0
+      failure_delay="$PAUSE"
+      printf '%s completed one research topic (loop total: %d)\n' "$(date '+%Y-%m-%dT%H:%M:%S%z')" "$completed"
+      ;;
     3) printf 'continuous research already active; waiting\n' ;;
-    4) printf 'provider cooldown active; continuous research stopped\n'; exit 0 ;;
-    *) printf 'research-loop: stopped after research failure; details: %s\n' "$LOG_DIR/research-error.log" >&2; exit "$status" ;;
+    4) printf 'provider cooldown active; waiting to retry\n' ;;
+    2) printf 'research-loop: stopped after a non-retryable research failure; details: %s\n' "$LOG_DIR/research-error.log" >&2; exit "$status" ;;
+    *)
+      failures=$((failures + 1))
+      retry_delay="$failure_delay"
+      if ((failures >= 3)); then
+        printf 'research-loop: stopped after %d consecutive research failures; details: %s\n' \
+          "$failures" "$LOG_DIR/research-error.log" >&2
+        exit "$status"
+      fi
+      printf 'research-loop: research failed (exit code %d); retrying in %ss (%d consecutive failures); details: %s\n' \
+        "$status" "$retry_delay" "$failures" "$LOG_DIR/research-error.log" >&2
+      if ((failure_delay < 300)); then
+        failure_delay=$((failure_delay * 2))
+        ((failure_delay <= 300)) || failure_delay=300
+      fi
+      ;;
   esac
   remaining=$((DEADLINE - $(date +%s)))
   ((remaining > 0)) || break
-  ((remaining >= PAUSE)) || PAUSE="$remaining"
-  sleep "$PAUSE" &
+  ((remaining >= retry_delay)) || retry_delay="$remaining"
+  sleep "$retry_delay" &
   child=$!
   wait "$child"
   child=''
