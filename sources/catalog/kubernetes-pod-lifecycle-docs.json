@@ -1,0 +1,12 @@
+{
+  "id": "kubernetes-pod-lifecycle-docs",
+  "url": "https://kubernetes.io/docs/concepts/workloads/pods/pod-lifecycle/",
+  "repository_url": "https://github.com/kubernetes/website",
+  "commit_sha": "",
+  "version": "Kubernetes Docs Pod Lifecycle (version selector v1.33-v1.37; page last modified 2026-07-27)",
+  "retrieved_at": "2026-09-26",
+  "license": "CC-BY-4.0 (kubernetes/website LICENSE; documentation content)",
+  "trust": "official",
+  "type": "official_docs",
+  "purpose": "Pod 削除時の kubelet の TERM (SIGTERM) 配布とコンテナ間順序が保証されないこと、既定 30 秒の grace period と SIGKILL と terminal phase への移行、preStop 完了待ちの 2 秒の一回限り延長、kubelet/runtime 再起動時の grace period 全量再試行、sidecar がある場合の TERM 延期と逆順 shutdown、EndpointSlice 上の terminating 表現、--force 削除の例外、in-place 再起動時の terminationGracePeriodSeconds/preStop 非尊重を確認する"
+}

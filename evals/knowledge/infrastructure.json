@@ -29,6 +29,51 @@
       "name": "docker-scratch-copy",
       "query": "scratch COPY",
       "expected_ids": ["docker-multi-stage-nonroot-cache-secret"]
+    },
+    {
+      "name": "kubernetes-grace-period-prestop",
+      "query": "terminationGracePeriodSeconds preStop",
+      "expected_ids": ["kubernetes-pod-graceful-shutdown"]
+    },
+    {
+      "name": "kubernetes-kubelet-shutdown-order",
+      "query": "kubelet 終了順序",
+      "expected_ids": ["kubernetes-pod-graceful-shutdown"]
+    },
+    {
+      "name": "kubernetes-grace-period-sigkill",
+      "query": "grace period SIGKILL",
+      "expected_ids": ["kubernetes-pod-graceful-shutdown"]
+    },
+    {
+      "name": "kubernetes-sidecar-term-order",
+      "query": "sidecar TERM 順序",
+      "expected_ids": ["kubernetes-pod-graceful-shutdown"]
+    },
+    {
+      "name": "kubernetes-prestop-at-least-once",
+      "query": "preStop at-least-once",
+      "expected_ids": ["kubernetes-pod-graceful-shutdown"]
+    },
+    {
+      "name": "kubernetes-endpointslice-terminating",
+      "query": "EndpointSlice terminating",
+      "expected_ids": ["kubernetes-pod-graceful-shutdown"]
+    },
+    {
+      "name": "kubernetes-restartallcontainers-prestop",
+      "query": "RestartAllContainers preStop",
+      "expected_ids": ["kubernetes-pod-graceful-shutdown"]
+    },
+    {
+      "name": "kubernetes-force-delete",
+      "query": "grace-period force 強制削除",
+      "expected_ids": ["kubernetes-pod-graceful-shutdown"]
+    },
+    {
+      "name": "kubernetes-stopsignal-sigterm",
+      "query": "STOPSIGNAL SIGTERM",
+      "expected_ids": ["kubernetes-pod-graceful-shutdown"]
     }
   ]
 }

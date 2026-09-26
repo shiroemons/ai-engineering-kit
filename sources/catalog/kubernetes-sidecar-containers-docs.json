@@ -1,0 +1,12 @@
+{
+  "id": "kubernetes-sidecar-containers-docs",
+  "url": "https://kubernetes.io/docs/concepts/workloads/pods/sidecar-containers/",
+  "repository_url": "https://github.com/kubernetes/website",
+  "commit_sha": "",
+  "version": "Kubernetes Docs Sidecar Containers (first available v1.28, feature gate default-on since v1.29, stable since v1.33; page last modified 2026-01-18)",
+  "retrieved_at": "2026-09-26",
+  "license": "CC-BY-4.0 (kubernetes/website LICENSE; documentation content)",
+  "trust": "official",
+  "type": "official_docs",
+  "purpose": "sidecar が initContainers + restartPolicy: Always として実装され regular init container と開始順序・逐次保証を共用すること、Pod 終了時に main container が完全停止するまで sidecar への TERM が延期され Pod spec の逆順に shutdown すること、grace period 耗尽時に sidecar が時間なしで SIGTERM→SIGKILL を受けること、main container の遅延が全体の強制終了に波及することを確認する"
+}

@@ -29,6 +29,26 @@
       "name": "react-live-region-polite-assertive",
       "query": "live region polite assertive",
       "expected_ids": ["react-form-validation"]
+    },
+    {
+      "name": "fetch-abortcontroller-signal-timeout",
+      "query": "AbortController AbortSignal timeout",
+      "expected_ids": ["javascript-fetch-abort-cancellation"]
+    },
+    {
+      "name": "fetch-aborterror-timeouterror",
+      "query": "fetch AbortError TimeoutError",
+      "expected_ids": ["javascript-fetch-abort-cancellation"]
+    },
+    {
+      "name": "fetch-removeeventlistener-cleanup",
+      "query": "fetch removeEventListener cleanup",
+      "expected_ids": ["javascript-fetch-abort-cancellation"]
+    },
+    {
+      "name": "fetch-signal-throwifaborted",
+      "query": "fetch signal throwIfAborted",
+      "expected_ids": ["javascript-fetch-abort-cancellation"]
     }
   ]
 }
