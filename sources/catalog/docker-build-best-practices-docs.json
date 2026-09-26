@@ -1,0 +1,12 @@
+{
+  "id": "docker-build-best-practices-docs",
+  "url": "https://docs.docker.com/build/building/best-practices/",
+  "repository_url": "",
+  "commit_sha": "",
+  "version": "Docker Docs Build pages (no page version label; USER section with groupadd/useradd example)",
+  "retrieved_at": "2026-09-26",
+  "license": "Docker documentation terms (no open license stated on the retrieved page)",
+  "trust": "official",
+  "type": "official_docs",
+  "purpose": "非 root 実行の USER  best practice（明示 UID/GID の groupadd/useradd 例と --no-log-init、sudo 回避と gosu 検討、頻繁な USER 切替の回避）と multi-stage による不要ファイル削減・並列化、stage 間 COPY と一時ファイルの bind mount を確認する"
+}

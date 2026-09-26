@@ -1,0 +1,12 @@
+{
+  "id": "docker-multi-stage-builds-docs",
+  "url": "https://docs.docker.com/build/building/multi-stage/",
+  "repository_url": "",
+  "commit_sha": "",
+  "version": "Docker Docs Build pages (no page version label; example uses syntax=docker/dockerfile:1 and golang:1.26 to scratch)",
+  "retrieved_at": "2026-09-26",
+  "license": "Docker documentation terms (no open license stated on the retrieved page)",
+  "trust": "official",
+  "type": "official_docs",
+  "purpose": "multi-stage ビルドの基本契約（複数の FROM が新しい stage を開始すること、COPY --from による成果物の引き継ぎ、名前付き stage、外部イメージや prior stage からの COPY、target が依存する stage のみ BuildKit がビルドすること）を確認する"
+}

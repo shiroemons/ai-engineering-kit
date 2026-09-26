@@ -1,0 +1,34 @@
+{
+  "cases": [
+    {
+      "name": "docker-multi-stage-buildkit",
+      "query": "multi-stage BuildKit",
+      "expected_ids": ["docker-multi-stage-nonroot-cache-secret"]
+    },
+    {
+      "name": "docker-nonroot-user",
+      "query": "non-root USER",
+      "expected_ids": ["docker-multi-stage-nonroot-cache-secret"]
+    },
+    {
+      "name": "docker-secret-mount",
+      "query": "secret mount",
+      "expected_ids": ["docker-multi-stage-nonroot-cache-secret"]
+    },
+    {
+      "name": "docker-cache-sharing-locked",
+      "query": "cache sharing=locked",
+      "expected_ids": ["docker-multi-stage-nonroot-cache-secret"]
+    },
+    {
+      "name": "docker-bind-read-only",
+      "query": "bind read-only",
+      "expected_ids": ["docker-multi-stage-nonroot-cache-secret"]
+    },
+    {
+      "name": "docker-scratch-copy",
+      "query": "scratch COPY",
+      "expected_ids": ["docker-multi-stage-nonroot-cache-secret"]
+    }
+  ]
+}
