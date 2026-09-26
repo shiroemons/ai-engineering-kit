@@ -1,0 +1,12 @@
+{
+  "id": "otel-python-sdk-trace-export-docs",
+  "url": "https://opentelemetry-python.readthedocs.io/en/latest/sdk/trace.export.html",
+  "repository_url": "https://github.com/open-telemetry/opentelemetry-python",
+  "commit_sha": "",
+  "version": "latest page (no page version label)",
+  "retrieved_at": "2026-09-26",
+  "license": "Apache-2.0",
+  "trust": "official",
+  "type": "official_docs",
+  "purpose": "Python SDK の BatchSpanProcessor 引数（span_exporter / max_queue_size / schedule_delay_millis / max_export_batch_size / export_timeout_millis）と環境変数（OTEL_BSP_SCHEDULE_DELAY / OTEL_BSP_MAX_QUEUE_SIZE / OTEL_BSP_MAX_EXPORT_BATCH_SIZE / OTEL_BSP_EXPORT_TIMEOUT）の対応、force_flush(timeout_millis) のタイムアウト時 False 返却、processor と exporter 双方の shutdown・force_flush を確認する"
+}

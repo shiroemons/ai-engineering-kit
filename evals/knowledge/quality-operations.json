@@ -1,0 +1,34 @@
+{
+  "cases": [
+    {
+      "name": "otel-bsp-queue-shutdown",
+      "query": "BatchSpanProcessor queue Shutdown",
+      "expected_ids": ["opentelemetry-batch-span-processor"]
+    },
+    {
+      "name": "otel-bsp-blocking-queue-full",
+      "query": "WithBlocking BlockOnQueueFull",
+      "expected_ids": ["opentelemetry-batch-span-processor"]
+    },
+    {
+      "name": "otel-bsp-forceflush-export-timeout",
+      "query": "ForceFlush ExportTimeout",
+      "expected_ids": ["opentelemetry-batch-span-processor"]
+    },
+    {
+      "name": "otel-bsp-enqueuedrop-dropped",
+      "query": "enqueueDrop dropped",
+      "expected_ids": ["opentelemetry-batch-span-processor"]
+    },
+    {
+      "name": "otel-bsp-drain-stopch",
+      "query": "drainQueue stopCh",
+      "expected_ids": ["opentelemetry-batch-span-processor"]
+    },
+    {
+      "name": "otel-bsp-default-queue-batch",
+      "query": "DefaultMaxQueueSize DefaultMaxExportBatchSize",
+      "expected_ids": ["opentelemetry-batch-span-processor"]
+    }
+  ]
+}
