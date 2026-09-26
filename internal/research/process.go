@@ -18,11 +18,15 @@ var errRateLimit = errors.New("provider rate or quota limit; batch stopped")
 // OpenCode can retry internally for a long time. Inspect error events as they
 // arrive, and kill the entire standalone server group on cancellation.
 type events struct {
-	pending   []byte
-	Topic     string
-	Err       error
-	Cancel    context.CancelCauseFunc
-	StopBatch context.CancelCauseFunc
+	pending      []byte
+	Topic        string
+	Err          error
+	Cancel       context.CancelCauseFunc
+	StopBatch    context.CancelCauseFunc
+	Domain       domain
+	Report       ProgressReporter
+	lastProgress string
+	textPending  string
 }
 
 func (e *events) Write(p []byte) (int, error) {
@@ -69,27 +73,89 @@ func (e *events) line(line []byte) {
 		e.Cancel(e.Err)
 	}
 	if event.Type == "text" {
-		for line := range strings.SplitSeq(event.Part.Text, "\n") {
-			if topic, ok := strings.CutPrefix(strings.TrimSpace(line), "TOPIC:"); ok {
-				e.Topic = strings.Map(func(r rune) rune {
-					if unicode.IsControl(r) {
-						return -1
-					}
-					return r
-				}, strings.TrimSpace(topic))
-				runes := []rune(e.Topic)
-				if len(runes) > 120 {
-					e.Topic = string(runes[:120])
-				}
-			}
-		}
+		e.text(event.Part.Text)
 	}
 }
 
-func runOpenCode(ctx context.Context, root, model, prompt string, stopBatch context.CancelCauseFunc) (string, error) {
+func (e *events) text(text string) {
+	combined := e.textPending + text
+	lines := strings.Split(combined, "\n")
+	for _, line := range lines[:len(lines)-1] {
+		e.textLine(line)
+	}
+	lastLine := strings.TrimSpace(lines[len(lines)-1])
+	if protocolPrefixCandidate(lastLine) && len(lastLine) <= 4096 {
+		e.textPending = lines[len(lines)-1]
+	} else {
+		e.textPending = ""
+	}
+	// TOPIC and PROGRESS are short protocol lines. Parse them while they stream,
+	// even if OpenCode has not emitted the trailing newline yet.
+	trimmed := strings.TrimSpace(e.textPending)
+	if strings.HasPrefix(trimmed, "TOPIC:") || strings.HasPrefix(trimmed, "PROGRESS:") {
+		e.textLine(trimmed)
+	}
+}
+
+func protocolPrefixCandidate(text string) bool {
+	for _, prefix := range []string{"TOPIC:", "PROGRESS:"} {
+		if strings.HasPrefix(prefix, text) || strings.HasPrefix(text, prefix) {
+			return true
+		}
+	}
+	return false
+}
+
+func (e *events) textLine(line string) {
+	line = strings.TrimSpace(line)
+	if topic, ok := strings.CutPrefix(line, "TOPIC:"); ok {
+		topic = strings.Map(func(r rune) rune {
+			if unicode.IsControl(r) {
+				return -1
+			}
+			return r
+		}, strings.TrimSpace(topic))
+		runes := []rune(topic)
+		if len(runes) > 120 {
+			topic = string(runes[:120])
+		}
+		if topic != "" && topic != e.Topic {
+			e.Topic = topic
+			e.publish(10, "テーマを選定")
+		}
+	}
+	marker, ok := strings.CutPrefix(line, "PROGRESS:")
+	if !ok {
+		return
+	}
+	marker = strings.TrimSpace(marker)
+	if marker == e.lastProgress {
+		return
+	}
+	percent, phase, ok := progressMilestone(marker)
+	if !ok {
+		return
+	}
+	e.lastProgress = marker
+	e.publish(percent, phase)
+}
+
+func (e *events) publish(percent int, phase string) {
+	if e.Report == nil || e.Err != nil {
+		return
+	}
+	progress := Progress{Percent: percent, Domain: e.Domain.ID, DomainName: e.Domain.Name, Topic: e.Topic, Phase: phase}
+	if err := e.Report(progress); err != nil {
+		e.Err = fmt.Errorf("write research progress: %w", err)
+		e.Cancel(e.Err)
+		e.StopBatch(e.Err)
+	}
+}
+
+func runOpenCode(ctx context.Context, root, model, prompt string, stopBatch context.CancelCauseFunc, d domain, report ProgressReporter) (string, error) {
 	ctx, cancel := context.WithCancelCause(ctx)
 	defer cancel(nil)
-	e := &events{Cancel: cancel, StopBatch: stopBatch}
+	e := &events{Cancel: cancel, StopBatch: stopBatch, Domain: d, Report: report}
 	cmd := exec.CommandContext(ctx, "opencode", "run", "--standalone", "--format", "json", "--title", "Knowledge research", "--agent", "knowledge-researcher", "--model", model, prompt)
 	cmd.Dir = root
 	cmd.SysProcAttr = &syscall.SysProcAttr{Setpgid: true}
@@ -100,6 +166,9 @@ func runOpenCode(ctx context.Context, root, model, prompt string, stopBatch cont
 	err := cmd.Run()
 	if len(e.pending) > 0 {
 		e.line(e.pending)
+	}
+	if e.textPending != "" {
+		e.textLine(e.textPending)
 	}
 	if e.Err != nil {
 		return "", e.Err
@@ -114,6 +183,25 @@ func runOpenCode(ctx context.Context, root, model, prompt string, stopBatch cont
 		return "", errors.New("OpenCode returned no TOPIC")
 	}
 	return e.Topic, nil
+}
+
+func progressMilestone(marker string) (int, string, bool) {
+	switch marker {
+	case "topic-selected":
+		return 10, "テーマを選定", true
+	case "sources-verified":
+		return 30, "公式一次資料を照合", true
+	case "knowledge-written":
+		return 55, "knowledge 文書を作成", true
+	case "eval-written":
+		return 70, "検索 eval を作成", true
+	case "eval-search-verified":
+		return 85, "検索 eval の検索結果を確認", true
+	case "ready-to-validate":
+		return 90, "成果物の最終検証を開始", true
+	default:
+		return 0, "", false
+	}
 }
 
 func git(ctx context.Context, root string, args ...string) ([]byte, error) {
