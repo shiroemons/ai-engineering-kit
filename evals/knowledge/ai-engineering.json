@@ -74,6 +74,41 @@
       "name": "mcp-oauth-remote-server",
       "query": "mcp oauth authorization",
       "expected_ids": ["mcp-authorization"]
+    },
+    {
+      "name": "agents-tool-use-id-mapping",
+      "query": "tool_use_id",
+      "expected_ids": ["agents-tool-permissions-failure-loop"]
+    },
+    {
+      "name": "agents-tool-error-signal",
+      "query": "is_error",
+      "expected_ids": ["agents-tool-permissions-failure-loop"]
+    },
+    {
+      "name": "agents-tool-choice-boundary",
+      "query": "tool_choice",
+      "expected_ids": ["agents-tool-permissions-failure-loop"]
+    },
+    {
+      "name": "agents-parallel-tool-calls",
+      "query": "parallel_tool_calls",
+      "expected_ids": ["agents-tool-permissions-failure-loop"]
+    },
+    {
+      "name": "agents-tool-result-untrusted",
+      "query": "tool_result untrusted",
+      "expected_ids": ["agents-tool-permissions-failure-loop"]
+    },
+    {
+      "name": "agents-stopping-conditions",
+      "query": "stopping conditions",
+      "expected_ids": ["agents-tool-permissions-failure-loop"]
+    },
+    {
+      "name": "agents-function-call-output",
+      "query": "function_call_output",
+      "expected_ids": ["agents-tool-permissions-failure-loop"]
     }
   ]
 }
