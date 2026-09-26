@@ -84,7 +84,7 @@ func TestTopicSelectionDoesNotCompleteResearch(t *testing.T) {
 	defer cancel(nil)
 	e := &events{Cancel: cancel, StopBatch: cancel}
 
-	e.text("TOPIC_SELECTED: react form errors\nPROGRESS: topic-selected\n")
+	e.text("TOPIC_SELECTED: react form errors\nPROGRESS: sources-verified\n")
 	if e.Topic != "react form errors" || e.TopicFinal {
 		t.Fatalf("topic selection incorrectly completed research: %+v", e)
 	}
@@ -92,6 +92,13 @@ func TestTopicSelectionDoesNotCompleteResearch(t *testing.T) {
 	e.text("TOPIC: react form errors\n")
 	if e.Topic != "react form errors" || !e.TopicFinal {
 		t.Fatalf("final topic marker was not accepted: %+v", e)
+	}
+}
+
+func TestPromptDefersTopicUpdateUntilSourcesAreVerified(t *testing.T) {
+	value := prompt(domain{ID: "frontend", Name: "Frontend", Technologies: []string{"react"}}, false)
+	if strings.Contains(value, "immediately emit") || !strings.Contains(value, "While choosing a topic, do not emit a topic or progress marker") || !strings.Contains(value, "Only after that verification, emit TOPIC_SELECTED") {
+		t.Fatalf("prompt does not defer topic updates until sources are verified: %s", value)
 	}
 }
 

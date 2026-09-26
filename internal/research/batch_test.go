@@ -73,7 +73,7 @@ func TestOpenCodeProcess(t *testing.T) {
 	if mode == "early" {
 		text, err := json.Marshal(map[string]any{
 			"type": "text",
-			"part": map[string]string{"text": "TOPIC_SELECTED: " + domainText + " research\nPROGRESS: topic-selected"},
+			"part": map[string]string{"text": "TOPIC_SELECTED: " + domainText + " research\nPROGRESS: sources-verified"},
 		})
 		if err != nil {
 			panic(err)
@@ -123,7 +123,7 @@ func TestOpenCodeProcess(t *testing.T) {
 			}
 		}
 	}
-	text, err := json.Marshal(map[string]any{"type": "text", "part": map[string]string{"text": "TOPIC_SELECTED: " + domainText + " research\nPROGRESS: topic-selected\nTOPIC: " + domainText + " research"}})
+	text, err := json.Marshal(map[string]any{"type": "text", "part": map[string]string{"text": "TOPIC_SELECTED: " + domainText + " research\nPROGRESS: sources-verified\nTOPIC: " + domainText + " research"}})
 	if err != nil {
 		panic(err)
 	}

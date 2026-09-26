@@ -133,7 +133,7 @@ func RunWithProgress(ctx context.Context, root, state string, models []string, d
 	}
 	models = models[:len(assigned)]
 	for _, d := range assigned {
-		if err := publish(Progress{Percent: 3, Domain: d.ID, DomainName: d.Name, Topic: "選定中", Phase: "調査領域を決定、テーマを選定中"}); err != nil {
+		if err := publish(Progress{Percent: 3, Domain: d.ID, DomainName: d.Name, Topic: "テーマ候補と一次資料を確認中", Phase: "領域割り当て後、候補テーマの一次資料を確認中"}); err != nil {
 			return err
 		}
 	}
@@ -371,10 +371,10 @@ func prompt(d domain, dry bool) string {
 Assigned domain: %s (%s). Stay within these technologies: %s. Other workers cover other domains; do not change domain. Use config/research.json for sources and selection within this domain. Write evals ONLY to evals/knowledge/%s.json, preserving existing cases. Follow knowledge-researcher validation and source instructions.
 
 Progress protocol:
-- After choosing a topic, immediately emit TOPIC_SELECTED: <technology and topic> and PROGRESS: topic-selected on separate lines. TOPIC_SELECTED is provisional and never means the work is complete.
-- In a research run, continue after those markers. Emit each milestone only after it is complete: PROGRESS: sources-verified after checking claims against primary sources; PROGRESS: knowledge-written after the knowledge document is complete; PROGRESS: eval-written after writing search evals; PROGRESS: eval-search-verified after every new query returns the expected ID; PROGRESS: ready-to-validate before final validation.
+- While choosing a topic, do not emit a topic or progress marker. In a research run, first inspect coverage and verify the selected topic against primary sources. Only after that verification, emit TOPIC_SELECTED: <technology and topic> and PROGRESS: sources-verified on separate lines. This is an interim update; continue with artifact writing and validation.
+- Emit each remaining milestone only after it is complete: PROGRESS: knowledge-written after the knowledge document is complete; PROGRESS: eval-written after writing search evals; PROGRESS: eval-search-verified after every new query returns the expected ID; PROGRESS: ready-to-validate before final validation.
 - Emit TOPIC: <technology and topic> exactly once, only after the required sources are verified, the knowledge document and assigned eval are written, every new eval query returns the expected ID, and final validation passes. If a required step fails, report its concrete reason and do not emit TOPIC.
-- In a DRY RUN, emit TOPIC_SELECTED and PROGRESS: topic-selected, then emit TOPIC and stop without research or edits.
+- In a DRY RUN, after selecting a topic, emit TOPIC_SELECTED: <technology and topic> and PROGRESS: topic-selected, then emit TOPIC: <technology and topic> and stop without research or edits.
 `, mode, d.ID, d.Name, strings.Join(d.Technologies, ", "), d.ID)
 }
 
