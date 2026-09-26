@@ -3,6 +3,8 @@
     "official_docs": 90,
     "release_notes": 30,
     "github_repository_analysis": 90,
+    "maintainer_article": 90,
+    "incident_report": 180,
     "architecture_pattern": 180
   },
   "technologies": {

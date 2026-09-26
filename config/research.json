@@ -1,8 +1,79 @@
 {
   "topics_per_run": 1,
-  "core_technologies": ["go", "ruby", "rails", "postgres", "architecture"],
+  "schedule": {
+    "interval_hours": 3,
+    "minute": 0
+  },
+  "domains": [
+    {
+      "id": "backend",
+      "name": "言語・バックエンド",
+      "technologies": ["go", "ruby", "rails", "python"],
+      "example_topics": ["言語の並行処理モデル", "バックグラウンドジョブの設計"],
+      "source_urls": ["https://go.dev/doc/", "https://guides.rubyonrails.org/", "https://docs.python.org/3/"]
+    },
+    {
+      "id": "frontend",
+      "name": "フロントエンド・UX",
+      "technologies": ["javascript", "typescript", "react", "html", "css", "accessibility"],
+      "example_topics": ["フォームの入力検証とエラー表示", "描画性能とアクセシビリティ"],
+      "source_urls": ["https://www.typescriptlang.org/docs/", "https://react.dev/learn", "https://www.w3.org/WAI/standards-guidelines/wcag/"]
+    },
+    {
+      "id": "ai-engineering",
+      "name": "AIアプリケーション",
+      "technologies": ["llm", "rag", "agents", "mcp", "evals"],
+      "example_topics": ["RAGの検索評価", "ツール実行の権限と失敗処理"],
+      "source_urls": ["https://modelcontextprotocol.io/docs/", "https://www.anthropic.com/engineering/building-effective-agents"]
+    },
+    {
+      "id": "data",
+      "name": "データ基盤",
+      "technologies": ["postgres", "redis", "sqlite", "search"],
+      "example_topics": ["インデックスの選択と実行計画", "無停止マイグレーション"],
+      "source_urls": ["https://www.postgresql.org/docs/", "https://redis.io/docs/latest/", "https://www.sqlite.org/docs.html"]
+    },
+    {
+      "id": "api-distributed",
+      "name": "API・分散システム",
+      "technologies": ["architecture", "http", "api-design", "distributed-systems", "messaging"],
+      "example_topics": ["Webhookの再送と冪等性", "イベント駆動の整合性"],
+      "source_urls": ["https://www.rfc-editor.org/rfc/rfc9110", "https://www.rabbitmq.com/docs"]
+    },
+    {
+      "id": "security",
+      "name": "セキュリティ",
+      "technologies": ["security", "oauth", "oidc", "supply-chain-security"],
+      "example_topics": ["認証と認可の責務", "秘密情報と依存関係の管理"],
+      "source_urls": ["https://owasp.org/www-project-application-security-verification-standard/", "https://openid.net/specs/openid-connect-core-1_0.html"]
+    },
+    {
+      "id": "infrastructure",
+      "name": "インフラ・開発環境",
+      "technologies": ["docker", "kubernetes", "terraform", "github-actions", "linux"],
+      "example_topics": ["コンテナのビルドと実行権限", "CI/CDのロールバック"],
+      "source_urls": ["https://docs.docker.com/", "https://kubernetes.io/docs/", "https://docs.github.com/en/actions"]
+    },
+    {
+      "id": "quality-operations",
+      "name": "品質・運用",
+      "technologies": ["testing", "performance", "observability", "opentelemetry", "sre"],
+      "example_topics": ["テスト戦略と性能測定", "障害報告から学ぶ監視設計"],
+      "source_urls": ["https://opentelemetry.io/docs/", "https://sre.google/books/"]
+    }
+  ],
+  "selection": {
+    "strategy": "coverage_first",
+    "recent_commits": 16,
+    "avoid_consecutive_technology": true
+  },
   "discovery": {
     "enabled": true,
-    "max_new_technologies_per_month": 1
+    "max_new_technologies_per_month": 1,
+    "scope": "outside_configured_technologies"
+  },
+  "source_policy": {
+    "allowed_types": ["official_docs", "release_notes", "github_repository_analysis", "maintainer_article", "incident_report", "architecture_pattern"],
+    "require_primary_sources": true
   }
 }

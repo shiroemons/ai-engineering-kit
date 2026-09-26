@@ -44,7 +44,9 @@ source の ID・URL・type は catalog と一致させる。文書の信頼度�
 
 `config/sources.json` の trust_order は固定順を記録する。順序は official → maintainer → primary-source → community → unknown。許可 URL scheme の初期値は https のみ。設定値は http または https を受け付ける。
 
-`config/freshness.json` は source_types と technologies に1〜36500日を整数で指定する。未定義の技術は技術 TTL を適用せず、source type と明示期限で判定する。初期の source TTL は公式文書90日、release notes 30日、repository 分析90日、architecture pattern 180日。
+`config/freshness.json` は source_types と technologies に1〜36500日を整数で指定する。未定義の技術は技術 TTL を適用せず、source type と明示期限で判定する。source TTL は公式文書90日、release notes 30日、repository 分析90日、architecture pattern 180日。
+
+開発元の技術記事は `maintainer_article` として90日、運用当事者の障害報告は `incident_report` として180日を設定する。信頼区分は出典の所有者と主張の根拠を確認し、`maintainer` または `primary-source` を使う。公式ドメイン上の記事であっても、事例を公式のAPI契約と同一視しない。期限は過去の出来事の真偽が変わる日ではなく、適用条件を再確認する期限である。
 
 ## 有効期限
 

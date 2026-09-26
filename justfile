@@ -14,6 +14,7 @@ build:
 test:
     go test -race ./...
     bash scripts/test-research-next.sh
+    bash scripts/test-install-research-agent.sh
 
 validate:
     go run ./cmd/kb validate
