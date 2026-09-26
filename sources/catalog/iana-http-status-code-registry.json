@@ -1,0 +1,12 @@
+{
+  "id": "iana-http-status-code-registry",
+  "url": "https://www.iana.org/assignments/http-status-codes",
+  "repository_url": "",
+  "commit_sha": "",
+  "version": "IANA HTTP Status Code Registry, last updated 2025-09-15",
+  "retrieved_at": "2026-09-26",
+  "license": "unknown (IANA site terms; registry data maintained under RFC 9110 Section 16.2.1)",
+  "trust": "official",
+  "type": "official_docs",
+  "purpose": "429 の参照が RFC 6585 のまま現行であること、503 の参照が RFC 9110 Section 15.6.4 であること、登録手順が IETF Review であることを確認する"
+}

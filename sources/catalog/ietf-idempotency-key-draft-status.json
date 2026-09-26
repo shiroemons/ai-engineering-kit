@@ -1,0 +1,12 @@
+{
+  "id": "ietf-idempotency-key-draft-status",
+  "url": "https://datatracker.ietf.org/doc/draft-ietf-httpapi-idempotency-key-header/",
+  "repository_url": "",
+  "commit_sha": "",
+  "version": "draft-ietf-httpapi-idempotency-key-header-07 (expired; latest revision 2025-10-15, page last updated 2026-04-18)",
+  "retrieved_at": "2026-09-26",
+  "license": "IETF Trust Legal Provisions",
+  "trust": "official",
+  "type": "official_docs",
+  "purpose": "Idempotency-Key ヘッダ草案が Expired / no longer active であり、標準化された Idempotency-Key が存在しないことを確認する"
+}
