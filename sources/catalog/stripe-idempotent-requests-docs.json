@@ -1,0 +1,12 @@
+{
+  "id": "stripe-idempotent-requests-docs",
+  "url": "https://docs.stripe.com/api/idempotent_requests",
+  "repository_url": "",
+  "commit_sha": "",
+  "version": "Stripe API reference page (docs.stripe.com; no page version label)",
+  "retrieved_at": "2026-09-26",
+  "license": "Stripe documentation terms (no open license stated on the retrieved page)",
+  "trust": "official",
+  "type": "official_docs",
+  "purpose": "1社の本番 API における idempotency key の実装挙動（初回結果の保存と再送への同一応答、24時間の保持、パラメータ突合せ、実行開始前は保存しない）を観測事実として確認する"
+}

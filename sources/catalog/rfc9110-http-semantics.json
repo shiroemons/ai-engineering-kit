@@ -1,0 +1,12 @@
+{
+  "id": "rfc9110-http-semantics",
+  "url": "https://www.rfc-editor.org/rfc/rfc9110.txt",
+  "repository_url": "",
+  "commit_sha": "",
+  "version": "RFC 9110 (STD 97), June 2022",
+  "retrieved_at": "2026-09-26",
+  "license": "IETF Trust Legal Provisions (RFC text; code components under Revised BSD License per copyright notice)",
+  "trust": "official",
+  "type": "official_docs",
+  "purpose": "冪等メソッド (§9.2.2)・safe メソッド (§9.2.1)・POST (§9.3.3)・自動再試行の可否・Retry-After (§10.2.3)・503 (§15.6.4)・413 (§15.5.14)・421 (§15.5.20)・RFC 7231 からの変更 (Appendix B.3) の規定文言を確認する"
+}
