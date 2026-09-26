@@ -1,0 +1,12 @@
+{
+  "id": "mcp-spec-changelog-2026-07-28",
+  "url": "https://modelcontextprotocol.io/specification/2026-07-28/changelog.md",
+  "repository_url": "https://github.com/modelcontextprotocol/modelcontextprotocol",
+  "commit_sha": "",
+  "version": "MCP specification 2026-07-28 revision",
+  "retrieved_at": "2026-09-26",
+  "license": "Apache-2.0 or MIT (specification; transition per repository LICENSE)",
+  "trust": "official",
+  "type": "official_docs",
+  "purpose": "2025-11-25 からの変更点 (iss 検証の必須化、DCR の deprecated 化、資格情報の AS 紐付け、プロトコルレベル session の除去) と deprecated 機能一覧"
+}

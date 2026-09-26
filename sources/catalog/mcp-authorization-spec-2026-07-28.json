@@ -1,0 +1,12 @@
+{
+  "id": "mcp-authorization-spec-2026-07-28",
+  "url": "https://modelcontextprotocol.io/specification/2026-07-28/basic/authorization/index.md",
+  "repository_url": "https://github.com/modelcontextprotocol/modelcontextprotocol",
+  "commit_sha": "",
+  "version": "MCP specification 2026-07-28 revision",
+  "retrieved_at": "2026-09-26",
+  "license": "Apache-2.0 or MIT (specification; transition per repository LICENSE)",
+  "trust": "official",
+  "type": "official_docs",
+  "purpose": "MCP 認可の全体要件: 401 チャレンジからトークン利用までのフロー、scope 選択、RFC 8707 resource、iss 検証、step-up authorization、エラー応答"
+}

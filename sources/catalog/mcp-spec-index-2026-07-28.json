@@ -1,0 +1,12 @@
+{
+  "id": "mcp-spec-index-2026-07-28",
+  "url": "https://modelcontextprotocol.io/specification/",
+  "repository_url": "https://github.com/modelcontextprotocol/modelcontextprotocol",
+  "commit_sha": "",
+  "version": "MCP specification 2026-07-28 revision",
+  "retrieved_at": "2026-09-26",
+  "license": "Apache-2.0 or MIT (specification; transition per repository LICENSE)",
+  "trust": "official",
+  "type": "official_docs",
+  "purpose": "仕様冒頭の Security and Trust & Safety 原則 (ツール実行前の明示的同意、tool annotations の信頼性、プロトコルが強制できない範囲)"
+}
