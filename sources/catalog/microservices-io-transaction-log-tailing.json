@@ -1,0 +1,12 @@
+{
+  "id": "microservices-io-transaction-log-tailing",
+  "url": "https://microservices.io/patterns/data/transaction-log-tailing.html",
+  "repository_url": "",
+  "commit_sha": "",
+  "version": "Transaction log tailing pattern page (版・日付の表記なし。footer は Copyright © 2026 Chris Richardson)",
+  "retrieved_at": "2026-09-26",
+  "license": "Copyright © Chris Richardson, All rights reserved (取得ページに open license の記載なし)",
+  "trust": "maintainer",
+  "type": "architecture_pattern",
+  "purpose": "DB トランザクションログを tail して outbox insert を publish する relay 実装、MySQL binlog・Postgres WAL・DynamoDB table streams の DB 依存、No 2PC・正確性の利点、重複 publish 回避の難しさを確認する"
+}
