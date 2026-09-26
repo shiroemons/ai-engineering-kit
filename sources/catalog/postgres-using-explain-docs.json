@@ -1,0 +1,12 @@
+{
+  "id": "postgres-using-explain-docs",
+  "url": "https://www.postgresql.org/docs/current/using-explain.html",
+  "repository_url": "",
+  "commit_sha": "",
+  "version": "PostgreSQL 18.6 (retrieved page label; not a latest-version claim)",
+  "retrieved_at": "2026-09-26",
+  "license": "PostgreSQL Licence",
+  "trust": "official",
+  "type": "official_docs",
+  "purpose": "plan node tree の読み方、cost・rows・width の意味、EXPLAIN ANALYZE の実測表示（actual time・loops 平均・Buffers・Rows Removed）と LIMIT 等の表示上のずれを確認する"
+}

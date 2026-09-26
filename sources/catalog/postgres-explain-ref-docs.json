@@ -1,0 +1,12 @@
+{
+  "id": "postgres-explain-ref-docs",
+  "url": "https://www.postgresql.org/docs/current/sql-explain.html",
+  "repository_url": "",
+  "commit_sha": "",
+  "version": "PostgreSQL 18.6 (retrieved page label; not a latest-version claim)",
+  "retrieved_at": "2026-09-26",
+  "license": "PostgreSQL Licence",
+  "trust": "official",
+  "type": "official_docs",
+  "purpose": "EXPLAIN の ANALYZE 既定 FALSE・実行副作用と BEGIN/ROLLBACK 回避策・BUFFERS 自動付帯・TIMING/SERIALIZE/GENERIC_PLAN 制約・pg_statistic と ANALYZE の注意を確認する"
+}

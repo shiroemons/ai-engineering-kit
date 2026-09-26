@@ -1,0 +1,12 @@
+{
+  "id": "postgres-index-types-docs",
+  "url": "https://www.postgresql.org/docs/current/indexes-types.html",
+  "repository_url": "",
+  "commit_sha": "",
+  "version": "PostgreSQL 18.6 (retrieved page label; not a latest-version claim)",
+  "retrieved_at": "2026-09-26",
+  "license": "PostgreSQL Licence",
+  "trust": "official",
+  "type": "official_docs",
+  "purpose": "B-tree・Hash・GiST・SP-GiST・GIN・BRIN の適用演算子と選択条件（USING 指定、既定 B-tree）を確認する"
+}
