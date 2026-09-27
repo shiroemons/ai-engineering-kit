@@ -144,6 +144,36 @@
       "name": "rag-grounding-relevance",
       "query": "grounding relevance",
       "expected_ids": ["rag-retrieval-eval-chunking-grounding"]
+    },
+    {
+      "name": "llm-prompt-cache-breakpoint-explicit-implicit",
+      "query": "prompt_cache_breakpoint explicit implicit",
+      "expected_ids": ["llm-prompt-caching-breakpoints-ttl-scope"]
+    },
+    {
+      "name": "llm-prompt-cache-backward-lookup-prefix",
+      "query": "backward lookup exact-prefix",
+      "expected_ids": ["llm-prompt-caching-breakpoints-ttl-scope"]
+    },
+    {
+      "name": "llm-prompt-cache-key-routing-accounting",
+      "query": "prompt_cache_key routing accounting",
+      "expected_ids": ["llm-prompt-caching-breakpoints-ttl-scope"]
+    },
+    {
+      "name": "llm-prompt-cache-visible-tokens-minimum",
+      "query": "visible tokens 1024",
+      "expected_ids": ["llm-prompt-caching-breakpoints-ttl-scope"]
+    },
+    {
+      "name": "llm-prompt-cache-workspace-isolation",
+      "query": "workspace isolation organization",
+      "expected_ids": ["llm-prompt-caching-breakpoints-ttl-scope"]
+    },
+    {
+      "name": "llm-prompt-cache-retention-in-memory",
+      "query": "prompt_cache_retention in_memory",
+      "expected_ids": ["llm-prompt-caching-breakpoints-ttl-scope"]
     }
   ]
 }
