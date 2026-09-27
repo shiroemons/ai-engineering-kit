@@ -1,0 +1,12 @@
+{
+  "id": "postgres-textsearch-indexes-docs",
+  "url": "https://www.postgresql.org/docs/current/textsearch-indexes.html",
+  "repository_url": "",
+  "commit_sha": "",
+  "version": "PostgreSQL 18.6 (retrieved page label; not a latest-version claim)",
+  "retrieved_at": "2026-09-27",
+  "license": "PostgreSQL Licence",
+  "trust": "official",
+  "type": "official_docs",
+  "purpose": "全文検索の優先 index 型として GIN が転置 index で lexeme のみ格納し weight ラベルを格納しないため weight 付き問い合わせで実行的再検査が要ること、対する GiST が固定長 signature (既定 siglen 124B、最大 2024B) の損失あり index で false match を生じることを確認する"
+}
