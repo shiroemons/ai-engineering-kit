@@ -209,8 +209,39 @@ func runOpenCodeTopicSelection(ctx context.Context, root, model, prompt string, 
 	return result.Topic, err
 }
 
+func runOpenCodeTopicOverlapCheck(ctx context.Context, root, model, prompt string, stopBatch context.CancelCauseFunc, d domain, report ProgressReporter) (bool, error) {
+	result, err := runOpenCodePhase(ctx, root, model, prompt, stopBatch, d, report, completeTopicOverlapCheck)
+	if err != nil {
+		return false, err
+	}
+	var decision string
+	for line := range strings.SplitSeq(result.Text, "\n") {
+		line = strings.TrimSpace(line)
+		value, ok := strings.CutPrefix(line, "TOPIC_OVERLAP:")
+		if !ok {
+			continue
+		}
+		if decision != "" {
+			return false, errors.New("OpenCode returned multiple topic-overlap decisions")
+		}
+		decision = strings.TrimSpace(value)
+	}
+	switch decision {
+	case "DISTINCT":
+		return false, nil
+	case "DUPLICATE":
+		return true, nil
+	default:
+		return false, errors.New("OpenCode returned no valid topic-overlap decision")
+	}
+}
+
 func runOpenCodeSourceVerification(ctx context.Context, root, model, prompt string, stopBatch context.CancelCauseFunc, d domain, report ProgressReporter) (string, error) {
-	result, err := runOpenCodePhase(ctx, root, model, prompt, stopBatch, d, report, completeSourceVerification)
+	return runOpenCodeSourceVerificationStarted(ctx, root, model, prompt, stopBatch, d, report, nil)
+}
+
+func runOpenCodeSourceVerificationStarted(ctx context.Context, root, model, prompt string, stopBatch context.CancelCauseFunc, d domain, report ProgressReporter, started func()) (string, error) {
+	result, err := runOpenCodePhaseStarted(ctx, root, model, prompt, stopBatch, d, report, completeSourceVerification, started)
 	return result.Text, err
 }
 
@@ -223,6 +254,7 @@ type phaseCompletion uint8
 
 const (
 	completeTopicSelection phaseCompletion = iota
+	completeTopicOverlapCheck
 	completeSourceVerification
 	completeKnowledgeWriting
 	completeEvalWriting
@@ -234,6 +266,10 @@ type modelOutput struct {
 }
 
 func runOpenCodePhase(ctx context.Context, root, model, prompt string, stopBatch context.CancelCauseFunc, d domain, report ProgressReporter, completion phaseCompletion) (modelOutput, error) {
+	return runOpenCodePhaseStarted(ctx, root, model, prompt, stopBatch, d, report, completion, nil)
+}
+
+func runOpenCodePhaseStarted(ctx context.Context, root, model, prompt string, stopBatch context.CancelCauseFunc, d domain, report ProgressReporter, completion phaseCompletion, started func()) (modelOutput, error) {
 	ctx, cancel := context.WithCancelCause(ctx)
 	defer cancel(nil)
 	e := &events{Cancel: cancel, StopBatch: stopBatch, Domain: d, Report: report}
@@ -244,7 +280,13 @@ func runOpenCodePhase(ctx context.Context, root, model, prompt string, stopBatch
 	cmd.WaitDelay = 5 * time.Second
 	// Same writer means os/exec serializes stdout and stderr copies.
 	cmd.Stdout, cmd.Stderr = e, e
-	err := cmd.Run()
+	err := cmd.Start()
+	if err == nil {
+		if started != nil {
+			started()
+		}
+		err = cmd.Wait()
+	}
 	if len(e.pending) > 0 {
 		e.line(e.pending)
 	}
@@ -268,6 +310,11 @@ func runOpenCodePhase(ctx context.Context, root, model, prompt string, stopBatch
 		if !e.TopicSelected {
 			return modelOutput{}, errors.New("OpenCode returned no TOPIC_SELECTED marker")
 		}
+	case completeTopicOverlapCheck:
+		if e.TopicSelected || e.TopicFinal {
+			return modelOutput{}, errors.New("OpenCode emitted a topic completion marker during overlap checking")
+		}
+		return modelOutput{Text: e.textOutput.String()}, nil
 	case completeSourceVerification:
 		if e.TopicSelected || e.TopicFinal {
 			return modelOutput{}, errors.New("OpenCode emitted a topic completion marker during source verification")

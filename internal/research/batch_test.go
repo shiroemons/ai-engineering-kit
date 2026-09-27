@@ -30,6 +30,8 @@ func TestOpenCodeProcess(t *testing.T) {
 	switch {
 	case strings.Contains(prompt, "PHASE: TOPIC_SELECTION"):
 		phase = "selection"
+	case strings.Contains(prompt, "PHASE: TOPIC_OVERLAP_CHECK"):
+		phase = "overlap"
 	case strings.Contains(prompt, "PHASE: SOURCE_VERIFICATION"):
 		phase = "sources"
 	case strings.Contains(prompt, "PHASE: KNOWLEDGE_WRITING"):
@@ -58,12 +60,12 @@ func TestOpenCodeProcess(t *testing.T) {
 		_ = cmd.Wait()
 		os.Exit(0)
 	}
-	// A sequential implementation cannot pass this barrier.
-	if mode == "parallel" || mode == "overlap" {
-		count := 2
-		if mode == "overlap" {
-			count = 3
-		}
+	if err := os.WriteFile(filepath.Join(state, domainText+"."+phase+".prompt"), []byte(prompt), 0600); err != nil {
+		panic(err)
+	}
+	// Each research phase must overlap after topic selection has been handed off.
+	if phase == "sources" && (mode == "parallel" || mode == "overlap") {
+		count := 3
 		deadline := time.Now().Add(10 * time.Second)
 		for {
 			files, err := filepath.Glob(filepath.Join(state, "*.ready"))
@@ -83,6 +85,12 @@ func TestOpenCodeProcess(t *testing.T) {
 		os.Exit(1)
 	}
 	topic := domainText + " research"
+	if mode == "duplicate" {
+		topic = "shared concurrent topic"
+		if strings.Contains(prompt, "shared concurrent topic") {
+			topic = "Concurrent shared research subject"
+		}
+	}
 	if strings.Contains(prompt, "Selected topic: ") {
 		selected := strings.SplitN(prompt, "Selected topic: ", 2)[1]
 		topic = strings.SplitN(selected, "\n", 2)[0]
@@ -96,6 +104,18 @@ func TestOpenCodeProcess(t *testing.T) {
 	}
 	if phase == "selection" {
 		emit("TOPIC_SELECTED: " + topic)
+		os.Exit(0)
+	}
+	if phase == "overlap" {
+		if mode == "bad-overlap" {
+			emit("The topics might be related.")
+			os.Exit(0)
+		}
+		decision := "DISTINCT"
+		if mode == "duplicate" {
+			decision = "DUPLICATE"
+		}
+		emit("TOPIC_OVERLAP: " + decision)
 		os.Exit(0)
 	}
 	if mode == "early" {
@@ -196,6 +216,7 @@ func fixture(t *testing.T, mode string) (string, string) {
 	if err != nil {
 		t.Fatal(err)
 	}
+	c.Topics = 3
 	c.Domains = []domain{{ID: "one", Technologies: []string{"go"}}, {ID: "two", Technologies: []string{"go"}}, {ID: "three", Technologies: []string{"go"}}}
 	data, err := json.Marshal(c)
 	if err != nil {
@@ -256,13 +277,13 @@ func TestValidateSourceInventory(t *testing.T) {
 func TestParallelResearchAndIsolation(t *testing.T) {
 	root, state := fixture(t, "parallel")
 	var out bytes.Buffer
-	if err := Run(t.Context(), root, state, []string{"opencode/muse", "opencode/mimo"}, false, &out); err != nil {
+	if err := Run(t.Context(), root, state, []string{"opencode/muse", "opencode/mimo", "opencode/third"}, false, &out); err != nil {
 		t.Fatalf("%v\n%s", err, &out)
 	}
 	if !strings.Contains(out.String(), "BATCH: complete") {
 		t.Fatal(out.String())
 	}
-	for _, id := range []string{"two", "three"} {
+	for _, id := range []string{"two", "three", "one"} {
 		if _, err := os.Stat(filepath.Join(root, "knowledge/go/"+id+"-research.md")); err != nil {
 			t.Fatal(err)
 		}
@@ -272,12 +293,62 @@ func TestParallelResearchAndIsolation(t *testing.T) {
 			}
 		}
 	}
+	for _, check := range []struct {
+		worker string
+		active string
+	}{{worker: "three", active: "two research"}, {worker: "one", active: "three research"}} {
+		prompt, err := os.ReadFile(filepath.Join(state, check.worker+".selection.prompt"))
+		if err != nil || !strings.Contains(string(prompt), check.active) {
+			t.Fatalf("worker %s did not receive the earlier topic reservation: %s %v", check.worker, prompt, err)
+		}
+	}
+	if topics, err := readActiveTopics(state); err != nil || len(topics) != 0 {
+		t.Fatalf("topic leases were not released: %+v %v", topics, err)
+	}
 	trees, err := git(t.Context(), root, "worktree", "list", "--porcelain")
 	if err != nil || bytes.Count(trees, []byte("worktree ")) != 1 {
 		t.Fatalf("worktrees leaked: %s %v", trees, err)
 	}
 	if _, _, err := indexed(root); err != nil {
 		t.Fatal(err)
+	}
+}
+
+func TestDuplicateTopicIsRetriedAndNeverResearchedTwice(t *testing.T) {
+	root, state := fixture(t, "duplicate")
+	var out bytes.Buffer
+	if err := Run(t.Context(), root, state, []string{"opencode/muse", "opencode/mimo", "opencode/third"}, false, &out); err != nil {
+		t.Fatalf("a single valid worker should be retained:\n%v\n%s", err, &out)
+	}
+	if !strings.Contains(out.String(), "BATCH: partial") {
+		t.Fatalf("duplicate topics did not fail closed:\n%s", &out)
+	}
+	for _, id := range []string{"two", "three", "one"} {
+		_, err := os.Stat(filepath.Join(state, id+".sources"))
+		if id == "two" && err != nil {
+			t.Fatalf("first topic did not start research: %v", err)
+		}
+		if id != "two" && !errors.Is(err, os.ErrNotExist) {
+			t.Fatalf("duplicate topic started in worker %s", id)
+		}
+	}
+	if topics, err := readActiveTopics(state); err != nil || len(topics) != 0 {
+		t.Fatalf("topic leases were not released: %+v %v", topics, err)
+	}
+}
+
+func TestTopicOverlapCheckFailsClosedOnInvalidProtocol(t *testing.T) {
+	root, _ := fixture(t, "bad-overlap")
+	d := domain{ID: "one", Name: "One", Technologies: []string{"go"}}
+	prompt, err := topicOverlapCheckPrompt(d, "Go cancellation patterns", []activeTopic{{Topic: "context cancellation", Domain: "two"}})
+	if err != nil {
+		t.Fatal(err)
+	}
+	ctx, cancel := context.WithCancelCause(t.Context())
+	defer cancel(nil)
+	duplicate, err := runOpenCodeTopicOverlapCheck(ctx, root, "opencode/muse", prompt, cancel, d, nil)
+	if err == nil || duplicate {
+		t.Fatalf("invalid overlap response was not rejected: duplicate=%t err=%v", duplicate, err)
 	}
 }
 

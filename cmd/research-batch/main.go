@@ -9,6 +9,8 @@ import (
 	"fmt"
 	"os"
 	"os/signal"
+	"sort"
+	"strings"
 	"sync"
 	"syscall"
 	"time"
@@ -33,10 +35,23 @@ func main() {
 	var report research.ProgressReporter
 	if *progressPath != "" {
 		var mu sync.Mutex
+		workers := map[string]research.Progress{}
+		var latest research.Progress
+		highestPercent := 0
 		report = func(progress research.Progress) error {
 			mu.Lock()
 			defer mu.Unlock()
-			data, err := json.Marshal(progress)
+			latest.UpdatedAt = progress.UpdatedAt
+			if progress.Domain == "" {
+				latest = progress
+			} else {
+				workers[progress.Domain] = progress
+			}
+			snapshot := aggregateProgress(workers, latest, highestPercent)
+			if snapshot.Percent > highestPercent {
+				highestPercent = snapshot.Percent
+			}
+			data, err := json.Marshal(snapshot)
 			if err != nil {
 				return err
 			}
@@ -65,4 +80,52 @@ func main() {
 		}
 		os.Exit(1)
 	}
+}
+
+type progressSnapshot struct {
+	Percent    int                 `json:"percent"`
+	DomainName string              `json:"domain_name,omitempty"`
+	Topic      string              `json:"topic,omitempty"`
+	Phase      string              `json:"phase"`
+	UpdatedAt  time.Time           `json:"updated_at"`
+	Workers    []research.Progress `json:"workers,omitempty"`
+}
+
+func aggregateProgress(workers map[string]research.Progress, latest research.Progress, highestPercent int) progressSnapshot {
+	if len(workers) == 0 {
+		return progressSnapshot{
+			Percent: max(latest.Percent, highestPercent), DomainName: latest.DomainName, Topic: latest.Topic,
+			Phase: latest.Phase, UpdatedAt: latest.UpdatedAt,
+		}
+	}
+	domains := make([]string, 0, len(workers))
+	for domain := range workers {
+		domains = append(domains, domain)
+	}
+	sort.Strings(domains)
+	snapshot := progressSnapshot{
+		DomainName: fmt.Sprintf("%d workers", len(domains)),
+		Phase:      "複数ワーカーを並列実行中",
+		UpdatedAt:  latest.UpdatedAt,
+		Workers:    make([]research.Progress, 0, len(domains)),
+	}
+	topics := make([]string, 0, len(domains))
+	seenTopics := map[string]bool{}
+	for _, domain := range domains {
+		progress := workers[domain]
+		snapshot.Percent += progress.Percent
+		snapshot.Workers = append(snapshot.Workers, progress)
+		if progress.Topic != "" && progress.Topic != "テーマ候補と一次資料を確認中" && !seenTopics[progress.Topic] {
+			topics = append(topics, progress.Topic)
+			seenTopics[progress.Topic] = true
+		}
+	}
+	snapshot.Percent /= len(domains)
+	snapshot.Percent = max(snapshot.Percent, highestPercent)
+	if len(topics) == 0 {
+		snapshot.Topic = "テーマ選定中"
+	} else {
+		snapshot.Topic = strings.Join(topics, " / ")
+	}
+	return snapshot
 }

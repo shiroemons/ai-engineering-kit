@@ -6,6 +6,7 @@
     "rate_limit_cooldown_minutes": 180
   },
   "continuous": {
+    "topics_per_run": 3,
     "model": "opencode/muse-spark-1.3-contributor-free",
     "hours": 8,
     "pause_seconds": 30

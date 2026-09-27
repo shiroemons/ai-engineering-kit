@@ -128,6 +128,11 @@ func TestPromptsSeparateResearchPhases(t *testing.T) {
 		t.Fatalf("selection phase is not bounded: %s", selection)
 	}
 
+	overlap, err := topicOverlapCheckPrompt(d, "react controlled form errors", []activeTopic{{Topic: "React form validation", Domain: "frontend"}})
+	if err != nil || !strings.Contains(overlap, "PHASE: TOPIC_OVERLAP_CHECK") || !strings.Contains(overlap, `"candidate_topic":"react controlled form errors"`) || !strings.Contains(overlap, "If uncertain, choose DUPLICATE") {
+		t.Fatalf("overlap check does not compare safe topic data: %s %v", overlap, err)
+	}
+
 	topic := "react controlled form errors"
 	sources := sourceVerificationPrompt(d, topic)
 	if !strings.Contains(sources, "PHASE: SOURCE_VERIFICATION") || !strings.Contains(sources, "Selected topic: "+topic) || !strings.Contains(sources, "Do not edit files") || !strings.Contains(sources, "PROGRESS: sources-verified") {
@@ -169,7 +174,11 @@ func TestDryRunIsolatedAndConfigRejected(t *testing.T) {
 	if err != nil {
 		t.Fatal(err)
 	}
-	for _, bad := range []string{strings.Replace(string(data), `"topics_per_run":2`, `"topics_per_run":0`, 1), strings.Replace(string(data), `"worker_timeout_minutes":45`, `"worker_timeout_minutes":0`, 1)} {
+	for _, bad := range []string{
+		strings.Replace(string(data), `"topics_per_run":3`, `"topics_per_run":0`, 1),
+		strings.Replace(string(data), `"continuous":{"topics_per_run":3`, `"continuous":{"topics_per_run":0`, 1),
+		strings.Replace(string(data), `"worker_timeout_minutes":45`, `"worker_timeout_minutes":0`, 1),
+	} {
 		writeFile(t, filepath.Join(root, "config/research.json"), []byte(bad), 0644)
 		if _, err := readConfig(root); err == nil {
 			t.Fatal("invalid config accepted")

@@ -1,8 +1,8 @@
 # 自動 Research Pipeline
 
-`launchd` のユーザー LaunchAgent が毎時00分、1日24回の予定でリサーチを起動する。無料モデル2つが別領域を並列に調べるため、予定上は最大48テーマ/日になる。OpenCode の `knowledge-researcher` は1モデルにつき1テーマを担当する。
+`launchd` のユーザー LaunchAgent が毎時00分、1日24回の予定でリサーチを起動する。1回につき最大2つの無料モデルが別領域を並列に調べるため、予定上は最大48テーマ/日になる。OpenCode の `knowledge-researcher` は1モデルにつき1テーマを担当する。
 
-手動の `just research-loop` はMuse Sparkだけで1テーマずつ繰り返す。既定の上限は8時間。定期実行と連続実行は独立したワークツリーとlockを使い、同時に動かせる。重なった場合は最大3モデル実行となる。
+手動の `just research-loop` はMuse Sparkを先頭に、利用可能な無料モデルを最大3つ使って調査する。既定の上限は8時間。workerは前のworkerがテーマを選び、重複確認を終え、一次資料の確認を始めた後に起動する。定期実行と連続実行はworkerごとに別のdetached worktreeを使う。実行全体は共通の `research-pipeline.lock` で直列化し、テーマ予約から検証、PR作成、マージ待ちまで同時に1パイプラインだけが進む。定期実行は別モードの処理が終わるまで待機する。待機中は `research-loop` が次の連続実行を譲り、定期実行が割り込める。調査中のテーマは選定プロンプトに渡し、意味的な重複をモデルで判定してから予約する。表記を正規化した完全一致も予約時に検出する。
 
 更新対象は knowledge・source catalog・検索 eval。`cmd/research-batch` が各モデルの成果を検証し、成功分を統合する。`scripts/research-next.sh` は全体のチェック後、件名に調査テーマを入れ、本文で変更の理由を説明する Conventional Commit を作ってから、専用branchにpushしてPRを作る。件名は `docs: <テーマ>の根拠と適用条件を記録`、本文は「一次資料に基づく知識と検索 eval を残し、後続の実装・運用で根拠を再利用できるようにする。」とする。定期実行と連続実行は別PRになる。競合のないPRではsquashのauto-mergeを有効にする。必須チェックなどの条件を満たした後にGitHubがマージする。
 
@@ -23,9 +23,9 @@
 
 ## 進捗表示
 
-`just research-loop` はテーマごとの推定進捗をバーで表示する。TTYでは進行中の同じ行を更新し、成功したテーマだけを100%の行として残す。失敗した試行の進捗行は消し、理由は端末と `research-error.log` に記録する。標準出力をファイルへリダイレクトした場合は、成功したテーマの100%行だけを記録する。進捗は8時間の実行時間に対する割合ではない。各試行の開始時は3%（領域割り当て後、テーマ候補の一次資料を確認中）、テーマ選定後に10%、一次資料の確認後に30%、knowledge 文書の完成後に55%、検索 eval の作成後に70%、検索結果の確認後に85%、runner 検証後に95%、成果の統合後に100%となる。TOPIC_SELECTED はテーマ選定の中間報告、TOPIC は成果物作成と最終検証の完了報告として区別する。10〜90%は調査エージェントが完了を報告した段階、95〜100%はrunnerが確認した段階を示すため、厳密な作業量や内容の完全性ではなく目安として扱う。
+`just research-loop` は複数workerの平均推定進捗と、調査中のテーマ一覧を表示する。新しいworkerが加わった時に表示が後退しないよう、進捗バーは最高到達値を保つ。JSON進捗にはworkerごとの領域・テーマ・段階も残す。TTYでは進行中の同じ行を更新し、成功したテーマだけを100%の行として残す。失敗した試行の進捗行は消し、理由は端末と `research-error.log` に記録する。標準出力をファイルへリダイレクトした場合は、成功したテーマの100%行だけを記録する。進捗は8時間の実行時間に対する割合ではない。各試行の開始時は3%（領域割り当て後、テーマ候補の一次資料を確認中）、テーマ選定後に10%、一次資料の確認後に30%、knowledge 文書の完成後に55%、検索 eval の作成後に70%、検索結果の確認後に85%、runner 検証後に95%、成果の統合後に100%となる。TOPIC_SELECTED はテーマ選定の中間報告、TOPIC は成果物作成と最終検証の完了報告として区別する。10〜90%は調査エージェントが完了を報告した段階、95〜100%はrunnerが確認した段階を示すため、厳密な作業量や内容の完全性ではなく目安として扱う。
 
-選定方針は `coverage_first` とし、runnerが未調査の領域、蓄積の少ない領域、最近扱っていない領域の順に割り当てる。直近16件のknowledgeの変更履歴も参照する。定期実行と連続実行は領域の使用状況を共有し、調査中の領域を別workerに割り当てない。workerは担当領域の設定済み技術から具体的な問いを選ぶ。件数合わせのために価値の低いテーマを選ばない。
+選定方針は `coverage_first` とし、runnerが未調査の領域、蓄積の少ない領域、最近扱っていない領域の順に割り当てる。直近16件のknowledgeの変更履歴も参照する。定期実行と連続実行は領域の使用状況を共有し、調査中の領域を別workerに割り当てない。workerは担当領域の設定済み技術から具体的な問いを選ぶ。先行workerが選定したテーマと同じ問いを扱わない。予約時には別のモデル呼び出しで、言い換えや細分化を含めて調査対象が重なるかを判定する。判定が曖昧または応答形式が不正なら、そのテーマを開始せず再選定する。件数合わせのために価値の低いテーマを選ばない。
 
 文書には主題に対応する `research-domain:<domain-id>` タグを1つ付ける。既存文書にタグがなければ、設定の技術名から領域を判定する。同じ文書の再編集を別文書として数えない。設定に含まれる技術は未調査でも新規技術の月1件制限から除外する。制限の対象は設定外の技術だけとし、取得日の更新ではなく最初の commit で月を判定する。
 
@@ -39,11 +39,11 @@ OpenCode v2、GitHub CLI (`gh`) と認証済みアカウント、`mise`、`just`
 
 runnerは `opencode models --print-logs --log-level debug` で利用可能なモデルを調べる。models.devの最新料金情報で入力・出力・キャッシュの料金がゼロで、tool callingに対応する候補だけを使う。料金未設定のキャッシュ項目は追加料金なしとして扱う。モデル一覧と料金情報の取得は最大3回試す。
 
-定期実行では `parallel.preferred_models` のMuse SparkとMiMoを優先する。使えない候補はローカル設定モデル、利用可能な無料モデルの順で補う。1モデルしか使えない場合は1テーマに減らす。連続実行では `continuous.model` のMuse Sparkだけを使い、利用不能・有料化・料金取得失敗では終了する。
+定期実行では `parallel.preferred_models` のMuse SparkとMiMoを優先し、使えない候補はローカル設定モデル、利用可能な無料モデルの順で補う。連続実行では `continuous.model` を先頭にし、続けて `parallel.preferred_models`、ローカル設定モデル、利用可能な無料モデルから補う。定期実行は `topics_per_run`、連続実行は `continuous.topics_per_run` までの異なるモデルを使い、候補が足りなければ実行数を減らす。Muse Sparkが利用不能・有料化・料金取得失敗の場合、連続実行は開始しない。
 
 2026-09-26時点で `opencode/muse-spark-1.3-contributor-free` は期間限定の無料モデル。プロンプトと回答はMetaの学習に使われ得る。無料の具体的な上限や終了日は保証されていない。[OpenCodeの料金・プライバシー条件](https://opencode.ai/docs/zen/)を確認し、公開情報の調査に使う。
 
-各workerは最大45分で停止する。失敗したworkerを別モデルで再試行しない。片方だけ成功した場合は、その成果を検証してPRにまとめ、失敗分のワークツリーを保持する。利用制限・quotaを示すエラーを受けたら実行中のworkerを止め、共通のcooldownを3時間設定する。他方の実行もcooldownを検知して停止する。これは無料上限の推定値ではなく、runnerの再試行抑制時間である。
+各workerは最大45分で停止する。失敗したworkerを別モデルで再試行しない。成功したworkerの成果だけを検証してPRにまとめ、失敗分のワークツリーを保持する。利用制限・quotaを示すエラーを受けたら実行中のworkerを止め、共通のcooldownを3時間設定する。他方の実行もcooldownを検知して停止する。これは無料上限の推定値ではなく、runnerの再試行抑制時間である。
 
 現在の CLI では `models --refresh --verbose` および `agent list` は使えず、agent の確認は `opencode debug agents` を使う。
 
@@ -92,8 +92,8 @@ runnerは元のcheckoutがmainで未commit変更がないことを確認する�
 
 runnerは変更パス・タグ・技術・source参照・検索evalを検査する。削除・リネーム・symlinkを受け付けない。成功分を順番に仮統合して再検証し、同じファイルへの異なる変更は競合として保持する。最終成果は統合用ワークツリーへまとめて適用し、`just check` とstaged diffの確認後にcommit・push・PR作成を行う。
 
-競合のないPRには `gh pr merge --squash --auto` を依頼する。定期実行と連続実行のPRが競合した場合はopenのまま残し、失敗を報告する。pushやPR作成の失敗でもcommitはresearch branchに残る。統合済みのworkerとcleanな統合用ワークツリーは削除し、失敗したworkerや未commitの成果は復旧用に保持する。保守者はログの `recovery` と `git worktree list` で場所を確認し、差分の要否を判断してから片付ける。ログにはOpenCodeの応答全文を保存しない。
+競合のないPRには `gh pr merge --squash --auto` を依頼する。定期実行と連続実行のパイプラインは共通lockで直列になるが、外部PRなどとの競合でマージできない場合はopenのまま残し、失敗を報告する。pushやPR作成の失敗でもcommitはresearch branchに残る。統合済みのworkerとcleanな統合用ワークツリーは削除し、失敗したworkerや未commitの成果は復旧用に保持する。保守者はログの `recovery` と `git worktree list` で場所を確認し、差分の要否を判断してから片付ける。ログにはOpenCodeの応答全文を保存しない。
 
-実行lockは `research.lock`・`research-continuous.lock`・`research-loop.lock`。領域lockは `domains/<ID>.lock`、待機期限は `cooldown-until`。いずれもログディレクトリに置く。異常終了後にlockが残った場合は、該当プロセスが終了していることを確認してから除去する。
+実行lockは `research.lock`・`research-continuous.lock`・`research-loop.lock` と、PRの後処理まで含む共通の `research-pipeline.lock`。領域lockは `domains/<ID>.lock`、テーマlockは `topics/<SHA-256>.json`、テーマ選定のプロセス間lockはOSのファイルlock `topic-selection.lock`、待機期限は `cooldown-until`。いずれもログディレクトリに置く。テーマlockにはテーマ・領域・PID・開始時刻を記録し、正常終了時に削除する。次の選定では所有PIDが終了したテーマlockと、開始から48時間を超えたlockを排他lock内で削除する。異常終了後にディレクトリ形式のlockが残った場合は、該当プロセスが終了していることを確認してから除去する。`topic-selection.lock` はファイルを残したままにし、プロセス終了時にOSが排他lockを解放する。
 
 dry runはdetached worktreeで読み取りだけのtopic選択を依頼し、変更がなかったことと既存データのvalidationを確認する。モデル利用は発生する。dry runではfetch・branch作成・commit・push・PR作成をしない。

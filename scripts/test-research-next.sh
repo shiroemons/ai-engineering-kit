@@ -66,7 +66,7 @@ printf '%s\n' "$((count + 1))" > "$RESEARCH_TEST_DIR/list-count"
 [[ "${MOCK_EMPTY_MODELS:-0}" != 1 ]] || exit 0
 if [[ "${MOCK_COLD_MODELS:-0}" == 1 && "$count" == 0 ]]; then exit 0; fi
 ((count != 0)) || exit 1
-printf '%s\n' opencode/muse-spark-1.3-contributor-free opencode/mimo-v2.6-flash-free opencode/paid-cache opencode/decisions-only
+printf '%s\n' opencode/muse-spark-1.3-contributor-free opencode/mimo-v2.6-flash-free opencode/third-free opencode/paid-cache opencode/decisions-only
 EOF
 cat > "$TEST_DIR/bin/curl" <<'EOF'
 #!/bin/bash
@@ -77,7 +77,7 @@ fi
 if [[ "${MOCK_NO_MUSE:-0}" == 1 ]]; then
   printf '%s\n' '{"opencode":{"models":{"mimo-v2.6-flash-free":{"tool_call":true,"cost":{"input":0,"output":0}}}}}'
 else
-  printf '%s\n' '{"opencode":{"models":{"muse-spark-1.3-contributor-free":{"tool_call":true,"cost":{"input":0,"output":0,"cache_read":0}},"mimo-v2.6-flash-free":{"tool_call":true,"cost":{"input":0,"output":0}},"paid-cache":{"tool_call":true,"cost":{"input":0,"output":0,"cache_read":1}},"decisions-only":{"tool_call":false,"cost":{"input":0,"output":0}}}}}'
+  printf '%s\n' '{"opencode":{"models":{"muse-spark-1.3-contributor-free":{"tool_call":true,"cost":{"input":0,"output":0,"cache_read":0}},"mimo-v2.6-flash-free":{"tool_call":true,"cost":{"input":0,"output":0}},"third-free":{"tool_call":true,"cost":{"input":0,"output":0}},"paid-cache":{"tool_call":true,"cost":{"input":0,"output":0,"cache_read":1}},"decisions-only":{"tool_call":false,"cost":{"input":0,"output":0}}}}}'
 fi
 EOF
 cat > "$TEST_DIR/bin/mise" <<'EOF'
@@ -119,7 +119,15 @@ case "$1:$2" in
   *) exit 1 ;;
 esac
 EOF
-printf '#!/bin/bash\nexit 0\n' > "$TEST_DIR/bin/sleep"
+cat > "$TEST_DIR/bin/sleep" <<'EOF'
+#!/bin/bash
+if [[ "${MOCK_RELEASE_PIPELINE_LOCK:-0}" == 1 && ! -f "$RESEARCH_TEST_DIR/pipeline-lock-released" ]]; then
+  touch "$RESEARCH_TEST_DIR/pipeline-lock-released"
+  rm -f "$RESEARCH_LOG_DIR/research-pipeline.lock/pid"
+  rmdir "$RESEARCH_LOG_DIR/research-pipeline.lock"
+fi
+exit 0
+EOF
 printf '#!/bin/bash\nexit 0\n' > "$TEST_DIR/bin/just"
 chmod +x "$TEST_DIR/bin/"*
 export PATH="$TEST_DIR/bin:$PATH"
@@ -140,6 +148,7 @@ grep -Fq 'OpenCode model listing failed; retrying' "$RESEARCH_LOG_DIR/research.l
 grep -Fq 'current model pricing unavailable; retrying' "$RESEARCH_LOG_DIR/research.log"
 [[ "$(tail -n 2 "$TEST_DIR/batch-args")" == $'opencode/muse-spark-1.3-contributor-free\nopencode/mimo-v2.6-flash-free' ]]
 ! grep -Eq 'paid-cache|decisions-only' "$TEST_DIR/batch-args"
+! grep -Fq 'opencode/third-free' "$TEST_DIR/batch-args"
 
 # A successful CLI exit can precede initial model catalog settlement.
 rm "$TEST_DIR/list-count"
@@ -161,12 +170,32 @@ expect_failure 'OpenCode model listing failed after 3 attempts'
 [[ ! -f "$TEST_DIR/batch-args" ]]
 unset MOCK_EMPTY_MODELS
 
-# Scheduled and continuous executions have independent locks.
-mkdir "$RESEARCH_LOG_DIR/research.lock"
+# Continuous execution starts with its configured model and fills the 3-worker limit.
+rm -f "$TEST_DIR/batch-args"
 RESEARCH_CONTINUOUS=1 bash "$RUNNER"
-[[ "$(tail -n 1 "$TEST_DIR/batch-args")" == opencode/muse-spark-1.3-contributor-free ]]
-! grep -Fq opencode/mimo-v2.6-flash-free "$TEST_DIR/batch-args"
-rmdir "$RESEARCH_LOG_DIR/research.lock"
+[[ "$(tail -n 3 "$TEST_DIR/batch-args")" == $'opencode/muse-spark-1.3-contributor-free\nopencode/mimo-v2.6-flash-free\nopencode/third-free' ]]
+[[ ! -d "$RESEARCH_LOG_DIR/research-pipeline.lock" ]]
+
+# Scheduled and continuous pipelines share a lock through post-processing.
+rm "$TEST_DIR/batch-args"
+mkdir "$RESEARCH_LOG_DIR/research-pipeline.lock"
+status=0
+RESEARCH_CONTINUOUS=1 bash "$RUNNER" > "$TEST_DIR/pipeline-lock-output" 2>&1 || status=$?
+[[ "$status" == 3 ]]
+grep -Fq 'another research pipeline holds the shared lock' "$TEST_DIR/pipeline-lock-output"
+[[ ! -f "$TEST_DIR/batch-args" ]]
+[[ ! -d "$RESEARCH_LOG_DIR/research-continuous.lock" ]]
+rmdir "$RESEARCH_LOG_DIR/research-pipeline.lock"
+
+# A scheduled run waits for an active continuous pipeline instead of being lost.
+rm -f "$TEST_DIR/batch-args"
+mkdir "$RESEARCH_LOG_DIR/research-pipeline.lock"
+printf '%s\n' "$$" > "$RESEARCH_LOG_DIR/research-pipeline.lock/pid"
+MOCK_RELEASE_PIPELINE_LOCK=1 bash "$RUNNER"
+[[ -f "$TEST_DIR/pipeline-lock-released" ]]
+[[ -f "$TEST_DIR/batch-args" ]]
+[[ ! -d "$RESEARCH_LOG_DIR/research-pipeline.lock" ]]
+
 export RESEARCH_CONTINUOUS=1 MOCK_NO_MUSE=1
 expect_failure 'no currently available OpenCode model'
 unset RESEARCH_CONTINUOUS MOCK_NO_MUSE

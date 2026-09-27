@@ -23,7 +23,10 @@ type domain struct {
 }
 
 type config struct {
-	Topics   int `json:"topics_per_run"`
+	Topics     int `json:"topics_per_run"`
+	Continuous struct {
+		Topics int `json:"topics_per_run"`
+	} `json:"continuous"`
 	Parallel struct {
 		PreferredModels []string `json:"preferred_models"`
 		TimeoutMinutes  int      `json:"worker_timeout_minutes"`
@@ -63,7 +66,7 @@ func readConfig(root string) (config, error) {
 	if err := json.Unmarshal(data, &c); err != nil {
 		return c, err
 	}
-	if c.Topics < 1 || c.Topics > 2 || len(c.Domains) < c.Topics ||
+	if c.Topics < 1 || c.Topics > 8 || c.Continuous.Topics < 1 || c.Continuous.Topics > 8 || len(c.Domains) < max(c.Topics, c.Continuous.Topics) ||
 		c.Parallel.TimeoutMinutes < 1 || c.Parallel.TimeoutMinutes > 120 ||
 		c.Parallel.CooldownMinutes < 1 || c.Parallel.CooldownMinutes > 1440 ||
 		c.Selection.RecentCommits < 1 || c.Selection.RecentCommits > 1000 {
@@ -82,6 +85,10 @@ func readConfig(root string) (config, error) {
 		}
 	}
 	return c, nil
+}
+
+func (c config) maxTopics() int {
+	return max(c.Topics, c.Continuous.Topics)
 }
 
 func indexed(root string) (*kb.Repository, []kb.Document, error) {

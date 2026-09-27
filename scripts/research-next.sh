@@ -13,6 +13,10 @@ LOG_FILE="$LOG_DIR/research.log"
 ERROR_FILE="$LOG_DIR/research-error.log"
 LOCK_DIR="$LOG_DIR/research.lock"
 [[ "${RESEARCH_CONTINUOUS:-0}" != 1 ]] || LOCK_DIR="$LOG_DIR/research-continuous.lock"
+PIPELINE_LOCK_DIR="$LOG_DIR/research-pipeline.lock"
+PIPELINE_LOCK_HELD=0
+PIPELINE_WAIT_LOGGED=0
+PIPELINE_LOCK_MISSING_OWNER_ATTEMPTS=0
 PROGRESS_FILE="${RESEARCH_PROGRESS_FILE:-}"
 RESEARCH_BRANCH=''
 RUN_WORKTREE=''
@@ -31,6 +35,7 @@ fail() {
 }
 cleanup() {
   local exit_code="$1"
+  local cleanup_status=0
 
   if [[ -n "$BATCH_PID" ]] && kill -0 "$BATCH_PID" 2>/dev/null; then
     kill -TERM "$BATCH_PID"
@@ -50,6 +55,19 @@ cleanup() {
 
   rm -f "$LOCK_DIR/pid" 2>/dev/null || true
   rmdir "$LOCK_DIR" 2>/dev/null || true
+  if ((PIPELINE_LOCK_HELD)); then
+    if ! rm -f "$PIPELINE_LOCK_DIR/pid"; then
+      log "failure: could not remove shared pipeline lock owner: $PIPELINE_LOCK_DIR/pid"
+      cleanup_status=1
+    fi
+    if ! rmdir "$PIPELINE_LOCK_DIR"; then
+      log "failure: could not remove shared pipeline lock: $PIPELINE_LOCK_DIR"
+      cleanup_status=1
+    else
+      PIPELINE_LOCK_HELD=0
+    fi
+  fi
+  if ((exit_code == 0 && cleanup_status != 0)); then exit_code=1; fi
   return "$exit_code"
 }
 
@@ -61,6 +79,47 @@ trap 'cleanup "$?"' EXIT
 trap 'exit 130' INT
 trap 'exit 143' TERM
 printf '%s\n' "$$" > "$LOCK_DIR/pid"
+while ! mkdir "$PIPELINE_LOCK_DIR" 2>/dev/null; do
+  if [[ "${RESEARCH_CONTINUOUS:-0}" == 1 ]]; then
+    if [[ -d "$LOG_DIR/research.lock" ]]; then
+      log 'skipped: scheduled research is waiting for the shared pipeline lock'
+      printf 'research: scheduled research is waiting; continuous loop will retry\n' >&2
+    else
+      log 'skipped: another research pipeline holds the shared lock'
+      printf 'research: another research pipeline holds the shared lock; retry later\n' >&2
+    fi
+    exit 3
+  fi
+
+  if ((PIPELINE_WAIT_LOGGED == 0)); then
+    log 'waiting: another research pipeline holds the shared lock'
+    printf 'research: waiting for the active pipeline to finish\n' >&2
+    PIPELINE_WAIT_LOGGED=1
+  fi
+
+  PIPELINE_PID=''
+  if [[ -f "$PIPELINE_LOCK_DIR/pid" ]]; then
+    read -r PIPELINE_PID < "$PIPELINE_LOCK_DIR/pid" || PIPELINE_PID=''
+  fi
+  if [[ "$PIPELINE_PID" =~ ^[0-9]+$ ]]; then
+    PIPELINE_LOCK_MISSING_OWNER_ATTEMPTS=0
+    if ! kill -0 "$PIPELINE_PID" 2>/dev/null; then
+      log "failure: shared pipeline lock has no live owner: pid=$PIPELINE_PID"
+      printf 'research: stale shared pipeline lock; confirm no run is active, then remove %s\n' "$PIPELINE_LOCK_DIR" >&2
+      exit 3
+    fi
+  else
+    PIPELINE_LOCK_MISSING_OWNER_ATTEMPTS=$((PIPELINE_LOCK_MISSING_OWNER_ATTEMPTS + 1))
+    if ((PIPELINE_LOCK_MISSING_OWNER_ATTEMPTS >= 3)); then
+      log 'failure: shared pipeline lock has no valid owner'
+      printf 'research: shared pipeline lock has no valid owner; confirm no run is active, then remove %s\n' "$PIPELINE_LOCK_DIR" >&2
+      exit 3
+    fi
+  fi
+  sleep 1
+done
+PIPELINE_LOCK_HELD=1
+printf '%s\n' "$$" > "$PIPELINE_LOCK_DIR/pid"
 
 cd "$ROOT"
 log 'start'
@@ -94,8 +153,7 @@ if [[ "${RESEARCH_DRY_RUN:-0}" != 1 ]]; then
   GH_PROMPT_DISABLED=1 gh auth status >/dev/null 2>&1 || fail 'GitHub CLI is not authenticated' 2
 fi
 
-# Retry transient discovery failures, then prefer the configured model pair.
-# Continuous execution accepts only its exact configured model.
+# Continuous execution starts with its configured model, then fills remaining slots.
 AVAILABLE=''
 for attempt in 1 2 3; do
   if AVAILABLE="$(opencode models --print-logs --log-level debug 2>/dev/null)"; then
@@ -146,18 +204,24 @@ is_verified_free_model() {
 MODEL_CANDIDATES=()
 MODEL_CANDIDATE_FOUND=0
 find_model_candidates() {
-  local candidate preferred
+  local candidate preferred topic_limit
   MODEL_CANDIDATES=()
   MODEL_CANDIDATE_FOUND=0
   if [[ "${RESEARCH_CONTINUOUS:-0}" == 1 ]]; then
+    topic_limit="$(jq -er '.continuous.topics_per_run | select(. >= 1 and . <= 8 and . == (. | floor))' "$BASE_ROOT/config/research.json")" \
+      || fail 'invalid continuous.topics_per_run' 2
     preferred="$(jq -er '.continuous.model' "$BASE_ROOT/config/research.json")" || fail 'invalid continuous model' 2
-    if is_verified_free_model "$preferred"; then
-      MODEL_CANDIDATES+=("$preferred")
-      MODEL_CANDIDATE_FOUND=1
+    if ! is_verified_free_model "$preferred"; then
+      log "continuous model is unavailable or not currently free: $preferred"
+      return 0
     fi
-    return 0
+    MODEL_CANDIDATES+=("$preferred")
+    preferred="$(jq -er '.parallel.preferred_models[]' "$BASE_ROOT/config/research.json")" || fail 'invalid preferred models' 2
+  else
+    topic_limit="$(jq -er '.topics_per_run | select(. >= 1 and . <= 8 and . == (. | floor))' "$BASE_ROOT/config/research.json")" \
+      || fail 'invalid topics_per_run' 2
+    preferred="$(jq -er '.parallel.preferred_models[]' "$BASE_ROOT/config/research.json")" || fail 'invalid preferred models' 2
   fi
-  preferred="$(jq -er '.parallel.preferred_models[]' "$BASE_ROOT/config/research.json")" || fail 'invalid preferred models' 2
   if ! is_verified_free_model "$MODEL"; then
     log "configured model is unavailable or not currently free: $MODEL"
   fi
@@ -166,9 +230,10 @@ find_model_candidates() {
       MODEL_CANDIDATES+=("$candidate")
       MODEL_CANDIDATE_FOUND=1
       log "verified free model selected: $candidate"
-      [[ "${#MODEL_CANDIDATES[@]}" -ge 2 ]] && break
+      [[ "${#MODEL_CANDIDATES[@]}" -ge "$topic_limit" ]] && break
     fi
   done <<< "$(printf '%s\n%s\n%s\n' "$preferred" "$MODEL" "$AVAILABLE")"
+  if ((${#MODEL_CANDIDATES[@]} > 0)); then MODEL_CANDIDATE_FOUND=1; fi
   return 0
 }
 
