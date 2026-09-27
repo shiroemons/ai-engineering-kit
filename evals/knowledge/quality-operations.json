@@ -29,6 +29,26 @@
       "name": "otel-bsp-default-queue-batch",
       "query": "DefaultMaxQueueSize DefaultMaxExportBatchSize",
       "expected_ids": ["opentelemetry-batch-span-processor"]
+    },
+    {
+      "name": "sre-sli-slo-error-budget",
+      "query": "SLI SLO エラーバジェット",
+      "expected_ids": ["sre-slo-error-budget-burn-rate-alerting"]
+    },
+    {
+      "name": "sre-burn-rate-multiwindow",
+      "query": "バーンレート multiwindow",
+      "expected_ids": ["sre-slo-error-budget-burn-rate-alerting"]
+    },
+    {
+      "name": "sre-error-budget-paging",
+      "query": "エラーバジェット paging",
+      "expected_ids": ["sre-slo-error-budget-burn-rate-alerting"]
+    },
+    {
+      "name": "sre-burn-rate-ticket-prometheus",
+      "query": "バーンレート ticket Prometheus",
+      "expected_ids": ["sre-slo-error-budget-burn-rate-alerting"]
     }
   ]
 }
