@@ -1,0 +1,12 @@
+{
+  "id": "terraform-v1-6-0-release-notes",
+  "url": "https://github.com/hashicorp/terraform/releases/tag/v1.6.0",
+  "repository_url": "https://github.com/hashicorp/terraform",
+  "commit_sha": "edb8ea4baa43421a73d7ba50fed957e6be599b45",
+  "version": "Terraform v1.6.0 (released 2023-10-04, tag commit edb8ea4baa43421a73d7ba50fed957e6be599b45)",
+  "retrieved_at": "2026-09-27",
+  "license": "BUSL-1.1 (hashicorp/terraform LICENSE: Licensor IBM, Licensed Work Terraform 1.6.0 以降, change license MPL-2.0)",
+  "trust": "official",
+  "type": "release_notes",
+  "purpose": "import ブロックの id フィールドがリソース属性など他の値を参照する式を受け付けるようになった点（ただし plan 時に既知の文字列である必要、#33618）と、force-unlock 実行時の潜在的なリモート Terraform バージョン不一致を無視するようになった点（#28853）を確認する"
+}

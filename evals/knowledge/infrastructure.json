@@ -114,6 +114,66 @@
       "name": "github-actions-cancellation-timeout-force",
       "query": "cancellation timeout 強制終了",
       "expected_ids": ["github-actions-concurrency-cancel-in-progress"]
+    },
+    {
+      "name": "terraform-state-locking-basics",
+      "query": "state locking",
+      "expected_ids": ["terraform-state-locking-drift-import"]
+    },
+    {
+      "name": "terraform-concurrent-runs",
+      "query": "concurrent runs",
+      "expected_ids": ["terraform-state-locking-drift-import"]
+    },
+    {
+      "name": "terraform-lock-timeout-retry",
+      "query": "lock-timeout",
+      "expected_ids": ["terraform-state-locking-drift-import"]
+    },
+    {
+      "name": "terraform-force-unlock-multiple-writers",
+      "query": "force-unlock multiple writers",
+      "expected_ids": ["terraform-state-locking-drift-import"]
+    },
+    {
+      "name": "terraform-refresh-only-drift",
+      "query": "refresh-only drift",
+      "expected_ids": ["terraform-state-locking-drift-import"]
+    },
+    {
+      "name": "terraform-planning-modes-exclusive",
+      "query": "planning modes",
+      "expected_ids": ["terraform-state-locking-drift-import"]
+    },
+    {
+      "name": "terraform-refresh-false-incomplete-plan",
+      "query": "refresh=false",
+      "expected_ids": ["terraform-state-locking-drift-import"]
+    },
+    {
+      "name": "terraform-detailed-exitcode-diff",
+      "query": "detailed-exitcode",
+      "expected_ids": ["terraform-state-locking-drift-import"]
+    },
+    {
+      "name": "terraform-speculative-plan-out",
+      "query": "speculative plan",
+      "expected_ids": ["terraform-state-locking-drift-import"]
+    },
+    {
+      "name": "terraform-import-block-to-id",
+      "query": "import block",
+      "expected_ids": ["terraform-state-locking-drift-import"]
+    },
+    {
+      "name": "terraform-generate-config-out",
+      "query": "generate-config-out",
+      "expected_ids": ["terraform-state-locking-drift-import"]
+    },
+    {
+      "name": "terraform-imports-tf-placement",
+      "query": "imports.tf",
+      "expected_ids": ["terraform-state-locking-drift-import"]
     }
   ]
 }

@@ -1,0 +1,12 @@
+{
+  "id": "terraform-state-locking-docs",
+  "url": "https://developer.hashicorp.com/terraform/language/state/locking",
+  "repository_url": "https://github.com/hashicorp/web-unified-docs",
+  "commit_sha": "",
+  "version": "Terraform Docs v1.16.x (State Locking; source path content/terraform/v1.16.x/docs/language/state/locking.mdx; 2026-09-27 にページ全文確認)",
+  "retrieved_at": "2026-09-27",
+  "license": "BUSL-1.1 (hashicorp/web-unified-docs LICENSE: Licensor IBM, Licensed Work /web-unified-docs, change license MPL-2.0; developer.hashicorp.com の Terraform 文書のソース)",
+  "trust": "official",
+  "type": "official_docs",
+  "purpose": "state を書き込み得るすべての操作で backend が対応していればロックが自動実行される点、成功メッセージが出ない点、ロック失敗時は続行しない点、-lock=false がほとんどのコマンドで利用できるが非推奨な点、ロック取得に時間がかかる場合のステータスメッセージ、すべての backend がロックをサポートするわけではない点、force-unlock が他人のロック解除による multiple writers の危険と一意ロック ID をノンスとして要求する点を確認する"
+}

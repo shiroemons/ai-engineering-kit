@@ -1,0 +1,12 @@
+{
+  "id": "terraform-v1-5-0-release-notes",
+  "url": "https://github.com/hashicorp/terraform/releases/tag/v1.5.0",
+  "repository_url": "https://github.com/hashicorp/terraform",
+  "commit_sha": "f25d764edfc89d0d7e42fb99be433558ae45d7a3",
+  "version": "Terraform v1.5.0 (released 2023-06-12, tag commit f25d764edfc89d0d7e42fb99be433558ae45d7a3)",
+  "retrieved_at": "2026-09-27",
+  "license": "MPL-2.0 (hashicorp/terraform v1.5.0 タグの LICENSE; 現行 main は IBM 名義の BUSL-1.1、Licensed Work は Terraform 1.6.0 以降)",
+  "trust": "official",
+  "type": "release_notes",
+  "purpose": "import ブロック導入（configuration-driven で通常の plan の一部として処理、terraform import CLI は変更なし、初期版は id フィールドに interpolation 非対応で文字列必須）、terraform plan への新フラグ -generate-config-out=PATH（生成構成は適用前にレビュー・編集を指示）、check ブロック同時導入、apply 中の state snapshot 定期永続化と SIGINT 時の即時保存（#32680）を確認する"
+}

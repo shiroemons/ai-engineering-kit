@@ -1,0 +1,12 @@
+{
+  "id": "terraform-import-block-docs",
+  "url": "https://developer.hashicorp.com/terraform/language/block/import",
+  "repository_url": "https://github.com/hashicorp/web-unified-docs",
+  "commit_sha": "",
+  "version": "Terraform Docs v1.16.x (import block reference; source path content/terraform/v1.16.x/docs/language/block/import.mdx; 2026-09-27 にページ全文確認)",
+  "retrieved_at": "2026-09-27",
+  "license": "BUSL-1.1 (hashicorp/web-unified-docs LICENSE: Licensor IBM, Licensed Work /web-unified-docs, change license MPL-2.0; developer.hashicorp.com の Terraform 文書のソース)",
+  "trust": "official",
+  "type": "official_docs",
+  "purpose": "import ブロックの引数 to（アドレス、既存 resource ブロックと一致必須）、id（文字列または文字列に評価される式、plan 時に既知必須）、identity（id と相互排他）、for_each（map または string の set、メタ引数）、provider（エイリアス参照のメタ引数）と、imports.tf への集約か宛先 resource の隣に置く推奨、for_each による複数 import 例、apply で使う provider エイリアス例を確認する"
+}
