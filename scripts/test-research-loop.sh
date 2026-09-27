@@ -43,6 +43,7 @@ EOF
 chmod +x "$TEST_DIR/bin/"*
 export PATH="$TEST_DIR/bin:$PATH"
 LOOP="$TEST_DIR/repo/scripts/research-loop.sh"
+! grep -Fq 'monitor_progress' "$ROOT/scripts/research-next.sh"
 bash "$LOOP" > "$TEST_DIR/output"
 [[ "$(wc -l < "$TEST_DIR/runs" | tr -d ' ')" == 2 ]]
 [[ ! -e "$TEST_DIR/stale-progress" ]]

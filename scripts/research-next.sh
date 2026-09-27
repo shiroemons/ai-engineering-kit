@@ -226,10 +226,6 @@ PROGRESS_ARGS=(--progress-file "$PROGRESS_FILE")
   "${PROGRESS_ARGS[@]}" \
   --dry-run="$DRY_FLAG" --deadline="${RESEARCH_DEADLINE:-0}" "${MODEL_CANDIDATES[@]}" > "$OUTPUT_FILE" 2>&1 &
 BATCH_PID=$!
-if [[ -n "$PROGRESS_FILE" ]]; then
-  monitor_progress &
-  PROGRESS_PID=$!
-fi
 if wait "$BATCH_PID"; then
   BATCH_PID=''
   log 'research batch: passed'

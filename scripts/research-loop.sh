@@ -23,17 +23,32 @@ progress_fields() {
 
 render_progress() {
   local percent="$1" domain="$2" topic="$3" phase="$4"
-  local filled bar='' index
+  local filled bar='' index stage
   ((percent >= 0 && percent <= 100)) || percent=0
   filled=$((percent / 10))
   for ((index = 0; index < 10; index++)); do
     if ((index < filled)); then bar+='█'; else bar+='░'; fi
   done
-  if ((${#topic} > 30)); then topic="${topic:0:29}…"; fi
-  if ((${#phase} > 10)); then phase="${phase:0:9}…"; fi
   if ((PROGRESS_TTY)); then
-    printf '\r\033[2K[%s] %3d%% | %s | %s | %s' "$bar" "$percent" "$domain" "$topic" "$phase"
+    if ((${#domain} > 8)); then domain="${domain:0:7}…"; fi
+    if ((percent >= 100)); then
+      if ((${#topic} > 10)); then topic="${topic:0:9}…"; fi
+      printf '\r\033[2K[%s] %3d%% | %s | %s' "$bar" "$percent" "$domain" "$topic"
+    else
+      if ((percent <= 3)); then stage='テーマ確認'
+      elif ((percent <= 15)); then stage='資料確認'
+      elif ((percent <= 40)); then stage='要点整理'
+      elif ((percent <= 55)); then stage='文書作成'
+      elif ((percent <= 60)); then stage='eval作成'
+      elif ((percent <= 92)); then stage='eval検証'
+      elif ((percent <= 95)); then stage='成果確認'
+      else stage='統合中'
+      fi
+      printf '\r\033[2K[%s] %3d%% | %s | %s' "$bar" "$percent" "$domain" "$stage"
+    fi
   else
+    if ((${#topic} > 10)); then topic="${topic:0:9}…"; fi
+    if ((${#domain} > 10)); then domain="${domain:0:9}…"; fi
     printf '[%s] %3d%% | %s | %s | %s' "$bar" "$percent" "$domain" "$topic" "$phase"
   fi
 }
