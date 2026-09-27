@@ -14,7 +14,10 @@ ERROR_FILE="$LOG_DIR/research-error.log"
 LOCK_DIR="$LOG_DIR/research.lock"
 [[ "${RESEARCH_CONTINUOUS:-0}" != 1 ]] || LOCK_DIR="$LOG_DIR/research-continuous.lock"
 PIPELINE_LOCK_DIR="$LOG_DIR/research-pipeline.lock"
+RUN_LOCK_HELD=0
 PIPELINE_LOCK_HELD=0
+LOCK_ACQUIRE_IN_PROGRESS=0
+PENDING_SIGNAL_STATUS=''
 PIPELINE_WAIT_LOGGED=0
 PIPELINE_LOCK_MISSING_OWNER_ATTEMPTS=0
 PROGRESS_FILE="${RESEARCH_PROGRESS_FILE:-}"
@@ -38,7 +41,7 @@ cleanup() {
   local cleanup_status=0
 
   if [[ -n "$BATCH_PID" ]] && kill -0 "$BATCH_PID" 2>/dev/null; then
-    kill -TERM "$BATCH_PID"
+    kill -TERM "$BATCH_PID" 2>/dev/null || true
     wait "$BATCH_PID" || true
   fi
   [[ -z "$OUTPUT_FILE" ]] || rm -f "$OUTPUT_FILE"
@@ -53,8 +56,11 @@ cleanup() {
     fi
   fi
 
-  rm -f "$LOCK_DIR/pid" 2>/dev/null || true
-  rmdir "$LOCK_DIR" 2>/dev/null || true
+  if ((RUN_LOCK_HELD)); then
+    rm -f "$LOCK_DIR/pid" 2>/dev/null || true
+    rmdir "$LOCK_DIR" 2>/dev/null || true
+    RUN_LOCK_HELD=0
+  fi
   if ((PIPELINE_LOCK_HELD)); then
     if ! rm -f "$PIPELINE_LOCK_DIR/pid"; then
       log "failure: could not remove shared pipeline lock owner: $PIPELINE_LOCK_DIR/pid"
@@ -70,16 +76,41 @@ cleanup() {
   if ((exit_code == 0 && cleanup_status != 0)); then exit_code=1; fi
   return "$exit_code"
 }
+handle_signal() {
+  local status="$1"
+  if ((LOCK_ACQUIRE_IN_PROGRESS)); then
+    PENDING_SIGNAL_STATUS="$status"
+  else
+    exit "$status"
+  fi
+}
 
-if ! mkdir "$LOCK_DIR" 2>/dev/null; then
+trap 'cleanup "$?"' EXIT
+trap 'handle_signal 130' INT
+trap 'handle_signal 143' TERM
+LOCK_ACQUIRE_IN_PROGRESS=1
+if mkdir "$LOCK_DIR" 2>/dev/null; then
+  RUN_LOCK_HELD=1
+  printf '%s\n' "$$" > "$LOCK_DIR/pid"
+  LOCK_ACQUIRE_IN_PROGRESS=0
+  [[ -z "$PENDING_SIGNAL_STATUS" ]] || exit "$PENDING_SIGNAL_STATUS"
+else
+  LOCK_ACQUIRE_IN_PROGRESS=0
+  [[ -z "$PENDING_SIGNAL_STATUS" ]] || exit "$PENDING_SIGNAL_STATUS"
   log 'skipped: another run holds the lock (remove stale lock only after confirming no run exists)'
   exit 3
 fi
-trap 'cleanup "$?"' EXIT
-trap 'exit 130' INT
-trap 'exit 143' TERM
-printf '%s\n' "$$" > "$LOCK_DIR/pid"
-while ! mkdir "$PIPELINE_LOCK_DIR" 2>/dev/null; do
+while :; do
+  LOCK_ACQUIRE_IN_PROGRESS=1
+  if mkdir "$PIPELINE_LOCK_DIR" 2>/dev/null; then
+    PIPELINE_LOCK_HELD=1
+    printf '%s\n' "$$" > "$PIPELINE_LOCK_DIR/pid"
+    LOCK_ACQUIRE_IN_PROGRESS=0
+    [[ -z "$PENDING_SIGNAL_STATUS" ]] || exit "$PENDING_SIGNAL_STATUS"
+    break
+  fi
+  LOCK_ACQUIRE_IN_PROGRESS=0
+  [[ -z "$PENDING_SIGNAL_STATUS" ]] || exit "$PENDING_SIGNAL_STATUS"
   if [[ "${RESEARCH_CONTINUOUS:-0}" == 1 ]]; then
     if [[ -d "$LOG_DIR/research.lock" ]]; then
       log 'skipped: scheduled research is waiting for the shared pipeline lock'
@@ -118,8 +149,6 @@ while ! mkdir "$PIPELINE_LOCK_DIR" 2>/dev/null; do
   fi
   sleep 1
 done
-PIPELINE_LOCK_HELD=1
-printf '%s\n' "$$" > "$PIPELINE_LOCK_DIR/pid"
 
 cd "$ROOT"
 log 'start'
@@ -216,6 +245,10 @@ find_model_candidates() {
       return 0
     fi
     MODEL_CANDIDATES+=("$preferred")
+    if (( ${#MODEL_CANDIDATES[@]} >= topic_limit )); then
+      MODEL_CANDIDATE_FOUND=1
+      return 0
+    fi
     preferred="$(jq -er '.parallel.preferred_models[]' "$BASE_ROOT/config/research.json")" || fail 'invalid preferred models' 2
   else
     topic_limit="$(jq -er '.topics_per_run | select(. >= 1 and . <= 8 and . == (. | floor))' "$BASE_ROOT/config/research.json")" \

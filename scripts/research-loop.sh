@@ -11,10 +11,9 @@ mkdir -p "$LOG_DIR"
 PROGRESS_FILE="$LOG_DIR/research-loop-$$.json"
 rm -f "$PROGRESS_FILE"
 LOCK_DIR="$LOG_DIR/research-loop.lock"
-if ! mkdir "$LOCK_DIR" 2>/dev/null; then
-  printf 'research-loop: another continuous loop holds the lock\n' >&2
-  exit 1
-fi
+LOOP_LOCK_HELD=0
+LOCK_ACQUIRE_IN_PROGRESS=0
+PENDING_SIGNAL_STATUS=''
 child=''
 progress_monitor=''
 PROGRESS_RUNNING=0
@@ -98,7 +97,7 @@ finish_progress() {
 
 cleanup() {
   if [[ -n "$child" ]] && kill -0 "$child" 2>/dev/null; then
-    kill -TERM "$child"
+    kill -TERM "$child" 2>/dev/null || true
     wait "$child" || true
   fi
   if [[ -n "$progress_monitor" ]]; then
@@ -108,14 +107,38 @@ cleanup() {
     clear_progress_block
     PROGRESS_RUNNING=0
   fi
-  rm -f "$LOCK_DIR/pid"
-  rmdir "$LOCK_DIR"
+  if ((LOOP_LOCK_HELD)); then
+    rm -f "$LOCK_DIR/pid" 2>/dev/null || true
+    rmdir "$LOCK_DIR" 2>/dev/null || true
+    LOOP_LOCK_HELD=0
+  fi
   rm -f "$PROGRESS_FILE"
 }
+
+handle_signal() {
+  local status="$1"
+  if ((LOCK_ACQUIRE_IN_PROGRESS)); then
+    PENDING_SIGNAL_STATUS="$status"
+  else
+    exit "$status"
+  fi
+}
+
 trap cleanup EXIT
-trap 'exit 130' INT
-trap 'exit 143' TERM
-printf '%s\n' "$$" > "$LOCK_DIR/pid"
+trap 'handle_signal 130' INT
+trap 'handle_signal 143' TERM
+LOCK_ACQUIRE_IN_PROGRESS=1
+if mkdir "$LOCK_DIR" 2>/dev/null; then
+  LOOP_LOCK_HELD=1
+  printf '%s\n' "$$" > "$LOCK_DIR/pid"
+  LOCK_ACQUIRE_IN_PROGRESS=0
+  [[ -z "$PENDING_SIGNAL_STATUS" ]] || exit "$PENDING_SIGNAL_STATUS"
+else
+  LOCK_ACQUIRE_IN_PROGRESS=0
+  [[ -z "$PENDING_SIGNAL_STATUS" ]] || exit "$PENDING_SIGNAL_STATUS"
+  printf 'research-loop: another continuous loop holds the lock\n' >&2
+  exit 1
+fi
 SETTINGS="$(jq -er '.continuous | select(.hours >= 1 and .hours <= 24 and .hours == (.hours|floor)
   and .pause_seconds >= 1 and .pause_seconds <= 300 and .pause_seconds == (.pause_seconds|floor))
   | [.hours, .pause_seconds, .model] | @tsv' "$ROOT/config/research.json")"
