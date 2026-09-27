@@ -16,7 +16,6 @@ RUN_WORKTREE=''
 OUTPUT_FILE=''
 PR_BODY_FILE=''
 BATCH_PID=''
-PROGRESS_PID=''
 timestamp() { date '+%Y-%m-%dT%H:%M:%S%z'; }
 log() { printf '%s mode=%s pid=%s %s\n' "$(timestamp)" "${RESEARCH_CONTINUOUS:-0}" "$$" "$*" >> "$LOG_FILE"; }
 fail() {
@@ -27,33 +26,6 @@ fail() {
   printf 'research: %s (details: %s)\n' "$message" "$ERROR_FILE" >&2
   exit "$status"
 }
-monitor_progress() {
-  local last='' current percent domain_name domain topic phase monitor_sleep=''
-  trap '[[ -z "$monitor_sleep" ]] || kill "$monitor_sleep" 2>/dev/null || true; exit 0' INT TERM
-  while [[ -n "$BATCH_PID" ]] && kill -0 "$BATCH_PID" 2>/dev/null; do
-    current=''
-    if [[ -f "$PROGRESS_FILE" ]]; then
-      current="$(jq -r '[(.percent | tostring), (.domain_name // "-"), (.domain // "-"), (.topic // "テーマ選定中"), (.phase // "-")] | @tsv' "$PROGRESS_FILE" 2>/dev/null)" || current=''
-    fi
-    if [[ -n "$current" && "$current" != "$last" ]]; then
-      IFS=$'\t' read -r percent domain_name domain topic phase <<< "$current"
-      printf '調査進捗（推定）: %s%% | 領域=%s (%s) | テーマ=%s | 段階=%s\n' \
-        "$percent" "$domain_name" "$domain" "$topic" "$phase"
-      last="$current"
-    fi
-    sleep 2 &
-    monitor_sleep=$!
-    wait "$monitor_sleep" || true
-    monitor_sleep=''
-  done
-}
-stop_progress_monitor() {
-  if [[ -n "$PROGRESS_PID" ]] && kill -0 "$PROGRESS_PID" 2>/dev/null; then
-    kill "$PROGRESS_PID" 2>/dev/null || true
-    wait "$PROGRESS_PID" || true
-  fi
-  PROGRESS_PID=''
-}
 cleanup() {
   local exit_code="$1"
 
@@ -61,8 +33,6 @@ cleanup() {
     kill -TERM "$BATCH_PID"
     wait "$BATCH_PID" || true
   fi
-  stop_progress_monitor
-
   [[ -z "$OUTPUT_FILE" ]] || rm -f "$OUTPUT_FILE"
   [[ -z "$PR_BODY_FILE" ]] || rm -f "$PR_BODY_FILE"
 
@@ -273,7 +243,6 @@ else
   fi
   fail "research batch failed; recovery worktrees: $BASE_ROOT/.workbench/repositories/research" "$BATCH_STATUS"
 fi
-stop_progress_monitor
 sed -n '1,80p' "$OUTPUT_FILE" >> "$LOG_FILE"
 TOPIC="$(sed -n 's/^TOPIC: //p' "$OUTPUT_FILE" | tail -n 1)"
 [[ -n "$TOPIC" ]] || fail 'research batch returned no topic'

@@ -46,6 +46,8 @@ LOOP="$TEST_DIR/repo/scripts/research-loop.sh"
 bash "$LOOP" > "$TEST_DIR/output"
 [[ "$(wc -l < "$TEST_DIR/runs" | tr -d ' ')" == 2 ]]
 [[ ! -e "$TEST_DIR/stale-progress" ]]
+[[ "$(grep -c '100%' "$TEST_DIR/output")" == 2 ]]
+! grep -Fq '92%' "$TEST_DIR/output"
 grep -Fq 'time limit reached' "$TEST_DIR/output"
 [[ ! -d "$RESEARCH_LOG_DIR/research-loop.lock" ]]
 
