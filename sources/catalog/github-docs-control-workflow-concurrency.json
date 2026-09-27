@@ -1,0 +1,12 @@
+{
+  "id": "github-docs-control-workflow-concurrency",
+  "url": "https://docs.github.com/actions/how-tos/writing-workflows/choosing-when-your-workflow-runs/control-the-concurrency-of-workflows-and-jobs",
+  "repository_url": "",
+  "commit_sha": "",
+  "version": "GitHub Docs how-to page (unversioned current page, accessed 2026-09-27)",
+  "retrieved_at": "2026-09-27",
+  "license": "GitHub, Inc. documentation terms (no open license stated on the fetched page)",
+  "trust": "official",
+  "type": "official_docs",
+  "purpose": "workflow レベルと job レベルの concurrency スコープと許可される式のコンテキスト差、既定で pending run が置換キャンセルされること、cancel-in-progress: true の条件付き例 (!contains(github.ref, 'release/'))、queue: max で pending 最大100、queue: max と cancel-in-progress: true の併用は workflow 検証エラーになること、group 名の大文字小文字非区別、待機開始時刻順で順序保証なし、例示の github.head_ref || github.run_id、github.workflow プレフィックスで同一 workflow にスコープを限定できることを確認する"
+}
