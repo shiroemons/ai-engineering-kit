@@ -109,6 +109,41 @@
       "name": "agents-function-call-output",
       "query": "function_call_output",
       "expected_ids": ["agents-tool-permissions-failure-loop"]
+    },
+    {
+      "name": "rag-context-precision-relevance",
+      "query": "Context Precision",
+      "expected_ids": ["rag-retrieval-eval-chunking-grounding"]
+    },
+    {
+      "name": "rag-chunking-overlap",
+      "query": "chunking overlap",
+      "expected_ids": ["rag-retrieval-eval-chunking-grounding"]
+    },
+    {
+      "name": "rag-textsplitmode-pagelength",
+      "query": "textSplitMode maximumPageLength",
+      "expected_ids": ["rag-retrieval-eval-chunking-grounding"]
+    },
+    {
+      "name": "rag-context-utilization-response",
+      "query": "ContextUtilization response",
+      "expected_ids": ["rag-retrieval-eval-chunking-grounding"]
+    },
+    {
+      "name": "rag-reranking-top150",
+      "query": "reranking top-150",
+      "expected_ids": ["rag-retrieval-eval-chunking-grounding"]
+    },
+    {
+      "name": "rag-always-run-evals",
+      "query": "always-run-evals",
+      "expected_ids": ["rag-retrieval-eval-chunking-grounding"]
+    },
+    {
+      "name": "rag-grounding-relevance",
+      "query": "grounding relevance",
+      "expected_ids": ["rag-retrieval-eval-chunking-grounding"]
     }
   ]
 }

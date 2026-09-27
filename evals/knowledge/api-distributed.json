@@ -99,6 +99,66 @@
       "name": "messaging-outbox-table-insert-only",
       "query": "outbox table insert only",
       "expected_ids": ["messaging-transactional-outbox"]
+    },
+    {
+      "name": "api-design-webhook-signature-verification",
+      "query": "webhook signature verification",
+      "expected_ids": ["api-design-webhook-redelivery-signature-dedup"]
+    },
+    {
+      "name": "api-design-webhook-hmac-constant-time",
+      "query": "hmac-sha256 constant-time",
+      "expected_ids": ["api-design-webhook-redelivery-signature-dedup"]
+    },
+    {
+      "name": "api-design-webhook-raw-body-hmac",
+      "query": "raw body hmac signature",
+      "expected_ids": ["api-design-webhook-redelivery-signature-dedup"]
+    },
+    {
+      "name": "api-design-webhook-replay-tolerance-timestamp",
+      "query": "replay attack tolerance timestamp",
+      "expected_ids": ["api-design-webhook-redelivery-signature-dedup"]
+    },
+    {
+      "name": "api-design-webhook-acknowledgment-queue",
+      "query": "acknowledgment 2xx queue",
+      "expected_ids": ["api-design-webhook-redelivery-signature-dedup"]
+    },
+    {
+      "name": "api-design-webhook-duplicate-detection-event-id",
+      "query": "duplicate detection event id",
+      "expected_ids": ["api-design-webhook-redelivery-signature-dedup"]
+    },
+    {
+      "name": "api-design-webhook-created-duplicate-detection",
+      "query": "created duplicate detection",
+      "expected_ids": ["api-design-webhook-redelivery-signature-dedup"]
+    },
+    {
+      "name": "api-design-webhook-out-of-order-redelivery",
+      "query": "out-of-order redelivery",
+      "expected_ids": ["api-design-webhook-redelivery-signature-dedup"]
+    },
+    {
+      "name": "api-design-webhook-stripe-redelivery-dedup",
+      "query": "stripe redelivery dedup",
+      "expected_ids": ["api-design-webhook-redelivery-signature-dedup"]
+    },
+    {
+      "name": "api-design-webhook-stripe-signature-timestamp",
+      "query": "stripe signature timestamp redelivery",
+      "expected_ids": ["api-design-webhook-redelivery-signature-dedup"]
+    },
+    {
+      "name": "api-design-webhook-delivery-nonce",
+      "query": "x-github-delivery replay nonce",
+      "expected_ids": ["api-design-webhook-redelivery-signature-dedup"]
+    },
+    {
+      "name": "api-design-webhook-event-id-idempotency",
+      "query": "event id idempotency",
+      "expected_ids": ["api-design-webhook-redelivery-signature-dedup"]
     }
   ]
 }

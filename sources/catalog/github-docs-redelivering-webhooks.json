@@ -1,0 +1,12 @@
+{
+  "id": "github-docs-redelivering-webhooks",
+  "url": "https://docs.github.com/en/webhooks/testing-and-troubleshooting-webhooks/redelivering-webhooks",
+  "repository_url": "",
+  "commit_sha": "",
+  "version": "GitHub Docs current page (no page version label)",
+  "retrieved_at": "2026-09-27",
+  "license": "GitHub, Inc. documentation terms (no open license stated on the fetched page)",
+  "trust": "official",
+  "type": "official_docs",
+  "purpose": "再送の一次情報: 失敗配信の自動再送はなく再送は手動のみ (Web UI または REST API)、再送できるのは過去3日分、対象は repository / organization / GitHub App / Marketplace / Sponsors webhooks、同一 payload が別の HTTP リクエストとして再び届くことの根拠として確認する"
+}
