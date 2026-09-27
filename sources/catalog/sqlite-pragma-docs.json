@@ -1,0 +1,12 @@
+{
+  "id": "sqlite-pragma-docs",
+  "url": "https://www.sqlite.org/pragma.html",
+  "repository_url": "",
+  "commit_sha": "",
+  "version": "SQLite 3.7.0+ (WAL availability as documented)",
+  "retrieved_at": "2026-09-27",
+  "license": "Public domain",
+  "trust": "official",
+  "type": "official_docs",
+  "purpose": "PRAGMA journal_mode の既定・WAL 永続性・対応版・戻り値契約と PRAGMA busy_timeout のミリ秒指定・単一 busy handler の上書き契約を確認する"
+}
