@@ -38,6 +38,8 @@ RUN_DIR=''
 RUN_STATE_FILE=''
 RUN_PHASE=''
 RECOVERY_ACTION=''
+RESUMING_COMPLETE_BATCH=0
+BASE_CHECKOUT_WAS_DIRTY=0
 PID_START="$(ps -p "$$" -o lstart= 2>/dev/null | sed 's/^[[:space:]]*//;s/[[:space:]]*$//')"
 timestamp() { date '+%Y-%m-%dT%H:%M:%S%z'; }
 log() { printf '%s mode=%s pid=%s %s\n' "$(timestamp)" "${RESEARCH_CONTINUOUS:-0}" "$$" "$*" >> "$LOG_FILE"; }
@@ -48,6 +50,13 @@ fail() {
   printf '%s exit=%s %s\n' "$(timestamp)" "$status" "$message" >> "$ERROR_FILE"
   printf 'research: %s (details: %s)\n' "$message" "$ERROR_FILE" >&2
   exit "$status"
+}
+provider_cooldown_active() {
+  local cooldown_until
+  [[ -f "$LOG_DIR/cooldown-until" ]] || return 1
+  read -r cooldown_until < "$LOG_DIR/cooldown-until" || fail 'invalid cooldown state' 2
+  [[ "$cooldown_until" =~ ^[0-9]+$ ]] || fail 'invalid cooldown state' 2
+  (( $(date +%s) < cooldown_until ))
 }
 cleanup() {
   local exit_code="$1"
@@ -431,7 +440,7 @@ cleanup_recovery_run() {
 }
 
 recover_pending_run() {
-  local candidate status phase run_file choice can_resume=1 run_dir run_id
+  local candidate status phase run_file choice can_resume=1 run_dir run_id batch_complete=0
   local pending=()
   shopt -s nullglob
   [[ ! -L "$LOG_DIR/research-runs" ]] || { printf 'research: recovery root is a symlink; no run was changed\n' >&2; exit 2; }
@@ -484,6 +493,17 @@ recover_pending_run() {
   jq '.status = "pending" | .pid = 0 | .batch_pid = 0 | .batch_pid_start = ""' "$run_file" > "$run_dir/.run.tmp.$$" || exit 2
   chmod 600 "$run_dir/.run.tmp.$$" && mv -f "$run_dir/.run.tmp.$$" "$run_file" || exit 2
   phase="$(jq -r '.phase // "unknown"' "$run_file")"
+  if [[ -f "$run_dir/batch.json" ]] && [[ "$(jq -r '.complete // false' "$run_dir/batch.json")" == true ]]; then
+    batch_complete=1
+  fi
+  case "$phase" in
+    committed|pushed|pr-created|merge-requested) batch_complete=1 ;;
+  esac
+  # Avoid offering a provider-dependent resume while cooldown guarantees it will fail.
+  if provider_cooldown_active && ((batch_complete == 0)); then
+    printf 'research: provider cooldown active; recovery prompt deferred; run retained\n' >&2
+    exit 4
+  fi
   printf 'Incomplete research run: %s (phase: %s)\n' "$run_id" "$phase" >&2
   if [[ ! -t 0 || ! -t 1 ]]; then
     printf 'research: recovery decision required; run is retained; start from a TTY to resume or discard\n' >&2
@@ -518,6 +538,7 @@ recover_pending_run() {
       RUN_WORKTREE="$(jq -er '.root' "$run_file")" || exit 2
       RESEARCH_CONTINUOUS="$(jq -r '.continuous // false' "$run_file")"
       [[ "$RESEARCH_CONTINUOUS" == true ]] && RESEARCH_CONTINUOUS=1 || RESEARCH_CONTINUOUS=0
+      RESUMING_COMPLETE_BATCH="$batch_complete"
       write_run_state "$RUN_PHASE" running || exit 2
       ;;
     d|D)
@@ -647,71 +668,90 @@ WORKTREE_STATUS="$(git status --porcelain --untracked-files=all)" || fail 'could
 if [[ -n "$WORKTREE_STATUS" ]]; then
   log 'working tree changes (first 20 entries):'
   printf '%s\n' "$WORKTREE_STATUS" | sed -n '1,20p' >> "$LOG_FILE"
-  fail 'working tree is dirty; see changed paths in research.log' 2
+  if [[ "$RECOVERY_ACTION" == resume && "$RESUMING_COMPLETE_BATCH" == 1 ]]; then
+    BASE_CHECKOUT_WAS_DIRTY=1
+    log 'recovery: preserving original checkout changes; using the saved completed batch'
+  else
+    fail 'working tree is dirty; see changed paths in research.log' 2
+  fi
 fi
-if [[ -f "$LOG_DIR/cooldown-until" ]]; then
-  read -r COOLDOWN_UNTIL < "$LOG_DIR/cooldown-until" || fail 'invalid cooldown state' 2
-  [[ "$COOLDOWN_UNTIL" =~ ^[0-9]+$ ]] || fail 'invalid cooldown state' 2
-  if [[ "$(date +%s)" -lt "$COOLDOWN_UNTIL" ]]; then
-    log "skipped: provider cooldown until $COOLDOWN_UNTIL"
+if provider_cooldown_active; then
+  if [[ "$RECOVERY_ACTION" == resume && "$RESUMING_COMPLETE_BATCH" == 1 ]]; then
+    # A completed batch only needs local validation and publishing steps.
+    log 'provider cooldown bypassed for saved completed batch'
+  else
+    log 'skipped: provider cooldown is active'
     exit 4
   fi
 fi
-[[ -f "$CONFIG_FILE" ]] || fail 'research.env is missing' 2
+NEEDS_RESEARCH_BATCH=1
+if [[ "$RECOVERY_ACTION" == resume && "$RESUMING_COMPLETE_BATCH" == 1 ]]; then
+  NEEDS_RESEARCH_BATCH=0
+fi
+MODEL=''
+AVAILABLE=''
+FREE_MODEL_IDS=''
 
-# This local file contains one non-secret assignment, never shell-evaluate it.
-MODEL="$(sed -nE 's/^OPENCODE_RESEARCH_MODEL=([A-Za-z0-9._\/-]+)$/\1/p' "$CONFIG_FILE")"
-[[ -n "$MODEL" && "$(wc -l < "$CONFIG_FILE" | tr -d ' ')" == 1 ]] || fail 'invalid research.env' 2
-[[ "$MODEL" =~ ^opencode/[A-Za-z0-9._/-]+$ ]] || fail 'configured model must use the opencode provider' 2
-
-for command in git opencode curl jq just mise; do
+for command in git jq just; do
   command -v "$command" >/dev/null || fail "missing command: $command" 2
 done
+if ((NEEDS_RESEARCH_BATCH)); then
+  for command in opencode curl mise; do
+    command -v "$command" >/dev/null || fail "missing command: $command" 2
+  done
+  [[ -f "$CONFIG_FILE" ]] || fail 'research.env is missing' 2
+
+  # This local file contains one non-secret assignment, never shell-evaluate it.
+  MODEL="$(sed -nE 's/^OPENCODE_RESEARCH_MODEL=([A-Za-z0-9._\/-]+)$/\1/p' "$CONFIG_FILE")"
+  [[ -n "$MODEL" && "$(wc -l < "$CONFIG_FILE" | tr -d ' ')" == 1 ]] || fail 'invalid research.env' 2
+  [[ "$MODEL" =~ ^opencode/[A-Za-z0-9._/-]+$ ]] || fail 'configured model must use the opencode provider' 2
+fi
 if [[ "${RESEARCH_DRY_RUN:-0}" != 1 ]]; then
   command -v gh >/dev/null || fail 'missing command: gh' 2
   GH_PROMPT_DISABLED=1 gh auth status >/dev/null 2>&1 || fail 'GitHub CLI is not authenticated' 2
 fi
 
 # Continuous execution starts with its configured model, then fills remaining slots.
-AVAILABLE=''
-for attempt in 1 2 3; do
-  if AVAILABLE="$(opencode models --print-logs --log-level debug 2>/dev/null)"; then
-    if [[ -n "$AVAILABLE" ]]; then
-      log "OpenCode model listing: passed (attempt $attempt/3)"
+if ((NEEDS_RESEARCH_BATCH)); then
+  for attempt in 1 2 3; do
+    if AVAILABLE="$(opencode models --print-logs --log-level debug 2>/dev/null)"; then
+      if [[ -n "$AVAILABLE" ]]; then
+        log "OpenCode model listing: passed (attempt $attempt/3)"
+        break
+      fi
+      log 'OpenCode model listing returned no models; catalog may still be initializing'
+    else
+      log 'OpenCode model listing command failed'
+    fi
+    AVAILABLE=''
+    if [[ "$attempt" -lt 3 ]]; then
+      delay=$((attempt * 5))
+      log "OpenCode model listing failed; retrying in ${delay}s (attempt $attempt/3)"
+      sleep "$delay"
+    fi
+  done
+  [[ -n "$AVAILABLE" ]] || fail 'OpenCode model listing failed after 3 attempts'
+
+  PRICE_JSON=''
+  for attempt in 1 2 3; do
+    if PRICE_JSON="$(curl -fsSL --max-time 20 https://models.dev/api.json)" \
+      && printf '%s\n' "$PRICE_JSON" | jq -e 'type == "object" and (.opencode.models | type == "object")' >/dev/null 2>&1; then
+      log "current model pricing: passed (attempt $attempt/3)"
       break
     fi
-    log 'OpenCode model listing returned no models; catalog may still be initializing'
-  else
-    log 'OpenCode model listing command failed'
-  fi
-  AVAILABLE=''
-  if [[ "$attempt" -lt 3 ]]; then
-    delay=$((attempt * 5))
-    log "OpenCode model listing failed; retrying in ${delay}s (attempt $attempt/3)"
-    sleep "$delay"
-  fi
-done
-[[ -n "$AVAILABLE" ]] || fail 'OpenCode model listing failed after 3 attempts'
+    PRICE_JSON=''
+    if [[ "$attempt" -lt 3 ]]; then
+      delay=$((attempt * 5))
+      log "current model pricing unavailable; retrying in ${delay}s (attempt $attempt/3)"
+      sleep "$delay"
+    fi
+  done
+  [[ -n "$PRICE_JSON" ]] || fail 'current model pricing unavailable after 3 attempts'
 
-PRICE_JSON=''
-for attempt in 1 2 3; do
-  if PRICE_JSON="$(curl -fsSL --max-time 20 https://models.dev/api.json)" \
-    && printf '%s\n' "$PRICE_JSON" | jq -e 'type == "object" and (.opencode.models | type == "object")' >/dev/null 2>&1; then
-    log "current model pricing: passed (attempt $attempt/3)"
-    break
-  fi
-  PRICE_JSON=''
-  if [[ "$attempt" -lt 3 ]]; then
-    delay=$((attempt * 5))
-    log "current model pricing unavailable; retrying in ${delay}s (attempt $attempt/3)"
-    sleep "$delay"
-  fi
-done
-[[ -n "$PRICE_JSON" ]] || fail 'current model pricing unavailable after 3 attempts'
-
-FREE_MODEL_IDS="$(printf '%s\n' "$PRICE_JSON" | jq -r \
-  '.opencode.models | to_entries[] | select(.value.tool_call == true and .value.cost.input == 0 and .value.cost.output == 0 and ((.value.cost.cache_read // 0) == 0) and ((.value.cost.cache_write // 0) == 0)) | .key')" \
-  || fail 'current model pricing could not be parsed'
+  FREE_MODEL_IDS="$(printf '%s\n' "$PRICE_JSON" | jq -r \
+    '.opencode.models | to_entries[] | select(.value.tool_call == true and .value.cost.input == 0 and .value.cost.output == 0 and ((.value.cost.cache_read // 0) == 0) and ((.value.cost.cache_write // 0) == 0)) | .key')" \
+    || fail 'current model pricing could not be parsed'
+fi
 is_verified_free_model() {
   local candidate="$1" model_id
   [[ "$candidate" =~ ^opencode/[A-Za-z0-9._/-]+$ ]] || return 1
@@ -760,7 +800,9 @@ find_model_candidates() {
   return 0
 }
 
-if [[ "$RECOVERY_ACTION" == resume ]]; then
+if ((NEEDS_RESEARCH_BATCH == 0)); then
+  MODEL_CANDIDATE_FOUND=1
+elif [[ "$RECOVERY_ACTION" == resume ]]; then
   while IFS= read -r candidate; do
     [[ -n "$candidate" ]] || continue
     is_verified_free_model "$candidate" || fail "saved model is no longer available and verified free: $candidate" 2
@@ -1231,12 +1273,16 @@ if [[ "${PR_STATE:-}" != MERGED ]]; then
   [[ "$PR_STATE" == MERGED ]] || fail "research PR did not merge before timeout; PR remains open: $PR_URL" 2
 fi
 if [[ "$PR_STATE" == MERGED ]]; then
-  # Keep the refspec implicit so pruning covers every configured origin branch.
-  if ! git -C "$BASE_ROOT" pull --ff-only --prune > "$OUTPUT_FILE" 2>&1; then
-    sed -n '1,40p' "$OUTPUT_FILE" >> "$ERROR_FILE"
-    fail "research PR merged, but local main could not be fast-forwarded; see $ERROR_FILE" 2
+  if ((BASE_CHECKOUT_WAS_DIRTY)); then
+    log 'skipped local main sync to preserve original checkout changes'
+  else
+    # Keep the refspec implicit so pruning covers every configured origin branch.
+    if ! git -C "$BASE_ROOT" pull --ff-only --prune > "$OUTPUT_FILE" 2>&1; then
+      sed -n '1,40p' "$OUTPUT_FILE" >> "$ERROR_FILE"
+      fail "research PR merged, but local main could not be fast-forwarded; see $ERROR_FILE" 2
+    fi
+    log 'pulled merged origin/main into original checkout'
   fi
-  log 'pulled merged origin/main into original checkout'
 fi
 if [[ -n "$RUN_STATE_FILE" ]]; then
   RUN_PHASE=complete
@@ -1244,8 +1290,10 @@ if [[ -n "$RUN_STATE_FILE" ]]; then
   write_run_state "$RUN_PHASE" complete || fail 'could not save completed run state' 2
 fi
 [[ "$PARTIAL" != 1 ]] || fail 'successful topics were published; failed worker was discarded during run cleanup'
-if [[ "$PR_STATE" == MERGED ]]; then
+if [[ "$PR_STATE" == MERGED && "$BASE_CHECKOUT_WAS_DIRTY" == 0 ]]; then
   log 'research completed; original checkout updated from origin/main'
+elif [[ "$BASE_CHECKOUT_WAS_DIRTY" == 1 ]]; then
+  log 'research completed; original checkout changes preserved'
 else
   log 'research completed; PR awaits auto-merge; original checkout unchanged'
 fi

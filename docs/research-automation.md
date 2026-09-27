@@ -45,6 +45,8 @@ runnerは `opencode models --print-logs --log-level debug` で利用可能なモ
 
 各workerは最大45分で停止する。失敗したworkerを別モデルで再試行しない。成功したworkerの成果だけを検証してPRにまとめ、失敗分のworktreeはrunの後処理が完了するまで保持する。利用制限・quotaを示すエラーを受けたら実行中のworkerを止め、共通のcooldownを3時間設定する。他方の実行もcooldownを検知して停止する。これは無料上限の推定値ではなく、runnerの再試行抑制時間である。
 
+quota cooldown中は、provider呼び出しが必要な未完了batchの再開確認をcooldown終了まで延期する。`batch.json` が完了済みなら、保存済み成果の検証・統合にはproviderを使わないため、cooldown中でも再開できる。
+
 現在の CLI では `models --refresh --verbose` および `agent list` は使えず、agent の確認は `opencode debug agents` を使う。
 
 `~/Library/Application Support/ai-engineering-kit/research.env` に以下の1行を保存する。このローカル設定はGit管理しない。定期実行の補欠候補として使う。無料と確認できる候補がなければ実行を中止する。
@@ -87,6 +89,8 @@ OpenCode v2.0.18では初期化直後にモデル一覧が空でも終了コー�
 ## 安全条件
 
 runnerは元のcheckoutがmainで未commit変更がないことを確認する。設定変更が未commitの間も起動条件を満たさない。開始時に `git fetch origin main` を試み、成功時はremote main、失敗時は警告を記録してlocal mainから専用ワークツリーを作る。調査・PR作成中は元のcheckoutを変更しない。PRのmerge後は元のcheckoutで `git pull --ff-only --prune` を実行してmainをfast-forwardし、originの古いremote-tracking refsもpruneする。refspecを省略して、remoteに設定された全ブランチのfetch範囲を使う。
+
+完了済みbatchのresumeは保存済みworktreeで後処理するため、元のmainに未commit変更があっても続行できる。この場合は変更を保持し、PR merge後のlocal main同期を行わない。新規runとprovider呼び出しが必要なresumeでは、引き続きcleanなmain checkoutが必要。
 
 統合用のbranchは `research/<日時>-<PID>` とする。各モデルは同じcommitから作ったdetached worktreeで調べる。配置先は `.workbench/repositories/research/`。OpenCodeの編集範囲は `knowledge/`・`sources/catalog/`・`evals/knowledge/` に制限する。workerはknowledge文書を1つ、検索evalを `evals/knowledge/<領域ID>.json` に書く。既存のevalを保持し、今回の文書IDを検索で検出できるケースを追加する。
 
