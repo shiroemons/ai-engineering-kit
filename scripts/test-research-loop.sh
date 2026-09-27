@@ -5,6 +5,7 @@ TEST_DIR="$(mktemp -d)"
 trap 'rm -rf "$TEST_DIR"' EXIT
 export RESEARCH_TEST_DIR="$TEST_DIR"
 export RESEARCH_TEST_TIME_STEP=1000
+export RESEARCH_TEST_TOPIC='testing — go testのキャッシュ判定条件とt.Runのシャッフル、並列実行'
 export RESEARCH_LOG_DIR="$TEST_DIR/logs"
 mkdir -p "$TEST_DIR/bin" "$TEST_DIR/repo/scripts" "$TEST_DIR/repo/config"
 cp "$ROOT/scripts/research-loop.sh" "$TEST_DIR/repo/scripts/"
@@ -32,7 +33,7 @@ if [[ -e "$RESEARCH_PROGRESS_FILE" ]]; then
   touch "$RESEARCH_TEST_DIR/stale-progress"
   exit 9
 fi
-printf '{"percent":92,"topic":"previous topic"}\n' > "$RESEARCH_PROGRESS_FILE"
+printf '{"percent":92,"topic":"%s"}\n' "$RESEARCH_TEST_TOPIC" > "$RESEARCH_PROGRESS_FILE"
 printf 'run\n' >> "$RESEARCH_TEST_DIR/runs"
 if [[ "${MOCK_LOOP_STATUS:-0}" == stop ]]; then
   trap 'touch "$RESEARCH_TEST_DIR/stopped"; exit 143' TERM
@@ -50,9 +51,17 @@ bash "$LOOP" > "$TEST_DIR/output"
 [[ "$(wc -l < "$TEST_DIR/runs" | tr -d ' ')" == 2 ]]
 [[ ! -e "$TEST_DIR/stale-progress" ]]
 [[ "$(grep -c '100%' "$TEST_DIR/output")" == 2 ]]
+grep -Fq "$RESEARCH_TEST_TOPIC" "$TEST_DIR/output"
 ! grep -Fq '92%' "$TEST_DIR/output"
 grep -Fq 'time limit reached' "$TEST_DIR/output"
 [[ ! -d "$RESEARCH_LOG_DIR/research-loop.lock" ]]
+
+if [[ "$(uname -s)" == Darwin ]] && command -v script >/dev/null; then
+  rm "$TEST_DIR/time" "$TEST_DIR/runs"
+  TERM=xterm-256color script -q /dev/null bash "$LOOP" > "$TEST_DIR/tty-output"
+  grep -Fq "$RESEARCH_TEST_TOPIC" "$TEST_DIR/tty-output"
+  grep -Fq $'\033[u\033[J' "$TEST_DIR/tty-output"
+fi
 
 rm "$TEST_DIR/time" "$TEST_DIR/runs"
 RESEARCH_TEST_TIME_STEP=300 MOCK_LOOP_STATUS=1 bash "$LOOP" > "$TEST_DIR/output" 2>&1

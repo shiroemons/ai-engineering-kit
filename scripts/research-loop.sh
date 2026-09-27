@@ -34,27 +34,29 @@ render_progress() {
     if ((index < filled)); then bar+='█'; else bar+='░'; fi
   done
   if ((PROGRESS_TTY)); then
-    if ((${#domain} > 8)); then domain="${domain:0:7}…"; fi
-    if ((percent >= 100)); then
-      if ((${#topic} > 10)); then topic="${topic:0:9}…"; fi
-      printf '\r\033[2K[%s] %3d%% | %s | %s' "$bar" "$percent" "$domain" "$topic"
-    else
-      if ((percent <= 3)); then stage='テーマ確認'
-      elif ((percent <= 15)); then stage='資料確認'
-      elif ((percent <= 40)); then stage='要点整理'
-      elif ((percent <= 55)); then stage='文書作成'
-      elif ((percent <= 60)); then stage='eval作成'
-      elif ((percent <= 92)); then stage='eval検証'
-      elif ((percent <= 95)); then stage='成果確認'
-      else stage='統合中'
-      fi
-      printf '\r\033[2K[%s] %3d%% | %s | %s' "$bar" "$percent" "$domain" "$stage"
+    if ((percent >= 100)); then stage='調査完了'
+    elif ((percent <= 3)); then stage='テーマ確認'
+    elif ((percent <= 15)); then stage='資料確認'
+    elif ((percent <= 40)); then stage='要点整理'
+    elif ((percent <= 55)); then stage='文書作成'
+    elif ((percent <= 60)); then stage='eval作成'
+    elif ((percent <= 92)); then stage='eval検証'
+    elif ((percent <= 95)); then stage='成果確認'
+    else stage='統合中'
     fi
+    printf '\033[u\033[Jテーマ: %s\n[%s] %3d%% | %s | %s' \
+      "$topic" "$bar" "$percent" "$domain" "$stage"
   else
-    if ((${#topic} > 10)); then topic="${topic:0:9}…"; fi
-    if ((${#domain} > 10)); then domain="${domain:0:9}…"; fi
     printf '[%s] %3d%% | %s | %s | %s' "$bar" "$percent" "$domain" "$topic" "$phase"
   fi
+}
+
+save_progress_cursor() {
+  if ((PROGRESS_TTY)); then printf '\033[s'; fi
+}
+
+clear_progress_block() {
+  if ((PROGRESS_TTY)); then printf '\033[u\033[J'; fi
 }
 
 monitor_progress() {
@@ -89,8 +91,8 @@ finish_progress() {
     fi
     render_progress 100 "$domain" "$topic" '調査完了'
     printf '\n'
-  elif ((PROGRESS_TTY)) && [[ -n "$current" ]]; then
-    printf '\r\033[2K'
+  elif ((PROGRESS_TTY)); then
+    clear_progress_block
   fi
 }
 
@@ -103,7 +105,7 @@ cleanup() {
     wait "$progress_monitor" || true
   fi
   if ((PROGRESS_TTY && PROGRESS_RUNNING)); then
-    printf '\r\033[2K'
+    clear_progress_block
     PROGRESS_RUNNING=0
   fi
   rm -f "$LOCK_DIR/pid"
@@ -127,6 +129,7 @@ while [[ "$(date +%s)" -lt "$DEADLINE" ]]; do
   status=0
   retry_delay="$PAUSE"
   rm -f "$PROGRESS_FILE"
+  save_progress_cursor
   RESEARCH_CONTINUOUS=1 RESEARCH_DEADLINE="$DEADLINE" RESEARCH_PROGRESS_FILE="$PROGRESS_FILE" bash "$ROOT/scripts/research-next.sh" &
   child=$!
   PROGRESS_RUNNING=1
