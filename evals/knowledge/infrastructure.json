@@ -174,6 +174,46 @@
       "name": "terraform-imports-tf-placement",
       "query": "imports.tf",
       "expected_ids": ["terraform-state-locking-drift-import"]
+    },
+    {
+      "name": "linux-protectsystem-strict",
+      "query": "ProtectSystem strict",
+      "expected_ids": ["linux-systemd-service-sandboxing"]
+    },
+    {
+      "name": "linux-privatetmp-mount",
+      "query": "PrivateTmp mount",
+      "expected_ids": ["linux-systemd-service-sandboxing"]
+    },
+    {
+      "name": "linux-dynamicuser-uid-range",
+      "query": "DynamicUser 61184",
+      "expected_ids": ["linux-systemd-service-sandboxing"]
+    },
+    {
+      "name": "linux-nonewprivileges-execve",
+      "query": "NoNewPrivileges execve",
+      "expected_ids": ["linux-systemd-service-sandboxing"]
+    },
+    {
+      "name": "linux-capabilityboundingset-ambient",
+      "query": "CapabilityBoundingSet bounding ambient",
+      "expected_ids": ["linux-systemd-service-sandboxing"]
+    },
+    {
+      "name": "linux-protectproc-hidepid-ptraceable",
+      "query": "ProtectProc hidepid ptraceable",
+      "expected_ids": ["linux-systemd-service-sandboxing"]
+    },
+    {
+      "name": "linux-no-new-privs-prctl",
+      "query": "no_new_privs prctl",
+      "expected_ids": ["linux-systemd-service-sandboxing"]
+    },
+    {
+      "name": "linux-restrictsuidsgid-dynamicuser",
+      "query": "RestrictSUIDSGID DynamicUser",
+      "expected_ids": ["linux-systemd-service-sandboxing"]
     }
   ]
 }
