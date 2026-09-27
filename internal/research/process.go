@@ -78,8 +78,22 @@ func (e *events) line(line []byte) {
 		e.Cancel(e.Err)
 	}
 	if event.Type == "text" {
-		e.text(event.Part.Text)
+		e.textPart(event.Part.Text)
 	}
+}
+
+// OpenCode emits one completed text part per text event. Keep those boundaries
+// when assembling a phase response so a progress/commentary part without a
+// trailing newline cannot join the next part's first protocol line.
+func (e *events) textPart(text string) {
+	if text == "" {
+		return
+	}
+	output := e.textOutput.Bytes()
+	if len(output) > 0 && output[len(output)-1] != '\n' {
+		e.text("\n")
+	}
+	e.text(text)
 }
 
 func (e *events) text(text string) {

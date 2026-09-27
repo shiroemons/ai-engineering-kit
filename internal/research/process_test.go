@@ -79,6 +79,28 @@ func TestEventsIgnoreToolTextAndRecognizeProviderErrors(t *testing.T) {
 	}
 }
 
+func TestEventsPreserveCompletedTextPartBoundaries(t *testing.T) {
+	_, cancel := context.WithCancelCause(t.Context())
+	defer cancel(nil)
+	e := &events{Cancel: cancel, StopBatch: cancel}
+	for _, line := range []string{
+		`{"type":"text","part":{"text":"Checking authoritative references."}}`,
+		`{"type":"text","part":{"text":"SOURCE: https://example.com/one | First source | Claim one\nSOURCE: https://example.com/two | Second source | Claim two\nPROGRESS: sources-verified"}}`,
+	} {
+		if _, err := e.Write([]byte(line + "\n")); err != nil {
+			t.Fatal(err)
+		}
+	}
+
+	inventory, err := validateSourceInventory(e.textOutput.String())
+	if err != nil {
+		t.Fatalf("valid source lines after a commentary part were rejected: %v; output=%q", err, e.textOutput.String())
+	}
+	if strings.Count(inventory, "SOURCE:") != 2 || !e.SourcesVerified {
+		t.Fatalf("source inventory or completion marker was lost: inventory=%q events=%+v", inventory, e)
+	}
+}
+
 func TestTopicSelectionDoesNotCompleteResearch(t *testing.T) {
 	_, cancel := context.WithCancelCause(t.Context())
 	defer cancel(nil)
