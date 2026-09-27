@@ -1163,11 +1163,11 @@ else
   else
     PR_BODY_FILE="$(mktemp "$LOG_DIR/research-pr.XXXXXXXX")"
   fi
-  chmod 600 "$PR_BODY_FILE"
   # Literal backticks form Markdown code spans in the PR body.
   # shellcheck disable=SC2016
   printf '自動 Research Pipeline による更新です。\n\n対象テーマ: %s\n\n`just validate`・`just index`・`just check` は成功しました。\n' \
     "$TOPIC" > "$PR_BODY_FILE"
+  chmod 600 "$PR_BODY_FILE"
 
   PR_URL=''
   for attempt in 1 2 3; do

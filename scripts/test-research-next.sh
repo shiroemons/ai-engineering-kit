@@ -9,9 +9,15 @@ export RESEARCH_LOG_DIR="$TEST_DIR/logs"
 export RESEARCH_ENV_FILE="$TEST_DIR/research.env"
 export RESEARCH_DRY_RUN=1
 mkdir -p "$TEST_DIR/bin" "$TEST_DIR/repo/scripts" "$TEST_DIR/repo/config"
+: > "$TEST_DIR/worktrees"
+: > "$TEST_DIR/branches"
 cp "$ROOT/scripts/research-next.sh" "$TEST_DIR/repo/scripts/"
 cp "$ROOT/config/research.json" "$TEST_DIR/repo/config/"
 
+cat > "$TEST_DIR/bin/ps" <<'EOF'
+#!/bin/bash
+printf '%s\n' 'research-test-process-start'
+EOF
 cat > "$TEST_DIR/bin/git" <<'EOF'
 #!/bin/bash
 [[ "${PAGER:-}" == cat && "${GIT_PAGER:-}" == cat && "${GH_PAGER:-}" == cat ]] || exit 99
@@ -20,8 +26,22 @@ if [[ "$1" == -C && "$3" == pull ]]; then
   touch "$RESEARCH_TEST_DIR/pulled-main"
   exit 0
 fi
+git_dir="$PWD"
+if [[ "$1" == -C ]]; then
+  git_dir="$2"
+  shift 2
+fi
 case "$1" in
-  branch) printf 'main\n' ;;
+  branch)
+    if [[ "$2" == --show-current ]]; then
+      [[ "$git_dir" != */repo ]] || { printf 'main\n'; exit 0; }
+      while IFS=$'\t' read -r path branch; do
+        [[ "$path" != "$git_dir" ]] || { printf '%s\n' "$branch"; exit 0; }
+      done < "$RESEARCH_TEST_DIR/worktrees"
+      exit 1
+    fi
+    printf 'main\n'
+    ;;
   status)
     if [[ "${MOCK_DIRTY:-0}" == 1 ]]; then
       printf '?? notes.md\n'
@@ -45,14 +65,54 @@ case "$1" in
     ;;
   add) ;;
   commit) touch "$RESEARCH_TEST_DIR/committed" ;;
-  rev-parse) printf 'test-sha\n' ;;
+  rev-parse)
+    if [[ "$2" == --show-toplevel ]]; then
+      printf '%s\n' "$git_dir"
+    else
+      printf 'aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa\n'
+    fi
+    ;;
+  show-ref)
+    ref="${@: -1}"
+    grep -Fqx "$ref" "$RESEARCH_TEST_DIR/branches"
+    ;;
+  update-ref)
+    ref="$3"
+    grep -Fvx "$ref" "$RESEARCH_TEST_DIR/branches" > "$RESEARCH_TEST_DIR/branches.tmp" || true
+    mv "$RESEARCH_TEST_DIR/branches.tmp" "$RESEARCH_TEST_DIR/branches"
+    ;;
   fetch|push) ;;
   worktree)
     [[ "${MOCK_NO_WORKTREE:-0}" != 1 ]] || exit 1
-    if [[ "$2" == add ]]; then
-      if [[ "$3" == --detach ]]; then worktree_path="$4"; else worktree_path="$5"; fi
-      mkdir -p "$worktree_path"
-    fi
+    case "$2" in
+      list)
+        printf 'worktree %s\n' "$RESEARCH_TEST_DIR/repo"
+        while IFS=$'\t' read -r path branch; do
+          [[ -n "$path" ]] && printf 'worktree %s\n' "$path"
+        done < "$RESEARCH_TEST_DIR/worktrees"
+        ;;
+      add)
+        if [[ "$3" == --detach ]]; then
+          worktree_path="$4"
+          branch=''
+        else
+          branch="$4"
+          worktree_path="$5"
+          printf 'refs/heads/%s\n' "$branch" >> "$RESEARCH_TEST_DIR/branches"
+        fi
+        mkdir -p "$worktree_path"
+        printf '%s\t%s\n' "$worktree_path" "$branch" >> "$RESEARCH_TEST_DIR/worktrees"
+        ;;
+      remove)
+        [[ "$3" == --force ]] && worktree_path="$4" || worktree_path="$3"
+        rm -rf "$worktree_path"
+        while IFS=$'\t' read -r path branch; do
+          [[ "$path" == "$worktree_path" ]] || printf '%s\t%s\n' "$path" "$branch"
+        done < "$RESEARCH_TEST_DIR/worktrees" > "$RESEARCH_TEST_DIR/worktrees.tmp"
+        mv "$RESEARCH_TEST_DIR/worktrees.tmp" "$RESEARCH_TEST_DIR/worktrees"
+        ;;
+      *) exit 1 ;;
+    esac
     ;;
   *) exit 1 ;;
 esac
@@ -123,7 +183,7 @@ cat > "$TEST_DIR/bin/sleep" <<'EOF'
 #!/bin/bash
 if [[ "${MOCK_RELEASE_PIPELINE_LOCK:-0}" == 1 && ! -f "$RESEARCH_TEST_DIR/pipeline-lock-released" ]]; then
   touch "$RESEARCH_TEST_DIR/pipeline-lock-released"
-  rm -f "$RESEARCH_LOG_DIR/research-pipeline.lock/pid"
+  rm -f "$RESEARCH_LOG_DIR/research-pipeline.lock/pid" "$RESEARCH_LOG_DIR/research-pipeline.lock/pid_start"
   rmdir "$RESEARCH_LOG_DIR/research-pipeline.lock"
 fi
 exit 0
@@ -179,18 +239,22 @@ RESEARCH_CONTINUOUS=1 bash "$RUNNER"
 # Scheduled and continuous pipelines share a lock through post-processing.
 rm "$TEST_DIR/batch-args"
 mkdir "$RESEARCH_LOG_DIR/research-pipeline.lock"
+printf '%s\n' "$$" > "$RESEARCH_LOG_DIR/research-pipeline.lock/pid"
+printf '%s\n' 'research-test-process-start' > "$RESEARCH_LOG_DIR/research-pipeline.lock/pid_start"
 status=0
 RESEARCH_CONTINUOUS=1 bash "$RUNNER" > "$TEST_DIR/pipeline-lock-output" 2>&1 || status=$?
 [[ "$status" == 3 ]]
 grep -Fq 'another research pipeline holds the shared lock' "$TEST_DIR/pipeline-lock-output"
 [[ ! -f "$TEST_DIR/batch-args" ]]
 [[ ! -d "$RESEARCH_LOG_DIR/research-continuous.lock" ]]
+rm -f "$RESEARCH_LOG_DIR/research-pipeline.lock/pid" "$RESEARCH_LOG_DIR/research-pipeline.lock/pid_start"
 rmdir "$RESEARCH_LOG_DIR/research-pipeline.lock"
 
 # A scheduled run waits for an active continuous pipeline instead of being lost.
 rm -f "$TEST_DIR/batch-args"
 mkdir "$RESEARCH_LOG_DIR/research-pipeline.lock"
 printf '%s\n' "$$" > "$RESEARCH_LOG_DIR/research-pipeline.lock/pid"
+printf '%s\n' 'research-test-process-start' > "$RESEARCH_LOG_DIR/research-pipeline.lock/pid_start"
 MOCK_RELEASE_PIPELINE_LOCK=1 bash "$RUNNER"
 [[ -f "$TEST_DIR/pipeline-lock-released" ]]
 [[ -f "$TEST_DIR/batch-args" ]]
