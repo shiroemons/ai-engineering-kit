@@ -255,7 +255,7 @@ rm -f "$TEST_DIR/batch-args"
 mkdir "$RESEARCH_LOG_DIR/research-pipeline.lock"
 printf '%s\n' "$$" > "$RESEARCH_LOG_DIR/research-pipeline.lock/pid"
 printf '%s\n' 'research-test-process-start' > "$RESEARCH_LOG_DIR/research-pipeline.lock/pid_start"
-MOCK_RELEASE_PIPELINE_LOCK=1 bash "$RUNNER"
+RESEARCH_CONTINUOUS=0 MOCK_RELEASE_PIPELINE_LOCK=1 bash "$RUNNER"
 [[ -f "$TEST_DIR/pipeline-lock-released" ]]
 [[ -f "$TEST_DIR/batch-args" ]]
 [[ ! -d "$RESEARCH_LOG_DIR/research-pipeline.lock" ]]
