@@ -330,7 +330,7 @@ func runOpenCodePhaseStarted(ctx context.Context, root, model, prompt string, st
 		if err != nil {
 			return err
 		}
-		for attempt := 0; attempt < 30; attempt++ {
+		for range 30 {
 			if !processGroupIsAlive(cmd.Process.Pid) {
 				return nil
 			}
@@ -339,7 +339,7 @@ func runOpenCodePhaseStarted(ctx context.Context, root, model, prompt string, st
 		if err := syscall.Kill(-cmd.Process.Pid, syscall.SIGKILL); err != nil && !errors.Is(err, syscall.ESRCH) {
 			return err
 		}
-		for attempt := 0; attempt < 20; attempt++ {
+		for range 20 {
 			if !processGroupIsAlive(cmd.Process.Pid) {
 				return nil
 			}

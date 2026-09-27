@@ -761,7 +761,7 @@ func requireClean(ctx context.Context, root string) error {
 
 func selectWorkerTopic(ctx context.Context, state, runID string, w *worker, dry bool, stopBatch context.CancelCauseFunc, report ProgressReporter) (string, error) {
 	var rejected []activeTopic
-	for attempt := 0; attempt < 3; attempt++ {
+	for range 3 {
 		releaseSelection, err := acquireTopicSelection(ctx, state)
 		if err != nil {
 			return "", err
