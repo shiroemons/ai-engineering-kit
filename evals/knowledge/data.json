@@ -94,6 +94,26 @@
       "name": "search-postgres-fulltext-gist-signature-lossy",
       "query": "GiST signature lossy",
       "expected_ids": ["search-postgres-fulltext-tsvector-gin-rank"]
+    },
+    {
+      "name": "postgres-zero-downtime-validate-constraint",
+      "query": "VALIDATE CONSTRAINT",
+      "expected_ids": ["postgres-zero-downtime-migration-concurrently"]
+    },
+    {
+      "name": "postgres-zero-downtime-migration",
+      "query": "migration zero-downtime",
+      "expected_ids": ["postgres-zero-downtime-migration-concurrently"]
+    },
+    {
+      "name": "postgres-zero-downtime-primary-key-using-index",
+      "query": "PRIMARY KEY USING INDEX",
+      "expected_ids": ["postgres-zero-downtime-migration-concurrently"]
+    },
+    {
+      "name": "postgres-zero-downtime-share-update-exclusive",
+      "query": "SHARE UPDATE EXCLUSIVE",
+      "expected_ids": ["postgres-zero-downtime-migration-concurrently"]
     }
   ]
 }
