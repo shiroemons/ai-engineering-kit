@@ -1,6 +1,9 @@
 #!/bin/bash
 set -Eeuo pipefail
 
+# Research runs unattended and must not open a pager in the invoking terminal.
+export PAGER=cat GIT_PAGER=cat GH_PAGER=cat
+
 ROOT="$(cd "$(dirname "${BASH_SOURCE[0]}")/.." && pwd -P)"
 BASE_ROOT="$ROOT"
 LOG_DIR="${RESEARCH_LOG_DIR:-$HOME/Library/Logs/ai-engineering-kit}"

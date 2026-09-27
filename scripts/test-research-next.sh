@@ -14,6 +14,7 @@ cp "$ROOT/config/research.json" "$TEST_DIR/repo/config/"
 
 cat > "$TEST_DIR/bin/git" <<'EOF'
 #!/bin/bash
+[[ "${PAGER:-}" == cat && "${GIT_PAGER:-}" == cat && "${GH_PAGER:-}" == cat ]] || exit 99
 case "$1" in
   branch) printf 'main\n' ;;
   status) [[ "${MOCK_DIRTY:-0}" != 1 ]] || printf '?? notes.md\n' ;;
@@ -68,6 +69,7 @@ printf '#!/bin/bash\nexit 0\n' > "$TEST_DIR/bin/sleep"
 printf '#!/bin/bash\nexit 0\n' > "$TEST_DIR/bin/just"
 chmod +x "$TEST_DIR/bin/"*
 export PATH="$TEST_DIR/bin:$PATH"
+export PAGER=less GIT_PAGER=less GH_PAGER=less
 RUNNER="$TEST_DIR/repo/scripts/research-next.sh"
 
 expect_failure() {

@@ -24,6 +24,7 @@ EOF
 printf '#!/bin/bash\nexit 0\n' > "$TEST_DIR/bin/sleep"
 cat > "$TEST_DIR/repo/scripts/research-next.sh" <<'EOF'
 #!/bin/bash
+[[ "${PAGER:-}" == cat && "${GIT_PAGER:-}" == cat && "${GH_PAGER:-}" == cat ]] || exit 10
 expected_deadline=4600
 [[ "$RESEARCH_TEST_TIME_STEP" != 300 ]] || expected_deadline=3900
 [[ "$RESEARCH_CONTINUOUS" == 1 && "$RESEARCH_DEADLINE" == "$expected_deadline" ]] || exit 8
@@ -42,6 +43,7 @@ exit "${MOCK_LOOP_STATUS:-0}"
 EOF
 chmod +x "$TEST_DIR/bin/"*
 export PATH="$TEST_DIR/bin:$PATH"
+export PAGER=less GIT_PAGER=less GH_PAGER=less
 LOOP="$TEST_DIR/repo/scripts/research-loop.sh"
 ! grep -Fq 'monitor_progress' "$ROOT/scripts/research-next.sh"
 bash "$LOOP" > "$TEST_DIR/output"

@@ -1,6 +1,10 @@
 #!/bin/bash
 set -Eeuo pipefail
 
+# Continuous research must not suspend for an interactive pager inherited from
+# the user's shell; keep git and gh output in the loop's normal streams.
+export PAGER=cat GIT_PAGER=cat GH_PAGER=cat
+
 ROOT="$(cd "$(dirname "${BASH_SOURCE[0]}")/.." && pwd -P)"
 LOG_DIR="${RESEARCH_LOG_DIR:-$HOME/Library/Logs/ai-engineering-kit}"
 mkdir -p "$LOG_DIR"
