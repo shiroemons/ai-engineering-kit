@@ -99,9 +99,17 @@ func RunWithProgress(ctx context.Context, root, state string, models []string, d
 	if err := requireClean(ctx, root); err != nil {
 		return err
 	}
-	_, docs, err := indexed(root)
+	r, docs, err := indexed(root)
 	if err != nil {
 		return err
+	}
+	if !dry {
+		if err := validateEvals(ctx, root, r); err != nil {
+			if errors.Is(err, errInvalidEvalSuite) || errors.Is(err, errEvalAssertionFailed) {
+				return fmt.Errorf("%w: %w", ErrInvalidBaselineEvals, err)
+			}
+			return err
+		}
 	}
 	recent, err := git(ctx, root, "log", "-"+strconv.Itoa(c.Selection.RecentCommits), "--format=", "--name-only", "--", "knowledge/")
 	if err != nil {

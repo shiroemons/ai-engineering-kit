@@ -45,8 +45,14 @@ type evaluation struct {
 	Cases []evalCase `json:"cases"`
 }
 
+// ErrInvalidBaselineEvals marks deterministic eval failures present before a
+// research worker starts. The outer continuous loop must not retry these.
+var ErrInvalidBaselineEvals = errors.New("baseline knowledge eval validation failed")
+
 var domainID = regexp.MustCompile(`^[a-z0-9][a-z0-9-]*$`)
 var modelID = regexp.MustCompile(`^opencode/[a-zA-Z0-9._-]+$`)
+var errInvalidEvalSuite = errors.New("invalid knowledge eval suite")
+var errEvalAssertionFailed = errors.New("knowledge eval assertion failed")
 
 func readConfig(root string) (config, error) {
 	var c config
@@ -143,7 +149,7 @@ func validateEvals(ctx context.Context, root string, r *kb.Repository) error {
 		return err
 	}
 	if len(paths) == 0 {
-		return errors.New("no knowledge evals")
+		return fmt.Errorf("%w: no knowledge evals", errInvalidEvalSuite)
 	}
 	for _, path := range paths {
 		data, err := os.ReadFile(path)
@@ -152,14 +158,14 @@ func validateEvals(ctx context.Context, root string, r *kb.Repository) error {
 		}
 		var suite evaluation
 		if err := json.Unmarshal(data, &suite); err != nil {
-			return err
+			return fmt.Errorf("%w %s: %w", errInvalidEvalSuite, path, err)
 		}
 		if len(suite.Cases) == 0 {
-			return fmt.Errorf("empty eval suite: %s", path)
+			return fmt.Errorf("%w: empty eval suite: %s", errInvalidEvalSuite, path)
 		}
 		for _, c := range suite.Cases {
-			if c.Name == "" || len(c.ExpectedIDs) == 0 {
-				return fmt.Errorf("incomplete eval: %s", path)
+			if c.Name == "" || strings.TrimSpace(c.Query) == "" || len(c.ExpectedIDs) == 0 {
+				return fmt.Errorf("%w: incomplete eval: %s", errInvalidEvalSuite, path)
 			}
 			results, err := r.Search(ctx, c.Query, 20)
 			if err != nil {
@@ -171,7 +177,7 @@ func validateEvals(ctx context.Context, root string, r *kb.Repository) error {
 			}
 			for _, id := range c.ExpectedIDs {
 				if !slices.ContainsFunc(results, func(result kb.Result) bool { return result.ID == id }) {
-					return fmt.Errorf("eval %s query %q: expected ID %q not found; every query term must occur in the target document (matched IDs: %s)", c.Name, c.Query, id, strings.Join(matchedIDs, ", "))
+					return fmt.Errorf("%w: eval %s query %q: expected ID %q not found; every query term must occur in the target document (matched IDs: %s)", errEvalAssertionFailed, c.Name, c.Query, id, strings.Join(matchedIDs, ", "))
 				}
 			}
 		}

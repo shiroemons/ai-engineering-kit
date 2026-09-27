@@ -151,8 +151,8 @@
       "expected_ids": ["llm-prompt-caching-breakpoints-ttl-scope"]
     },
     {
-      "name": "llm-prompt-cache-backward-lookup-prefix",
-      "query": "backward lookup exact-prefix",
+      "name": "llm-prompt-cache-lookback-block-window",
+      "query": "lookback 20 block positions",
       "expected_ids": ["llm-prompt-caching-breakpoints-ttl-scope"]
     },
     {
@@ -162,7 +162,7 @@
     },
     {
       "name": "llm-prompt-cache-visible-tokens-minimum",
-      "query": "visible tokens 1024",
+      "query": "visible tokens 1,024",
       "expected_ids": ["llm-prompt-caching-breakpoints-ttl-scope"]
     },
     {
@@ -196,8 +196,8 @@
       "expected_ids": ["llm-prompt-caching-breakpoints-ttl-scope"]
     },
     {
-      "name": "llm-prompt-cache-backward-lookback",
-      "query": "backward lookback",
+      "name": "llm-prompt-cache-lookback-depth",
+      "query": "lookback 20-block",
       "expected_ids": ["llm-prompt-caching-breakpoints-ttl-scope"]
     },
     {
@@ -211,8 +211,8 @@
       "expected_ids": ["llm-prompt-caching-breakpoints-ttl-scope"]
     },
     {
-      "name": "llm-prompt-cache-rendered-prefix-workspace",
-      "query": "rendered-prefix workspace",
+      "name": "llm-prompt-cache-rendered-prefix-organization-scope",
+      "query": "rendered prefix organization",
       "expected_ids": ["llm-prompt-caching-breakpoints-ttl-scope"]
     }
   ]

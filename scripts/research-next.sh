@@ -264,10 +264,14 @@ if wait "$BATCH_PID"; then
   BATCH_PID=''
   log 'research batch: passed'
 else
+  BATCH_STATUS=$?
   BATCH_PID=''
   sed -n '1,80p' "$OUTPUT_FILE" >> "$ERROR_FILE"
   sed -n '1,80p' "$OUTPUT_FILE" >&2
-  fail "research batch failed; recovery worktrees: $BASE_ROOT/.workbench/repositories/research"
+  if [[ "$BATCH_STATUS" == 2 ]]; then
+    fail 'research batch rejected invalid baseline evals; no worker was started' "$BATCH_STATUS"
+  fi
+  fail "research batch failed; recovery worktrees: $BASE_ROOT/.workbench/repositories/research" "$BATCH_STATUS"
 fi
 stop_progress_monitor
 sed -n '1,80p' "$OUTPUT_FILE" >> "$LOG_FILE"

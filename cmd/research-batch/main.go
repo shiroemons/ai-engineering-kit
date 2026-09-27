@@ -60,6 +60,9 @@ func main() {
 	}
 	if err := research.RunWithProgress(ctx, *root, *state, flag.Args(), *dry, os.Stdout, report); err != nil {
 		fmt.Fprintln(os.Stderr, "research batch:", err)
+		if errors.Is(err, research.ErrInvalidBaselineEvals) {
+			os.Exit(2)
+		}
 		os.Exit(1)
 	}
 }
