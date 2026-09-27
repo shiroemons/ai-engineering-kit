@@ -395,14 +395,14 @@ func TestInvalidResultsAndCooldown(t *testing.T) {
 		t.Run(mode, func(t *testing.T) {
 			root, state := fixture(t, mode)
 			var out bytes.Buffer
-			if err := Run(t.Context(), root, state, []string{"opencode/muse"}, false, &out); err == nil {
+			if err := Run(t.Context(), root, state, []string{"opencode/muse-spark-1.3-contributor-free"}, false, &out); err == nil {
 				t.Fatal("expected failure")
 			}
 			if err := requireClean(t.Context(), root); err != nil {
 				t.Fatal(err)
 			}
 			if mode == "rate" {
-				if err := Run(t.Context(), root, state, []string{"opencode/muse"}, false, &out); !errors.Is(err, errRateLimit) {
+				if err := Run(t.Context(), root, state, []string{"opencode/muse-spark-1.3-contributor-free"}, false, &out); !errors.Is(err, errRateLimit) {
 					t.Fatalf("cooldown not respected: %v", err)
 				}
 			}

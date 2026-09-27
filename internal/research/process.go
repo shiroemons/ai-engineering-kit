@@ -16,13 +16,22 @@ import (
 	"unicode"
 )
 
-var errRateLimit = errors.New("provider rate or quota limit; batch stopped")
+// ErrRateLimit reports that a provider rate or quota limit stopped the batch.
+var ErrRateLimit = errors.New("provider rate or quota limit; batch stopped")
+
+// Keep the package-local name for existing internal callers.
+var errRateLimit = ErrRateLimit
+
+func isMuseSparkModel(model string) bool {
+	return strings.HasPrefix(strings.ToLower(model), "opencode/muse-spark-")
+}
 
 // OpenCode can retry internally for a long time. Inspect error events as they
 // arrive, and kill the entire standalone server group on cancellation.
 type events struct {
 	pending          []byte
 	textOutput       bytes.Buffer
+	Model            string
 	Topic            string
 	TopicSelected    bool
 	TopicFinal       bool
@@ -74,7 +83,9 @@ func (e *events) line(line []byte) {
 		for _, term := range []string{"429", "rate limit", "rate_limit", "quota", "too many requests"} {
 			if strings.Contains(lower, term) {
 				e.Err = errRateLimit
-				e.StopBatch(errRateLimit)
+				if isMuseSparkModel(e.Model) {
+					e.StopBatch(fmt.Errorf("%w (model=%s)", errRateLimit, e.Model))
+				}
 				break
 			}
 		}
@@ -307,7 +318,7 @@ func runOpenCodePhase(ctx context.Context, root, model, prompt string, stopBatch
 func runOpenCodePhaseStarted(ctx context.Context, root, model, prompt string, stopBatch context.CancelCauseFunc, d domain, report ProgressReporter, completion phaseCompletion, started func()) (modelOutput, error) {
 	ctx, cancel := context.WithCancelCause(ctx)
 	defer cancel(nil)
-	e := &events{Cancel: cancel, StopBatch: stopBatch, Domain: d, Report: report}
+	e := &events{Cancel: cancel, StopBatch: stopBatch, Model: model, Domain: d, Report: report}
 	gateReader, gateWriter, err := os.Pipe()
 	if err != nil {
 		return modelOutput{}, fmt.Errorf("create OpenCode start gate: %w", err)
@@ -392,6 +403,9 @@ func runOpenCodePhaseStarted(ctx context.Context, root, model, prompt string, st
 		e.textLine(e.textPending)
 	}
 	if e.Err != nil {
+		if errors.Is(e.Err, errRateLimit) {
+			return modelOutput{}, fmt.Errorf("%w (model=%s)", e.Err, model)
+		}
 		return modelOutput{}, e.Err
 	}
 	if ctx.Err() != nil {

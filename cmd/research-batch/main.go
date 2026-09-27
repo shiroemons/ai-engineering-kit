@@ -78,6 +78,9 @@ func main() {
 	}
 	if err := research.RunWithRecovery(ctx, *root, *state, flag.Args(), *dry, os.Stdout, report, *runDir, *runID, *resume); err != nil {
 		fmt.Fprintln(os.Stderr, "research batch:", err)
+		if errors.Is(err, research.ErrRateLimit) {
+			os.Exit(6)
+		}
 		if errors.Is(err, research.ErrInvalidBaselineEvals) {
 			os.Exit(2)
 		}

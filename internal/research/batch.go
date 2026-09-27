@@ -459,7 +459,8 @@ func RunWithRecovery(ctx context.Context, root, state string, models []string, d
 		})
 	}
 	wg.Wait()
-	if errors.Is(context.Cause(batchCtx), errRateLimit) {
+	rateLimited := errors.Is(context.Cause(batchCtx), errRateLimit)
+	if rateLimited {
 		until := time.Now().Add(time.Duration(c.Parallel.CooldownMinutes) * time.Minute).Unix()
 		file, err := os.CreateTemp(state, ".cooldown-"+runID+"-*.tmp")
 		if err != nil {
@@ -475,9 +476,22 @@ func RunWithRecovery(ctx context.Context, root, state string, models []string, d
 		if err := os.Rename(file.Name(), filepath.Join(state, "cooldown-until")); err != nil {
 			return err
 		}
+		reason := errRateLimit.Error()
+		for _, w := range workers {
+			if w.Err != nil && errors.Is(w.Err, errRateLimit) && strings.Contains(w.Err.Error(), "model=") {
+				reason = w.Err.Error()
+				break
+			}
+		}
+		if _, err := fmt.Fprintf(out, "RATE_LIMIT: %s; all workers stopped; cooldown until %s\n", reason, time.Unix(until, 0).UTC().Format(time.RFC3339)); err != nil {
+			return err
+		}
 	}
 	if ctx.Err() != nil {
 		return context.Cause(ctx)
+	}
+	if rateLimited {
+		return errRateLimit
 	}
 	accepted := map[string][]byte{}
 	var topics []string

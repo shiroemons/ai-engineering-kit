@@ -77,6 +77,13 @@ provider_cooldown_active() {
   [[ "$cooldown_until" =~ ^[0-9]+$ ]] || fail 'invalid cooldown state' 2
   (( $(date +%s) < cooldown_until ))
 }
+stop_during_provider_cooldown() {
+  local message="$1"
+  log "skipped: $message"
+  printf 'research: %s\n' "$message" >&2
+  if [[ "$REQUESTED_CONTINUOUS" == 1 ]]; then exit 4; fi
+  exit 0
+}
 cleanup() {
   local exit_code="$1"
   local cleanup_status=0
@@ -262,6 +269,16 @@ write_run_result() {
   jq --arg topic "$topic" --arg pr_url "$pr_url" --arg updated_at "$(timestamp)" \
     --argjson partial "$partial" \
     '.topic = $topic | .partial = $partial | .pr_url = (if $pr_url == "" then (.pr_url // "") else $pr_url end) | .updated_at = $updated_at' \
+    "$RUN_STATE_FILE" > "$temporary" || return 1
+  chmod 600 "$temporary" || return 1
+  mv -f "$temporary" "$RUN_STATE_FILE"
+}
+
+mark_run_rate_limited() {
+  [[ -n "$RUN_STATE_FILE" ]] || return 0
+  local temporary="$RUN_DIR/.run.tmp.$$"
+  jq --arg updated_at "$(timestamp)" \
+    '.stop_reason = "muse-spark-rate-limit" | .updated_at = $updated_at' \
     "$RUN_STATE_FILE" > "$temporary" || return 1
   chmod 600 "$temporary" || return 1
   mv -f "$temporary" "$RUN_STATE_FILE"
@@ -520,8 +537,20 @@ recover_pending_run() {
   esac
   # Avoid offering a provider-dependent resume while cooldown guarantees it will fail.
   if provider_cooldown_active && ((batch_complete == 0)); then
-    printf 'research: provider cooldown active; recovery prompt deferred; run retained\n' >&2
-    exit 4
+    stop_during_provider_cooldown 'provider rate limit cooldown is active; recovery deferred and run retained'
+  fi
+  if [[ "$(jq -r '.stop_reason // empty' "$run_file")" == muse-spark-rate-limit ]]; then
+    if [[ "$phase" != batch-running ]] || ((batch_complete)); then
+      printf 'research: rate-limited recovery record has an unexpected phase; run retained\n' >&2
+      exit 2
+    fi
+    cleanup_recovery_run "$run_file" || {
+      printf 'research: could not safely clean the rate-limited run; state retained\n' >&2
+      exit 2
+    }
+    log "recovery: cleaned Muse Spark rate-limited run $run_id after cooldown"
+    printf 'research: cooldown ended; cleaned the stopped Muse Spark run and starting fresh\n' >&2
+    return 0
   fi
   printf 'Incomplete research run: %s (phase: %s)\n' "$run_id" "$phase" >&2
   if [[ ! -t 0 || ! -t 1 ]]; then
@@ -699,8 +728,7 @@ if provider_cooldown_active; then
     # A completed batch only needs local validation and publishing steps.
     log 'provider cooldown bypassed for saved completed batch'
   else
-    log 'skipped: provider cooldown is active'
-    exit 4
+    stop_during_provider_cooldown 'provider rate limit cooldown is active; no provider work started'
   fi
 fi
 NEEDS_RESEARCH_BATCH=1
@@ -1010,6 +1038,15 @@ if [[ "$SKIP_RESEARCH_VALIDATION" == 0 && "$BATCH_ALREADY_COMPLETE" == 0 ]]; the
     BATCH_PID=''
     BATCH_PID_START=''
     rm -f "$LOCK_DIR/batch_pid" "$LOCK_DIR/batch_pid_start" "$PIPELINE_LOCK_DIR/batch_pid" "$PIPELINE_LOCK_DIR/batch_pid_start"
+    if [[ "$BATCH_STATUS" == 6 ]]; then
+      mark_run_rate_limited || fail 'could not record Muse Spark rate-limit recovery state' 2
+      sed -n '1,80p' "$OUTPUT_FILE" >> "$LOG_FILE"
+      sed -n '1,80p' "$OUTPUT_FILE" >&2
+      log 'stopped: provider rate limit detected; batch retained for recovery without recording a failure'
+      printf 'research: rate limit detected; stopped without counting a failure\n' >&2
+      if [[ "${RESEARCH_CONTINUOUS:-0}" == 1 ]]; then exit 6; fi
+      exit 0
+    fi
     sed -n '1,80p' "$OUTPUT_FILE" >> "$ERROR_FILE"
     sed -n '1,80p' "$OUTPUT_FILE" >&2
     if [[ "$BATCH_STATUS" == 2 ]]; then

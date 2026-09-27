@@ -72,8 +72,8 @@ grep -Fq 'time limit reached' "$TEST_DIR/output"
 
 rm "$TEST_DIR/time" "$TEST_DIR/runs"
 MOCK_LOOP_STATUS=4 bash "$LOOP" > "$TEST_DIR/output"
-[[ "$(wc -l < "$TEST_DIR/runs" | tr -d ' ')" == 2 ]]
-grep -Fq 'provider cooldown active; waiting to retry' "$TEST_DIR/output"
+[[ "$(wc -l < "$TEST_DIR/runs" | tr -d ' ')" == 1 ]]
+grep -Fq 'provider cooldown active; stopped without counting a failure' "$TEST_DIR/output"
 
 rm "$TEST_DIR/time" "$TEST_DIR/runs"
 MOCK_LOOP_STATUS=stop bash "$LOOP" > "$TEST_DIR/output" 2>&1 &
@@ -87,4 +87,4 @@ kill -TERM "$loop_pid"
 wait "$loop_pid" || status=$?
 [[ "$status" == 143 && -f "$TEST_DIR/stopped" ]]
 [[ ! -d "$RESEARCH_LOG_DIR/research-loop.lock" ]]
-printf 'continuous loop deadline, failure, cooldown, and child stop: passed\n'
+printf 'continuous loop deadline, failure, cooldown stop, and child stop: passed\n'

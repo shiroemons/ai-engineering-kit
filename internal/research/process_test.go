@@ -59,7 +59,7 @@ func TestCancellationStopsStandaloneChildren(t *testing.T) {
 func TestEventsIgnoreToolTextAndRecognizeProviderErrors(t *testing.T) {
 	ctx, cancel := context.WithCancelCause(t.Context())
 	defer cancel(nil)
-	e := &events{Cancel: cancel, StopBatch: cancel}
+	e := &events{Cancel: cancel, StopBatch: cancel, Model: "opencode/muse-spark-1.3-contributor-free"}
 	for _, line := range []string{
 		`{"type":"tool_use","part":{"text":"TOPIC: fake quota exceeded 429"}}`,
 		`{"type":"text","part":{"text":"TOPIC: actual topic"}}`,

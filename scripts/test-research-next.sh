@@ -155,6 +155,11 @@ if [[ "${MOCK_BATCH_FAIL:-0}" == 1 ]]; then
   printf 'worker failed: validation error; recovery=worker-worktree\n'
   exit 1
 fi
+if [[ "${MOCK_BATCH_RATE_LIMIT:-0}" == 1 ]]; then
+  printf 'RATE_LIMIT: opencode/muse-spark-1.3-contributor-free; all workers stopped\n'
+  printf '%s\n' "$(($(date +%s) + 3600))" > "$RESEARCH_LOG_DIR/cooldown-until"
+  exit 6
+fi
 if [[ "${MOCK_FULL_RESEARCH:-0}" == 1 ]]; then
   mkdir -p knowledge/testing evals/knowledge
   : > knowledge/testing/go-test.md
@@ -270,12 +275,37 @@ grep -Fq 'worker failed: validation error' "$RESEARCH_LOG_DIR/research-error.log
 unset MOCK_BATCH_FAIL
 printf '%s\n' "$(($(date +%s) + 3600))" > "$RESEARCH_LOG_DIR/cooldown-until"
 status=0
-bash "$RUNNER" || status=$?
-[[ "$status" == 4 ]]
+bash "$RUNNER" > "$TEST_DIR/cooldown-output" 2>&1 || status=$?
+[[ "$status" == 0 ]]
+grep -Fq 'provider rate limit cooldown is active; no provider work started' "$TEST_DIR/cooldown-output"
 rm "$RESEARCH_LOG_DIR/cooldown-until"
 
 # A completed auto-merge fast-forwards the user's original main checkout.
 MOCK_FULL_RESEARCH=1 RESEARCH_DRY_RUN=0 bash "$RUNNER"
 [[ -f "$RESEARCH_TEST_DIR/pulled-main" ]]
 grep -Fq 'pulled merged origin/main into original checkout' "$RESEARCH_LOG_DIR/research.log"
-printf 'research discovery, pager isolation, auto-merge sync, and cooldown: passed\n'
+
+# A Muse Spark rate limit is recorded without counting as a batch failure.
+rm -f "$RESEARCH_TEST_DIR/committed"
+error_size_before="$(wc -c < "$RESEARCH_LOG_DIR/research-error.log")"
+MOCK_BATCH_RATE_LIMIT=1 RESEARCH_DRY_RUN=0 bash "$RUNNER" > "$TEST_DIR/rate-limit-output" 2>&1
+grep -Fq 'rate limit detected; stopped without counting a failure' "$TEST_DIR/rate-limit-output"
+error_size_after="$(wc -c < "$RESEARCH_LOG_DIR/research-error.log")"
+[[ "$error_size_after" == "$error_size_before" ]]
+rate_limited_run_file="$(find "$RESEARCH_LOG_DIR/research-runs" -name run.json -type f -print -quit)"
+[[ -n "$rate_limited_run_file" ]]
+[[ "$(jq -r '.stop_reason' "$rate_limited_run_file")" == muse-spark-rate-limit ]]
+rate_limited_run_id="$(jq -r '.id' "$rate_limited_run_file")"
+
+# The active cooldown exits cleanly, then the next invocation cleans up and starts fresh.
+status=0
+bash "$RUNNER" > "$TEST_DIR/rate-limit-cooldown-output" 2>&1 || status=$?
+[[ "$status" == 0 ]]
+grep -Fq 'provider rate limit cooldown is active' "$TEST_DIR/rate-limit-cooldown-output"
+printf '0\n' > "$RESEARCH_LOG_DIR/cooldown-until"
+unset MOCK_BATCH_RATE_LIMIT
+MOCK_FULL_RESEARCH=1 RESEARCH_DRY_RUN=0 bash "$RUNNER" > "$TEST_DIR/rate-limit-recovery-output" 2>&1
+grep -Fq 'cleaned the stopped Muse Spark run and starting fresh' "$TEST_DIR/rate-limit-recovery-output"
+[[ ! -e "$RESEARCH_LOG_DIR/research-runs/$rate_limited_run_id" ]]
+[[ -f "$RESEARCH_TEST_DIR/pulled-main" ]]
+printf 'research discovery, pager isolation, auto-merge sync, cooldown, and Muse Spark rate-limit recovery: passed\n'

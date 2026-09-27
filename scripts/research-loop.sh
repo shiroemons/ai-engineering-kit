@@ -315,7 +315,8 @@ while [[ "$(date +%s)" -lt "$DEADLINE" ]]; do
       failure_delay="$PAUSE"
       ;;
     3) printf 'another research pipeline is active; waiting\n' ;;
-    4) printf 'provider cooldown active; waiting to retry\n' ;;
+    4) printf 'research-loop: provider cooldown active; stopped without counting a failure\n'; exit 0 ;;
+    6) printf 'research-loop: provider rate limit detected; stopped without counting a failure\n'; exit 0 ;;
     2) printf 'research-loop: stopped after a non-retryable research failure; details: %s\n' "$LOG_DIR/research-error.log" >&2; exit "$status" ;;
     *)
       failures=$((failures + 1))
