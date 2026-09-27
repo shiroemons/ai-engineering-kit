@@ -183,6 +183,15 @@ func fixture(t *testing.T, mode string) (string, string) {
 			t.Fatal(err)
 		}
 	}
+	evalDir := filepath.Join(root, "evals/knowledge")
+	evalFiles, err := filepath.Glob(filepath.Join(evalDir, "*.json"))
+	if err != nil {
+		t.Fatal(err)
+	}
+	baselineEval := []byte(`{"cases":[{"name":"go-context","query":"context cancellation","expected_ids":["go-context"]}]}`)
+	for _, path := range evalFiles {
+		writeFile(t, path, baselineEval, 0644)
+	}
 	c, err := readConfig(root)
 	if err != nil {
 		t.Fatal(err)

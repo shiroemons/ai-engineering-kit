@@ -190,6 +190,11 @@ func TestSharedCooldownStopsActiveBatch(t *testing.T) {
 		time.Sleep(10 * time.Millisecond)
 	}
 	if _, err := os.Stat(filepath.Join(state, "child-pid")); err != nil {
+		select {
+		case batchErr := <-done:
+			t.Fatalf("batch exited before starting its worker: %v", batchErr)
+		default:
+		}
 		t.Fatal(err)
 	}
 	writeFile(t, filepath.Join(state, "cooldown-until"), []byte(strconv.FormatInt(time.Now().Add(time.Hour).Unix(), 10)+"\n"), 0600)
