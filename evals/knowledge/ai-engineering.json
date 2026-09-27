@@ -214,6 +214,56 @@
       "name": "llm-prompt-cache-rendered-prefix-organization-scope",
       "query": "rendered prefix organization",
       "expected_ids": ["llm-prompt-caching-breakpoints-ttl-scope"]
+    },
+    {
+      "name": "evals-judge-pairwise-position-bias",
+      "query": "pairwise position bias",
+      "expected_ids": ["evals-llm-as-judge-grading-bias-mitigation"]
+    },
+    {
+      "name": "evals-judge-order-swap-two-judgments",
+      "query": "順序交換",
+      "expected_ids": ["evals-llm-as-judge-grading-bias-mitigation"]
+    },
+    {
+      "name": "evals-judge-self-preference-self-enhancement",
+      "query": "self-preference self-enhancement",
+      "expected_ids": ["evals-llm-as-judge-grading-bias-mitigation"]
+    },
+    {
+      "name": "evals-judge-verbosity-repetitive-list",
+      "query": "verbosity repetitive list",
+      "expected_ids": ["evals-llm-as-judge-grading-bias-mitigation"]
+    },
+    {
+      "name": "evals-judge-rubric-calibration",
+      "query": "rubric calibration",
+      "expected_ids": ["evals-llm-as-judge-grading-bias-mitigation"]
+    },
+    {
+      "name": "evals-judge-grader-hacking-model-grader-eval",
+      "query": "grader hacking",
+      "expected_ids": ["evals-llm-as-judge-grading-bias-mitigation"]
+    },
+    {
+      "name": "evals-judge-reference-guided-grading",
+      "query": "reference-guided grading",
+      "expected_ids": ["evals-llm-as-judge-grading-bias-mitigation"]
+    },
+    {
+      "name": "evals-judge-cohen-kappa-agreement",
+      "query": "Cohen's kappa",
+      "expected_ids": ["evals-llm-as-judge-grading-bias-mitigation"]
+    },
+    {
+      "name": "evals-judge-grading-mode-code-vs-llm",
+      "query": "LLM-based grading code-based",
+      "expected_ids": ["evals-llm-as-judge-grading-bias-mitigation"]
+    },
+    {
+      "name": "evals-judge-scoring-method-selection",
+      "query": "採点方式",
+      "expected_ids": ["evals-llm-as-judge-grading-bias-mitigation"]
     }
   ]
 }

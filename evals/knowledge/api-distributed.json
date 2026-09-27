@@ -224,6 +224,56 @@
       "name": "architecture-sre-snowball-backoff-jitter",
       "query": "snowball randomized exponential backoff jitter",
       "expected_ids": ["architecture-circuit-breaker-retry-budget"]
+    },
+    {
+      "name": "saga-compensating-orchestration-definition",
+      "query": "saga compensating orchestration",
+      "expected_ids": ["distributed-systems-saga-orchestration-choreography"]
+    },
+    {
+      "name": "saga-choreography-orchestrator-events",
+      "query": "saga choreography orchestrator",
+      "expected_ids": ["distributed-systems-saga-orchestration-choreography"]
+    },
+    {
+      "name": "saga-compensable-pivot-retryable-classification",
+      "query": "compensable pivot retryable",
+      "expected_ids": ["distributed-systems-saga-orchestration-choreography"]
+    },
+    {
+      "name": "saga-isolation-lost-update",
+      "query": "saga isolation lost update",
+      "expected_ids": ["distributed-systems-saga-orchestration-choreography"]
+    },
+    {
+      "name": "saga-dirty-read-nonrepeatable",
+      "query": "saga dirty read nonrepeatable",
+      "expected_ids": ["distributed-systems-saga-orchestration-choreography"]
+    },
+    {
+      "name": "saga-domain-event-orchestration",
+      "query": "saga domain event orchestration",
+      "expected_ids": ["distributed-systems-saga-orchestration-choreography"]
+    },
+    {
+      "name": "saga-idempotent-consumer-monitoring",
+      "query": "saga idempotent consumer monitoring",
+      "expected_ids": ["distributed-systems-saga-orchestration-choreography"]
+    },
+    {
+      "name": "saga-rollback-compensating-transaction",
+      "query": "saga rollback compensating transaction",
+      "expected_ids": ["distributed-systems-saga-orchestration-choreography"]
+    },
+    {
+      "name": "saga-orchestrator-command-compensation",
+      "query": "saga orchestrator command compensation",
+      "expected_ids": ["distributed-systems-saga-orchestration-choreography"]
+    },
+    {
+      "name": "saga-credit-reservation-order-example",
+      "query": "saga credit reservation order",
+      "expected_ids": ["distributed-systems-saga-orchestration-choreography"]
     }
   ]
 }
