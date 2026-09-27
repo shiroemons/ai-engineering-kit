@@ -49,6 +49,21 @@
       "name": "redis-allkeys-lru-cache",
       "query": "allkeys-lru cache",
       "expected_ids": ["redis-eviction-policy-cache"]
+    },
+    {
+      "name": "sqlite-wal-journal-mode",
+      "query": "sqlite journal_mode WAL",
+      "expected_ids": ["sqlite-wal-busy-timeout"]
+    },
+    {
+      "name": "sqlite-busy-timeout-handler",
+      "query": "sqlite busy_timeout handler",
+      "expected_ids": ["sqlite-wal-busy-timeout"]
+    },
+    {
+      "name": "sqlite-busy-timeout-sqlite-busy",
+      "query": "sqlite3_busy_timeout SQLITE_BUSY",
+      "expected_ids": ["sqlite-wal-busy-timeout"]
     }
   ]
 }

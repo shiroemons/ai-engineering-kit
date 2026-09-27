@@ -1,0 +1,12 @@
+{
+  "id": "sqlite-c-busy-timeout-docs",
+  "url": "https://www.sqlite.org/c3ref/busy_timeout.html",
+  "repository_url": "",
+  "commit_sha": "",
+  "version": "SQLite 3.7.0+ (WAL availability as documented on pragma page)",
+  "retrieved_at": "2026-09-27",
+  "license": "Public domain",
+  "trust": "official",
+  "type": "official_docs",
+  "purpose": "sqlite3_busy_timeout の再試行スリープ・累積ミリ秒後の SQLITE_BUSY 復帰・0 以下での無効化・単一 handler と既存 handler 消去の契約を確認する"
+}
