@@ -1,0 +1,12 @@
+{
+  "id": "envoy-arch-circuit-breaking",
+  "url": "https://www.envoyproxy.io/docs/envoy/latest/intro/arch_overview/upstream/circuit_breaking",
+  "repository_url": "https://github.com/envoyproxy/envoy",
+  "commit_sha": "e0f4199bc8865a9dccd9d3be279900a050b2cb6b",
+  "version": "Envoy docs latest（© 2016-2026 Envoy Project）Circuit breaking アーキテクチャ概要、commit e0f4199bc8865a9dccd9d3be279900a050b2cb6b の文書に固定して確認",
+  "retrieved_at": "2026-09-27",
+  "license": "Apache-2.0（envoyproxy/envoy リポジトリ LICENSE、同 commit で確認）",
+  "trust": "official",
+  "type": "official_docs",
+  "purpose": "サーキットブレーカーが分散的で非協調・ネットワークレベルで強制される点、上限別統計（upstream_cx_overflow / upstream_rq_pending_overflow / upstream_rq_active_overflow / upstream_rq_retry_overflow / upstream_cx_pool_overflow）、retry budget の推奨と静的設定時に再試行を積極的に制限すべき勧告、cluster・priority 毎の上限と worker 競合による eventual consistency、既定有効（cluster あたり1024接続など）と x-envoy-overloaded ヘッダ付与を確認する"
+}

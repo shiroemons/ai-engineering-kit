@@ -1,0 +1,12 @@
+{
+  "id": "envoy-arch-outlier-detection",
+  "url": "https://www.envoyproxy.io/docs/envoy/latest/intro/arch_overview/upstream/outlier",
+  "repository_url": "https://github.com/envoyproxy/envoy",
+  "commit_sha": "e0f4199bc8865a9dccd9d3be279900a050b2cb6b",
+  "version": "Envoy docs latest（© 2016-2026 Envoy Project）Outlier detection アーキテクチャ概要、commit e0f4199bc8865a9dccd9d3be279900a050b2cb6b の文書に固定して確認",
+  "retrieved_at": "2026-09-27",
+  "license": "Apache-2.0（envoyproxy/envoy リポジトリ LICENSE、同 commit で確認）",
+  "trust": "official",
+  "type": "official_docs",
+  "purpose": "パッシブヘルスチェックとして http router / tcp proxy / redis proxy / thrift proxy のエラー報告に依存する点、external/local origin エラーの既定（非 split）バケット、ejection 手順（max_ejection_percent 判定 → base_ejection_time × 連続 ejection 回数・max_ejection_time キャップ → panic 以外ではロードバランシングから除外 → 自動 uneject）、アクティブヘルスチェック成功による uneject とカウンタ消去、検出種別（連続5xx・gateway failure・local origin failure・success rate・failure percentage・degraded host）、TCP/非HTTPエラーの HTTP 5xx マップと gRPC の grpc-status 参照、filter chain 間共有の注意を確認する"
+}
