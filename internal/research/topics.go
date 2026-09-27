@@ -187,7 +187,7 @@ func reclaimRunTopicLease(state, runID string, d domain) (string, string, bool, 
 		if topic != "" {
 			return "", "", false, fmt.Errorf("multiple saved topic leases found for domain %s", d.ID)
 		}
-		topic, lease = saved.Topic, path
+		topic = saved.Topic
 	}
 	if topic == "" {
 		return "", "", false, nil

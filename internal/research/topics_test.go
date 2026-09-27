@@ -18,7 +18,11 @@ func TestTopicLeaseNormalizesCaseAndPunctuation(t *testing.T) {
 	if err != nil {
 		t.Fatal(err)
 	}
-	defer releaseTopic(lease)
+	t.Cleanup(func() {
+		if err := releaseTopic(lease); err != nil {
+			t.Errorf("releaseTopic() error = %v", err)
+		}
+	})
 	if _, err := reserveTopic(state, d, "react form errors!"); !errors.Is(err, errTopicAlreadyActive) {
 		t.Fatalf("normalized duplicate topic was accepted: %v", err)
 	}

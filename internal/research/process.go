@@ -239,10 +239,6 @@ func runOpenCodeTopicOverlapCheck(ctx context.Context, root, model, prompt strin
 	}
 }
 
-func runOpenCodeSourceVerification(ctx context.Context, root, model, prompt string, stopBatch context.CancelCauseFunc, d domain, report ProgressReporter) (string, error) {
-	return runOpenCodeSourceVerificationStarted(ctx, root, model, prompt, stopBatch, d, report, nil)
-}
-
 func runOpenCodeSourceVerificationStarted(ctx context.Context, root, model, prompt string, stopBatch context.CancelCauseFunc, d domain, report ProgressReporter, started func()) (string, error) {
 	result, err := runOpenCodePhaseStarted(ctx, root, model, prompt, stopBatch, d, report, completeSourceVerification, started)
 	return result.Text, err
