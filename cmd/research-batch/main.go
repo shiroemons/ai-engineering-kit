@@ -21,6 +21,9 @@ import (
 func main() {
 	root := flag.String("root", ".", "clean repository root")
 	state := flag.String("state-dir", "", "persistent cooldown and log directory")
+	runDir := flag.String("run-dir", "", "persistent state directory for this research run")
+	runID := flag.String("run-id", "", "stable ID for this research run")
+	resume := flag.Bool("resume", false, "resume workers from the saved run state")
 	progressPath := flag.String("progress-file", "", "optional JSON progress file")
 	dry := flag.Bool("dry-run", false, "select topics without accepting edits")
 	deadline := flag.Int64("deadline", 0, "optional Unix timestamp for continuous execution")
@@ -73,7 +76,7 @@ func main() {
 			return nil
 		}
 	}
-	if err := research.RunWithProgress(ctx, *root, *state, flag.Args(), *dry, os.Stdout, report); err != nil {
+	if err := research.RunWithRecovery(ctx, *root, *state, flag.Args(), *dry, os.Stdout, report, *runDir, *runID, *resume); err != nil {
 		fmt.Fprintln(os.Stderr, "research batch:", err)
 		if errors.Is(err, research.ErrInvalidBaselineEvals) {
 			os.Exit(2)

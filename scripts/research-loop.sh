@@ -8,13 +8,20 @@ export PAGER=cat GIT_PAGER=cat GH_PAGER=cat
 ROOT="$(cd "$(dirname "${BASH_SOURCE[0]}")/.." && pwd -P)"
 LOG_DIR="${RESEARCH_LOG_DIR:-$HOME/Library/Logs/ai-engineering-kit}"
 mkdir -p "$LOG_DIR"
+LOG_DIR="$(cd "$LOG_DIR" && pwd -P)"
 PROGRESS_FILE="$LOG_DIR/research-loop-$$.json"
 rm -f "$PROGRESS_FILE"
 LOCK_DIR="$LOG_DIR/research-loop.lock"
+LOOP_PID_START="$(ps -p "$$" -o lstart= 2>/dev/null | sed 's/^[[:space:]]*//;s/[[:space:]]*$//')"
 LOOP_LOCK_HELD=0
+LOOP_GUARD_LOCK_HELD=0
 LOCK_ACQUIRE_IN_PROGRESS=0
+CHILD_START_IN_PROGRESS=0
 PENDING_SIGNAL_STATUS=''
 child=''
+child_gate=''
+child_gate_open=0
+child_gate_created=0
 progress_monitor=''
 PROGRESS_RUNNING=0
 PROGRESS_TTY=0
@@ -96,10 +103,22 @@ finish_progress() {
 }
 
 cleanup() {
+  if ((child_gate_open)); then
+    exec 8>&-
+    child_gate_open=0
+  fi
+  if [[ -n "$child_gate" ]]; then
+    if ((child_gate_created)) && [[ -p "$child_gate" && ! -L "$child_gate" ]]; then
+      rm -f "$child_gate"
+    fi
+    child_gate=''
+    child_gate_created=0
+  fi
   if [[ -n "$child" ]] && kill -0 "$child" 2>/dev/null; then
     kill -TERM "$child" 2>/dev/null || true
     wait "$child" || true
   fi
+  child=''
   if [[ -n "$progress_monitor" ]]; then
     wait "$progress_monitor" || true
   fi
@@ -109,15 +128,67 @@ cleanup() {
   fi
   if ((LOOP_LOCK_HELD)); then
     rm -f "$LOCK_DIR/pid" 2>/dev/null || true
+    rm -f "$LOCK_DIR/pid_start" "$LOCK_DIR/child_pid" "$LOCK_DIR/child_pid_start" "$LOCK_DIR/monitor_pid" "$LOCK_DIR/monitor_pid_start" 2>/dev/null || true
     rmdir "$LOCK_DIR" 2>/dev/null || true
     LOOP_LOCK_HELD=0
   fi
   rm -f "$PROGRESS_FILE"
+  if ((LOOP_GUARD_LOCK_HELD)); then
+    exec 8>&-
+    LOOP_GUARD_LOCK_HELD=0
+  fi
+}
+
+loop_pid_is_alive() {
+  local pid="$1" expected_start="${2:-}" actual_start
+  [[ "$pid" =~ ^[0-9]+$ && "$pid" -gt 1 ]] || return 1
+  kill -0 "$pid" 2>/dev/null || return 1
+  if [[ -n "$expected_start" ]]; then
+    actual_start="$(ps -p "$pid" -o lstart= 2>/dev/null | sed 's/^[[:space:]]*//;s/[[:space:]]*$//')"
+    [[ -n "$actual_start" && "$actual_start" == "$expected_start" ]] || return 1
+  fi
+  return 0
+}
+
+reclaim_stale_loop_lock() {
+  local name pid start found=0 loop_pid='' gate
+  [[ -d "$LOCK_DIR" ]] || return 0
+  for name in pid child_pid monitor_pid; do
+    [[ -e "$LOCK_DIR/$name" ]] || continue
+    found=1
+    [[ -f "$LOCK_DIR/$name" ]] || return 1
+    read -r pid < "$LOCK_DIR/$name" || return 1
+    [[ "$pid" =~ ^[0-9]+$ && "$pid" -gt 1 ]] || return 1
+    [[ "$name" != pid ]] || loop_pid="$pid"
+    start=''
+    [[ ! -f "$LOCK_DIR/${name}_start" ]] || read -r start < "$LOCK_DIR/${name}_start" || return 1
+    if loop_pid_is_alive "$pid" "$start"; then return 1; fi
+  done
+  if ((!found)); then
+    sleep 1
+    [[ -d "$LOCK_DIR" && -z "$(find "$LOCK_DIR" -mindepth 1 -maxdepth 1 -print -quit)" ]] || return 1
+    rmdir "$LOCK_DIR" 2>/dev/null
+    return
+  fi
+  [[ -z "$(find "$LOCK_DIR" -mindepth 1 -maxdepth 1 \
+    ! -name pid ! -name pid_start ! -name child_pid ! -name child_pid_start \
+    ! -name monitor_pid ! -name monitor_pid_start -print -quit)" ]] || return 1
+  rm -f "$LOCK_DIR/pid" "$LOCK_DIR/pid_start" "$LOCK_DIR/child_pid" "$LOCK_DIR/child_pid_start" \
+    "$LOCK_DIR/monitor_pid" "$LOCK_DIR/monitor_pid_start" || return 1
+  rmdir "$LOCK_DIR" 2>/dev/null || return 1
+  [[ -z "$loop_pid" ]] || rm -f "$LOG_DIR/research-loop-$loop_pid.json"
+  if [[ -n "$loop_pid" ]]; then
+    for gate in "$LOG_DIR"/.research-loop-start-"$loop_pid"-*.fifo; do
+      [[ -e "$gate" || -L "$gate" ]] || continue
+      [[ -p "$gate" && ! -L "$gate" ]] || return 1
+      rm -f "$gate" || return 1
+    done
+  fi
 }
 
 handle_signal() {
   local status="$1"
-  if ((LOCK_ACQUIRE_IN_PROGRESS)); then
+  if ((LOCK_ACQUIRE_IN_PROGRESS || CHILD_START_IN_PROGRESS)); then
     PENDING_SIGNAL_STATUS="$status"
   else
     exit "$status"
@@ -127,17 +198,49 @@ handle_signal() {
 trap cleanup EXIT
 trap 'handle_signal 130' INT
 trap 'handle_signal 143' TERM
+command -v lockf >/dev/null 2>&1 || { printf 'research-loop: missing command: lockf\n' >&2; exit 2; }
+exec 8<>"$LOG_DIR/research-loop.guard" || { printf 'research-loop: could not open loop guard file\n' >&2; exit 2; }
+LOCK_ACQUIRE_IN_PROGRESS=1
+if lockf -s -t 0 8; then
+  LOOP_GUARD_LOCK_HELD=1
+else
+  status=$?
+  exec 8>&-
+  if [[ "$status" == 75 ]]; then
+    printf 'research-loop: another continuous loop is active\n' >&2
+    exit 1
+  fi
+  printf 'research-loop: could not acquire loop guard (lockf exit %s)\n' "$status" >&2
+  exit 2
+fi
+LOCK_ACQUIRE_IN_PROGRESS=0
+[[ -z "$PENDING_SIGNAL_STATUS" ]] || exit "$PENDING_SIGNAL_STATUS"
 LOCK_ACQUIRE_IN_PROGRESS=1
 if mkdir "$LOCK_DIR" 2>/dev/null; then
   LOOP_LOCK_HELD=1
   printf '%s\n' "$$" > "$LOCK_DIR/pid"
+  printf '%s\n' "$LOOP_PID_START" > "$LOCK_DIR/pid_start"
   LOCK_ACQUIRE_IN_PROGRESS=0
   [[ -z "$PENDING_SIGNAL_STATUS" ]] || exit "$PENDING_SIGNAL_STATUS"
 else
   LOCK_ACQUIRE_IN_PROGRESS=0
   [[ -z "$PENDING_SIGNAL_STATUS" ]] || exit "$PENDING_SIGNAL_STATUS"
-  printf 'research-loop: another continuous loop holds the lock\n' >&2
-  exit 1
+  if reclaim_stale_loop_lock; then
+    LOCK_ACQUIRE_IN_PROGRESS=1
+    mkdir "$LOCK_DIR" 2>/dev/null || { printf 'research-loop: another loop acquired the reclaimed lock\n' >&2; exit 1; }
+    LOOP_LOCK_HELD=1
+    printf '%s\n' "$$" > "$LOCK_DIR/pid"
+    printf '%s\n' "$LOOP_PID_START" > "$LOCK_DIR/pid_start"
+    LOCK_ACQUIRE_IN_PROGRESS=0
+    [[ -z "$PENDING_SIGNAL_STATUS" ]] || exit "$PENDING_SIGNAL_STATUS"
+  else
+    printf 'research-loop: another continuous loop holds the lock\n' >&2
+    exit 1
+  fi
+fi
+if ((LOOP_GUARD_LOCK_HELD)); then
+  exec 8>&-
+  LOOP_GUARD_LOCK_HELD=0
 fi
 SETTINGS="$(jq -er '.continuous | select(.hours >= 1 and .hours <= 24 and .hours == (.hours|floor)
   and .pause_seconds >= 1 and .pause_seconds <= 300 and .pause_seconds == (.pause_seconds|floor))
@@ -147,21 +250,62 @@ DEADLINE=$(($(date +%s) + HOURS * 3600))
 printf 'Continuous research: model=%s hours=%s; Ctrl+C to stop\n' "$MODEL" "$HOURS"
 completed=0
 failures=0
+attempt=0
 failure_delay="$PAUSE"
 while [[ "$(date +%s)" -lt "$DEADLINE" ]]; do
   status=0
   retry_delay="$PAUSE"
+  attempt=$((attempt + 1))
   rm -f "$PROGRESS_FILE"
   save_progress_cursor
-  RESEARCH_CONTINUOUS=1 RESEARCH_DEADLINE="$DEADLINE" RESEARCH_PROGRESS_FILE="$PROGRESS_FILE" bash "$ROOT/scripts/research-next.sh" &
+  CHILD_START_IN_PROGRESS=1
+  child_gate="$LOG_DIR/.research-loop-start-$$-$attempt.fifo"
+  mkfifo "$child_gate"
+  child_gate_created=1
+  exec 8<>"$child_gate"
+  child_gate_open=1
+  (
+    exec 8>&-
+    IFS= read -r _ <&3 || exit 125
+    exec 3<&-
+    exec env RESEARCH_CONTINUOUS=1 RESEARCH_DEADLINE="$DEADLINE" RESEARCH_PROGRESS_FILE="$PROGRESS_FILE" \
+      bash "$ROOT/scripts/research-next.sh"
+  ) 3< "$child_gate" &
   child=$!
-  PROGRESS_RUNNING=1
-  monitor_progress "$PROGRESS_FILE" "$child" &
-  progress_monitor=$!
+  printf '%s\n' "$child" > "$LOCK_DIR/child_pid"
+  printf '%s\n' "$(ps -p "$child" -o lstart= 2>/dev/null | sed 's/^[[:space:]]*//;s/[[:space:]]*$//')" > "$LOCK_DIR/child_pid_start"
+  if [[ -n "$PENDING_SIGNAL_STATUS" ]]; then
+    exec 8>&-
+    child_gate_open=0
+    if [[ -p "$child_gate" && ! -L "$child_gate" ]]; then rm -f "$child_gate"; fi
+    child_gate=''
+    child_gate_created=0
+    CHILD_START_IN_PROGRESS=0
+    exit "$PENDING_SIGNAL_STATUS"
+  fi
+  CHILD_START_IN_PROGRESS=0
+  [[ -z "$PENDING_SIGNAL_STATUS" ]] || exit "$PENDING_SIGNAL_STATUS"
+  printf 'start\n' >&8 || exit 1
+  exec 8>&-
+  child_gate_open=0
+  if [[ -p "$child_gate" && ! -L "$child_gate" ]]; then rm -f "$child_gate"; fi
+  child_gate=''
+  child_gate_created=0
+  if ((PROGRESS_TTY)); then
+    PROGRESS_RUNNING=1
+    monitor_progress "$PROGRESS_FILE" "$child" &
+    progress_monitor=$!
+    printf '%s\n' "$progress_monitor" > "$LOCK_DIR/monitor_pid"
+    printf '%s\n' "$(ps -p "$progress_monitor" -o lstart= 2>/dev/null | sed 's/^[[:space:]]*//;s/[[:space:]]*$//')" > "$LOCK_DIR/monitor_pid_start"
+  fi
   wait "$child" || status=$?
   child=''
-  wait "$progress_monitor" || true
-  progress_monitor=''
+  rm -f "$LOCK_DIR/child_pid" "$LOCK_DIR/child_pid_start"
+  if [[ -n "$progress_monitor" ]]; then
+    wait "$progress_monitor" || true
+    progress_monitor=''
+    rm -f "$LOCK_DIR/monitor_pid" "$LOCK_DIR/monitor_pid_start"
+  fi
   finish_progress "$status"
   PROGRESS_RUNNING=0
   case "$status" in

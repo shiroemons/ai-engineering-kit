@@ -2,7 +2,7 @@
 
 `launchd` のユーザー LaunchAgent が毎時00分、1日24回の予定でリサーチを起動する。1回につき最大2つの無料モデルが別領域を並列に調べるため、予定上は最大48テーマ/日になる。OpenCode の `knowledge-researcher` は1モデルにつき1テーマを担当する。
 
-手動の `just research-loop` はMuse Sparkを先頭に、利用可能な無料モデルを最大3つ使って調査する。既定の上限は8時間。workerは前のworkerがテーマを選び、重複確認を終え、一次資料の確認を始めた後に起動する。定期実行と連続実行はworkerごとに別のdetached worktreeを使う。実行全体は共通の `research-pipeline.lock` で直列化し、テーマ予約から検証、PR作成、マージ待ちまで同時に1パイプラインだけが進む。定期実行は別モードの処理が終わるまで待機する。待機中は `research-loop` が次の連続実行を譲り、定期実行が割り込める。調査中のテーマは選定プロンプトに渡し、意味的な重複をモデルで判定してから予約する。表記を正規化した完全一致も予約時に検出する。
+手動の `just research-loop` はMuse Sparkを先頭に、利用可能な無料モデルを最大3つ使って調査する。既定の上限は8時間。workerは前のworkerがテーマを選び、重複確認を終え、一次資料の確認を始めた後に起動する。定期実行と連続実行はworkerごとに別のdetached worktreeを使う。`research-next.guard` のOS advisory lockで起動時の古いlock回収を直列化する。実行全体は共通の `research-pipeline.lock` で保護する。定期実行は進行中のパイプラインを待ち、連続実行は重なった場合status 3で終了して次の間隔で再試行する。同じ実行モードの重複起動もstatus 3で終了する。テーマ予約から検証、PR作成、マージ待ちまで同時に1パイプラインだけが進む。調査中のテーマは選定プロンプトに渡し、意味的な重複をモデルで判定してから予約する。表記を正規化した完全一致も予約時に検出する。
 
 更新対象は knowledge・source catalog・検索 eval。`cmd/research-batch` が各モデルの成果を検証し、成功分を統合する。`scripts/research-next.sh` は全体のチェック後、件名に調査テーマを入れ、本文で変更の理由を説明する Conventional Commit を作ってから、専用branchにpushしてPRを作る。件名は `docs: <テーマ>の根拠と適用条件を記録`、本文は「一次資料に基づく知識と検索 eval を残し、後続の実装・運用で根拠を再利用できるようにする。」とする。定期実行と連続実行は別PRになる。競合のないPRではsquashのauto-mergeを有効にする。必須チェックなどの条件を満たした後にGitHubがマージする。
 
@@ -43,7 +43,7 @@ runnerは `opencode models --print-logs --log-level debug` で利用可能なモ
 
 2026-09-26時点で `opencode/muse-spark-1.3-contributor-free` は期間限定の無料モデル。プロンプトと回答はMetaの学習に使われ得る。無料の具体的な上限や終了日は保証されていない。[OpenCodeの料金・プライバシー条件](https://opencode.ai/docs/zen/)を確認し、公開情報の調査に使う。
 
-各workerは最大45分で停止する。失敗したworkerを別モデルで再試行しない。成功したworkerの成果だけを検証してPRにまとめ、失敗分のワークツリーを保持する。利用制限・quotaを示すエラーを受けたら実行中のworkerを止め、共通のcooldownを3時間設定する。他方の実行もcooldownを検知して停止する。これは無料上限の推定値ではなく、runnerの再試行抑制時間である。
+各workerは最大45分で停止する。失敗したworkerを別モデルで再試行しない。成功したworkerの成果だけを検証してPRにまとめ、失敗分のworktreeはrunの後処理が完了するまで保持する。利用制限・quotaを示すエラーを受けたら実行中のworkerを止め、共通のcooldownを3時間設定する。他方の実行もcooldownを検知して停止する。これは無料上限の推定値ではなく、runnerの再試行抑制時間である。
 
 現在の CLI では `models --refresh --verbose` および `agent list` は使えず、agent の確認は `opencode debug agents` を使う。
 
@@ -74,7 +74,7 @@ bash scripts/install-research-agent.sh --output /tmp/research-preview.plist
 
 Macのスリープ中に複数の予定時刻を過ぎた場合、復帰時の起動は1回にまとめられる。同じ実行モードの重複起動はlockで抑止する。このため1日48件の成果物を保証する設定ではない。スリープ解除やスリープ防止は設定しない。
 
-連続実行は `continuous.hours` の8時間以内で開始・調査を行い、完了後に30秒待って次へ進む。期限に達したworkerは停止する。PRなどの後処理は期限後に終了する場合がある。次のテーマを選ぶ前に、そのPRのマージを最大10分待つ。調査に失敗した場合は即時終了せず、`pause_seconds` から最大300秒まで段階的に待って期限まで再試行する。成功後は失敗回数と待ち時間を初期化する。プロバイダのcooldown中も同じ間隔で再試行する。設定不備や認証エラー、PRの競合・未マージなど、再試行で解消しない状態では連続実行を終了する。端末で `Ctrl+C` を押すとworkerとその子プロセスを停止する。
+連続実行は `continuous.hours` の8時間以内で開始・調査を行い、完了後に30秒待って次へ進む。期限に達したworkerは停止する。PRなどの後処理は期限後に終了する場合がある。次のテーマを選ぶ前に、そのPRのマージを最大10分待つ。調査に失敗した場合は即時終了せず、`pause_seconds` から最大300秒まで段階的に待って期限まで再試行する。成功後は失敗回数と待ち時間を初期化する。プロバイダのcooldown中も同じ間隔で再試行する。設定不備や認証エラー、PRの競合・未マージなど、再試行で解消しない状態では連続実行を終了する。端末で `Ctrl+C`、または実行プロセスへの `SIGTERM` を送ると、新しい工程を開始せずworkerを終了する。OpenCodeのプロセスグループにはまず `SIGTERM` を送り、3秒後も残っている場合だけ `SIGKILL` を送る。`SIGKILL` 自体は捕捉できないため、異常終了したrunは次回起動時に記録から判定する。
 
 停止は `just research-uninstall`、再開は `just research-install`。失敗理由は端末の標準エラーと `~/Library/Logs/ai-engineering-kit/research-error.log` に表示・記録する。`research.log` には実行結果を記録し、`just check` の失敗時は最初の120行も `research-error.log` に保存する。再試行が続く場合はログを確認し、モデルの利用可否、GitHub接続、作業ツリーを調べる。lock は実行中のプロセスがないことを確認してから除去する。
 
@@ -92,8 +92,8 @@ runnerは元のcheckoutがmainで未commit変更がないことを確認する�
 
 runnerは変更パス・タグ・技術・source参照・検索evalを検査する。削除・リネーム・symlinkを受け付けない。成功分を順番に仮統合して再検証し、同じファイルへの異なる変更は競合として保持する。最終成果は統合用ワークツリーへまとめて適用し、`just check` とstaged diffの確認後にcommit・push・PR作成を行う。
 
-競合のないPRには `gh pr merge --squash --auto` を依頼する。定期実行と連続実行のパイプラインは共通lockで直列になるが、外部PRなどとの競合でマージできない場合はopenのまま残し、失敗を報告する。pushやPR作成の失敗でもcommitはresearch branchに残る。統合済みのworkerとcleanな統合用ワークツリーは削除し、失敗したworkerや未commitの成果は復旧用に保持する。保守者はログの `recovery` と `git worktree list` で場所を確認し、差分の要否を判断してから片付ける。ログにはOpenCodeの応答全文を保存しない。
+競合のないPRには `gh pr merge --squash --auto` を依頼する。定期実行と連続実行のパイプラインは共通lockで直列になるが、外部PRなどとの競合でマージできない場合はopenのまま残し、失敗を報告する。pushやPR作成の失敗でもcommitはresearch branchに残る。正常終了時はrun専用のworker・統合worktree、ローカルbranch、journalを片付ける。未完了runは `~/Library/Logs/ai-engineering-kit/research-runs/<run-id>/` のjournalに、base commit、workerごとのmodel・domain・topic・工程、worktree、子プロセスPIDと開始時刻を保存し、該当するworktreeとleaseを保持する。子プロセスはPIDをjournalへ記録するまでOpenCodeを起動しない。次回のTTY起動では同じworktree・テーマから未完了工程をやり直すか、run所有のローカル状態を破棄するか選べる。resumeは中断したOpenCode session自体の再利用ではなく、その工程を保存済みworktreeで再実行する。LaunchAgentなどTTYのない起動では質問せず、runを保持したまま終了するため、新しい調査は始まらない。ローカル状態の破棄はrun IDとの一致を検証したworktree・lease・ローカルbranchだけを対象にし、push済みremote branchやPRは変更しない。起動時のlock回収は `lockf` のadvisory lockで直列化する。`research-next.guard` と `research-loop.guard` はそのために残る空のguard fileで、実行lockではない。ログにはOpenCodeの応答全文を保存しない。
 
-実行lockは `research.lock`・`research-continuous.lock`・`research-loop.lock` と、PRの後処理まで含む共通の `research-pipeline.lock`。領域lockは `domains/<ID>.lock`、テーマlockは `topics/<SHA-256>.json`、テーマ選定のプロセス間lockはOSのファイルlock `topic-selection.lock`、待機期限は `cooldown-until`。いずれもログディレクトリに置く。テーマlockにはテーマ・領域・PID・開始時刻を記録し、正常終了時に削除する。次の選定では所有PIDが終了したテーマlockと、開始から48時間を超えたlockを排他lock内で削除する。異常終了後にディレクトリ形式のlockが残った場合は、該当プロセスが終了していることを確認してから除去する。`topic-selection.lock` はファイルを残したままにし、プロセス終了時にOSが排他lockを解放する。
+実行lockは `research.lock`・`research-continuous.lock`・`research-loop.lock` と、PRの後処理まで含む共通の `research-pipeline.lock`。領域lockは `domains/<ID>.lock`、テーマlockは `topics/<SHA-256>.json`、テーマ選定のプロセス間lockはOSのファイルlock `topic-selection.lock`、待機期限は `cooldown-until`。いずれもログディレクトリに置く。テーマlockにはテーマ・領域・PID・run ID・開始時刻を記録し、正常終了時に削除する。次の選定では所有PIDが終了したテーマlockと、開始から48時間を超えたlockを排他lock内で削除する。領域lockには所有run IDとPIDを記録し、resume時には同じrunだけが再取得する。停止後はPIDとプロセスグループが残っていないことを確認してから、journalに記録された所有物を再利用または削除する。以前の形式など所有元を確認できないlockは自動で削除しない。`topic-selection.lock` はファイルを残したままにし、プロセス終了時にOSが排他lockを解放する。
 
 dry runはdetached worktreeで読み取りだけのtopic選択を依頼し、変更がなかったことと既存データのvalidationを確認する。モデル利用は発生する。dry runではfetch・branch作成・commit・push・PR作成をしない。

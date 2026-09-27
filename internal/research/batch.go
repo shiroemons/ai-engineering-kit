@@ -26,6 +26,7 @@ type worker struct {
 	Model, Path, Topic string
 	TopicLease         string
 	Evidence           string
+	Phase              string
 	Progress           int
 	Patch              []byte
 	Files              map[string][]byte
@@ -41,6 +42,20 @@ func Run(ctx context.Context, root, state string, models []string, dry bool, out
 // RunWithProgress reports fixed research milestones through report. Percentages
 // are estimates until validation and integration are confirmed by the runner.
 func RunWithProgress(ctx context.Context, root, state string, models []string, dry bool, out io.Writer, report ProgressReporter) (resultErr error) {
+	return RunWithRecovery(ctx, root, state, models, dry, out, report, "", "", false)
+}
+
+func RunWithRecovery(ctx context.Context, root, state string, models []string, dry bool, out io.Writer, report ProgressReporter, runDir, runID string, resume bool) (resultErr error) {
+	var journal *recoveryJournal
+	var resumeSnapshot batchRecovery
+	defer func() {
+		if journal == nil {
+			return
+		}
+		if err := journal.clearCoordinatorPID(); err != nil {
+			resultErr = errors.Join(resultErr, fmt.Errorf("clear recovery coordinator PID: %w", err))
+		}
+	}()
 	publish := func(progress Progress) error {
 		if report == nil {
 			return nil
@@ -83,6 +98,29 @@ func RunWithProgress(ctx context.Context, root, state string, models []string, d
 	if len(models) == 0 {
 		return errors.New("no verified free models")
 	}
+	requestedModels := slices.Clone(models)
+	if runDir != "" {
+		if !validRecoveryID(runID) || filepath.Base(filepath.Clean(runDir)) != runID {
+			return errors.New("invalid recovery run directory or ID")
+		}
+		runDir, err = filepath.Abs(runDir)
+		if err != nil {
+			return err
+		}
+		info, err := os.Lstat(runDir)
+		if err != nil {
+			return fmt.Errorf("inspect recovery run directory: %w", err)
+		}
+		if info.Mode()&os.ModeSymlink != 0 || !info.IsDir() {
+			return errors.New("recovery run path must be a real directory")
+		}
+		resolved, err := filepath.EvalSymlinks(runDir)
+		if err != nil || resolved != runDir {
+			return errors.New("recovery run directory resolves outside its recorded path")
+		}
+	} else if runID != "" || resume {
+		return errors.New("recovery ID requires a run directory")
+	}
 	seen := map[string]bool{}
 	for _, model := range models {
 		if !modelID.MatchString(model) || seen[model] {
@@ -97,8 +135,20 @@ func RunWithProgress(ctx context.Context, root, state string, models []string, d
 	if err != nil {
 		return err
 	}
-	if err := requireClean(ctx, root); err != nil {
-		return err
+	if resume {
+		journal, err = loadRecoveryJournal(runDir, runID)
+		if err != nil {
+			return err
+		}
+		resumeSnapshot = journal.snapshot()
+		if resumeSnapshot.Root != root || !bytes.Equal([]byte(resumeSnapshot.Base), bytes.TrimSpace(base)) || resumeSnapshot.Complete {
+			return errors.New("saved recovery run does not match this integration worktree")
+		}
+	}
+	if !resumeSnapshot.Prepared {
+		if err := requireClean(ctx, root); err != nil {
+			return err
+		}
 	}
 	r, docs, err := indexed(root)
 	if err != nil {
@@ -112,43 +162,13 @@ func RunWithProgress(ctx context.Context, root, state string, models []string, d
 			return err
 		}
 	}
-	recent, err := git(ctx, root, "log", "-"+strconv.Itoa(c.Selection.RecentCommits), "--format=", "--name-only", "--", "knowledge/")
-	if err != nil {
-		return err
-	}
-	domains := plan(c.Domains, docs, strings.Fields(string(recent)))
-	// Both scheduled and continuous batches share domain leases, while their
-	// worktrees and run locks remain independent.
-	leaseDir := filepath.Join(state, "domains")
-	if err := os.MkdirAll(leaseDir, 0700); err != nil {
-		return err
-	}
-	var assigned []domain
-	for _, d := range domains {
-		lease := filepath.Join(leaseDir, d.ID+".lock")
-		if err := os.Mkdir(lease, 0700); errors.Is(err, os.ErrExist) {
-			continue
-		} else if err != nil {
+	var domains []domain
+	if !resume {
+		recent, err := git(ctx, root, "log", "-"+strconv.Itoa(c.Selection.RecentCommits), "--format=", "--name-only", "--", "knowledge/")
+		if err != nil {
 			return err
 		}
-		defer func() {
-			if err := os.Remove(lease); err != nil {
-				resultErr = errors.Join(resultErr, fmt.Errorf("domain lease retained: %s: %w", lease, err))
-			}
-		}()
-		assigned = append(assigned, d)
-		if len(assigned) == len(models) {
-			break
-		}
-	}
-	if len(assigned) == 0 {
-		return errors.New("all research domains are already assigned")
-	}
-	models = models[:len(assigned)]
-	for _, d := range assigned {
-		if err := publish(Progress{Percent: 3, Domain: d.ID, DomainName: d.Name, Topic: "テーマ候補と一次資料を確認中", Phase: "領域割り当て後、候補テーマの一次資料を確認中"}); err != nil {
-			return err
-		}
+		domains = plan(c.Domains, docs, strings.Fields(string(recent)))
 	}
 	// Use the original repository's ignored workbench even from a worktree.
 	common, err := git(ctx, root, "rev-parse", "--path-format=absolute", "--git-common-dir")
@@ -159,28 +179,189 @@ func RunWithProgress(ctx context.Context, root, state string, models []string, d
 	if err := os.MkdirAll(storage, 0700); err != nil {
 		return err
 	}
-	batch, err := os.MkdirTemp(storage, "batch-")
-	if err != nil {
+	// Both scheduled and continuous batches share domain leases, while their
+	// worktrees and run locks remain independent.
+	leaseDir := filepath.Join(state, "domains")
+	if err := os.MkdirAll(leaseDir, 0700); err != nil {
 		return err
 	}
-	if _, err := fmt.Fprintf(out, "batch worktrees: %s\n", batch); err != nil {
-		return err
-	}
-	workers := make([]worker, len(models))
-	for i, model := range models {
-		w := &workers[i]
-		w.Domain, w.Model, w.Path = assigned[i], model, filepath.Join(batch, fmt.Sprintf("worker-%d", i+1))
-		if _, err := git(ctx, root, "worktree", "add", "--detach", w.Path, strings.TrimSpace(string(base))); err != nil {
-			return err
-		}
-	}
+	var assigned []domain
+	var workers []worker
+	var leases []string
+	var batch string
+	finished := false
 	defer func() {
+		if journal != nil && !finished {
+			return
+		}
 		for i := range workers {
 			if err := releaseTopic(workers[i].TopicLease); err != nil {
 				resultErr = errors.Join(resultErr, err)
 			}
 		}
+		for _, lease := range leases {
+			if err := releaseDomainLease(lease, runID); err != nil {
+				resultErr = errors.Join(resultErr, fmt.Errorf("release domain lease %s: %w", lease, err))
+			}
+		}
 	}()
+	if resume {
+		snapshot := resumeSnapshot
+		if len(snapshot.Workers) > c.maxTopics() || len(snapshot.Workers) > len(models) {
+			return errors.New("saved recovery run exceeds the available worker limit")
+		}
+		if snapshot.Batch != filepath.Join(storage, "batch-"+runID) {
+			return errors.New("saved batch path does not belong to this run")
+		}
+		configuredDomains := make(map[string]domain, len(c.Domains))
+		for _, d := range c.Domains {
+			configuredDomains[d.ID] = d
+		}
+		seenDomains := map[string]bool{}
+		seenModels := map[string]bool{}
+		for _, saved := range snapshot.Workers {
+			d, ok := configuredDomains[saved.Domain]
+			if !ok || !slices.Contains(requestedModels, saved.Model) || seenDomains[saved.Domain] || seenModels[saved.Model] {
+				return fmt.Errorf("saved recovery worker is no longer configured or verified: %s", saved.Domain)
+			}
+			seenDomains[saved.Domain] = true
+			seenModels[saved.Model] = true
+			assigned = append(assigned, d)
+		}
+		batch = snapshot.Batch
+		if _, err := os.Lstat(batch); errors.Is(err, os.ErrNotExist) {
+			if err := os.Mkdir(batch, 0700); err != nil {
+				return fmt.Errorf("recreate saved batch worktree directory: %w", err)
+			}
+		} else if err != nil {
+			return err
+		}
+		if err := validateRecoveryBatchPath(storage, batch); err != nil {
+			return err
+		}
+		if err := removeInterruptedIntegrationWorktrees(ctx, root, batch); err != nil {
+			return err
+		}
+		workers = make([]worker, len(snapshot.Workers))
+		for i, saved := range snapshot.Workers {
+			workers[i] = worker{Domain: assigned[i], Model: saved.Model, Path: saved.Path, Topic: saved.Topic, Evidence: saved.Evidence, Phase: saved.Phase, Progress: saved.Progress}
+			if saved.Path != filepath.Join(batch, fmt.Sprintf("worker-%d", i+1)) {
+				return errors.New("saved worker worktree path does not match its run")
+			}
+			lease := filepath.Join(leaseDir, saved.Domain+".lock")
+			if err := reclaimDomainLease(lease, runID); err != nil {
+				return err
+			}
+			leases = append(leases, lease)
+			if workers[i].Topic != "" {
+				workers[i].TopicLease, err = reclaimTopicLease(state, runID, assigned[i], workers[i].Topic)
+				if err != nil {
+					return err
+				}
+			} else if workers[i].Phase == "topic" {
+				workers[i].Topic, workers[i].TopicLease, _, err = reclaimRunTopicLease(state, runID, assigned[i])
+				if err != nil {
+					return err
+				}
+			}
+		}
+		pidStart, err := processStartIdentity(os.Getpid())
+		if err != nil {
+			return fmt.Errorf("identify resumed coordinator process: %w", err)
+		}
+		if err := journal.update(func(current *batchRecovery) {
+			current.PID = os.Getpid()
+			current.PIDStart = pidStart
+		}); err != nil {
+			return err
+		}
+	} else {
+		for _, d := range domains {
+			lease := filepath.Join(leaseDir, d.ID+".lock")
+			if err := acquireDomainLease(lease, runID); errors.Is(err, os.ErrExist) {
+				if runID == "" {
+					continue
+				}
+				reclaimed, reclaimErr := reclaimDomainLeaseIfOwned(lease, runID)
+				if reclaimErr != nil {
+					return reclaimErr
+				}
+				if !reclaimed {
+					continue
+				}
+			} else if err != nil {
+				return err
+			}
+			leases = append(leases, lease)
+			assigned = append(assigned, d)
+			if len(assigned) == min(len(models), c.maxTopics()) {
+				break
+			}
+		}
+	}
+	if len(assigned) == 0 {
+		return errors.New("all research domains are already assigned")
+	}
+	models = make([]string, len(assigned))
+	if resume {
+		for i := range workers {
+			models[i] = workers[i].Model
+		}
+	} else {
+		models = requestedModels[:min(len(assigned), len(requestedModels))]
+	}
+	for _, d := range assigned {
+		if err := publish(Progress{Percent: 3, Domain: d.ID, DomainName: d.Name, Topic: "テーマ候補と一次資料を確認中", Phase: "領域割り当て後、候補テーマの一次資料を確認中"}); err != nil {
+			return err
+		}
+	}
+	if !resume {
+		if runDir == "" {
+			batch, err = os.MkdirTemp(storage, "batch-")
+			if err != nil {
+				return err
+			}
+		} else {
+			batch = filepath.Join(storage, "batch-"+runID)
+			if _, err := os.Lstat(batch); err == nil {
+				return errors.New("saved batch worktree directory already exists")
+			} else if !errors.Is(err, os.ErrNotExist) {
+				return err
+			}
+		}
+	}
+	if _, err := fmt.Fprintf(out, "batch worktrees: %s\n", batch); err != nil {
+		return err
+	}
+	if !resume {
+		workers = make([]worker, len(models))
+		journalWorkers := make([]recoveryWorker, len(models))
+		for i, model := range models {
+			path := filepath.Join(batch, fmt.Sprintf("worker-%d", i+1))
+			workers[i] = worker{Domain: assigned[i], Model: model, Path: path, Phase: "topic", Progress: 3}
+			journalWorkers[i] = recoveryWorker{Domain: assigned[i].ID, Model: model, Path: path, Phase: "topic", Progress: 3}
+		}
+		if runDir != "" {
+			journal, err = newRecoveryJournal(runDir, runID, root, strings.TrimSpace(string(base)), batch, journalWorkers)
+			if err != nil {
+				return err
+			}
+			if err := os.Mkdir(batch, 0700); err != nil {
+				return fmt.Errorf("create saved batch worktree directory: %w", err)
+			}
+		}
+		for i := range workers {
+			if _, err := git(ctx, root, "worktree", "add", "--detach", workers[i].Path, strings.TrimSpace(string(base))); err != nil {
+				return err
+			}
+		}
+	} else {
+		for i := range workers {
+			if err := ensureRecoveryWorkerWorktree(ctx, root, workers[i].Path, strings.TrimSpace(string(base))); err != nil {
+				return err
+			}
+		}
+	}
 	batchCtx, stopBatch := context.WithCancelCause(ctx)
 	defer stopBatch(nil)
 	monitorDone := make(chan struct{})
@@ -236,7 +417,28 @@ func RunWithProgress(ctx context.Context, root, state string, models []string, d
 			defer signalNext()
 			workerCtx, cancel := context.WithTimeout(batchCtx, time.Duration(c.Parallel.TimeoutMinutes)*time.Minute)
 			defer cancel()
-			w.Progress = 3
+			workerCtx = context.WithValue(workerCtx, openCodeProcessReporterKey{}, openCodeProcessReporter(func(pid int) error {
+				if journal == nil {
+					return nil
+				}
+				pidStart := ""
+				var err error
+				if pid > 0 {
+					pidStart, err = processStartIdentity(pid)
+					if err != nil {
+						stopBatch(err)
+						return fmt.Errorf("identify OpenCode process: %w", err)
+					}
+				}
+				if err := journal.updateWorker(i, func(saved *recoveryWorker) {
+					saved.OpenCodePID = pid
+					saved.OpenCodePIDStart = pidStart
+				}); err != nil {
+					stopBatch(err)
+					return fmt.Errorf("save OpenCode process state: %w", err)
+				}
+				return nil
+			}))
 			workerReport := func(progress Progress) error {
 				if progress.Topic == "" {
 					progress.Topic = w.Topic
@@ -245,57 +447,21 @@ func RunWithProgress(ctx context.Context, root, state string, models []string, d
 					return nil
 				}
 				w.Progress = progress.Percent
+				if journal != nil {
+					if err := journal.updateWorker(i, func(saved *recoveryWorker) { saved.Progress = w.Progress }); err != nil {
+						stopBatch(err)
+						return fmt.Errorf("save worker progress: %w", err)
+					}
+				}
 				return publish(progress)
 			}
-			w.Topic, w.Err = selectWorkerTopic(workerCtx, state, w, dry, stopBatch, workerReport)
-			if w.Err == nil {
-				if dry {
-					signalNext()
-					w.Err = requireClean(workerCtx, w.Path)
-				} else {
-					w.Err = workerReport(Progress{Percent: 15, Domain: w.Domain.ID, DomainName: w.Domain.Name, Topic: w.Topic, Phase: "選定テーマの一次資料を確認中"})
-					if w.Err == nil {
-						w.Evidence, w.Err = runOpenCodeSourceVerificationStarted(workerCtx, w.Path, w.Model, sourceVerificationPrompt(w.Domain, w.Topic), stopBatch, w.Domain, workerReport, signalNext)
-						if w.Err == nil {
-							w.Evidence, w.Err = validateSourceInventory(w.Evidence)
-						}
-					}
-					if w.Err == nil {
-						w.Err = workerReport(Progress{Percent: 40, Domain: w.Domain.ID, DomainName: w.Domain.Name, Topic: w.Topic, Phase: "一次資料を確認、knowledge 文書を作成中"})
-					}
-					if w.Err == nil {
-						w.Err = runOpenCodeKnowledgeWriting(workerCtx, w.Path, w.Model, knowledgeWritingPrompt(w.Domain, w.Topic, w.Evidence), stopBatch, w.Domain, workerReport)
-						if w.Err == nil {
-							w.Err = knowledgeStage(workerCtx, w.Path, w.Domain)
-						}
-					}
-					if w.Err == nil {
-						w.Err = workerReport(Progress{Percent: 60, Domain: w.Domain.ID, DomainName: w.Domain.Name, Topic: w.Topic, Phase: "knowledge 作成完了、検索 eval を作成中"})
-					}
-					if w.Err == nil {
-						w.Err = runOpenCodeEvalWriting(workerCtx, w.Path, w.Model, evalWritingPrompt(w.Domain, w.Topic), stopBatch, w.Domain, workerReport)
-					}
-					if w.Err == nil {
-						w.Err = workerReport(Progress{Percent: 92, Domain: w.Domain.ID, DomainName: w.Domain.Name, Topic: w.Topic, Phase: "成果物と検索 eval を検証中"})
-					}
-					if w.Err == nil {
-						w.Files, w.Patch, w.Err = artifacts(workerCtx, w.Path, w.Domain)
-					}
-				}
-				if w.Err == nil {
-					phase := "検索 eval と成果物の検証を通過"
-					if dry {
-						phase = "dry run のテーマ選定を確認"
-					}
-					w.Err = workerReport(Progress{Percent: 95, Domain: w.Domain.ID, DomainName: w.Domain.Name, Topic: w.Topic, Phase: phase})
-				}
-			}
+			w.Err = runWorkerStages(workerCtx, state, runID, dry, w, i, journal, stopBatch, workerReport, signalNext)
 		})
 	}
 	wg.Wait()
 	if errors.Is(context.Cause(batchCtx), errRateLimit) {
 		until := time.Now().Add(time.Duration(c.Parallel.CooldownMinutes) * time.Minute).Unix()
-		file, err := os.CreateTemp(state, ".cooldown-*")
+		file, err := os.CreateTemp(state, ".cooldown-"+runID+"-*.tmp")
 		if err != nil {
 			return err
 		}
@@ -315,6 +481,7 @@ func RunWithProgress(ctx context.Context, root, state string, models []string, d
 	}
 	accepted := map[string][]byte{}
 	var topics []string
+	var acceptedDomains []string
 	partial := false
 	for i := range workers {
 		w := &workers[i]
@@ -332,6 +499,7 @@ func RunWithProgress(ctx context.Context, root, state string, models []string, d
 			continue
 		}
 		topics = append(topics, w.Topic)
+		acceptedDomains = append(acceptedDomains, w.Domain.ID)
 		if _, err := fmt.Fprintf(out, "worker passed: model=%s domain=%s topic=%s\n", w.Model, w.Domain.ID, w.Topic); err != nil {
 			return err
 		}
@@ -344,8 +512,21 @@ func RunWithProgress(ctx context.Context, root, state string, models []string, d
 		return errors.New("no worker produced valid research; worktrees preserved")
 	}
 	if !dry {
-		if err := requireClean(ctx, root); err != nil {
-			return err
+		rootAlreadyApplied := false
+		if journal != nil && resumeSnapshot.Prepared {
+			if !slices.Equal(acceptedDomains, resumeSnapshot.Accepted) {
+				return errors.New("accepted workers changed since the integration checkpoint")
+			}
+			if err := verifyAcceptedApplied(ctx, root, accepted); err == nil {
+				rootAlreadyApplied = true
+			} else if cleanErr := requireClean(ctx, root); cleanErr != nil {
+				return errors.Join(errors.New("integration worktree contains changes outside the saved accepted artifacts"), err, cleanErr)
+			}
+		}
+		if !rootAlreadyApplied {
+			if err := requireClean(ctx, root); err != nil {
+				return err
+			}
 		}
 		now, err := git(ctx, root, "rev-parse", "HEAD")
 		if err != nil {
@@ -354,10 +535,31 @@ func RunWithProgress(ctx context.Context, root, state string, models []string, d
 		if !bytes.Equal(base, now) {
 			return errors.New("integration HEAD changed during research")
 		}
-		// Each patch was checked against the already accepted changes. A final
-		// combined patch applies atomically, without overwriting local edits.
-		if err := applyAccepted(ctx, root, batch, base, accepted); err != nil {
-			return err
+		if journal != nil && !resumeSnapshot.Prepared {
+			if err := journal.update(func(current *batchRecovery) {
+				current.Prepared = true
+				current.Accepted = slices.Clone(acceptedDomains)
+				current.Topics = slices.Clone(topics)
+				current.Partial = partial
+			}); err != nil {
+				return fmt.Errorf("save integration checkpoint: %w", err)
+			}
+		}
+		if !rootAlreadyApplied {
+			// Each patch was checked against the already accepted changes. A final
+			// combined patch applies atomically, without overwriting local edits.
+			if err := applyAccepted(ctx, root, batch, base, accepted); err != nil {
+				return err
+			}
+		}
+		if journal != nil {
+			if err := journal.update(func(current *batchRecovery) {
+				current.Complete = true
+				current.Topics = slices.Clone(topics)
+				current.Partial = partial
+			}); err != nil {
+				return fmt.Errorf("save completed batch state: %w", err)
+			}
 		}
 	}
 	phase := "検証済み成果を統合"
@@ -374,7 +576,7 @@ func RunWithProgress(ctx context.Context, root, state string, models []string, d
 	}
 	for i := range workers {
 		w := &workers[i]
-		if w.Err != nil {
+		if w.Err != nil || partial {
 			continue
 		}
 		if !dry {
@@ -424,7 +626,126 @@ func RunWithProgress(ctx context.Context, root, state string, models []string, d
 			}
 		}
 	}
+	finished = true
 	return nil
+}
+
+func runWorkerStages(ctx context.Context, state, runID string, dry bool, w *worker, index int, journal *recoveryJournal, stopBatch context.CancelCauseFunc, report ProgressReporter, signalNext func()) error {
+	var err error
+	save := func() error {
+		if journal == nil {
+			return nil
+		}
+		return journal.updateWorker(index, func(saved *recoveryWorker) {
+			saved.Topic = w.Topic
+			saved.Evidence = w.Evidence
+			saved.Phase = w.Phase
+			saved.Progress = w.Progress
+		})
+	}
+	setPhase := func(phase string) error {
+		w.Phase = phase
+		if err := save(); err != nil {
+			stopBatch(fmt.Errorf("save worker checkpoint: %w", err))
+			return fmt.Errorf("save worker checkpoint: %w", err)
+		}
+		return nil
+	}
+	if w.Phase == "" {
+		w.Phase = "topic"
+	}
+	if !slices.Contains([]string{"topic", "source", "knowledge", "eval", "validation", "complete"}, w.Phase) {
+		return fmt.Errorf("saved worker phase is invalid: %s", w.Phase)
+	}
+	if w.Phase == "topic" {
+		if err := setPhase("topic"); err != nil {
+			return err
+		}
+		if w.Topic == "" {
+			w.Topic, err = selectWorkerTopic(ctx, state, runID, w, dry, stopBatch, report)
+			if err != nil {
+				return err
+			}
+			if err := save(); err != nil {
+				stopBatch(fmt.Errorf("save selected worker topic: %w", err))
+				return fmt.Errorf("save selected worker topic: %w", err)
+			}
+		}
+		if err := setPhase("source"); err != nil {
+			return err
+		}
+	}
+	if w.Phase != "source" {
+		signalNext()
+	}
+	if dry {
+		signalNext()
+		if err := requireClean(ctx, w.Path); err != nil {
+			return err
+		}
+		return setPhase("complete")
+	}
+	if w.Phase == "source" {
+		if err := report(Progress{Percent: 15, Domain: w.Domain.ID, DomainName: w.Domain.Name, Topic: w.Topic, Phase: "選定テーマの一次資料を確認中"}); err != nil {
+			return err
+		}
+		started := false
+		w.Evidence, err = runOpenCodeSourceVerificationStarted(ctx, w.Path, w.Model, sourceVerificationPrompt(w.Domain, w.Topic), stopBatch, w.Domain, report, func() {
+			if !started {
+				started = true
+				signalNext()
+			}
+		})
+		if err != nil {
+			return err
+		}
+		w.Evidence, err = validateSourceInventory(w.Evidence)
+		if err != nil {
+			return err
+		}
+		if err := setPhase("knowledge"); err != nil {
+			return err
+		}
+	}
+	if w.Phase == "knowledge" {
+		if err := report(Progress{Percent: 40, Domain: w.Domain.ID, DomainName: w.Domain.Name, Topic: w.Topic, Phase: "一次資料を確認、knowledge 文書を作成中"}); err != nil {
+			return err
+		}
+		if err := runOpenCodeKnowledgeWriting(ctx, w.Path, w.Model, knowledgeWritingPrompt(w.Domain, w.Topic, w.Evidence), stopBatch, w.Domain, report); err != nil {
+			return err
+		}
+		if err := knowledgeStage(ctx, w.Path, w.Domain); err != nil {
+			return err
+		}
+		if err := setPhase("eval"); err != nil {
+			return err
+		}
+	}
+	if w.Phase == "eval" {
+		if err := report(Progress{Percent: 60, Domain: w.Domain.ID, DomainName: w.Domain.Name, Topic: w.Topic, Phase: "knowledge 作成完了、検索 eval を作成中"}); err != nil {
+			return err
+		}
+		if err := runOpenCodeEvalWriting(ctx, w.Path, w.Model, evalWritingPrompt(w.Domain, w.Topic), stopBatch, w.Domain, report); err != nil {
+			return err
+		}
+		if err := setPhase("validation"); err != nil {
+			return err
+		}
+	}
+	if w.Phase == "validation" || w.Phase == "complete" {
+		if err := report(Progress{Percent: 92, Domain: w.Domain.ID, DomainName: w.Domain.Name, Topic: w.Topic, Phase: "成果物と検索 eval を検証中"}); err != nil {
+			return err
+		}
+		var err error
+		w.Files, w.Patch, err = artifacts(ctx, w.Path, w.Domain)
+		if err != nil {
+			return err
+		}
+		if err := setPhase("complete"); err != nil {
+			return err
+		}
+	}
+	return report(Progress{Percent: 95, Domain: w.Domain.ID, DomainName: w.Domain.Name, Topic: w.Topic, Phase: "検索 eval と成果物の検証を通過"})
 }
 
 func requireClean(ctx context.Context, root string) error {
@@ -438,7 +759,7 @@ func requireClean(ctx context.Context, root string) error {
 	return nil
 }
 
-func selectWorkerTopic(ctx context.Context, state string, w *worker, dry bool, stopBatch context.CancelCauseFunc, report ProgressReporter) (string, error) {
+func selectWorkerTopic(ctx context.Context, state, runID string, w *worker, dry bool, stopBatch context.CancelCauseFunc, report ProgressReporter) (string, error) {
 	var rejected []activeTopic
 	for attempt := 0; attempt < 3; attempt++ {
 		releaseSelection, err := acquireTopicSelection(ctx, state)
@@ -472,7 +793,7 @@ func selectWorkerTopic(ctx context.Context, state string, w *worker, dry bool, s
 			}
 		}
 		w.Topic = topic
-		w.TopicLease, err = reserveTopic(state, w.Domain, topic)
+		w.TopicLease, err = reserveTopic(state, w.Domain, topic, runID)
 		if errors.Is(err, errTopicAlreadyActive) {
 			rejected = append(rejected, activeTopic{Topic: topic, Domain: w.Domain.ID})
 			if releaseErr := releaseSelection(); releaseErr != nil {

@@ -6,7 +6,10 @@ import (
 	"encoding/json"
 	"errors"
 	"fmt"
+	"io"
+	"os"
 	"os/exec"
+	"strconv"
 	"strings"
 	"syscall"
 	"time"
@@ -265,6 +268,42 @@ type modelOutput struct {
 	Text  string
 }
 
+type openCodeProcessReporterKey struct{}
+
+type openCodeProcessReporter func(int) error
+
+func processStartIdentity(pid int) (string, error) {
+	output, err := exec.Command("ps", "-p", strconv.Itoa(pid), "-o", "lstart=").Output()
+	if err != nil {
+		return "", err
+	}
+	identity := strings.TrimSpace(string(output))
+	if identity == "" {
+		return "", errors.New("process start identity is empty")
+	}
+	return identity, nil
+}
+
+func processIdentityAlive(pid int, expectedStart string) bool {
+	if pid <= 1 {
+		return false
+	}
+	if expectedStart != "" {
+		actualStart, err := processStartIdentity(pid)
+		return err == nil && actualStart == expectedStart
+	}
+	err := syscall.Kill(pid, 0)
+	return err == nil || errors.Is(err, syscall.EPERM)
+}
+
+func processGroupIsAlive(pid int) bool {
+	if pid <= 1 {
+		return false
+	}
+	err := syscall.Kill(-pid, 0)
+	return err == nil || errors.Is(err, syscall.EPERM)
+}
+
 func runOpenCodePhase(ctx context.Context, root, model, prompt string, stopBatch context.CancelCauseFunc, d domain, report ProgressReporter, completion phaseCompletion) (modelOutput, error) {
 	return runOpenCodePhaseStarted(ctx, root, model, prompt, stopBatch, d, report, completion, nil)
 }
@@ -273,19 +312,82 @@ func runOpenCodePhaseStarted(ctx context.Context, root, model, prompt string, st
 	ctx, cancel := context.WithCancelCause(ctx)
 	defer cancel(nil)
 	e := &events{Cancel: cancel, StopBatch: stopBatch, Domain: d, Report: report}
-	cmd := exec.CommandContext(ctx, "opencode", "run", "--standalone", "--format", "json", "--title", "Knowledge research", "--agent", "knowledge-researcher", "--model", model, prompt)
+	gateReader, gateWriter, err := os.Pipe()
+	if err != nil {
+		return modelOutput{}, fmt.Errorf("create OpenCode start gate: %w", err)
+	}
+	args := []string{"opencode", "run", "--standalone", "--format", "json", "--title", "Knowledge research", "--agent", "knowledge-researcher", "--model", model, prompt}
+	commandArgs := append([]string{"-c", `IFS= read -r _ <&3 || exit 125; exec "$@"`, "opencode-start-gate"}, args...)
+	cmd := exec.CommandContext(ctx, "/bin/sh", commandArgs...)
+	cmd.ExtraFiles = []*os.File{gateReader}
 	cmd.Dir = root
 	cmd.SysProcAttr = &syscall.SysProcAttr{Setpgid: true}
-	cmd.Cancel = func() error { return syscall.Kill(-cmd.Process.Pid, syscall.SIGKILL) }
-	cmd.WaitDelay = 5 * time.Second
+	cmd.Cancel = func() error {
+		err := syscall.Kill(-cmd.Process.Pid, syscall.SIGTERM)
+		if errors.Is(err, syscall.ESRCH) {
+			return nil
+		}
+		if err != nil {
+			return err
+		}
+		for attempt := 0; attempt < 30; attempt++ {
+			if !processGroupIsAlive(cmd.Process.Pid) {
+				return nil
+			}
+			time.Sleep(100 * time.Millisecond)
+		}
+		if err := syscall.Kill(-cmd.Process.Pid, syscall.SIGKILL); err != nil && !errors.Is(err, syscall.ESRCH) {
+			return err
+		}
+		for attempt := 0; attempt < 20; attempt++ {
+			if !processGroupIsAlive(cmd.Process.Pid) {
+				return nil
+			}
+			time.Sleep(100 * time.Millisecond)
+		}
+		return errors.New("OpenCode process group remained alive after SIGKILL")
+	}
+	cmd.WaitDelay = 2 * time.Second
 	// Same writer means os/exec serializes stdout and stderr copies.
 	cmd.Stdout, cmd.Stderr = e, e
-	err := cmd.Start()
+	err = cmd.Start()
+	_ = gateReader.Close()
 	if err == nil {
-		if started != nil {
+		var reportErr error
+		if reporter, ok := ctx.Value(openCodeProcessReporterKey{}).(openCodeProcessReporter); ok {
+			if reportErr = reporter(cmd.Process.Pid); reportErr != nil {
+				cancel(reportErr)
+			}
+		}
+		if reportErr == nil && ctx.Err() == nil {
+			_, reportErr = io.WriteString(gateWriter, "start\n")
+			if reportErr != nil {
+				cancel(fmt.Errorf("release OpenCode start gate: %w", reportErr))
+			}
+		}
+		if closeErr := gateWriter.Close(); closeErr != nil {
+			reportErr = errors.Join(reportErr, closeErr)
+			cancel(closeErr)
+		}
+		if reportErr == nil && ctx.Err() == nil && started != nil {
 			started()
 		}
 		err = cmd.Wait()
+		if reportErr != nil {
+			err = errors.Join(err, reportErr)
+		}
+		if ctx.Err() != nil {
+			err = errors.Join(err, context.Cause(ctx))
+		}
+		if processGroupIsAlive(cmd.Process.Pid) {
+			err = errors.Join(err, errors.New("OpenCode process group remained after command exit"))
+		} else if reporter, ok := ctx.Value(openCodeProcessReporterKey{}).(openCodeProcessReporter); ok {
+			if reportErr := reporter(0); reportErr != nil {
+				err = errors.Join(err, reportErr)
+			}
+		}
+	} else {
+		_ = gateWriter.Close()
 	}
 	if len(e.pending) > 0 {
 		e.line(e.pending)

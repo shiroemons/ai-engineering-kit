@@ -24,6 +24,7 @@ type activeTopic struct {
 	Topic     string    `json:"topic"`
 	Domain    string    `json:"domain"`
 	PID       int       `json:"pid"`
+	RunID     string    `json:"run_id,omitempty"`
 	StartedAt time.Time `json:"started_at"`
 }
 
@@ -44,7 +45,7 @@ func normalizedTopic(topic string) string {
 	return normalized.String()
 }
 
-func reserveTopic(state string, d domain, topic string) (string, error) {
+func reserveTopic(state string, d domain, topic string, runIDs ...string) (string, error) {
 	normalized := normalizedTopic(topic)
 	if normalized == "" {
 		return "", errors.New("selected topic has no letters or numbers")
@@ -55,11 +56,15 @@ func reserveTopic(state string, d domain, topic string) (string, error) {
 	}
 	digest := sha256.Sum256([]byte(normalized))
 	lease := filepath.Join(directory, hex.EncodeToString(digest[:])+".json")
-	data, err := json.Marshal(activeTopic{Topic: topic, Domain: d.ID, PID: os.Getpid(), StartedAt: time.Now().UTC()})
+	runID := ""
+	if len(runIDs) > 0 {
+		runID = runIDs[0]
+	}
+	data, err := json.Marshal(activeTopic{Topic: topic, Domain: d.ID, PID: os.Getpid(), RunID: runID, StartedAt: time.Now().UTC()})
 	if err != nil {
 		return "", err
 	}
-	temporary, err := os.CreateTemp(directory, ".topic-*.tmp")
+	temporary, err := os.CreateTemp(directory, ".topic-"+runID+"-*.tmp")
 	if err != nil {
 		return "", err
 	}
@@ -98,6 +103,100 @@ func reserveTopic(state string, d domain, topic string) (string, error) {
 		return "", err
 	}
 	return lease, nil
+}
+
+func reclaimTopicLease(state, runID string, d domain, topic string) (string, error) {
+	normalized := normalizedTopic(topic)
+	digest := sha256.Sum256([]byte(normalized))
+	lease := filepath.Join(state, "topics", hex.EncodeToString(digest[:])+".json")
+	data, err := os.ReadFile(lease)
+	if err != nil {
+		return "", fmt.Errorf("read saved topic lease: %w", err)
+	}
+	var saved activeTopic
+	if err := json.Unmarshal(data, &saved); err != nil {
+		return "", fmt.Errorf("decode saved topic lease: %w", err)
+	}
+	if saved.Topic != topic || saved.Domain != d.ID || saved.RunID != runID {
+		return "", errors.New("saved topic lease does not match the recovery run")
+	}
+	saved.PID = os.Getpid()
+	saved.StartedAt = time.Now().UTC()
+	updated, err := json.Marshal(saved)
+	if err != nil {
+		return "", err
+	}
+	temporary, err := os.CreateTemp(filepath.Dir(lease), ".topic-"+runID+"-*.tmp")
+	if err != nil {
+		return "", err
+	}
+	name := temporary.Name()
+	if err := temporary.Chmod(0600); err != nil {
+		return "", errors.Join(err, temporary.Close(), os.Remove(name))
+	}
+	if _, err := temporary.Write(append(updated, '\n')); err != nil {
+		return "", errors.Join(err, temporary.Close(), os.Remove(name))
+	}
+	if err := temporary.Sync(); err != nil {
+		return "", errors.Join(err, temporary.Close(), os.Remove(name))
+	}
+	if err := temporary.Close(); err != nil {
+		_ = os.Remove(name)
+		return "", err
+	}
+	if err := os.Rename(name, lease); err != nil {
+		_ = os.Remove(name)
+		return "", err
+	}
+	return lease, nil
+}
+
+func reclaimRunTopicLease(state, runID string, d domain) (string, string, bool, error) {
+	directory := filepath.Join(state, "topics")
+	entries, err := os.ReadDir(directory)
+	if errors.Is(err, os.ErrNotExist) {
+		return "", "", false, nil
+	}
+	if err != nil {
+		return "", "", false, err
+	}
+	var topic, lease string
+	for _, entry := range entries {
+		if entry.IsDir() || !strings.HasSuffix(entry.Name(), ".json") {
+			continue
+		}
+		path := filepath.Join(directory, entry.Name())
+		data, err := os.ReadFile(path)
+		if err != nil {
+			return "", "", false, err
+		}
+		var saved activeTopic
+		if err := json.Unmarshal(data, &saved); err != nil {
+			return "", "", false, fmt.Errorf("decode saved topic lease %s: %w", path, err)
+		}
+		if saved.RunID != runID || saved.Domain != d.ID {
+			continue
+		}
+		digest := sha256.Sum256([]byte(normalizedTopic(saved.Topic)))
+		if filepath.Base(path) != hex.EncodeToString(digest[:])+".json" {
+			return "", "", false, errors.New("saved topic lease path does not match its topic")
+		}
+		if normalizedTopic(saved.Topic) == "" {
+			return "", "", false, errors.New("saved topic lease has an empty topic")
+		}
+		if topic != "" {
+			return "", "", false, fmt.Errorf("multiple saved topic leases found for domain %s", d.ID)
+		}
+		topic, lease = saved.Topic, path
+	}
+	if topic == "" {
+		return "", "", false, nil
+	}
+	lease, err = reclaimTopicLease(state, runID, d, topic)
+	if err != nil {
+		return "", "", false, err
+	}
+	return topic, lease, true, nil
 }
 
 // Call while holding topic-selection.lock because this also removes stale leases.
