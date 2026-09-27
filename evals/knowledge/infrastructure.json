@@ -74,6 +74,46 @@
       "name": "kubernetes-stopsignal-sigterm",
       "query": "STOPSIGNAL SIGTERM",
       "expected_ids": ["kubernetes-pod-graceful-shutdown"]
+    },
+    {
+      "name": "github-actions-concurrency-group-basics",
+      "query": "concurrency group cancel-in-progress",
+      "expected_ids": ["github-actions-concurrency-cancel-in-progress"]
+    },
+    {
+      "name": "github-actions-workflow-job-scope",
+      "query": "workflow job スコープ",
+      "expected_ids": ["github-actions-concurrency-cancel-in-progress"]
+    },
+    {
+      "name": "github-actions-pending-queue-max",
+      "query": "pending queue max",
+      "expected_ids": ["github-actions-concurrency-cancel-in-progress"]
+    },
+    {
+      "name": "github-actions-queue-max-conflict",
+      "query": "queue max cancel-in-progress 併用",
+      "expected_ids": ["github-actions-concurrency-cancel-in-progress"]
+    },
+    {
+      "name": "github-actions-fifo-wait-order",
+      "query": "FIFO 待機開始時刻",
+      "expected_ids": ["github-actions-concurrency-cancel-in-progress"]
+    },
+    {
+      "name": "github-actions-cancelled-if-always",
+      "query": "cancelled() if always",
+      "expected_ids": ["github-actions-concurrency-cancel-in-progress"]
+    },
+    {
+      "name": "github-actions-sigint-escalation",
+      "query": "SIGINT SIGTERM 7500",
+      "expected_ids": ["github-actions-concurrency-cancel-in-progress"]
+    },
+    {
+      "name": "github-actions-cancellation-timeout-force",
+      "query": "cancellation timeout 強制終了",
+      "expected_ids": ["github-actions-concurrency-cancel-in-progress"]
     }
   ]
 }
