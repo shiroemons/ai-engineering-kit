@@ -64,6 +64,36 @@
       "name": "sqlite-busy-timeout-sqlite-busy",
       "query": "sqlite3_busy_timeout SQLITE_BUSY",
       "expected_ids": ["sqlite-wal-busy-timeout"]
+    },
+    {
+      "name": "search-postgres-fulltext-tsvector-tsquery",
+      "query": "tsvector tsquery",
+      "expected_ids": ["search-postgres-fulltext-tsvector-gin-rank"]
+    },
+    {
+      "name": "search-postgres-fulltext-ts-rank-ranking",
+      "query": "ts_rank ranking",
+      "expected_ids": ["search-postgres-fulltext-tsvector-gin-rank"]
+    },
+    {
+      "name": "search-postgres-fulltext-ts-rank-cd-cover-density",
+      "query": "ts_rank_cd cover-density",
+      "expected_ids": ["search-postgres-fulltext-tsvector-gin-rank"]
+    },
+    {
+      "name": "search-postgres-fulltext-gin-lexeme-weight",
+      "query": "GIN lexeme weight",
+      "expected_ids": ["search-postgres-fulltext-tsvector-gin-rank"]
+    },
+    {
+      "name": "search-postgres-fulltext-normalization-weights",
+      "query": "normalization weights",
+      "expected_ids": ["search-postgres-fulltext-tsvector-gin-rank"]
+    },
+    {
+      "name": "search-postgres-fulltext-gist-signature-lossy",
+      "query": "GiST signature lossy",
+      "expected_ids": ["search-postgres-fulltext-tsvector-gin-rank"]
     }
   ]
 }
