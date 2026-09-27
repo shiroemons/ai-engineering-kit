@@ -49,6 +49,26 @@
       "name": "fetch-signal-throwifaborted",
       "query": "fetch signal throwIfAborted",
       "expected_ids": ["javascript-fetch-abort-cancellation"]
+    },
+    {
+      "name": "typescript-discriminated-union-narrowing",
+      "query": "discriminated union narrowing",
+      "expected_ids": ["typescript-discriminated-union-narrowing-exhaustive-never"]
+    },
+    {
+      "name": "typescript-never-exhaustive-switch",
+      "query": "never exhaustive switch",
+      "expected_ids": ["typescript-discriminated-union-narrowing-exhaustive-never"]
+    },
+    {
+      "name": "typescript-strictnullchecks-exhaustive-never",
+      "query": "strictNullChecks exhaustive never",
+      "expected_ids": ["typescript-discriminated-union-narrowing-exhaustive-never"]
+    },
+    {
+      "name": "typescript-kind-circle-square-radius",
+      "query": "kind circle square radius",
+      "expected_ids": ["typescript-discriminated-union-narrowing-exhaustive-never"]
     }
   ]
 }

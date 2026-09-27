@@ -49,6 +49,61 @@
       "name": "sre-burn-rate-ticket-prometheus",
       "query": "バーンレート ticket Prometheus",
       "expected_ids": ["sre-slo-error-budget-burn-rate-alerting"]
+    },
+    {
+      "name": "k6-coordinated-omission-concept",
+      "query": "coordinated omission",
+      "expected_ids": ["k6-coordinated-omission-arrival-rate-latency"]
+    },
+    {
+      "name": "k6-open-model-arrival-rate",
+      "query": "open model arrival-rate",
+      "expected_ids": ["k6-coordinated-omission-arrival-rate-latency"]
+    },
+    {
+      "name": "k6-constant-vus-decay-example",
+      "query": "constant-vus coordinated omission",
+      "expected_ids": ["k6-coordinated-omission-arrival-rate-latency"]
+    },
+    {
+      "name": "k6-arrival-rate-vu-allocation",
+      "query": "preAllocatedVUs maxVUs dropped_iterations",
+      "expected_ids": ["k6-coordinated-omission-arrival-rate-latency"]
+    },
+    {
+      "name": "k6-threshold-percentile-http",
+      "query": "threshold p(99) http_req_duration",
+      "expected_ids": ["k6-coordinated-omission-arrival-rate-latency"]
+    },
+    {
+      "name": "k6-threshold-percentile-japanese",
+      "query": "arrival-rate scenario threshold 百分位",
+      "expected_ids": ["k6-coordinated-omission-arrival-rate-latency"]
+    },
+    {
+      "name": "k6-ramping-arrival-timeunit",
+      "query": "ramping-arrival-rate stages timeUnit",
+      "expected_ids": ["k6-coordinated-omission-arrival-rate-latency"]
+    },
+    {
+      "name": "k6-checks-vs-threshold-exit",
+      "query": "checks exit status threshold",
+      "expected_ids": ["k6-coordinated-omission-arrival-rate-latency"]
+    },
+    {
+      "name": "k6-arrival-rate-sleep-pacing",
+      "query": "constant-arrival-rate sleep iteration",
+      "expected_ids": ["k6-coordinated-omission-arrival-rate-latency"]
+    },
+    {
+      "name": "k6-abortonefail-delayabort",
+      "query": "abortOnFail delayAbortEval",
+      "expected_ids": ["k6-coordinated-omission-arrival-rate-latency"]
+    },
+    {
+      "name": "k6-scenario-threshold-skip",
+      "query": "scenario threshold 警告 スキップ",
+      "expected_ids": ["k6-coordinated-omission-arrival-rate-latency"]
     }
   ]
 }
