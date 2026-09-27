@@ -1316,7 +1316,12 @@ if [[ -n "$RUN_STATE_FILE" ]]; then
   write_run_result "$TOPIC" "$PARTIAL" "$PR_URL" || fail 'could not save completed run result' 2
   write_run_state "$RUN_PHASE" complete || fail 'could not save completed run state' 2
 fi
-[[ "$PARTIAL" != 1 ]] || fail 'successful topics were published; failed worker was discarded during run cleanup'
+if [[ "$PARTIAL" == 1 ]]; then
+  PARTIAL_MESSAGE='partial completion; successful topics were published; failed workers were discarded during run cleanup'
+  log "$PARTIAL_MESSAGE"
+  printf 'research: %s\n' "$PARTIAL_MESSAGE" >&2
+  [[ "${RESEARCH_CONTINUOUS:-0}" == 1 ]] || exit 5
+fi
 if [[ "$PR_STATE" == MERGED && "$BASE_CHECKOUT_WAS_DIRTY" == 0 ]]; then
   log 'research completed; original checkout updated from origin/main'
 elif [[ "$BASE_CHECKOUT_WAS_DIRTY" == 1 ]]; then
