@@ -1,23 +1,22 @@
 ---
 {
   "id": "llm-prompt-caching-breakpoints-ttl-scope",
-  "title": "LLM の prompt caching: breakpoint・TTL・cache-hit 範囲 (Anthropic / OpenAI)",
+  "title": "LLM prompt caching: breakpoint 配置、TTL、cache-hit scope (Anthropic / OpenAI)",
   "kind": "knowledge",
   "technology": "llm",
-  "version": "Anthropic Prompt caching (current; Claude Opus 5.5 / Sonnet 5 / Haiku 4.5) + OpenAI Prompt caching (GPT-5.6 and later vs earlier models)",
+  "version": "Anthropic Prompt caching (accessed 2026-09-27; Claude API and platform-specific behavior) + OpenAI Prompt caching (GPT-5.6 and later vs earlier models)",
   "tags": [
     "research-domain:ai-engineering",
     "llm",
     "prompt-caching",
-    "prompt-caching-breakpoint",
+    "cache-breakpoint",
+    "cache-hit",
+    "ttl",
     "cache_control",
     "prompt_cache_breakpoint",
-    "prompt_cache_key",
-    "ttl",
-    "cache-hit",
-    "prefix-match",
-    "anthropic",
-    "openai"
+    "prompt_cache_options",
+    "prompt_cache_retention",
+    "prompt_cache_key"
   ],
   "sources": [
     {
@@ -38,60 +37,55 @@
 }
 ---
 
-# LLM の prompt caching: breakpoint・TTL・cache-hit 範囲 (Anthropic / OpenAI)
+# LLM prompt caching: breakpoint 配置、TTL、cache-hit scope (Anthropic / OpenAI)
 
-prompt caching の cache-hit を決める 3 要素 (breakpoint の置き方、TTL、hit の一致範囲) を、Anthropic と OpenAI の公式文書 2 件だけに絞って整理する。文書に書かれた動作 (事実) と本書の推奨方法節 (設計上のまとめ) を区別する。
+prompt caching の再利用単位、期限、一致範囲を、Anthropic と OpenAI の公式文書に基づいて整理する。文書に書かれた動作を「事実」、そこから導く運用上の提案を「推奨方法」として区別する。
 
 ## 要点
 
-### 文書化された事実: Anthropic の breakpoint と prefix 順序
+### Anthropic: prefix の順序、breakpoint、lookback
 
-- [Anthropic Prompt caching](https://docs.anthropic.com/en/docs/build-with-claude/prompt-caching) (current; 対象モデルに Claude Opus 5.5 / Sonnet 5 / Haiku 4.5 を含む): 明示の `cache_control` breakpoint は最大 4 件であり、これに加えて自動の top-level `cache_control` がある。
-- prefix の評価順序は tools → system → messages であり、cache-hit には exact-prefix match が必要である。後方探索は 20-block backward lookup の範囲で行われる。
-- 含意として、breakpoint より後の 1 文字の差異でもそれ以降の cache-hit は崩れる。安定した prefix を前に、変動部分を後に置く順序が hit 率を左右する。
+- [Prompt caching](https://docs.anthropic.com/en/docs/build-with-claude/prompt-caching) は top-level の `cache_control` による automatic caching と、block-level の明示 breakpoint を提供する。cached prefix の順序は `tools` → `system` → `messages` で、cache-hit には breakpoint までの内容が一致する必要がある。
+- 明示 breakpoint は最大 4 件。automatic caching と明示 breakpoint を併用すると automatic breakpoint もこの 4 slots のうち 1 件を使う。明示 breakpoint が 4 件ある状態で automatic caching を追加すると API は 400 を返す。
+- 各 breakpoint の read lookup は最大 20 block positions を後方へ調べる。ただし、lookup は以前に書き込まれた cache entry を探すもので、途中の未書き込み位置に entry を新規作成しない。連続した `tool_use` blocks と `tool_result` blocks はそれぞれ 1 position と数える。
 
-### 文書化された事実: Anthropic の TTL と分離範囲
+### Anthropic: TTL、minimum length、分離範囲
 
-- TTL の既定は 5m であり、任意で 1h (`ttl` 指定) を選べる。lifetime は書き込み/読み取り要求の開始時点から測られ、再利用 (reuse) で refresh される。
-- モデル別の minimum cacheable lengths (最小 cache 可能長) があり、下限未満の prefix は cache 対象にならない。
-- cache は workspace / organization 単位で分離 (isolation) される。分離境界をまたいだ cache-hit は起きない。
+- TTL は既定 5 分で、cache が再利用されると更新される。寿命は write/read request の開始時点から計測され、応答生成時間も含む。1 時間 TTL は選択可能で、cache write の価格は base input token 価格の 2 倍。
+- cache 対象になる最小 prompt 長はモデルごとに異なる。下限より短い prompt は `cache_control` を指定しても cache されないことがあり、API error にならない。利用モデルに対応する現行 minimum を公式文書で確認する。
+- cache は organization をまたいで共有されない。workspace 分離は Claude API、Claude Platform on AWS、Microsoft Foundry で適用され、Bedrock と Google Cloud は organization 単位の分離と記載されている。
+- response usage の `cache_creation_input_tokens` は書き込み、`cache_read_input_tokens` は読み取り、`input_tokens` は最後の breakpoint より後の token 数を示す。合計 input token 数はこれら 3 項目の合計。
 
-### 文書化された事実: OpenAI の breakpoint (GPT-5.6 境界)
+### OpenAI: model 世代別の breakpoint と一致範囲
 
-- [OpenAI Prompt caching](https://platform.openai.com/docs/guides/prompt-caching) (GPT-5.6 and later vs earlier models): GPT-5.6 以降は implicit breakpoint が latest eligible message に置かれる。明示指定は `prompt_cache_breakpoint` で行い、`prompt_cache_options.mode` に `explicit` / `implicit` を取る。書き込み (writes) は最大 4 件である。
-- 最小条件は 1024 visible tokens であり、これを満たす可視 token がなければ cache は作られない。
-- 旧モデル (earlier models) は implicit interval breakpoints に従い、`prompt_cache_retention` で `in_memory` (約 5-10m、最大 1h) と `24h` (約 30m、最大 24h) を選べる。
-
-### 文書化された事実: OpenAI の TTL と一致・適用範囲
-
-- GPT-5.6 以降の TTL は 30m であり、既定値かつ唯一の値である。再利用 (reuse) により refresh される。
-- cache-hit には exact rendered-prefix match が必要である。レンダリング後の prefix が完全に一致しないと hit しない。
-- `prompt_cache_key` は routing / accounting の scope であり、cache の振り分けと課金集計の単位になる。
+- [Prompt caching](https://platform.openai.com/docs/guides/prompt-caching) は rendered prefix 全体が一致する場合に cache を再利用する。内容または関連設定が prefix 内で変わると、その変更位置以降の既存 entry と一致しない。
+- GPT-5.6 以降は `prompt_cache_options.mode` で implicit / explicit-only を選べ、`prompt_cache_breakpoint` で明示境界を指定できる。implicit mode は最新 eligible message などの境界を使う。prefix の最小長は 1,024 visible input tokens。
+- GPT-5.6 より前のモデルは breakpoint と retention の扱いが異なる。GPT-5.5 / GPT-5.5 Pro は implicit breakpoint が 2,048-token 間隔で、他の旧モデルは model-dependent interval を使う。明示 breakpoint は GPT-5.6 以降の機能として記載されている。
+- GPT-5.6 以降の `prompt_cache_options.ttl` は `30m` が既定かつ唯一の値で、直近の write または reuse から少なくとも 30 分の再利用可能期間を指定する。より長く保持される場合もある。旧モデルの `prompt_cache_retention` では、`in_memory` は通常 5〜10 分の非使用後まで、最大 1 時間、`24h` は通常約 30 分から最大 24 時間の保持として説明されている。既定値は組織の data retention policy に依存する。
+- cache は organization 間および regional processing boundary をまたいで共有されない。GPT-5.6 より前の `prompt_cache_key` は関連 request の routing を助けるが、machine 固定や hit を保証しない。GPT-5.6 以降は routing が自動化され、key は customer / user 別の cache accounting に使える。
+- GPT-5.6 以降の Responses API usage では `input_tokens_details.cached_tokens` と `input_tokens_details.cache_write_tokens` で read/write token 数を観測できる。旧モデルでは報告の丸め方などが異なる。
 
 ## 推奨方法
 
-以下は上記 2 件からの設計上のまとめであり、公式が定める実装構成そのものではない。
+以下は上記の公式仕様から導く運用上の提案であり、公式が指定する唯一の prompt 構成ではない。
 
-- prefix を「固定→変動」の順に並べる。system prompt・tool 定義・few-shot 例のような不変部分を先頭に集め、user 発話・検索結果・時刻のような変動部分を末尾に寄せる。Anthropic の tools → system → messages 順序と両社の exact-prefix match を前提にすると、先頭の安定が hit 率に直結する。
-- breakpoint 予算 (両社とも最大 4 writes) を層の境界に割り当てる。例: (1) tool 定義の終わり、(2) system prompt の終わり、(3) 長文 context (RAG 抜粋など) の終わり、(4) 直近の会話履歴の切れ目。OpenAI の GPT-5.6 以降では implicit (latest eligible message) を既定にし、固定したい層だけ `prompt_cache_breakpoint` + `mode: explicit` で上書きする。
-- TTL は再利用間隔から逆算する。Anthropic は既定 5m のまま短周期の連続呼び出しに使い、1h を選ぶのは再利用間隔が 5m を恒常的に超える場合に限る。OpenAI の GPT-5.6 以降は 30m 固定のため、30m を超える間隔の再利用は hit を期待しない。旧モデルの `24h` は約 30m の最低滞留と最大 24h の幅を理解した上で選ぶ。
-- 最小長を確認してから breakpoint を置く。Anthropic はモデル別の minimum cacheable lengths、OpenAI は 1024 visible tokens の下限を満たさない prefix に breakpoint を置いても cache は作られない。短い system prompt だけを cache しようとせず、hit 対象の層が必要な長さを持つ構成にする。
-- `prompt_cache_key` は用途別に分ける。OpenAI の routing / accounting の scope であるため、環境 (本番/検証) やテナントで key を混ぜると振り分けと課金集計の区別がつかなくなる。Anthropic 側の workspace / organization isolation と合わせて、分離したい単位と key・所属組織の対応を事前に決める。
+- 再利用する静的内容を prefix の先頭に集め、変わる request 内容を breakpoint の後ろに置く。Anthropic は `tools` → `system` → `messages` の順序を前提にし、OpenAI は rendered prefix 全体と breakpoint の位置を確認する。
+- Anthropic では最大 4 slots を必要な再利用境界に割り当て、20-block lookback から外れる長い会話には、再利用対象位置へ事前に breakpoint を置く。OpenAI では model 世代に合った implicit / explicit 設定を使う。
+- TTL は実際の request 間隔と組織の retention policy に合わせる。OpenAI の `30m` は最低限の再利用可能期間であり、30 分を超えた cache-hit は保証されない。Anthropic の 1h TTL は追加 write cost と比較して選ぶ。
+- OpenAI の `prompt_cache_key` はモデル世代に合わせて使う。旧モデルでは再利用する request 間で安定させて routing を助け、GPT-5.6 以降では分けたい usage / accounting の範囲に対応させる。
+- Anthropic の `cache_creation_input_tokens` / `cache_read_input_tokens` と OpenAI の `cached_tokens` / `cache_write_tokens` を追い、read が増えない場合は prefix の変化、breakpoint、model minimum、TTL と routing を切り分ける。
 
 ## 避ける使い方
 
-- **変動部分を prefix の先頭に置く。** 両社とも exact-prefix match が条件であり、Anthropic は breakpoint 以降の差異で hit が崩れる。時刻・リクエスト ID・毎回変わる検索結果を先頭に入れると cache が実質無効になる。
-- **breakpoint の上限 (最大 4 件) を超えて細かく区切る。** Anthropic の明示 `cache_control` も OpenAI の writes も最大 4 件であり、5 件目以降は期待どおりに cache されない。
-- **TTL の既定値を変えずに長周期の再利用を期待する。** Anthropic 既定 5m・OpenAI (GPT-5.6 以降) 30m・旧モデル `in_memory` 約 5-10m を超える間隔では、reuse による refresh が起きず hit しない。間隔が長い用途では 1h や `24h` の選択を検討する。
-- **下限未満の短い prefix に breakpoint を置く。** OpenAI の 1024 visible tokens や Anthropic のモデル別 minimum cacheable lengths を満たさない層は cache 対象外であり、breakpoint だけ置いても効果がない。
-- **render 前の一致で hit を期待する (OpenAI)。** 条件は exact rendered-prefix match であり、template 変数の解決後・tool 定義の展開後の文字列が一致する必要がある。render 前の論理的な同値では hit しない。
-- **`prompt_cache_key` を混在させて routing / accounting を読む。** key は振り分けと課金集計の単位であり、混ぜた key の集計値から用途別の hit 率や cost を分離できない。
-- **分離境界をまたいだ hit を期待する (Anthropic)。** cache は workspace / organization 単位で isolation されるため、別組織の同一 prompt でも hit しない。
+- **変動内容を含む位置に breakpoint を置く。** その位置までの prefix が一致しないと既存 cache entry に当たらない。Anthropic の後方 lookup は安定しているが未書き込みの prefix へ戻って cache を作る機能ではない。
+- **Anthropic の上限を超えて automatic と明示 breakpoint を設定する。** automatic breakpoint も 4 slots の一つを使い、4 件の明示 breakpoint に automatic を追加すると 400 error になる。
+- **OpenAI の GPT-5.6 以降に旧モデルの breakpoint / retention 設定をそのまま適用する。** explicit breakpoint、`prompt_cache_options.ttl`、`prompt_cache_retention` の対応世代を確認する。
+- **TTL や key だけで hit を保証できると考える。** prefix の一致、model の minimum length、組織・region の分離、routing と保持状態が hit に影響する。OpenAI の `prompt_cache_key` も hit を保証しない。
+- **複数組織や地域をまたぐ cache 共有を前提にする。** Anthropic と OpenAI の分離範囲を超えて再利用することはできない。
 
 ## 適用版と本番での注意
 
-- Anthropic `Prompt caching` は current 版として確認した。対象モデルとして Claude Opus 5.5 / Sonnet 5 / Haiku 4.5 が含まれる。20-block backward lookup の範囲、TTL の lifetime 起点 (要求開始時点)、reuse 時の refresh は改訂で変わり得るため、実装前に対応節で再確認する。
-- OpenAI `Prompt caching` は GPT-5.6 を境界とする版として確認した。GPT-5.6 以降 (implicit at latest eligible message、`prompt_cache_breakpoint`、`prompt_cache_options.mode`、`30m` 固定 TTL) と旧モデル (implicit interval breakpoints、`prompt_cache_retention` の `in_memory` / `24h`) で契約が異なるため、利用モデルの側で読む。`24h` の約 30m〜最大 24h、`in_memory` の約 5-10m〜最大 1h は目安の幅であり、保証 latency ではない。
-- 本文書の `trust: official` は 2 件とも `official_docs` であることに対応する。本文は `expires_at` 2026-12-26 (取得 2026-09-27 + `official_docs` TTL 90日)。技術 TTL (llm) の設定はないため、source type と明示期限で判定する。
-- **未確認**: cache hit 時の料金・latency の定量効果、breakpoint 配置と token 節約の実測値、Anthropic のモデル別 minimum cacheable lengths の具体値、OpenAI の `visible tokens` の計数方法、両社のタイムアウト範囲・キャンセル・リソース所有権・シャットダウン順序。本書の inventory には含まれないため、推測で埋めず未確認とする。
-- **未確認**: `prompt_cache_key` の具体的な指定方法 (parameter 名・形式・制約) や `prompt_cache_options.mode` の既定値。本書の inventory は scope (routing / accounting) と mode の選択肢 (explicit / implicit) までであり、実装前に対応ガイドで再確認する。
+- Anthropic の公式ページを 2026-09-27 に確認した。対象モデルと platform によって minimum length、cache isolation、usage fields の扱いが異なるため、実装対象の API / platform の節を確認する。
+- OpenAI の公式ガイドを 2026-09-27 に確認した。GPT-5.6 以降と旧モデルで breakpoint、minimum length、usage、TTL、`prompt_cache_key` の役割が異なる。モデルと組織の data retention policy を確認する。
+- 取得日は 2026-09-27、`official_docs` の freshness TTL は 90 日で、明示 `expires_at` は 2026-12-26。料金、対象モデル、キャッシュ保持は更新され得るため、実装時には一次資料を再確認する。
+- 実際の cache-hit 率やコスト削減量は workload の prefix 再利用率と request 間隔に依存し、この文書だけでは定量化しない。
