@@ -15,12 +15,44 @@ cp "$ROOT/config/research.json" "$TEST_DIR/repo/config/"
 cat > "$TEST_DIR/bin/git" <<'EOF'
 #!/bin/bash
 [[ "${PAGER:-}" == cat && "${GIT_PAGER:-}" == cat && "${GH_PAGER:-}" == cat ]] || exit 99
+if [[ "$1" == -C && "$3" == pull ]]; then
+  [[ "$2" == */repo ]] || exit 98
+  touch "$RESEARCH_TEST_DIR/pulled-main"
+  exit 0
+fi
 case "$1" in
   branch) printf 'main\n' ;;
-  status) [[ "${MOCK_DIRTY:-0}" != 1 ]] || printf '?? notes.md\n' ;;
+  status)
+    if [[ "${MOCK_DIRTY:-0}" == 1 ]]; then
+      printf '?? notes.md\n'
+    elif [[ "${MOCK_FULL_RESEARCH:-0}" == 1 && -f "$PWD/knowledge/testing/go-test.md" && ! -f "$RESEARCH_TEST_DIR/committed" ]]; then
+      case "$*" in
+        *'-z'*) printf '?? knowledge/testing/go-test.md\0?? evals/knowledge/quality-operations.json\0' ;;
+        *'-- evals/knowledge/'*) printf '?? evals/knowledge/quality-operations.json\n' ;;
+        *'-- knowledge/'*) printf '?? knowledge/testing/go-test.md\n' ;;
+        *) printf '?? knowledge/testing/go-test.md\n?? evals/knowledge/quality-operations.json\n' ;;
+      esac
+    fi
+    ;;
+  diff)
+    if [[ "$*" == *'--cached --name-only'* ]]; then
+      printf 'knowledge/testing/go-test.md\nevals/knowledge/quality-operations.json\n'
+    elif [[ "$*" == *'--cached --stat'* ]]; then
+      printf ' 2 files changed\n'
+    elif [[ "$*" == *'--cached --quiet'* ]]; then
+      exit 1
+    fi
+    ;;
+  add) ;;
+  commit) touch "$RESEARCH_TEST_DIR/committed" ;;
+  rev-parse) printf 'test-sha\n' ;;
+  fetch|push) ;;
   worktree)
     [[ "${MOCK_NO_WORKTREE:-0}" != 1 ]] || exit 1
-    if [[ "$2" == add ]]; then mkdir -p "$4"; fi
+    if [[ "$2" == add ]]; then
+      if [[ "$3" == --detach ]]; then worktree_path="$4"; else worktree_path="$5"; fi
+      mkdir -p "$worktree_path"
+    fi
     ;;
   *) exit 1 ;;
 esac
@@ -63,7 +95,29 @@ if [[ "${MOCK_BATCH_FAIL:-0}" == 1 ]]; then
   printf 'worker failed: validation error; recovery=worker-worktree\n'
   exit 1
 fi
+if [[ "${MOCK_FULL_RESEARCH:-0}" == 1 ]]; then
+  mkdir -p knowledge/testing evals/knowledge
+  : > knowledge/testing/go-test.md
+  : > evals/knowledge/quality-operations.json
+fi
 printf 'BATCH: complete\nTOPIC: test research\n'
+EOF
+cat > "$TEST_DIR/bin/gh" <<'EOF'
+#!/bin/bash
+case "$1:$2" in
+  auth:status) ;;
+  pr:create) printf 'https://example.test/owner/repo/pull/1\n' ;;
+  pr:view)
+    case "$*" in
+      *'--json mergeable,mergeStateStatus'*) printf 'MERGEABLE\tCLEAN\n' ;;
+      *'--json state'*) printf 'MERGED\n' ;;
+      *'--json url'*) printf 'https://example.test/owner/repo/pull/1\n' ;;
+      *) exit 1 ;;
+    esac
+    ;;
+  pr:merge) ;;
+  *) exit 1 ;;
+esac
 EOF
 printf '#!/bin/bash\nexit 0\n' > "$TEST_DIR/bin/sleep"
 printf '#!/bin/bash\nexit 0\n' > "$TEST_DIR/bin/just"
@@ -125,4 +179,10 @@ printf '%s\n' "$(($(date +%s) + 3600))" > "$RESEARCH_LOG_DIR/cooldown-until"
 status=0
 bash "$RUNNER" || status=$?
 [[ "$status" == 4 ]]
-printf 'research discovery, Muse-only mode, independent locks, and cooldown: passed\n'
+rm "$RESEARCH_LOG_DIR/cooldown-until"
+
+# A completed auto-merge fast-forwards the user's original main checkout.
+MOCK_FULL_RESEARCH=1 RESEARCH_DRY_RUN=0 bash "$RUNNER"
+[[ -f "$RESEARCH_TEST_DIR/pulled-main" ]]
+grep -Fq 'pulled merged origin/main into original checkout' "$RESEARCH_LOG_DIR/research.log"
+printf 'research discovery, pager isolation, auto-merge sync, and cooldown: passed\n'

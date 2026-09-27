@@ -423,16 +423,29 @@ case "$PR_MERGEABLE" in
     ;;
 esac
 
-if [[ "${RESEARCH_CONTINUOUS:-0}" == 1 && "${PR_STATE:-}" != MERGED ]]; then
-  # Wait for this result before selecting another topic from remote main.
+if [[ "${PR_STATE:-}" != MERGED ]]; then
+  # Wait until the auto-merge finishes so local main can follow the merged result.
   for attempt in {1..60}; do
-    [[ "$(date +%s)" -lt "${RESEARCH_DEADLINE:-0}" ]] || fail "continuous deadline reached; PR retained: $PR_URL" 2
+    if [[ "${RESEARCH_CONTINUOUS:-0}" == 1 ]]; then
+      [[ "$(date +%s)" -lt "${RESEARCH_DEADLINE:-0}" ]] || fail "continuous deadline reached; PR retained: $PR_URL" 2
+    fi
     sleep 10
     PR_STATE="$(GH_PROMPT_DISABLED=1 gh pr view "$PR_URL" --json state --jq '.state' 2>/dev/null || true)"
     [[ "$PR_STATE" != MERGED ]] || break
     [[ "$PR_STATE" != CLOSED ]] || fail "research PR closed without merge: $PR_URL" 2
   done
-  [[ "$PR_STATE" == MERGED ]] || fail "research PR awaiting merge; continuous run stopped: $PR_URL" 2
+  [[ "$PR_STATE" == MERGED ]] || fail "research PR did not merge before timeout; PR remains open: $PR_URL" 2
+fi
+if [[ "$PR_STATE" == MERGED ]]; then
+  if ! git -C "$BASE_ROOT" pull --ff-only origin main > "$OUTPUT_FILE" 2>&1; then
+    sed -n '1,40p' "$OUTPUT_FILE" >> "$ERROR_FILE"
+    fail "research PR merged, but local main could not be fast-forwarded; see $ERROR_FILE" 2
+  fi
+  log 'pulled merged origin/main into original checkout'
 fi
 [[ "$PARTIAL" != 1 ]] || fail 'successful research published; failed worker retained for inspection'
-log 'research completed; original checkout unchanged'
+if [[ "$PR_STATE" == MERGED ]]; then
+  log 'research completed; original checkout updated from origin/main'
+else
+  log 'research completed; PR awaits auto-merge; original checkout unchanged'
+fi
