@@ -437,7 +437,8 @@ if [[ "${PR_STATE:-}" != MERGED ]]; then
   [[ "$PR_STATE" == MERGED ]] || fail "research PR did not merge before timeout; PR remains open: $PR_URL" 2
 fi
 if [[ "$PR_STATE" == MERGED ]]; then
-  if ! git -C "$BASE_ROOT" pull --ff-only origin main > "$OUTPUT_FILE" 2>&1; then
+  # Keep the refspec implicit so pruning covers every configured origin branch.
+  if ! git -C "$BASE_ROOT" pull --ff-only --prune > "$OUTPUT_FILE" 2>&1; then
     sed -n '1,40p' "$OUTPUT_FILE" >> "$ERROR_FILE"
     fail "research PR merged, but local main could not be fast-forwarded; see $ERROR_FILE" 2
   fi

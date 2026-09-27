@@ -86,7 +86,7 @@ OpenCode v2.0.18では初期化直後にモデル一覧が空でも終了コー�
 
 ## 安全条件
 
-runnerは元のcheckoutがmainで未commit変更がないことを確認する。設定変更が未commitの間も起動条件を満たさない。開始時に `git fetch origin main` を試み、成功時はremote main、失敗時は警告を記録してlocal mainから専用ワークツリーを作る。元のcheckoutのブランチやファイルは変更しない。マージ後のlocal main更新は保守者が `git pull --ff-only` で行う。
+runnerは元のcheckoutがmainで未commit変更がないことを確認する。設定変更が未commitの間も起動条件を満たさない。開始時に `git fetch origin main` を試み、成功時はremote main、失敗時は警告を記録してlocal mainから専用ワークツリーを作る。調査・PR作成中は元のcheckoutを変更しない。PRのmerge後は元のcheckoutで `git pull --ff-only --prune` を実行してmainをfast-forwardし、originの古いremote-tracking refsもpruneする。refspecを省略して、remoteに設定された全ブランチのfetch範囲を使う。
 
 統合用のbranchは `research/<日時>-<PID>` とする。各モデルは同じcommitから作ったdetached worktreeで調べる。配置先は `.workbench/repositories/research/`。OpenCodeの編集範囲は `knowledge/`・`sources/catalog/`・`evals/knowledge/` に制限する。workerはknowledge文書を1つ、検索evalを `evals/knowledge/<領域ID>.json` に書く。既存のevalを保持し、今回の文書IDを検索で検出できるケースを追加する。
 
