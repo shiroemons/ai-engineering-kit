@@ -51,6 +51,25 @@ fail() {
   printf 'research: %s (details: %s)\n' "$message" "$ERROR_FILE" >&2
   exit "$status"
 }
+run_logged_step() {
+  local label="$1" output_file="$2" elapsed=0 command_pid
+  shift 2
+  printf 'research: %s\n' "$label" >&2
+  (
+    set -o pipefail
+    "$@" 2>&1 | tee "$output_file"
+  ) &
+  command_pid=$!
+  while [[ " $(jobs -pr) " == *" $command_pid "* ]]; do
+    sleep 15
+    if [[ " $(jobs -pr) " == *" $command_pid "* ]]; then
+      elapsed=$((elapsed + 15))
+      log "$label still running (${elapsed}s elapsed)"
+      printf 'research: %s still running (%ss elapsed)\n' "$label" "$elapsed" >&2
+    fi
+  done
+  wait "$command_pid"
+}
 provider_cooldown_active() {
   local cooldown_until
   [[ -f "$LOG_DIR/cooldown-until" ]] || return 1
@@ -1011,6 +1030,7 @@ if [[ "$SKIP_RESEARCH_VALIDATION" == 0 && "$BATCH_ALREADY_COMPLETE" == 0 ]]; the
 else
   if [[ "$BATCH_ALREADY_COMPLETE" == 1 ]]; then
     TOPIC="$(jq -er '.topics | join(" / ")' "$RUN_DIR/batch.json")" || fail 'saved batch result has no topics' 2
+    printf 'research: saved batch recovered; reusing results for %s\n' "$TOPIC" >&2
     PARTIAL=0
     [[ "$(jq -r '.partial // false' "$RUN_DIR/batch.json")" != true ]] || PARTIAL=1
     write_run_result "$TOPIC" "$PARTIAL" || fail 'could not save recovered batch result' 2
@@ -1069,14 +1089,21 @@ done
 # A verified, already-cataloged primary source may be reused. `just validate`
 # checks that the knowledge source ID, URL, and type match that catalog.
 
-mise exec -- just validate >/dev/null 2>&1 || fail 'just validate failed'
+if ! run_logged_step 'validating saved research (just validate)' "$OUTPUT_FILE" mise exec -- just validate; then
+  printf '%s just validate output:\n' "$(timestamp)" >> "$ERROR_FILE"
+  sed -n '1,120p' "$OUTPUT_FILE" >> "$ERROR_FILE"
+  fail 'just validate failed'
+fi
 log 'just validate: passed'
-mise exec -- just index >/dev/null 2>&1 || fail 'just index failed'
+if ! run_logged_step 'rebuilding search index (just index)' "$OUTPUT_FILE" mise exec -- just index; then
+  printf '%s just index output:\n' "$(timestamp)" >> "$ERROR_FILE"
+  sed -n '1,120p' "$OUTPUT_FILE" >> "$ERROR_FILE"
+  fail 'just index failed'
+fi
 log 'just index: passed'
-if ! mise exec -- just check > "$OUTPUT_FILE" 2>&1; then
+if ! run_logged_step 'running checks (just check)' "$OUTPUT_FILE" mise exec -- just check; then
   printf '%s just check output (first 120 lines):\n' "$(timestamp)" >> "$ERROR_FILE"
   sed -n '1,120p' "$OUTPUT_FILE" >> "$ERROR_FILE"
-  sed -n '1,120p' "$OUTPUT_FILE" >&2
   fail 'just check failed'
 fi
 log 'just check: passed'

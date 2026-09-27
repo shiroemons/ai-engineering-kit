@@ -47,6 +47,8 @@ runnerは `opencode models --print-logs --log-level debug` で利用可能なモ
 
 quota cooldown中は、provider呼び出しが必要な未完了batchの再開確認をcooldown終了まで延期する。`batch.json` が完了済みなら、保存済み成果の検証・統合にはproviderを使わないため、cooldown中でも再開できる。
 
+保存済みbatchの再開時は、成果の再利用と `just validate`・`just index`・`just check` の進行を端末に表示する。checkの出力はリアルタイムで表示し、15秒以上かかる場合は実行中であることと経過時間を表示する。
+
 現在の CLI では `models --refresh --verbose` および `agent list` は使えず、agent の確認は `opencode debug agents` を使う。
 
 `~/Library/Application Support/ai-engineering-kit/research.env` に以下の1行を保存する。このローカル設定はGit管理しない。定期実行の補欠候補として使う。無料と確認できる候補がなければ実行を中止する。
