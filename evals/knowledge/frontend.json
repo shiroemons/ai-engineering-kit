@@ -69,6 +69,31 @@
       "name": "typescript-kind-circle-square-radius",
       "query": "kind circle square radius",
       "expected_ids": ["typescript-discriminated-union-narrowing-exhaustive-never"]
+    },
+    {
+      "name": "css-content-visibility-rendering",
+      "query": "content-visibility rendering",
+      "expected_ids": ["css-containment-content-visibility"]
+    },
+    {
+      "name": "css-contain-intrinsic-size-placeholder",
+      "query": "contain-intrinsic-size placeholder",
+      "expected_ids": ["css-containment-content-visibility"]
+    },
+    {
+      "name": "css-hit-testing-relevance",
+      "query": "hit-testing relevance",
+      "expected_ids": ["css-containment-content-visibility"]
+    },
+    {
+      "name": "css-aria-hidden-accessibility-tree",
+      "query": "aria-hidden accessibility tree",
+      "expected_ids": ["css-containment-content-visibility"]
+    },
+    {
+      "name": "css-contain-strict-layout",
+      "query": "contain strict layout",
+      "expected_ids": ["css-containment-content-visibility"]
     }
   ]
 }
