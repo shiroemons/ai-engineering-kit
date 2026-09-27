@@ -159,6 +159,71 @@
       "name": "api-design-webhook-event-id-idempotency",
       "query": "event id idempotency",
       "expected_ids": ["api-design-webhook-redelivery-signature-dedup"]
+    },
+    {
+      "name": "architecture-circuit-breaker-retry-budget-cascading",
+      "query": "circuit breaker retry budget cascading",
+      "expected_ids": ["architecture-circuit-breaker-retry-budget"]
+    },
+    {
+      "name": "architecture-envoy-retry-budget-thresholds",
+      "query": "retry budget budget_percent min_retry_concurrency",
+      "expected_ids": ["architecture-circuit-breaker-retry-budget"]
+    },
+    {
+      "name": "architecture-envoy-budget-interval-active-requests",
+      "query": "budget_interval budget_percent active requests",
+      "expected_ids": ["architecture-circuit-breaker-retry-budget"]
+    },
+    {
+      "name": "architecture-envoy-track-remaining-gap",
+      "query": "track_remaining retry budget",
+      "expected_ids": ["architecture-circuit-breaker-retry-budget"]
+    },
+    {
+      "name": "architecture-envoy-overflow-statistics",
+      "query": "upstream_rq_retry_overflow x-envoy-overloaded",
+      "expected_ids": ["architecture-circuit-breaker-retry-budget"]
+    },
+    {
+      "name": "architecture-outlier-detection-ejection-algorithm",
+      "query": "outlier detection ejection algorithm",
+      "expected_ids": ["architecture-circuit-breaker-retry-budget"]
+    },
+    {
+      "name": "architecture-outlier-enforcing-gateway-failure-default",
+      "query": "consecutive_gateway_failure enforcing",
+      "expected_ids": ["architecture-circuit-breaker-retry-budget"]
+    },
+    {
+      "name": "architecture-outlier-success-rate-host-gates",
+      "query": "success rate outlier detection minimum hosts",
+      "expected_ids": ["architecture-circuit-breaker-retry-budget"]
+    },
+    {
+      "name": "architecture-outlier-failure-percentage-ejection-gate",
+      "query": "failure_percentage_threshold enforcing",
+      "expected_ids": ["architecture-circuit-breaker-retry-budget"]
+    },
+    {
+      "name": "architecture-outlier-max-ejection-percent-cap",
+      "query": "max_ejection_percent base_ejection_time",
+      "expected_ids": ["architecture-circuit-breaker-retry-budget"]
+    },
+    {
+      "name": "architecture-sre-cascading-positive-feedback-retry",
+      "query": "cascading failure positive feedback retry",
+      "expected_ids": ["architecture-circuit-breaker-retry-budget"]
+    },
+    {
+      "name": "architecture-sre-retry-budget-ratio",
+      "query": "sre retry budget 10%",
+      "expected_ids": ["architecture-circuit-breaker-retry-budget"]
+    },
+    {
+      "name": "architecture-sre-snowball-backoff-jitter",
+      "query": "snowball randomized exponential backoff jitter",
+      "expected_ids": ["architecture-circuit-breaker-retry-budget"]
     }
   ]
 }

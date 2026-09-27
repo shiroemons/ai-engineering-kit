@@ -144,6 +144,46 @@
       "name": "rag-grounding-relevance",
       "query": "grounding relevance",
       "expected_ids": ["rag-retrieval-eval-chunking-grounding"]
+    },
+    {
+      "name": "llm-prompt-cache-breakpoint",
+      "query": "prompt_cache_breakpoint",
+      "expected_ids": ["llm-prompt-caching-breakpoints-ttl-scope"]
+    },
+    {
+      "name": "llm-prompt-cache-creation-tokens",
+      "query": "cache_creation_input_tokens",
+      "expected_ids": ["llm-prompt-caching-breakpoints-ttl-scope"]
+    },
+    {
+      "name": "llm-prompt-cache-read-tokens",
+      "query": "cache_read_input_tokens",
+      "expected_ids": ["llm-prompt-caching-breakpoints-ttl-scope"]
+    },
+    {
+      "name": "llm-prompt-cache-key-routing",
+      "query": "prompt_cache_key routing",
+      "expected_ids": ["llm-prompt-caching-breakpoints-ttl-scope"]
+    },
+    {
+      "name": "llm-prompt-cache-backward-lookback",
+      "query": "backward lookback",
+      "expected_ids": ["llm-prompt-caching-breakpoints-ttl-scope"]
+    },
+    {
+      "name": "llm-prompt-cache-retention",
+      "query": "prompt_cache_retention",
+      "expected_ids": ["llm-prompt-caching-breakpoints-ttl-scope"]
+    },
+    {
+      "name": "llm-prompt-cache-options-ttl",
+      "query": "prompt_cache_options ttl",
+      "expected_ids": ["llm-prompt-caching-breakpoints-ttl-scope"]
+    },
+    {
+      "name": "llm-prompt-cache-rendered-prefix-workspace",
+      "query": "rendered-prefix workspace",
+      "expected_ids": ["llm-prompt-caching-breakpoints-ttl-scope"]
     }
   ]
 }
