@@ -104,6 +104,31 @@
       "name": "k6-scenario-threshold-skip",
       "query": "scenario threshold 警告 スキップ",
       "expected_ids": ["k6-coordinated-omission-arrival-rate-latency"]
+    },
+    {
+      "name": "testing-hermetic-tmpdir",
+      "query": "hermetic TEST_TMPDIR",
+      "expected_ids": ["testing-scope-doubles-hermetic-flaky"]
+    },
+    {
+      "name": "testing-rerun-flake",
+      "query": "rerunFailingTestsCount Flake",
+      "expected_ids": ["testing-scope-doubles-hermetic-flaky"]
+    },
+    {
+      "name": "testing-behavior-mockist",
+      "query": "behavior verification mockist",
+      "expected_ids": ["testing-scope-doubles-hermetic-flaky"]
+    },
+    {
+      "name": "testing-runfiles-undeclared",
+      "query": "runfiles TEST_UNDECLARED_OUTPUTS_DIR",
+      "expected_ids": ["testing-scope-doubles-hermetic-flaky"]
+    },
+    {
+      "name": "testing-quarantine-flake-history",
+      "query": "quarantine flake history",
+      "expected_ids": ["testing-scope-doubles-hermetic-flaky"]
     }
   ]
 }
