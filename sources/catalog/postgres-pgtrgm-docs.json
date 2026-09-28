@@ -1,0 +1,12 @@
+{
+  "id": "postgres-pgtrgm-docs",
+  "url": "https://www.postgresql.org/docs/current/pgtrgm.html",
+  "repository_url": "",
+  "commit_sha": "",
+  "version": "PostgreSQL 18.6 (retrieved page label; not a latest-version claim)",
+  "retrieved_at": "2026-09-28",
+  "license": "PostgreSQL Licence",
+  "trust": "official",
+  "type": "official_docs",
+  "purpose": "trigram の定義（先頭2空白・末尾1空白・非単語文字の無視）、similarity/word_similarity/strict_word_similarity と距離演算子 <->/<<->/<<<->、真偽演算子 %/<%/%>/<<%/%>> と3種 threshold の既定値、gist_trgm_ops の siglen 既定12B・範囲1-2024 と gin_trgm_ops、LIKE/ILIKE と ~/ ~* の対応版・trigram 抽出不能時の全走査・不等号非対応・ORDER BY 距離 LIMIT での GiST/GIN 差を確認する"
+}

@@ -1,0 +1,12 @@
+{
+  "id": "postgres-gist-indexes-docs",
+  "url": "https://www.postgresql.org/docs/current/gist.html",
+  "repository_url": "",
+  "commit_sha": "",
+  "version": "PostgreSQL 18.6 (retrieved page label; not a latest-version claim)",
+  "retrieved_at": "2026-09-28",
+  "license": "PostgreSQL Licence",
+  "trust": "official",
+  "type": "official_docs",
+  "purpose": "GiST が consistent/union/same を要する均衡汎用探索木テンプレートであること、近傍順走査に任意 distance が要ること、pg_trgm を contrib 提供者として挙げること、sortsupport/buffering による sorted/buffered 構築と penalty/picksplit 品質依存を確認する"
+}

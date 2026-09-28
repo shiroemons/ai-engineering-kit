@@ -194,6 +194,31 @@
       "name": "sqlite-integrity-check-foreign-key",
       "query": "integrity_check FOREIGN KEY",
       "expected_ids": ["sqlite-foreign-key-enforcement"]
+    },
+    {
+      "name": "search-pgtrgm-trigram-similarity",
+      "query": "pg_trgm trigram similarity",
+      "expected_ids": ["search-postgres-pgtrgm-trigram-similarity-gin-gist"]
+    },
+    {
+      "name": "search-pgtrgm-word-similarity-threshold",
+      "query": "word_similarity threshold",
+      "expected_ids": ["search-postgres-pgtrgm-trigram-similarity-gin-gist"]
+    },
+    {
+      "name": "search-pgtrgm-gin-gist-trgm-ops",
+      "query": "gin_trgm_ops gist_trgm_ops",
+      "expected_ids": ["search-postgres-pgtrgm-trigram-similarity-gin-gist"]
+    },
+    {
+      "name": "search-pgtrgm-strict-word-similarity-siglen",
+      "query": "strict_word_similarity siglen",
+      "expected_ids": ["search-postgres-pgtrgm-trigram-similarity-gin-gist"]
+    },
+    {
+      "name": "search-pgtrgm-trigram-order-limit-gist",
+      "query": "trigram ORDER LIMIT GiST",
+      "expected_ids": ["search-postgres-pgtrgm-trigram-similarity-gin-gist"]
     }
   ]
 }
