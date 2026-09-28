@@ -1,0 +1,12 @@
+{
+  "id": "npm-ci-docs",
+  "url": "https://docs.npmjs.com/cli/v12/commands/npm-ci",
+  "repository_url": "https://github.com/npm/documentation",
+  "commit_sha": "",
+  "version": "npm CLI v12.1.0 (Latest) page (Select CLI Version: 12.1.0)",
+  "retrieved_at": "2026-09-28",
+  "license": "CC-BY-4.0 (npm/documentation repository, content and static folders)",
+  "trust": "official",
+  "type": "official_docs",
+  "purpose": "npm ci の必須条件 (既存 package-lock.json、不一致時は error で更新しない、既存 node_modules 削除、package.json と lockfile へは絶対に書き込まない frozen install)、lock 生成時と同じ flags (--legacy-peer-deps / --install-links) の再指定要求と .npmrc コミットの推奨、npm 12 既定の allow-git=none / allow-remote=none と configured registry と hostname 共有 tarball の例外、別ホスト registry での replace-registry-host 設定要求を確認する"
+}

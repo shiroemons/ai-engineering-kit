@@ -1,0 +1,12 @@
+{
+  "id": "npm-pacote-readme-c82bdcdd",
+  "url": "https://raw.githubusercontent.com/npm/pacote/c82bdcdd8010a9a87c95e1e09b0ba51322b4f93f/README.md",
+  "repository_url": "https://github.com/npm/pacote",
+  "commit_sha": "c82bdcdd8010a9a87c95e1e09b0ba51322b4f93f",
+  "version": "commit-pinned README (package.json version 22.0.0 at the same commit; embedded CLI banner states v10.1.1)",
+  "retrieved_at": "2026-09-28",
+  "license": "ISC (package.json license field at the pinned commit)",
+  "trust": "official",
+  "type": "official_docs",
+  "purpose": "npm CLI 自身が使う package handler pacote の README を commit 固定で確認する。pacote は npm CLI が使うものと明記され、option integrity は fetched package tarball の期待値で不一致時に EINTEGRITY error を raise、registry manifest の dist.integrity (SRI、古い package では欠落の可能性) と legacy dist.shasum (hex sha1、integrity 欠落時に SRI 変換)、verifySignatures / verifyAttestations は registry に scoped した _keys 設定を要求、pacote 単体の allowGit / allowRemote 既定は all を確認する"
+}

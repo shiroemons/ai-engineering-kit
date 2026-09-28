@@ -274,6 +274,56 @@
       "name": "saga-credit-reservation-order-example",
       "query": "saga credit reservation order",
       "expected_ids": ["distributed-systems-saga-orchestration-choreography"]
+    },
+    {
+      "name": "http-caching-freshness-lifetime-current-age",
+      "query": "freshness_lifetime current_age",
+      "expected_ids": ["http-caching-cache-control-conditional"]
+    },
+    {
+      "name": "http-caching-smaxage-maxage-expires",
+      "query": "s-maxage max-age Expires",
+      "expected_ids": ["http-caching-cache-control-conditional"]
+    },
+    {
+      "name": "http-caching-vary-never-matches",
+      "query": "Vary never matches",
+      "expected_ids": ["http-caching-cache-control-conditional"]
+    },
+    {
+      "name": "http-caching-if-none-match-priority",
+      "query": "If-None-Match If-Modified-Since",
+      "expected_ids": ["http-caching-cache-control-conditional"]
+    },
+    {
+      "name": "http-caching-304-not-modified",
+      "query": "304 Not Modified",
+      "expected_ids": ["http-caching-cache-control-conditional"]
+    },
+    {
+      "name": "http-caching-invalidation-unsafe-scope",
+      "query": "unsafe Location Content-Location",
+      "expected_ids": ["http-caching-cache-control-conditional"]
+    },
+    {
+      "name": "http-caching-no-cache-stale",
+      "query": "no-cache stale",
+      "expected_ids": ["http-caching-cache-control-conditional"]
+    },
+    {
+      "name": "http-caching-if-range-entity-tag",
+      "query": "If-Range entity-tag",
+      "expected_ids": ["http-caching-cache-control-conditional"]
+    },
+    {
+      "name": "http-caching-weak-strong-etag",
+      "query": "weak strong ETag",
+      "expected_ids": ["http-caching-cache-control-conditional"]
+    },
+    {
+      "name": "http-caching-vary-smaxage-invalidation",
+      "query": "Vary s-maxage invalidation",
+      "expected_ids": ["http-caching-cache-control-conditional"]
     }
   ]
 }
