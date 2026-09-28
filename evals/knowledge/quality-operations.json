@@ -179,6 +179,31 @@
       "name": "otel-sampling-sampler-arg-ratio",
       "query": "OTEL_TRACES_SAMPLER_ARG traceidratio",
       "expected_ids": ["opentelemetry-sampling-parentbased-traceidratio"]
+    },
+    {
+      "name": "sre-incident-commander-blameless-postmortem",
+      "query": "Incident Commander postmortem blameless",
+      "expected_ids": ["sre-incident-response-postmortem-culture"]
+    },
+    {
+      "name": "sre-incident-mitigation-rollback-drain",
+      "query": "mitigation rollback drain",
+      "expected_ids": ["sre-incident-response-postmortem-culture"]
+    },
+    {
+      "name": "sre-incident-dirt-wheel-misfortune",
+      "query": "Wheel Misfortune DiRT",
+      "expected_ids": ["sre-incident-response-postmortem-culture"]
+    },
+    {
+      "name": "sre-incident-handoff-acknowledgment",
+      "query": "acknowledgment handoff",
+      "expected_ids": ["sre-incident-response-postmortem-culture"]
+    },
+    {
+      "name": "sre-incident-3cs-coordinate-control",
+      "query": "coordinate communicate control",
+      "expected_ids": ["sre-incident-response-postmortem-culture"]
     }
   ]
 }

@@ -69,6 +69,116 @@
       "name": "rails-savepoint-subtransaction-scope",
       "query": "サブトランザクション ロールバック範囲 savepoint",
       "expected_ids": ["rails-nested-transaction-savepoint-callbacks"]
+    },
+    {
+      "name": "python-asyncio-timeout-taskgroup-cancel",
+      "query": "asyncio.timeout TaskGroup キャンセル",
+      "expected_ids": ["python-asyncio-taskgroup-timeout-cancellation"]
+    },
+    {
+      "name": "python-structured-concurrency-cancellation-propagation",
+      "query": "構造化並行性 キャンセル 伝播 asyncio",
+      "expected_ids": ["python-asyncio-taskgroup-timeout-cancellation"]
+    },
+    {
+      "name": "python-uncancel-cancelling-count",
+      "query": "uncancel cancelling カウント",
+      "expected_ids": ["python-asyncio-taskgroup-timeout-cancellation"]
+    },
+    {
+      "name": "python-timeout-error-caught-outside-context-manager",
+      "query": "TimeoutError 外側 捕捉",
+      "expected_ids": ["python-asyncio-taskgroup-timeout-cancellation"]
+    },
+    {
+      "name": "python-timeout-cancels-current-task-transform",
+      "query": "現在のタスク 変換 TimeoutError",
+      "expected_ids": ["python-asyncio-taskgroup-timeout-cancellation"]
+    },
+    {
+      "name": "python-timeout-at-reschedule",
+      "query": "timeout_at reschedule",
+      "expected_ids": ["python-asyncio-taskgroup-timeout-cancellation"]
+    },
+    {
+      "name": "python-wait-for-timeout-may-exceed",
+      "query": "wait_for timeout 超過",
+      "expected_ids": ["python-asyncio-taskgroup-timeout-cancellation"]
+    },
+    {
+      "name": "python-wait-for-no-task-wrap-3-12",
+      "query": "wrap Task 3.12 wait_for",
+      "expected_ids": ["python-asyncio-taskgroup-timeout-cancellation"]
+    },
+    {
+      "name": "python-shield-protects-wait-for-awaitable",
+      "query": "shield wait_for キャンセル",
+      "expected_ids": ["python-asyncio-taskgroup-timeout-cancellation"]
+    },
+    {
+      "name": "python-exceptiongroup-merge-except-star",
+      "query": "ExceptionGroup except* 統合",
+      "expected_ids": ["python-asyncio-taskgroup-timeout-cancellation"]
+    },
+    {
+      "name": "python-keyboardinterrupt-systemexit-resend",
+      "query": "KeyboardInterrupt SystemExit 再送出",
+      "expected_ids": ["python-asyncio-taskgroup-timeout-cancellation"]
+    },
+    {
+      "name": "python-taskgroup-vs-gather-remaining-tasks",
+      "query": "gather 残タスク TaskGroup",
+      "expected_ids": ["python-asyncio-taskgroup-timeout-cancellation"]
+    },
+    {
+      "name": "python-inactive-taskgroup-runtimeerror-close",
+      "query": "非アクティブ RuntimeError コルーチン クローズ",
+      "expected_ids": ["python-asyncio-taskgroup-timeout-cancellation"]
+    },
+    {
+      "name": "python-nested-taskgroup-simultaneous-exceptions",
+      "query": "入れ子 TaskGroup 例外 同時",
+      "expected_ids": ["python-asyncio-taskgroup-timeout-cancellation"]
+    },
+    {
+      "name": "python-nested-taskgroup-hang-gh-116720",
+      "query": "入れ子 ハング gh-116720",
+      "expected_ids": ["python-asyncio-taskgroup-timeout-cancellation"]
+    },
+    {
+      "name": "python-cancelling-preserved-3-13",
+      "query": "cancelling 保持 3.13",
+      "expected_ids": ["python-asyncio-taskgroup-timeout-cancellation"]
+    },
+    {
+      "name": "python-cancellederror-swallow-misbehave",
+      "query": "CancelledError 飲み込む misbehave",
+      "expected_ids": ["python-asyncio-taskgroup-timeout-cancellation"]
+    },
+    {
+      "name": "python-task-cancel-not-guaranteed",
+      "query": "Task.cancel 保証 抑制",
+      "expected_ids": ["python-asyncio-taskgroup-timeout-cancellation"]
+    },
+    {
+      "name": "python-cancellederror-finally-reraise",
+      "query": "try/finally 再送出 CancelledError",
+      "expected_ids": ["python-asyncio-taskgroup-timeout-cancellation"]
+    },
+    {
+      "name": "python-3-11-recommends-taskgroup-over-gather",
+      "query": "3.11 推奨 create_task gather",
+      "expected_ids": ["python-asyncio-taskgroup-timeout-cancellation"]
+    },
+    {
+      "name": "python-terminating-task-group-swallow-exception",
+      "query": "Terminating task group 例外 握りつぶ",
+      "expected_ids": ["python-asyncio-taskgroup-timeout-cancellation"]
+    },
+    {
+      "name": "python-structured-concurrency-tags",
+      "query": "structured-concurrency cancellation",
+      "expected_ids": ["python-asyncio-taskgroup-timeout-cancellation"]
     }
   ]
 }
