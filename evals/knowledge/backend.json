@@ -179,6 +179,56 @@
       "name": "python-structured-concurrency-tags",
       "query": "structured-concurrency cancellation",
       "expected_ids": ["python-asyncio-taskgroup-timeout-cancellation"]
+    },
+    {
+      "name": "ruby-fiber-scheduler-hook-io-wait",
+      "query": "Fiber scheduler io_wait",
+      "expected_ids": ["ruby-fiber-scheduler-nonblocking-io"]
+    },
+    {
+      "name": "ruby-fiber-schedule-runtimeerror",
+      "query": "Fiber.schedule RuntimeError",
+      "expected_ids": ["ruby-fiber-scheduler-nonblocking-io"]
+    },
+    {
+      "name": "ruby-fiber-set-scheduler",
+      "query": "Fiber.set_scheduler scheduler",
+      "expected_ids": ["ruby-fiber-scheduler-nonblocking-io"]
+    },
+    {
+      "name": "ruby-fiber-blocking-scheduler",
+      "query": "Fiber.blocking scheduler",
+      "expected_ids": ["ruby-fiber-scheduler-nonblocking-io"]
+    },
+    {
+      "name": "ruby-fiber-hook-sleep-timeout-resolve",
+      "query": "kernel_sleep timeout_after address_resolve",
+      "expected_ids": ["ruby-fiber-scheduler-nonblocking-io"]
+    },
+    {
+      "name": "ruby-fiber-blocking-operation-wait",
+      "query": "blocking_operation_wait block unblock",
+      "expected_ids": ["ruby-fiber-scheduler-nonblocking-io"]
+    },
+    {
+      "name": "ruby-fiber-scheduler-close-freeze",
+      "query": "scheduler_close close freeze",
+      "expected_ids": ["ruby-fiber-scheduler-nonblocking-io"]
+    },
+    {
+      "name": "ruby-fiber-io-select-urgent-pipe",
+      "query": "io_select urgent pipe",
+      "expected_ids": ["ruby-fiber-scheduler-nonblocking-io"]
+    },
+    {
+      "name": "ruby-fiber-io-event-epoll-kqueue",
+      "query": "io-event epoll kqueue",
+      "expected_ids": ["ruby-fiber-scheduler-nonblocking-io"]
+    },
+    {
+      "name": "ruby-fiber-nonblocking-hook",
+      "query": "ノンブロッキング scheduler hook",
+      "expected_ids": ["ruby-fiber-scheduler-nonblocking-io"]
     }
   ]
 }

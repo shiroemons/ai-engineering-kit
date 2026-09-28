@@ -1,0 +1,12 @@
+{
+  "id": "ruby-fiber-scheduler-3-4-docs",
+  "url": "https://docs.ruby-lang.org/en/3.4/Fiber/Scheduler.html",
+  "repository_url": "https://github.com/ruby/ruby",
+  "commit_sha": "",
+  "version": "Ruby 3.4 RDoc (Fiber::Scheduler interface page)",
+  "retrieved_at": "2026-09-28",
+  "license": "Ruby License (RDoc generated from ruby/ruby source; see ruby/ruby COPYING, dual 2-clause BSDL terms)",
+  "trust": "official",
+  "type": "official_docs",
+  "purpose": "Fiber::Scheduler の非 blocking fiber モデルと hook 群 (io_wait/io_read/io_write/io_pread/io_pwrite/io_select/process_wait/kernel_sleep/timeout_after/address_resolve/block/unblock/blocking_operation_wait/fiber)、スレッド終了時の close/scheduler_close、Fiber.schedule が scheduler#fiber へ委譲することを確認する"
+}
