@@ -214,6 +214,36 @@
       "name": "linux-restrictsuidsgid-dynamicuser",
       "query": "RestrictSUIDSGID DynamicUser",
       "expected_ids": ["linux-systemd-service-sandboxing"]
+    },
+    {
+      "name": "kubernetes-probes-three-types",
+      "query": "liveness readiness startup probes",
+      "expected_ids": ["kubernetes-probes-endpoints"]
+    },
+    {
+      "name": "kubernetes-startup-budget-failurethreshold",
+      "query": "startup failureThreshold periodSeconds",
+      "expected_ids": ["kubernetes-probes-endpoints"]
+    },
+    {
+      "name": "kubernetes-crashloopbackoff-restartpolicy",
+      "query": "CrashLoopBackOff restartPolicy",
+      "expected_ids": ["kubernetes-probes-endpoints"]
+    },
+    {
+      "name": "kubernetes-endpointslice-serving-terminating",
+      "query": "EndpointSlice serving terminating",
+      "expected_ids": ["kubernetes-probes-endpoints"]
+    },
+    {
+      "name": "kubernetes-publishnotready-shortcut",
+      "query": "publishNotReadyAddresses ready shortcut",
+      "expected_ids": ["kubernetes-probes-endpoints"]
+    },
+    {
+      "name": "kubernetes-readiness-unready-traffic",
+      "query": "readiness unready Service トラフィック",
+      "expected_ids": ["kubernetes-probes-endpoints"]
     }
   ]
 }

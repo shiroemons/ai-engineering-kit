@@ -1,0 +1,12 @@
+{
+  "id": "mcp-spec-security-best-practices-2025-11-25",
+  "url": "https://modelcontextprotocol.io/specification/2025-11-25/basic/security_best_practices",
+  "repository_url": "https://github.com/modelcontextprotocol/modelcontextprotocol",
+  "commit_sha": "",
+  "version": "MCP specification 2025-11-25 revision",
+  "retrieved_at": "2026-09-28",
+  "license": "Apache-2.0 or MIT (specification; transition per repository LICENSE)",
+  "trust": "official",
+  "type": "official_docs",
+  "purpose": "session hijacking と prompt injection 経路、session を認証に使ってはならない MUST NOT、session ID の secure/non-deterministic 要件と <user_id>:<session_id> 結合、数値の再接続ウィンドウ規定が存在しないことの確認"
+}

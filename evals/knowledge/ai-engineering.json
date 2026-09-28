@@ -264,6 +264,81 @@
       "name": "evals-judge-scoring-method-selection",
       "query": "採点方式",
       "expected_ids": ["evals-llm-as-judge-grading-bias-mitigation"]
+    },
+    {
+      "name": "mcp-session-id-removed-2026-07-28",
+      "query": "Mcp-Session-Id",
+      "expected_ids": ["mcp-streamable-http-session-resumability"]
+    },
+    {
+      "name": "mcp-last-event-id-resumability-unsupported",
+      "query": "Last-Event-ID resumability",
+      "expected_ids": ["mcp-streamable-http-session-resumability"]
+    },
+    {
+      "name": "mcp-initialize-handshake-legacy",
+      "query": "initialize handshake",
+      "expected_ids": ["mcp-streamable-http-session-resumability"]
+    },
+    {
+      "name": "mcp-reconnection-window-absent",
+      "query": "reconnection window",
+      "expected_ids": ["mcp-streamable-http-session-resumability"]
+    },
+    {
+      "name": "mcp-reconnection-window-numeric",
+      "query": "数値の再接続ウィンドウ",
+      "expected_ids": ["mcp-streamable-http-session-resumability"]
+    },
+    {
+      "name": "mcp-sep2567-protocol-sessions-removal",
+      "query": "SEP-2567",
+      "expected_ids": ["mcp-streamable-http-session-resumability"]
+    },
+    {
+      "name": "mcp-protocol-level-sessions-removed",
+      "query": "protocol-level sessions",
+      "expected_ids": ["mcp-streamable-http-session-resumability"]
+    },
+    {
+      "name": "mcp-subscriptions-listen-replacement",
+      "query": "subscriptions/listen",
+      "expected_ids": ["mcp-streamable-http-session-resumability"]
+    },
+    {
+      "name": "mcp-header-mismatch-400",
+      "query": "HeaderMismatch",
+      "expected_ids": ["mcp-streamable-http-session-resumability"]
+    },
+    {
+      "name": "mcp-new-request-id-reissue",
+      "query": "新規 request ID",
+      "expected_ids": ["mcp-streamable-http-session-resumability"]
+    },
+    {
+      "name": "mcp-session-not-authentication",
+      "query": "session 認証 使ってはならない",
+      "expected_ids": ["mcp-streamable-http-session-resumability"]
+    },
+    {
+      "name": "mcp-meta-protocol-version-per-request",
+      "query": "_meta protocolVersion clientCapabilities",
+      "expected_ids": ["mcp-streamable-http-session-resumability"]
+    },
+    {
+      "name": "mcp-get-delete-405-compat",
+      "query": "GET DELETE 405",
+      "expected_ids": ["mcp-streamable-http-session-resumability"]
+    },
+    {
+      "name": "mcp-era-fallback-initialize",
+      "query": "era fallback initialize",
+      "expected_ids": ["mcp-streamable-http-session-resumability"]
+    },
+    {
+      "name": "mcp-unsupported-protocol-version-error",
+      "query": "32022 supported",
+      "expected_ids": ["mcp-streamable-http-session-resumability"]
     }
   ]
 }

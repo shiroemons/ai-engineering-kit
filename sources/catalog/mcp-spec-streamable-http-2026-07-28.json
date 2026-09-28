@@ -1,0 +1,12 @@
+{
+  "id": "mcp-spec-streamable-http-2026-07-28",
+  "url": "https://modelcontextprotocol.io/specification/2026-07-28/basic/transports/streamable-http",
+  "repository_url": "https://github.com/modelcontextprotocol/modelcontextprotocol",
+  "commit_sha": "",
+  "version": "MCP specification 2026-07-28 revision",
+  "retrieved_at": "2026-09-28",
+  "license": "Apache-2.0 or MIT (specification; transition per repository LICENSE)",
+  "trust": "official",
+  "type": "official_docs",
+  "purpose": "2026-07-28 改訂の Streamable HTTP: GET stream endpoint と protocol-level session の削除、旧 rev の Mcp-Session-Id / Last-Event-ID 機構が本 rev に含まれないこと、旧クライアントへの 405 互換挙動、必須ヘッダと -32020 HeaderMismatch、cancellation の定義"
+}
