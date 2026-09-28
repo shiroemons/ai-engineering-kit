@@ -1,0 +1,12 @@
+{
+  "id": "docker-resource-constraints-docs",
+  "url": "https://docs.docker.com/engine/containers/resource-constraints/",
+  "repository_url": "",
+  "commit_sha": "",
+  "version": "Docker Docs Engine container pages, Resource constraints (no page version label; retrieved 2026-09-28)",
+  "retrieved_at": "2026-09-28",
+  "license": "Docker documentation terms (no open license stated on the retrieved page)",
+  "trust": "official",
+  "type": "official_docs",
+  "purpose": "コンテナのメモリ制限と OOM 終了の契約を確認する（-m/--memory の上限と最小値 6m、--memory-swap が正の値で memory+swap の合計である点と例 300m+1g、--memory と同値ならスワップ不可、-1 で無制限、未指定時は --memory と同量のスワップ、0 は無視、--memory-reservation は --memory より小さいときだけ有効なソフトリミット、既定ではカーネルがコンテナ内プロセスを殺す、--oom-kill-disable は -m 併用時のみ許可で -m 無しはホスト側プロセスが殺されうる、Docker はデーモンの OOM 優先度のみ調整、--memory-swappiness は 0-100 で既定はホスト継承、コンテナ内 free はホストのスワップを表示)"
+}
