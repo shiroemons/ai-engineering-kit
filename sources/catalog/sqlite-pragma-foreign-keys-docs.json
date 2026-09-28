@@ -1,0 +1,12 @@
+{
+  "id": "sqlite-pragma-foreign-keys-docs",
+  "url": "https://www.sqlite.org/pragma.html#pragma_foreign_keys",
+  "repository_url": "",
+  "commit_sha": "",
+  "version": "SQLite 3.6.19+ (PRAGMA foreign_keys / foreign_key_check / defer_foreign_keys as documented)",
+  "retrieved_at": "2026-09-28",
+  "license": "Public domain",
+  "trust": "official",
+  "type": "official_docs",
+  "purpose": "PRAGMA foreign_keys の既定 OFF とトランザクション内での no-op、PRAGMA foreign_key_check の違反行ごとの4列出力と integrity_check が外部キー違反を検出しない点、PRAGMA defer_foreign_keys の遅延と自動リセットを確認する"
+}

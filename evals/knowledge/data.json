@@ -166,9 +166,34 @@
       "expected_ids": ["redis-aof-persistence-durability"]
     },
     {
-      "name": "redis-aof-backup-hard-link-rewrite",
-      "query": "hard link rewrite backup",
-      "expected_ids": ["redis-aof-persistence-durability"]
+      "name": "sqlite-foreign-keys-pragma",
+      "query": "PRAGMA foreign_keys",
+      "expected_ids": ["sqlite-foreign-key-enforcement"]
+    },
+    {
+      "name": "sqlite-foreign-key-check-without-rowid",
+      "query": "foreign_key_check WITHOUT ROWID",
+      "expected_ids": ["sqlite-foreign-key-enforcement"]
+    },
+    {
+      "name": "sqlite-deferrable-initially-deferred-commit",
+      "query": "DEFERRABLE INITIALLY DEFERRED COMMIT",
+      "expected_ids": ["sqlite-foreign-key-enforcement"]
+    },
+    {
+      "name": "sqlite-defer-foreign-keys-commit",
+      "query": "defer_foreign_keys COMMIT",
+      "expected_ids": ["sqlite-foreign-key-enforcement"]
+    },
+    {
+      "name": "sqlite-restrict-match-simple",
+      "query": "RESTRICT MATCH SIMPLE",
+      "expected_ids": ["sqlite-foreign-key-enforcement"]
+    },
+    {
+      "name": "sqlite-integrity-check-foreign-key",
+      "query": "integrity_check FOREIGN KEY",
+      "expected_ids": ["sqlite-foreign-key-enforcement"]
     }
   ]
 }
