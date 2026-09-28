@@ -94,6 +94,31 @@
       "name": "css-contain-strict-layout",
       "query": "contain strict layout",
       "expected_ids": ["css-containment-content-visibility"]
+    },
+    {
+      "name": "html-dialog-showmodal-close",
+      "query": "dialog showModal close",
+      "expected_ids": ["html-dialog-showmodal-close-popover-distinction"]
+    },
+    {
+      "name": "html-dialog-requestclose-returnvalue-cancel",
+      "query": "requestClose returnValue cancel",
+      "expected_ids": ["html-dialog-showmodal-close-popover-distinction"]
+    },
+    {
+      "name": "html-dialog-closedby-closerequest-showmodal",
+      "query": "closedby closerequest showModal",
+      "expected_ids": ["html-dialog-showmodal-close-popover-distinction"]
+    },
+    {
+      "name": "html-popover-showpopover-hidepopover-togglepopover",
+      "query": "showPopover hidePopover togglePopover",
+      "expected_ids": ["html-dialog-showmodal-close-popover-distinction"]
+    },
+    {
+      "name": "html-popover-target-action-light-dismiss",
+      "query": "popovertarget popovertargetaction light-dismiss",
+      "expected_ids": ["html-dialog-showmodal-close-popover-distinction"]
     }
   ]
 }
