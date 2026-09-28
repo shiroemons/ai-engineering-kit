@@ -114,6 +114,61 @@
       "name": "postgres-zero-downtime-share-update-exclusive",
       "query": "SHARE UPDATE EXCLUSIVE",
       "expected_ids": ["postgres-zero-downtime-migration-concurrently"]
+    },
+    {
+      "name": "redis-aof-appendfsync-everysec-fsync",
+      "query": "appendfsync everysec fsync",
+      "expected_ids": ["redis-aof-persistence-durability"]
+    },
+    {
+      "name": "redis-aof-appendfsync-always-very-slow",
+      "query": "appendfsync always very slow",
+      "expected_ids": ["redis-aof-persistence-durability"]
+    },
+    {
+      "name": "redis-aof-multipart-manifest-rewrite",
+      "query": "multi-part AOF manifest rewrite",
+      "expected_ids": ["redis-aof-persistence-durability"]
+    },
+    {
+      "name": "redis-aof-no-appendfsync-on-rewrite-bgsave",
+      "query": "no-appendfsync-on-rewrite BGSAVE",
+      "expected_ids": ["redis-aof-persistence-durability"]
+    },
+    {
+      "name": "redis-aof-load-truncated-corruption",
+      "query": "aof-load-truncated corruption",
+      "expected_ids": ["redis-aof-persistence-durability"]
+    },
+    {
+      "name": "redis-aof-group-commit-background-thread",
+      "query": "group commit background thread",
+      "expected_ids": ["redis-aof-persistence-durability"]
+    },
+    {
+      "name": "redis-aof-auto-rewrite-percentage-min-size",
+      "query": "auto-aof-rewrite-percentage 64mb",
+      "expected_ids": ["redis-aof-persistence-durability"]
+    },
+    {
+      "name": "redis-aof-backup-command-manifest-incr",
+      "query": "BACKUP manifest INCR",
+      "expected_ids": ["redis-aof-persistence-durability"]
+    },
+    {
+      "name": "redis-aof-appendfsync-no-os-flush",
+      "query": "appendfsync no flush",
+      "expected_ids": ["redis-aof-persistence-durability"]
+    },
+    {
+      "name": "redis-aof-appendonly-default-data-loss",
+      "query": "appendonly default durability data loss",
+      "expected_ids": ["redis-aof-persistence-durability"]
+    },
+    {
+      "name": "redis-aof-backup-hard-link-rewrite",
+      "query": "hard link rewrite backup",
+      "expected_ids": ["redis-aof-persistence-durability"]
     }
   ]
 }
