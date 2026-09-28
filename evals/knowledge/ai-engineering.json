@@ -409,6 +409,101 @@
       "name": "agents-subagent-summary-return",
       "query": "sub-agent 要約のみ返す",
       "expected_ids": ["agents-long-loop-context-growth-compaction"]
+    },
+    {
+      "name": "rag-fusion-rrf-rank-window-constant",
+      "query": "rank_window_size rank_constant",
+      "expected_ids": ["rag-hybrid-retrieval-fusion-rrf-alpha-normalization"]
+    },
+    {
+      "name": "rag-fusion-rrf-formula-no-tuning",
+      "query": "reciprocal rank fusion rank_constant 60",
+      "expected_ids": ["rag-hybrid-retrieval-fusion-rrf-alpha-normalization"]
+    },
+    {
+      "name": "rag-fusion-elastic-no-tuning",
+      "query": "requires no tuning",
+      "expected_ids": ["rag-hybrid-retrieval-fusion-rrf-alpha-normalization"]
+    },
+    {
+      "name": "rag-fusion-equal-weight-child-retrievers",
+      "query": "equal weight child retrievers",
+      "expected_ids": ["rag-hybrid-retrieval-fusion-rrf-alpha-normalization"]
+    },
+    {
+      "name": "rag-fusion-pagination-window-zero-results",
+      "query": "from + size rank_window_size",
+      "expected_ids": ["rag-hybrid-retrieval-fusion-rrf-alpha-normalization"]
+    },
+    {
+      "name": "rag-fusion-window-default-discrepancy",
+      "query": "Defaults to 10 size parameter",
+      "expected_ids": ["rag-hybrid-retrieval-fusion-rrf-alpha-normalization"]
+    },
+    {
+      "name": "rag-fusion-unsupported-scroll-sort-rescore",
+      "query": "scroll sort rescore",
+      "expected_ids": ["rag-hybrid-retrieval-fusion-rrf-alpha-normalization"]
+    },
+    {
+      "name": "rag-fusion-rank-start-one-vs-zero",
+      "query": "rank 1始まり zero-based",
+      "expected_ids": ["rag-hybrid-retrieval-fusion-rrf-alpha-normalization"]
+    },
+    {
+      "name": "rag-fusion-k-defaults-across-engines",
+      "query": "k 既定 60 2",
+      "expected_ids": ["rag-hybrid-retrieval-fusion-rrf-alpha-normalization"]
+    },
+    {
+      "name": "rag-fusion-weaviate-alpha-default-075",
+      "query": "alpha 0.75",
+      "expected_ids": ["rag-hybrid-retrieval-fusion-rrf-alpha-normalization"]
+    },
+    {
+      "name": "rag-fusion-fusion-mode-selection",
+      "query": "relativeScoreFusion rankedFusion",
+      "expected_ids": ["rag-hybrid-retrieval-fusion-rrf-alpha-normalization"]
+    },
+    {
+      "name": "rag-fusion-autocut-requires-score-fusion",
+      "query": "autocut relativeScoreFusion",
+      "expected_ids": ["rag-hybrid-retrieval-fusion-rrf-alpha-normalization"]
+    },
+    {
+      "name": "rag-fusion-minmax-normalization",
+      "query": "min-max normalization relativeScoreFusion",
+      "expected_ids": ["rag-hybrid-retrieval-fusion-rrf-alpha-normalization"]
+    },
+    {
+      "name": "rag-fusion-weaviate-threshold-vector-only",
+      "query": "max vector distance BM25 閾値",
+      "expected_ids": ["rag-hybrid-retrieval-fusion-rrf-alpha-normalization"]
+    },
+    {
+      "name": "rag-fusion-qdrant-raw-score-alpha-warning",
+      "query": "生スコア alpha 正規化",
+      "expected_ids": ["rag-hybrid-retrieval-fusion-rrf-alpha-normalization"]
+    },
+    {
+      "name": "rag-fusion-qdrant-weighted-rrf-version",
+      "query": "v1.17.0 weighted RRF",
+      "expected_ids": ["rag-hybrid-retrieval-fusion-rrf-alpha-normalization"]
+    },
+    {
+      "name": "rag-fusion-qdrant-train-val-weights",
+      "query": "train/val weighted RRF",
+      "expected_ids": ["rag-hybrid-retrieval-fusion-rrf-alpha-normalization"]
+    },
+    {
+      "name": "rag-fusion-dbsf-3sigma",
+      "query": "DBSF 3-sigma",
+      "expected_ids": ["rag-hybrid-retrieval-fusion-rrf-alpha-normalization"]
+    },
+    {
+      "name": "rag-fusion-dbsf-outlier-unbounded",
+      "query": "DBSF 外れ値 0.5",
+      "expected_ids": ["rag-hybrid-retrieval-fusion-rrf-alpha-normalization"]
     }
   ]
 }
