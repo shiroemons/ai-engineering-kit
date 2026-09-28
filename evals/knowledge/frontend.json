@@ -194,6 +194,46 @@
       "name": "react-createroot-hydrateroot-batching",
       "query": "createRoot hydrateRoot automatic batching",
       "expected_ids": ["react-automatic-batching-transitions"]
+    },
+    {
+      "name": "eventloop-microtask-checkpoint-order",
+      "query": "event loop microtask",
+      "expected_ids": ["javascript-event-loop-microtask-rendering-order"]
+    },
+    {
+      "name": "eventloop-queuemicrotask-settimeout-order",
+      "query": "queueMicrotask setTimeout",
+      "expected_ids": ["javascript-event-loop-microtask-rendering-order"]
+    },
+    {
+      "name": "eventloop-settimeout-timer-task-source",
+      "query": "setTimeout task source",
+      "expected_ids": ["javascript-event-loop-microtask-rendering-order"]
+    },
+    {
+      "name": "eventloop-animation-frame-callbacks-oneshot",
+      "query": "animation frame callbacks",
+      "expected_ids": ["javascript-event-loop-microtask-rendering-order"]
+    },
+    {
+      "name": "eventloop-rendering-opportunity-frame",
+      "query": "rendering opportunity",
+      "expected_ids": ["javascript-event-loop-microtask-rendering-order"]
+    },
+    {
+      "name": "eventloop-raf-before-style-layout",
+      "query": "update rendering animation frame callbacks",
+      "expected_ids": ["javascript-event-loop-microtask-rendering-order"]
+    },
+    {
+      "name": "eventloop-microtask-queue-not-task-queue",
+      "query": "microtask queue task queue",
+      "expected_ids": ["javascript-event-loop-microtask-rendering-order"]
+    },
+    {
+      "name": "eventloop-promise-reactions-microtask",
+      "query": "Promise then catch finally",
+      "expected_ids": ["javascript-event-loop-microtask-rendering-order"]
     }
   ]
 }
