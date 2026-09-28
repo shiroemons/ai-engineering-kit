@@ -1,0 +1,12 @@
+{
+  "id": "postgres-transaction-iso-docs",
+  "url": "https://www.postgresql.org/docs/current/transaction-iso.html",
+  "repository_url": "",
+  "commit_sha": "",
+  "version": "PostgreSQL 18.6 (retrieved page label; not a latest-version claim)",
+  "retrieved_at": "2026-09-28",
+  "license": "PostgreSQL Licence",
+  "trust": "official",
+  "type": "official_docs",
+  "purpose": "Section 13.2 の分離レベル契約（内部3段階、Read Uncommitted の読替、既定 Read Committed、Repeatable Read のスナップショットと同時更新エラー、Serializable の述語ロックと serialization failure 時の再試行）を確認する"
+}
