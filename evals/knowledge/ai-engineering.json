@@ -339,6 +339,76 @@
       "name": "mcp-unsupported-protocol-version-error",
       "query": "32022 supported",
       "expected_ids": ["mcp-streamable-http-session-resumability"]
+    },
+    {
+      "name": "agents-long-loop-context-growth",
+      "query": "context rot 増え続ける",
+      "expected_ids": ["agents-long-loop-context-growth-compaction"]
+    },
+    {
+      "name": "agents-tool-result-clearing-strategy",
+      "query": "clear_tool_uses_20250919",
+      "expected_ids": ["agents-long-loop-context-growth-compaction"]
+    },
+    {
+      "name": "agents-clear-thinking-order",
+      "query": "clear_thinking_20251015",
+      "expected_ids": ["agents-long-loop-context-growth-compaction"]
+    },
+    {
+      "name": "agents-clearing-parameters-units",
+      "query": "trigger keep clear_at_least exclude_tools",
+      "expected_ids": ["agents-long-loop-context-growth-compaction"]
+    },
+    {
+      "name": "agents-clearing-cache-invalidation",
+      "query": "clear_at_least prompt cache",
+      "expected_ids": ["agents-long-loop-context-growth-compaction"]
+    },
+    {
+      "name": "agents-tool-output-trimmer-contract",
+      "query": "Tool Output Trimmer recent_turns",
+      "expected_ids": ["agents-long-loop-context-growth-compaction"]
+    },
+    {
+      "name": "agents-trimmer-preview-thresholds",
+      "query": "max_output_chars preview_chars",
+      "expected_ids": ["agents-long-loop-context-growth-compaction"]
+    },
+    {
+      "name": "agents-compaction-threshold-default",
+      "query": "compact_20260112 threshold 150000",
+      "expected_ids": ["agents-long-loop-context-growth-compaction"]
+    },
+    {
+      "name": "agents-compaction-pause-reinsert",
+      "query": "pause_after_compaction",
+      "expected_ids": ["agents-long-loop-context-growth-compaction"]
+    },
+    {
+      "name": "agents-compact-boundary-observation",
+      "query": "compact_boundary",
+      "expected_ids": ["agents-long-loop-context-growth-compaction"]
+    },
+    {
+      "name": "agents-claude-code-autocompact-config",
+      "query": "autoCompactWindow CLAUDE_CODE_AUTO_COMPACT_WINDOW",
+      "expected_ids": ["agents-long-loop-context-growth-compaction"]
+    },
+    {
+      "name": "agents-opening-instructions-loss-claudemd",
+      "query": "会話冒頭の指示 CLAUDE.md settingSources",
+      "expected_ids": ["agents-long-loop-context-growth-compaction"]
+    },
+    {
+      "name": "agents-just-in-time-retrieval",
+      "query": "just-in-time retrieval",
+      "expected_ids": ["agents-long-loop-context-growth-compaction"]
+    },
+    {
+      "name": "agents-subagent-summary-return",
+      "query": "sub-agent 要約のみ返す",
+      "expected_ids": ["agents-long-loop-context-growth-compaction"]
     }
   ]
 }
