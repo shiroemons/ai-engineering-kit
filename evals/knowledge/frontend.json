@@ -119,6 +119,31 @@
       "name": "html-popover-target-action-light-dismiss",
       "query": "popovertarget popovertargetaction light-dismiss",
       "expected_ids": ["html-dialog-showmodal-close-popover-distinction"]
+    },
+    {
+      "name": "accessibility-keyboard-focus-order-tabindex",
+      "query": "keyboard focus order tabindex",
+      "expected_ids": ["accessibility-keyboard-focus-order-visible-skip-link"]
+    },
+    {
+      "name": "accessibility-skip-link-bypass-blocks",
+      "query": "skip-link bypass blocks",
+      "expected_ids": ["accessibility-keyboard-focus-order-visible-skip-link"]
+    },
+    {
+      "name": "accessibility-focus-visible-outline",
+      "query": "focus-visible outline",
+      "expected_ids": ["accessibility-keyboard-focus-order-visible-skip-link"]
+    },
+    {
+      "name": "accessibility-focus-appearance-perimeter-contrast",
+      "query": "focus appearance perimeter contrast",
+      "expected_ids": ["accessibility-keyboard-focus-order-visible-skip-link"]
+    },
+    {
+      "name": "accessibility-dialog-tabindex-f44",
+      "query": "dialog tabindex F44",
+      "expected_ids": ["accessibility-keyboard-focus-order-visible-skip-link"]
     }
   ]
 }
