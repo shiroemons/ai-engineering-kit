@@ -274,6 +274,91 @@
       "name": "github-actions-github-token-contents-read",
       "query": "GITHUB_TOKEN permissions contents read",
       "expected_ids": ["github-actions-oidc-cloud-id-token-least-privilege"]
+    },
+    {
+      "name": "docker-memory-swap-total-semantics",
+      "query": "memory-swap 合計 semantics",
+      "expected_ids": ["docker-memory-limit-oom-kill-scope"]
+    },
+    {
+      "name": "docker-memory-swap-default-double",
+      "query": "memory-swap 未指定 2倍",
+      "expected_ids": ["docker-memory-limit-oom-kill-scope"]
+    },
+    {
+      "name": "docker-memory-swap-unlimited-minus-one",
+      "query": "memory-swap -1 無制限",
+      "expected_ids": ["docker-memory-limit-oom-kill-scope"]
+    },
+    {
+      "name": "docker-memory-reservation-soft-limit",
+      "query": "memory-reservation ソフトリミット",
+      "expected_ids": ["docker-memory-limit-oom-kill-scope"]
+    },
+    {
+      "name": "docker-oom-kill-disable-host-risk",
+      "query": "oom-kill-disable ホスト OOM",
+      "expected_ids": ["docker-memory-limit-oom-kill-scope"]
+    },
+    {
+      "name": "docker-oom-score-adj-host-preference",
+      "query": "oom-score-adj ホスト OOM 偏好",
+      "expected_ids": ["docker-memory-limit-oom-kill-scope"]
+    },
+    {
+      "name": "docker-kernel-oom-killer-daemon-scope",
+      "query": "kernel OOM killer Docker daemon",
+      "expected_ids": ["docker-memory-limit-oom-kill-scope"]
+    },
+    {
+      "name": "docker-free-command-host-swap",
+      "query": "free ホスト スワップ 判断",
+      "expected_ids": ["docker-memory-limit-oom-kill-scope"]
+    },
+    {
+      "name": "docker-cgroup-v2-memory-max-scope",
+      "query": "memory.max OOM killer cgroup",
+      "expected_ids": ["docker-memory-limit-oom-kill-scope"]
+    },
+    {
+      "name": "docker-cgroup-v2-memory-high-throttle",
+      "query": "memory.high OOM killer スロットル",
+      "expected_ids": ["docker-memory-limit-oom-kill-scope"]
+    },
+    {
+      "name": "docker-cgroup-v2-high-limit-never-oom",
+      "query": "high limit never invokes",
+      "expected_ids": ["docker-memory-limit-oom-kill-scope"]
+    },
+    {
+      "name": "docker-cgroup-v2-swap-max-default",
+      "query": "memory.swap.max 既定値",
+      "expected_ids": ["docker-memory-limit-oom-kill-scope"]
+    },
+    {
+      "name": "docker-cgroup-v2-nonblock-bypass",
+      "query": "O_NONBLOCK bypass",
+      "expected_ids": ["docker-memory-limit-oom-kill-scope"]
+    },
+    {
+      "name": "docker-swap-accounting-warning",
+      "query": "swap limit capabilities 警告",
+      "expected_ids": ["docker-memory-limit-oom-kill-scope"]
+    },
+    {
+      "name": "docker-swap-accounting-overhead",
+      "query": "swapaccount=1 オーバーヘッド",
+      "expected_ids": ["docker-memory-limit-oom-kill-scope"]
+    },
+    {
+      "name": "docker-kernel-memory-deprecated-20-10",
+      "query": "kernel-memory 非推奨 20.10",
+      "expected_ids": ["docker-memory-limit-oom-kill-scope"]
+    },
+    {
+      "name": "docker-cgroup2-false-warning-20-10-8",
+      "query": "20.10.8 警告 誤",
+      "expected_ids": ["docker-memory-limit-oom-kill-scope"]
     }
   ]
 }

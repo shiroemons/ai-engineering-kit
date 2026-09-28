@@ -1,0 +1,12 @@
+{
+  "id": "kernel-cgroup-v2-docs",
+  "url": "https://docs.kernel.org/admin-guide/cgroup-v2.html",
+  "repository_url": "",
+  "commit_sha": "",
+  "version": "Linux kernel documentation 7.3.0-rc5 Control Group v2 (author listing starts October 2015)",
+  "retrieved_at": "2026-09-28",
+  "license": "Kernel documentation terms (no open license stated on the retrieved page)",
+  "trust": "official",
+  "type": "official_docs",
+  "purpose": "cgroup v2 の memory.* と OOM スコープを確認する（memory.max はハードリミットで上限到達・削減不能時にその cgroup 内で OOM killer が起動し一時的超過を許容、memory.high はスロットルで超過しても OOM killer は呼ばず極端条件下では超過しうるため外部監視が前提、memory.swap.max はスワップ専用ハードリミットで既定 max・既存スワップは段階回収のため超過が長時間継続しうる、memory.low はベストエフォート保護、O_NONBLOCK で開いた memory.max/memory.high は同期リクレームと oom-kill を bypass し次回チャージ時に発動)"
+}

@@ -1,0 +1,12 @@
+{
+  "id": "docker-container-run-cli-docs",
+  "url": "https://docs.docker.com/reference/cli/docker/container/run/",
+  "repository_url": "",
+  "commit_sha": "",
+  "version": "Docker Docs CLI reference docker container run (no page version label; options up to API 1.56+; retrieved 2026-09-28)",
+  "retrieved_at": "2026-09-28",
+  "license": "Docker documentation terms (no open license stated on the retrieved page)",
+  "trust": "official",
+  "type": "official_docs",
+  "purpose": "メモリ関連フラグの CLI 定義を確認する（-m/--memory = Memory limit、--memory-swap = Swap limit equal to memory plus swap で '-1' は unlimited swap、--memory-reservation = Memory soft limit、--oom-kill-disable = Disable OOM Killer、--oom-score-adj = Tune host's OOM preferences (-1000 to 1000)、--memory-swappiness の既定値 -1）"
+}

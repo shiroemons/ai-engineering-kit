@@ -1,0 +1,12 @@
+{
+  "id": "docker-daemon-troubleshoot-docs",
+  "url": "https://docs.docker.com/engine/daemon/troubleshoot/",
+  "repository_url": "",
+  "commit_sha": "",
+  "version": "Docker Docs Engine daemon troubleshoot pages (no page version label; retrieved 2026-09-28)",
+  "retrieved_at": "2026-09-28",
+  "license": "Docker documentation terms (no open license stated on the retrieved page)",
+  "trust": "official",
+  "type": "official_docs",
+  "purpose": "OOM と swap 会計の運用上の事実を確認する（Out of memory issues 節: コンテナがホスト以上のメモリを使おうとすると OOM exception が起き a container or the Docker daemon might be stopped by the kernel OOM killer、Kernel cgroup swap limit capabilities 節: WARNING: Your kernel does not support swap limit capabilities. Limitation discarded. の意味と Ubuntu/Debian の GRUB_CMDLINE_LINUX=\"cgroup_enable=memory swapaccount=1\" による有効化手順、メモリ/スワップ会計のオーバーヘッドは約1%のメモリと全体で10%の性能劣化との記載）"
+}
