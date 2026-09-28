@@ -1,0 +1,12 @@
+{
+  "id": "mcp-spec-transports-2025-11-25",
+  "url": "https://modelcontextprotocol.io/specification/2025-11-25/basic/transports",
+  "repository_url": "https://github.com/modelcontextprotocol/modelcontextprotocol",
+  "commit_sha": "",
+  "version": "MCP specification 2025-11-25 revision",
+  "retrieved_at": "2026-09-28",
+  "license": "Apache-2.0 or MIT (specification; transition per repository LICENSE)",
+  "trust": "official",
+  "type": "official_docs",
+  "purpose": "legacy Streamable HTTP の Session Management (Mcp-Session-Id の付与・送付・400/404・HTTP DELETE 終了) と Resumability (SSE event id、prime event、retry、GET + Last-Event-ID 再接続、replay は同一 stream 限定)、MCP-Protocol-Version ヘッダ必須"
+}
