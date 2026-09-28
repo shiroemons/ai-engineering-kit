@@ -129,6 +129,31 @@
       "name": "testing-quarantine-flake-history",
       "query": "quarantine flake history",
       "expected_ids": ["testing-scope-doubles-hermetic-flaky"]
+    },
+    {
+      "name": "w3c-traceparent-tracestate-sampling",
+      "query": "traceparent tracestate sampling",
+      "expected_ids": ["observability-w3c-trace-context-propagation"]
+    },
+    {
+      "name": "w3c-sampled-parent-id",
+      "query": "sampled parent-id",
+      "expected_ids": ["observability-w3c-trace-context-propagation"]
+    },
+    {
+      "name": "w3c-random-trace-id",
+      "query": "random-trace-id",
+      "expected_ids": ["observability-w3c-trace-context-propagation"]
+    },
+    {
+      "name": "w3c-tracestate-baggage",
+      "query": "tracestate Baggage",
+      "expected_ids": ["observability-w3c-trace-context-propagation"]
+    },
+    {
+      "name": "w3c-tracestate-discarded",
+      "query": "tracestate discarded",
+      "expected_ids": ["observability-w3c-trace-context-propagation"]
     }
   ]
 }

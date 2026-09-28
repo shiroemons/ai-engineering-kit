@@ -1,0 +1,12 @@
+{
+  "id": "redis-releases-8-10-2",
+  "url": "https://github.com/redis/redis/releases",
+  "repository_url": "https://github.com/redis/redis",
+  "commit_sha": "",
+  "version": "redis/redis Releases page showing 8.10.2 as Latest (2026-09-17 release, tag commit 498ecd0d6d007db11ddb3aea9428552598a78622; parallel maintained lines 8.8.3 / 8.6.7 / 8.4.7 / 8.2.10 same day; retrieved 2026-09-28)",
+  "retrieved_at": "2026-09-28",
+  "license": "Redis 8 tri-license: RSALv2 / SSPLv1 / AGPLv3 (LICENSE.txt at tag 8.10.2 を 2026-09-28 に確認); release notes テキスト自体の個別条件は未確認",
+  "trust": "official",
+  "type": "release_notes",
+  "purpose": "8.10.2 が 2026-09-17 release の Latest であること、tag commit が 498ecd0d6d007db11ddb3aea9428552598a78622 であること、SECURITY 更新要度（ACL・cluster bus 等の修正）、文書が Since Redis 8.10.0 と記す BACKUP コマンド族を含む版が tag 8.10.2 であること（8.10.2 > 8.10.0）を確認する"
+}
