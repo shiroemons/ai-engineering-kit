@@ -1,0 +1,12 @@
+{
+  "id": "npm-scope-docs",
+  "url": "https://docs.npmjs.com/cli/v12/using-npm/scope",
+  "repository_url": "https://github.com/npm/documentation",
+  "commit_sha": "",
+  "version": "npm CLI v12.1.0 (Latest) page (Select CLI Version: 12.1.0)",
+  "retrieved_at": "2026-09-28",
+  "license": "CC-BY-4.0 (npm/documentation repository, content and static folders)",
+  "trust": "official",
+  "type": "official_docs",
+  "purpose": "scope と registry の many-to-one 関係 (1 registry は複数 scope を扱えるが scope は常に 1 registry のみ)、npm config set @myco:registry=... と npm login --registry=... --scope=@myco による関連付け、関連付け後に当該 scope の package の npm install / npm publish がその registry を使うこと、scoped package の node_modules/@myorg/... 配下へのインストールを確認する"
+}
