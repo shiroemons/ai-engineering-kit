@@ -1,0 +1,12 @@
+{
+  "id": "ruby-fiber-3-4-docs",
+  "url": "https://docs.ruby-lang.org/en/3.4/Fiber.html",
+  "repository_url": "https://github.com/ruby/ruby",
+  "commit_sha": "",
+  "version": "Ruby 3.4 RDoc (Fiber class page)",
+  "retrieved_at": "2026-09-28",
+  "license": "Ruby License (RDoc generated from ruby/ruby source; see ruby/ruby COPYING, dual 2-clause BSDL terms)",
+  "trust": "official",
+  "type": "official_docs",
+  "purpose": "Fiber.new の blocking:false 既定、Fiber.set_scheduler で scheduler を設定したときのみ非 blocking 動作になること、scheduler 未設定での Fiber.schedule は RuntimeError になること、Fiber.blocking / Fiber.current_scheduler の意味論を確認する"
+}
