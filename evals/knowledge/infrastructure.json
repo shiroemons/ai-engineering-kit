@@ -244,6 +244,36 @@
       "name": "kubernetes-readiness-unready-traffic",
       "query": "readiness unready Service トラフィック",
       "expected_ids": ["kubernetes-probes-endpoints"]
+    },
+    {
+      "name": "github-actions-oidc-id-token-write",
+      "query": "id-token write",
+      "expected_ids": ["github-actions-oidc-cloud-id-token-least-privilege"]
+    },
+    {
+      "name": "github-actions-oidc-aws-audience",
+      "query": "configure-aws-credentials sts.amazonaws.com",
+      "expected_ids": ["github-actions-oidc-cloud-id-token-least-privilege"]
+    },
+    {
+      "name": "github-actions-oidc-trust-sub-aud",
+      "query": "token.actions.githubusercontent.com sub aud",
+      "expected_ids": ["github-actions-oidc-cloud-id-token-least-privilege"]
+    },
+    {
+      "name": "github-actions-github-token-least-privilege",
+      "query": "least-privilege GITHUB_TOKEN",
+      "expected_ids": ["github-actions-oidc-cloud-id-token-least-privilege"]
+    },
+    {
+      "name": "github-actions-oidc-manual-request-flow",
+      "query": "ACTIONS_ID_TOKEN_REQUEST_TOKEN ACTIONS_ID_TOKEN_REQUEST_URL",
+      "expected_ids": ["github-actions-oidc-cloud-id-token-least-privilege"]
+    },
+    {
+      "name": "github-actions-github-token-contents-read",
+      "query": "GITHUB_TOKEN permissions contents read",
+      "expected_ids": ["github-actions-oidc-cloud-id-token-least-privilege"]
     }
   ]
 }
