@@ -1,0 +1,12 @@
+{
+  "id": "python-whatsnew-3-13",
+  "url": "https://docs.python.org/3/whatsnew/3.13.html",
+  "repository_url": "",
+  "commit_sha": "",
+  "version": "What's New In Python 3.13 (Python 3.13 は 2024-10-07 リリース。3.14.7 Documentation の表示)",
+  "retrieved_at": "2026-09-28",
+  "license": "PSF-2.0 (Python Software Foundation License Version 2)",
+  "trust": "official",
+  "type": "release_notes",
+  "purpose": "外部キャンセルと内部キャンセル衝突時の TaskGroup 改善 (gh-116720、入れ子同時例外で外側がハングしうた問題)、外部キャンセル+ExceptionGroup 時の親タスク cancel() 呼び出し、cancelling() カウント保持、uncancel() 到達 0 での _must_cancel リセット、非アクティブ TaskGroup の create_task でのコルーチンクローズ (gh-115957) を確認する"
+}
