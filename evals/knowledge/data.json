@@ -219,6 +219,36 @@
       "name": "search-pgtrgm-trigram-order-limit-gist",
       "query": "trigram ORDER LIMIT GiST",
       "expected_ids": ["search-postgres-pgtrgm-trigram-similarity-gin-gist"]
+    },
+    {
+      "name": "postgres-txn-serialization-failure-retry",
+      "query": "serialization-failure retry",
+      "expected_ids": ["postgres-transaction-isolation-retry"]
+    },
+    {
+      "name": "postgres-txn-serializable-predicate-locking",
+      "query": "SERIALIZABLE predicate locking",
+      "expected_ids": ["postgres-transaction-isolation-retry"]
+    },
+    {
+      "name": "postgres-txn-repeatable-read-concurrent-update",
+      "query": "REPEATABLE READ concurrent update",
+      "expected_ids": ["postgres-transaction-isolation-retry"]
+    },
+    {
+      "name": "postgres-txn-40001-serialization-failure",
+      "query": "40001 serialization_failure",
+      "expected_ids": ["postgres-transaction-isolation-retry"]
+    },
+    {
+      "name": "postgres-txn-deferrable-serializable-read-only",
+      "query": "DEFERRABLE SERIALIZABLE READ ONLY",
+      "expected_ids": ["postgres-transaction-isolation-retry"]
+    },
+    {
+      "name": "postgres-txn-40p01-deadlock-sqlstate",
+      "query": "40P01 deadlock_detected SQLSTATE",
+      "expected_ids": ["postgres-transaction-isolation-retry"]
     }
   ]
 }
