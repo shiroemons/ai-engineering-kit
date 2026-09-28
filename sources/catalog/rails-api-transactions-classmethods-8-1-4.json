@@ -1,0 +1,12 @@
+{
+  "id": "rails-api-transactions-classmethods-8-1-4",
+  "url": "https://api.rubyonrails.org/classes/ActiveRecord/Transactions/ClassMethods.html",
+  "repository_url": "https://github.com/rails/rails",
+  "commit_sha": "",
+  "version": "Ruby on Rails 8.1.4 (API インデックス表示 v8.1.4)",
+  "retrieved_at": "2026-09-28",
+  "license": "MIT (Ruby on Rails、API インデックスの License 節)",
+  "trust": "official",
+  "type": "official_docs",
+  "purpose": "ActiveRecord::Transactions::ClassMethods の Nested transactions / Callbacks 節を確認する。ネストの transaction がデフォルトで全 SQL を親トランザクションの一部にすること、ActiveRecord::Rollback がネスト内で捕捉されて親に伝播せず実トランザクションはコミットされること、requires_new: true で savepoint 開始点までロールバックすること、after_commit はコミット直後・after_rollback はトランザクションまたは savepoint のロールバック直後にそのトランザクション内で保存・削除された全レコードへ呼ばれること、フィルタ単位の重複排除と on: による create / update / destroy 限定、save / destroy の自動トランザクションと after_commit の位置づけ"
+}

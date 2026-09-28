@@ -1,0 +1,12 @@
+{
+  "id": "otel-sdk-configuration-general",
+  "url": "https://opentelemetry.io/docs/languages/sdk-configuration/general/",
+  "repository_url": "",
+  "commit_sha": "",
+  "version": "General SDK Configuration, OTEL_TRACES_SAMPLER section (no page version label; verified 2026-09-28)",
+  "retrieved_at": "2026-09-28",
+  "license": "OpenTelemetry documentation terms (no open license stated on the retrieved page)",
+  "trust": "official",
+  "type": "official_docs",
+  "purpose": "OTEL_TRACES_SAMPLER の既定値 parentbased_always_on、parentbased_traceidratio=ParentBased(root=TraceIdRatioBased) を含む受理値、OTEL_TRACES_SAMPLER_ARG の比率範囲 [0..1] と既定値 1.0（traceidratio/parentbased_traceidratio 用）を確認する"
+}

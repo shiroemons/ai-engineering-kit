@@ -1,0 +1,74 @@
+{
+  "cases": [
+    {
+      "name": "rails-nested-transaction-requires-new-savepoint",
+      "query": "requires_new savepoint ロールバック",
+      "expected_ids": ["rails-nested-transaction-savepoint-callbacks"]
+    },
+    {
+      "name": "rails-nested-default-joinable-parent",
+      "query": "joinable 親トランザクション savepoint",
+      "expected_ids": ["rails-nested-transaction-savepoint-callbacks"]
+    },
+    {
+      "name": "rails-activerecord-rollback-no-propagation",
+      "query": "ActiveRecord::Rollback 親 コミット",
+      "expected_ids": ["rails-nested-transaction-savepoint-callbacks"]
+    },
+    {
+      "name": "rails-after-rollback-savepoint-fired",
+      "query": "after_rollback savepoint ロールバック",
+      "expected_ids": ["rails-nested-transaction-savepoint-callbacks"]
+    },
+    {
+      "name": "rails-after-commit-outermost-transaction",
+      "query": "after_commit 最外トランザクション コミット",
+      "expected_ids": ["rails-nested-transaction-savepoint-callbacks"]
+    },
+    {
+      "name": "rails-after-commit-first-change-object",
+      "query": "after_commit 最初の変更オブジェクト",
+      "expected_ids": ["rails-nested-transaction-savepoint-callbacks"]
+    },
+    {
+      "name": "rails-transaction-callback-order-rails-7-1",
+      "query": "run_after_transaction_callbacks_in_order_defined Rails 7.1",
+      "expected_ids": ["rails-nested-transaction-savepoint-callbacks"]
+    },
+    {
+      "name": "rails-mysql-ddl-savepoint-release-error",
+      "query": "MySQL DDL RELEASE SAVEPOINT",
+      "expected_ids": ["rails-nested-transaction-savepoint-callbacks"]
+    },
+    {
+      "name": "rails-nested-isolation-error",
+      "query": "isolation TransactionIsolationError",
+      "expected_ids": ["rails-nested-transaction-savepoint-callbacks"]
+    },
+    {
+      "name": "rails-savepoint-commit-defers-callbacks",
+      "query": "release_savepoint commit_records 親トランザクション",
+      "expected_ids": ["rails-nested-transaction-savepoint-callbacks"]
+    },
+    {
+      "name": "rails-ms-sql-native-nested-transaction",
+      "query": "MS-SQL ネストトランザクション savepoint",
+      "expected_ids": ["rails-nested-transaction-savepoint-callbacks"]
+    },
+    {
+      "name": "rails-after-commit-exception-not-rollback",
+      "query": "after_commit 例外 ロールバック",
+      "expected_ids": ["rails-nested-transaction-savepoint-callbacks"]
+    },
+    {
+      "name": "rails-nested-transaction-topic-entry",
+      "query": "ネスト トランザクション requires_new",
+      "expected_ids": ["rails-nested-transaction-savepoint-callbacks"]
+    },
+    {
+      "name": "rails-savepoint-subtransaction-scope",
+      "query": "サブトランザクション ロールバック範囲 savepoint",
+      "expected_ids": ["rails-nested-transaction-savepoint-callbacks"]
+    }
+  ]
+}

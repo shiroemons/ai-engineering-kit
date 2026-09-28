@@ -154,6 +154,31 @@
       "name": "w3c-tracestate-discarded",
       "query": "tracestate discarded",
       "expected_ids": ["observability-w3c-trace-context-propagation"]
+    },
+    {
+      "name": "otel-sampling-parentbased-traceidratio",
+      "query": "ParentBased TraceIdRatioBased",
+      "expected_ids": ["opentelemetry-sampling-parentbased-traceidratio"]
+    },
+    {
+      "name": "otel-sampling-result-isrecording-sampled",
+      "query": "SamplingResult IsRecording Sampled",
+      "expected_ids": ["opentelemetry-sampling-parentbased-traceidratio"]
+    },
+    {
+      "name": "otel-sampling-shouldsample-decision",
+      "query": "ShouldSample trace_id Decision",
+      "expected_ids": ["opentelemetry-sampling-parentbased-traceidratio"]
+    },
+    {
+      "name": "otel-sampling-env-parentbased-values",
+      "query": "parentbased_always_on parentbased_traceidratio",
+      "expected_ids": ["opentelemetry-sampling-parentbased-traceidratio"]
+    },
+    {
+      "name": "otel-sampling-sampler-arg-ratio",
+      "query": "OTEL_TRACES_SAMPLER_ARG traceidratio",
+      "expected_ids": ["opentelemetry-sampling-parentbased-traceidratio"]
     }
   ]
 }

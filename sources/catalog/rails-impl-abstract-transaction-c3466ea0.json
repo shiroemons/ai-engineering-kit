@@ -1,0 +1,12 @@
+{
+  "id": "rails-impl-abstract-transaction-c3466ea0",
+  "url": "https://raw.githubusercontent.com/rails/rails/c3466ea00d7121798e3aa3144ffdf7174b81d8cb/activerecord/lib/active_record/connection_adapters/abstract/transaction.rb",
+  "repository_url": "https://github.com/rails/rails",
+  "commit_sha": "c3466ea00d7121798e3aa3144ffdf7174b81d8cb",
+  "version": "commit-pinned c3466ea00d7121798e3aa3144ffdf7174b81d8cb (Preparing for 8.1.4 release、2026-09-24)",
+  "retrieved_at": "2026-09-28",
+  "license": "MIT (Ruby on Rails、API インデックスの License 節)",
+  "trust": "official",
+  "type": "github_repository_analysis",
+  "purpose": "pinned commit で connection_adapters/abstract/transaction.rb の実装挙動を確認する（ドキュメント記載とは区別して観察事実として扱う）。SavepointTransaction#rollback は rollback_to_savepoint の後で rollback_records を走らせ savepoint ロールバック時点でレコードの rolledback!（after_rollback 発火）を行うこと、SavepointTransaction#commit は release_savepoint のみで TransactionManager#begin_transaction の run_commit_callbacks = !current_transaction.joinable? により親が joinable な savepoint の commit_records はレコードを connection.add_transaction_record で親へ移送し after_commit を最外コミットまで遅延すること、@callbacks も親へ append_callbacks で移送されること、SavepointTransaction#full_rollback? が false であること"
+}
