@@ -204,6 +204,31 @@
       "name": "sre-incident-3cs-coordinate-control",
       "query": "coordinate communicate control",
       "expected_ids": ["sre-incident-response-postmortem-culture"]
+    },
+    {
+      "name": "playwright-webfirst-autowaiting",
+      "query": "Playwright web-first auto-waiting",
+      "expected_ids": ["testing-playwright-web-first-assertions-timeout-isolation"]
+    },
+    {
+      "name": "playwright-expect-timeout-browsercontext",
+      "query": "Playwright expect timeout BrowserContext",
+      "expected_ids": ["testing-playwright-web-first-assertions-timeout-isolation"]
+    },
+    {
+      "name": "playwright-actionability-timeouterror-force",
+      "query": "Playwright actionability TimeoutError force",
+      "expected_ids": ["testing-playwright-web-first-assertions-timeout-isolation"]
+    },
+    {
+      "name": "playwright-isolation-cookies-storage",
+      "query": "Playwright isolation cookies storage",
+      "expected_ids": ["testing-playwright-web-first-assertions-timeout-isolation"]
+    },
+    {
+      "name": "playwright-webfirst-generic-matcher",
+      "query": "Playwright web-first generic matcher",
+      "expected_ids": ["testing-playwright-web-first-assertions-timeout-isolation"]
     }
   ]
 }
