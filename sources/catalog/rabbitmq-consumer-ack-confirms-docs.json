@@ -1,0 +1,12 @@
+{
+  "id": "rabbitmq-consumer-ack-confirms-docs",
+  "url": "https://www.rabbitmq.com/docs/confirms",
+  "repository_url": "",
+  "commit_sha": "",
+  "version": "RabbitMQ Documentation v4.3 (Consumer Acknowledgements and Publisher Confirms page)",
+  "retrieved_at": "2026-09-28",
+  "license": "Broadcom / RabbitMQ documentation terms (no open license stated on the retrieved page)",
+  "trust": "official",
+  "type": "official_docs",
+  "purpose": "consumer acknowledgment の一次情報: delivery tag はチャネル単位で同じチャネルでの ack が必須、auto-ack は fire-and-forget で unsafe、basic.ack / basic.nack / basic.reject と requeue true/false の意味、channel/connection close 時の未 ack 配送の自動 requeue と redelivered フラグ、二重 ack や未知タグでのチャネル close を確認する"
+}

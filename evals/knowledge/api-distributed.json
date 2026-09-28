@@ -374,6 +374,56 @@
       "name": "rfc9457-extension-ignore",
       "query": "problem extension ignore",
       "expected_ids": ["api-design-rfc9457-problem-details"]
+    },
+    {
+      "name": "messaging-ack-delivery-tag-channel",
+      "query": "delivery tag channel",
+      "expected_ids": ["messaging-consumer-ack-redelivery-dead-letter"]
+    },
+    {
+      "name": "messaging-ack-basic-requeue-redelivered",
+      "query": "basic.ack requeue redelivered",
+      "expected_ids": ["messaging-consumer-ack-redelivery-dead-letter"]
+    },
+    {
+      "name": "messaging-dlx-exchange-routing-key",
+      "query": "dead-letter-exchange dead-letter-routing-key",
+      "expected_ids": ["messaging-consumer-ack-redelivery-dead-letter"]
+    },
+    {
+      "name": "messaging-quorum-delivery-limit-poison",
+      "query": "delivery-limit poison message",
+      "expected_ids": ["messaging-consumer-ack-redelivery-dead-letter"]
+    },
+    {
+      "name": "messaging-quorum-delivery-count-acquired-count",
+      "query": "x-delivery-count x-acquired-count",
+      "expected_ids": ["messaging-consumer-ack-redelivery-dead-letter"]
+    },
+    {
+      "name": "messaging-sqs-visibility-changemessagevisibility-deletemessage",
+      "query": "visibility timeout ChangeMessageVisibility DeleteMessage",
+      "expected_ids": ["messaging-consumer-ack-redelivery-dead-letter"]
+    },
+    {
+      "name": "messaging-sqs-maxreceivecount-redrive-allow-policy",
+      "query": "maxReceiveCount redrive-allow-policy",
+      "expected_ids": ["messaging-consumer-ack-redelivery-dead-letter"]
+    },
+    {
+      "name": "messaging-sqs-message-group-head-of-line",
+      "query": "message-group-ID head-of-line",
+      "expected_ids": ["messaging-consumer-ack-redelivery-dead-letter"]
+    },
+    {
+      "name": "messaging-quorum-dead-letter-strategy",
+      "query": "dead-letter-strategy at-least-once",
+      "expected_ids": ["messaging-consumer-ack-redelivery-dead-letter"]
+    },
+    {
+      "name": "messaging-ack-auto-fire-and-forget",
+      "query": "auto-ack fire-and-forget unsafe",
+      "expected_ids": ["messaging-consumer-ack-redelivery-dead-letter"]
     }
   ]
 }

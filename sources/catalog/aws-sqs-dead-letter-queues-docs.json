@@ -1,0 +1,12 @@
+{
+  "id": "aws-sqs-dead-letter-queues-docs",
+  "url": "https://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/sqs-dead-letter-queues.html",
+  "repository_url": "",
+  "commit_sha": "",
+  "version": "Amazon SQS Developer Guide current page (Dead-Letter Queues)",
+  "retrieved_at": "2026-09-28",
+  "license": "Amazon Web Services documentation terms (no open license stated on the retrieved page)",
+  "trust": "official",
+  "type": "official_docs",
+  "purpose": "SQS dead-letter queue の一次情報: redrive policy の maxReceiveCount が DLQ 移動前の受信回数を制御すること、redrive-allow-policy が移動元に許可されたキューを制御すること、standard キューは元の enqueue 時刻起点で保持期間が決まるため DLQ の保持期間を長く設定すること、FIFO は DLQ 移動時に enqueue 時刻がリセットされることを確認する"
+}
