@@ -144,6 +144,56 @@
       "name": "accessibility-dialog-tabindex-f44",
       "query": "dialog tabindex F44",
       "expected_ids": ["accessibility-keyboard-focus-order-visible-skip-link"]
+    },
+    {
+      "name": "react-automatic-batching-flushsync-usetransition",
+      "query": "automatic batching flushSync useTransition",
+      "expected_ids": ["react-automatic-batching-transitions"]
+    },
+    {
+      "name": "react-batching-event-handlers-promises-settimeout",
+      "query": "event handlers promises setTimeout batch",
+      "expected_ids": ["react-automatic-batching-transitions"]
+    },
+    {
+      "name": "react-flushsync-lifecycle-noop",
+      "query": "flushSync lifecycle noop",
+      "expected_ids": ["react-automatic-batching-transitions"]
+    },
+    {
+      "name": "react-flushsync-beforeprint-isprinting",
+      "query": "beforeprint isPrinting flushSync",
+      "expected_ids": ["react-automatic-batching-transitions"]
+    },
+    {
+      "name": "react-starttransition-ispending-nonurgent",
+      "query": "startTransition isPending non-urgent",
+      "expected_ids": ["react-automatic-batching-transitions"]
+    },
+    {
+      "name": "react-action-settimeout-await-transition",
+      "query": "async Action setTimeout await",
+      "expected_ids": ["react-automatic-batching-transitions"]
+    },
+    {
+      "name": "react-deferredvalue-initialvalue-background-render",
+      "query": "useDeferredValue initialValue background re-render",
+      "expected_ids": ["react-automatic-batching-transitions"]
+    },
+    {
+      "name": "react-deferredvalue-memo-primitive-object",
+      "query": "useDeferredValue memo primitive object",
+      "expected_ids": ["react-automatic-batching-transitions"]
+    },
+    {
+      "name": "react-deferredvalue-network-request-suspense",
+      "query": "useDeferredValue network request Suspense",
+      "expected_ids": ["react-automatic-batching-transitions"]
+    },
+    {
+      "name": "react-createroot-hydrateroot-batching",
+      "query": "createRoot hydrateRoot automatic batching",
+      "expected_ids": ["react-automatic-batching-transitions"]
     }
   ]
 }

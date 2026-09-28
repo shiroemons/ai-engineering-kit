@@ -324,6 +324,56 @@
       "name": "http-caching-vary-smaxage-invalidation",
       "query": "Vary s-maxage invalidation",
       "expected_ids": ["http-caching-cache-control-conditional"]
+    },
+    {
+      "name": "rfc9457-problem-details-contract",
+      "query": "problem details",
+      "expected_ids": ["api-design-rfc9457-problem-details"]
+    },
+    {
+      "name": "rfc9457-about-blank-default",
+      "query": "about:blank",
+      "expected_ids": ["api-design-rfc9457-problem-details"]
+    },
+    {
+      "name": "rfc9457-validation-errors-pointer",
+      "query": "validation-error errors pointer",
+      "expected_ids": ["api-design-rfc9457-problem-details"]
+    },
+    {
+      "name": "rfc9457-most-relevant-problem",
+      "query": "most relevant problem",
+      "expected_ids": ["api-design-rfc9457-problem-details"]
+    },
+    {
+      "name": "rfc9457-problem-json-media-type",
+      "query": "application/problem+json",
+      "expected_ids": ["api-design-rfc9457-problem-details"]
+    },
+    {
+      "name": "rfc9457-status-advisory",
+      "query": "problem status advisory",
+      "expected_ids": ["api-design-rfc9457-problem-details"]
+    },
+    {
+      "name": "rfc9457-title-detail-instance",
+      "query": "problem title detail instance",
+      "expected_ids": ["api-design-rfc9457-problem-details"]
+    },
+    {
+      "name": "rfc9457-registry-specification-required",
+      "query": "Problem Types Specification Required",
+      "expected_ids": ["api-design-rfc9457-problem-details"]
+    },
+    {
+      "name": "rfc9457-obsoletes-7807",
+      "query": "RFC 9457 obsoletes",
+      "expected_ids": ["api-design-rfc9457-problem-details"]
+    },
+    {
+      "name": "rfc9457-extension-ignore",
+      "query": "problem extension ignore",
+      "expected_ids": ["api-design-rfc9457-problem-details"]
     }
   ]
 }
