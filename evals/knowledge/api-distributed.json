@@ -424,6 +424,56 @@
       "name": "messaging-ack-auto-fire-and-forget",
       "query": "auto-ack fire-and-forget unsafe",
       "expected_ids": ["messaging-consumer-ack-redelivery-dead-letter"]
+    },
+    {
+      "name": "raft-leader-election-definition",
+      "query": "raft leader election",
+      "expected_ids": ["distributed-systems-raft-leader-election-log-replication"]
+    },
+    {
+      "name": "raft-election-timeout-quorum-commit",
+      "query": "election timeout quorum commit",
+      "expected_ids": ["distributed-systems-raft-leader-election-log-replication"]
+    },
+    {
+      "name": "raft-msgvote-msgapp-replication",
+      "query": "MsgVote MsgApp",
+      "expected_ids": ["distributed-systems-raft-leader-election-log-replication"]
+    },
+    {
+      "name": "raft-electiontick-heartbeattick",
+      "query": "ElectionTick HeartbeatTick",
+      "expected_ids": ["distributed-systems-raft-leader-election-log-replication"]
+    },
+    {
+      "name": "raft-prevote-election",
+      "query": "PreVote election",
+      "expected_ids": ["distributed-systems-raft-leader-election-log-replication"]
+    },
+    {
+      "name": "raft-readindex-linearizable",
+      "query": "ReadIndex linearizable",
+      "expected_ids": ["distributed-systems-raft-leader-election-log-replication"]
+    },
+    {
+      "name": "raft-overlapping-majorities-membership",
+      "query": "overlapping majorities membership",
+      "expected_ids": ["distributed-systems-raft-leader-election-log-replication"]
+    },
+    {
+      "name": "raft-candidate-follower-term",
+      "query": "candidate follower term",
+      "expected_ids": ["distributed-systems-raft-leader-election-log-replication"]
+    },
+    {
+      "name": "raft-lease-based-local-read",
+      "query": "lease-based local read",
+      "expected_ids": ["distributed-systems-raft-leader-election-log-replication"]
+    },
+    {
+      "name": "raft-stale-read-linearizable",
+      "query": "stale read linearizable",
+      "expected_ids": ["distributed-systems-raft-leader-election-log-replication"]
     }
   ]
 }
