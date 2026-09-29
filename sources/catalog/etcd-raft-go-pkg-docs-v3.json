@@ -1,0 +1,12 @@
+{
+  "id": "etcd-raft-go-pkg-docs-v3",
+  "url": "https://pkg.go.dev/go.etcd.io/raft/v3",
+  "repository_url": "https://github.com/etcd-io/raft",
+  "commit_sha": "",
+  "version": "go.etcd.io/raft v3.7.0 Go module docs (published 2026-06-03)",
+  "retrieved_at": "2026-09-29",
+  "license": "Apache-2.0 (module license)",
+  "trust": "maintainer",
+  "type": "official_docs",
+  "purpose": "go.etcd.io/raft v3.7.0 の API 契約を確認する: Config の ElectionTick/HeartbeatTick、MsgHup/MsgBeat/MsgVote/MsgApp の message flow、majority votes による candidate-to-leader 遷移、valid な leader Append/Heartbeat での follower への復帰、ReadOnlyOption/ReadIndex の linearizable query path"
+}

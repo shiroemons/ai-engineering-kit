@@ -1,0 +1,12 @@
+{
+  "id": "usenix-atc14-ongaro-raft-paper",
+  "url": "https://www.usenix.org/conference/atc14/technical-sessions/presentation/ongaro",
+  "repository_url": "",
+  "commit_sha": "",
+  "version": "In Search of an Understandable Consensus Algorithm, USENIX ATC '14 Best Paper, pp. 305-319",
+  "retrieved_at": "2026-09-29",
+  "license": "USENIX proceedings terms (paper openly accessible via USENIX; no open license stated on the retrieved page)",
+  "trust": "maintainer",
+  "type": "architecture_pattern",
+  "purpose": "Raft 原論文の構成を確認する: leader election / log replication / safety の分離、Paxos と等価な efficiency とより強い coherency の主張、overlapping majorities による cluster membership change"
+}

@@ -1,0 +1,12 @@
+{
+  "id": "etcd-io-raft-readme",
+  "url": "https://github.com/etcd-io/raft",
+  "repository_url": "https://github.com/etcd-io/raft",
+  "commit_sha": "",
+  "version": "etcd-io/raft README on main branch (stable, Apache-2.0, powers etcd/Kubernetes)",
+  "retrieved_at": "2026-09-29",
+  "license": "Apache-2.0",
+  "trust": "maintainer",
+  "type": "official_docs",
+  "purpose": "etcd-io/raft の minimal core-algorithm 設計を確認する: transport/storage を持たず応用側が提供する責務分割、Node.Tick による ElectionTick/HeartbeatTick の抽象化、MsgVote/MsgVoteResp の majority-quorum election と PreVote option、MsgApp/MsgAppResp の log replication、quorum ReadIndex と lease-based local read による linearizable read"
+}
