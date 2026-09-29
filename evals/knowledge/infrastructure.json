@@ -359,6 +359,86 @@
       "name": "docker-cgroup2-false-warning-20-10-8",
       "query": "20.10.8 警告 誤",
       "expected_ids": ["docker-memory-limit-oom-kill-scope"]
+    },
+    {
+      "name": "terraform-replacement-default-destroy-then-create",
+      "query": "create_before_destroy destroy-then-create",
+      "expected_ids": ["terraform-replacement-ordering-create-before-destroy"]
+    },
+    {
+      "name": "terraform-cbd-dependency-propagation",
+      "query": "依存 リソース 伝播",
+      "expected_ids": ["terraform-replacement-ordering-create-before-destroy"]
+    },
+    {
+      "name": "terraform-cbd-no-false-override-cycle",
+      "query": "循環 上書き",
+      "expected_ids": ["terraform-replacement-ordering-create-before-destroy"]
+    },
+    {
+      "name": "terraform-cbd-destroy-provisioner-skipped",
+      "query": "destroy provisioner 実行されない",
+      "expected_ids": ["terraform-replacement-ordering-create-before-destroy"]
+    },
+    {
+      "name": "terraform-cbd-only-rule-in-state",
+      "query": "prevent_destroy state",
+      "expected_ids": ["terraform-replacement-ordering-create-before-destroy"]
+    },
+    {
+      "name": "terraform-prevent-destroy-blocks-destroy",
+      "query": "prevent_destroy destroy 動かなく",
+      "expected_ids": ["terraform-replacement-ordering-create-before-destroy"]
+    },
+    {
+      "name": "terraform-lifecycle-literals-only",
+      "query": "lifecycle リテラル値",
+      "expected_ids": ["terraform-replacement-ordering-create-before-destroy"]
+    },
+    {
+      "name": "terraform-replace-triggered-by-basics",
+      "query": "replace_triggered_by 置換",
+      "expected_ids": ["terraform-replacement-ordering-create-before-destroy"]
+    },
+    {
+      "name": "terraform-replace-triggered-by-local-value",
+      "query": "replace_triggered_by local value",
+      "expected_ids": ["terraform-replacement-ordering-create-before-destroy"]
+    },
+    {
+      "name": "terraform-depends-on-implicit-dependency",
+      "query": "depends_on 暗黙依存",
+      "expected_ids": ["terraform-replacement-ordering-create-before-destroy"]
+    },
+    {
+      "name": "terraform-parallel-dependency-order",
+      "query": "in parallel 依存順",
+      "expected_ids": ["terraform-replacement-ordering-create-before-destroy"]
+    },
+    {
+      "name": "terraform-timeouts-per-resource-type",
+      "query": "timeouts リソース型",
+      "expected_ids": ["terraform-replacement-ordering-create-before-destroy"]
+    },
+    {
+      "name": "terraform-ignore-changes-update-plan",
+      "query": "ignore_changes 更新計画",
+      "expected_ids": ["terraform-replacement-ordering-create-before-destroy"]
+    },
+    {
+      "name": "terraform-precondition-postcondition",
+      "query": "precondition postcondition",
+      "expected_ids": ["terraform-replacement-ordering-create-before-destroy"]
+    },
+    {
+      "name": "terraform-cbd-name-uniqueness-constraint",
+      "query": "ランダムサフィックス 同時存在",
+      "expected_ids": ["terraform-replacement-ordering-create-before-destroy"]
+    },
+    {
+      "name": "terraform-timeouts-example-aws-db-instance",
+      "query": "aws_db_instance create delete",
+      "expected_ids": ["terraform-replacement-ordering-create-before-destroy"]
     }
   ]
 }
