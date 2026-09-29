@@ -504,6 +504,46 @@
       "name": "rag-fusion-dbsf-outlier-unbounded",
       "query": "DBSF 外れ値 0.5",
       "expected_ids": ["rag-hybrid-retrieval-fusion-rrf-alpha-normalization"]
+    },
+    {
+      "name": "llm-structured-outputs-strict-contract",
+      "query": "additionalProperties required strict",
+      "expected_ids": ["llm-structured-outputs-strict-schema-validation"]
+    },
+    {
+      "name": "llm-structured-outputs-text-format",
+      "query": "text.format json_schema strict",
+      "expected_ids": ["llm-structured-outputs-strict-schema-validation"]
+    },
+    {
+      "name": "llm-structured-outputs-parsed-refusal",
+      "query": "message.parsed message.refusal",
+      "expected_ids": ["llm-structured-outputs-strict-schema-validation"]
+    },
+    {
+      "name": "llm-structured-outputs-finish-errors",
+      "query": "LengthFinishReasonError ContentFilterFinishReasonError",
+      "expected_ids": ["llm-structured-outputs-strict-schema-validation"]
+    },
+    {
+      "name": "llm-structured-outputs-output-parsed",
+      "query": "output_parsed refusal",
+      "expected_ids": ["llm-structured-outputs-strict-schema-validation"]
+    },
+    {
+      "name": "llm-structured-outputs-validation-fallback",
+      "query": "commentary fallback validation",
+      "expected_ids": ["llm-structured-outputs-strict-schema-validation"]
+    },
+    {
+      "name": "llm-structured-outputs-strict-fallback",
+      "query": "strict fallback Responses",
+      "expected_ids": ["llm-structured-outputs-strict-schema-validation"]
+    },
+    {
+      "name": "llm-structured-outputs-pydantic-parse",
+      "query": "Pydantic parse refusal",
+      "expected_ids": ["llm-structured-outputs-strict-schema-validation"]
     }
   ]
 }
