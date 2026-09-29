@@ -234,6 +234,46 @@
       "name": "eventloop-promise-reactions-microtask",
       "query": "Promise then catch finally",
       "expected_ids": ["javascript-event-loop-microtask-rendering-order"]
+    },
+    {
+      "name": "ts-module-resolution-bundler-nodenext-comparison",
+      "query": "module resolution bundler nodenext",
+      "expected_ids": ["typescript-module-resolution-bundler-vs-nodenext"]
+    },
+    {
+      "name": "ts-package-exports-resolution",
+      "query": "package.json exports",
+      "expected_ids": ["typescript-module-resolution-bundler-vs-nodenext"]
+    },
+    {
+      "name": "ts-customconditions-mode-limits",
+      "query": "customConditions bundler nodenext",
+      "expected_ids": ["typescript-module-resolution-bundler-vs-nodenext"]
+    },
+    {
+      "name": "ts-conditional-exports-types-default",
+      "query": "conditional exports types default",
+      "expected_ids": ["typescript-module-resolution-bundler-vs-nodenext"]
+    },
+    {
+      "name": "ts-exports-encapsulation-error",
+      "query": "ERR_PACKAGE_PATH_NOT_EXPORTED",
+      "expected_ids": ["typescript-module-resolution-bundler-vs-nodenext"]
+    },
+    {
+      "name": "ts-module-pairing-esnext-preserve",
+      "query": "module esnext preserve bundler",
+      "expected_ids": ["typescript-module-resolution-bundler-vs-nodenext"]
+    },
+    {
+      "name": "ts-nodenext-esm-extension-foojs",
+      "query": "nodenext ESM ./foo.js",
+      "expected_ids": ["typescript-module-resolution-bundler-vs-nodenext"]
+    },
+    {
+      "name": "ts-bundler-intro-vite-esbuild-swc",
+      "query": "Vite esbuild swc bundler",
+      "expected_ids": ["typescript-module-resolution-bundler-vs-nodenext"]
     }
   ]
 }

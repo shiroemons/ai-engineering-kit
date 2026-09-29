@@ -1,0 +1,12 @@
+{
+  "id": "typescript-4-7-release-notes",
+  "url": "https://www.typescriptlang.org/docs/handbook/release-notes/typescript-4-7.html",
+  "repository_url": "https://github.com/microsoft/TypeScript-Website",
+  "commit_sha": "",
+  "version": "TypeScript 4.7 release notes",
+  "retrieved_at": "2026-09-29",
+  "license": "© 2012-2026 Microsoft (TypeScript docs; Terms of Use on typescriptlang.org)",
+  "trust": "official",
+  "type": "release_notes",
+  "purpose": "module: node16|nodenext の 4.7 導入、package.json type と .mts/.cts/.d.mts/.d.cts によるモジュール形式検出、ESM 相対 import への完全拡張子要求 (./foo.js)、exports/imports/セルフレレンスの import conditions 解決 (import 文脈は import フィールド、CommonJS 文脈は require フィールド)、型宣言の types 条件を exports 先頭に置く推奨、CJS エントリと ESM エントリで別宣言ファイルが必要な点を確認する"
+}

@@ -52,4 +52,10 @@
 {"expected_ids":["security-asvs-password-storage-argon2id-pepper"],"name":"asvs-password-bcrypt-shucking-prehash","query":"bcrypt 72-byte shucking pre-hash"},
 {"expected_ids":["security-asvs-password-storage-argon2id-pepper"],"name":"asvs-password-pbkdf2-scrypt-work-factor","query":"PBKDF2-HMAC-SHA256 600k scrypt"},
 {"expected_ids":["security-asvs-password-storage-argon2id-pepper"],"name":"asvs-password-upgrade-login-blocklist","query":"upgrade login blocklist rate-limiting"},
-{"expected_ids":["security-asvs-password-storage-argon2id-pepper"],"name":"asvs-password-pepper-vault-hsm","query":"pepper vault HSM"}]}
+{"expected_ids":["security-asvs-password-storage-argon2id-pepper"],"name":"asvs-password-pepper-vault-hsm","query":"pepper vault HSM"},
+{"expected_ids":["security-oidc-discovery-jwks-kid-rotation"],"name":"oidc-discovery-jwks-kid-rotation","query":"jwks_uri rotation kid"},
+{"expected_ids":["security-oidc-discovery-jwks-kid-rotation"],"name":"oidc-discovery-openid-configuration-cert-checking","query":"openid-configuration certificate checking"},
+{"expected_ids":["security-oidc-discovery-jwks-kid-rotation"],"name":"oidc-discovery-default-preference-order","query":"default preference order keys"},
+{"expected_ids":["security-oidc-discovery-jwks-kid-rotation"],"name":"oidc-discovery-issuer-scoped-jwks-rotation","query":"issuer-scoped JWKS rotation"},
+{"expected_ids":["security-oidc-discovery-jwks-kid-rotation"],"name":"oidc-discovery-kid-rollover-rotation","query":"kid rollover rotation"},
+{"expected_ids":["security-oidc-discovery-jwks-kid-rotation"],"name":"oidc-discovery-jku-x5u-rollover","query":"jku x5u rollover"}]}

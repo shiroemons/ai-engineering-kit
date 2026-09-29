@@ -1,0 +1,12 @@
+{
+  "id": "typescript-handbook-modules-reference-docs",
+  "url": "https://www.typescriptlang.org/docs/handbook/modules/reference.html",
+  "repository_url": "https://github.com/microsoft/TypeScript-Website",
+  "commit_sha": "",
+  "version": "TypeScript Handbook Modules - Reference (last updated 2026-09-28, TypeScript 6.0 時点の記載)",
+  "retrieved_at": "2026-09-29",
+  "license": "© 2012-2026 Microsoft (TypeScript docs; Terms of Use on typescriptlang.org)",
+  "trust": "official",
+  "type": "official_docs",
+  "purpose": "moduleResolution がモジュールスペシフィアの解決を制御する点、node16|nodenext と module node16|node18|node20|nodenext のペア必須、bundler と module esnext|preserve のペア必須と allowSyntheticDefaultImports の示唆、nodenext の条件マッチ順 (import 文脈 types,node,import / require 文脈 types,node,require)、bundler の条件 (types + 構文による import|require)、resolvePackageJsonExports 有効時の Node.js 仕様準拠 exports 解決と types/default の常時マッチ、customConditions、exports による未列挙サブパス遮断、拡張子省略相対パスとディレクトリ解決の bundler(nodenext)可否差を確認する"
+}

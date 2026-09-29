@@ -1,0 +1,12 @@
+{
+  "id": "typescript-tsconfig-reference-docs",
+  "url": "https://www.typescriptlang.org/tsconfig",
+  "repository_url": "https://github.com/microsoft/TypeScript-Website",
+  "commit_sha": "",
+  "version": "TSConfig Reference moduleResolution エントリ (option は TypeScript 1.6 系で導入)",
+  "retrieved_at": "2026-09-29",
+  "license": "© 2012-2026 Microsoft (TypeScript docs; Terms of Use on typescriptlang.org)",
+  "trust": "official",
+  "type": "official_docs",
+  "purpose": "moduleResolution の既定値 (module が CommonJS→node10、node16|node18|node20→node16、nodenext→nodenext、preserve→bundler、その他→classic)、bundler が package.json imports/exports をサポートしつつ相対パス拡張子を決して要求しない点、node16|nodenext が Node.js v12 以降の ESM/CJS 双方向アルゴリズムを出力の import|require で選ぶ点、customConditions の有効範囲 (node16|nodenext|bundler、Released 5.0)、resolvePackageJsonExports と resolvePackageJsonImports を確認する"
+}
