@@ -1,0 +1,12 @@
+{
+  "id": "rabbitmq-dlx-docs-20261001",
+  "url": "https://www.rabbitmq.com/docs/dlx",
+  "repository_url": "",
+  "commit_sha": "",
+  "version": "RabbitMQ Documentation v4.3 (Dead Letter Exchanges page)",
+  "retrieved_at": "2026-10-01",
+  "license": "unknown",
+  "trust": "official",
+  "type": "official_docs",
+  "purpose": "RabbitMQ 4.3 の dead-letter 発火条件、policy の routing 設定、循環の全体に rejection がない場合の drop、既定 republish での喪失リスクと quorum の at-least-once 選択肢を再確認。個別公開日なし。独自の日本語要約のみ、コード転載なし。"
+}

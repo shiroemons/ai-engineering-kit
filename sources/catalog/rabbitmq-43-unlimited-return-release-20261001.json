@@ -1,0 +1,12 @@
+{
+  "id": "rabbitmq-43-unlimited-return-release-20261001",
+  "url": "https://www.rabbitmq.com/blog/2026/04/23/rabbitmq-4.3-release",
+  "repository_url": "",
+  "commit_sha": "",
+  "version": "RabbitMQ 4.3 release highlights, published 2026-04-23",
+  "retrieved_at": "2026-10-01",
+  "license": "unknown",
+  "trust": "official",
+  "type": "release_notes",
+  "purpose": "4.3 で failed delivery と unlimited return を分離した版境界を確認。本文の既存 basic.nack と delivery-limit 推奨を訂正する根拠。独自要約のみ、コード転載なし。"
+}

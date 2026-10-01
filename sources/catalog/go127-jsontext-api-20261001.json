@@ -1,0 +1,12 @@
+{
+  "id": "go127-jsontext-api-20261001",
+  "url": "https://pkg.go.dev/encoding/json/jsontext@go1.27.1",
+  "repository_url": "https://github.com/golang/go",
+  "commit_sha": "",
+  "version": "go1.27.1; published 2026-09-01",
+  "retrieved_at": "2026-10-01",
+  "license": "BSD-3-Clause",
+  "trust": "official",
+  "type": "official_docs",
+  "purpose": "AllowDuplicateNames、AllowInvalidUTF8、JSON 構文処理と型変換の分離を確認。ページの License 表示および https://go.dev/LICENSE を確認。コード転載なし。"
+}

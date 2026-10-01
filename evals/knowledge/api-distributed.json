@@ -480,6 +480,12 @@
     {"name": "publisher-confirm-durability-quorum", "query": "persistent durable quorum", "expected_ids": ["messaging-publisher-confirms-mandatory-retry"]},
     {"name": "publisher-confirm-unknown-retry", "query": "confirm 結果不明 再送", "expected_ids": ["messaging-publisher-confirms-mandatory-retry"]},
     {"name": "publisher-confirm-outbox-boundary", "query": "confirm outbox crash", "expected_ids": ["messaging-publisher-confirms-mandatory-retry"]},
-    {"name": "publisher-confirm-not-consumer", "query": "confirm consumer 独立", "expected_ids": ["messaging-publisher-confirms-mandatory-retry"]}
+    {"name": "publisher-confirm-not-consumer", "query": "confirm consumer 独立", "expected_ids": ["messaging-publisher-confirms-mandatory-retry"]},
+    {"name": "messaging-43-nack-unlimited-returns", "query": "basic.nack delivery-limit 無制限", "expected_ids": ["messaging-consumer-ack-redelivery-dead-letter"]},
+    {"name": "messaging-43-reject-failed-count", "query": "basic.reject x-delivery-count 失敗", "expected_ids": ["messaging-consumer-ack-redelivery-dead-letter"]},
+    {"name": "messaging-43-delayed-retry-selection", "query": "delayed-retry-type failed returned", "expected_ids": ["messaging-consumer-ack-redelivery-dead-letter"]},
+    {"name": "messaging-43-acquired-not-seen", "query": "x-acquired-count 割当 証拠", "expected_ids": ["messaging-consumer-ack-redelivery-dead-letter"]},
+    {"name": "messaging-43-dlx-activation-not-timeout", "query": "stream_queue consumer-timeout 必須", "expected_ids": ["messaging-consumer-ack-redelivery-dead-letter"]},
+    {"name": "messaging-43-dlx-cycle-rejection-condition", "query": "循環 rejection drop", "expected_ids": ["messaging-consumer-ack-redelivery-dead-letter"]}
   ]
 }

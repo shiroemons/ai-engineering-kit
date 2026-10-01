@@ -1,0 +1,12 @@
+{
+  "id": "go-release-history-json-20261001",
+  "url": "https://go.dev/doc/devel/release",
+  "repository_url": "https://github.com/golang/website",
+  "commit_sha": "",
+  "version": "Go 1.27.0 (2026-08-19) and Go 1.27.1 (2026-09-01)",
+  "retrieved_at": "2026-10-01",
+  "license": "CC-BY-4.0 (site text); BSD-3-Clause (code)",
+  "trust": "official",
+  "type": "release_notes",
+  "purpose": "Go 1.27.0 / 1.27.1 の公開日と 1.27.1 に encoding/json 修正が含まれることを確認。2026-10-01 UTC 取得。サイト著作権は https://go.dev/copyright。最新性の恒久保証ではない。"
+}

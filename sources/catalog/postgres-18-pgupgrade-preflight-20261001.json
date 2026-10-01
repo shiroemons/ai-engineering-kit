@@ -1,0 +1,12 @@
+{
+  "id": "postgres-18-pgupgrade-preflight-20261001",
+  "url": "https://www.postgresql.org/docs/18/pgupgrade.html",
+  "repository_url": "",
+  "commit_sha": "",
+  "version": "PostgreSQL 18 pg_upgrade manual as retrieved 2026-10-01",
+  "retrieved_at": "2026-10-01",
+  "license": "PostgreSQL License",
+  "trust": "official",
+  "type": "official_docs",
+  "purpose": "個別公開日なし。minor updateにpg_upgrade不要、移行先版のbinaryで--checkを実行、shared objectを移行先binaryに合わせて配置する条件を確認。 ライセンス根拠: https://www.postgresql.org/docs/18/legalnotice.html ; 原文・実装コードの転載なし。"
+}

@@ -1,0 +1,12 @@
+{
+  "id": "postgres-17-11-output-plugin-release-20261001",
+  "url": "https://www.postgresql.org/docs/release/17.11/",
+  "repository_url": "",
+  "commit_sha": "",
+  "version": "PostgreSQL 17.11; released 2026-08-13",
+  "retrieved_at": "2026-10-01",
+  "license": "PostgreSQL License",
+  "trust": "official",
+  "type": "release_notes",
+  "purpose": "2026-08-13公開。17系にも同じallowlist導入があること、17.Xからの更新にdump/restore不要だが設定調整が必要なことを確認。 ライセンス根拠: https://www.postgresql.org/docs/18/legalnotice.html ; 原文・実装コードの転載なし。"
+}

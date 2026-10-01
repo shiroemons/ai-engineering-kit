@@ -1,0 +1,12 @@
+{
+  "id": "rabbitmq-quorum-queues-docs-20261001",
+  "url": "https://www.rabbitmq.com/docs/quorum-queues",
+  "repository_url": "",
+  "commit_sha": "",
+  "version": "RabbitMQ Documentation v4.3 (Quorum Queues page)",
+  "retrieved_at": "2026-10-01",
+  "license": "unknown",
+  "trust": "official",
+  "type": "official_docs",
+  "purpose": "RabbitMQ 4.3 quorum queue の delivery-count と acquired-count の分離、basic.nack の無制限 return、basic.reject の失敗計数、delayed retry の対象、at-least-once DLX の必須条件を確認。ページ日付なし、公開コードは転載しない。"
+}

@@ -4,7 +4,7 @@
   "title": "メッセージ消費の acknowledgment 範囲・再配送上限・dead-letter 処理: RabbitMQ と SQS による at-least-once 処理の設計",
   "kind": "knowledge",
   "technology": "messaging",
-  "version": "RabbitMQ Documentation v4.3 (3ページ)、Amazon SQS Developer Guide current (2ページ)、いずれも 2026-09-28 取得",
+  "version": "RabbitMQ Documentation 4.3 / AMQP 0-9-1, 4.3 release 2026-04-23; Amazon SQS live Developer Guide, reverified 2026-10-01",
   "tags": [
     "research-domain:api-distributed",
     "messaging",
@@ -21,38 +21,47 @@
     "sqs",
     "visibility-timeout",
     "redrive-policy",
-    "idempotent-consumer"
+    "idempotent-consumer",
+    "unlimited-returns",
+    "basic.nack",
+    "basic.reject",
+    "delayed-retry-type"
   ],
   "sources": [
     {
-      "id": "rabbitmq-consumer-ack-confirms-docs",
+      "id": "rabbitmq-consumer-ack-confirms-docs-20261001",
       "url": "https://www.rabbitmq.com/docs/confirms",
       "type": "official_docs"
     },
     {
-      "id": "rabbitmq-dlx-docs",
+      "id": "rabbitmq-dlx-docs-20261001",
       "url": "https://www.rabbitmq.com/docs/dlx",
       "type": "official_docs"
     },
     {
-      "id": "rabbitmq-quorum-queues-docs",
+      "id": "rabbitmq-quorum-queues-docs-20261001",
       "url": "https://www.rabbitmq.com/docs/quorum-queues",
       "type": "official_docs"
     },
     {
-      "id": "aws-sqs-visibility-timeout-docs",
+      "id": "aws-sqs-visibility-timeout-docs-20261001",
       "url": "https://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/sqs-visibility-timeout.html",
       "type": "official_docs"
     },
     {
-      "id": "aws-sqs-dead-letter-queues-docs",
+      "id": "aws-sqs-dead-letter-queues-docs-20261001",
       "url": "https://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/sqs-dead-letter-queues.html",
       "type": "official_docs"
+    },
+    {
+      "id": "rabbitmq-43-unlimited-return-release-20261001",
+      "url": "https://www.rabbitmq.com/blog/2026/04/23/rabbitmq-4.3-release",
+      "type": "release_notes"
     }
   ],
-  "retrieved_at": "2026-09-28",
-  "expires_at": "2026-12-27",
-  "trust": "official",
+  "retrieved_at": "2026-10-01",
+  "expires_at": "2026-10-31",
+  "trust": "primary-source",
   "status": "active",
   "evals": [
     "evals/knowledge/api-distributed.json"
@@ -60,77 +69,73 @@
 }
 ---
 
-# メッセージ消費の acknowledgment 範囲・再配送上限・dead-letter 処理: RabbitMQ と SQS による at-least-once 処理の設計
+# Consumer acknowledgment と再配送予算: RabbitMQ 4.3 / SQS
 
-at-least-once 処理で「いつ配送を完了とみなすか」「何回失敗したら諦めて隔離するか」を、RabbitMQ と Amazon SQS の公式文書で整理する。ack の有効範囲は [Consumer Acknowledgements and Publisher Confirms](https://www.rabbitmq.com/docs/confirms)、dead-letter の発火条件は [Dead Letter Exchanges](https://www.rabbitmq.com/docs/dlx)、quorum queue の poison-message 対策は [Quorum Queues](https://www.rabbitmq.com/docs/quorum-queues)（いずれも Documentation v4.3）、可視性制御は [Visibility Timeout](https://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/sqs-visibility-timeout.html)、DLQ への移動条件は [Dead-Letter Queues](https://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/sqs-dead-letter-queues.html)（いずれも SQS Developer Guide の current ページ）を 2026-09-28 に取得して確認した。以下で「記載事実」「設計案」を明示的に分ける。
+## 問いと今回の訂正
 
-## 要点（公式文書の記載事実）
+処理が失敗したとき、broker に返す操作と「何回で隔離されるか」はどう対応するか。[RabbitMQ 4.3 の発表](https://www.rabbitmq.com/blog/2026/04/23/rabbitmq-4.3-release)（2026-04-23）は、4.2 までと異なり、4.3 では失敗として扱わない return が配送上限に数えられなくなったことを説明する。
 
-### RabbitMQ: acknowledgment の有効範囲と再配送（Confirms v4.3）
+この版差は運用上重要である。旧稿の「一時失敗には nack」「delivery-limit を設定すれば poison message を隔離する」という組み合わせでは、4.3 の無制限 return を防げない。新しい重複文書を増やす代わりに、その推奨を訂正した。RabbitMQ 3資料と SQS 2資料も再読し、本文全体を確認した。
 
-- delivery tag はチャネル単位（per channel）の有効範囲を持ち、ack はその配送を受け取った**同じチャネル**で行わなければならない。
-- auto-ack（受信と同時に肯定応答する方式）は fire-and-forget であり unsafe とされる。コンシューマが処理前に落ちるとメッセージは失われる。
-- `basic.ack` は正常完了の肯定、`basic.nack` と `basic.reject` は否定的応答で、`requeue` フラグが `true` なら再キューイング、`false` なら dead-letter 条件（後述）に該当しうる。
-- チャネルまたは接続が閉じられた時点で未 ack の配送は自動的に再キューイングされ、再配送時には redelivered フラグが立つ。すなわち close 自体が暗黙の「未完了」扱いになる。
-- 既に ack したタグへの二重 ack や未知タグへの ack はチャネルを閉じる原因になる。ack の呼び出し側はタグの有効性を自前で管理する必要がある。
+## RabbitMQ の契約（公式文書の要約）
 
-### RabbitMQ: dead-letter の発火条件と設定（DLX v4.3）
+### ack の範囲
 
-- dead-letter が発火する条件は次の4つである: `requeue=false` の `nack`/`reject`、メッセージ単位 TTL の失効、キュー長制限の超過、quorum queue の delivery-limit 超過。
-- dead-letter 先は `dead-letter-exchange` と `dead-letter-routing-key` のポリシーで設定する。
-- dead-letter の循環検出があり、ループするメッセージは drop される。DLX 同士を相互参照させる構成はメッセージを失う。
-- 既定の republish 方式は confirms を使わないため at-most-once であり、quorum queue には at-least-once の選択肢がある。dead-letter 自体の到達保証はキューの種類と設定に依存する。
+[Consumer Acknowledgements and Publisher Confirms](https://www.rabbitmq.com/docs/confirms)（表示版 4.3）による。
 
-### RabbitMQ: quorum queue の poison-message 対策（Quorum Queues v4.3）
+- delivery tag は channel 単位。同じチャネルで `basic.ack` する。未知の tag、二重 ack、別チャネルの ack はチャネルエラーを起こす
+- auto-ack は送信時点で受理とみなす fire-and-forget。処理完了前の切断で失うため、業務処理完了の保証に使うのは unsafe
+- manual ack されていない配送は、接続・チャネルが閉じると自動で requeue される。redelivered（再配送フラグ）に備え、consumer は冪等にする
+- `basic.nack` / `basic.reject` の `requeue=true` は再キューイング、`false` は dead-letter または破棄の対象。再配送されることと失敗計数は別の契約
 
-- 繰り返し失敗するメッセージ（poison message）は `delivery-limit` ポリシーで上限を設ける。4.0 以降の既定は 20 で、`-1` は無効化を意味するが非推奨とされる。
-- 再配送回数は `x-delivery-count` / `x-acquired-count` ヘッダで追跡し、v4.3 の文書は failure と acquire のカウント方式の対応表を示す。どちらが増えるかは失敗の形態に依存するため、カウント表を確認して上限設計に織り込む。
-- 上限を超過したメッセージは drop されるか dead-letter される。
-- `dead-letter-strategy` に `at-least-once` を指定すると at-least-once の dead-lettering が可能になる。関連する選択肢として、overflow 時の `reject-publish`、および consumer-timeout / delayed-retry がある。
+### 4.3 の poison message 上限と unlimited returns
 
-### SQS: visibility timeout による at-least-once 再配送（current）
+[Quorum Queues: Poison Message Handling](https://www.rabbitmq.com/docs/quorum-queues#poison-message-handling) は `x-delivery-count` が失敗配送、`x-acquired-count` が consumer への割当を追跡すると説明する。後者はアプリが実際に読んだ証拠ではない。`delivery-limit` の判定対象は失敗の方で、4.0 以降の既定は 20。超過時は設定済み DLX へ移すか破棄する。`-1` による無効化は非推奨。
 
-- `ReceiveMessage` で受信したメッセージは不可視（invisible）になり、他のコンシューマからは見えなくなる。既定の visibility timeout は 30秒である。
-- `ChangeMessageVisibility` で可視化までの猶予を変更でき、上限の 12時間は初回受信起点で数える。
-- `DeleteMessage` なしに timeout が切れるとメッセージは再び可視化され、at-least-once の再配送になる。すなわち SQS では「削除」が acknowledgment の役割を果たす。
-- standard キューの in-flight（処理中）上限は約 120000 で、short polling では超過時に `OverLimit` が返る。
-- FIFO キューでは、処理中のメッセージと同じ message-group-ID を持つメッセージはブロックされる。グループ単位の順序と head-of-line blocking の関係を前提に並行度を設計する。
+4.3 の再キューイングで、AMQP 0-9-1 `basic.nack` は失敗数を増やさず、`basic.reject` は増やす。client crash / connection loss も失敗、consumer timeout やクラスタ内 network partition で consumer 接続先 node が到達不能と疑われる場合は非失敗。AMQP 1.0 は `modified` の `delivery-failed` 等で区別されるため、0-9-1 のメソッド名をそのまま対応付けない。
 
-### SQS: redrive policy による DLQ 移動（current）
+同ページの delayed retry は `disabled`（既定）/ `all` / `failed` / `returned` を選び、失敗・非失敗のどちらを遅らせるか指定する。**遅延を入れるだけでは終了条件を増やさない。** `basic.nack` を常に使う設計では、delivery-limit があっても無制限 return が続き得る。
 
-- redrive policy の `maxReceiveCount` が、DLQ へ移動するまでの受信回数を制御する。
-- `redrive-allow-policy` が、DLQ への移動元として許可されたソースキューを制御する。
-- standard キューでは保持期間が元の enqueue 時刻起点で決まるため、DLQ の保持期間はソースキューより長く設定する。そうしないと隔離したメッセージが DLQ で十分に保たない。
-- FIFO キューでは DLQ への移動時に enqueue 時刻がリセットされる。standard と FIFO で保持期間の起点が異なる点に注意する。
+### DLX の条件と保証
 
-## 推奨方法（独自の設計案。上記文書の規定ではない）
+[Dead Letter Exchanges](https://www.rabbitmq.com/docs/dlx) では、`requeue=false`、message TTL、queue length limit、quorum の delivery-limit が主要な発火条件。`dead-letter-exchange` / `dead-letter-routing-key` を policy で指定できる。既定の内部 republish は confirms を使わず、宛先障害で失う可能性がある。
 
-- acknowledgment は「処理完了の宣言」として使う。RabbitMQ では処理が成功してから同じチャネルで `basic.ack` し、SQS では処理が成功してから `DeleteMessage` する。auto-ack や受信直後の削除は、処理前クラッシュでメッセージを失うため既定にしない。
-- 失敗時は再試行の意思を明示する。RabbitMQ では一時的失敗に `requeue=true` の `nack`、もう試す価値がない失敗に `requeue=false` の `nack`/`reject` を使い、後者は DLX 経由で隔離する。
-- poison message の上限を必ず設定する。RabbitMQ quorum queue では `delivery-limit`（既定 20 を起点に調整）、SQS では `maxReceiveCount` を設定し、上限超過分は DLQ へ逃がす。`delivery-limit: -1` の無効化は公式に非推奨のため使わない。
-- at-least-once を前提にコンシューマを冪等にする。処理済みメッセージ ID の記録と処理を同じローカルトランザクションで行う方式は [トランザクショナル・アウトボックス](../messaging/transactional-outbox.md) の MessageLog 方式と共通である。redelivered フラグや再受信回数は重複検出の補助には使えるが、重複排除キーそのものにはメッセージ ID を使う。
-- SQS の visibility timeout は処理時間の見積もりに合わせる。処理が既定 30秒を超えるなら `ChangeMessageVisibility` で延長する設計にし、12時間の上限（初回受信起点）を意識したバッチ分割にする。
-- SQS standard キューを使う場合、DLQ の保持期間はソースキューより長く設定する（保持期間が元の enqueue 時刻起点のため）。FIFO では起点がリセットされる点を踏まえて保持期間を見直す。
-- quorum queue で dead-letter の到達を重視するなら `dead-letter-strategy: at-least-once` を検討し、overflow 時の `reject-publish` と consumer-timeout / delayed-retry を組み合わせる。既定 republish が at-most-once であることを前提に選ぶ。
-- DLX 構成に循環を作らない。`dead-letter-exchange` と `dead-letter-routing-key` の参照先を図に起こし、相互参照がないことをレビュー項目にする。
+同ページの循環検出は「循環の全体に rejection がなかった場合」に drop する。あらゆる循環が自動で安全に止まるとは読まない。
 
-## 避ける使い方
+[Quorum Queues: at-least-once dead-lettering](https://www.rabbitmq.com/docs/quorum-queues#activating-at-least-once-dead-lettering) の条件は `dead-letter-strategy=at-least-once`、`overflow=reject-publish`、DLX 設定と必要な `stream_queue` feature flag。consumer-timeout / delayed-retry は有効化の必須条件ではない。宛先が確認できないと送信元に滞留し、再送重複もあり得る。
 
-- 受け取ったチャネルと別のチャネルで ack すること（二重 ack や未知タグと同様にチャネルを閉じる原因になる）。
-- 処理完了前に auto-ack すること（fire-and-forget で unsafe と明記されている）。
-- 一時的失敗のたびに無条件で `requeue=true` の `nack` を繰り返すこと（上限なしでは poison message が無限に再配送される。`delivery-limit` / `maxReceiveCount` を設定しない構成）。
-- `delivery-limit` を `-1` にして poison-message 対策を外すこと（非推奨）。
-- DLX 同士を相互参照させてループを作ること（循環検出で drop されメッセージを失う）。
-- SQS で `DeleteMessage` せずに visibility timeout の失効に頼る通常運用（意図しない再配送が常態化する。「削除が ack」の契約に反する）。
-- SQS standard キューで DLQ の保持期間をソースキュー以下にすること（元の enqueue 時刻起点のため隔離後にすぐ期限切れになりうる）。
-- redelivered フラグや受信回数を「初回配送の証拠」や重複排除キーとして使うこと（再送ごとに変わらない識別子ではない。メッセージ ID を使う）。
-- FIFO の同一 message-group-ID が処理中にブロックされることを考慮せず並行度を見積もること（head-of-line blocking でスループットが頭打ちになる）。
+## SQS の対照契約（公式文書の要約）
 
-## 適用版と本番での注意
+[Visibility Timeout](https://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/sqs-visibility-timeout.html) は、受信しても message はキューに残り、`DeleteMessage` が完了処理となると説明する。visibility timeout は既定30秒。`ChangeMessageVisibility` で変更できるが、最大12時間の起点は初回受信であり、延長してもリセットされない。これは排他処理の絶対保証ではなく、期間内にも再配送の可能性がある。
 
-- 適用版: RabbitMQ Documentation v4.3 の3ページ（Consumer Acknowledgements and Publisher Confirms、Dead Letter Exchanges、Quorum Queues）、Amazon SQS Developer Guide の current 2ページ（Visibility Timeout、Dead-Letter Queues）。いずれも 2026-09-28 取得。
-- 保証の範囲: 両者とも at-least-once が基本であり、exactly-once は提供されない。多重配送と順不同（standard キュー・classic キュー）を受け止める冪等設計が必須である。
-- 版による差の注意: `delivery-limit` の既定 20 は 4.0 以降の規定であり、それより前の版の既定は本調査の範囲外（未確認）。`x-delivery-count` / `x-acquired-count` のカウント対応表は v4.3 の記載であり、他版の挙動は未確認。
-- SQS の数値の注意: in-flight 上限の約 120000 と `OverLimit` は standard キューの short polling での記載である。long polling や FIFO での上限挙動、12時間上限の例外条件は本調査で確認していない。
-- 未確認・範囲外: 各クライアントライブラリの ack API の詳細、visibility timeout 延長の最適間隔、DLQ からの redrive-back の運用手順、各方式のスループット・レイテンシ目標は本調査の範囲外。再試行間隔・バックオフの具体値は両文書の本ページに規定がなく、要件に応じて別途確認する。
-- 再確認期限: 全 source が official_docs（TTL 90日）で、技術（messaging）固有 TTL は設定されていない。2026-12-27 に5ページを再取得し、ack 契約・発火条件・既定値・上限値の変更を確認する。
+同資料では standard の in-flight 上限が約120000で、short polling は `OverLimit`、long polling は新規配送を返さなくなる。FIFO の同じ message-group-ID は、処理中の配送が削除されるか可視性が戻るまで後続を止める。head-of-line blocking を並行度設計に含める。
+
+[Dead-Letter Queues](https://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/sqs-dead-letter-queues.html) では `maxReceiveCount` を redrive policy に設定する。redrive-allow-policy は移動元を制御する。standard の保持期限は元の enqueue 時刻が起点なので DLQ の保持期間を長くし、FIFO は DLQ 移動時に起点がリセットされる。同ページは厳密な処理順序が必要な FIFO での DLQ 利用に注意を促す。
+
+## 実務の判断手順（独自の設計案）
+
+1. consumer の終了経路を、成功・再試行する処理失敗・未処理の一時返却・恒久失敗に分類する。ライブラリがすべての例外を nack に変換していないか調べ、メソッドと requeue 値を記録する
+2. RabbitMQ 4.3 で失敗回数による隔離を意図する場合、失敗として数える返却方法を選ぶ。非失敗 return を選ぶなら、業務期限や独立の attempt budget、隔離へ進む条件をアプリ側にも定義する。x-acquired-count を見た回数だけで「処理が何回走った」と断定しない
+3. 一時障害でも「個別 message だけ処理不能」と「下流全体が停止」を分ける。全体停止で全 message を高速循環させない。consumer の一時停止・流量制御を検討し、復旧を判定する責務を決める
+4. delayed-retry-type と実際の返却操作が一致するか確認する。nack に failed の遅延を期待するような組み合わせを避ける。待機時間の予算と試行回数の予算を別々にレビューする
+5. 成功 ack / DeleteMessage は、副作用の永続化後に行う。副作用と応答の間の crash に備え、安定した業務 ID で重複排除する。delivery tag や redelivered フラグを業務 ID の代用にしない
+6. 隔離までの経路を最後まで試す。DLX/DLQ の存在・routing・受理・保持期限・監視を確認し、「上限を設定した」だけを完了条件にしない。RabbitMQ の at-least-once DLX で下流が止まる場合、送信元の滞留予算と復旧手順も用意する
+7. SQS は処理時間を見て visibility を延長し、12時間を超える仕事は処理単位を分割する。FIFO では隔離後の順序を要求仕様と照らす
+
+## 移行時の受け入れ試験案（未実行）
+
+- nack loop: 4.3 quorum queue で低い delivery-limit を用意し、`basic.nack(requeue=true)` を繰り返す。失敗数だけでは隔離されないケースでも、アプリの停止条件が作動するか確認する
+- reject failure: 同じ負荷を `basic.reject(requeue=true)` で返し、失敗数による上限と DLX への到達を確認する。境界値は採用 patch / client の組み合わせで観測する
+- delay selection: 同じ返却操作を `failed` と `returned` に分け、想定した方だけに遅延が適用されるか確認する。遅延の効果と隔離の効果を一つの結果にまとめない
+- crash before ack: 副作用の commit 後に接続断を起こし、再配送でも業務結果を二重作成しないことを確認する
+- dead-letter target unavailable: at-least-once DLX の宛先停止で送信元の滞留と回復後の重複を確認し、通常配送の容量を使い切らない警報を試す
+- SQS expiry: 処理中に visibility timeout を切らし、並行する再処理でも冪等性を保つか確認する。DLQ 保持の起点と FIFO の順序要件も別項目で確認する
+
+## 版・provenance・未確認事項
+
+- 取得日は UTC 2026-10-01。RabbitMQ の live docs は4.3表示で patch 固定ではない。4.3 変更の発表日は2026-04-23。SQS の live guide と RabbitMQ reference は公開・更新日を表示していない
+- `/docs/4.3/` の版付き URL は取得できず、現行 URL の版表示を確認した。公開資料が更新された場合、表と実装の差を再確認する
+- RabbitMQ website の LICENSE は404、AWS 旧 docs repository の LICENSE は取得失敗。live ページへの適用ライセンスを確認できないため、新規 source record は unknown とした。引用コードや図の転載はせず、独自要約と設計・試験案のみを記載した
+- 旧 catalog record は変更せず、新しい6記録を使う。release_notes の30日 TTL により2026-10-31が再確認期限
+- broker / AWS の実環境試験、クライアント別の例外変換、境界回数、遅延計算の実測は未検証。検索 eval は文書の可発見性だけを確認する。特に quorum reference の遅延数値例には式と整合しない段階があり、本稿はその数値例を採用しない
+- 本文の対象は consumer 側。publisher confirms と outbox の送信済み判定は[別文書](publisher-confirms-mandatory-retry.md)を参照する
