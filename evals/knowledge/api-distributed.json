@@ -474,6 +474,12 @@
       "name": "raft-stale-read-linearizable",
       "query": "stale read linearizable",
       "expected_ids": ["distributed-systems-raft-leader-election-log-replication"]
-    }
+    },
+    {"name": "publisher-confirm-return-before-ack", "query": "mandatory basic.return basic.ack", "expected_ids": ["messaging-publisher-confirms-mandatory-retry"]},
+    {"name": "publisher-confirm-channel-sequence", "query": "confirm.select sequence multiple", "expected_ids": ["messaging-publisher-confirms-mandatory-retry"]},
+    {"name": "publisher-confirm-durability-quorum", "query": "persistent durable quorum", "expected_ids": ["messaging-publisher-confirms-mandatory-retry"]},
+    {"name": "publisher-confirm-unknown-retry", "query": "confirm 結果不明 再送", "expected_ids": ["messaging-publisher-confirms-mandatory-retry"]},
+    {"name": "publisher-confirm-outbox-boundary", "query": "confirm outbox crash", "expected_ids": ["messaging-publisher-confirms-mandatory-retry"]},
+    {"name": "publisher-confirm-not-consumer", "query": "confirm consumer 独立", "expected_ids": ["messaging-publisher-confirms-mandatory-retry"]}
   ]
 }

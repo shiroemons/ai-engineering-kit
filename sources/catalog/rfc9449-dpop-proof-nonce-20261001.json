@@ -1,0 +1,12 @@
+{
+  "id": "rfc9449-dpop-proof-nonce-20261001",
+  "url": "https://www.rfc-editor.org/rfc/rfc9449.html",
+  "repository_url": "",
+  "commit_sha": "",
+  "version": "RFC 9449, September 2023",
+  "retrieved_at": "2026-10-01",
+  "license": "IETF Trust Legal Provisions / BCP 78; RFC copyright notice checked 2026-10-01; no code copied",
+  "trust": "official",
+  "type": "official_docs",
+  "purpose": "DPoP proof と access token の結合、HTTP request 検証、nonce/replay と Bearer downgrade の境界を確認"
+}

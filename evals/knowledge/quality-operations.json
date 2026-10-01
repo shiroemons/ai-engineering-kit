@@ -285,6 +285,13 @@
       "expected_ids": [
         "opentelemetry-metric-temporality-reset-conversion"
       ]
-    }
+    },
+    {"name": "native-histogram-flag-transition", "query": "scrape_native_histograms 3.9 no-op", "expected_ids": ["observability-prometheus-native-histogram-migration"]},
+    {"name": "native-histogram-remote-write", "query": "send_native_histograms remote write", "expected_ids": ["observability-prometheus-native-histogram-migration"]},
+    {"name": "native-histogram-classic-le", "query": "histogram_quantile classic le", "expected_ids": ["observability-prometheus-native-histogram-migration"]},
+    {"name": "native-histogram-mixed-range", "query": "rate float warn-level", "expected_ids": ["observability-prometheus-native-histogram-migration"]},
+    {"name": "native-histogram-bucket-limit", "query": "native_histogram_bucket_limit 解像度", "expected_ids": ["observability-prometheus-native-histogram-migration"]},
+    {"name": "native-histogram-nhcb-conversion", "query": "NHCB convert_classic_histograms_to_nhcb", "expected_ids": ["observability-prometheus-native-histogram-migration"]},
+    {"name": "native-histogram-aggregate-quantile", "query": "p95 平均 fleet", "expected_ids": ["observability-prometheus-native-histogram-migration"]}
   ]
 }
