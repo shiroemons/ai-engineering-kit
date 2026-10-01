@@ -1,0 +1,12 @@
+{
+  "id": "prometheus-native-histogram-config-20261001",
+  "url": "https://prometheus.io/docs/prometheus/latest/configuration/configuration/",
+  "repository_url": "https://github.com/prometheus/prometheus",
+  "commit_sha": "",
+  "version": "Rolling latest configuration reference retrieved 2026-10-01; global scrape_native_histograms default false",
+  "retrieved_at": "2026-10-01",
+  "license": "Apache-2.0 (https://raw.githubusercontent.com/prometheus/prometheus/main/LICENSE; checked 2026-10-01); original summary only",
+  "trust": "official",
+  "type": "official_docs",
+  "purpose": "native scrape、classic 併用、NHCB 変換、bucket limit の設定契約を確認。コード転載なし"
+}

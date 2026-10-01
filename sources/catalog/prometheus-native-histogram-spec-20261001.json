@@ -1,0 +1,12 @@
+{
+  "id": "prometheus-native-histogram-spec-20261001",
+  "url": "https://prometheus.io/docs/specs/native_histograms/",
+  "repository_url": "https://github.com/prometheus/docs",
+  "commit_sha": "",
+  "version": "Rolling specification retrieved 2026-10-01; documents 3.8 stabilization and 3.9 flag transition",
+  "retrieved_at": "2026-10-01",
+  "license": "Apache-2.0 (https://github.com/prometheus/docs/blob/main/LICENSE; checked 2026-10-01); original summary only",
+  "trust": "official",
+  "type": "official_docs",
+  "purpose": "Native histogram の安定化と scrape/remote-write 設定の適用範囲を確認"
+}

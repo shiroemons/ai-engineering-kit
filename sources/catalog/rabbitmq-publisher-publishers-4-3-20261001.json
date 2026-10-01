@@ -1,0 +1,12 @@
+{
+  "id": "rabbitmq-publisher-publishers-4-3-20261001",
+  "url": "https://www.rabbitmq.com/docs/publishers",
+  "repository_url": "https://github.com/rabbitmq/rabbitmq-website",
+  "commit_sha": "",
+  "version": "RabbitMQ documentation selector 4.3; retrieved 2026-10-01; page publication date not stated",
+  "retrieved_at": "2026-10-01",
+  "license": "unknown",
+  "trust": "official",
+  "type": "official_docs",
+  "purpose": "AMQP 0-9-1 の unroutable 処理と socket write の限界を確認。文書ライセンス未確認のため独自要約のみ。LICENSE ページの取得に失敗し、コードは転載しない"
+}

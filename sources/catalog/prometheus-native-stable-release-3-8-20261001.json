@@ -1,0 +1,12 @@
+{
+  "id": "prometheus-native-stable-release-3-8-20261001",
+  "url": "https://github.com/prometheus/prometheus/releases/tag/v3.8.0",
+  "repository_url": "https://github.com/prometheus/prometheus",
+  "commit_sha": "",
+  "version": "Prometheus 3.8.0; release title date 2025-11-28; GitHub published 2025-12-02",
+  "retrieved_at": "2026-10-01",
+  "license": "Apache-2.0 (https://raw.githubusercontent.com/prometheus/prometheus/main/LICENSE; checked 2026-10-01); original summary only",
+  "trust": "official",
+  "type": "release_notes",
+  "purpose": "Native Histograms stable 化と feature flag から明示設定への移行手順を確認。独自要約のみ"
+}

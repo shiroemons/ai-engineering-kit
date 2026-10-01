@@ -58,4 +58,11 @@
 {"expected_ids":["security-oidc-discovery-jwks-kid-rotation"],"name":"oidc-discovery-default-preference-order","query":"default preference order keys"},
 {"expected_ids":["security-oidc-discovery-jwks-kid-rotation"],"name":"oidc-discovery-issuer-scoped-jwks-rotation","query":"issuer-scoped JWKS rotation"},
 {"expected_ids":["security-oidc-discovery-jwks-kid-rotation"],"name":"oidc-discovery-kid-rollover-rotation","query":"kid rollover rotation"},
-{"expected_ids":["security-oidc-discovery-jwks-kid-rotation"],"name":"oidc-discovery-jku-x5u-rollover","query":"jku x5u rollover"}]}
+{"expected_ids":["security-oidc-discovery-jwks-kid-rotation"],"name":"oidc-discovery-jku-x5u-rollover","query":"jku x5u rollover"},
+    {"name": "dpop-token-key-binding", "query": "DPoP ath cnf.jkt", "expected_ids": ["oauth-dpop-proof-binding-nonce-replay"]},
+    {"name": "dpop-uri-method-scope", "query": "DPoP htm htu query", "expected_ids": ["oauth-dpop-proof-binding-nonce-replay"]},
+    {"name": "dpop-nonce-server-boundary", "query": "DPoP-Nonce AS RS", "expected_ids": ["oauth-dpop-proof-binding-nonce-replay"]},
+    {"name": "dpop-replay-replica", "query": "DPoP jti replica", "expected_ids": ["oauth-dpop-proof-binding-nonce-replay"]},
+    {"name": "dpop-bearer-downgrade", "query": "DPoP Bearer 拒否", "expected_ids": ["oauth-dpop-proof-binding-nonce-replay"]},
+    {"name": "dpop-retry-idempotency", "query": "DPoP business idempotency", "expected_ids": ["oauth-dpop-proof-binding-nonce-replay"]}
+  ]}
