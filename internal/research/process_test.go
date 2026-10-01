@@ -191,20 +191,24 @@ func TestSharedCooldownStopsActiveBatch(t *testing.T) {
 	var out strings.Builder
 	done := make(chan error, 1)
 	go func() { done <- Run(t.Context(), root, state, []string{"opencode/muse"}, false, &out) }()
-	deadline := time.Now().Add(5 * time.Second)
+	// Startup includes indexing and validating the full knowledge fixture plus
+	// creating the worker worktree. Give that setup room under -race and load;
+	// the cooldown response still has its own five-second deadline below.
+	const workerStartTimeout = 30 * time.Second
+	deadline := time.Now().Add(workerStartTimeout)
 	for time.Now().Before(deadline) {
 		if _, err := os.Stat(filepath.Join(state, "child-pid")); err == nil {
 			break
 		}
-		time.Sleep(10 * time.Millisecond)
-	}
-	if _, err := os.Stat(filepath.Join(state, "child-pid")); err != nil {
 		select {
 		case batchErr := <-done:
 			t.Fatalf("batch exited before starting its worker: %v", batchErr)
 		default:
 		}
-		t.Fatal(err)
+		time.Sleep(10 * time.Millisecond)
+	}
+	if _, err := os.Stat(filepath.Join(state, "child-pid")); err != nil {
+		t.Fatalf("batch worker did not start within %s: %v", workerStartTimeout, err)
 	}
 	writeFile(t, filepath.Join(state, "cooldown-until"), []byte(strconv.FormatInt(time.Now().Add(time.Hour).Unix(), 10)+"\n"), 0600)
 	select {
