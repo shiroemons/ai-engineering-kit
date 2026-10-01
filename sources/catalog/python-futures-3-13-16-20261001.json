@@ -1,0 +1,12 @@
+{
+  "id": "python-futures-3-13-16-20261001",
+  "url": "https://docs.python.org/3.13/library/concurrent.futures.html",
+  "repository_url": "",
+  "commit_sha": "",
+  "version": "Python 3.13.16 documentation（取得時のページ表示版）",
+  "retrieved_at": "2026-10-01",
+  "license": "PSF-2.0; documentation examples, recipes and code additionally 0BSD (https://docs.python.org/3.14/license.html)",
+  "trust": "official",
+  "type": "official_docs",
+  "purpose": "3.13 の map に buffersize がないこと、Future.result/cancel、shutdown(wait, cancel_futures)、with 終了待機、ThreadPoolExecutor のデッドロックと終了時 join の契約を照合。"
+}

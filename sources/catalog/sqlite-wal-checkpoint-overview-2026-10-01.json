@@ -1,0 +1,12 @@
+{
+  "id": "sqlite-wal-checkpoint-overview-2026-10-01",
+  "url": "https://www.sqlite.org/wal.html",
+  "repository_url": "",
+  "commit_sha": "",
+  "version": "SQLite WAL official documentation; page updated 2026-08-25 19:42:39Z",
+  "retrieved_at": "2026-10-01",
+  "license": "Public domain (SQLite code and documentation; https://www.sqlite.org/copyright.html)",
+  "trust": "official",
+  "type": "official_docs",
+  "purpose": "checkpoint starvation、WAL の再利用と永続状態、WAL-reset の修正境界と2026-08-24の再現例追記を確認"
+}

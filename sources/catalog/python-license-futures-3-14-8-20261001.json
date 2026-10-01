@@ -1,0 +1,12 @@
+{
+  "id": "python-license-futures-3-14-8-20261001",
+  "url": "https://docs.python.org/3.14/license.html",
+  "repository_url": "",
+  "commit_sha": "",
+  "version": "Python 3.14.8 History and License（取得時のページ表示版）",
+  "retrieved_at": "2026-10-01",
+  "license": "PSF-2.0; documentation examples, recipes and code additionally 0BSD (https://docs.python.org/3.14/license.html)",
+  "trust": "official",
+  "type": "official_docs",
+  "purpose": "Python 文書は PSF-2.0、文書内のコード・例・レシピは3.8.6以降 PSF-2.0 と 0BSD のデュアルライセンスであることを確認。今回コード転載なし。"
+}

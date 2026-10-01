@@ -1,0 +1,12 @@
+{
+  "id": "wcag22-technique-h100-authentication-20261001",
+  "url": "https://www.w3.org/WAI/WCAG22/Techniques/html/H100",
+  "version": "WCAG 2.2 Technique H100; page date Updated 12 January 2026; retrieved 2026-10-01",
+  "license": "W3C Software and Document License 2023 (page footer permissive license); https://www.w3.org/copyright/software-license-2023/",
+  "purpose": "認証入力の accessible name、password manager による入力と貼り付けの非阻害、および H100 が十分な達成手法であって唯一の必須実装ではないことを確認する",
+  "repository_url": "",
+  "commit_sha": "",
+  "retrieved_at": "2026-10-01",
+  "trust": "official",
+  "type": "official_docs"
+}

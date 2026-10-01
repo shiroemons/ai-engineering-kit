@@ -1,0 +1,12 @@
+{
+  "id": "whatwg-autocomplete-authentication-20261001",
+  "url": "https://html.spec.whatwg.org/multipage/form-control-infrastructure.html#autofilling-form-controls:-the-autocomplete-attribute",
+  "version": "HTML Living Standard section 4.10.19.7; page header Last Updated 1 October 2026; retrieved 2026-10-01",
+  "license": "CC BY 4.0 (specification text); source-code portions BSD-3-Clause; https://html.spec.whatwg.org/multipage/acknowledgements.html#ipr",
+  "purpose": "autocomplete が UA へのヒントであることと username/current-password/new-password/one-time-code の意味を確認する",
+  "repository_url": "",
+  "commit_sha": "",
+  "retrieved_at": "2026-10-01",
+  "trust": "official",
+  "type": "official_docs"
+}

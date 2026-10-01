@@ -1,0 +1,12 @@
+{
+  "id": "python-whatsnew-futures-3-14-20261001",
+  "url": "https://docs.python.org/3.14/whatsnew/3.14.html",
+  "repository_url": "",
+  "commit_sha": "",
+  "version": "What’s new in Python 3.14 / Python 3.14.8 documentation（ページ表示版）",
+  "retrieved_at": "2026-10-01",
+  "license": "PSF-2.0; documentation examples, recipes and code additionally 0BSD (https://docs.python.org/3.14/license.html)",
+  "trust": "official",
+  "type": "release_notes",
+  "purpose": "3.14 の公開日2025-10-07、buffersize と terminate_workers/kill_workers の導入を確認。ページ更新表示は2026-10-01 10:41 UTCであり、機能の導入日とは区別する。"
+}

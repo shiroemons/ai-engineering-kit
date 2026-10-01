@@ -1,0 +1,12 @@
+{
+  "id": "python-multiprocessing-termination-3-14-8-20261001",
+  "url": "https://docs.python.org/3.14/library/multiprocessing.html",
+  "repository_url": "",
+  "commit_sha": "",
+  "version": "Python 3.14.8 documentation（取得時のページ表示版）",
+  "retrieved_at": "2026-10-01",
+  "license": "PSF-2.0; documentation examples, recipes and code additionally 0BSD (https://docs.python.org/3.14/license.html)",
+  "trust": "official",
+  "type": "official_docs",
+  "purpose": "Process.terminate/kill の finally・終了ハンドラ非実行、子孫プロセス、pipe/queue 破損・lock デッドロックの警告を確認。強制終了の代償を明記する根拠。"
+}
