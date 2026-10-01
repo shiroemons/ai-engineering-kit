@@ -17,6 +17,7 @@ test:
     bash scripts/test-research-next.sh
     bash scripts/test-research-loop.sh
     bash scripts/test-install-research-agent.sh
+    bash scripts/test-research-gpt.sh
 
 validate:
     go run ./cmd/kb validate
@@ -74,3 +75,13 @@ research-install:
 
 research-uninstall:
     bash scripts/uninstall-research-agent.sh
+
+# These deterministic helpers do not launch a model or require OpenCode.
+research-gpt-plan topics="3":
+    go run ./cmd/research-gpt plan --topics {{topics}}
+
+research-gpt-validate base topics="3":
+    go run ./cmd/research-gpt validate --base {{base}} --topics {{topics}}
+
+research-gpt-status:
+    bash scripts/research-gpt-state.sh status

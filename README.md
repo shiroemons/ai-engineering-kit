@@ -89,9 +89,15 @@ index は事前に生成する。入力や設定が変わると検索が再生�
 
 [AGENTS.md](AGENTS.md) を読み、実装前に `kb search` で候補を探す。結果の本文、適用版、source、provenance を開いて採用を判断する。stale は再調査し、module のテストと eval を通してから使う。
 
+### GPT で一次情報を収集する
+
+[GPT research skill](.agents/skills/research-gpt/SKILL.md) は現在の GPT タスクが直接調査する専用入口。dot では GPT-6 Astra を選び、1回につき最大3テーマを扱う。外部 API キーや OpenCode は不要で、既存の OpenCode 版と設定を共有するのは調査領域・選定方針・検証契約だけ。remote lease、latest-main の隔離 branch、成果物の厳格検証、PR/CI/merge の手順は [GPT Research](docs/research-gpt.md) を参照する。
+
+`mise exec -- just research-gpt-plan 3` で調査領域の候補を確認できる。これはモデルや定期実行を起動しない。毎時の実行はタスクサービス側で設定し、前回の未完了作業がある場合は新規調査を重ねない。
+
 ## 適用範囲
 
-Linux では CLI と検証に加えて、`just research-preflight`・`just research-dry-run`・`just research`・`just research-loop` の手動実行を対象とする。実際の調査には OpenCode と利用モデルの設定も必要になる。`research-install`・`research-uninstall`・`research-status` による launchd の定期実行は macOS 専用で、Linux の systemd / cron の登録は実装していない。Linux での設定ファイル・ログの既定パスと必要な環境変数は [Research Pipeline](docs/research-automation.md) を参照する。
+Linux では CLI と検証に加えて、`just research-preflight`・`just research-dry-run`・`just research`・`just research-loop` の手動実行を対象とする。これら OpenCode 版の調査には OpenCode と利用モデルの設定も必要になる。`research-install`・`research-uninstall`・`research-status` による launchd の定期実行は macOS 専用で、Linux の systemd / cron の登録は実装していない。Linux での設定ファイル・ログの既定パスと必要な環境変数は [Research Pipeline](docs/research-automation.md) を参照する。
 
 自動のネット調査は毎時、無料モデル2つで別テーマを並列に調べる。予定上は1日24回・最大48テーマ。`just research-loop` はMuse Sparkだけで最長8時間繰り返す。定期実行と連続実行は別ワークツリーで同時に動く。8領域の未調査分野を優先し、公式文書に加えてOSS設計や実務事例を調べる。設定と停止条件は [Research Pipeline](docs/research-automation.md) を参照する。
 
