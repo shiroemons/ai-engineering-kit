@@ -1,0 +1,12 @@
+{
+  "id": "mcp-elicitation-spec-2026-07-28-2026-10-01",
+  "url": "https://modelcontextprotocol.io/specification/2026-07-28/client/elicitation",
+  "repository_url": "https://github.com/modelcontextprotocol/modelcontextprotocol",
+  "commit_sha": "",
+  "version": "MCP specification 2026-07-28 revision; verified 2026-10-01 UTC",
+  "retrieved_at": "2026-10-01",
+  "license": "Apache-2.0 for new/relicensed specification contributions; MIT for legacy contributions without relicensing consent (repository LICENSE checked 2026-10-01; per-contribution allocation unverified)",
+  "trust": "official",
+  "type": "official_docs",
+  "purpose": "form / URL modes、3種類の応答、秘密情報の境界、URL consent / phishing 対策を確認"
+}

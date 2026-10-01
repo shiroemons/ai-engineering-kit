@@ -1,0 +1,12 @@
+{
+  "id": "kubernetes-disruptions-20261001",
+  "url": "https://kubernetes.io/docs/concepts/workloads/pods/disruptions/",
+  "repository_url": "https://github.com/kubernetes/website",
+  "commit_sha": "",
+  "version": "Kubernetes rolling docs (selector v1.37); page last modified 2025-05-16; PDB stable v1.21",
+  "retrieved_at": "2026-10-01",
+  "license": "CC-BY-4.0 (https://github.com/kubernetes/website/blob/main/LICENSE; checked 2026-10-01)",
+  "trust": "official",
+  "type": "official_docs",
+  "purpose": "PDB が防ぐ disruption の境界、直接削除と rolling update の除外、involuntary disruption と容量不足による drain 停滞を確認"
+}

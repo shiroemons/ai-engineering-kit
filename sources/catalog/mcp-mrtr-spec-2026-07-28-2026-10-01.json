@@ -1,0 +1,12 @@
+{
+  "id": "mcp-mrtr-spec-2026-07-28-2026-10-01",
+  "url": "https://modelcontextprotocol.io/specification/2026-07-28/basic/patterns/mrtr",
+  "repository_url": "https://github.com/modelcontextprotocol/modelcontextprotocol",
+  "commit_sha": "",
+  "version": "MCP specification 2026-07-28 revision; verified 2026-10-01 UTC",
+  "retrieved_at": "2026-10-01",
+  "license": "Apache-2.0 for new/relicensed specification contributions; MIT for legacy contributions without relicensing consent (repository LICENSE checked 2026-10-01; per-contribution allocation unverified)",
+  "trust": "official",
+  "type": "official_docs",
+  "purpose": "InputRequiredResult、対応メソッド、inputResponses、requestState の改ざん・replay と再試行の契約を確認"
+}
