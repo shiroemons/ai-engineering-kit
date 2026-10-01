@@ -1,0 +1,12 @@
+{
+  "id": "k6-options-completion-20261001",
+  "url": "https://grafana.com/docs/k6/latest/using-k6/k6-options/reference/",
+  "repository_url": "",
+  "commit_sha": "",
+  "version": "Grafana k6 v2.3.x documentation; verified 2026-10-01; no publication date displayed",
+  "retrieved_at": "2026-10-01",
+  "license": "unknown (retrieved documentation page and grafana/k6-docs repository metadata do not state an open license); attributed original summary only",
+  "trust": "official",
+  "type": "official_docs",
+  "purpose": "exit-on-running の既定 false と finalized status まで待つ挙動、linger の既定 false と完了後のプロセス保持、v2.0.0 以降 REST API を --address/K6_ADDRESS で明示有効化する条件を確認する"
+}

@@ -579,6 +579,83 @@
       "name": "mcp-elicitation-user-binding",
       "query": "elicitation 本人 URL",
       "expected_ids": ["mcp-elicitation-consent-sensitive-input"]
+    },
+    {
+      "name": "mcp-tasks-core-extension-migration",
+      "query": "Tasks 2025-11-25 2026-07-28",
+      "expected_ids": [
+        "mcp-tasks-extension-polling-cancellation-migration"
+      ]
+    },
+    {
+      "name": "mcp-tasks-result-polling-update",
+      "query": "tasks/result tasks/get tasks/update",
+      "expected_ids": [
+        "mcp-tasks-extension-polling-cancellation-migration"
+      ]
+    },
+    {
+      "name": "mcp-tasks-server-directed-capability",
+      "query": "server io.modelcontextprotocol/tasks capability",
+      "expected_ids": [
+        "mcp-tasks-extension-polling-cancellation-migration"
+      ]
+    },
+    {
+      "name": "mcp-tasks-flat-create-result",
+      "query": "flat CreateTaskResult",
+      "expected_ids": [
+        "mcp-tasks-extension-polling-cancellation-migration"
+      ]
+    },
+    {
+      "name": "mcp-tasks-completed-tool-error",
+      "query": "completed isError failed",
+      "expected_ids": [
+        "mcp-tasks-extension-polling-cancellation-migration"
+      ]
+    },
+    {
+      "name": "mcp-tasks-input-ack-eventual",
+      "query": "inputRequests inputResponses ack",
+      "expected_ids": [
+        "mcp-tasks-extension-polling-cancellation-migration"
+      ]
+    },
+    {
+      "name": "mcp-tasks-cancel-cooperative-ack",
+      "query": "tasks/cancel 協調的 ack",
+      "expected_ids": [
+        "mcp-tasks-extension-polling-cancellation-migration"
+      ]
+    },
+    {
+      "name": "mcp-tasks-retention-polling-units",
+      "query": "ttlMs pollIntervalMs",
+      "expected_ids": [
+        "mcp-tasks-extension-polling-cancellation-migration"
+      ]
+    },
+    {
+      "name": "mcp-tasks-task-id-routing",
+      "query": "Mcp-Name params.taskId",
+      "expected_ids": [
+        "mcp-tasks-extension-polling-cancellation-migration"
+      ]
+    },
+    {
+      "name": "mcp-tasks-error-number-doc-drift",
+      "query": "capability -32003 -32021",
+      "expected_ids": [
+        "mcp-tasks-extension-polling-cancellation-migration"
+      ]
+    },
+    {
+      "name": "mcp-tasks-sdk-receiver-generation",
+      "query": "0.2.2 receiver 2025-11-25",
+      "expected_ids": [
+        "mcp-tasks-extension-polling-cancellation-migration"
+      ]
     }
   ]
 }

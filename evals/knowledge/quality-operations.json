@@ -292,6 +292,13 @@
     {"name": "native-histogram-mixed-range", "query": "rate float warn-level", "expected_ids": ["observability-prometheus-native-histogram-migration"]},
     {"name": "native-histogram-bucket-limit", "query": "native_histogram_bucket_limit 解像度", "expected_ids": ["observability-prometheus-native-histogram-migration"]},
     {"name": "native-histogram-nhcb-conversion", "query": "NHCB convert_classic_histograms_to_nhcb", "expected_ids": ["observability-prometheus-native-histogram-migration"]},
-    {"name": "native-histogram-aggregate-quantile", "query": "p95 平均 fleet", "expected_ids": ["observability-prometheus-native-histogram-migration"]}
+    {"name": "native-histogram-aggregate-quantile", "query": "p95 平均 fleet", "expected_ids": ["observability-prometheus-native-histogram-migration"]},
+    {"name": "k6-v2-cloud-abort-exit", "query": "Cloud abort 97 99", "expected_ids": ["performance-k6-completion-exit-code-linger"]},
+    {"name": "k6-v2-exit-on-running-finalized", "query": "exit-on-running finalized", "expected_ids": ["performance-k6-completion-exit-code-linger"]},
+    {"name": "k6-v23-linger-result-null", "query": "linger execution_result null", "expected_ids": ["performance-k6-completion-exit-code-linger"]},
+    {"name": "k6-v23-local-abort-108", "query": "execution_result 108", "expected_ids": ["performance-k6-completion-exit-code-linger"]},
+    {"name": "k6-v2-rest-address-disabled", "query": "K6_ADDRESS 既定", "expected_ids": ["performance-k6-completion-exit-code-linger"]},
+    {"name": "k6-cloud-upload-not-run", "query": "cloud upload 実行しない", "expected_ids": ["performance-k6-completion-exit-code-linger"]},
+    {"name": "k6-v2-unknown-nonzero", "query": "未知 非ゼロ", "expected_ids": ["performance-k6-completion-exit-code-linger"]}
   ]
 }

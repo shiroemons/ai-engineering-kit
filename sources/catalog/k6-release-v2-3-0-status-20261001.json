@@ -1,0 +1,12 @@
+{
+  "id": "k6-release-v2-3-0-status-20261001",
+  "url": "https://github.com/grafana/k6/releases/tag/v2.3.0",
+  "repository_url": "https://github.com/grafana/k6",
+  "commit_sha": "e0887846143ab176d4b5483c9d52cf3b3e009f1a",
+  "version": "k6 v2.3.0; published 2026-09-21; commit e0887846143ab176d4b5483c9d52cf3b3e009f1a",
+  "retrieved_at": "2026-10-01",
+  "license": "AGPL-3.0 (https://github.com/grafana/k6/blob/v2.3.0/LICENSE.md); original summary only",
+  "trust": "official",
+  "type": "release_notes",
+  "purpose": "v2.3.0 の /v1/status execution_result 追加、未確定時 null、linger 中の exit_code 観測と exec.test.abort の 108 例を確認する"
+}

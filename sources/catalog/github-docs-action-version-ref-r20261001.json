@@ -1,0 +1,12 @@
+{
+  "id": "github-docs-action-version-ref-r20261001",
+  "url": "https://docs.github.com/en/actions/reference/workflows-and-actions/workflow-syntax",
+  "repository_url": "https://github.com/github/docs",
+  "commit_sha": "",
+  "version": "GitHub Docs unversioned current page; jobs.<job_id>.steps[*].uses; verified 2026-10-01",
+  "retrieved_at": "2026-10-01",
+  "license": "CC-BY-4.0 (documentation; https://github.com/github/docs#license and https://github.com/github/docs/blob/main/LICENSE verified 2026-10-01)",
+  "trust": "official",
+  "type": "official_docs",
+  "purpose": "usesでactionのref/SHAを選ぶこと、公開済み版のcommit SHA固定とmajor tag/default branchの差を確認。Node24対応版へ移行する際の参照更新判断に用いる。ページ上の公開・更新日は表示なし。"
+}

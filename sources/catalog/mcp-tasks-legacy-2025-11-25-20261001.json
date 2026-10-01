@@ -1,0 +1,12 @@
+{
+  "id": "mcp-tasks-legacy-2025-11-25-20261001",
+  "url": "https://modelcontextprotocol.io/specification/2025-11-25/basic/utilities/tasks",
+  "repository_url": "https://github.com/modelcontextprotocol/modelcontextprotocol",
+  "commit_sha": "",
+  "version": "MCP core specification revision 2025-11-25; experimental Tasks",
+  "retrieved_at": "2026-10-01",
+  "license": "Apache-2.0 / MIT transition for specification contributions; repository LICENSE verified 2026-10-01",
+  "trust": "official",
+  "type": "official_docs",
+  "purpose": "旧 Tasks の初期化時 capabilities、requestor-driven task 指定、tasks/result、取消応答と isError の分類を比較する。版日付は2025-11-25、独立した記事公開日は表示なし。"
+}

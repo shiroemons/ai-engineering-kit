@@ -1,0 +1,12 @@
+{
+  "id": "github-changelog-node24-transition-r20261001",
+  "url": "https://github.blog/changelog/2025-09-19-deprecation-of-node-20-on-github-actions-runners/",
+  "repository_url": "",
+  "commit_sha": "",
+  "version": "Published 2025-09-19; editor notes 2026-02-25, 2026-05-19, 2026-08-25; June 16 default migration and September 23 removal schedule",
+  "retrieved_at": "2026-10-01",
+  "license": "unknown",
+  "trust": "official",
+  "type": "release_notes",
+  "purpose": "旧告知の改訂日、移行期のFORCE_JAVASCRIPT_ACTIONS_TO_NODE24とACTIONS_ALLOW_USE_UNSECURE_NODE_VERSION、2026-06-16既定切替開始と2026-09-23廃止までの版差を確認。v2.328.0の記載は当時の状態であり現在の最低runner版として使わない。コード転載なし。"
+}

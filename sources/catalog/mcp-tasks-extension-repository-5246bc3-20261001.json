@@ -1,0 +1,12 @@
+{
+  "id": "mcp-tasks-extension-repository-5246bc3-20261001",
+  "url": "https://github.com/modelcontextprotocol/ext-tasks/tree/5246bc3d0253c1c4b09e682f690b7e8b97362500",
+  "repository_url": "https://github.com/modelcontextprotocol/ext-tasks",
+  "commit_sha": "5246bc3d0253c1c4b09e682f690b7e8b97362500",
+  "version": "ext-tasks commit 5246bc3d0253c1c4b09e682f690b7e8b97362500; package 0.2.2; commit 2026-09-30T22:23:34Z; stable schema 2026-07-28",
+  "retrieved_at": "2026-10-01",
+  "license": "Apache-2.0 (LICENSE at pinned commit; no code copied)",
+  "trust": "official",
+  "type": "github_repository_analysis",
+  "purpose": "固定commitのschema/2026-07-28/schema.ts、README.md、packages/ext-tasks/package.json、typescript/index.md、LICENSEを読んだ。flat CreateTaskResult、DetailedTask、package版と受信側対応を確認。native webの固定SHA URL取得はcache miss、認証不要git cloneで同じSHAを照合。実装実行・SDK互換試験なし。"
+}
