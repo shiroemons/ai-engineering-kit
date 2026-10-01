@@ -1,0 +1,12 @@
+{
+  "id": "rails-config-retry-jitter-8-1-4-20261001",
+  "url": "https://guides.rubyonrails.org/configuring.html#config-active-job-retry-jitter",
+  "repository_url": "https://github.com/rails/rails",
+  "commit_sha": "",
+  "version": "Ruby on Rails Guides v8.1.4; config.load_defaults ごとの retry_jitter",
+  "retrieved_at": "2026-10-01",
+  "license": "CC-BY-SA-4.0（ページ末尾）",
+  "trust": "official",
+  "type": "official_docs",
+  "purpose": "retry_jitter の既定値が load_defaults 対象版で異なること（original 0.0、6.1以降0.15）を確認。公開日表示なし。"
+}

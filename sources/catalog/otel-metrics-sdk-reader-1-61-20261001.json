@@ -1,0 +1,12 @@
+{
+  "id": "otel-metrics-sdk-reader-1-61-20261001",
+  "url": "https://opentelemetry.io/docs/specs/otel/metrics/sdk/",
+  "repository_url": "https://github.com/open-telemetry/opentelemetry-specification",
+  "commit_sha": "",
+  "version": "OpenTelemetry Specification 1.61.0（2026-10-01の公開ページ表示）; MetricReader / temporality",
+  "retrieved_at": "2026-10-01",
+  "license": "CC-BY-4.0（公開ページ footer の Docs 表記）; upstream specification repository は Apache-2.0",
+  "trust": "official",
+  "type": "official_docs",
+  "purpose": "MetricReader の instrument kind ごとの temporality、既定の SHOULD Cumulative、SDK instrument と外部 MetricProducer の境界、同期/非同期の収集規則と Reader 間の独立性を確認。公開日表示なし。"
+}

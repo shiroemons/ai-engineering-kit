@@ -1,0 +1,12 @@
+{
+  "id": "redis-client-caching-command-20261001",
+  "url": "https://redis.io/docs/latest/commands/client-caching/",
+  "repository_url": "https://github.com/redis/docs",
+  "commit_sha": "",
+  "version": "CLIENT CACHING since Redis Open Source 6.0.0; current unversioned command docs（2026-10-01確認）",
+  "retrieved_at": "2026-10-01",
+  "license": "CC-BY-NC-SA-4.0（Redis Website and Documentation: https://github.com/redis/docs/blob/main/LICENSE）; 旧redis-doc由来の一部にはCC-BY-SA-4.0例外があるが当該箇所への適用は未特定。本文・コードの転載なし",
+  "trust": "official",
+  "type": "official_docs",
+  "purpose": "OPTIN/OPTOUTで同じconnectionの直後のcommandにだけYES/NOが作用することを、CLIENT TRACKINGと相互照合。公開日表示なし。"
+}

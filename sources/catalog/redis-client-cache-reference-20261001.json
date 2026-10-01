@@ -1,0 +1,12 @@
+{
+  "id": "redis-client-cache-reference-20261001",
+  "url": "https://redis.io/docs/latest/develop/reference/client-side-caching/",
+  "repository_url": "https://github.com/redis/docs",
+  "commit_sha": "",
+  "version": "Redis current unversioned client-side caching reference（2026-10-01確認）; 機能導入 Redis 6、実装patch版は固定せず",
+  "retrieved_at": "2026-10-01",
+  "license": "CC-BY-NC-SA-4.0（Redis Website and Documentation: https://github.com/redis/docs/blob/main/LICENSE）; 旧redis-doc由来の一部にはCC-BY-SA-4.0例外があるが当該箇所への適用は未特定。本文・コードの転載なし",
+  "trust": "official",
+  "type": "official_docs",
+  "purpose": "invalidation、二接続のGET競合、切断時flushとPING期限、TTL補助策を確認。OPTOUTのCLIENT UNTRACKING記述はcommand referenceと不一致として保留。公開日表示なし。"
+}

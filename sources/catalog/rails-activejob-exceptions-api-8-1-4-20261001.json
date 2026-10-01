@@ -1,0 +1,12 @@
+{
+  "id": "rails-activejob-exceptions-api-8-1-4-20261001",
+  "url": "https://api.rubyonrails.org/classes/ActiveJob/Exceptions/ClassMethods.html",
+  "repository_url": "https://github.com/rails/rails",
+  "commit_sha": "",
+  "version": "Ruby on Rails 8.1.4（API HTML badge と source link で確認）",
+  "retrieved_at": "2026-10-01",
+  "license": "MIT（API index License 節 https://api.rubyonrails.org/）",
+  "trust": "official",
+  "type": "official_docs",
+  "purpose": "retry_on/discard_on の handler 優先順、初回を含む attempts、exhaustion block と backend への伝播、report オプションを確認。公開日表示なし。"
+}

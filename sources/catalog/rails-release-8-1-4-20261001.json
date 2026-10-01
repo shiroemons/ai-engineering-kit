@@ -1,0 +1,12 @@
+{
+  "id": "rails-release-8-1-4-20261001",
+  "url": "https://rubyonrails.org/2026/9/24/Rails-Version-8-1-4-has-been-released",
+  "repository_url": "https://github.com/rails/rails",
+  "commit_sha": "",
+  "version": "Rails 8.1.4 release announcement（公開2026-09-24）",
+  "retrieved_at": "2026-10-01",
+  "license": "unknown（当該release記事固有の再配布ライセンス未確認）",
+  "trust": "official",
+  "type": "release_notes",
+  "purpose": "8.1.4の公開日と版を確認する。retry_onの新設を告知した記事とは扱わない。原文は転載せず公開事実の要約のみ。"
+}

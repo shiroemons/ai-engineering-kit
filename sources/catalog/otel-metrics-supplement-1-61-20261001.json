@@ -1,0 +1,12 @@
+{
+  "id": "otel-metrics-supplement-1-61-20261001",
+  "url": "https://opentelemetry.io/docs/specs/otel/metrics/supplementary-guidelines/",
+  "repository_url": "https://github.com/open-telemetry/opentelemetry-specification",
+  "commit_sha": "",
+  "version": "OpenTelemetry Specification 1.61.0 supplementary guidelines（2026-10-01確認、規範的仕様ではない）",
+  "retrieved_at": "2026-10-01",
+  "license": "CC-BY-4.0（OpenTelemetry website Docs）; upstream specification repository は Apache-2.0",
+  "trust": "official",
+  "type": "official_docs",
+  "purpose": "同期の増分入力と非同期の絶対値観測、temporality とメモリ保持の関係を確認。補足資料は新たな仕様要件を追加しない。公開日表示なし。"
+}
