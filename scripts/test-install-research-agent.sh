@@ -6,6 +6,23 @@ TEST_DIR="$(mktemp -d)"
 trap 'rm -rf "$TEST_DIR"' EXIT
 PLIST="$TEST_DIR/research agent & schedule.plist"
 
+# launchd entry points must fail clearly before touching user state on Linux.
+mkdir -p "$TEST_DIR/bin" "$TEST_DIR/home/Library/LaunchAgents"
+printf '#!/bin/sh\nprintf "Linux\\n"\n' > "$TEST_DIR/bin/uname"
+chmod +x "$TEST_DIR/bin/uname"
+SAVED_PLIST="$TEST_DIR/home/Library/LaunchAgents/com.shiroemons.ai-engineering-kit.research.plist"
+printf 'keep existing agent\n' > "$SAVED_PLIST"
+for script in install-research-agent uninstall-research-agent research-status; do
+  status=0
+  output="$(HOME="$TEST_DIR/home" PATH="$TEST_DIR/bin:$PATH" bash "$ROOT/scripts/$script.sh" 2>&1)" || status=$?
+  [[ "$status" == 2 && "$output" == *'macOS only (launchd)'* ]]
+  [[ "$(cat "$SAVED_PLIST")" == 'keep existing agent' ]]
+done
+if [[ "$(uname -s)" != Darwin ]]; then
+  printf 'launchd Linux rejection: passed; plist generation: skipped (macOS only)\n'
+  exit 0
+fi
+
 fail() { printf 'schedule test: %s\n' "$*" >&2; exit 1; }
 generate() { bash "$ROOT/scripts/install-research-agent.sh" --output "$PLIST" "$@" >/dev/null; }
 assert_plist() {

@@ -1,6 +1,6 @@
 # 自動 Research Pipeline
 
-`launchd` のユーザー LaunchAgent が毎時00分、1日24回の予定でリサーチを起動する。1回につき最大2つの無料モデルが別領域を並列に調べるため、予定上は最大48テーマ/日になる。OpenCode の `knowledge-researcher` は1モデルにつき1テーマを担当する。
+macOS では `launchd` のユーザー LaunchAgent が毎時00分、1日24回の予定でリサーチを起動する。1回につき最大2つの無料モデルが別領域を並列に調べるため、予定上は最大48テーマ/日になる。OpenCode の `knowledge-researcher` は1モデルにつき1テーマを担当する。
 
 手動の `just research-loop` はMuse Sparkを先頭に、利用可能な無料モデルを最大3つ使って調査する。既定の上限は8時間。workerは前のworkerがテーマを選び、重複確認を終え、一次資料の確認を始めた後に起動する。定期実行と連続実行はworkerごとに別のdetached worktreeを使う。`research-next.guard` のOS advisory lockで起動時の古いlock回収を直列化する。実行全体は共通の `research-pipeline.lock` で保護する。定期実行は進行中のパイプラインを待ち、連続実行は重なった場合status 3で終了して次の間隔で再試行する。同じ実行モードの重複起動もstatus 3で終了する。テーマ予約から検証、PR作成、マージ待ちまで同時に1パイプラインだけが進む。調査中のテーマは選定プロンプトに渡し、意味的な重複をモデルで判定してから予約する。表記を正規化した完全一致も予約時に検出する。
 
@@ -35,6 +35,17 @@
 
 ## セットアップ
 
+手動の `research-preflight`・`research-dry-run`・`research`・`research-loop` は macOS と Linux に対応する。Linux では `flock`（util-linux）と `ps`（procps）が必要で、ビルドと検証の依存は [README](../README.md#開始する) を参照する。起動時のguardには macOSの `lockf`、Linuxの `flock` を使い、どちらも排他・非待機のdescriptor lockとして競合を終了コード75で扱う。guard fileは削除せず、descriptorを閉じて解放する。共有lockはローカルファイルシステムに置く。
+
+ログ・journal・lockの既定ディレクトリと補欠モデル設定は次のとおり。`RESEARCH_LOG_DIR`・`RESEARCH_ENV_FILE` を指定した場合は両OSともその値を優先する。
+
+| OS | ログ・状態 | 設定ファイル |
+|---|---|---|
+| macOS | `~/Library/Logs/ai-engineering-kit` | `~/Library/Application Support/ai-engineering-kit/research.env` |
+| Linux | `${XDG_STATE_HOME:-$HOME/.local/state}/ai-engineering-kit` | `${XDG_CONFIG_HOME:-$HOME/.config}/ai-engineering-kit/research.env` |
+
+`research-install`・`research-uninstall`・`research-status` はmacOSのlaunchd専用。Linuxで実行すると状態を変更せず終了コード2で案内する。Linuxの自動スケジューラー登録は未実装で、手動起動を使う。`just test` は両OSで共通テストとlaunchdのLinux拒否テストを実行し、plist生成テストだけmacOSで追加実行する。
+
 OpenCode v2、GitHub CLI (`gh`) と認証済みアカウント、`mise`、`just`、`jq`、`curl` を利用する。GitHub repository の auto-merge を有効にする（例: `gh repo edit --enable-auto-merge`）。
 
 runnerは `opencode models --print-logs --log-level debug` で利用可能なモデルを調べる。models.devの最新料金情報で入力・出力・キャッシュの料金がゼロで、tool callingに対応する候補だけを使う。料金未設定のキャッシュ項目は追加料金なしとして扱う。モデル一覧と料金情報の取得は最大3回試す。
@@ -51,15 +62,18 @@ quota cooldown中は、provider呼び出しが必要な未完了runの復旧を�
 
 現在の CLI では `models --refresh --verbose` および `agent list` は使えず、agent の確認は `opencode debug agents` を使う。
 
-`~/Library/Application Support/ai-engineering-kit/research.env` に以下の1行を保存する。このローカル設定はGit管理しない。定期実行の補欠候補として使う。無料と確認できる候補がなければ実行を中止する。
+上記のOS別設定ファイルに以下の1行を保存する。親ディレクトリがなければ作成する。このローカル設定はGit管理しない。定期実行の補欠候補として使う。無料と確認できる候補がなければ実行を中止する。
 
 ```text
 OPENCODE_RESEARCH_MODEL=opencode/<verified-free-model-id>
 ```
 
 ```sh
+# macOS only: launchdの定期実行を登録・確認
 just research-install
 just research-status
+
+# macOS / Linux: 手動起動
 just research-preflight
 just research-dry-run
 just research
@@ -80,7 +94,7 @@ Macのスリープ中に複数の予定時刻を過ぎた場合、復帰時の�
 
 連続実行は `continuous.hours` の8時間以内で開始・調査を行い、完了後に30秒待って次へ進む。期限に達したworkerは停止する。PRなどの後処理は期限後に終了する場合がある。次のテーマを選ぶ前に、そのPRのマージを最大10分待つ。調査に失敗した場合は即時終了せず、`pause_seconds` から最大300秒まで段階的に待って期限まで再試行する。成功後は失敗回数と待ち時間を初期化する。成功workerの成果だけを公開した部分完了は警告を表示して完了として数え、通常の間隔で次へ進む。単発実行では部分完了を終了コード5で返す。Muse Sparkのrate limitを実行中に検出した場合、または開始時点ですでにcooldown中の場合は、失敗回数を増やさず状況を表示して `research-loop` を停止する。定期実行はcooldown中の回をスキップし、cooldown終了後の次回起動で新しいrunを始める。設定不備や認証エラー、PRの競合・未マージなど、再試行で解消しない状態では連続実行を終了する。端末で `Ctrl+C`、または実行プロセスへの `SIGTERM` を送ると、新しい工程を開始せずworkerを終了する。OpenCodeのプロセスグループにはまず `SIGTERM` を送り、3秒後も残っている場合だけ `SIGKILL` を送る。`SIGKILL` 自体は捕捉できないため、異常終了したrunは次回起動時に記録から判定する。
 
-停止は `just research-uninstall`、再開は `just research-install`。失敗理由は端末の標準エラーと `~/Library/Logs/ai-engineering-kit/research-error.log` に表示・記録する。`research.log` には実行結果を記録し、`just check` の失敗時は最初の120行も `research-error.log` に保存する。再試行が続く場合はログを確認し、モデルの利用可否、GitHub接続、作業ツリーを調べる。lock は実行中のプロセスがないことを確認してから除去する。
+macOSの定期実行の停止は `just research-uninstall`、再開は `just research-install`。手動の連続実行は両OSともCtrl+Cで停止する。失敗理由は端末の標準エラーと、上記ログディレクトリの `research-error.log` に表示・記録する。`research.log` には実行結果を記録し、`just check` の失敗時は最初の120行も `research-error.log` に保存する。再試行が続く場合はログを確認し、モデルの利用可否、GitHub接続、作業ツリーを調べる。lock は実行中のプロセスがないことを確認してから除去する。
 
 `just research-preflight` は、main・作業ツリー・lock・cooldown・必要コマンド・GitHub CLI認証・モデル一覧・無料料金を確認する。選んだモデルを表示して終了し、調査・worktree作成・fetch・commit・push・PR作成は行わない。モデルへの推論要求は送らないが、一覧と料金の取得には通信する。GitHubへのpush権限や調査の成功までは保証しない。
 
@@ -98,7 +112,7 @@ runnerは元のcheckoutがmainで未commit変更がないことを確認する�
 
 runnerは変更パス・タグ・技術・source参照・検索evalを検査する。削除・リネーム・symlinkを受け付けない。成功分を順番に仮統合して再検証し、同じファイルへの異なる変更は競合として保持する。最終成果は統合用ワークツリーへまとめて適用し、`just check` とstaged diffの確認後にcommit・push・PR作成を行う。
 
-競合のないPRには `gh pr merge --squash --auto` を依頼する。定期実行と連続実行のパイプラインは共通lockで直列になるが、外部PRなどとの競合でマージできない場合はopenのまま残し、失敗を報告する。pushやPR作成の失敗でもcommitはresearch branchに残る。正常終了時はrun専用のworker・統合worktree、ローカルbranch、journalを片付ける。未完了runは `~/Library/Logs/ai-engineering-kit/research-runs/<run-id>/` のjournalに、base commit、workerごとのmodel・domain・topic・工程、worktree、子プロセスPIDと開始時刻を保存し、該当するworktreeとleaseを保持する。子プロセスはPIDをjournalへ記録するまでOpenCodeを起動しない。次回のTTY起動では同じworktree・テーマから未完了工程をやり直すか、run所有のローカル状態を破棄するか選べる。resumeは中断したOpenCode session自体の再利用ではなく、その工程を保存済みworktreeで再実行する。LaunchAgentなどTTYのない起動では通常の未完了runについて質問せず保持する。Muse Sparkのrate limitで止まったrunはcooldown終了後の次回起動で、run IDとの一致を検証したローカルworktree・lease・branchだけを片付けてから新しいrunを始める。ローカル状態の破棄はrun IDとの一致を検証し、push済みremote branchやPRは変更しない。起動時のlock回収は `lockf` のadvisory lockで直列化する。`research-next.guard` と `research-loop.guard` はそのために残る空のguard fileで、実行lockではない。ログにはOpenCodeの応答全文を保存しない。
+競合のないPRには `gh pr merge --squash --auto` を依頼する。定期実行と連続実行のパイプラインは共通lockで直列になるが、外部PRなどとの競合でマージできない場合はopenのまま残し、失敗を報告する。pushやPR作成の失敗でもcommitはresearch branchに残る。正常終了時はrun専用のworker・統合worktree、ローカルbranch、journalを片付ける。未完了runは ログディレクトリ内の `research-runs/<run-id>/` のjournalに、base commit、workerごとのmodel・domain・topic・工程、worktree、子プロセスPIDと開始時刻を保存し、該当するworktreeとleaseを保持する。子プロセスはPIDをjournalへ記録するまでOpenCodeを起動しない。次回のTTY起動では同じworktree・テーマから未完了工程をやり直すか、run所有のローカル状態を破棄するか選べる。resumeは中断したOpenCode session自体の再利用ではなく、その工程を保存済みworktreeで再実行する。LaunchAgentなどTTYのない起動では通常の未完了runについて質問せず保持する。Muse Sparkのrate limitで止まったrunはcooldown終了後の次回起動で、run IDとの一致を検証したローカルworktree・lease・branchだけを片付けてから新しいrunを始める。ローカル状態の破棄はrun IDとの一致を検証し、push済みremote branchやPRは変更しない。起動時のlock回収は macOSの `lockf` / Linuxの `flock` のadvisory lockで直列化する。`research-next.guard` と `research-loop.guard` はそのために残る空のguard fileで、実行lockではない。ログにはOpenCodeの応答全文を保存しない。
 
 実行lockは `research.lock`・`research-continuous.lock`・`research-loop.lock` と、PRの後処理まで含む共通の `research-pipeline.lock`。領域lockは `domains/<ID>.lock`、テーマlockは `topics/<SHA-256>.json`、テーマ選定のプロセス間lockはOSのファイルlock `topic-selection.lock`、待機期限は `cooldown-until`。いずれもログディレクトリに置く。テーマlockにはテーマ・領域・PID・run ID・開始時刻を記録し、正常終了時に削除する。次の選定では所有PIDが終了したテーマlockと、開始から48時間を超えたlockを排他lock内で削除する。領域lockには所有run IDとPIDを記録し、resume時には同じrunだけが再取得する。停止後はPIDとプロセスグループが残っていないことを確認してから、journalに記録された所有物を再利用または削除する。以前の形式など所有元を確認できないlockは自動で削除しない。`topic-selection.lock` はファイルを残したままにし、プロセス終了時にOSが排他lockを解放する。
 

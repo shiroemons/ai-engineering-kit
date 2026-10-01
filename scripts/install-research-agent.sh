@@ -2,6 +2,8 @@
 set -Eeuo pipefail
 
 ROOT="$(cd "$(dirname "${BASH_SOURCE[0]}")/.." && pwd -P)"
+source "$ROOT/scripts/research-platform.sh"
+research_require_macos research-install
 HOUR=''
 MINUTE=''
 INTERVAL_HOURS=''

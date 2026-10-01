@@ -13,6 +13,7 @@ build:
 
 test:
     go test -race ./...
+    bash scripts/test-research-platform.sh
     bash scripts/test-research-next.sh
     bash scripts/test-research-loop.sh
     bash scripts/test-install-research-agent.sh
@@ -66,7 +67,7 @@ research-preflight:
     RESEARCH_PREFLIGHT=1 bash scripts/research-next.sh
 
 research-status:
-    @launchctl print gui/$(id -u)/com.shiroemons.ai-engineering-kit.research
+    @bash scripts/research-status.sh
 
 research-install:
     bash scripts/install-research-agent.sh

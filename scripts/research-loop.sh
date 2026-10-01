@@ -6,7 +6,9 @@ set -Eeuo pipefail
 export PAGER=cat GIT_PAGER=cat GH_PAGER=cat
 
 ROOT="$(cd "$(dirname "${BASH_SOURCE[0]}")/.." && pwd -P)"
-LOG_DIR="${RESEARCH_LOG_DIR:-$HOME/Library/Logs/ai-engineering-kit}"
+source "$ROOT/scripts/research-platform.sh"
+research_platform_init
+LOG_DIR="${RESEARCH_LOG_DIR:-$RESEARCH_DEFAULT_LOG_DIR}"
 mkdir -p "$LOG_DIR"
 LOG_DIR="$(cd "$LOG_DIR" && pwd -P)"
 PROGRESS_FILE="$LOG_DIR/research-loop-$$.json"
@@ -198,10 +200,10 @@ handle_signal() {
 trap cleanup EXIT
 trap 'handle_signal 130' INT
 trap 'handle_signal 143' TERM
-command -v lockf >/dev/null 2>&1 || { printf 'research-loop: missing command: lockf\n' >&2; exit 2; }
+command -v "$RESEARCH_LOCK_COMMAND" >/dev/null 2>&1 || { printf 'research-loop: missing command: %s\n' "$RESEARCH_LOCK_COMMAND" >&2; exit 2; }
 exec 8<>"$LOG_DIR/research-loop.guard" || { printf 'research-loop: could not open loop guard file\n' >&2; exit 2; }
 LOCK_ACQUIRE_IN_PROGRESS=1
-if lockf -s -t 0 8; then
+if research_lock_fd 8; then
   LOOP_GUARD_LOCK_HELD=1
 else
   status=$?
@@ -210,7 +212,7 @@ else
     printf 'research-loop: another continuous loop is active\n' >&2
     exit 1
   fi
-  printf 'research-loop: could not acquire loop guard (lockf exit %s)\n' "$status" >&2
+  printf 'research-loop: could not acquire loop guard (%s exit %s)\n' "$RESEARCH_LOCK_COMMAND" "$status" >&2
   exit 2
 fi
 LOCK_ACQUIRE_IN_PROGRESS=0

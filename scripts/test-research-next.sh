@@ -12,6 +12,7 @@ mkdir -p "$TEST_DIR/bin" "$TEST_DIR/repo/scripts" "$TEST_DIR/repo/config"
 : > "$TEST_DIR/worktrees"
 : > "$TEST_DIR/branches"
 cp "$ROOT/scripts/research-next.sh" "$TEST_DIR/repo/scripts/"
+cp "$ROOT/scripts/research-platform.sh" "$TEST_DIR/repo/scripts/"
 cp "$ROOT/config/research.json" "$TEST_DIR/repo/config/"
 
 cat > "$TEST_DIR/bin/ps" <<'EOF'
