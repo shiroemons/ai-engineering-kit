@@ -1,0 +1,12 @@
+{
+  "id": "react-193-fragment-refs-release-2026-10-01",
+  "url": "https://react.dev/blog/2026/09/09/react-19-3",
+  "repository_url": "https://github.com/reactjs/react.dev",
+  "commit_sha": "",
+  "version": "React 19.3; published 2026-09-09",
+  "retrieved_at": "2026-10-01",
+  "license": "CC-BY-4.0 (react.dev content; https://github.com/reactjs/react.dev/blob/main/LICENSE-DOCS.md and README.md verified 2026-10-01; original Japanese summary, no copied code)",
+  "trust": "official",
+  "type": "release_notes",
+  "purpose": "Fragment refs の stable 化、wrapper を追加せず子の DOM を扱う目的を確認。"
+}

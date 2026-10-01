@@ -520,6 +520,48 @@
       "expected_ids": [
         "github-actions-node24-runtime-migration"
       ]
+    },
+    {
+      "name": "kubernetes-memoryqos-beta-default",
+      "query": "MemoryQoS beta null",
+      "expected_ids": [
+        "kubernetes-memoryqos-beta-defaults-rollback"
+      ]
+    },
+    {
+      "name": "kubernetes-memoryqos-alpha-migration",
+      "query": "MemoryQoS alpha 0.9",
+      "expected_ids": [
+        "kubernetes-memoryqos-beta-defaults-rollback"
+      ]
+    },
+    {
+      "name": "kubernetes-memoryqos-reservation-policy",
+      "query": "MemoryQoS TieredReservation None",
+      "expected_ids": [
+        "kubernetes-memoryqos-beta-defaults-rollback"
+      ]
+    },
+    {
+      "name": "kubernetes-memoryqos-rollback-high",
+      "query": "MemoryQoS rollback memory.high",
+      "expected_ids": [
+        "kubernetes-memoryqos-beta-defaults-rollback"
+      ]
+    },
+    {
+      "name": "kubernetes-memoryqos-page-cache",
+      "query": "MemoryQoS Guaranteed page cache",
+      "expected_ids": [
+        "kubernetes-memoryqos-beta-defaults-rollback"
+      ]
+    },
+    {
+      "name": "kubernetes-memoryqos-node-wide",
+      "query": "MemoryQoS node opt-out",
+      "expected_ids": [
+        "kubernetes-memoryqos-beta-defaults-rollback"
+      ]
     }
   ]
 }

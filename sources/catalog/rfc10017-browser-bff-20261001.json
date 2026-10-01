@@ -1,0 +1,12 @@
+{
+  "id": "rfc10017-browser-bff-20261001",
+  "url": "https://www.rfc-editor.org/rfc/rfc10017.html",
+  "repository_url": "",
+  "commit_sha": "",
+  "version": "RFC 10017 (BCP 212), August 2026",
+  "retrieved_at": "2026-10-01",
+  "license": "IETF Trust Legal Provisions (RFC text); extracted Code Components: Revised BSD License per RFC copyright notice; https://trustee.ietf.org/documents/trust-legal-provisions/",
+  "trust": "official",
+  "type": "official_docs",
+  "purpose": "Sections 6.1–6.2: BFF の confidential client、cookie、API CSRF、proxy 宛先制約と残存リスクを確認"
+}

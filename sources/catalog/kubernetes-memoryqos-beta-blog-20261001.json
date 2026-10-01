@@ -1,0 +1,12 @@
+{
+  "id": "kubernetes-memoryqos-beta-blog-20261001",
+  "url": "https://kubernetes.io/blog/2026/09/14/kubernetes-v1-37-memory-qos-graduates-to-beta/",
+  "repository_url": "https://github.com/kubernetes/website",
+  "commit_sha": "",
+  "version": "Kubernetes v1.37 MemoryQoS beta; published 2026-09-14; page modified 2026-09-11",
+  "retrieved_at": "2026-10-01",
+  "license": "CC-BY-4.0 (https://github.com/kubernetes/website/blob/main/LICENSE; checked 2026-10-01)",
+  "trust": "maintainer",
+  "type": "maintainer_article",
+  "purpose": "Beta移行時の既定値変更、明示済み設定の保持、node全体への予約ポリシーの影響を確認"
+}

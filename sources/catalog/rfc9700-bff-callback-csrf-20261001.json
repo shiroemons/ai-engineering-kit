@@ -1,0 +1,12 @@
+{
+  "id": "rfc9700-bff-callback-csrf-20261001",
+  "url": "https://www.rfc-editor.org/rfc/rfc9700.html",
+  "repository_url": "",
+  "commit_sha": "",
+  "version": "RFC 9700 (BCP 240), January 2025",
+  "retrieved_at": "2026-10-01",
+  "license": "IETF Trust Legal Provisions (RFC text); extracted Code Components: Revised BSD License per RFC copyright notice; https://trustee.ietf.org/documents/trust-legal-provisions/",
+  "trust": "official",
+  "type": "official_docs",
+  "purpose": "Sections 2.1 / 2.1.1 / 4.7.1: OAuth callback CSRF と PKCE の適用条件を確認"
+}
