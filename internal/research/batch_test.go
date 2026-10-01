@@ -224,7 +224,14 @@ func fixture(t *testing.T, mode string) (string, string) {
 	}
 	writeFile(t, filepath.Join(root, "config/research.json"), data, 0644)
 	writeFile(t, filepath.Join(root, ".gitignore"), []byte("/.workbench/\n/rag/\n"), 0644)
-	for _, args := range [][]string{{"init", "--initial-branch=main"}, {"add", "."}, {"-c", "user.name=Research Test", "-c", "user.email=research@example.invalid", "-c", "commit.gpgsign=false", "commit", "-m", "test fixture"}} {
+	// Fixture commits must not leave detached Git maintenance writing into a
+	// repository after the test starts removing its temporary directory.
+	for _, args := range [][]string{
+		{"init", "--initial-branch=main"},
+		{"config", "--local", "maintenance.auto", "false"},
+		{"add", "."},
+		{"-c", "user.name=Research Test", "-c", "user.email=research@example.invalid", "-c", "commit.gpgsign=false", "commit", "-m", "test fixture"},
+	} {
 		if _, err := git(context.Background(), root, args...); err != nil {
 			t.Fatal(err)
 		}
@@ -248,6 +255,20 @@ func writeFile(t *testing.T, path string, data []byte, mode os.FileMode) {
 	t.Helper()
 	if err := os.WriteFile(path, data, mode); err != nil {
 		t.Fatal(err)
+	}
+}
+
+func TestFixtureDisablesAutomaticMaintenance(t *testing.T) {
+	config := filepath.Join(t.TempDir(), "gitconfig")
+	writeFile(t, config, []byte("[maintenance]\n\tauto = true\n"), 0600)
+	t.Setenv("GIT_CONFIG_GLOBAL", config)
+	root, _ := fixture(t, "normal")
+	value, err := git(t.Context(), root, "config", "--local", "--bool", "--get", "maintenance.auto")
+	if err != nil {
+		t.Fatal(err)
+	}
+	if strings.TrimSpace(string(value)) != "false" {
+		t.Fatalf("fixture may launch background maintenance: %q", value)
 	}
 }
 

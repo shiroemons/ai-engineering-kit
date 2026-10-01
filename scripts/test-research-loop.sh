@@ -9,6 +9,7 @@ export RESEARCH_TEST_TOPIC='testing — go testのキャッシュ判定条件と
 export RESEARCH_LOG_DIR="$TEST_DIR/logs"
 mkdir -p "$TEST_DIR/bin" "$TEST_DIR/repo/scripts" "$TEST_DIR/repo/config"
 cp "$ROOT/scripts/research-loop.sh" "$TEST_DIR/repo/scripts/"
+cp "$ROOT/scripts/research-platform.sh" "$TEST_DIR/repo/scripts/"
 jq '.continuous.hours = 1 | .continuous.pause_seconds = 1' "$ROOT/config/research.json" > "$TEST_DIR/repo/config/research.json"
 cat > "$TEST_DIR/bin/date" <<'EOF'
 #!/bin/bash
@@ -83,6 +84,12 @@ for attempt in {1..100}; do
   /bin/sleep 0.05
 done
 [[ -f "$TEST_DIR/ready" ]]
+# A second loop must not start a child or remove the first loop's ownership.
+status=0
+bash "$LOOP" > "$TEST_DIR/duplicate-output" 2>&1 || status=$?
+[[ "$status" == 1 ]]
+grep -Fq 'another continuous loop holds the lock' "$TEST_DIR/duplicate-output"
+[[ "$(cat "$RESEARCH_LOG_DIR/research-loop.lock/pid")" == "$loop_pid" ]]
 kill -TERM "$loop_pid"
 wait "$loop_pid" || status=$?
 [[ "$status" == 143 && -f "$TEST_DIR/stopped" ]]

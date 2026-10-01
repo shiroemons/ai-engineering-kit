@@ -6,9 +6,20 @@
 
 [mise](https://mise.jdx.dev/) で Go・[just](https://github.com/casey/just)・golangci-lint を管理する。`mise.toml` は各ツールに `latest` を指定する。実装は Go 標準ライブラリだけを使う。リポジトリのルートで実行する。
 
+macOS arm64 と Linux amd64 を対象とする。先に [mise の公式手順](https://mise.jdx.dev/installing-mise.html) で mise を導入し、Bash・Git・jq と C コンパイラを用意する。`just test` の `go test -race` は [C コンパイラと cgo](https://go.dev/doc/articles/race_detector#Requirements) を必要とする。macOS では Xcode Command Line Tools と jq を使う。Linux では手動調査時の排他制御に util-linux の `flock`、プロセス確認に procps の `ps` も使う。
+
+```sh
+# Debian / Ubuntu
+sudo apt-get update
+sudo apt-get install --no-install-recommends build-essential bash git jq util-linux procps
+
+# Fedora
+sudo dnf install gcc bash git jq util-linux procps-ng
+```
+
 ```sh
 mise trust
-mise install go just golangci-lint
+mise install --locked go just golangci-lint
 mise exec -- just test
 mise exec -- just validate
 mise exec -- just freshness
@@ -19,18 +30,22 @@ mise exec -- just build
 
 検索結果に `knowledge`・`pattern`・`module` が各1件現れる。seed は公式 API を確認した小さな例で、技術全体の網羅や最新バージョンの保証を目的としない。`mise exec -- just check` で書式・modernizer・go vet・golangci-lint・race test・検証・検索をまとめて確認する。
 
-以降のコマンドは mise を有効にしたシェルで使う。有効化していない場合は `mise exec --` を前に付ける。`mise.lock` は検証した Go 1.27.1・Just 1.58.0・golangci-lint 2.13.2 を固定する。macOS arm64 用の取得 URL と checksum を記録する。
+以降のコマンドは mise を有効にしたシェルで使う。有効化していない場合は `mise exec --` を前に付ける。`mise.lock` は検証した Go 1.27.1・Just 1.58.0・golangci-lint 2.13.2 を固定する。macOS arm64 と Linux amd64（mise の表記では `linux-x64`）用の取得 URL と checksum を記録する。`--locked` は対象プラットフォームの lock 情報が不足すると失敗するため、未検証の版へ自動的に更新しない。
+
+[CI](.github/workflows/check.yml) は Ubuntu amd64 と macOS arm64 で同じ `mise exec -- just check` を実行し、Go の race test と共通の shell test を検証する。launchd の plist 検証は macOS で引き続き実行する。
 
 更新時は次を個別に実行し、差分を確認する。`latest` は更新候補の指定、lock は再現する版の指定として使う。
 
 ```sh
-mise lock --bump go just golangci-lint
-mise install go just golangci-lint
+mise lock --bump --platform linux-x64,macos-arm64 go just golangci-lint
+mise install --locked go just golangci-lint
 mise exec -- just fix
 mise exec -- just check
 ```
 
 `just fix` は Go 1.26 以降の modernizer を適用する。`just fix-check` は変更せず残る提案を検出する。`just vet` と `just lint` は静的解析を個別に実行する。Go 1.27 の厳密な JSON 検証など、採用理由は [ADR](docs/adr/0001-local-knowledge-base.md) に記録する。
+
+版を変更せず対応プラットフォームの情報だけを再生成する場合は `mise lock --platform linux-x64,macos-arm64 go just golangci-lint` を使い、既存の版・URL・checksum が意図せず変わっていないか確認する。
 
 ## 配置先を選ぶ
 
@@ -75,6 +90,8 @@ index は事前に生成する。入力や設定が変わると検索が再生�
 [AGENTS.md](AGENTS.md) を読み、実装前に `kb search` で候補を探す。結果の本文、適用版、source、provenance を開いて採用を判断する。stale は再調査し、module のテストと eval を通してから使う。
 
 ## 適用範囲
+
+Linux では CLI と検証に加えて、`just research-preflight`・`just research-dry-run`・`just research`・`just research-loop` の手動実行を対象とする。実際の調査には OpenCode と利用モデルの設定も必要になる。`research-install`・`research-uninstall`・`research-status` による launchd の定期実行は macOS 専用で、Linux の systemd / cron の登録は実装していない。Linux での設定ファイル・ログの既定パスと必要な環境変数は [Research Pipeline](docs/research-automation.md) を参照する。
 
 自動のネット調査は毎時、無料モデル2つで別テーマを並列に調べる。予定上は1日24回・最大48テーマ。`just research-loop` はMuse Sparkだけで最長8時間繰り返す。定期実行と連続実行は別ワークツリーで同時に動く。8領域の未調査分野を優先し、公式文書に加えてOSS設計や実務事例を調べる。設定と停止条件は [Research Pipeline](docs/research-automation.md) を参照する。
 

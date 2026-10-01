@@ -5,9 +5,11 @@ set -Eeuo pipefail
 export PAGER=cat GIT_PAGER=cat GH_PAGER=cat
 
 ROOT="$(cd "$(dirname "${BASH_SOURCE[0]}")/.." && pwd -P)"
+source "$ROOT/scripts/research-platform.sh"
+research_platform_init
 BASE_ROOT="$ROOT"
-LOG_DIR="${RESEARCH_LOG_DIR:-$HOME/Library/Logs/ai-engineering-kit}"
-CONFIG_FILE="${RESEARCH_ENV_FILE:-$HOME/Library/Application Support/ai-engineering-kit/research.env}"
+LOG_DIR="${RESEARCH_LOG_DIR:-$RESEARCH_DEFAULT_LOG_DIR}"
+CONFIG_FILE="${RESEARCH_ENV_FILE:-$RESEARCH_DEFAULT_ENV_FILE}"
 mkdir -p "$LOG_DIR"
 LOG_DIR="$(cd "$LOG_DIR" && pwd -P)"
 LOG_FILE="$LOG_DIR/research.log"
@@ -182,10 +184,10 @@ handle_signal() {
 acquire_guard_lock() {
   local status
   ((GUARD_LOCK_HELD)) && return 0
-  command -v lockf >/dev/null 2>&1 || fail 'missing command: lockf' 2
+  command -v "$RESEARCH_LOCK_COMMAND" >/dev/null 2>&1 || fail "missing command: $RESEARCH_LOCK_COMMAND" 2
   exec 8<>"$LOG_DIR/research-next.guard" || fail 'could not open pipeline guard file' 2
   LOCK_ACQUIRE_IN_PROGRESS=1
-  if lockf -s -t 0 8; then
+  if research_lock_fd 8; then
     GUARD_LOCK_HELD=1
     LOCK_ACQUIRE_IN_PROGRESS=0
     [[ -z "$PENDING_SIGNAL_STATUS" ]] || exit "$PENDING_SIGNAL_STATUS"
@@ -197,7 +199,7 @@ acquire_guard_lock() {
   LOCK_ACQUIRE_IN_PROGRESS=0
   [[ -z "$PENDING_SIGNAL_STATUS" ]] || exit "$PENDING_SIGNAL_STATUS"
   [[ "$status" == 75 ]] && return 75
-  fail "could not acquire pipeline guard (lockf exit $status)" 2
+  fail "could not acquire pipeline guard ($RESEARCH_LOCK_COMMAND exit $status)" 2
 }
 
 release_guard_lock() {
