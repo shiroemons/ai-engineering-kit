@@ -1,0 +1,12 @@
+{
+  "id": "k6-release-v2-0-0-completion-20261001",
+  "url": "https://github.com/grafana/k6/releases/tag/v2.0.0",
+  "repository_url": "https://github.com/grafana/k6",
+  "commit_sha": "",
+  "version": "k6 v2.0.0; published 2026-05-11",
+  "retrieved_at": "2026-10-01",
+  "license": "AGPL-3.0 (grafana/k6 LICENSE.md); release prose is summarized, no code copied",
+  "trust": "official",
+  "type": "release_notes",
+  "purpose": "v2 の Cloud non-threshold abort が 0 から 97、threshold abort は 99 のままという変更、Cloud stack 必須化、HTTP API server 既定無効化を確認する"
+}

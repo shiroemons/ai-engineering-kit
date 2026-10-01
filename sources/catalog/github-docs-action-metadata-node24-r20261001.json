@@ -1,0 +1,12 @@
+{
+  "id": "github-docs-action-metadata-node24-r20261001",
+  "url": "https://docs.github.com/en/actions/reference/workflows-and-actions/metadata-syntax",
+  "repository_url": "https://github.com/github/docs",
+  "commit_sha": "",
+  "version": "GitHub Docs unversioned current page; runs.using / runs.main / runs.pre / runs.post; verified 2026-10-01",
+  "retrieved_at": "2026-10-01",
+  "license": "CC-BY-4.0 (documentation; https://github.com/github/docs#license and https://github.com/github/docs/blob/main/LICENSE verified 2026-10-01)",
+  "trust": "official",
+  "type": "official_docs",
+  "purpose": "JavaScript actionの実行runtimeとmain/pre/postへの適用、action.yml/action.yamlの役割を確認。取得時点でnode20とnode24の両方を列挙している事実を、Node20廃止のサービス告知と区別する。ページ上の公開・更新日は表示なし。"
+}

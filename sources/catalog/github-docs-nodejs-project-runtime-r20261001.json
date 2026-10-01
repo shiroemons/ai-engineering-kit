@@ -1,0 +1,12 @@
+{
+  "id": "github-docs-nodejs-project-runtime-r20261001",
+  "url": "https://docs.github.com/en/actions/tutorials/build-and-test-code/nodejs",
+  "repository_url": "https://github.com/github/docs",
+  "commit_sha": "",
+  "version": "GitHub Docs unversioned current page; Specifying the Node.js version; verified 2026-10-01",
+  "retrieved_at": "2026-10-01",
+  "license": "CC-BY-4.0 (documentation; https://github.com/github/docs#license and https://github.com/github/docs/blob/main/LICENSE verified 2026-10-01)",
+  "trust": "official",
+  "type": "official_docs",
+  "purpose": "setup-nodeのnode-version入力が指定版のバイナリをPATHへ追加し残りのjobに適用すること、アプリケーションのビルド/test版をmatrixで指定することを確認。action自体のruns.usingと区別する根拠。ページ上の公開・更新日は表示なし。"
+}

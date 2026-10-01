@@ -1,0 +1,12 @@
+{
+  "id": "mcp-tasks-changelog-2026-07-28-20261001",
+  "url": "https://modelcontextprotocol.io/specification/2026-07-28/changelog",
+  "repository_url": "https://github.com/modelcontextprotocol/modelcontextprotocol",
+  "commit_sha": "",
+  "version": "MCP core specification revision 2026-07-28; Major changes item 6, Minor changes item 12",
+  "retrieved_at": "2026-10-01",
+  "license": "Apache-2.0 / MIT transition for specification contributions; repository LICENSE verified 2026-10-01",
+  "trust": "official",
+  "type": "official_docs",
+  "purpose": "2025-11-25対比でTasksがcoreから公式extensionへ移り、tasks/resultとtasks/listが除去されたこと、およびcapability errorの番号変更を確認。版日付は2026-07-28。"
+}

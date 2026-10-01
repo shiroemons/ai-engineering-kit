@@ -1,0 +1,12 @@
+{
+  "id": "k6-cloud-commands-completion-20261001",
+  "url": "https://grafana.com/docs/k6/latest/reference/cloud-commands/",
+  "repository_url": "",
+  "commit_sha": "",
+  "version": "Grafana k6 v2.3.x documentation; verified 2026-10-01; no publication date displayed",
+  "retrieved_at": "2026-10-01",
+  "license": "unknown (retrieved documentation page and grafana/k6-docs repository metadata do not state an open license); attributed original summary only",
+  "trust": "official",
+  "type": "official_docs",
+  "purpose": "cloud run の cloud execution、local-execution の区別、cloud upload が実行しないこと、Cloud の token/stack 前提を確認する"
+}

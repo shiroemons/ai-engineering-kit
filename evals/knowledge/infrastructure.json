@@ -464,6 +464,62 @@
       "name": "kubernetes-pdb-drain-rejection",
       "query": "drain 429 500",
       "expected_ids": ["kubernetes-pdb-eviction-drain-unhealthy-policy"]
+    },
+    {
+      "name": "github-actions-node24-removal-opt-out",
+      "query": "node24 ACTIONS_ALLOW_USE_UNSECURE_NODE_VERSION",
+      "expected_ids": [
+        "github-actions-node24-runtime-migration"
+      ]
+    },
+    {
+      "name": "github-actions-node24-action-project-boundary",
+      "query": "runs.using node-version PATH",
+      "expected_ids": [
+        "github-actions-node24-runtime-migration"
+      ]
+    },
+    {
+      "name": "github-actions-node24-metadata-difference",
+      "query": "node20 構文エラー",
+      "expected_ids": [
+        "github-actions-node24-runtime-migration"
+      ]
+    },
+    {
+      "name": "github-actions-node24-pre-main-post",
+      "query": "node24 runs.pre runs.post",
+      "expected_ids": [
+        "github-actions-node24-runtime-migration"
+      ]
+    },
+    {
+      "name": "github-actions-node24-self-hosted-platform",
+      "query": "node24 macOS ARM32",
+      "expected_ids": [
+        "github-actions-node24-runtime-migration"
+      ]
+    },
+    {
+      "name": "github-actions-node24-pinned-ref",
+      "query": "node24 SHA 廃止日",
+      "expected_ids": [
+        "github-actions-node24-runtime-migration"
+      ]
+    },
+    {
+      "name": "github-actions-node24-transition-dates",
+      "query": "node24 2026-06-16 2026-09-23",
+      "expected_ids": [
+        "github-actions-node24-runtime-migration"
+      ]
+    },
+    {
+      "name": "github-actions-node24-ghes-scope",
+      "query": "node24 GHES Data Residency",
+      "expected_ids": [
+        "github-actions-node24-runtime-migration"
+      ]
     }
   ]
 }

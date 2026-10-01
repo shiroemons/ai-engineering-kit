@@ -1,0 +1,12 @@
+{
+  "id": "mcp-tasks-extension-2026-07-28-20261001",
+  "url": "https://tasks.extensions.modelcontextprotocol.io/specification/2026-07-28/tasks",
+  "repository_url": "https://github.com/modelcontextprotocol/ext-tasks",
+  "commit_sha": "",
+  "version": "Tasks extension io.modelcontextprotocol/tasks; stable specification 2026-07-28",
+  "retrieved_at": "2026-10-01",
+  "license": "Apache-2.0 (ext-tasks LICENSE)",
+  "trust": "official",
+  "type": "official_docs",
+  "purpose": "server-directed creation、per-request capability、tasks/get/update/cancel、error分類、durable creation、eventual consistency、routing、認可の規範を確認。版日付2026-07-28、独立した記事公開日は表示なし。"
+}

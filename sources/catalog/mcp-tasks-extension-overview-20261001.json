@@ -1,0 +1,12 @@
+{
+  "id": "mcp-tasks-extension-overview-20261001",
+  "url": "https://tasks.extensions.modelcontextprotocol.io/",
+  "repository_url": "https://github.com/modelcontextprotocol/ext-tasks",
+  "commit_sha": "",
+  "version": "Tasks extension rolling overview retrieved 2026-10-01; links stable 2026-07-28",
+  "retrieved_at": "2026-10-01",
+  "license": "Apache-2.0 (ext-tasks LICENSE)",
+  "trust": "official",
+  "type": "official_docs",
+  "purpose": "task lifecycle、TTL、取消の協調性、通知を補足し、overviewの旧capability error -32003と版固定仕様 -32021の不一致を記録。公開日表示なし。"
+}
