@@ -249,6 +249,62 @@
       "name": "postgres-txn-40p01-deadlock-sqlstate",
       "query": "40P01 deadlock_detected SQLSTATE",
       "expected_ids": ["postgres-transaction-isolation-retry"]
+    },
+    {
+      "name": "redis-client-cache-resp3-redirect",
+      "query": "TRACKING RESP3 REDIRECT",
+      "expected_ids": [
+        "redis-client-side-cache-invalidation-disconnect"
+      ]
+    },
+    {
+      "name": "redis-client-cache-noloop-reread",
+      "query": "NOLOOP 再read 追跡",
+      "expected_ids": [
+        "redis-client-side-cache-invalidation-disconnect"
+      ]
+    },
+    {
+      "name": "redis-client-cache-disconnect-ping",
+      "query": "PING 切断 全消去",
+      "expected_ids": [
+        "redis-client-side-cache-invalidation-disconnect"
+      ]
+    },
+    {
+      "name": "redis-client-cache-inflight-race",
+      "query": "invalidation GET 古い返答",
+      "expected_ids": [
+        "redis-client-side-cache-invalidation-disconnect"
+      ]
+    },
+    {
+      "name": "redis-client-cache-optout-command",
+      "query": "OPTOUT CACHING NO",
+      "expected_ids": [
+        "redis-client-side-cache-invalidation-disconnect"
+      ]
+    },
+    {
+      "name": "redis-client-cache-tracking-redir-broken",
+      "query": "tracking-redir-broken RESP3",
+      "expected_ids": [
+        "redis-client-side-cache-invalidation-disconnect"
+      ]
+    },
+    {
+      "name": "redis-client-cache-doc-conflict",
+      "query": "UNTRACKING 不一致",
+      "expected_ids": [
+        "redis-client-side-cache-invalidation-disconnect"
+      ]
+    },
+    {
+      "name": "redis-client-cache-flush-null",
+      "query": "FLUSHDB FLUSHALL null",
+      "expected_ids": [
+        "redis-client-side-cache-invalidation-disconnect"
+      ]
     }
   ]
 }

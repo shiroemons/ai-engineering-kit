@@ -229,6 +229,69 @@
       "name": "ruby-fiber-nonblocking-hook",
       "query": "ノンブロッキング scheduler hook",
       "expected_ids": ["ruby-fiber-scheduler-nonblocking-io"]
+    },
+    {
+      "name": "rails-job-handler-precedence",
+      "query": "retry_on discard_on 優先順",
+      "expected_ids": [
+        "rails-active-job-retry-discard-handler-budget"
+      ]
+    },
+    {
+      "name": "rails-job-budget-includes-original",
+      "query": "attempts 初回 backend",
+      "expected_ids": [
+        "rails-active-job-retry-discard-handler-budget"
+      ]
+    },
+    {
+      "name": "rails-job-exception-executions-shared",
+      "query": "exception_executions 共有",
+      "expected_ids": [
+        "rails-active-job-retry-discard-handler-budget"
+      ]
+    },
+    {
+      "name": "rails-job-after-discard-terminal",
+      "query": "after_discard backend 終端",
+      "expected_ids": [
+        "rails-active-job-retry-discard-handler-budget"
+      ]
+    },
+    {
+      "name": "rails-job-jitter-load-defaults",
+      "query": "retry_jitter load_defaults 0.15",
+      "expected_ids": [
+        "rails-active-job-retry-discard-handler-budget"
+      ]
+    },
+    {
+      "name": "rails-job-proc-jitter",
+      "query": "Proc jitter 多項式",
+      "expected_ids": [
+        "rails-active-job-retry-discard-handler-budget"
+      ]
+    },
+    {
+      "name": "rails-job-report-exhaustion",
+      "query": "retry_on report 報告",
+      "expected_ids": [
+        "rails-active-job-retry-discard-handler-budget"
+      ]
+    },
+    {
+      "name": "rails-job-deserialization-discard",
+      "query": "DeserializationError discard_on GlobalID",
+      "expected_ids": [
+        "rails-active-job-retry-discard-handler-budget"
+      ]
+    },
+    {
+      "name": "rails-job-8-1-4-deferred-enqueue-fix",
+      "query": "retry_job enqueue_after_transaction_commit wait_until",
+      "expected_ids": [
+        "rails-active-job-retry-discard-handler-budget"
+      ]
     }
   ]
 }

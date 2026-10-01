@@ -1,0 +1,12 @@
+{
+  "id": "otel-spec-release-1-61-20261001",
+  "url": "https://github.com/open-telemetry/opentelemetry-specification/releases/tag/v1.61.0",
+  "repository_url": "https://github.com/open-telemetry/opentelemetry-specification",
+  "commit_sha": "",
+  "version": "OpenTelemetry Specification release 1.61.0（releaseページ 14 Sep 表示、2026-10-01取得）",
+  "retrieved_at": "2026-10-01",
+  "license": "unknown（release本文固有のライセンス未確認; repository LICENSE は Apache-2.0）",
+  "trust": "official",
+  "type": "release_notes",
+  "purpose": "1.61.0の公開記録と Metrics の変更一覧を確認。maxExportBatchSize の安定化・周期Readerの説明更新が記載される。temporality/resetがこの版で新設されたとは扱わない。"
+}

@@ -1,0 +1,12 @@
+{
+  "id": "otel-metrics-data-model-1-61-20261001",
+  "url": "https://opentelemetry.io/docs/specs/otel/metrics/data-model/",
+  "repository_url": "https://github.com/open-telemetry/opentelemetry-specification",
+  "commit_sha": "",
+  "version": "OpenTelemetry Specification 1.61.0（ページ表示、2026-10-01確認）; Temporality / Single-Writer: Stable; Resets and Gaps / Stream Manipulations: Development",
+  "retrieved_at": "2026-10-01",
+  "license": "CC-BY-4.0（公開ページ footer の Docs 表記）; upstream specification repository は Apache-2.0（https://github.com/open-telemetry/opentelemetry-specification/blob/main/LICENSE）",
+  "trust": "official",
+  "type": "official_docs",
+  "purpose": "Delta/Cumulative の時間窓、Single-Writer、既知/未知開始時刻の reset、stateful な Delta-to-Cumulative の前提を確認。公開日表示なし。原文・コードを転載せず独自の要約。"
+}

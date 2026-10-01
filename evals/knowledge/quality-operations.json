@@ -229,6 +229,62 @@
       "name": "playwright-webfirst-generic-matcher",
       "query": "Playwright web-first generic matcher",
       "expected_ids": ["testing-playwright-web-first-assertions-timeout-isolation"]
+    },
+    {
+      "name": "otel-metric-temporality-delta-cumulative",
+      "query": "temporality Delta Cumulative reset",
+      "expected_ids": [
+        "opentelemetry-metric-temporality-reset-conversion"
+      ]
+    },
+    {
+      "name": "otel-metric-reset-start-time",
+      "query": "StartTimeUnixNano TimeUnixNano reset",
+      "expected_ids": [
+        "opentelemetry-metric-temporality-reset-conversion"
+      ]
+    },
+    {
+      "name": "otel-metric-reset-development",
+      "query": "Resets Gaps Development",
+      "expected_ids": [
+        "opentelemetry-metric-temporality-reset-conversion"
+      ]
+    },
+    {
+      "name": "otel-metric-conversion-single-writer",
+      "query": "Delta-to-Cumulative Single-Writer",
+      "expected_ids": [
+        "opentelemetry-metric-temporality-reset-conversion"
+      ]
+    },
+    {
+      "name": "otel-metric-reader-producer-boundary",
+      "query": "MetricReader MetricProducer temporality",
+      "expected_ids": [
+        "opentelemetry-metric-temporality-reset-conversion"
+      ]
+    },
+    {
+      "name": "otel-metric-unknown-start-zero-duration",
+      "query": "zero-duration rate 不明",
+      "expected_ids": [
+        "opentelemetry-metric-temporality-reset-conversion"
+      ]
+    },
+    {
+      "name": "otel-metric-async-cumulative",
+      "query": "非同期 Cumulative 測定",
+      "expected_ids": [
+        "opentelemetry-metric-temporality-reset-conversion"
+      ]
+    },
+    {
+      "name": "otel-metric-reader-isolation",
+      "query": "Reader 副作用 Delta",
+      "expected_ids": [
+        "opentelemetry-metric-temporality-reset-conversion"
+      ]
     }
   ]
 }

@@ -1,0 +1,12 @@
+{
+  "id": "rails-activejob-basics-8-1-4-20261001",
+  "url": "https://guides.rubyonrails.org/active_job_basics.html",
+  "repository_url": "https://github.com/rails/rails",
+  "commit_sha": "",
+  "version": "Ruby on Rails Guides v8.1.4（ページ HTML の Guides home 表示、2026-10-01確認）",
+  "retrieved_at": "2026-10-01",
+  "license": "CC-BY-SA-4.0（ページ末尾）",
+  "trust": "official",
+  "type": "official_docs",
+  "purpose": "Active Job 層では明示設定なしに失敗jobを再試行しないこと、missing GlobalID record の DeserializationError、failed job の監視境界を確認。公開日表示なし。"
+}
