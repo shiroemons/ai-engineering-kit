@@ -1,0 +1,12 @@
+{
+  "id": "react-usesyncexternalstore-reference-2026-10-01",
+  "url": "https://react.dev/reference/react/useSyncExternalStore",
+  "repository_url": "https://github.com/reactjs/react.dev",
+  "commit_sha": "",
+  "retrieved_at": "2026-10-01",
+  "license": "CC-BY-4.0 (react.dev content; https://github.com/reactjs/react.dev/blob/main/LICENSE-DOCS.md and README.md verified 2026-10-01; original summary, no copied code)",
+  "trust": "official",
+  "version": "React 19.3 displayed; live major-19 reference, not patch-pinned; publication/update date not stated",
+  "type": "official_docs",
+  "purpose": "Object.is snapshot comparison, immutable cached snapshots, subscribe identity and cleanup, server/client getServerSnapshot initial-data equality, omitted server snapshot error, Transition blocking restart and Suspense caveatを確認。"
+}

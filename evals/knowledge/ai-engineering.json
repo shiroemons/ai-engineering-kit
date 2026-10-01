@@ -544,6 +544,41 @@
       "name": "llm-structured-outputs-pydantic-parse",
       "query": "Pydantic parse refusal",
       "expected_ids": ["llm-structured-outputs-strict-schema-validation"]
+    },
+    {
+      "name": "mcp-elicitation-form-sensitive-boundary",
+      "query": "elicitation form sensitive",
+      "expected_ids": ["mcp-elicitation-consent-sensitive-input"]
+    },
+    {
+      "name": "mcp-elicitation-url-accept-completion",
+      "query": "elicitation URL accept 完了",
+      "expected_ids": ["mcp-elicitation-consent-sensitive-input"]
+    },
+    {
+      "name": "mcp-elicitation-mrtr-state-integrity",
+      "query": "elicitation requestState 完全性",
+      "expected_ids": ["mcp-elicitation-consent-sensitive-input"]
+    },
+    {
+      "name": "mcp-elicitation-decline-cancel",
+      "query": "elicitation decline cancel",
+      "expected_ids": ["mcp-elicitation-consent-sensitive-input"]
+    },
+    {
+      "name": "mcp-elicitation-no-prefetch-consent",
+      "query": "elicitation pre-fetch 同意",
+      "expected_ids": ["mcp-elicitation-consent-sensitive-input"]
+    },
+    {
+      "name": "mcp-elicitation-completion-notification-removed",
+      "query": "elicitationId notifications/elicitation/complete 削除",
+      "expected_ids": ["mcp-elicitation-consent-sensitive-input"]
+    },
+    {
+      "name": "mcp-elicitation-user-binding",
+      "query": "elicitation 本人 URL",
+      "expected_ids": ["mcp-elicitation-consent-sensitive-input"]
     }
   ]
 }

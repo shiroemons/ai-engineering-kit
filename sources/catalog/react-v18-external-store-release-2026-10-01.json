@@ -1,0 +1,12 @@
+{
+  "id": "react-v18-external-store-release-2026-10-01",
+  "url": "https://react.dev/blog/2022/03/29/react-v18",
+  "repository_url": "https://github.com/reactjs/react.dev",
+  "commit_sha": "",
+  "retrieved_at": "2026-10-01",
+  "license": "CC-BY-4.0 (react.dev content; https://github.com/reactjs/react.dev/blob/main/LICENSE-DOCS.md and README.md verified 2026-10-01; original summary, no copied code)",
+  "trust": "official",
+  "version": "React 18.0 release announcement, published 2022-03-29; re-read 2026-10-01",
+  "type": "release_notes",
+  "purpose": "useSyncExternalStoreがReact 18で導入され外部storeライブラリ統合を対象とすることを確認。現在の新機能として扱わない。"
+}

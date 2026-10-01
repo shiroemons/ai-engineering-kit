@@ -274,6 +274,36 @@
       "name": "ts-bundler-intro-vite-esbuild-swc",
       "query": "Vite esbuild swc bundler",
       "expected_ids": ["typescript-module-resolution-bundler-vs-nodenext"]
+    },
+    {
+      "name": "react-external-store-snapshot-caching",
+      "query": "useSyncExternalStore getSnapshot Object.is",
+      "expected_ids": ["react-usesyncexternalstore-snapshot-hydration"]
+    },
+    {
+      "name": "react-external-store-subscribe-identity",
+      "query": "subscribe identity cleanup",
+      "expected_ids": ["react-usesyncexternalstore-snapshot-hydration"]
+    },
+    {
+      "name": "react-external-store-ssr-hydration",
+      "query": "getServerSnapshot SSR hydration",
+      "expected_ids": ["react-usesyncexternalstore-snapshot-hydration"]
+    },
+    {
+      "name": "react-external-store-immutable-snapshot",
+      "query": "useSyncExternalStore immutable snapshot",
+      "expected_ids": ["react-usesyncexternalstore-snapshot-hydration"]
+    },
+    {
+      "name": "react-external-store-transition-blocking",
+      "query": "useSyncExternalStore Transition blocking",
+      "expected_ids": ["react-usesyncexternalstore-snapshot-hydration"]
+    },
+    {
+      "name": "react-external-store-hydration-mismatch",
+      "query": "getServerSnapshot suppressHydrationWarning",
+      "expected_ids": ["react-usesyncexternalstore-snapshot-hydration"]
     }
   ]
 }

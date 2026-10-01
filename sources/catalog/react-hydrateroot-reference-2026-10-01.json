@@ -1,0 +1,12 @@
+{
+  "id": "react-hydrateroot-reference-2026-10-01",
+  "url": "https://react.dev/reference/react-dom/client/hydrateRoot",
+  "repository_url": "https://github.com/reactjs/react.dev",
+  "commit_sha": "",
+  "retrieved_at": "2026-10-01",
+  "license": "CC-BY-4.0 (react.dev content; https://github.com/reactjs/react.dev/blob/main/LICENSE-DOCS.md and README.md verified 2026-10-01; original summary, no copied code)",
+  "trust": "official",
+  "version": "React 19.3 displayed; live major-19 reference, not patch-pinned; publication/update date not stated",
+  "type": "official_docs",
+  "purpose": "SSR HTMLと初回client描画の一致、不一致属性の修復非保証、suppressHydrationWarningの1段制限とtext修復なし、onRecoverableErrorの観測APIを確認。"
+}

@@ -439,6 +439,31 @@
       "name": "terraform-timeouts-example-aws-db-instance",
       "query": "aws_db_instance create delete",
       "expected_ids": ["terraform-replacement-ordering-create-before-destroy"]
+    },
+    {
+      "name": "kubernetes-pdb-eviction-boundary",
+      "query": "PDB Eviction DELETE",
+      "expected_ids": ["kubernetes-pdb-eviction-drain-unhealthy-policy"]
+    },
+    {
+      "name": "kubernetes-pdb-unhealthy-policy",
+      "query": "IfHealthyBudget AlwaysAllow",
+      "expected_ids": ["kubernetes-pdb-eviction-drain-unhealthy-policy"]
+    },
+    {
+      "name": "kubernetes-pdb-status-generation",
+      "query": "PDB observedGeneration disruptionsAllowed",
+      "expected_ids": ["kubernetes-pdb-eviction-drain-unhealthy-policy"]
+    },
+    {
+      "name": "kubernetes-pdb-percentage-rounding",
+      "query": "maxUnavailable 切上げ",
+      "expected_ids": ["kubernetes-pdb-eviction-drain-unhealthy-policy"]
+    },
+    {
+      "name": "kubernetes-pdb-drain-rejection",
+      "query": "drain 429 500",
+      "expected_ids": ["kubernetes-pdb-eviction-drain-unhealthy-policy"]
     }
   ]
 }

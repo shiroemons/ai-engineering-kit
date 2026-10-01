@@ -1,0 +1,12 @@
+{
+  "id": "react-versions-reference-2026-10-01",
+  "url": "https://react.dev/versions",
+  "repository_url": "https://github.com/reactjs/react.dev",
+  "commit_sha": "",
+  "retrieved_at": "2026-10-01",
+  "license": "CC-BY-4.0 (react.dev content; https://github.com/reactjs/react.dev/blob/main/LICENSE-DOCS.md and README.md verified 2026-10-01; original summary, no copied code)",
+  "trust": "official",
+  "version": "React docs latest label 19.3 observed 2026-10-01; publication/update date not stated",
+  "type": "official_docs",
+  "purpose": "referenceの適用版確認。minor/patch個別のdocsを公開せずmajor内で更新する方針を確認。npm dist-tagや全patchの検証ではない。"
+}

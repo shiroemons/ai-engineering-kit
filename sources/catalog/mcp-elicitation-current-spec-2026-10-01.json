@@ -1,0 +1,12 @@
+{
+  "id": "mcp-elicitation-current-spec-2026-10-01",
+  "url": "https://modelcontextprotocol.io/specification/latest",
+  "repository_url": "https://github.com/modelcontextprotocol/modelcontextprotocol",
+  "commit_sha": "",
+  "version": "MCP specification 2026-07-28 revision; verified 2026-10-01 UTC",
+  "retrieved_at": "2026-10-01",
+  "license": "Apache-2.0 for new/relicensed specification contributions; MIT for legacy contributions without relicensing consent (repository LICENSE checked 2026-10-01; per-contribution allocation unverified)",
+  "trust": "official",
+  "type": "official_docs",
+  "purpose": "2026-10-01 UTC に latest が 2026-07-28 へ redirect することと、利用者同意・制御の原則を確認"
+}
