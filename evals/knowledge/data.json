@@ -305,6 +305,76 @@
       "expected_ids": [
         "redis-client-side-cache-invalidation-disconnect"
       ]
+    },
+    {
+      "name": "sqlite-wal-passive-not-complete",
+      "query": "PASSIVE SQLITE_OK 未完",
+      "expected_ids": [
+        "sqlite-wal-checkpoint-progress-reset-safety"
+      ]
+    },
+    {
+      "name": "sqlite-wal-restart-versus-truncate",
+      "query": "RESTART TRUNCATE ゼロ",
+      "expected_ids": [
+        "sqlite-wal-checkpoint-progress-reset-safety"
+      ]
+    },
+    {
+      "name": "sqlite-wal-noop-observation-version",
+      "query": "NOOP 3.51.0 観測",
+      "expected_ids": [
+        "sqlite-wal-checkpoint-progress-reset-safety"
+      ]
+    },
+    {
+      "name": "sqlite-wal-checkpoint-lock-busy",
+      "query": "checkpoint lock busy_timeout",
+      "expected_ids": [
+        "sqlite-wal-checkpoint-progress-reset-safety"
+      ]
+    },
+    {
+      "name": "sqlite-wal-checkpoint-cumulative-frames",
+      "query": "pnCkpt 総 frame",
+      "expected_ids": [
+        "sqlite-wal-checkpoint-progress-reset-safety"
+      ]
+    },
+    {
+      "name": "sqlite-wal-attached-undefined-output",
+      "query": "zDb attached 未定義",
+      "expected_ids": [
+        "sqlite-wal-checkpoint-progress-reset-safety"
+      ]
+    },
+    {
+      "name": "sqlite-wal-reset-fixed-backports",
+      "query": "WAL-reset 3.51.3 3.44.6",
+      "expected_ids": [
+        "sqlite-wal-checkpoint-progress-reset-safety"
+      ]
+    },
+    {
+      "name": "sqlite-wal-starvation-long-reader",
+      "query": "starvation read transaction",
+      "expected_ids": [
+        "sqlite-wal-checkpoint-progress-reset-safety"
+      ]
+    },
+    {
+      "name": "sqlite-wal-busy-partial-progress",
+      "query": "BUSY 部分進捗",
+      "expected_ids": [
+        "sqlite-wal-checkpoint-progress-reset-safety"
+      ]
+    },
+    {
+      "name": "sqlite-wal-pragma-negative-output",
+      "query": "PRAGMA -1 backlog",
+      "expected_ids": [
+        "sqlite-wal-checkpoint-progress-reset-safety"
+      ]
     }
   ]
 }

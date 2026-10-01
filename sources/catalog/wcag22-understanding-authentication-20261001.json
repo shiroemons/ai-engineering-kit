@@ -1,0 +1,12 @@
+{
+  "id": "wcag22-understanding-authentication-20261001",
+  "url": "https://www.w3.org/WAI/WCAG22/Understanding/accessible-authentication-minimum.html",
+  "version": "Understanding SC 3.3.8; page date Updated 06 September 2026; retrieved 2026-10-01",
+  "license": "W3C Software and Document License 2023 (page footer permissive license); https://www.w3.org/copyright/software-license-2023/; WAI use guidance: https://www.w3.org/WAI/about/using-wai-material/",
+  "purpose": "既存アカウント認証、MFA の全段階、回復時の認証、音声 CAPTCHA の転記、および新規アカウント作成との適用境界を確認する",
+  "repository_url": "",
+  "commit_sha": "",
+  "retrieved_at": "2026-10-01",
+  "trust": "official",
+  "type": "official_docs"
+}

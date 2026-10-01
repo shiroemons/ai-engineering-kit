@@ -1,0 +1,12 @@
+{
+  "id": "wcag22-authentication-rec-20241212-20261001",
+  "url": "https://www.w3.org/TR/2024/REC-WCAG22-20241212/",
+  "version": "WCAG 2.2 W3C Recommendation 12 December 2024; SC 3.3.8 AA / 3.3.9 AAA",
+  "license": "W3C Document License 2023; https://www.w3.org/copyright/document-license-2023/",
+  "purpose": "SC 3.3.8 の各認証段階に適用する四条件、password manager と copy/paste の補助手段、および 3.3.9 との例外差を確認する",
+  "repository_url": "",
+  "commit_sha": "",
+  "retrieved_at": "2026-10-01",
+  "trust": "official",
+  "type": "official_docs"
+}

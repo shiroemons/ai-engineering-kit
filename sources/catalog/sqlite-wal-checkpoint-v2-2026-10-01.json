@@ -1,0 +1,12 @@
+{
+  "id": "sqlite-wal-checkpoint-v2-2026-10-01",
+  "url": "https://www.sqlite.org/c3ref/wal_checkpoint_v2.html",
+  "repository_url": "",
+  "commit_sha": "",
+  "version": "SQLite sqlite3_wal_checkpoint_v2 contract retrieved 2026-10-01; includes NOOP added in 3.51.0",
+  "retrieved_at": "2026-10-01",
+  "license": "Public domain (SQLite code and documentation; https://www.sqlite.org/copyright.html)",
+  "trust": "official",
+  "type": "official_docs",
+  "purpose": "mode別の完了条件、checkpoint lock、busy handler、frame出力値とattached databaseの境界を確認"
+}

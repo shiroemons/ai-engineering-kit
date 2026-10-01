@@ -1,0 +1,12 @@
+{
+  "id": "python-threading-events-3-14-8-20261001",
+  "url": "https://docs.python.org/3.14/library/threading.html",
+  "repository_url": "",
+  "commit_sha": "",
+  "version": "Python 3.14.8 documentation（取得時のページ表示版）",
+  "retrieved_at": "2026-10-01",
+  "license": "PSF-2.0; documentation examples, recipes and code additionally 0BSD (https://docs.python.org/3.14/license.html)",
+  "trust": "official",
+  "type": "official_docs",
+  "purpose": "Thread を外部から stop/interrupt する API がないこと、Event の set/is_set/wait、正常終了のためのシグナル機構を確認。協調停止の設計案の根拠。"
+}

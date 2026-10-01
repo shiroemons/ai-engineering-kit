@@ -292,6 +292,90 @@
       "expected_ids": [
         "rails-active-job-retry-discard-handler-budget"
       ]
+    },
+    {
+      "name": "python-futures-bounded-map-unyielded",
+      "query": "buffersize 未返却 バックプレッシャー",
+      "expected_ids": [
+        "python-futures-bounded-map-timeout-shutdown"
+      ]
+    },
+    {
+      "name": "python-futures-maxworkers-backlog",
+      "query": "max_workers 投入量",
+      "expected_ids": [
+        "python-futures-bounded-map-timeout-shutdown"
+      ]
+    },
+    {
+      "name": "python-futures-process-chunk-boundary",
+      "query": "ProcessPoolExecutor chunksize 入力要素",
+      "expected_ids": [
+        "python-futures-bounded-map-timeout-shutdown"
+      ]
+    },
+    {
+      "name": "python-futures-map-ordered-head-of-line",
+      "query": "入力順 head-of-line",
+      "expected_ids": [
+        "python-futures-bounded-map-timeout-shutdown"
+      ]
+    },
+    {
+      "name": "python-futures-map-global-timeout",
+      "query": "map timeout 起点",
+      "expected_ids": [
+        "python-futures-bounded-map-timeout-shutdown"
+      ]
+    },
+    {
+      "name": "python-futures-result-timeout-still-running",
+      "query": "result TimeoutError 実行中",
+      "expected_ids": [
+        "python-futures-bounded-map-timeout-shutdown"
+      ]
+    },
+    {
+      "name": "python-futures-shutdown-cancels-unstarted-only",
+      "query": "cancel_futures 未開始",
+      "expected_ids": [
+        "python-futures-bounded-map-timeout-shutdown"
+      ]
+    },
+    {
+      "name": "python-futures-wait-false-interpreter-exit",
+      "query": "wait=False インタプリタ",
+      "expected_ids": [
+        "python-futures-bounded-map-timeout-shutdown"
+      ]
+    },
+    {
+      "name": "python-futures-cooperative-stop-event",
+      "query": "Event 協調停止 I/O",
+      "expected_ids": [
+        "python-futures-bounded-map-timeout-shutdown"
+      ]
+    },
+    {
+      "name": "python-futures-process-termination-resource-risk",
+      "query": "terminate_workers finally pipe",
+      "expected_ids": [
+        "python-futures-bounded-map-timeout-shutdown"
+      ]
+    },
+    {
+      "name": "python-futures-bounded-completion-refill",
+      "query": "FIRST_COMPLETED 補充",
+      "expected_ids": [
+        "python-futures-bounded-map-timeout-shutdown"
+      ]
+    },
+    {
+      "name": "python-futures-313-without-buffersize",
+      "query": "3.13 buffersize",
+      "expected_ids": [
+        "python-futures-bounded-map-timeout-shutdown"
+      ]
     }
   ]
 }

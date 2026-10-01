@@ -304,6 +304,41 @@
       "name": "react-external-store-hydration-mismatch",
       "query": "getServerSnapshot suppressHydrationWarning",
       "expected_ids": ["react-usesyncexternalstore-snapshot-hydration"]
+    },
+    {
+      "name": "accessibility-authentication-cognitive-mechanism",
+      "query": "3.3.8 cognitive-function-test Mechanism",
+      "expected_ids": ["accessibility-authentication-password-manager-otp-paste"]
+    },
+    {
+      "name": "accessibility-authentication-password-manager-paste",
+      "query": "H100 password manager paste",
+      "expected_ids": ["accessibility-authentication-password-manager-otp-paste"]
+    },
+    {
+      "name": "accessibility-authentication-otp-split-paste",
+      "query": "F109 OTP 貼り付け",
+      "expected_ids": ["accessibility-authentication-password-manager-otp-paste"]
+    },
+    {
+      "name": "accessibility-authentication-autocomplete-purpose",
+      "query": "autocomplete current-password new-password one-time-code",
+      "expected_ids": ["accessibility-authentication-password-manager-otp-paste"]
+    },
+    {
+      "name": "accessibility-authentication-mfa-recovery",
+      "query": "MFA account recovery",
+      "expected_ids": ["accessibility-authentication-password-manager-otp-paste"]
+    },
+    {
+      "name": "accessibility-authentication-aa-aaa-exceptions",
+      "query": "3.3.8 3.3.9 Alternative",
+      "expected_ids": ["accessibility-authentication-password-manager-otp-paste"]
+    },
+    {
+      "name": "accessibility-authentication-captcha-transcription",
+      "query": "音声 CAPTCHA Alternative",
+      "expected_ids": ["accessibility-authentication-password-manager-otp-paste"]
     }
   ]
 }

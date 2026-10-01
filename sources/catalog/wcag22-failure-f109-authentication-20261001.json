@@ -1,0 +1,12 @@
+{
+  "id": "wcag22-failure-f109-authentication-20261001",
+  "url": "https://www.w3.org/WAI/WCAG22/Techniques/failures/F109",
+  "version": "WCAG 2.2 Failure F109; page date Updated 27 April 2026; retrieved 2026-10-01",
+  "license": "W3C Software and Document License 2023 (page footer permissive license); https://www.w3.org/copyright/software-license-2023/",
+  "purpose": "コードを作成時と異なる形式で再入力させる失敗、分割 OTP 欄への一括貼り付け・自動展開の条件、および適合する代替認証の確認手順を確認する",
+  "repository_url": "",
+  "commit_sha": "",
+  "retrieved_at": "2026-10-01",
+  "trust": "official",
+  "type": "official_docs"
+}

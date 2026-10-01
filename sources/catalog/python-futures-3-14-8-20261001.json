@@ -1,0 +1,12 @@
+{
+  "id": "python-futures-3-14-8-20261001",
+  "url": "https://docs.python.org/3.14/library/concurrent.futures.html",
+  "repository_url": "",
+  "commit_sha": "",
+  "version": "Python 3.14.8 documentation（取得時のページ表示版）",
+  "retrieved_at": "2026-10-01",
+  "license": "PSF-2.0; documentation examples, recipes and code additionally 0BSD (https://docs.python.org/3.14/license.html)",
+  "trust": "official",
+  "type": "official_docs",
+  "purpose": "Executor.map の buffersize・chunksize・返却順・timeout、Future・Executor の実行状態と停止境界、ProcessPoolExecutor の停止 API を確認。ページ更新表示は2026-10-01 10:41 UTC。"
+}
