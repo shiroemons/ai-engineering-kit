@@ -1,0 +1,12 @@
+{
+  "id": "kubernetes-memoryqos-kubelet-config-v137-20261001",
+  "url": "https://kubernetes.io/docs/reference/config-api/kubelet-config.v1beta1/",
+  "repository_url": "https://github.com/kubernetes/website",
+  "commit_sha": "",
+  "version": "KubeletConfiguration v1beta1 generated for Kubernetes v1.37; page modified 2026-08-26",
+  "retrieved_at": "2026-10-01",
+  "license": "CC-BY-4.0 (https://github.com/kubernetes/website/blob/main/LICENSE; checked 2026-10-01)",
+  "trust": "official",
+  "type": "official_docs",
+  "purpose": "memoryThrottlingFactor nilとmemoryReservationPolicy NoneのAPI既定値を確認"
+}

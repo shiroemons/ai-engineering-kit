@@ -64,5 +64,10 @@
     {"name": "dpop-nonce-server-boundary", "query": "DPoP-Nonce AS RS", "expected_ids": ["oauth-dpop-proof-binding-nonce-replay"]},
     {"name": "dpop-replay-replica", "query": "DPoP jti replica", "expected_ids": ["oauth-dpop-proof-binding-nonce-replay"]},
     {"name": "dpop-bearer-downgrade", "query": "DPoP Bearer 拒否", "expected_ids": ["oauth-dpop-proof-binding-nonce-replay"]},
-    {"name": "dpop-retry-idempotency", "query": "DPoP business idempotency", "expected_ids": ["oauth-dpop-proof-binding-nonce-replay"]}
+    {"name": "dpop-retry-idempotency", "query": "DPoP business idempotency", "expected_ids": ["oauth-dpop-proof-binding-nonce-replay"]},
+    {"name": "oauth-bff-cookie-csrf", "query": "BFF SameSite CSRF", "expected_ids": ["oauth-bff-cookie-csrf-proxy-boundary"]},
+    {"name": "oauth-bff-proxy-allowlist", "query": "BFF proxy allowlist", "expected_ids": ["oauth-bff-cookie-csrf-proxy-boundary"]},
+    {"name": "oauth-bff-token-mediation", "query": "token-mediating backend", "expected_ids": ["oauth-bff-cookie-csrf-proxy-boundary"]},
+    {"name": "oauth-bff-hijacking-boundary", "query": "BFF client hijacking", "expected_ids": ["oauth-bff-cookie-csrf-proxy-boundary"]},
+    {"name": "oauth-bff-callback-separation", "query": "BFF callback PKCE", "expected_ids": ["oauth-bff-cookie-csrf-proxy-boundary"]}
   ]}

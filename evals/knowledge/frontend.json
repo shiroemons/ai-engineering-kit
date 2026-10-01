@@ -339,6 +339,48 @@
       "name": "accessibility-authentication-captcha-transcription",
       "query": "音声 CAPTCHA Alternative",
       "expected_ids": ["accessibility-authentication-password-manager-otp-paste"]
+    },
+    {
+      "name": "react-fragment-ref-stable",
+      "query": "Fragment refs stable",
+      "expected_ids": [
+        "react-fragment-ref-dom-boundaries"
+      ]
+    },
+    {
+      "name": "react-fragment-focus-boundaries",
+      "query": "FragmentInstance focus depth-first",
+      "expected_ids": [
+        "react-fragment-ref-dom-boundaries"
+      ]
+    },
+    {
+      "name": "react-fragment-observer-host-boundary",
+      "query": "Fragment observeUsing first-level",
+      "expected_ids": [
+        "react-fragment-ref-dom-boundaries"
+      ]
+    },
+    {
+      "name": "react-fragment-observer-cleanup",
+      "query": "Fragment unobserveUsing cleanup",
+      "expected_ids": [
+        "react-fragment-ref-dom-boundaries"
+      ]
+    },
+    {
+      "name": "react-fragment-scroll-options",
+      "query": "Fragment scrollIntoView boolean",
+      "expected_ids": [
+        "react-fragment-ref-dom-boundaries"
+      ]
+    },
+    {
+      "name": "react-fragment-hidden-activity",
+      "query": "Fragment Activity listener",
+      "expected_ids": [
+        "react-fragment-ref-dom-boundaries"
+      ]
     }
   ]
 }
