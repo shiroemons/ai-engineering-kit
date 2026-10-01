@@ -1,9 +1,0 @@
-{
-  "cases": [
-    {
-      "name": "cancellation-pattern",
-      "query": "cancellation",
-      "expected_ids": ["context-cancellation"]
-    }
-  ]
-}

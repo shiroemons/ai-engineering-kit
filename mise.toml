@@ -1,7 +1,0 @@
-[tools]
-go = "latest"
-just = "latest"
-golangci-lint = "latest"
-
-[env]
-GOTOOLCHAIN = "local"
