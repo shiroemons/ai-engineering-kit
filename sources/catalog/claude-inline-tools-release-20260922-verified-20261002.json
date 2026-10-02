@@ -1,0 +1,12 @@
+{
+  "id": "claude-inline-tools-release-20260922-verified-20261002",
+  "url": "https://platform.claude.com/docs/en/release-notes/overview",
+  "repository_url": "",
+  "commit_sha": "",
+  "version": "Claude Platform release notes, September 22, 2026 entry; inline-tools-2026-09-15 and mcp-client-2026-09-15 beta announcement",
+  "retrieved_at": "2026-10-02",
+  "license": "unknown",
+  "trust": "official",
+  "type": "release_notes",
+  "purpose": "2026-09-22 の inline tool definition・MCP toolset 追加・mcp_tool_listing の発表日を確認。日付付き beta header と公開日を区別する。取得ページに open license の表示を確認できず、独自要約のみ記録しコードを転載しない。"
+}

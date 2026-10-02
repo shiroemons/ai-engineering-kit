@@ -1,0 +1,12 @@
+{
+  "id": "claude-mcp-list-pinning-20260915-verified-20261002",
+  "url": "https://platform.claude.com/docs/en/agents-and-tools/mcp-connector",
+  "repository_url": "",
+  "commit_sha": "",
+  "version": "Claude API MCP connector beta mcp-client-2026-09-15, including mcp-client-2025-11-20 functionality; current official guide retrieved 2026-10-02, no separate page revision date shown",
+  "retrieved_at": "2026-10-02",
+  "license": "unknown",
+  "trust": "official",
+  "type": "official_docs",
+  "purpose": "mcp_tool_listing を含む assistant message の再送、継続 header、MCPToolset.tools による一覧固定と configs 適用、公開 HTTP tool-call 対象・local STDIO 非対応・ZDR 対象外を確認。固定するのは一覧であり remote 実装の互換性保証とはしない。取得ページに open license は確認できず独自要約のみ。"
+}

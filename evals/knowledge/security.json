@@ -77,5 +77,11 @@
     {"name": "webauthn-passkey-policy-condition", "query": "step 19 ポリシー", "expected_ids": ["security-webauthn-passkey-backup-flags-signcount"]},
     {"name": "webauthn-passkey-device-trust", "query": "BE=0 attestation", "expected_ids": ["security-webauthn-passkey-backup-flags-signcount"]},
     {"name": "webauthn-passkey-legacy-flags", "query": "RFU2 移行", "expected_ids": ["security-webauthn-passkey-backup-flags-signcount"]},
-    {"name": "webauthn-passkey-backup-recovery", "query": "BS=1→0 復旧", "expected_ids": ["security-webauthn-passkey-backup-flags-signcount"]}
+    {"name": "webauthn-passkey-backup-recovery", "query": "BS=1→0 復旧", "expected_ids": ["security-webauthn-passkey-backup-flags-signcount"]},
+    {"name": "oidc-ephemeral-draft-status", "query": "ephemeral Draft 03", "expected_ids": ["oidc-ephemeral-subject-correlation-account-boundary"]},
+    {"name": "oidc-ephemeral-negotiation", "query": "ephemeral subject_types_supported subject_type", "expected_ids": ["oidc-ephemeral-subject-correlation-account-boundary"]},
+    {"name": "oidc-ephemeral-correlation", "query": "ephemeral pairwise Sector", "expected_ids": ["oidc-ephemeral-subject-correlation-account-boundary"]},
+    {"name": "oidc-ephemeral-userinfo", "query": "ephemeral UserInfo 完全一致", "expected_ids": ["oidc-ephemeral-subject-correlation-account-boundary"]},
+    {"name": "oidc-ephemeral-account-linking", "query": "ephemeral メール 自動リンク", "expected_ids": ["oidc-ephemeral-subject-correlation-account-boundary"]},
+    {"name": "oidc-ephemeral-entropy", "query": "ephemeral 2^-128 2^-160", "expected_ids": ["oidc-ephemeral-subject-correlation-account-boundary"]}
   ]}

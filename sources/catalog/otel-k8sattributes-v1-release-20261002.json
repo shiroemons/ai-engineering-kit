@@ -1,0 +1,12 @@
+{
+  "id": "otel-k8sattributes-v1-release-20261002",
+  "url": "https://github.com/open-telemetry/opentelemetry-collector-contrib/releases/tag/v0.161.0",
+  "repository_url": "https://github.com/open-telemetry/opentelemetry-collector-contrib",
+  "commit_sha": "3f8455d8038a985398861171e5310bc9b4e988b2",
+  "version": "Collector Contrib v1.0.0/v0.161.0; published 2026-09-15T15:05:47Z",
+  "retrieved_at": "2026-10-02",
+  "license": "unknown (release prose-specific license unverified; upstream repository Apache-2.0 verified at https://github.com/open-telemetry/opentelemetry-collector-contrib/blob/3f8455d8038a985398861171e5310bc9b4e988b2/LICENSE); original summary only",
+  "trust": "official",
+  "type": "release_notes",
+  "purpose": "k8sattributes processor の logs/metrics/traces stable 化、両 semantic-convention gate の beta/default-on 化、dual emission の移行手順を確認。GitHub release API と tag object で公開日時と commit を確認"
+}
