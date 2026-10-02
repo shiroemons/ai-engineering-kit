@@ -1,0 +1,12 @@
+{
+  "id": "oidc-token-hash-guide-draft00-20260904-20261002",
+  "url": "https://openid.net/specs/openid-connect-token-hash-algorithms-1_0.html",
+  "repository_url": "",
+  "commit_sha": "",
+  "version": "OpenID Connect Token Hash Algorithm Implementer's Guide 1.0 draft 00, published 2026-09-04; retrieved 2026-10-02",
+  "retrieved_at": "2026-10-02",
+  "license": "OpenID Foundation copyright notice, Appendix A; purpose-limited specification/implementation license with attribution; original summary only",
+  "trust": "official",
+  "type": "official_docs",
+  "purpose": "Guide sections 1-4: verified-key EdDSA parameter selection, fixed XOF lengths, half-digest encoding and provisional SLH-DSA boundary."
+}

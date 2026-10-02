@@ -1,0 +1,12 @@
+{
+  "id": "oidc-core-hash-flow-errata2-20261002",
+  "url": "https://openid.net/specs/openid-connect-core-1_0-errata2.html",
+  "repository_url": "",
+  "commit_sha": "",
+  "version": "OpenID Connect Core 1.0 incorporating errata set 2, 2023-12-15",
+  "retrieved_at": "2026-10-02",
+  "license": "OpenID Foundation specification copyright license, Appendix C; purpose-limited specification/implementation reuse with attribution; original summary only",
+  "trust": "official",
+  "type": "official_docs",
+  "purpose": "Sections 3.1.3.6-8, 3.2.2.9-10, 3.3.2.9-11 and 3.3.3.6-9: ASCII hash inputs, claim requirements and endpoint-specific validation boundaries."
+}

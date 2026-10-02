@@ -1,0 +1,12 @@
+{
+  "id": "redis-compact-hash-announcement-20261002",
+  "url": "https://redis.io/blog/announcing-redis-810-compact-hash-jsonpath-extensions-performance-improvements-and-more/",
+  "repository_url": "",
+  "commit_sha": "",
+  "version": "Redis 8.10告知; 2026-09-14公開",
+  "retrieved_at": "2026-10-02",
+  "license": "unknown（開発元blog本文の個別ライセンスは未特定。独自要約のみ、コード・図・長文転載なし）",
+  "trust": "official",
+  "type": "release_notes",
+  "purpose": "9月14日の発表日と、compact hash / HIMPORTの提供、性能上限の販促数値を確認。一般的な実測保証には使わない。"
+}

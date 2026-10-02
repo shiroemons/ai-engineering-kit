@@ -1,0 +1,12 @@
+{
+  "id": "rfc9964-mldsa-hash-boundary-20261002",
+  "url": "https://www.rfc-editor.org/rfc/rfc9964.html",
+  "repository_url": "",
+  "commit_sha": "",
+  "version": "RFC 9964, Standards Track, May 2026",
+  "retrieved_at": "2026-10-02",
+  "license": "BCP 78 and IETF Trust Legal Provisions effective at publication; extracted Code Components require Revised BSD License; original summary only",
+  "trust": "official",
+  "type": "official_docs",
+  "purpose": "Sections 5, 7.2 and 8.1.4: ML-DSA JOSE identifiers and non-support of HashML-DSA, separating signature algorithms from OIDC token hash calculation."
+}

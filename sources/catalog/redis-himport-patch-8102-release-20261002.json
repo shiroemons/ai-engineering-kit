@@ -1,0 +1,12 @@
+{
+  "id": "redis-himport-patch-8102-release-20261002",
+  "url": "https://github.com/redis/redis/releases/tag/8.10.2",
+  "repository_url": "https://github.com/redis/redis",
+  "commit_sha": "",
+  "version": "Redis Open Source 8.10.2; 2026-09-17公開",
+  "retrieved_at": "2026-10-02",
+  "license": "unknown（GitHub release本文の個別ライセンスは未特定。製品コードのライセンスをrelease文章へ自動適用せず、独自要約のみ）",
+  "trust": "official",
+  "type": "release_notes",
+  "purpose": "SECURITY区分の後続patchの存在を確認。HIMPORT全境界の修正有無や8.10.0との完全同一性は主張しない。"
+}

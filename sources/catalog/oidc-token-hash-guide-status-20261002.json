@@ -1,0 +1,12 @@
+{
+  "id": "oidc-token-hash-guide-status-20261002",
+  "url": "https://openid.net/wg/connect/specifications/",
+  "repository_url": "",
+  "commit_sha": "",
+  "version": "AB/Connect Working Group specification list, Implementer's Guides section; retrieved 2026-10-02 (no page publication date displayed)",
+  "retrieved_at": "2026-10-02",
+  "license": "unknown",
+  "trust": "official",
+  "type": "official_docs",
+  "purpose": "Official classification of Token Hash Algorithm guide as continuously maintained implementation guidance, not intended for Final Specification status."
+}

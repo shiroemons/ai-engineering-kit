@@ -1,0 +1,12 @@
+{
+  "id": "redis-hset-partial-update-reference-20261002",
+  "url": "https://redis.io/docs/latest/commands/hset/",
+  "repository_url": "https://github.com/redis/docs",
+  "commit_sha": "",
+  "version": "HSET 2.0.0導入; 2026-10-02のunversioned command reference",
+  "retrieved_at": "2026-10-02",
+  "license": "CC-BY-NC-SA-4.0（https://github.com/redis/docs/blob/main/LICENSE を2026-10-02確認）; 旧redis-doc由来部分にはCC-BY-SA-4.0例外があるが当該ページの適用箇所は未特定。独自要約のみ、コード・図・長文転載なし",
+  "trust": "official",
+  "type": "official_docs",
+  "purpose": "HIMPORT比較用に指定fieldの更新と追加field件数のinteger replyだけ確認。公式実装例は転載しない。公開日表示なし。"
+}

@@ -1,0 +1,12 @@
+{
+  "id": "redis-himport-client-pool-article-20261002",
+  "url": "https://redis.io/blog/efficient-bulk-hash-insertion-with-redis-810s-himport/",
+  "repository_url": "",
+  "commit_sha": "",
+  "version": "2026-08-24公開のRedis 8.10 HIMPORT / redis-rb開発元記事",
+  "retrieved_at": "2026-10-02",
+  "license": "unknown（開発元blog本文の個別ライセンスは未特定。独自要約のみ、コード・図・長文転載なし）",
+  "trust": "maintainer",
+  "type": "maintainer_article",
+  "purpose": "pool内の各接続のprepare、記事が述べるredis-rbのreconnect時再登録を確認。client版が固定されていないため他言語・全版へ一般化しない。"
+}

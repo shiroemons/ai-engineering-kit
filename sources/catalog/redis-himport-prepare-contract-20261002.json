@@ -1,0 +1,12 @@
+{
+  "id": "redis-himport-prepare-contract-20261002",
+  "url": "https://redis.io/docs/latest/commands/himport-prepare/",
+  "repository_url": "https://github.com/redis/docs",
+  "commit_sha": "",
+  "version": "Redis Open Source 8.10.0導入; 2026-10-02のunversioned command reference",
+  "retrieved_at": "2026-10-02",
+  "license": "CC-BY-NC-SA-4.0（https://github.com/redis/docs/blob/main/LICENSE を2026-10-02確認）; 旧redis-doc由来部分にはCC-BY-SA-4.0例外があるが当該ページの適用箇所は未特定。独自要約のみ、コード・図・長文転載なし",
+  "trust": "official",
+  "type": "official_docs",
+  "purpose": "順序付きfieldset、同一名の再定義、重複field拒否、接続/RESETでの失効、OK reply、Cloud/Software対応表を確認。公開日表示なし。"
+}

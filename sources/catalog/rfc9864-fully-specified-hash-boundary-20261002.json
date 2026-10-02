@@ -1,0 +1,12 @@
+{
+  "id": "rfc9864-fully-specified-hash-boundary-20261002",
+  "url": "https://www.rfc-editor.org/rfc/rfc9864.html",
+  "repository_url": "",
+  "commit_sha": "",
+  "version": "RFC 9864, Standards Track, October 2025",
+  "retrieved_at": "2026-10-02",
+  "license": "BCP 78 and IETF Trust Legal Provisions effective at publication; extracted Code Components require Revised BSD License; original summary only",
+  "trust": "official",
+  "type": "official_docs",
+  "purpose": "Sections 2.2, 4.1 and 4.4: fully-specified JOSE Ed25519/Ed448 identifiers and distinction between Deprecated and Prohibited."
+}

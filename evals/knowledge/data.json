@@ -718,6 +718,76 @@
       "expected_ids": [
         "postgres-wait-replica-read-your-writes"
       ]
+    },
+    {
+      "name": "redis-himport-introduction-announcement-dates",
+      "query": "HIMPORT 2026-07-29 9月14日",
+      "expected_ids": [
+        "redis-himport-session-safe-bulk-replacement"
+      ]
+    },
+    {
+      "name": "redis-himport-whole-key-replacement",
+      "query": "HIMPORT 全置換 部分更新",
+      "expected_ids": [
+        "redis-himport-session-safe-bulk-replacement"
+      ]
+    },
+    {
+      "name": "redis-himport-field-order-contract",
+      "query": "fieldset 宣言順 sorted",
+      "expected_ids": [
+        "redis-himport-session-safe-bulk-replacement"
+      ]
+    },
+    {
+      "name": "redis-himport-same-name-definition",
+      "query": "同名 再定義 fingerprint",
+      "expected_ids": [
+        "redis-himport-session-safe-bulk-replacement"
+      ]
+    },
+    {
+      "name": "redis-himport-pool-connection-lifetime",
+      "query": "pool RESET 物理接続",
+      "expected_ids": [
+        "redis-himport-session-safe-bulk-replacement"
+      ]
+    },
+    {
+      "name": "redis-himport-reprepare-not-retry",
+      "query": "再登録 retry snapshot",
+      "expected_ids": [
+        "redis-himport-session-safe-bulk-replacement"
+      ]
+    },
+    {
+      "name": "redis-himport-discard-not-rollback",
+      "query": "DISCARD rollback 作成済み",
+      "expected_ids": [
+        "redis-himport-session-safe-bulk-replacement"
+      ]
+    },
+    {
+      "name": "redis-himport-encoding-rollback",
+      "query": "compact plain encoding",
+      "expected_ids": [
+        "redis-himport-session-safe-bulk-replacement"
+      ]
+    },
+    {
+      "name": "redis-himport-response-shape",
+      "query": "HIMPORT OK 追加field数",
+      "expected_ids": [
+        "redis-himport-session-safe-bulk-replacement"
+      ]
+    },
+    {
+      "name": "redis-himport-ttl-unverified",
+      "query": "HIMPORT TTL 未検証",
+      "expected_ids": [
+        "redis-himport-session-safe-bulk-replacement"
+      ]
     }
   ]
 }

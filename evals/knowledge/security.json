@@ -109,5 +109,15 @@
     {"name": "oidc-rp-choices-runtime-policy", "query": "runtime allowlist 未採用", "expected_ids": ["oidc-rp-metadata-choices-registration-runtime-boundary"]},
     {"name": "oidc-rp-choices-capability-subject", "query": "OP capability RP capability", "expected_ids": ["oidc-rp-metadata-choices-registration-runtime-boundary"]},
     {"name": "oidc-rp-choices-endpoint-scope", "query": "endpoint scope revocation introspection PAR", "expected_ids": ["oidc-rp-metadata-choices-registration-runtime-boundary"]},
-    {"name": "oidc-rp-choices-final-version", "query": "Choices Final 2026-03-25", "expected_ids": ["oidc-rp-metadata-choices-registration-runtime-boundary"]}
+    {"name": "oidc-rp-choices-final-version", "query": "Choices Final 2026-03-25", "expected_ids": ["oidc-rp-metadata-choices-registration-runtime-boundary"]},
+    {"name": "oidc-token-hash-guide-status", "query": "token hash draft 00 Final", "expected_ids": ["oidc-token-hash-eddsa-xof-validation-boundary"]},
+    {"name": "oidc-token-hash-verified-eddsa-key", "query": "EdDSA 検証鍵 crv=Ed448", "expected_ids": ["oidc-token-hash-eddsa-xof-validation-boundary"]},
+    {"name": "oidc-token-hash-xof-length", "query": "SHAKE256 114-byte 64-byte", "expected_ids": ["oidc-token-hash-eddsa-xof-validation-boundary"]},
+    {"name": "oidc-token-hash-flow-requiredness", "query": "Hybrid c_hash REQUIRED", "expected_ids": ["oidc-token-hash-eddsa-xof-validation-boundary"]},
+    {"name": "oidc-token-hash-code-optional", "query": "Code Flow at_hash MAY", "expected_ids": ["oidc-token-hash-eddsa-xof-validation-boundary"]},
+    {"name": "oidc-token-hash-signature-prehash", "query": "ML-DSA HashML-DSA 事前", "expected_ids": ["oidc-token-hash-eddsa-xof-validation-boundary"]},
+    {"name": "oidc-token-hash-slh-provisional", "query": "SLH-DSA 決定待ち", "expected_ids": ["oidc-token-hash-eddsa-xof-validation-boundary"]},
+    {"name": "oidc-token-hash-deprecation-boundary", "query": "EdDSA Deprecated Prohibited", "expected_ids": ["oidc-token-hash-eddsa-xof-validation-boundary"]},
+    {"name": "oidc-token-hash-octets-not-hex", "query": "digest hex バイト列", "expected_ids": ["oidc-token-hash-eddsa-xof-validation-boundary"]},
+    {"name": "oidc-token-hash-cross-endpoint", "query": "front-channel back-channel 取り違え", "expected_ids": ["oidc-token-hash-eddsa-xof-validation-boundary"]}
   ]}

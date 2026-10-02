@@ -1,0 +1,12 @@
+{
+  "id": "redis-himport-ga-8100-release-20261002",
+  "url": "https://github.com/redis/redis/releases/tag/8.10.0",
+  "repository_url": "https://github.com/redis/redis",
+  "commit_sha": "",
+  "version": "Redis Open Source 8.10.0 GA; 2026-07-29公開",
+  "retrieved_at": "2026-10-02",
+  "license": "unknown（GitHub release本文の個別ライセンスは未特定。製品コードのライセンスをrelease文章へ自動適用せず、独自要約のみ）",
+  "trust": "official",
+  "type": "release_notes",
+  "purpose": "7月29日のGA releaseでcompact hashesとHIMPORTを列挙。9月の発表記事の日付を導入日としないための照合。"
+}

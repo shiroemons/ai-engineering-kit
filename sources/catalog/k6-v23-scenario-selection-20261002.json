@@ -1,0 +1,12 @@
+{
+  "id": "k6-v23-scenario-selection-20261002",
+  "url": "https://grafana.com/docs/k6/v2.3.x/using-k6/scenarios/",
+  "repository_url": "",
+  "commit_sha": "",
+  "version": "Grafana k6 v2.3.x docs; verified 2026-10-02 UTC; page publication date not stated",
+  "retrieved_at": "2026-10-02",
+  "license": "Copyright Grafana Labs, all rights reserved (https://grafana.com/docs/copyright-notice/); attributed original summary only",
+  "trust": "official",
+  "type": "official_docs",
+  "purpose": "scenario 選択・threshold 除外・archive に選択結果を保存する契約、--once との合成と実行範囲を確認する"
+}
