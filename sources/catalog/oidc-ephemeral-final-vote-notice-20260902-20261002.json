@@ -1,0 +1,12 @@
+{
+  "id": "oidc-ephemeral-final-vote-notice-20260902-20261002",
+  "url": "https://openid.net/notice-of-vote-for-proposed-openid-connect-ephemeral-subject-identifier-1-0-final-specification/",
+  "repository_url": "",
+  "commit_sha": "",
+  "version": "OpenID Foundation notice published 2026-09-02, announcing vote 2026-09-16 through 2026-09-30; no approval outcome asserted",
+  "retrieved_at": "2026-10-02",
+  "license": "unknown",
+  "trust": "maintainer",
+  "type": "maintainer_article",
+  "purpose": "Verify recent standardization activity without treating the scheduled vote or elapsed voting period as proof of final approval; original attributed summary only."
+}

@@ -726,6 +726,62 @@
       "expected_ids": [
         "evals-agent-resource-envelope-trial-reliability"
       ]
+    },
+    {
+      "name": "claude-inline-tool-definition-beta",
+      "query": "inline-tools-2026-09-15 tool_definition",
+      "expected_ids": [
+        "agents-claude-inline-tools-mcp-list-pinning"
+      ]
+    },
+    {
+      "name": "claude-inline-reference-only-predecessor",
+      "query": "mid-conversation-tool-changes-2026-07-01 参照",
+      "expected_ids": [
+        "agents-claude-inline-tools-mcp-list-pinning"
+      ]
+    },
+    {
+      "name": "claude-inline-tool-cache-bootstrap",
+      "query": "non-deferred full cache miss",
+      "expected_ids": [
+        "agents-claude-inline-tools-mcp-list-pinning"
+      ]
+    },
+    {
+      "name": "claude-inline-tool-paused-placement",
+      "query": "paused tool_result",
+      "expected_ids": [
+        "agents-claude-inline-tools-mcp-list-pinning"
+      ]
+    },
+    {
+      "name": "claude-mcp-listing-roundtrip",
+      "query": "mcp_tool_listing content[0] 再送",
+      "expected_ids": [
+        "agents-claude-inline-tools-mcp-list-pinning"
+      ]
+    },
+    {
+      "name": "claude-mcp-list-pinning-server-boundary",
+      "query": "MCPToolset.tools remote implementation",
+      "expected_ids": [
+        "agents-claude-inline-tools-mcp-list-pinning"
+      ]
+    },
+    {
+      "name": "claude-thinking-account-cutoff",
+      "query": "2026-08-31 prefix_mismatch_behavior",
+      "expected_ids": [
+        "agents-claude-inline-tools-mcp-list-pinning"
+      ]
+    },
+    {
+      "name": "claude-thinking-batch-error-policy",
+      "query": "Message Batches error drop_block",
+      "expected_ids": [
+        "agents-claude-inline-tools-mcp-list-pinning"
+      ]
     }
   ]
 }

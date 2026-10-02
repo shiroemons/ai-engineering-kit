@@ -1,0 +1,12 @@
+{
+  "id": "claude-mid-conversation-tools-20260915-verified-20261002",
+  "url": "https://platform.claude.com/docs/en/build-with-claude/mid-conversation-system-messages",
+  "repository_url": "",
+  "commit_sha": "",
+  "version": "Claude API inline-tools-2026-09-15 beta; reference-only mid-conversation-tool-changes-2026-07-01; current official guide retrieved 2026-10-02, no separate page revision date shown",
+  "retrieved_at": "2026-10-02",
+  "license": "unknown",
+  "trust": "official",
+  "type": "official_docs",
+  "purpose": "tool_addition の参照と完全定義、同名 schema 更新、異種 tool_name_conflict、non-deferred tool がない場合の cache miss、配置・paused turn・tool 型の制限、モデルと platform の適用境界を確認。取得ページに open license は確認できず独自要約のみ。"
+}

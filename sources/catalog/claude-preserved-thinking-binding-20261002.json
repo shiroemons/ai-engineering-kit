@@ -1,0 +1,12 @@
+{
+  "id": "claude-preserved-thinking-binding-20261002",
+  "url": "https://platform.claude.com/docs/en/build-with-claude/preserved-thinking",
+  "repository_url": "",
+  "commit_sha": "",
+  "version": "Preserved thinking guide, prefix-check account cutoff 2026-08-31 00:00 UTC; thinking-binding-controls-2026-08-01 beta; retrieved 2026-10-02, no separate page revision date shown",
+  "retrieved_at": "2026-10-02",
+  "license": "unknown",
+  "trust": "official",
+  "type": "official_docs",
+  "purpose": "tools/prefix 編集が preserved thinking に与える影響、account 作成日時による enforcement、error/drop_block と input_transformations、Message Batches の省略時挙動、model_binding_mismatch との区別、Sonnet 5.5 で block_binding は adaptive のみ対応し between_tools と併用不可である点を確認。取得ページに open license は確認できず独自要約のみ。"
+}

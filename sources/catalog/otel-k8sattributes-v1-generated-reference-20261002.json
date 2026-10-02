@@ -1,0 +1,12 @@
+{
+  "id": "otel-k8sattributes-v1-generated-reference-20261002",
+  "url": "https://github.com/open-telemetry/opentelemetry-collector-contrib/blob/3f8455d8038a985398861171e5310bc9b4e988b2/processor/k8sattributesprocessor/documentation.md",
+  "repository_url": "https://github.com/open-telemetry/opentelemetry-collector-contrib",
+  "commit_sha": "3f8455d8038a985398861171e5310bc9b4e988b2",
+  "version": "k8sattributesprocessor v1.0.0 in Contrib v0.161.0; generated resource attributes/internal telemetry reference",
+  "retrieved_at": "2026-10-02",
+  "license": "Apache-2.0 (https://github.com/open-telemetry/opentelemetry-collector-contrib/blob/3f8455d8038a985398861171e5310bc9b4e988b2/LICENSE; checked 2026-10-02); original summary only",
+  "trust": "official",
+  "type": "official_docs",
+  "purpose": "container.image.tag の Str と container.image.tags の Slice、内部 telemetry の Development、beta semantic-convention gates を commit 固定の公式生成文書で確認。native web の raw URL が Cache miss のため GitHub connector で取得。独立した公開日表示なし"
+}

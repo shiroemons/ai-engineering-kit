@@ -1,0 +1,12 @@
+{
+  "id": "oidc-ephemeral-subject-draft03-20261002",
+  "url": "https://openid.net/specs/openid-connect-ephemeral-subject-identifier-1_0-03.html",
+  "repository_url": "",
+  "commit_sha": "",
+  "version": "OpenID Connect Ephemeral Subject Identifier 1.0 Draft 03, published 2026-07-10; not a final standard",
+  "retrieved_at": "2026-10-02",
+  "license": "OpenID Foundation specification copyright license, Appendix B (attribution and specification/implementation purposes); original summary only",
+  "trust": "official",
+  "type": "official_docs",
+  "purpose": "Verify authentication-request-scoped subject identifiers, non-reuse and entropy requirements, Discovery/Registration negotiation, and account-mix-up risks; explicitly preserve Draft 03 status."
+}

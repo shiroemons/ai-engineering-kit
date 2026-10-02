@@ -334,6 +334,62 @@
       "name": "playwright-locks-introduction-version",
       "query": "Playwright lock v1.42 1.63",
       "expected_ids": ["testing-playwright-test-locks-shared-resource-boundary"]
+    },
+    {
+      "name": "otel-k8sattributes-v1-default-gates",
+      "query": "k8sattributes beta 既定",
+      "expected_ids": [
+        "opentelemetry-k8sattributes-v1-semconv-migration"
+      ]
+    },
+    {
+      "name": "otel-k8sattributes-dual-emission",
+      "query": "k8sattributes dual emission DontEmitV0K8sConventions",
+      "expected_ids": [
+        "opentelemetry-k8sattributes-v1-semconv-migration"
+      ]
+    },
+    {
+      "name": "otel-k8sattributes-label-rename",
+      "query": "k8s.pod.labels k8s.pod.label",
+      "expected_ids": [
+        "opentelemetry-k8sattributes-v1-semconv-migration"
+      ]
+    },
+    {
+      "name": "otel-k8sattributes-container-tag-type",
+      "query": "container.image.tags Slice Str",
+      "expected_ids": [
+        "opentelemetry-k8sattributes-v1-semconv-migration"
+      ]
+    },
+    {
+      "name": "otel-k8sattributes-rollback-window",
+      "query": "k8sattributes rollback 終了日",
+      "expected_ids": [
+        "opentelemetry-k8sattributes-v1-semconv-migration"
+      ]
+    },
+    {
+      "name": "otel-k8sattributes-association-order",
+      "query": "k8sattributes connection batching",
+      "expected_ids": [
+        "opentelemetry-k8sattributes-v1-semconv-migration"
+      ]
+    },
+    {
+      "name": "otel-k8sattributes-stability-boundary",
+      "query": "k8sattributes stable Development",
+      "expected_ids": [
+        "opentelemetry-k8sattributes-v1-semconv-migration"
+      ]
+    },
+    {
+      "name": "otel-k8sattributes-mixed-rollout",
+      "query": "k8sattributes 新旧混在 二重計上",
+      "expected_ids": [
+        "opentelemetry-k8sattributes-v1-semconv-migration"
+      ]
     }
   ]
 }

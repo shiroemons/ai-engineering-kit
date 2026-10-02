@@ -1,0 +1,12 @@
+{
+  "id": "otel-k8sattributes-v1-announcement-20261002",
+  "url": "https://opentelemetry.io/blog/2026/k8s-attributes-processor-v1/",
+  "repository_url": "https://github.com/open-telemetry/opentelemetry.io",
+  "commit_sha": "",
+  "version": "2026-09-16 announcement of Kubernetes attributes processor v1.0.0",
+  "retrieved_at": "2026-10-02",
+  "license": "CC-BY-4.0 (https://raw.githubusercontent.com/open-telemetry/opentelemetry.io/main/LICENSE; checked 2026-10-02); original summary only",
+  "trust": "maintainer",
+  "type": "maintainer_article",
+  "purpose": "Christos Markou / Pablo Baeyens による v1.0.0 公開告知、component stability の範囲、K8s semantic conventions 1.42.0 との関係を確認。API 契約は release と固定版 reference で確認"
+}

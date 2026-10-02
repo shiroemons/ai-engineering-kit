@@ -1,0 +1,12 @@
+{
+  "id": "otel-k8sattributes-v1-readme-20261002",
+  "url": "https://github.com/open-telemetry/opentelemetry-collector-contrib/blob/3f8455d8038a985398861171e5310bc9b4e988b2/processor/k8sattributesprocessor/README.md",
+  "repository_url": "https://github.com/open-telemetry/opentelemetry-collector-contrib",
+  "commit_sha": "3f8455d8038a985398861171e5310bc9b4e988b2",
+  "version": "k8sattributesprocessor v1.0.0 in Contrib v0.161.0; Semantic Conventions 1.42.0",
+  "retrieved_at": "2026-10-02",
+  "license": "Apache-2.0 (https://github.com/open-telemetry/opentelemetry-collector-contrib/blob/3f8455d8038a985398861171e5310bc9b4e988b2/LICENSE; checked 2026-10-02); original summary only",
+  "trust": "official",
+  "type": "official_docs",
+  "purpose": "Semantic Conventions Compatibility の改名一覧・beta 移行期間、Pod association の connection/context 境界を確認。native web では v0.161.0 tag の raw README を取得し、GitHub connector で同じ tag の full commit に固定した README を再取得。独立した公開日表示なし"
+}
