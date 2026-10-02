@@ -625,6 +625,62 @@
       "expected_ids": [
         "kubernetes-selinuxmount-shared-volume-upgrade"
       ]
+    },
+    {
+      "name": "docker-registry-dns-patched-version",
+      "query": "CVE-2026-92543 29.8.2",
+      "expected_ids": [
+        "docker-registry-dns-tls-downgrade-2982"
+      ]
+    },
+    {
+      "name": "docker-registry-dns-insecure-empty",
+      "query": "insecure-registries 暗黙",
+      "expected_ids": [
+        "docker-registry-dns-tls-downgrade-2982"
+      ]
+    },
+    {
+      "name": "docker-registry-dns-ca-insufficient",
+      "query": "CA 検証回避",
+      "expected_ids": [
+        "docker-registry-dns-tls-downgrade-2982"
+      ]
+    },
+    {
+      "name": "docker-registry-dns-digest-credentials",
+      "query": "digest 資格情報",
+      "expected_ids": [
+        "docker-registry-dns-tls-downgrade-2982"
+      ]
+    },
+    {
+      "name": "docker-registry-dns-server-version",
+      "query": "Server.Version CLI",
+      "expected_ids": [
+        "docker-registry-dns-tls-downgrade-2982"
+      ]
+    },
+    {
+      "name": "docker-registry-dns-container-scope",
+      "query": "コンテナ用 --dns",
+      "expected_ids": [
+        "docker-registry-dns-tls-downgrade-2982"
+      ]
+    },
+    {
+      "name": "docker-registry-dns-module-version",
+      "query": "v2.0.0-beta.25 製品版",
+      "expected_ids": [
+        "docker-registry-dns-tls-downgrade-2982"
+      ]
+    },
+    {
+      "name": "docker-registry-dns-mitigation-egress",
+      "query": "non-loopback endpoint",
+      "expected_ids": [
+        "docker-registry-dns-tls-downgrade-2982"
+      ]
     }
   ]
 }

@@ -1,0 +1,12 @@
+{
+  "id": "docker-version-server-reference-20261002",
+  "url": "https://docs.docker.com/reference/cli/docker/version/",
+  "repository_url": "https://github.com/docker/docs",
+  "commit_sha": "",
+  "version": "Docker CLI docker version rolling reference; no page release or update date stated; verified 2026-10-02",
+  "retrieved_at": "2026-10-02",
+  "license": "Apache-2.0 (docker/docs README and LICENSE, https://github.com/docker/docs/blob/main/LICENSE; checked 2026-10-02)",
+  "trust": "official",
+  "type": "official_docs",
+  "purpose": "ClientとServerの別版管理とServer.Versionの読み取りを確認し、CLI更新だけを修正済みと誤認しない"
+}

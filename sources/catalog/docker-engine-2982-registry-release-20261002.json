@@ -1,0 +1,12 @@
+{
+  "id": "docker-engine-2982-registry-release-20261002",
+  "url": "https://docs.docker.com/engine/release-notes/29/#2982",
+  "repository_url": "https://github.com/docker/docs",
+  "commit_sha": "",
+  "version": "Docker Engine 29.8.2, released 2026-09-30; CVE-2026-92543 security entry",
+  "retrieved_at": "2026-10-02",
+  "license": "Apache-2.0 (docker/docs README and LICENSE, https://github.com/docker/docs/blob/main/LICENSE; checked 2026-10-02)",
+  "trust": "official",
+  "type": "release_notes",
+  "purpose": "2026-09-30のDocker Engine 29.8.2にregistry DNS/TLS downgrade修正が含まれることを確認"
+}

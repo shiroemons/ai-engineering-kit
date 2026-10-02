@@ -1,0 +1,12 @@
+{
+  "id": "otel-cardinality-sdk-contract-20261002",
+  "url": "https://opentelemetry.io/docs/specs/otel/metrics/sdk/",
+  "repository_url": "https://github.com/open-telemetry/opentelemetry-specification",
+  "commit_sha": "",
+  "version": "OpenTelemetry Specification 1.61.0 displayed on live site; Cardinality limits Stable; retrieved 2026-10-02",
+  "retrieved_at": "2026-10-02",
+  "license": "Apache-2.0 upstream specification: https://github.com/open-telemetry/opentelemetry-specification/blob/main/LICENSE; website documentation CC-BY-4.0",
+  "trust": "official",
+  "type": "official_docs",
+  "purpose": "Stable Cardinality limits節のSHOULD既定値2000、View/MetricReader設定、同期overflowの重複・欠落禁止と非同期の別規則、View除外属性がExemplarへ残り得る注意を確認。live pageで公開日は未表示。"
+}

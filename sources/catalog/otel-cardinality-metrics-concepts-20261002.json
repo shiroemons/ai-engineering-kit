@@ -1,0 +1,12 @@
+{
+  "id": "otel-cardinality-metrics-concepts-20261002",
+  "url": "https://opentelemetry.io/docs/concepts/signals/metrics/",
+  "repository_url": "https://github.com/open-telemetry/opentelemetry.io",
+  "commit_sha": "",
+  "version": "Live Metrics concept documentation, page last modified 2026-07-02; retrieved 2026-10-02",
+  "retrieved_at": "2026-10-02",
+  "license": "CC-BY-4.0; https://github.com/open-telemetry/opentelemetry.io/blob/main/LICENSE",
+  "trust": "official",
+  "type": "official_docs",
+  "purpose": "measurement属性集合全体のoverflow、Resourceとinstrumentation scopeの境界、同期instrumentのtemporalityごとの保持を確認。特定言語SDKの対応版ではない。"
+}

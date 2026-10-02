@@ -1,0 +1,12 @@
+{
+  "id": "moby-registry-dns-advisory-20261002",
+  "url": "https://github.com/moby/moby/security/advisories/GHSA-7cfq-22r6-qp73",
+  "repository_url": "https://github.com/moby/moby",
+  "commit_sha": "",
+  "version": "GHSA-7cfq-22r6-qp73 / CVE-2026-92543, published 2026-10-01; Docker Engine <29.8.2 affected, 29.8.2 patched; Go module <v2.0.0-beta.25 affected",
+  "retrieved_at": "2026-10-02",
+  "license": "unknown (advisory page has no explicit content license; attributed original summary only, no copied implementation)",
+  "trust": "maintainer",
+  "type": "maintainer_article",
+  "purpose": "影響版、DNS判定と接続先の不一致、暫定対策、CA・設定削除・digestだけでは不足する境界を確認"
+}

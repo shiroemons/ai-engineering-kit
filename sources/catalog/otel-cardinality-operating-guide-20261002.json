@@ -1,0 +1,12 @@
+{
+  "id": "otel-cardinality-operating-guide-20261002",
+  "url": "https://opentelemetry.io/blog/2026/cardinality-limits-in-opentelemetry/",
+  "repository_url": "https://github.com/open-telemetry/opentelemetry.io",
+  "commit_sha": "",
+  "version": "Cijo Thomas (Microsoft), 2026-08-06 maintainer article; retrieved 2026-10-02",
+  "retrieved_at": "2026-10-02",
+  "license": "CC-BY-4.0; https://github.com/open-telemetry/opentelemetry.io/blob/main/LICENSE",
+  "trust": "maintainer",
+  "type": "maintainer_article",
+  "purpose": "2026-08-06公開の運用解説。overflow による属性別集計・SLOへの影響、SDKとbackendのcardinality境界、検出と対処の条件を確認。機能の導入日を示すrelease notesではない。"
+}

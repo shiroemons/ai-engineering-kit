@@ -1,0 +1,12 @@
+{
+  "id": "sqlite-integrity-check-index-contract-20261002",
+  "url": "https://www.sqlite.org/pragma.html#pragma_integrity_check",
+  "repository_url": "",
+  "commit_sha": "",
+  "version": "SQLite PRAGMA reference; page updated 2026-06-04 01:35:31Z; retrieved 2026-10-02",
+  "retrieved_at": "2026-10-02",
+  "license": "Public domain (SQLite code and documentation; https://www.sqlite.org/copyright.html)",
+  "trust": "official",
+  "type": "official_docs",
+  "purpose": "integrity_check の出力・対象と、quick_check が index/table 一致および UNIQUE 検査を省略する境界を確認"
+}

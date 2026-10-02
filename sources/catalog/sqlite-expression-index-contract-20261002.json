@@ -1,0 +1,12 @@
+{
+  "id": "sqlite-expression-index-contract-20261002",
+  "url": "https://www.sqlite.org/expridx.html",
+  "repository_url": "",
+  "commit_sha": "",
+  "version": "SQLite expression index contract; direct expression indexes since 3.9.0; page publication/update date not displayed",
+  "retrieved_at": "2026-10-02",
+  "license": "Public domain (SQLite code and documentation; https://www.sqlite.org/copyright.html)",
+  "trust": "official",
+  "type": "official_docs",
+  "purpose": "deterministic 関数制約、独自関数の登録指定、query と index の式一致条件を確認"
+}

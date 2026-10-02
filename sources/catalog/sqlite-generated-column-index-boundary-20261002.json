@@ -1,0 +1,12 @@
+{
+  "id": "sqlite-generated-column-index-boundary-20261002",
+  "url": "https://www.sqlite.org/gencol.html",
+  "repository_url": "",
+  "commit_sha": "",
+  "version": "SQLite generated columns since 3.31.0; page updated 2026-05-14 15:13:28Z",
+  "retrieved_at": "2026-10-02",
+  "license": "Public domain (SQLite code and documentation; https://www.sqlite.org/copyright.html)",
+  "trust": "official",
+  "type": "official_docs",
+  "purpose": "VIRTUAL/STORED の計算時機と index 分類、STORED 追加制約および旧 runtime の互換性を確認"
+}
