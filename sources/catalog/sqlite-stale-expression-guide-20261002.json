@@ -1,0 +1,12 @@
+{
+  "id": "sqlite-stale-expression-guide-20261002",
+  "url": "https://www.sqlite.org/staleexpridx.html",
+  "repository_url": "",
+  "commit_sha": "",
+  "version": "SQLite stale expression index guide; self-healing since 3.53.0; page updated 2026-06-13 15:05:34Z",
+  "retrieved_at": "2026-10-02",
+  "license": "Public domain (SQLite code and documentation; https://www.sqlite.org/copyright.html)",
+  "trust": "official",
+  "type": "official_docs",
+  "purpose": "環境・関数変更による stale index、UPDATE/DELETE 時の修復、診断と CLI 棚卸しを確認。本文に残る 3.52 参照は release notes と区別"
+}

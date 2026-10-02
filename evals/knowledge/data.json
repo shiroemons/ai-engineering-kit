@@ -508,6 +508,76 @@
       "expected_ids": [
         "redis-streams-idmp-retry-window-reset"
       ]
+    },
+    {
+      "name": "sqlite-expression-reindex-introduction",
+      "query": "3.53.0 REINDEX EXPRESSIONS",
+      "expected_ids": [
+        "sqlite-stale-expression-index-reindex-migration"
+      ]
+    },
+    {
+      "name": "sqlite-expression-release-withdrawn",
+      "query": "3.52.0 Withdrawn 導入版",
+      "expected_ids": [
+        "sqlite-stale-expression-index-reindex-migration"
+      ]
+    },
+    {
+      "name": "sqlite-expression-self-healing-trigger",
+      "query": "self-healing UPDATE 未更新行",
+      "expected_ids": [
+        "sqlite-stale-expression-index-reindex-migration"
+      ]
+    },
+    {
+      "name": "sqlite-expression-quick-check-gap",
+      "query": "quick_check UNIQUE 一致",
+      "expected_ids": [
+        "sqlite-stale-expression-index-reindex-migration"
+      ]
+    },
+    {
+      "name": "sqlite-expression-reindex-collision",
+      "query": "EXPRESSIONS 名前衝突 collation",
+      "expected_ids": [
+        "sqlite-stale-expression-index-reindex-migration"
+      ]
+    },
+    {
+      "name": "sqlite-expression-reindex-schema-target",
+      "query": "REINDEX schema.index_name",
+      "expected_ids": [
+        "sqlite-stale-expression-index-reindex-migration"
+      ]
+    },
+    {
+      "name": "sqlite-expression-virtual-stored-index",
+      "query": "VIRTUAL STORED expression index",
+      "expected_ids": [
+        "sqlite-stale-expression-index-reindex-migration"
+      ]
+    },
+    {
+      "name": "sqlite-expression-stored-add-boundary",
+      "query": "STORED ALTER TABLE ADD COLUMN",
+      "expected_ids": [
+        "sqlite-stale-expression-index-reindex-migration"
+      ]
+    },
+    {
+      "name": "sqlite-expression-json-floating-runtime",
+      "query": "JSON 浮動小数点 runtime",
+      "expected_ids": [
+        "sqlite-stale-expression-index-reindex-migration"
+      ]
+    },
+    {
+      "name": "sqlite-expression-runtime-cli-inventory",
+      "query": "CLI .indexes --expr",
+      "expected_ids": [
+        "sqlite-stale-expression-index-reindex-migration"
+      ]
     }
   ]
 }

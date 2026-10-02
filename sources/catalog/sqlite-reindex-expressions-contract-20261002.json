@@ -1,0 +1,12 @@
+{
+  "id": "sqlite-reindex-expressions-contract-20261002",
+  "url": "https://www.sqlite.org/lang_reindex.html",
+  "repository_url": "",
+  "commit_sha": "",
+  "version": "SQLite REINDEX reference; EXPRESSIONS since 3.53.0; page updated 2026-03-21 13:08:51Z",
+  "retrieved_at": "2026-10-02",
+  "license": "Public domain (SQLite code and documentation; https://www.sqlite.org/copyright.html)",
+  "trust": "official",
+  "type": "official_docs",
+  "purpose": "REINDEX の対象範囲、collation 優先、schema 指定と EXPRESSIONS の名前衝突による追加処理を確認"
+}

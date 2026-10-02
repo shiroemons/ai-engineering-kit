@@ -390,6 +390,62 @@
       "expected_ids": [
         "opentelemetry-k8sattributes-v1-semconv-migration"
       ]
+    },
+    {
+      "name": "otel-cardinality-overflow-whole-set",
+      "query": "overflow boolean 属性集合",
+      "expected_ids": [
+        "opentelemetry-metric-cardinality-overflow-slo-boundary"
+      ]
+    },
+    {
+      "name": "otel-cardinality-should-default",
+      "query": "cardinality SHOULD 2000",
+      "expected_ids": [
+        "opentelemetry-metric-cardinality-overflow-slo-boundary"
+      ]
+    },
+    {
+      "name": "otel-cardinality-slo-counterexample",
+      "query": "overflow 12.5% 30%",
+      "expected_ids": [
+        "opentelemetry-metric-cardinality-overflow-slo-boundary"
+      ]
+    },
+    {
+      "name": "otel-cardinality-backend-boundary",
+      "query": "SDK fleet backend 系列数",
+      "expected_ids": [
+        "opentelemetry-metric-cardinality-overflow-slo-boundary"
+      ]
+    },
+    {
+      "name": "otel-cardinality-sync-async-boundary",
+      "query": "cardinality callback delta",
+      "expected_ids": [
+        "opentelemetry-metric-cardinality-overflow-slo-boundary"
+      ]
+    },
+    {
+      "name": "otel-cardinality-exemplar-redaction",
+      "query": "cardinality Exemplar redaction",
+      "expected_ids": [
+        "opentelemetry-metric-cardinality-overflow-slo-boundary"
+      ]
+    },
+    {
+      "name": "otel-cardinality-empty-query",
+      "query": "otel_metric_overflow 保持期間外",
+      "expected_ids": [
+        "opentelemetry-metric-cardinality-overflow-slo-boundary"
+      ]
+    },
+    {
+      "name": "otel-cardinality-recent-doc-not-feature",
+      "query": "cardinality 2026-08-06 導入",
+      "expected_ids": [
+        "opentelemetry-metric-cardinality-overflow-slo-boundary"
+      ]
     }
   ]
 }

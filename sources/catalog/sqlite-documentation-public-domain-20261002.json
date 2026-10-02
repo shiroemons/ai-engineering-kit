@@ -1,0 +1,12 @@
+{
+  "id": "sqlite-documentation-public-domain-20261002",
+  "url": "https://www.sqlite.org/copyright.html",
+  "repository_url": "",
+  "commit_sha": "",
+  "version": "SQLite code and documentation public-domain declaration; page updated 2026-01-12 12:33:24Z",
+  "retrieved_at": "2026-10-02",
+  "license": "Public domain (SQLite code and documentation; https://www.sqlite.org/copyright.html)",
+  "trust": "official",
+  "type": "official_docs",
+  "purpose": "本書の公式文書 source の public domain 宣言と配布コード・文書の対象範囲を確認"
+}

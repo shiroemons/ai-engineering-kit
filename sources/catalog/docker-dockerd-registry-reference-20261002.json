@@ -1,0 +1,12 @@
+{
+  "id": "docker-dockerd-registry-reference-20261002",
+  "url": "https://docs.docker.com/reference/cli/dockerd/",
+  "repository_url": "https://github.com/docker/docs",
+  "commit_sha": "",
+  "version": "Docker dockerd rolling CLI reference, Insecure registries / Daemon DNS options sections; no page release or update date stated; verified 2026-10-02",
+  "retrieved_at": "2026-10-02",
+  "license": "Apache-2.0 (docker/docs README and LICENSE, https://github.com/docker/docs/blob/main/LICENSE; checked 2026-10-02)",
+  "trust": "official",
+  "type": "official_docs",
+  "purpose": "通常のsecure/insecure registry契約、暗黙のloopback例外、--dnsがコンテナ用であることを確認"
+}

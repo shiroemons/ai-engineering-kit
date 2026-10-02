@@ -1,0 +1,12 @@
+{
+  "id": "sqlite-353-expression-release-20261002",
+  "url": "https://www.sqlite.org/releaselog/3_53_0.html",
+  "repository_url": "",
+  "commit_sha": "",
+  "version": "SQLite 3.53.0, published 2026-04-09",
+  "retrieved_at": "2026-10-02",
+  "license": "Public domain (SQLite code and documentation; https://www.sqlite.org/copyright.html)",
+  "trust": "official",
+  "type": "release_notes",
+  "purpose": "self-healing index、REINDEX EXPRESSIONS と浮動小数点変換変更の導入版・公開日を確認"
+}
