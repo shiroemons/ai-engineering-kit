@@ -1,0 +1,12 @@
+{
+  "id": "react-versions-browser-reference-2026-10-02",
+  "url": "https://react.dev/versions",
+  "repository_url": "https://github.com/reactjs/react.dev",
+  "commit_sha": "",
+  "version": "React 19.3 displayed; React 19.3.0 release listed as 2026-09-09; live version index",
+  "retrieved_at": "2026-10-02",
+  "license": "CC-BY-4.0 (react.dev content; https://github.com/reactjs/react.dev/blob/main/LICENSE-DOCS.md and README.md verified 2026-10-02; original Japanese summary, no copied code)",
+  "trust": "official",
+  "type": "official_docs",
+  "purpose": "major 単位で更新され minor / patch 別に公開されない docs の適用版境界を確認。"
+}

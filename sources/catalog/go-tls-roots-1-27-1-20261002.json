@@ -1,0 +1,12 @@
+{
+  "id": "go-tls-roots-1-27-1-20261002",
+  "url": "https://pkg.go.dev/crypto/tls@go1.27.1",
+  "repository_url": "https://github.com/golang/go",
+  "commit_sha": "",
+  "version": "go1.27.1; published 2026-09-01",
+  "retrieved_at": "2026-10-02",
+  "license": "BSD-3-Clause; https://raw.githubusercontent.com/golang/go/862c888e612ac346c7c4d99c9392bdfd265f33b0/LICENSE",
+  "trust": "official",
+  "type": "official_docs",
+  "purpose": "tls.Config.RootCAs の nil と明示pool、InsecureSkipVerify が証明書chainとhostnameの通常検証を省くことを確認。"
+}

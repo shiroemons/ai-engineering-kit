@@ -1,0 +1,12 @@
+{
+  "id": "react-browser-bailout-reference-2026-10-02",
+  "url": "https://react.dev/reference/react-dom/browser",
+  "repository_url": "https://github.com/reactjs/react.dev",
+  "commit_sha": "",
+  "version": "React 19.3 displayed; live major-19 reference, not patch-pinned; publication/update date not stated",
+  "retrieved_at": "2026-10-02",
+  "license": "CC-BY-4.0 (react.dev content; https://github.com/reactjs/react.dev/blob/main/LICENSE-DOCS.md and README.md verified 2026-10-02; original Japanese summary, no copied code)",
+  "trust": "official",
+  "type": "official_docs",
+  "purpose": "use(browser()) の Suspense / Client Component 制約、throw 禁止、reason と onBrowserBailout、abort(browser()) の error callback 分離を確認。"
+}

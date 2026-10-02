@@ -561,6 +561,62 @@
       "expected_ids": [
         "http-cache-groups-invalidation-scope"
       ]
+    },
+    {
+      "name": "http-query-cache-body",
+      "query": "QUERY cache body",
+      "expected_ids": [
+        "http-query-body-cache-cors-boundary"
+      ]
+    },
+    {
+      "name": "http-query-content-type-rejection",
+      "query": "QUERY Content-Type 拒否",
+      "expected_ids": [
+        "http-query-body-cache-cors-boundary"
+      ]
+    },
+    {
+      "name": "http-query-cors-preflight",
+      "query": "QUERY CORS preflight",
+      "expected_ids": [
+        "http-query-body-cache-cors-boundary"
+      ]
+    },
+    {
+      "name": "http-query-location-result",
+      "query": "QUERY Location Content-Location",
+      "expected_ids": [
+        "http-query-body-cache-cors-boundary"
+      ]
+    },
+    {
+      "name": "http-query-structured-fields",
+      "query": "Accept-Query Structured Fields",
+      "expected_ids": [
+        "http-query-body-cache-cors-boundary"
+      ]
+    },
+    {
+      "name": "http-query-method-case",
+      "query": "QUERY 大文字 小文字",
+      "expected_ids": [
+        "http-query-body-cache-cors-boundary"
+      ]
+    },
+    {
+      "name": "http-query-reported-errata",
+      "query": "QUERY errata Reported",
+      "expected_ids": [
+        "http-query-body-cache-cors-boundary"
+      ]
+    },
+    {
+      "name": "http-query-redirect-contract",
+      "query": "QUERY 301 303",
+      "expected_ids": [
+        "http-query-body-cache-cors-boundary"
+      ]
     }
   ]
 }

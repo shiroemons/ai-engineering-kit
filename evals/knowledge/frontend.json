@@ -430,6 +430,55 @@
       "expected_ids": [
         "css-anchor-positioning-fallback-scope-boundaries"
       ]
+    },
+    {
+      "name": "react-browser-suspense-client-only",
+      "query": "browser client-only Suspense",
+      "expected_ids": [
+        "react-browser-suspense-bailout-boundary"
+      ]
+    },
+    {
+      "name": "react-browser-do-not-throw",
+      "query": "throw browser",
+      "expected_ids": [
+        "react-browser-suspense-bailout-boundary"
+      ]
+    },
+    {
+      "name": "react-browser-bailout-callback-separation",
+      "query": "onBrowserBailout onRecoverableError",
+      "expected_ids": [
+        "react-browser-suspense-bailout-boundary"
+      ]
+    },
+    {
+      "name": "react-browser-reason-cause-stack",
+      "query": "browser reason cause componentStack",
+      "expected_ids": [
+        "react-browser-suspense-bailout-boundary"
+      ]
+    },
+    {
+      "name": "react-browser-abort-web-stream",
+      "query": "AbortController abort signal",
+      "expected_ids": [
+        "react-browser-suspense-bailout-boundary"
+      ]
+    },
+    {
+      "name": "react-browser-conditional-initial-data",
+      "query": "browser conditional initialData",
+      "expected_ids": [
+        "react-browser-suspense-bailout-boundary"
+      ]
+    },
+    {
+      "name": "react-browser-missing-suspense-error",
+      "query": "browser missing Suspense",
+      "expected_ids": [
+        "react-browser-suspense-bailout-boundary"
+      ]
     }
   ]
 }

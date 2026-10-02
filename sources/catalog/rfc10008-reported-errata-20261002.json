@@ -1,0 +1,12 @@
+{
+  "id": "rfc10008-reported-errata-20261002",
+  "url": "https://errata.rfc-editor.org/search/?rfc_number=10008",
+  "repository_url": "",
+  "commit_sha": "",
+  "version": "RFC 10008 errata 9013 / 9016, both Reported 2026-06-23; checked 2026-10-02",
+  "retrieved_at": "2026-10-02",
+  "license": "unknown",
+  "trust": "primary-source",
+  "type": "official_docs",
+  "purpose": "公式 errata index の報告者による未承認指摘として、Appendix A.5 の request Vary と A.4.2 の HTTP date 書式を確認。Verified と扱わない。ライセンス不明につき独自要約のみ、コード引用・module昇格なし。"
+}

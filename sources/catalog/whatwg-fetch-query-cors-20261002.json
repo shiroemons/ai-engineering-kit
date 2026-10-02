@@ -1,0 +1,12 @@
+{
+  "id": "whatwg-fetch-query-cors-20261002",
+  "url": "https://fetch.spec.whatwg.org/",
+  "repository_url": "",
+  "commit_sha": "",
+  "version": "Fetch Living Standard, unversioned page retrieved 2026-10-02",
+  "retrieved_at": "2026-10-02",
+  "license": "CC-BY-4.0 (prose); BSD-3-Clause for portions incorporated into source code, per Intellectual property rights",
+  "trust": "official",
+  "type": "official_docs",
+  "purpose": "§2.2.1 method normalization / CORS safelist と §3.3 CORS permission / exposed headers、no-cors の制限を確認。取得日を版として扱い、ブラウザー実機互換性は未検証。原文・コード転載なし。"
+}

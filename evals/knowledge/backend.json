@@ -3,232 +3,324 @@
     {
       "name": "rails-nested-transaction-requires-new-savepoint",
       "query": "requires_new savepoint ロールバック",
-      "expected_ids": ["rails-nested-transaction-savepoint-callbacks"]
+      "expected_ids": [
+        "rails-nested-transaction-savepoint-callbacks"
+      ]
     },
     {
       "name": "rails-nested-default-joinable-parent",
       "query": "joinable 親トランザクション savepoint",
-      "expected_ids": ["rails-nested-transaction-savepoint-callbacks"]
+      "expected_ids": [
+        "rails-nested-transaction-savepoint-callbacks"
+      ]
     },
     {
       "name": "rails-activerecord-rollback-no-propagation",
       "query": "ActiveRecord::Rollback 親 コミット",
-      "expected_ids": ["rails-nested-transaction-savepoint-callbacks"]
+      "expected_ids": [
+        "rails-nested-transaction-savepoint-callbacks"
+      ]
     },
     {
       "name": "rails-after-rollback-savepoint-fired",
       "query": "after_rollback savepoint ロールバック",
-      "expected_ids": ["rails-nested-transaction-savepoint-callbacks"]
+      "expected_ids": [
+        "rails-nested-transaction-savepoint-callbacks"
+      ]
     },
     {
       "name": "rails-after-commit-outermost-transaction",
       "query": "after_commit 最外トランザクション コミット",
-      "expected_ids": ["rails-nested-transaction-savepoint-callbacks"]
+      "expected_ids": [
+        "rails-nested-transaction-savepoint-callbacks"
+      ]
     },
     {
       "name": "rails-after-commit-first-change-object",
       "query": "after_commit 最初の変更オブジェクト",
-      "expected_ids": ["rails-nested-transaction-savepoint-callbacks"]
+      "expected_ids": [
+        "rails-nested-transaction-savepoint-callbacks"
+      ]
     },
     {
       "name": "rails-transaction-callback-order-rails-7-1",
       "query": "run_after_transaction_callbacks_in_order_defined Rails 7.1",
-      "expected_ids": ["rails-nested-transaction-savepoint-callbacks"]
+      "expected_ids": [
+        "rails-nested-transaction-savepoint-callbacks"
+      ]
     },
     {
       "name": "rails-mysql-ddl-savepoint-release-error",
       "query": "MySQL DDL RELEASE SAVEPOINT",
-      "expected_ids": ["rails-nested-transaction-savepoint-callbacks"]
+      "expected_ids": [
+        "rails-nested-transaction-savepoint-callbacks"
+      ]
     },
     {
       "name": "rails-nested-isolation-error",
       "query": "isolation TransactionIsolationError",
-      "expected_ids": ["rails-nested-transaction-savepoint-callbacks"]
+      "expected_ids": [
+        "rails-nested-transaction-savepoint-callbacks"
+      ]
     },
     {
       "name": "rails-savepoint-commit-defers-callbacks",
       "query": "release_savepoint commit_records 親トランザクション",
-      "expected_ids": ["rails-nested-transaction-savepoint-callbacks"]
+      "expected_ids": [
+        "rails-nested-transaction-savepoint-callbacks"
+      ]
     },
     {
       "name": "rails-ms-sql-native-nested-transaction",
       "query": "MS-SQL ネストトランザクション savepoint",
-      "expected_ids": ["rails-nested-transaction-savepoint-callbacks"]
+      "expected_ids": [
+        "rails-nested-transaction-savepoint-callbacks"
+      ]
     },
     {
       "name": "rails-after-commit-exception-not-rollback",
       "query": "after_commit 例外 ロールバック",
-      "expected_ids": ["rails-nested-transaction-savepoint-callbacks"]
+      "expected_ids": [
+        "rails-nested-transaction-savepoint-callbacks"
+      ]
     },
     {
       "name": "rails-nested-transaction-topic-entry",
       "query": "ネスト トランザクション requires_new",
-      "expected_ids": ["rails-nested-transaction-savepoint-callbacks"]
+      "expected_ids": [
+        "rails-nested-transaction-savepoint-callbacks"
+      ]
     },
     {
       "name": "rails-savepoint-subtransaction-scope",
       "query": "サブトランザクション ロールバック範囲 savepoint",
-      "expected_ids": ["rails-nested-transaction-savepoint-callbacks"]
+      "expected_ids": [
+        "rails-nested-transaction-savepoint-callbacks"
+      ]
     },
     {
       "name": "python-asyncio-timeout-taskgroup-cancel",
       "query": "asyncio.timeout TaskGroup キャンセル",
-      "expected_ids": ["python-asyncio-taskgroup-timeout-cancellation"]
+      "expected_ids": [
+        "python-asyncio-taskgroup-timeout-cancellation"
+      ]
     },
     {
       "name": "python-structured-concurrency-cancellation-propagation",
       "query": "構造化並行性 キャンセル 伝播 asyncio",
-      "expected_ids": ["python-asyncio-taskgroup-timeout-cancellation"]
+      "expected_ids": [
+        "python-asyncio-taskgroup-timeout-cancellation"
+      ]
     },
     {
       "name": "python-uncancel-cancelling-count",
       "query": "uncancel cancelling カウント",
-      "expected_ids": ["python-asyncio-taskgroup-timeout-cancellation"]
+      "expected_ids": [
+        "python-asyncio-taskgroup-timeout-cancellation"
+      ]
     },
     {
       "name": "python-timeout-error-caught-outside-context-manager",
       "query": "TimeoutError 外側 捕捉",
-      "expected_ids": ["python-asyncio-taskgroup-timeout-cancellation"]
+      "expected_ids": [
+        "python-asyncio-taskgroup-timeout-cancellation"
+      ]
     },
     {
       "name": "python-timeout-cancels-current-task-transform",
       "query": "現在のタスク 変換 TimeoutError",
-      "expected_ids": ["python-asyncio-taskgroup-timeout-cancellation"]
+      "expected_ids": [
+        "python-asyncio-taskgroup-timeout-cancellation"
+      ]
     },
     {
       "name": "python-timeout-at-reschedule",
       "query": "timeout_at reschedule",
-      "expected_ids": ["python-asyncio-taskgroup-timeout-cancellation"]
+      "expected_ids": [
+        "python-asyncio-taskgroup-timeout-cancellation"
+      ]
     },
     {
       "name": "python-wait-for-timeout-may-exceed",
       "query": "wait_for timeout 超過",
-      "expected_ids": ["python-asyncio-taskgroup-timeout-cancellation"]
+      "expected_ids": [
+        "python-asyncio-taskgroup-timeout-cancellation"
+      ]
     },
     {
       "name": "python-wait-for-no-task-wrap-3-12",
       "query": "wrap Task 3.12 wait_for",
-      "expected_ids": ["python-asyncio-taskgroup-timeout-cancellation"]
+      "expected_ids": [
+        "python-asyncio-taskgroup-timeout-cancellation"
+      ]
     },
     {
       "name": "python-shield-protects-wait-for-awaitable",
       "query": "shield wait_for キャンセル",
-      "expected_ids": ["python-asyncio-taskgroup-timeout-cancellation"]
+      "expected_ids": [
+        "python-asyncio-taskgroup-timeout-cancellation"
+      ]
     },
     {
       "name": "python-exceptiongroup-merge-except-star",
       "query": "ExceptionGroup except* 統合",
-      "expected_ids": ["python-asyncio-taskgroup-timeout-cancellation"]
+      "expected_ids": [
+        "python-asyncio-taskgroup-timeout-cancellation"
+      ]
     },
     {
       "name": "python-keyboardinterrupt-systemexit-resend",
       "query": "KeyboardInterrupt SystemExit 再送出",
-      "expected_ids": ["python-asyncio-taskgroup-timeout-cancellation"]
+      "expected_ids": [
+        "python-asyncio-taskgroup-timeout-cancellation"
+      ]
     },
     {
       "name": "python-taskgroup-vs-gather-remaining-tasks",
       "query": "gather 残タスク TaskGroup",
-      "expected_ids": ["python-asyncio-taskgroup-timeout-cancellation"]
+      "expected_ids": [
+        "python-asyncio-taskgroup-timeout-cancellation"
+      ]
     },
     {
       "name": "python-inactive-taskgroup-runtimeerror-close",
       "query": "非アクティブ RuntimeError コルーチン クローズ",
-      "expected_ids": ["python-asyncio-taskgroup-timeout-cancellation"]
+      "expected_ids": [
+        "python-asyncio-taskgroup-timeout-cancellation"
+      ]
     },
     {
       "name": "python-nested-taskgroup-simultaneous-exceptions",
       "query": "入れ子 TaskGroup 例外 同時",
-      "expected_ids": ["python-asyncio-taskgroup-timeout-cancellation"]
+      "expected_ids": [
+        "python-asyncio-taskgroup-timeout-cancellation"
+      ]
     },
     {
       "name": "python-nested-taskgroup-hang-gh-116720",
       "query": "入れ子 ハング gh-116720",
-      "expected_ids": ["python-asyncio-taskgroup-timeout-cancellation"]
+      "expected_ids": [
+        "python-asyncio-taskgroup-timeout-cancellation"
+      ]
     },
     {
       "name": "python-cancelling-preserved-3-13",
       "query": "cancelling 保持 3.13",
-      "expected_ids": ["python-asyncio-taskgroup-timeout-cancellation"]
+      "expected_ids": [
+        "python-asyncio-taskgroup-timeout-cancellation"
+      ]
     },
     {
       "name": "python-cancellederror-swallow-misbehave",
       "query": "CancelledError 飲み込む misbehave",
-      "expected_ids": ["python-asyncio-taskgroup-timeout-cancellation"]
+      "expected_ids": [
+        "python-asyncio-taskgroup-timeout-cancellation"
+      ]
     },
     {
       "name": "python-task-cancel-not-guaranteed",
       "query": "Task.cancel 保証 抑制",
-      "expected_ids": ["python-asyncio-taskgroup-timeout-cancellation"]
+      "expected_ids": [
+        "python-asyncio-taskgroup-timeout-cancellation"
+      ]
     },
     {
       "name": "python-cancellederror-finally-reraise",
       "query": "try/finally 再送出 CancelledError",
-      "expected_ids": ["python-asyncio-taskgroup-timeout-cancellation"]
+      "expected_ids": [
+        "python-asyncio-taskgroup-timeout-cancellation"
+      ]
     },
     {
       "name": "python-3-11-recommends-taskgroup-over-gather",
       "query": "3.11 推奨 create_task gather",
-      "expected_ids": ["python-asyncio-taskgroup-timeout-cancellation"]
+      "expected_ids": [
+        "python-asyncio-taskgroup-timeout-cancellation"
+      ]
     },
     {
       "name": "python-terminating-task-group-swallow-exception",
       "query": "Terminating task group 例外 握りつぶ",
-      "expected_ids": ["python-asyncio-taskgroup-timeout-cancellation"]
+      "expected_ids": [
+        "python-asyncio-taskgroup-timeout-cancellation"
+      ]
     },
     {
       "name": "python-structured-concurrency-tags",
       "query": "structured-concurrency cancellation",
-      "expected_ids": ["python-asyncio-taskgroup-timeout-cancellation"]
+      "expected_ids": [
+        "python-asyncio-taskgroup-timeout-cancellation"
+      ]
     },
     {
       "name": "ruby-fiber-scheduler-hook-io-wait",
       "query": "Fiber scheduler io_wait",
-      "expected_ids": ["ruby-fiber-scheduler-nonblocking-io"]
+      "expected_ids": [
+        "ruby-fiber-scheduler-nonblocking-io"
+      ]
     },
     {
       "name": "ruby-fiber-schedule-runtimeerror",
       "query": "Fiber.schedule RuntimeError",
-      "expected_ids": ["ruby-fiber-scheduler-nonblocking-io"]
+      "expected_ids": [
+        "ruby-fiber-scheduler-nonblocking-io"
+      ]
     },
     {
       "name": "ruby-fiber-set-scheduler",
       "query": "Fiber.set_scheduler scheduler",
-      "expected_ids": ["ruby-fiber-scheduler-nonblocking-io"]
+      "expected_ids": [
+        "ruby-fiber-scheduler-nonblocking-io"
+      ]
     },
     {
       "name": "ruby-fiber-blocking-scheduler",
       "query": "Fiber.blocking scheduler",
-      "expected_ids": ["ruby-fiber-scheduler-nonblocking-io"]
+      "expected_ids": [
+        "ruby-fiber-scheduler-nonblocking-io"
+      ]
     },
     {
       "name": "ruby-fiber-hook-sleep-timeout-resolve",
       "query": "kernel_sleep timeout_after address_resolve",
-      "expected_ids": ["ruby-fiber-scheduler-nonblocking-io"]
+      "expected_ids": [
+        "ruby-fiber-scheduler-nonblocking-io"
+      ]
     },
     {
       "name": "ruby-fiber-blocking-operation-wait",
       "query": "blocking_operation_wait block unblock",
-      "expected_ids": ["ruby-fiber-scheduler-nonblocking-io"]
+      "expected_ids": [
+        "ruby-fiber-scheduler-nonblocking-io"
+      ]
     },
     {
       "name": "ruby-fiber-scheduler-close-freeze",
       "query": "scheduler_close close freeze",
-      "expected_ids": ["ruby-fiber-scheduler-nonblocking-io"]
+      "expected_ids": [
+        "ruby-fiber-scheduler-nonblocking-io"
+      ]
     },
     {
       "name": "ruby-fiber-io-select-urgent-pipe",
       "query": "io_select urgent pipe",
-      "expected_ids": ["ruby-fiber-scheduler-nonblocking-io"]
+      "expected_ids": [
+        "ruby-fiber-scheduler-nonblocking-io"
+      ]
     },
     {
       "name": "ruby-fiber-io-event-epoll-kqueue",
       "query": "io-event epoll kqueue",
-      "expected_ids": ["ruby-fiber-scheduler-nonblocking-io"]
+      "expected_ids": [
+        "ruby-fiber-scheduler-nonblocking-io"
+      ]
     },
     {
       "name": "ruby-fiber-nonblocking-hook",
       "query": "ノンブロッキング scheduler hook",
-      "expected_ids": ["ruby-fiber-scheduler-nonblocking-io"]
+      "expected_ids": [
+        "ruby-fiber-scheduler-nonblocking-io"
+      ]
     },
     {
       "name": "rails-job-handler-precedence",
@@ -522,6 +614,76 @@
       "query": "experimental 4.0.7 未検証",
       "expected_ids": [
         "ruby-ractor-port-ownership-migration"
+      ]
+    },
+    {
+      "name": "go-x509-platform-replacement",
+      "query": "SSL_CERT_FILE platform 自動union",
+      "expected_ids": [
+        "go-x509-platform-root-override-migration"
+      ]
+    },
+    {
+      "name": "go-x509-version-default",
+      "query": "go1.27.1 1.26 x509sslcertoverrideplatform",
+      "expected_ids": [
+        "go-x509-platform-root-override-migration"
+      ]
+    },
+    {
+      "name": "go-x509-windows-list",
+      "query": "Windows SSL_CERT_DIR 区切り",
+      "expected_ids": [
+        "go-x509-platform-root-override-migration"
+      ]
+    },
+    {
+      "name": "go-x509-empty-pool-success",
+      "query": "空pool nil firstErr",
+      "expected_ids": [
+        "go-x509-platform-root-override-migration"
+      ]
+    },
+    {
+      "name": "go-x509-root-cache-reload",
+      "query": "SystemCertPool cache reload",
+      "expected_ids": [
+        "go-x509-platform-root-override-migration"
+      ]
+    },
+    {
+      "name": "go-x509-root-augmentation",
+      "query": "AppendCertsFromPEM 少なくとも",
+      "expected_ids": [
+        "go-x509-platform-root-override-migration"
+      ]
+    },
+    {
+      "name": "go-x509-rollback-deadline",
+      "query": "x509sslcertoverrideplatform rollback 1.31",
+      "expected_ids": [
+        "go-x509-platform-root-override-migration"
+      ]
+    },
+    {
+      "name": "go-x509-go-verifier-revocation",
+      "query": "Go verifier 失効",
+      "expected_ids": [
+        "go-x509-platform-root-override-migration"
+      ]
+    },
+    {
+      "name": "go-x509-nil-rootcas-scope",
+      "query": "RootCAs nil host",
+      "expected_ids": [
+        "go-x509-platform-root-override-migration"
+      ]
+    },
+    {
+      "name": "go-x509-platform-test-limits",
+      "query": "metadata probe 未検証",
+      "expected_ids": [
+        "go-x509-platform-root-override-migration"
       ]
     }
   ]

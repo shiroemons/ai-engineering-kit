@@ -1,0 +1,12 @@
+{
+  "id": "rfc10008-query-contract-20261002",
+  "url": "https://www.rfc-editor.org/rfc/rfc10008.html",
+  "repository_url": "",
+  "commit_sha": "",
+  "version": "RFC 10008, Proposed Standard, June 2026",
+  "retrieved_at": "2026-10-02",
+  "license": "IETF Trust Legal Provisions; code components under Revised BSD License per Copyright Notice",
+  "trust": "official",
+  "type": "official_docs",
+  "purpose": "§2–4 の request content / cache key / URI / Accept-Query を確認。2026年6月の標準化として記録し、実装対応とは区別。独自要約のみ、コード転載なし。"
+}

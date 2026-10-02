@@ -1,0 +1,12 @@
+{
+  "id": "go-x509-release-1-27-20261002",
+  "url": "https://go.dev/doc/go1.27",
+  "repository_url": "https://github.com/golang/website",
+  "commit_sha": "",
+  "version": "Go 1.27.0; released 2026-08-19",
+  "retrieved_at": "2026-10-02",
+  "license": "CC-BY-4.0 (site text); BSD-3-Clause (code); https://go.dev/copyright",
+  "trust": "official",
+  "type": "release_notes",
+  "purpose": "Go 1.27 の crypto/x509 変更: Windows / Darwin で SSL_CERT_FILE・SSL_CERT_DIR を尊重し、platform verifier から Go verifier へ切り替える契約。"
+}
