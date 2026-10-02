@@ -1,0 +1,12 @@
+{
+  "id": "mcp-tool-schema-sep-2106-20261002",
+  "url": "https://modelcontextprotocol.io/seps/2106-json-schema-2020-12",
+  "repository_url": "https://github.com/modelcontextprotocol/modelcontextprotocol",
+  "commit_sha": "",
+  "version": "SEP-2106 Final; Created 2026-01-06; historical design record",
+  "retrieved_at": "2026-10-02",
+  "license": "Apache-2.0 for new specification contributions; MIT retained for unrelicensed historical contributions (LICENSE at 3098fe94caa1b9e0afaaa6d30e040b61d5802471); no source code copied",
+  "trust": "official",
+  "type": "official_docs",
+  "purpose": "設計動機、旧clientとの非対称互換性、typed consumerのunknownへの移行を確認。Final SEPは履歴であり現行の規範は版固定仕様を優先。TextContent MUSTと現行Tools SHOULDの文言差を記録。"
+}

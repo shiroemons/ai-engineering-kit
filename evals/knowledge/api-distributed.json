@@ -617,6 +617,104 @@
       "expected_ids": [
         "http-query-body-cache-cors-boundary"
       ]
+    },
+    {
+      "name": "kafka-share-partition-worker-count",
+      "query": "share groups partition consumer数",
+      "expected_ids": [
+        "messaging-kafka-share-lock-renewal-group-limits"
+      ]
+    },
+    {
+      "name": "kafka-share-implicit-premature-ack",
+      "query": "implicit worker 暗黙",
+      "expected_ids": [
+        "messaging-kafka-share-lock-renewal-group-limits"
+      ]
+    },
+    {
+      "name": "kafka-share-explicit-poll-boundary",
+      "query": "explicit IllegalStateException 全record",
+      "expected_ids": [
+        "messaging-kafka-share-lock-renewal-group-limits"
+      ]
+    },
+    {
+      "name": "kafka-share-commit-sync-map",
+      "query": "commitSync 戻り値 例外",
+      "expected_ids": [
+        "messaging-kafka-share-lock-renewal-group-limits"
+      ]
+    },
+    {
+      "name": "kafka-share-renew-not-completion",
+      "query": "RENEW 成功完了",
+      "expected_ids": [
+        "messaging-kafka-share-lock-renewal-group-limits"
+      ]
+    },
+    {
+      "name": "kafka-share-renew-refetch-callback",
+      "query": "retriable 再fetch callback",
+      "expected_ids": [
+        "messaging-kafka-share-lock-renewal-group-limits"
+      ]
+    },
+    {
+      "name": "kafka-share-lock-membership-boundary",
+      "query": "heartbeat 取得権",
+      "expected_ids": [
+        "messaging-kafka-share-lock-renewal-group-limits"
+      ]
+    },
+    {
+      "name": "kafka-share-batch-optimized-hard-limit",
+      "query": "batch_optimized record_limit max.poll.records",
+      "expected_ids": [
+        "messaging-kafka-share-lock-renewal-group-limits"
+      ]
+    },
+    {
+      "name": "kafka-share-effective-broker-bounds",
+      "query": "保存値 実効値 bounds",
+      "expected_ids": [
+        "messaging-kafka-share-lock-renewal-group-limits"
+      ]
+    },
+    {
+      "name": "kafka-share-inflight-shrink",
+      "query": "in-flight 引下げ 収束",
+      "expected_ids": [
+        "messaging-kafka-share-lock-renewal-group-limits"
+      ]
+    },
+    {
+      "name": "kafka-share-renew-disabled",
+      "query": "share.renew.acknowledge.enable INVALID_RECORD_STATE",
+      "expected_ids": [
+        "messaging-kafka-share-lock-renewal-group-limits"
+      ]
+    },
+    {
+      "name": "kafka-share-config-name-discrepancy",
+      "query": "group.share.record.lock.partition.limit 不一致",
+      "expected_ids": [
+        "messaging-kafka-share-lock-renewal-group-limits"
+      ]
+    },
+    {
+      "name": "kafka-share-duplicate-business-effects",
+      "query": "ACCEPT 接続断 冪等性",
+      "expected_ids": [
+        "messaging-kafka-share-lock-renewal-group-limits"
+      ]
+    },
+    {
+      "name": "kafka-share-patch-deadlock-scope",
+      "query": "4.2.1 deadlock production-ready",
+      "expected_ids": [
+        "messaging-kafka-share-lock-renewal-group-limits"
+      ]
     }
   ]
 }

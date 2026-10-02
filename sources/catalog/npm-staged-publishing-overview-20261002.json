@@ -1,0 +1,12 @@
+{
+  "id": "npm-staged-publishing-overview-20261002",
+  "url": "https://docs.npmjs.com/staged-publishing/",
+  "repository_url": "https://github.com/npm/documentation",
+  "commit_sha": "",
+  "version": "Live service documentation; last edited 2026-09-29; staged publishing minimum npm 11.15.0 and Node 22.14.0",
+  "retrieved_at": "2026-10-02",
+  "license": "CC-BY-4.0 for npm/documentation content; https://raw.githubusercontent.com/npm/documentation/main/.reuse/dep5 and LICENSE checked 2026-10-02; original summary, no code copied",
+  "trust": "official",
+  "type": "official_docs",
+  "purpose": "stage は公開前保留で approval は CLI/Web とも2FA、新規 package の公開 placeholder 0.0.0-stage、最小版を確認"
+}

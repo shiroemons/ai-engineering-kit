@@ -1,0 +1,12 @@
+{
+  "id": "mcp-tool-schema-repository-3098fe9-20261002",
+  "url": "https://github.com/modelcontextprotocol/modelcontextprotocol/tree/3098fe94caa1b9e0afaaa6d30e040b61d5802471",
+  "repository_url": "https://github.com/modelcontextprotocol/modelcontextprotocol",
+  "commit_sha": "3098fe94caa1b9e0afaaa6d30e040b61d5802471",
+  "version": "modelcontextprotocol commit 3098fe94caa1b9e0afaaa6d30e040b61d5802471 (2026-10-01T12:55:32Z); schemas 2025-11-25 and 2026-07-28",
+  "retrieved_at": "2026-10-02",
+  "license": "Apache-2.0 for new specification contributions; MIT retained for unrelicensed historical contributions (LICENSE at 3098fe94caa1b9e0afaaa6d30e040b61d5802471); no source code copied",
+  "trust": "official",
+  "type": "github_repository_analysis",
+  "purpose": "認証不要git cloneで固定commitのschema/{2025-11-25,2026-07-28}/schema.tsとschema.json、docs/specification/2026-07-28/{basic/index,server/tools}.mdx、seps/2106-json-schema-2020-12.md、LICENSEを確認。inputSchema root object維持、outputSchema field自体はobject、structuredContent unknownを照合。native webの固定schema URLはtimeout、固定LICENSE URLと公開仕様は取得成功。SDK実行・ネットワーク参照試験なし。"
+}

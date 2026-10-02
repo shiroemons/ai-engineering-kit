@@ -1,0 +1,12 @@
+{
+  "id": "mcp-tool-schema-tools-2025-11-25-20261002",
+  "url": "https://modelcontextprotocol.io/specification/2025-11-25/server/tools",
+  "repository_url": "https://github.com/modelcontextprotocol/modelcontextprotocol",
+  "commit_sha": "",
+  "version": "MCP Tools specification 2025-11-25 legacy revision",
+  "retrieved_at": "2026-10-02",
+  "license": "Apache-2.0 for new specification contributions; MIT retained for unrelicensed historical contributions (LICENSE at 3098fe94caa1b9e0afaaa6d30e040b61d5802471); no source code copied",
+  "trust": "official",
+  "type": "official_docs",
+  "purpose": "旧版structuredContentがJSON objectだったこととTextContent fallbackのSHOULDを比較。版日付2025-11-25、独立した記事公開日は表示なし。"
+}

@@ -1,0 +1,12 @@
+{
+  "id": "kafka-share-release-list-20261002",
+  "url": "https://kafka.apache.org/community/downloads/",
+  "repository_url": "",
+  "commit_sha": "",
+  "version": "Apache Kafka 4.3.1 released 2026-06-25; 4.3.0 released 2026-05-22; 4.2.2 released 2026-09-29; release list retrieved 2026-10-02",
+  "retrieved_at": "2026-10-02",
+  "license": "Apache-2.0 (Kafka website LICENSE: https://raw.githubusercontent.com/apache/kafka-site/markdown/LICENSE; Kafka 4.3.1 LICENSE: https://raw.githubusercontent.com/apache/kafka/4.3.1/LICENSE); original summary only, no copied code",
+  "trust": "official",
+  "type": "release_notes",
+  "purpose": "確認対象の公開日と別系列の保守リリースを確認し、将来版や最新という推測を避ける。"
+}

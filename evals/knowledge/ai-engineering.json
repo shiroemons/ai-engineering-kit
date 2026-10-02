@@ -782,6 +782,83 @@
       "expected_ids": [
         "agents-claude-inline-tools-mcp-list-pinning"
       ]
+    },
+    {
+      "name": "mcp-schema-input-root-object",
+      "query": "inputSchema 最上位 object",
+      "expected_ids": [
+        "mcp-tool-schema-json-value-ref-validation"
+      ]
+    },
+    {
+      "name": "mcp-schema-arbitrary-json-output",
+      "query": "structuredContent array boolean null",
+      "expected_ids": [
+        "mcp-tool-schema-json-value-ref-validation"
+      ]
+    },
+    {
+      "name": "mcp-schema-boolean-schema-boundary",
+      "query": "outputSchema: false フィールド型",
+      "expected_ids": [
+        "mcp-tool-schema-json-value-ref-validation"
+      ]
+    },
+    {
+      "name": "mcp-schema-old-keyword-parser",
+      "query": "旧生成 additionalProperties oneOf",
+      "expected_ids": [
+        "mcp-tool-schema-json-value-ref-validation"
+      ]
+    },
+    {
+      "name": "mcp-schema-default-dialect",
+      "query": "dialect 2020-12 未対応",
+      "expected_ids": [
+        "mcp-tool-schema-json-value-ref-validation"
+      ]
+    },
+    {
+      "name": "mcp-schema-no-network-ref",
+      "query": "network URI 自動 dereference",
+      "expected_ids": [
+        "mcp-tool-schema-json-value-ref-validation"
+      ]
+    },
+    {
+      "name": "mcp-schema-unresolved-ref-rejection",
+      "query": "未解決 external $ref 拒否",
+      "expected_ids": [
+        "mcp-tool-schema-json-value-ref-validation"
+      ]
+    },
+    {
+      "name": "mcp-schema-composition-budget",
+      "query": "subschema validation time budget",
+      "expected_ids": [
+        "mcp-tool-schema-json-value-ref-validation"
+      ]
+    },
+    {
+      "name": "mcp-schema-null-missing-falsy",
+      "query": "truthiness false 欠落",
+      "expected_ids": [
+        "mcp-tool-schema-json-value-ref-validation"
+      ]
+    },
+    {
+      "name": "mcp-schema-text-fallback-not-guarantee",
+      "query": "TextContent SHOULD MUST parser",
+      "expected_ids": [
+        "mcp-tool-schema-json-value-ref-validation"
+      ]
+    },
+    {
+      "name": "mcp-schema-provider-adapter-contract",
+      "query": "provider adapter 制約を削らない",
+      "expected_ids": [
+        "mcp-tool-schema-json-value-ref-validation"
+      ]
     }
   ]
 }

@@ -1,0 +1,12 @@
+{
+  "id": "kafka43-share-broker-config-20261002",
+  "url": "https://kafka.apache.org/43/configuration/broker-configs/",
+  "repository_url": "",
+  "commit_sha": "",
+  "version": "Apache Kafka 4.3 Broker Configs; retrieved 2026-10-02",
+  "retrieved_at": "2026-10-02",
+  "license": "Apache-2.0 (Kafka website LICENSE: https://raw.githubusercontent.com/apache/kafka-site/markdown/LICENSE; Kafka 4.3.1 LICENSE: https://raw.githubusercontent.com/apache/kafka/4.3.1/LICENSE); original summary only, no copied code",
+  "trust": "official",
+  "type": "official_docs",
+  "purpose": "group.share.*のbroker側設定とgroup値を制約する上下限を確認。"
+}

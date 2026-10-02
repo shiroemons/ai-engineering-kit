@@ -1,0 +1,12 @@
+{
+  "id": "github-npm-dist-tag-oidc-release-20261002",
+  "url": "https://github.blog/changelog/2026-09-30-opt-in-dist-tag-permissions-for-npm-trusted-publishing/",
+  "repository_url": "",
+  "commit_sha": "",
+  "version": "GitHub Changelog, published 2026-09-30",
+  "retrieved_at": "2026-10-02",
+  "license": "unknown; page footer Copyright 2026 GitHub, Inc.; no open-content license identified; original summary only, no code copied",
+  "trust": "official",
+  "type": "release_notes",
+  "purpose": "dist-tag OIDC の追加日、新旧設定とも既定 off、direct publish と独立した権限、any-one matching を確認"
+}

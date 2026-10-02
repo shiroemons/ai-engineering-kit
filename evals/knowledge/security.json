@@ -83,5 +83,13 @@
     {"name": "oidc-ephemeral-correlation", "query": "ephemeral pairwise Sector", "expected_ids": ["oidc-ephemeral-subject-correlation-account-boundary"]},
     {"name": "oidc-ephemeral-userinfo", "query": "ephemeral UserInfo 完全一致", "expected_ids": ["oidc-ephemeral-subject-correlation-account-boundary"]},
     {"name": "oidc-ephemeral-account-linking", "query": "ephemeral メール 自動リンク", "expected_ids": ["oidc-ephemeral-subject-correlation-account-boundary"]},
-    {"name": "oidc-ephemeral-entropy", "query": "ephemeral 2^-128 2^-160", "expected_ids": ["oidc-ephemeral-subject-correlation-account-boundary"]}
+    {"name": "oidc-ephemeral-entropy", "query": "ephemeral 2^-128 2^-160", "expected_ids": ["oidc-ephemeral-subject-correlation-account-boundary"]},
+    {"name": "npm-trusted-dist-tag-opt-in", "query": "dist-tag OIDC opt-in", "expected_ids": ["npm-trusted-publishing-stage-dist-tag-permissions"]},
+    {"name": "npm-trusted-additive-or", "query": "trusted publisher additive OR", "expected_ids": ["npm-trusted-publishing-stage-dist-tag-permissions"]},
+    {"name": "npm-trusted-stage-only-tag-boundary", "query": "stage-only latest", "expected_ids": ["npm-trusted-publishing-stage-dist-tag-permissions"]},
+    {"name": "npm-stage-approval-presence", "query": "stage approve 2FA", "expected_ids": ["npm-trusted-publishing-stage-dist-tag-permissions"]},
+    {"name": "npm-stage-version-tag-immutability", "query": "stage-id semver immutable", "expected_ids": ["npm-trusted-publishing-stage-dist-tag-permissions"]},
+    {"name": "npm-stage-public-placeholder", "query": "0.0.0-stage placeholder", "expected_ids": ["npm-trusted-publishing-stage-dist-tag-permissions"]},
+    {"name": "npm-trusted-dist-tag-version", "query": "11.21.0 12.2.0 dist-tag", "expected_ids": ["npm-trusted-publishing-stage-dist-tag-permissions"]},
+    {"name": "npm-trusted-doc-conflict", "query": "2026-09-24 2026-09-30 短命", "expected_ids": ["npm-trusted-publishing-stage-dist-tag-permissions"]}
   ]}
