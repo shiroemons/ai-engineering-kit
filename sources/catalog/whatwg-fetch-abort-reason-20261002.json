@@ -1,0 +1,12 @@
+{
+  "repository_url": "https://github.com/whatwg/fetch",
+  "commit_sha": "357bd98924d94b81fbe8608192a2ee1f123b82f4",
+  "retrieved_at": "2026-10-02",
+  "trust": "official",
+  "type": "official_docs",
+  "id": "whatwg-fetch-abort-reason-20261002",
+  "url": "https://fetch.spec.whatwg.org/commit-snapshots/357bd98924d94b81fbe8608192a2ee1f123b82f4/",
+  "version": "Fetch Living Standard snapshot 357bd98924d94b81fbe8608192a2ee1f123b82f4; last updated 2026-09-21; sections 2, 5.3-5.7",
+  "license": "CC-BY-4.0 (specification text); BSD-3-Clause for portions incorporated into source code, per Intellectual property rights notice; original summary, no copied source code",
+  "purpose": "規範契約: Request.signal の dependent signal、Request 構築例外の拒否、local abort reason による fetch promise 拒否と readable response body の error、直列化・復元の AbortError fallback、観測不能 fetch の GC 終了許可を確認。Chrome の実装出荷時期とは区別し、旧 CC0 catalog は履歴として保存する。"
+}

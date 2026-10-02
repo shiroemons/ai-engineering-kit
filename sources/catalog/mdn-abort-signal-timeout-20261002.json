@@ -1,0 +1,12 @@
+{
+  "repository_url": "",
+  "commit_sha": "",
+  "retrieved_at": "2026-10-02",
+  "trust": "official",
+  "type": "official_docs",
+  "id": "mdn-abort-signal-timeout-20261002",
+  "url": "https://developer.mozilla.org/en-US/docs/Web/API/AbortSignal/timeout_static",
+  "version": "MDN AbortSignal.timeout() static method; last modified 2026-09-01; retrieved 2026-10-02",
+  "license": "CC-BY-SA-2.5-or-later (Mozilla Contributors documentation); source code not copied; license checked at https://developer.mozilla.org/en-US/docs/MDN/Writing_guidelines/Attrib_copyright_license",
+  "purpose": "TimeoutError、active time と suspended worker/bfcache の停止、timeout 自体の cancel API がないこと、明示的な timer 解放が必要なら setTimeout/clearTimeout を検討する境界を確認。"
+}

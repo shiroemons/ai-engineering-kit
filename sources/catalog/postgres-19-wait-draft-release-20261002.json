@@ -1,0 +1,12 @@
+{
+  "id": "postgres-19-wait-draft-release-20261002",
+  "url": "https://www.postgresql.org/docs/19/release-19.html",
+  "repository_url": "",
+  "commit_sha": "",
+  "version": "PostgreSQL 19 draft release notes; displayed AS OF 2026-09-14 and release date 2026-??-??",
+  "retrieved_at": "2026-10-02",
+  "license": "PostgreSQL License",
+  "trust": "official",
+  "type": "release_notes",
+  "purpose": "WAITの新規追加と未確定release日を確認。2026-09-14はページ内の編集基準表示でGA公開日ではない。 ライセンス根拠: https://www.postgresql.org/docs/19/legalnotice.html はsoftwareとdocumentationを対象とし、名称は https://www.postgresql.org/about/licence/ で確認。原文・実装コードの転載なし。"
+}

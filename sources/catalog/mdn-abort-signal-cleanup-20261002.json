@@ -1,0 +1,12 @@
+{
+  "repository_url": "",
+  "commit_sha": "",
+  "retrieved_at": "2026-10-02",
+  "trust": "official",
+  "type": "official_docs",
+  "id": "mdn-abort-signal-cleanup-20261002",
+  "url": "https://developer.mozilla.org/en-US/docs/Web/API/AbortSignal",
+  "version": "MDN AbortSignal reference; last modified 2026-09-01; retrieved 2026-10-02",
+  "license": "CC-BY-SA-2.5-or-later (Mozilla Contributors documentation); source code not copied; license checked at https://developer.mozilla.org/en-US/docs/MDN/Writing_guidelines/Attrib_copyright_license",
+  "purpose": "AbortSignal の一度きりの abort 状態と listener cleanup、controller と signal の両方が unreachable の場合の説明、once の成功時残留を確認。any() の timeout 判別不可という注記は DOM 規範算法および MDN any() 個別ページと整合しないため、本稿ではその一般化を採用しない。"
+}

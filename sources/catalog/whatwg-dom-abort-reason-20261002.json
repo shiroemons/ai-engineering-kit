@@ -1,0 +1,12 @@
+{
+  "repository_url": "https://github.com/whatwg/dom",
+  "commit_sha": "b2e32dc730eb0dc0cce1a431393fe4a17fda1d54",
+  "retrieved_at": "2026-10-02",
+  "trust": "official",
+  "type": "official_docs",
+  "id": "whatwg-dom-abort-reason-20261002",
+  "url": "https://dom.spec.whatwg.org/commit-snapshots/b2e32dc730eb0dc0cce1a431393fe4a17fda1d54/",
+  "version": "DOM Living Standard snapshot b2e32dc730eb0dc0cce1a431393fe4a17fda1d54; last updated 2026-09-24; sections 2.7 and 3.1-3.3",
+  "license": "CC-BY-4.0 (specification text); BSD-3-Clause for portions incorporated into source code, per Intellectual property rights notice; original summary, no copied source code",
+  "purpose": "規範契約: abort reason の既定値・単方向遷移・throwIfAborted、dependent signal への同じ reason の代入、既に abort 済みの入力の列挙順、timeout と dependent signal の条件付き GC 保持を確認。2026-09-26 の旧 catalog を上書きせず、誤った CC0 表記には依存しない。"
+}

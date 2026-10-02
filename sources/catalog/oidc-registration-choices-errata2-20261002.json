@@ -1,0 +1,12 @@
+{
+  "id": "oidc-registration-choices-errata2-20261002",
+  "url": "https://openid.net/specs/openid-connect-registration-1_0.html",
+  "repository_url": "",
+  "commit_sha": "",
+  "version": "OpenID Connect Dynamic Client Registration 1.0 incorporating errata set 2, 2023-12-15",
+  "retrieved_at": "2026-10-02",
+  "license": "OpenID Foundation specification copyright license, Appendix B (attribution and specification/implementation purposes); original summary only",
+  "trust": "official",
+  "type": "official_docs",
+  "purpose": "Sections 2 and 3.2: scalar registration defaults, ignored unknown input fields, replacement values and registration response handling."
+}

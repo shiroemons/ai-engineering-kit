@@ -647,6 +647,62 @@
       "expected_ids": [
         "javascript-iterator-includes-consumption-close-boundary"
       ]
+    },
+    {
+      "name": "fetch-any-reason-preservation",
+      "query": "AbortSignal.any reason TimeoutError",
+      "expected_ids": [
+        "javascript-fetch-abort-cancellation"
+      ]
+    },
+    {
+      "name": "fetch-any-preaborted-input-order",
+      "query": "abort 入力列挙順 reason",
+      "expected_ids": [
+        "javascript-fetch-abort-cancellation"
+      ]
+    },
+    {
+      "name": "fetch-any-source-identity-boundary",
+      "query": "source identity custom reason",
+      "expected_ids": [
+        "javascript-fetch-abort-cancellation"
+      ]
+    },
+    {
+      "name": "fetch-chrome154-response-reason",
+      "query": "Chrome 154 Response ReadableStream",
+      "expected_ids": [
+        "javascript-fetch-abort-cancellation"
+      ]
+    },
+    {
+      "name": "fetch-serialization-fallback",
+      "query": "StructuredSerialize AbortError fallback",
+      "expected_ids": [
+        "javascript-fetch-abort-cancellation"
+      ]
+    },
+    {
+      "name": "fetch-gc-dependent-conjunction",
+      "query": "dependent source signals 内部 abort algorithm",
+      "expected_ids": [
+        "javascript-fetch-abort-cancellation"
+      ]
+    },
+    {
+      "name": "fetch-timeout-active-time-cleanup",
+      "query": "timeout active time clearTimeout",
+      "expected_ids": [
+        "javascript-fetch-abort-cancellation"
+      ]
+    },
+    {
+      "name": "fetch-rejection-requestinit-boundary",
+      "query": "fetch RequestInit TypeError",
+      "expected_ids": [
+        "javascript-fetch-abort-cancellation"
+      ]
     }
   ]
 }
