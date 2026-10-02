@@ -1,1 +1,9 @@
-{"schema":1,"status":"idle","run_id":"20261002t1235-2c420d9d","branch":"research/gpt-20261002t1235-2c420d9d","base_sha":"bacfa74faebfccfbb1260e6abcaacb503887f676","started_at":1790944550,"expires_at":1790951750,"finished_at":1790947492}
+{
+  "schema": 1,
+  "status": "active",
+  "run_id": "gpt-20261002-1332-4494a313",
+  "branch": "research/gpt-gpt-20261002-1332-4494a313",
+  "base_sha": "4bd2a0c0a2b5a4036b49ee120372fec374e4a935",
+  "started_at": 1790947983,
+  "expires_at": 1790955183
+}
