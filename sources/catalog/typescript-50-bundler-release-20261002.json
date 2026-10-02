@@ -1,0 +1,12 @@
+{
+  "id": "typescript-50-bundler-release-20261002",
+  "url": "https://www.typescriptlang.org/docs/handbook/release-notes/typescript-5-0.html",
+  "repository_url": "https://github.com/microsoft/TypeScript-Website",
+  "commit_sha": "",
+  "version": "TypeScript 5.0 historical release notes; page last updated 2026-09-28; retrieved 2026-10-02",
+  "retrieved_at": "2026-10-02",
+  "license": "unknown",
+  "trust": "official",
+  "type": "release_notes",
+  "purpose": "bundler 導入、Vite/esbuild/swc 等の hybrid lookup、npm 公開時に非バンドラ利用者の互換性を隠すリスク、resolvePackageJsonExports/Imports と customConditions を確認。コード転載なし。"
+}

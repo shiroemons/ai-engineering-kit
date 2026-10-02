@@ -1,0 +1,12 @@
+{
+  "id": "redis-search-timeout-configuration-20261002",
+  "url": "https://redis.io/docs/latest/develop/ai/search-and-query/administration/configuration/",
+  "repository_url": "https://github.com/redis/docs",
+  "commit_sha": "",
+  "version": "Redis Search configuration reference current（2026-10-02確認）; RETURN_STRICTとforeground capは8.10以降というページ表記",
+  "retrieved_at": "2026-10-02",
+  "license": "CC-BY-NC-SA-4.0（Redis Website and Documentation: https://raw.githubusercontent.com/redis/docs/main/LICENSE を2026-10-02に確認）。旧redis-doc由来部分にはCC-BY-SA-4.0例外があるが当該箇所は未特定。独自要約のみ、コード・図・長文転載なし",
+  "trust": "official",
+  "type": "official_docs",
+  "purpose": "search-timeoutは個別TIMEOUTがなければ使う既定値で上限ではない。query parsing除外。search-_max-foreground-timeout-limitはworker=0で有効、既定60000ms、TIMEOUT 0もcap、RESP3 MaxTimeoutCapped warning、cap=0またはworker>0で無効。search-workers既定0の記載を確認。公開日表示なし。"
+}

@@ -1,0 +1,12 @@
+{
+  "id": "typescript-modules-reference-20261002",
+  "url": "https://www.typescriptlang.org/docs/handbook/modules/reference.html",
+  "repository_url": "https://github.com/microsoft/TypeScript-Website",
+  "commit_sha": "",
+  "version": "Live Modules Reference; page last updated 2026-09-28; retrieved 2026-10-02; pairing wording conflicts with TypeScript 6.0 release and 6.0.3 source",
+  "retrieved_at": "2026-10-02",
+  "license": "unknown",
+  "trust": "official",
+  "type": "official_docs",
+  "purpose": "NodeNext hypothetical emit、exports 条件、拡張子とディレクトリ解決を確認。bundler と esnext/preserve だけを組み合わせるというページ記載は 6.0 以降に一般化せず、本文で一次資料間の不整合を示す。コード転載なし。"
+}

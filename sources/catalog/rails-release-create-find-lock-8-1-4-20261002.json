@@ -1,0 +1,12 @@
+{
+  "id": "rails-release-create-find-lock-8-1-4-20261002",
+  "url": "https://github.com/rails/rails/releases/tag/v8.1.4",
+  "repository_url": "https://github.com/rails/rails",
+  "commit_sha": "c3466ea00d7121798e3aa3144ffdf7174b81d8cb",
+  "version": "Rails 8.1.4 (2026-09-24 release), Active Record duplicate-insert read-back lock fix",
+  "license": "unknown",
+  "trust": "official",
+  "type": "release_notes",
+  "purpose": "公式release本文をWebで開き、公開日、対象4メソッド、MySQLで共有lockへ変更しREPEATABLE READの可視性を維持する修正を確認。release prose自体へのライセンス適用は未確定のため独自要約のみ。c3466eaのactiverecord/CHANGELOG.md先頭と照合。",
+  "retrieved_at": "2026-10-02"
+}

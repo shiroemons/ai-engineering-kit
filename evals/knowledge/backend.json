@@ -685,6 +685,83 @@
       "expected_ids": [
         "go-x509-platform-root-override-migration"
       ]
+    },
+    {
+      "name": "rails-create-find-shared-readback",
+      "query": "8.1.4 read-back 共有lock",
+      "expected_ids": [
+        "rails-create-or-find-mysql-shared-lock-boundary"
+      ]
+    },
+    {
+      "name": "rails-create-find-open-transaction",
+      "query": "transaction_open? rewhere take!",
+      "expected_ids": [
+        "rails-create-or-find-mysql-shared-lock-boundary"
+      ]
+    },
+    {
+      "name": "rails-create-find-mysql-syntax",
+      "query": "MariaDB 8.0.1 LOCK IN SHARE MODE",
+      "expected_ids": [
+        "rails-create-or-find-mysql-shared-lock-boundary"
+      ]
+    },
+    {
+      "name": "rails-create-find-after-update-deadlock",
+      "query": "後続更新 lock 昇格",
+      "expected_ids": [
+        "rails-create-or-find-mysql-shared-lock-boundary"
+      ]
+    },
+    {
+      "name": "rails-create-find-no-lock-on-found",
+      "query": "find_by 既存行 lock経路",
+      "expected_ids": [
+        "rails-create-or-find-mysql-shared-lock-boundary"
+      ]
+    },
+    {
+      "name": "rails-create-find-attributes-notfound",
+      "query": "attributes RecordNotFound",
+      "expected_ids": [
+        "rails-create-or-find-mysql-shared-lock-boundary"
+      ]
+    },
+    {
+      "name": "rails-create-find-validation-unsaved",
+      "query": "uniqueness validation 未永続化",
+      "expected_ids": [
+        "rails-create-or-find-mysql-shared-lock-boundary"
+      ]
+    },
+    {
+      "name": "rails-create-find-delete-race",
+      "query": "INSERT DELETE SELECT 競合",
+      "expected_ids": [
+        "rails-create-or-find-mysql-shared-lock-boundary"
+      ]
+    },
+    {
+      "name": "rails-create-find-concurrency-test",
+      "query": "three_concurrent_creates barrier",
+      "expected_ids": [
+        "rails-create-or-find-mysql-shared-lock-boundary"
+      ]
+    },
+    {
+      "name": "rails-create-find-side-effect-boundary",
+      "query": "副作用 戻り値 一度性",
+      "expected_ids": [
+        "rails-create-or-find-mysql-shared-lock-boundary"
+      ]
+    },
+    {
+      "name": "rails-create-find-retry-limits",
+      "query": "無制限retry 再実行可能",
+      "expected_ids": [
+        "rails-create-or-find-mysql-shared-lock-boundary"
+      ]
     }
   ]
 }

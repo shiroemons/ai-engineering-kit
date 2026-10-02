@@ -578,6 +578,76 @@
       "expected_ids": [
         "sqlite-stale-expression-index-reindex-migration"
       ]
+    },
+    {
+      "name": "redis-search-timeout-strict-partial",
+      "query": "RETURN_STRICT 部分結果 完全",
+      "expected_ids": [
+        "search-redis-timeout-partial-results"
+      ]
+    },
+    {
+      "name": "redis-search-timeout-foreground-zero",
+      "query": "TIMEOUT 0 foreground cap",
+      "expected_ids": [
+        "search-redis-timeout-partial-results"
+      ]
+    },
+    {
+      "name": "redis-search-timeout-resp3-warning",
+      "query": "MaxTimeoutCapped RESP3",
+      "expected_ids": [
+        "search-redis-timeout-partial-results"
+      ]
+    },
+    {
+      "name": "redis-search-timeout-worker-requirement",
+      "query": "RETURN_STRICT search-workers >",
+      "expected_ids": [
+        "search-redis-timeout-partial-results"
+      ]
+    },
+    {
+      "name": "redis-search-timeout-default-not-ceiling",
+      "query": "search-timeout 既定値 上限",
+      "expected_ids": [
+        "search-redis-timeout-partial-results"
+      ]
+    },
+    {
+      "name": "redis-search-timeout-history-disagreement",
+      "query": "8.8 MOD-13617 導入版",
+      "expected_ids": [
+        "search-redis-timeout-partial-results"
+      ]
+    },
+    {
+      "name": "redis-search-timeout-worker-default-disagreement",
+      "query": "search-workers 既定値 不一致",
+      "expected_ids": [
+        "search-redis-timeout-partial-results"
+      ]
+    },
+    {
+      "name": "redis-search-timeout-hybrid-fix",
+      "query": "FT.HYBRID MOD-16492",
+      "expected_ids": [
+        "search-redis-timeout-partial-results"
+      ]
+    },
+    {
+      "name": "redis-search-timeout-cursor-boundary",
+      "query": "FT.CURSOR READ 継続",
+      "expected_ids": [
+        "search-redis-timeout-partial-results"
+      ]
+    },
+    {
+      "name": "redis-search-timeout-end-to-end",
+      "query": "TIMEOUT parsing SLA",
+      "expected_ids": [
+        "search-redis-timeout-partial-results"
+      ]
     }
   ]
 }
