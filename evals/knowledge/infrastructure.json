@@ -891,6 +891,76 @@
       "expected_ids": [
         "kubernetes-eventrecordqps-zero-upgrade"
       ]
+    },
+    {
+      "name": "github-actions-retention-third-party-scope",
+      "query": "retention 第三者 check suites",
+      "expected_ids": [
+        "github-actions-retention-query-evidence-boundary"
+      ]
+    },
+    {
+      "name": "github-actions-retention-public-private-limits",
+      "query": "保持期間 public private 400",
+      "expected_ids": [
+        "github-actions-retention-query-evidence-boundary"
+      ]
+    },
+    {
+      "name": "github-actions-retention-setting-not-rescue",
+      "query": "保持設定 既存オブジェクト 遡及",
+      "expected_ids": [
+        "github-actions-retention-query-evidence-boundary"
+      ]
+    },
+    {
+      "name": "github-actions-expired-artifact-is-not-never-created",
+      "query": "artifact 期限切れ 未生成",
+      "expected_ids": [
+        "github-actions-retention-query-evidence-boundary"
+      ]
+    },
+    {
+      "name": "github-actions-run-count-not-pagination-limit",
+      "query": "2,500+ 1,000件 per_page",
+      "expected_ids": [
+        "github-actions-retention-query-evidence-boundary"
+      ]
+    },
+    {
+      "name": "github-actions-run-count-wire-unverified",
+      "query": "total_count 伝送形式",
+      "expected_ids": [
+        "github-actions-retention-query-evidence-boundary"
+      ]
+    },
+    {
+      "name": "github-actions-attempt-latest-versus-all",
+      "query": "run_attempt latest all",
+      "expected_ids": [
+        "github-actions-retention-query-evidence-boundary"
+      ]
+    },
+    {
+      "name": "github-actions-retention-missing-is-unknown",
+      "query": "証跡 不明 conclusion",
+      "expected_ids": [
+        "github-actions-retention-query-evidence-boundary"
+      ]
+    },
+    {
+      "name": "github-actions-download-url-not-archive",
+      "query": "Location 1分 アーカイブ",
+      "expected_ids": [
+        "github-actions-retention-query-evidence-boundary"
+      ]
+    },
+    {
+      "name": "github-actions-retention-ghes-boundary",
+      "query": "2026-10-01 GHES",
+      "expected_ids": [
+        "github-actions-retention-query-evidence-boundary"
+      ]
     }
   ]
 }

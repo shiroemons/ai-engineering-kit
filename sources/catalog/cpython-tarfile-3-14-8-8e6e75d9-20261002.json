@@ -1,0 +1,12 @@
+{
+  "id": "cpython-tarfile-3-14-8-8e6e75d9-20261002",
+  "url": "https://github.com/python/cpython/blob/8e6e75d9102e39bed2a2b279203a396741180f12/Lib/tarfile.py",
+  "repository_url": "https://github.com/python/cpython",
+  "commit_sha": "8e6e75d9102e39bed2a2b279203a396741180f12",
+  "version": "CPython v3.14.8 (peeled release tag)",
+  "retrieved_at": "2026-10-02",
+  "license": "MIT (Lib/tarfile.py header); PSF-2.0 and historical notices (repository LICENSE)",
+  "trust": "official",
+  "type": "github_repository_analysis",
+  "purpose": "git ls-remoteでv3.14.8のpeeled SHAを確認。raw URLで同SHAのLib/tarfile.py、Lib/test/test_tarfile.py、Doc/library/tarfile.rst、LICENSEを取得。member名正規化、hardlink realpath、fallbackの最初のfilter戻り値無視を分析。コード取り込み・3.14実行は行わない。"
+}

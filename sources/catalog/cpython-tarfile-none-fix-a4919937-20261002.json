@@ -1,0 +1,12 @@
+{
+  "id": "cpython-tarfile-none-fix-a4919937-20261002",
+  "url": "https://github.com/python/cpython/commit/a4919937a4e1e69a0d178909c6f20557eca5d1d0",
+  "repository_url": "https://github.com/python/cpython",
+  "commit_sha": "a4919937a4e1e69a0d178909c6f20557eca5d1d0",
+  "version": "CPython 3.14 maintenance branch; PR 157307 merged 2026-10-01",
+  "retrieved_at": "2026-10-02",
+  "license": "MIT (Lib/tarfile.py header); PSF-2.0 and historical notices (repository LICENSE)",
+  "trust": "official",
+  "type": "github_repository_analysis",
+  "purpose": "PR157307のmerge日とfull commitを確認し、rawのLib/tarfile.pyとLib/test/test_tarfile.pyを読んでv3.14.8と比較。fallback最初のNoneでreturnする差分、test_extract_filters_target_noneの追加を確認。branchへのmergeをrelease済みとは扱わない。"
+}

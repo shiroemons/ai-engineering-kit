@@ -1,0 +1,12 @@
+{
+  "id": "python-pep706-extraction-contract-20261002",
+  "url": "https://peps.python.org/pep-0706/",
+  "repository_url": "",
+  "commit_sha": "",
+  "version": "PEP 706 Final; created 2023-02-09; Python 3.12",
+  "retrieved_at": "2026-10-02",
+  "license": "CC0-1.0 or public domain",
+  "trust": "official",
+  "type": "official_docs",
+  "purpose": "filter機能の背景、既定変更、Noneのskip契約、バックポートの機能検出と追加資源制限の設計意図を確認。現行patch契約は版別docs/固定実装を優先する。"
+}

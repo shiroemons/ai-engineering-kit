@@ -930,6 +930,104 @@
       "expected_ids": [
         "go-waitgroup-errgroup-join-cancel-admission"
       ]
+    },
+    {
+      "name": "python-tarfile-3148-incomplete-patch",
+      "query": "3.14.8 87910 release",
+      "expected_ids": [
+        "python-tarfile-filter-patch-partial-extraction-boundary"
+      ]
+    },
+    {
+      "name": "python-tarfile-directory-only-posix",
+      "query": "19672 POSIX 空ディレクトリ",
+      "expected_ids": [
+        "python-tarfile-filter-patch-partial-extraction-boundary"
+      ]
+    },
+    {
+      "name": "python-tarfile-randomized-destination",
+      "query": "randomized destination 成立条件",
+      "expected_ids": [
+        "python-tarfile-filter-patch-partial-extraction-boundary"
+      ]
+    },
+    {
+      "name": "python-tarfile-hardlink-affected-branch",
+      "query": "82049 3.13以前 mtime",
+      "expected_ids": [
+        "python-tarfile-filter-patch-partial-extraction-boundary"
+      ]
+    },
+    {
+      "name": "python-tarfile-314-fix-after-release",
+      "query": "a4919937a4e1e69a0d178909c6f20557eca5d1d0 2026-10-01",
+      "expected_ids": [
+        "python-tarfile-filter-patch-partial-extraction-boundary"
+      ]
+    },
+    {
+      "name": "python-tarfile-fallback-none-rejection",
+      "query": "fallback 最初の None",
+      "expected_ids": [
+        "python-tarfile-filter-patch-partial-extraction-boundary"
+      ]
+    },
+    {
+      "name": "python-tarfile-313-patch-keeps-default",
+      "query": "3.13.16 既定 fully_trusted",
+      "expected_ids": [
+        "python-tarfile-filter-patch-partial-extraction-boundary"
+      ]
+    },
+    {
+      "name": "python-tarfile-attribute-not-string",
+      "query": "extraction_filter callable 文字列",
+      "expected_ids": [
+        "python-tarfile-filter-patch-partial-extraction-boundary"
+      ]
+    },
+    {
+      "name": "python-tarfile-filter-existence-not-patch",
+      "query": "hasattr 個別修正",
+      "expected_ids": [
+        "python-tarfile-filter-patch-partial-extraction-boundary"
+      ]
+    },
+    {
+      "name": "python-tarfile-partial-output",
+      "query": "FilterError before.txt 部分展開",
+      "expected_ids": [
+        "python-tarfile-filter-patch-partial-extraction-boundary"
+      ]
+    },
+    {
+      "name": "python-tarfile-errorlevel-zero-incomplete",
+      "query": "errorlevel=0 不完全",
+      "expected_ids": [
+        "python-tarfile-filter-patch-partial-extraction-boundary"
+      ]
+    },
+    {
+      "name": "python-tarfile-data-not-sandbox",
+      "query": "data DoS 競合",
+      "expected_ids": [
+        "python-tarfile-filter-patch-partial-extraction-boundary"
+      ]
+    },
+    {
+      "name": "python-tarfile-publish-after-verification",
+      "query": "manifest 公開 原子性",
+      "expected_ids": [
+        "python-tarfile-filter-patch-partial-extraction-boundary"
+      ]
+    },
+    {
+      "name": "python-tarfile-read-tests-not-run",
+      "query": "test_extract_filters_target_none 実行していない",
+      "expected_ids": [
+        "python-tarfile-filter-patch-partial-extraction-boundary"
+      ]
     }
   ]
 }

@@ -1,0 +1,12 @@
+{
+  "id": "github-actions-retention-active-20261002",
+  "url": "https://github.blog/changelog/2026-10-01-actions-retention-now-covers-checks-runs-and-statuses/",
+  "repository_url": "",
+  "commit_sha": "",
+  "version": "GitHub Actions on github.com: 2026-10-01 実施告知（製品の版番号なし）",
+  "retrieved_at": "2026-10-02",
+  "license": "unknown（GitHub Blog ページは © 2026 GitHub, Inc. と表示し、本文の再利用ライセンス表示なし。事実の独自要約のみ、コード転載なし）",
+  "trust": "official",
+  "type": "release_notes",
+  "purpose": "2026-10-01 公開告知を開き、checks・workflow runs・statuses の保持期間統一、第三者アプリ作成データの包含、公開リポジトリ上限90日、組織・enterpriseの上限、削除後に設定を変えても復元されないこと、対象 github.com を確認する"
+}

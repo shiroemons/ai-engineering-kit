@@ -1,0 +1,12 @@
+{
+  "id": "otel-js-config-start-02220-20261002",
+  "url": "https://github.com/open-telemetry/opentelemetry-js/blob/0b72a81636fa476e8f1f1afd2ae0c90a1362194c/experimental/packages/opentelemetry-sdk-node/src/start.ts",
+  "repository_url": "https://github.com/open-telemetry/opentelemetry-js",
+  "commit_sha": "0b72a81636fa476e8f1f1afd2ae0c90a1362194c",
+  "version": "OpenTelemetry JS experimental/v0.222.0 / @opentelemetry/sdk-node 0.222.0 (2026-08-31); verified 2026-10-02",
+  "retrieved_at": "2026-10-02",
+  "license": "Apache-2.0; verified package LICENSE at https://github.com/open-telemetry/opentelemetry-js/blob/0b72a81636fa476e8f1f1afd2ae0c90a1362194c/experimental/packages/opentelemetry-sdk-node/LICENSE and SPDX source headers; no code copied",
+  "trust": "primary-source",
+  "type": "github_repository_analysis",
+  "purpose": "設定読込／部品作成失敗を捕捉して診断後に NOOP_SDK を返すこと、成功後の global 登録、shutdown の戻り値と部分作成後の片付けを読解。native web は cache miss のため同じ固定 SHA の raw HTTPS を取得して確認。"
+}

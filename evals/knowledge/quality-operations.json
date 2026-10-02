@@ -535,6 +535,62 @@
       "expected_ids": [
         "performance-k6-scenario-selection-threshold-coverage"
       ]
+    },
+    {
+      "name": "otel-js-config-entrypoint",
+      "query": "startNodeSDK NodeSDK 初期化",
+      "expected_ids": [
+        "opentelemetry-js-config-failfast-noop-boundary"
+      ]
+    },
+    {
+      "name": "otel-js-config-all-detector",
+      "query": "OTEL_NODE_RESOURCE_DETECTORS container 例外",
+      "expected_ids": [
+        "opentelemetry-js-config-failfast-noop-boundary"
+      ]
+    },
+    {
+      "name": "otel-js-config-noop-shutdown",
+      "query": "NOOP_SDK shutdown 成功",
+      "expected_ids": [
+        "opentelemetry-js-config-failfast-noop-boundary"
+      ]
+    },
+    {
+      "name": "otel-js-config-factory",
+      "query": "OTEL_CONFIG_FILE EnvironmentConfigFactory",
+      "expected_ids": [
+        "opentelemetry-js-config-failfast-noop-boundary"
+      ]
+    },
+    {
+      "name": "otel-js-config-unknown-property",
+      "query": "checkConfigUse property 警告",
+      "expected_ids": [
+        "opentelemetry-js-config-failfast-noop-boundary"
+      ]
+    },
+    {
+      "name": "otel-js-config-canary",
+      "query": "canary 計装欠損",
+      "expected_ids": [
+        "opentelemetry-js-config-failfast-noop-boundary"
+      ]
+    },
+    {
+      "name": "otel-js-config-migration",
+      "query": "0.222.0 fail-fast 起動失敗",
+      "expected_ids": [
+        "opentelemetry-js-config-failfast-noop-boundary"
+      ]
+    },
+    {
+      "name": "otel-js-config-test-boundary",
+      "query": "LogRecordProcessor 起動テスト",
+      "expected_ids": [
+        "opentelemetry-js-config-failfast-noop-boundary"
+      ]
     }
   ]
 }

@@ -1,0 +1,12 @@
+{
+  "id": "github-actions-evidence-artifacts-api-20261002",
+  "url": "https://docs.github.com/en/rest/actions/artifacts?apiVersion=2026-03-10",
+  "repository_url": "",
+  "commit_sha": "",
+  "version": "GitHub REST API 2026-03-10 表示の artifacts 参照、2026-10-02 UTC 確認",
+  "retrieved_at": "2026-10-02",
+  "license": "CC-BY-4.0（GitHub Docs 本文。https://raw.githubusercontent.com/github/docs/main/README.md の License 節および https://github.com/github/docs/blob/main/LICENSE を2026-10-02確認。コード転載なし）",
+  "trust": "official",
+  "type": "official_docs",
+  "purpose": "応答例のid/name/expires_at/digest/workflow_run、artifactダウンロードの302/410、1分で失効するLocation URLとページ分割を確認する。expiredフィールドの存在を期限切れ履歴の列挙保証と解釈しない"
+}

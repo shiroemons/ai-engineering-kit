@@ -1,0 +1,12 @@
+{
+  "id": "github-actions-evidence-workflow-jobs-api-20261002",
+  "url": "https://docs.github.com/en/rest/actions/workflow-jobs?apiVersion=2026-03-10",
+  "repository_url": "",
+  "commit_sha": "",
+  "version": "GitHub REST API 2026-03-10 表示の workflow jobs 参照、2026-10-02 UTC 確認",
+  "retrieved_at": "2026-10-02",
+  "license": "CC-BY-4.0（GitHub Docs 本文。https://raw.githubusercontent.com/github/docs/main/README.md の License 節および https://github.com/github/docs/blob/main/LICENSE を2026-10-02確認。コード転載なし）",
+  "trust": "official",
+  "type": "official_docs",
+  "purpose": "run jobs一覧のfilter既定latestとallの差、attempt指定のjobs一覧、各jobのstatus/conclusion/head_sha/stepsとcheck_run_urlの応答例を確認し、再実行前後の証跡を混ぜない収集設計の根拠にする"
+}

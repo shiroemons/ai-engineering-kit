@@ -1,0 +1,12 @@
+{
+  "id": "python-tarfile-filter-3-13-16-20261002",
+  "url": "https://docs.python.org/3.13/library/tarfile.html",
+  "repository_url": "",
+  "commit_sha": "",
+  "version": "Python 3.13.16 documentation（取得時表示版）",
+  "retrieved_at": "2026-10-02",
+  "license": "PSF-2.0; documentation code additionally 0BSD",
+  "trust": "official",
+  "type": "official_docs",
+  "purpose": "3.13の既定fully_trusted、filter引数とextraction_filter属性の違い、FilterError/errorlevelの契約を確認。"
+}

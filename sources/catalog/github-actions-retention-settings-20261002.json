@@ -1,0 +1,12 @@
+{
+  "id": "github-actions-retention-settings-20261002",
+  "url": "https://docs.github.com/en/repositories/managing-your-repositorys-settings-and-features/enabling-features-for-your-repository/managing-github-actions-settings-for-a-repository",
+  "repository_url": "",
+  "commit_sha": "",
+  "version": "GitHub Docs リポジトリ設定の現行ページ、版番号・公開日表示なし、2026-10-02 UTC 確認",
+  "retrieved_at": "2026-10-02",
+  "license": "CC-BY-4.0（GitHub Docs 本文。https://raw.githubusercontent.com/github/docs/main/README.md の License 節および https://github.com/github/docs/blob/main/LICENSE を2026-10-02確認。コード転載なし）",
+  "trust": "official",
+  "type": "official_docs",
+  "purpose": "保持設定節で既定90日・public 1〜90日・private 1〜400日、check suites/check runs/commit statusesと第三者連携への適用、設定のカスタマイズは新規オブジェクトのみ、組織・enterprise上限とartifact個別保持設定の存在を確認する"
+}
