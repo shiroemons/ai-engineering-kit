@@ -1,0 +1,12 @@
+{
+  "id": "ruby-ractor-design-4-0-docs-20261002",
+  "url": "https://docs.ruby-lang.org/en/4.0/language/ractor_md.html",
+  "repository_url": "https://github.com/ruby/ruby",
+  "commit_sha": "",
+  "version": "Ruby 4.0 RDoc Ractor design; patch version and page publication date not displayed",
+  "retrieved_at": "2026-10-02",
+  "license": "Ruby License OR BSD-2-Clause (Ruby distribution documentation; https://docs.ruby-lang.org/en/4.0/COPYING.html verified; original summary only)",
+  "trust": "official",
+  "type": "official_docs",
+  "purpose": "無制限 incoming queue、Ractor 終了時の Port 閉鎖、copy/move の制約、RemoteError の cause と ractor、同一 Ractor 内の Thread 同期境界を確認する"
+}

@@ -1,0 +1,12 @@
+{
+  "id": "mdn-position-anchor-reference-20261002",
+  "url": "https://developer.mozilla.org/en-US/docs/Web/CSS/Reference/Properties/position-anchor",
+  "version": "MDN position-anchor reference; last modified 11 May 2026; live Baseline banner says September 2026 on retrieval",
+  "license": "CC-BY-SA-2.5-or-later documentation; https://developer.mozilla.org/en-US/docs/MDN/Writing_guidelines/Attrib_copyright_license",
+  "trust": "maintainer",
+  "type": "official_docs",
+  "purpose": "Property association and normal/none/auto definitions; September 2026 Baseline banner observed separately from article modification date. Not evidence of complete cross-browser support for every CSS anchor positioning value. Original summary, no code copied.",
+  "repository_url": "",
+  "commit_sha": "",
+  "retrieved_at": "2026-10-02"
+}

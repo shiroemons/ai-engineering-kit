@@ -1,0 +1,12 @@
+{
+  "id": "w3c-webauthn3-rec-20260825-backup-20261002",
+  "url": "https://www.w3.org/TR/2026/REC-webauthn-3-20260825/",
+  "repository_url": "",
+  "commit_sha": "",
+  "version": "Web Authentication Level 3, W3C Recommendation, 25 August 2026",
+  "retrieved_at": "2026-10-02",
+  "license": "W3C Software and Document License 2023; verified through the specification copyright notice at https://www.w3.org/copyright/software-license-2023/",
+  "trust": "official",
+  "type": "official_docs",
+  "purpose": "2026-08-25 Recommendation の成熟度、6.1/6.1.1/6.1.3 の BE/BS と signCount、7.1/7.2 の検証・条件付き BE 一致確認・保存、13.4.4 の attestation 限界、18.1.1 の Level 2 からの変更を確認する。独自日本語要約のみでコード・図・長文は移植しない。"
+}

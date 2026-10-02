@@ -1,0 +1,12 @@
+{
+  "id": "csswg-anchor-position-september-snapshot-20261002",
+  "url": "https://drafts.csswg.org/css-anchor-position-1/",
+  "version": "Editor-hosted text retrieved 2026-10-02; header displays W3C Working Draft 6 September 2026; linked dated TR returns 404",
+  "license": "W3C Software and Document License 2023; https://www.w3.org/copyright/software-license-2023/",
+  "trust": "official",
+  "type": "official_docs",
+  "purpose": "Observed September-header text: singular anchor-valid/anchor-visible, default-anchor-only visibility checks, optional legacy aliases. The header-linked https://www.w3.org/TR/2026/WD-css-anchor-position-1-20260906/ returned 404 on 2026-10-02, so this record does not certify publication of that TR snapshot.",
+  "repository_url": "",
+  "commit_sha": "",
+  "retrieved_at": "2026-10-02"
+}

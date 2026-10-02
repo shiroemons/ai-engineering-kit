@@ -1,0 +1,12 @@
+{
+  "id": "ruby-ractor-release-4-0-7-20261002",
+  "url": "https://www.ruby-lang.org/en/news/2026/09/15/ruby-4-0-7-released/",
+  "repository_url": "https://github.com/ruby/www.ruby-lang.org",
+  "commit_sha": "",
+  "version": "Ruby 4.0.7; published 2026-09-15",
+  "retrieved_at": "2026-10-02",
+  "license": "unknown (official release article; separate article-content license not established; original summary only)",
+  "trust": "official",
+  "type": "release_notes",
+  "purpose": "2026-09-15 公開の 4.0.7 が通常の bugfix release であることを確認する。Port 導入日や全 patch の互換性の根拠にはしない"
+}

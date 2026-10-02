@@ -1,0 +1,12 @@
+{
+  "id": "webkit-safari27-anchor-release-20261002",
+  "url": "https://webkit.org/blog/18325/webkit-features-for-safari-27-0/",
+  "version": "WebKit Features for Safari 27.0, published 17 September 2026, Anchor positioning improvements",
+  "license": "unknown",
+  "trust": "maintainer",
+  "type": "release_notes",
+  "purpose": "Browser-maintainer release evidence for Safari 27.0: transform-aware anchor positioning, position-anchor normal default and none opt-out, singular visibility values and temporary plural compatibility. Article license not identified on retrieved page; no code, images, or prose copied.",
+  "repository_url": "",
+  "commit_sha": "",
+  "retrieved_at": "2026-10-02"
+}

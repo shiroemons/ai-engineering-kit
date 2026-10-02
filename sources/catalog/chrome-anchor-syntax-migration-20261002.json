@@ -1,0 +1,12 @@
+{
+  "id": "chrome-anchor-syntax-migration-20261002",
+  "url": "https://developer.chrome.com/blog/anchor-positioning-api",
+  "version": "Introducing the CSS anchor positioning API; published/last updated 10 May 2024; retrieved note covers Chrome 125 to 129 syntax migration",
+  "license": "CC-BY-4.0 prose; Apache-2.0 code samples; page footer https://developer.chrome.com/blog/anchor-positioning-api",
+  "trust": "maintainer",
+  "type": "maintainer_article",
+  "purpose": "Maintainer article migration note: inset-area renamed position-area and position-try-options renamed position-try-fallbacks, shipped Chrome 129. Article body is explicitly Chrome 125-era; used only for historical names, not current default semantics. No copied code.",
+  "repository_url": "",
+  "commit_sha": "",
+  "retrieved_at": "2026-10-02"
+}

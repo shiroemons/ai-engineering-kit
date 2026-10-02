@@ -1,0 +1,12 @@
+{
+  "id": "ruby-copying-4-0-20261002",
+  "url": "https://docs.ruby-lang.org/en/4.0/COPYING.html",
+  "repository_url": "https://github.com/ruby/ruby",
+  "commit_sha": "",
+  "version": "Ruby 4.0 distribution COPYING; page publication date not displayed",
+  "retrieved_at": "2026-10-02",
+  "license": "Ruby License OR BSD-2-Clause",
+  "trust": "official",
+  "type": "official_docs",
+  "purpose": "RDoc 出典の Ruby ソフトウェアは Ruby License または 2-clause BSDL の選択肢があり、個別ファイルの例外は LEGAL に委ねられることを確認する。ニュース本文のライセンスへ自動拡張しない"
+}

@@ -1,0 +1,12 @@
+{
+  "id": "w3c-css-anchor-position-wd-20260327-verified-20261002",
+  "url": "https://www.w3.org/TR/2026/WD-css-anchor-position-1-20260327/",
+  "version": "CSS Anchor Positioning Module Level 1, W3C Working Draft 27 March 2026",
+  "license": "W3C Software and Document License 2023; https://www.w3.org/copyright/software-license-2023/",
+  "trust": "official",
+  "type": "official_docs",
+  "purpose": "Published Working Draft snapshot: anchor lookup and containment, fallback margin-box test and current-styles retention, restricted @position-try descriptors, accessibility boundaries. Retrieved the actual page and license; original Japanese factual summary only, no copied code.",
+  "repository_url": "",
+  "commit_sha": "",
+  "retrieved_at": "2026-10-02"
+}
