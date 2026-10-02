@@ -7,15 +7,54 @@ import (
 	"fmt"
 	"os"
 	"path/filepath"
+	"reflect"
 	"slices"
 	"sort"
 	"strings"
+	"time"
 )
 
 type snapshot struct {
 	SchemaVersion int        `json:"schema_version"`
 	Fingerprint   string     `json:"fingerprint"`
 	Documents     []Document `json:"documents"`
+}
+
+// fullTextDocument は検索のたびに変化しない、小文字化済みの検索対象。
+// 語への分割はせず、従来どおり文字列内の部分一致を評価する。
+type fullTextDocument struct {
+	path  string
+	title string
+	tags  string
+	all   string
+}
+
+func prepareFullTextDocument(doc Document) fullTextDocument {
+	m := doc.Metadata
+	tags := strings.ToLower(strings.Join(m.Tags, " "))
+	return fullTextDocument{
+		path:  doc.Path,
+		title: strings.ToLower(m.Title),
+		tags:  tags,
+		all:   strings.ToLower(strings.Join([]string{doc.Path, m.ID, m.Title, m.Kind, m.Technology, m.Version, tags, doc.Body}, " ")),
+	}
+}
+
+func (d fullTextDocument) score(terms []string) int {
+	score := 0
+	for _, term := range terms {
+		if !strings.Contains(d.all, term) {
+			return 0
+		}
+		score += strings.Count(d.all, term)
+		if strings.Contains(d.title, term) {
+			score += 10
+		}
+		if strings.Contains(d.tags, term) {
+			score += 5
+		}
+	}
+	return score
 }
 
 // Search は空白区切りの語を小文字化して AND 検索する。
@@ -30,26 +69,25 @@ func (FullTextBackend) Search(ctx context.Context, documents []Document, query s
 		if err := ctx.Err(); err != nil {
 			return nil, err
 		}
-		m := doc.Metadata
-		title := strings.ToLower(m.Title)
-		tags := strings.ToLower(strings.Join(m.Tags, " "))
-		all := strings.ToLower(strings.Join([]string{doc.Path, m.ID, m.Title, m.Kind, m.Technology, m.Version, tags, doc.Body}, " "))
-		score := 0
-		for _, term := range terms {
-			if !strings.Contains(all, term) {
-				score = 0
-				break
-			}
-			score += strings.Count(all, term)
-			if strings.Contains(title, term) {
-				score += 10
-			}
-			if strings.Contains(tags, term) {
-				score += 5
-			}
-		}
-		if score > 0 {
+		if score := prepareFullTextDocument(doc).score(terms); score > 0 {
 			scores[doc.Path] = score
+		}
+	}
+	return scores, nil
+}
+
+func searchFullText(ctx context.Context, documents []fullTextDocument, query string) (map[string]int, error) {
+	terms := strings.Fields(strings.ToLower(query))
+	if len(terms) == 0 {
+		return nil, errors.New("search query must not be empty")
+	}
+	scores := make(map[string]int)
+	for _, doc := range documents {
+		if err := ctx.Err(); err != nil {
+			return nil, err
+		}
+		if score := doc.score(terms); score > 0 {
+			scores[doc.path] = score
 		}
 	}
 	return scores, nil
@@ -134,42 +172,113 @@ func (r *Repository) Index() error {
 // 既定の FullTextBackend では複数 goroutine から検索できる。
 // 独自 Backend を使う場合は、その Backend 自体も並行呼び出しに対応する必要がある。
 type SearchSnapshot struct {
-	documents []Document
-	results   []Result
-	backend   Backend
+	documents   []Document
+	results     []Result
+	backend     Backend
+	fullText    []fullTextDocument
+	root        string
+	now         time.Time
+	fingerprint string
 }
 
 // PrepareSearch は入力と索引を一度検証し、同じ corpus を繰り返し評価するために固定する。
 // 鮮度の基準時刻は呼び出し元 Repository を Load したときの UTC 時刻となる。
 func (r *Repository) PrepareSearch(ctx context.Context) (*SearchSnapshot, error) {
-	if err := ctx.Err(); err != nil {
-		return nil, err
-	}
-	current, err := Load(r.root, r.now)
+	current, documents, err := r.loadSearchIndex(ctx)
 	if err != nil {
 		return nil, err
-	}
-	var index snapshot
-	if err := current.readJSON("rag/index/snapshot.json", &index); err != nil {
-		return nil, fmt.Errorf("index unavailable; run kb index: %w", err)
-	}
-	if index.SchemaVersion != 1 || index.Fingerprint != current.fingerprint {
-		return nil, errors.New("index is out of date; run kb index")
-	}
-	// 元のフィンガープリントが残っていても、生成データの破損や直接編集を拒否する。
-	expected, _ := json.Marshal(current.documents)
-	actual, _ := json.Marshal(index.Documents)
-	if string(expected) != string(actual) {
-		return nil, errors.New("index content is inconsistent; run kb index")
 	}
 	if r.Backend == nil {
 		return nil, errors.New("search backend is nil")
 	}
-	results := make([]Result, len(index.Documents))
-	for i, doc := range index.Documents {
+	results := make([]Result, len(documents))
+	for i, doc := range documents {
 		results[i] = current.result(doc, 0)
 	}
-	return &SearchSnapshot{documents: index.Documents, results: results, backend: r.Backend}, nil
+	prepared := &SearchSnapshot{
+		documents: documents, results: results, backend: r.Backend,
+		root: current.root, now: current.now, fingerprint: current.fingerprint,
+	}
+	switch backend := r.Backend.(type) {
+	case FullTextBackend:
+		err = prepared.prepareFullText(ctx)
+	case *FullTextBackend:
+		if backend != nil {
+			err = prepared.prepareFullText(ctx)
+		}
+	}
+	if err != nil {
+		return nil, err
+	}
+	if err := ctx.Err(); err != nil {
+		return nil, err
+	}
+	return prepared, nil
+}
+
+func (r *Repository) loadSearchIndex(ctx context.Context) (*Repository, []Document, error) {
+	if err := ctx.Err(); err != nil {
+		return nil, nil, err
+	}
+	current, err := Load(r.root, r.now)
+	if err != nil {
+		return nil, nil, err
+	}
+	if err := ctx.Err(); err != nil {
+		return nil, nil, err
+	}
+	var index snapshot
+	if err := current.readJSON("rag/index/snapshot.json", &index); err != nil {
+		return nil, nil, fmt.Errorf("index unavailable; run kb index: %w", err)
+	}
+	if index.SchemaVersion != 1 || index.Fingerprint != current.fingerprint {
+		return nil, nil, errors.New("index is out of date; run kb index")
+	}
+	// 元のフィンガープリントが残っていても、生成データの破損や直接編集を拒否する。
+	if !searchDocumentsEqual(current.documents, index.Documents) {
+		return nil, nil, errors.New("index content is inconsistent; run kb index")
+	}
+	if err := ctx.Err(); err != nil {
+		return nil, nil, err
+	}
+	return current, index.Documents, nil
+}
+
+func searchDocumentsEqual(expected, actual []Document) bool {
+	if reflect.DeepEqual(expected, actual) {
+		return true
+	}
+	// omitempty の nil/空 slice や不正 UTF-8 の扱いなど、従来の JSON 比較を保つ。
+	expectedJSON, _ := json.Marshal(expected)
+	actualJSON, _ := json.Marshal(actual)
+	return string(expectedJSON) == string(actualJSON)
+}
+
+// CheckCurrent は準備時の入力が現在も有効で、索引が破損していないことを確認する。
+// バッチ評価など、固定した検索状態に加えて終了時の整合性確認も必要な場合に使う。
+// 索引を再生成していても、入力が変わった場合はエラーを返す。Search の固定状態は変更しない。
+// ファイルをロックしない時点確認であり、同時更新の原子性や一時変更の検出は保証しない。
+func (s *SearchSnapshot) CheckCurrent(ctx context.Context) error {
+	r := &Repository{root: s.root, now: s.now}
+	current, _, err := r.loadSearchIndex(ctx)
+	if err != nil {
+		return err
+	}
+	if current.fingerprint != s.fingerprint {
+		return errors.New("search snapshot is out of date; prepare a new snapshot")
+	}
+	return nil
+}
+
+func (s *SearchSnapshot) prepareFullText(ctx context.Context) error {
+	s.fullText = make([]fullTextDocument, len(s.documents))
+	for i, doc := range s.documents {
+		if err := ctx.Err(); err != nil {
+			return err
+		}
+		s.fullText[i] = prepareFullTextDocument(doc)
+	}
+	return nil
 }
 
 // Search は呼び出しごとに入力・索引の整合性を検証する。
@@ -200,15 +309,15 @@ func (s *SearchSnapshot) Search(ctx context.Context, query string, limit int) ([
 	if err := validateSearch(ctx, query, limit); err != nil {
 		return nil, err
 	}
-	documents := s.documents
-	switch s.backend.(type) {
-	case FullTextBackend, *FullTextBackend:
-		// 標準 backend は入力を変更しないので、検証済みの内容を共有できる。
-	default:
+	var scores map[string]int
+	var err error
+	if s.fullText != nil {
+		// 標準 backend の検索対象は準備時に固定し、並行検索でも変更しない。
+		scores, err = searchFullText(ctx, s.fullText, query)
+	} else {
 		// 独自 backend に可変 slice を渡しても snapshot 自体は変更させない。
-		documents = cloneDocuments(documents)
+		scores, err = s.backend.Search(ctx, cloneDocuments(s.documents), query)
 	}
-	scores, err := s.backend.Search(ctx, documents, query)
 	if err != nil {
 		return nil, err
 	}
