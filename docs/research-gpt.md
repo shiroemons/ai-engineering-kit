@@ -94,6 +94,11 @@ git ls-remote --heads origin refs/heads/research/gpt-coordinator
 と新しい claim を追記する。残った branch を意図的に再開し、main と統合して再検証する。
 確認できなければ停止して報告する。ネットワーク失敗も「空いている」と扱わない。
 
+PR 本文は [共通 PR テンプレート](../.github/pull_request_template.md) を使う。
+見出しの順序を保ち、テーマ・変更ファイル・一次資料 URL・適用版・baseline/head SHA・
+実際の検証結果・未確認事項を記入する。CI は未確認で開始し、対象 head の両OSの
+結果を読んでから run / job URL と結果を追記する。該当なしには理由を添える。
+
 merge前は lease、最新 main、現在の PR head、両OSのCI、未解決reviewを再確認する。
 APIの expected_head_sha は base を固定しないため、merge後の main CI も確認する。
 ブランチ保護や認証設定を変えてチェックを迂回しない。

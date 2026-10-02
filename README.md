@@ -69,6 +69,10 @@ mise exec -- just check
 
 knowledge の記入例は [template](examples/knowledge.template.md)、必須項目は [metadata 契約](docs/metadata.md) を使う。OSS は commit を固定して設計を分析し、ライセンスと由来を記録する。8種類の pattern template は未調査の問いを示し、検索対象から除外する。
 
+## PR を作成する
+
+コード変更・調査のどちらも [共通 PR テンプレート](.github/pull_request_template.md) を使う。概要・変更内容・出典・検証結果・未確認事項を同じ順序で記録する。記入方法は [運用手順](docs/workflows.md#pr-を作成する) を参照する。
+
 ## 鮮度を確認して検索する
 
 ```sh
