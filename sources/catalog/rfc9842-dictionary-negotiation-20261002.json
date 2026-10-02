@@ -1,0 +1,12 @@
+{
+  "id": "rfc9842-dictionary-negotiation-20261002",
+  "url": "https://www.rfc-editor.org/rfc/rfc9842.html",
+  "version": "RFC 9842, Proposed Standard, September 2025",
+  "license": "IETF Trust Legal Provisions; extracted code components under Revised BSD License per Copyright Notice",
+  "trust": "official",
+  "type": "official_docs",
+  "purpose": "§2–3 辞書hash・freshness・same-origin、§6 content coding と Vary、§8–10 HTTPS・readability・圧縮side channel・cookie相当の分離を再確認。原文やコードの転載なし。Errataの照会は取得できず、訂正なしとは主張しない。",
+  "repository_url": "",
+  "commit_sha": "",
+  "retrieved_at": "2026-10-02"
+}

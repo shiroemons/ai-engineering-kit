@@ -1,0 +1,12 @@
+{
+  "id": "kubernetes-event-qps-api-v137-20261002",
+  "url": "https://kubernetes.io/docs/reference/config-api/kubelet-config.v1beta1/",
+  "repository_url": "https://github.com/kubernetes/website",
+  "commit_sha": "",
+  "version": "Kubernetes v1.37 / KubeletConfiguration v1beta1; generated reference modified 2026-08-26",
+  "retrieved_at": "2026-10-02",
+  "license": "CC-BY-4.0 (kubernetes/website LICENSE checked); original attributed summary only",
+  "trust": "official",
+  "type": "official_docs",
+  "purpose": "eventRecordQPSのゼロ・負数・既定50、およびeventBurstの既定100と適用条件を確認"
+}

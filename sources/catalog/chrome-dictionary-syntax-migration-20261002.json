@@ -1,0 +1,12 @@
+{
+  "id": "chrome-dictionary-syntax-migration-20261002",
+  "url": "https://developer.chrome.com/blog/shared-dictionary-compression",
+  "version": "Published/last updated 2024-03-06; post-publication syntax warnings read 2026-10-02",
+  "license": "CC-BY-4.0 content; Apache-2.0 code samples, per page footer; no copied code",
+  "trust": "maintainer",
+  "type": "maintainer_article",
+  "purpose": "Chrome開発元の旧origin trial記事にあるbr-d→dcb、zstd-d→dcz、rel=dictionary→compression-dictionaryの訂正を確認。古い本文のCDN対応状況やflagを現状へ一般化しない。",
+  "repository_url": "",
+  "commit_sha": "",
+  "retrieved_at": "2026-10-02"
+}

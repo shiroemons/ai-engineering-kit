@@ -1,0 +1,12 @@
+{
+  "id": "w3c-overflow5-fpwd-20241217-verified-20261002",
+  "url": "https://www.w3.org/TR/2024/WD-css-overflow-5-20241217/",
+  "version": "CSS Overflow Module Level 5 First Public Working Draft 17 December 2024",
+  "license": "W3C Software and Document License 2023; https://www.w3.org/copyright/software-license-2023/",
+  "trust": "official",
+  "type": "official_docs",
+  "purpose": "Historical version boundary: scroll-marker-group grammar contains none/before/after without links/tabs and implicit focusgroup behavior. The undated /TR/css-overflow-5/ endpoint also returned this date on retrieval. Not used as the current modes contract; no code copied.",
+  "repository_url": "",
+  "commit_sha": "",
+  "retrieved_at": "2026-10-02"
+}

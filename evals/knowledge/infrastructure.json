@@ -821,6 +821,76 @@
       "expected_ids": [
         "kubernetes-nftables-localhost-nodeport-migration"
       ]
+    },
+    {
+      "name": "kubernetes-event-qps-explicit-zero-version",
+      "query": "eventRecordQPS v1.36.0 v1.37.0",
+      "expected_ids": [
+        "kubernetes-eventrecordqps-zero-upgrade"
+      ]
+    },
+    {
+      "name": "kubernetes-event-qps-default-fallback-separation",
+      "query": "eventRecordQPS 未指定 fallback",
+      "expected_ids": [
+        "kubernetes-eventrecordqps-zero-upgrade"
+      ]
+    },
+    {
+      "name": "kubernetes-event-qps-negative-internal-only",
+      "query": "eventRecordQPS -1 受理値",
+      "expected_ids": [
+        "kubernetes-eventrecordqps-zero-upgrade"
+      ]
+    },
+    {
+      "name": "kubernetes-event-qps-burst-is-separate",
+      "query": "eventRecordQPS eventBurst refill",
+      "expected_ids": [
+        "kubernetes-eventrecordqps-zero-upgrade"
+      ]
+    },
+    {
+      "name": "kubernetes-event-qps-effective-config",
+      "query": "eventRecordQPS configz drop-in",
+      "expected_ids": [
+        "kubernetes-eventrecordqps-zero-upgrade"
+      ]
+    },
+    {
+      "name": "kubernetes-event-qps-recording-is-not-lossless",
+      "query": "eventRecordQPS lossless spam",
+      "expected_ids": [
+        "kubernetes-eventrecordqps-zero-upgrade"
+      ]
+    },
+    {
+      "name": "kubernetes-event-qps-request-versus-object",
+      "query": "eventRecordQPS PATCH object",
+      "expected_ids": [
+        "kubernetes-eventrecordqps-zero-upgrade"
+      ]
+    },
+    {
+      "name": "kubernetes-event-qps-rollback-positive-values",
+      "query": "eventRecordQPS rollback 正の値",
+      "expected_ids": [
+        "kubernetes-eventrecordqps-zero-upgrade"
+      ]
+    },
+    {
+      "name": "kubernetes-event-qps-normal-client-boundary",
+      "query": "eventRecordQPS kubeAPIQPS EventClient",
+      "expected_ids": [
+        "kubernetes-eventrecordqps-zero-upgrade"
+      ]
+    },
+    {
+      "name": "kubernetes-event-qps-source-object-spam",
+      "query": "eventRecordQPS 1/300 25",
+      "expected_ids": [
+        "kubernetes-eventrecordqps-zero-upgrade"
+      ]
     }
   ]
 }

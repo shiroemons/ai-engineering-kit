@@ -1,0 +1,12 @@
+{
+  "id": "csswg-overflow5-marker-modes-ed-20260804-verified-20261002",
+  "url": "https://drafts.csswg.org/css-overflow-5/",
+  "version": "CSS Overflow Module Level 5 Editor Draft; header 4 August 2026; retrieved 2026-10-02",
+  "license": "W3C Software and Document License 2023; https://www.w3.org/copyright/software-license-2023/",
+  "trust": "official",
+  "type": "official_docs",
+  "purpose": "Sections 3.1.3-3.1.10 and 3.3: mode defaults, generated marker preconditions, links/tabs semantics, activation focus starting point, next tab navigation, activeElement and focus pseudo-classes. Mutable work in progress, not a W3C Recommendation or a claim about all browser implementations. Original summary only.",
+  "repository_url": "",
+  "commit_sha": "",
+  "retrieved_at": "2026-10-02"
+}

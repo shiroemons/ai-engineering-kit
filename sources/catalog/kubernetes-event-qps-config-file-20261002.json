@@ -1,0 +1,12 @@
+{
+  "id": "kubernetes-event-qps-config-file-20261002",
+  "url": "https://kubernetes.io/docs/tasks/administer-cluster/kubelet-config-file/",
+  "repository_url": "https://github.com/kubernetes/website",
+  "commit_sha": "",
+  "version": "Kubernetes rolling docs, v1.37 selector; page modified 2026-07-28; retrieved 2026-10-02",
+  "retrieved_at": "2026-10-02",
+  "license": "CC-BY-4.0 (kubernetes/website LICENSE checked); original attributed summary only",
+  "trust": "official",
+  "type": "official_docs",
+  "purpose": "設定ファイル、drop-in、command lineの優先順とconfigzによる最終実効設定確認を確認"
+}

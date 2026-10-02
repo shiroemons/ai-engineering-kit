@@ -1,0 +1,12 @@
+{
+  "id": "kubernetes-event-qps-release-v137-20261002",
+  "url": "https://raw.githubusercontent.com/kubernetes/kubernetes/master/CHANGELOG/CHANGELOG-1.37.md",
+  "repository_url": "https://github.com/kubernetes/kubernetes",
+  "commit_sha": "",
+  "version": "Kubernetes v1.37.0 Urgent Upgrade Notes; release dated 2026-08-26; rolling CHANGELOG read 2026-10-02",
+  "retrieved_at": "2026-10-02",
+  "license": "Apache-2.0 (kubernetes/kubernetes LICENSE checked); original summary only",
+  "trust": "official",
+  "type": "release_notes",
+  "purpose": "v1.37.0節のeventRecordQPS=0修正と非ゼロ指定の推奨を確認。alpha.1節の旧文言とは区別し、例示50を旧explicit-zero挙動の実測値とは扱わない"
+}

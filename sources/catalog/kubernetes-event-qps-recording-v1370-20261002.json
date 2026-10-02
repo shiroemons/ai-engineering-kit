@@ -1,0 +1,12 @@
+{
+  "id": "kubernetes-event-qps-recording-v1370-20261002",
+  "url": "https://github.com/kubernetes/kubernetes/blob/f54c212e3a2f75d674b717a9b29052b20b60aefc/staging/src/k8s.io/client-go/tools/record/event.go",
+  "repository_url": "https://github.com/kubernetes/kubernetes",
+  "commit_sha": "f54c212e3a2f75d674b717a9b29052b20b60aefc",
+  "version": "Kubernetes v1.37.0 bundled client-go record package; fixed release commit f54c212e3a2f75d674b717a9b29052b20b60aefc",
+  "retrieved_at": "2026-10-02",
+  "license": "Apache-2.0 (LICENSE and reviewed Go file headers checked); analysis only, no copied code",
+  "trust": "official",
+  "type": "github_repository_analysis",
+  "purpose": "NewBroadcaster、StartRecordingToSink、recordToSink、recordEventおよびevents_cache.goのcorrelator default・spam filter・aggregationを確認。transport QPS無制限とlossless deliveryを区別する根拠"
+}

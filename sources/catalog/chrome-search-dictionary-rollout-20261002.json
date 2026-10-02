@@ -1,0 +1,12 @@
+{
+  "id": "chrome-search-dictionary-rollout-20261002",
+  "url": "https://developer.chrome.com/blog/search-compression-dictionaries",
+  "version": "Published/last updated 2025-05-14; Chrome 130 introduction and spring 2025 Google Search rollout",
+  "license": "CC-BY-4.0 content; Apache-2.0 code samples, per page footer; no copied code",
+  "trust": "maintainer",
+  "type": "maintainer_article",
+  "purpose": "Chrome130導入、Searchの初回br/辞書取得/後続dcbの運用事例、23% HTML転送量削減の集計母集団を確認。開発元の事例報告として扱い一般性能保証にしない。",
+  "repository_url": "",
+  "commit_sha": "",
+  "retrieved_at": "2026-10-02"
+}
