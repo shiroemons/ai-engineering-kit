@@ -1,0 +1,12 @@
+{
+  "id": "mcp-tool-schema-tools-2026-07-28-20261002",
+  "url": "https://modelcontextprotocol.io/specification/2026-07-28/server/tools",
+  "repository_url": "https://github.com/modelcontextprotocol/modelcontextprotocol",
+  "commit_sha": "",
+  "version": "MCP Tools specification 2026-07-28",
+  "retrieved_at": "2026-10-02",
+  "license": "Apache-2.0 for new specification contributions; MIT retained for unrelicensed historical contributions (LICENSE at 3098fe94caa1b9e0afaaa6d30e040b61d5802471); no source code copied",
+  "trust": "official",
+  "type": "official_docs",
+  "purpose": "Tool input/output schema、任意JSONのstructuredContent、server MUST/client SHOULDのvalidation、serialized TextContent SHOULDを確認。版日付2026-07-28、独立した記事公開日は表示なし。"
+}

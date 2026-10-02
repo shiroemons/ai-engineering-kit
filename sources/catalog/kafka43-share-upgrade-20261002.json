@@ -1,0 +1,12 @@
+{
+  "id": "kafka43-share-upgrade-20261002",
+  "url": "https://kafka.apache.org/43/getting-started/upgrade/",
+  "repository_url": "",
+  "commit_sha": "",
+  "version": "Apache Kafka 4.3 documentation; page last modified 2026-06-25; 4.3.1 upgrade section",
+  "retrieved_at": "2026-10-02",
+  "license": "Apache-2.0 (Kafka website LICENSE: https://raw.githubusercontent.com/apache/kafka-site/markdown/LICENSE; Kafka 4.3.1 LICENSE: https://raw.githubusercontent.com/apache/kafka/4.3.1/LICENSE); original summary only, no copied code",
+  "trust": "official",
+  "type": "release_notes",
+  "purpose": "4.2でのshare groups本番対応、4.3で追加されたgroup config、4.2.1のshare group deadlock修正を確認。"
+}

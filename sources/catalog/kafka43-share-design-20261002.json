@@ -1,0 +1,12 @@
+{
+  "id": "kafka43-share-design-20261002",
+  "url": "https://kafka.apache.org/43/design/design/",
+  "repository_url": "",
+  "commit_sha": "",
+  "version": "Apache Kafka 4.3 documentation, The Share Consumer; publication date not displayed for this section",
+  "retrieved_at": "2026-10-02",
+  "license": "Apache-2.0 (Kafka website LICENSE: https://raw.githubusercontent.com/apache/kafka-site/markdown/LICENSE; Kafka 4.3.1 LICENSE: https://raw.githubusercontent.com/apache/kafka/4.3.1/LICENSE); original summary only, no copied code",
+  "trust": "official",
+  "type": "official_docs",
+  "purpose": "partition共有、consumer数、group間独立性、期限付きacquisition lockの範囲を確認。"
+}

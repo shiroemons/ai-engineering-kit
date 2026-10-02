@@ -1,0 +1,12 @@
+{
+  "id": "kafka431-share-ack-callback-20261002",
+  "url": "https://kafka.apache.org/43/javadoc/org/apache/kafka/clients/consumer/AcknowledgementCommitCallback.html",
+  "repository_url": "",
+  "commit_sha": "",
+  "version": "Apache Kafka 4.3.1 Java API (page title); API publication date not displayed",
+  "retrieved_at": "2026-10-02",
+  "license": "Apache-2.0 (Kafka website LICENSE: https://raw.githubusercontent.com/apache/kafka-site/markdown/LICENSE; Kafka 4.3.1 LICENSE: https://raw.githubusercontent.com/apache/kafka/4.3.1/LICENSE); original summary only, no copied code",
+  "trust": "official",
+  "type": "official_docs",
+  "purpose": "callback実行thread、再試行後の失敗通知と再fetch要求、acknowledgement失敗の分類を確認。"
+}

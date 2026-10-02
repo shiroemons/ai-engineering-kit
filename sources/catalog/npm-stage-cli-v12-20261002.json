@@ -1,0 +1,12 @@
+{
+  "id": "npm-stage-cli-v12-20261002",
+  "url": "https://docs.npmjs.com/cli/v12/commands/npm-stage/",
+  "repository_url": "https://github.com/npm/cli",
+  "commit_sha": "",
+  "version": "CLI reference display 12.2.0; page last edited 2026-09-24; retrieved 2026-10-02, not implementation-pinned",
+  "retrieved_at": "2026-10-02",
+  "license": "Artistic-2.0 for npm/cli documentation source; https://raw.githubusercontent.com/npm/cli/latest/LICENSE checked 2026-10-02; v12.2.0 LICENSE fetch failed; no code copied",
+  "trust": "official",
+  "type": "official_docs",
+  "purpose": "staged/published 共通 semver 一意制約、tag 不変、approve/reject と read 系の2FA区別、古い OIDC 対応範囲の記述を確認"
+}

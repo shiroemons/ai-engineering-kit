@@ -1,0 +1,12 @@
+{
+  "id": "npm-trusted-publishers-dist-tag-20261002",
+  "url": "https://docs.npmjs.com/trusted-publishers/",
+  "repository_url": "https://github.com/npm/documentation",
+  "commit_sha": "",
+  "version": "Live service documentation; last edited 2026-09-30; OIDC dist-tags require npm 11.21.0+ on v11 or 12.2.0+ on v12",
+  "retrieved_at": "2026-10-02",
+  "license": "CC-BY-4.0 for npm/documentation content; https://raw.githubusercontent.com/npm/documentation/main/.reuse/dep5 and LICENSE checked 2026-10-02; original summary, no code copied",
+  "trust": "official",
+  "type": "official_docs",
+  "purpose": "dist-tag の独立権限と最小 CLI 版、最大10接続、従来 token 制限と OIDC の別管理、stage 承認への OIDC 不使用、whoami の限界を確認"
+}

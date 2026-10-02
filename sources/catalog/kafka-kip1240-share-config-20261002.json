@@ -1,0 +1,12 @@
+{
+  "id": "kafka-kip1240-share-config-20261002",
+  "url": "https://cwiki.apache.org/confluence/spaces/KAFKA/pages/399278516/KIP-1240+Additional+group+configurations+for+share+groups",
+  "repository_url": "",
+  "commit_sha": "",
+  "version": "KIP-1240 Accepted; page last updated 2026-02-09; shipped changes cross-checked with Kafka 4.3 upgrade notes",
+  "retrieved_at": "2026-10-02",
+  "license": "unknown (page-specific reuse license not verified); attributed original summary only; no copied code or module promotion",
+  "trust": "maintainer",
+  "type": "official_docs",
+  "purpose": "保存値と実効値、broker limitsによるcap、配送上限・lock上限引下げ中のin-flight境界、renew禁止の設計を確認。KIP記載であり実装試験とは区別する。"
+}

@@ -1,0 +1,12 @@
+{
+  "id": "npm-cli-12-2-0-changelog-20261002",
+  "url": "https://docs.npmjs.com/cli/v12/using-npm/changelog/",
+  "repository_url": "https://github.com/npm/cli",
+  "commit_sha": "",
+  "version": "npm CLI 12.2.0 release 2026-09-30",
+  "retrieved_at": "2026-10-02",
+  "license": "Artistic-2.0 for npm/cli documentation source; https://raw.githubusercontent.com/npm/cli/latest/LICENSE checked 2026-10-02; v12.2.0 LICENSE fetch failed; no code copied",
+  "trust": "official",
+  "type": "release_notes",
+  "purpose": "12.2.0 の公開日と dist-tag OIDC authentication 追加を確認。実装コードは未解析"
+}

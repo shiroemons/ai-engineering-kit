@@ -1,0 +1,12 @@
+{
+  "id": "github-npm-multiple-trust-release-20261002",
+  "url": "https://github.blog/changelog/2026-09-03-multiple-trusted-publishing-configurations-for-npm/",
+  "repository_url": "",
+  "commit_sha": "",
+  "version": "GitHub Changelog, published 2026-09-03",
+  "retrieved_at": "2026-10-02",
+  "license": "unknown; page footer Copyright 2026 GitHub, Inc.; no open-content license identified; original summary only, no code copied",
+  "trust": "official",
+  "type": "release_notes",
+  "purpose": "複数 trusted publisher の additive/OR 評価、順序非保証、stage 既定と direct publish opt-in、scan 完了後の承認を確認"
+}
