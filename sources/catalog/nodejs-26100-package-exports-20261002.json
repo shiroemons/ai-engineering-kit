@@ -1,0 +1,12 @@
+{
+  "id": "nodejs-26100-package-exports-20261002",
+  "url": "https://nodejs.org/api/packages.html",
+  "repository_url": "https://github.com/nodejs/node",
+  "commit_sha": "",
+  "version": "Node.js v26.10.0 Modules: Packages; live page retrieved 2026-10-02",
+  "retrieved_at": "2026-10-02",
+  "license": "unknown",
+  "trust": "official",
+  "type": "official_docs",
+  "purpose": "conditional exports のキー挿入順、default の位置、import/require の排他、exports に未公開の subpath と ERR_PACKAGE_PATH_NOT_EXPORTED、exports target の制限を確認。ページの明示的再利用ライセンスは未確認、独自要約のみ。"
+}

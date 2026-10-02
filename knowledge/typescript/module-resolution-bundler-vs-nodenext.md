@@ -1,10 +1,10 @@
 ---
 {
   "id": "typescript-module-resolution-bundler-vs-nodenext",
-  "title": "TypeScript の module resolution モード比較: `bundler` と `nodenext` の package.json `exports` 解決",
+  "title": "TypeScript module resolution の版移行: bundler/commonjs と nodenext の exports 境界",
   "kind": "knowledge",
   "technology": "typescript",
-  "version": "TypeScript 6.0 Handbook Modules Reference (last updated 2026-09-28) + TSConfig Reference moduleResolution + TS 4.7/5.0 release notes + Node.js v26.10.0 Modules: Packages; retrieved 2026-09-29",
+  "version": "TypeScript 6.0 announcement (2026-03-23) + v6.0.3 source at 050880ce59e30b356b686bd3144efe24f875ebc8; historical 4.7/5.0 release notes; live Handbook/TSConfig and Node.js v26.10.0 docs verified 2026-10-02; compiler runtime not tested",
   "tags": [
     "research-domain:frontend",
     "typescript",
@@ -20,38 +20,53 @@
     "tsconfig",
     "esm",
     "commonjs",
-    "customConditions"
+    "customConditions",
+    "typescript-6",
+    "default-options",
+    "hypothetical-emit",
+    "commonjs-migration",
+    "source-document-conflict"
   ],
   "sources": [
     {
-      "id": "typescript-handbook-modules-reference-docs",
+      "id": "typescript-modules-reference-20261002",
       "url": "https://www.typescriptlang.org/docs/handbook/modules/reference.html",
       "type": "official_docs"
     },
     {
-      "id": "typescript-tsconfig-reference-docs",
-      "url": "https://www.typescriptlang.org/tsconfig",
+      "id": "typescript-tsconfig-module-options-20261002",
+      "url": "https://www.typescriptlang.org/tsconfig/",
       "type": "official_docs"
     },
     {
-      "id": "typescript-4-7-release-notes",
+      "id": "typescript-47-modules-release-20261002",
       "url": "https://www.typescriptlang.org/docs/handbook/release-notes/typescript-4-7.html",
       "type": "release_notes"
     },
     {
-      "id": "typescript-5-0-release-notes",
+      "id": "typescript-50-bundler-release-20261002",
       "url": "https://www.typescriptlang.org/docs/handbook/release-notes/typescript-5-0.html",
       "type": "release_notes"
     },
     {
-      "id": "nodejs-packages-docs",
+      "id": "nodejs-26100-package-exports-20261002",
       "url": "https://nodejs.org/api/packages.html",
       "type": "official_docs"
+    },
+    {
+      "id": "typescript-60-announcement-modules-20261002",
+      "url": "https://devblogs.microsoft.com/typescript/announcing-typescript-6-0/",
+      "type": "release_notes"
+    },
+    {
+      "id": "typescript-603-module-resolution-source-20261002",
+      "url": "https://github.com/microsoft/TypeScript/tree/050880ce59e30b356b686bd3144efe24f875ebc8",
+      "type": "github_repository_analysis"
     }
   ],
-  "retrieved_at": "2026-09-29",
-  "expires_at": "2026-10-29",
-  "trust": "official",
+  "retrieved_at": "2026-10-02",
+  "expires_at": "2026-11-01",
+  "trust": "primary-source",
   "status": "active",
   "evals": [
     "evals/knowledge/frontend.json"
@@ -59,92 +74,68 @@
 }
 ---
 
-# TypeScript の module resolution モード比較: `bundler` と `nodenext` の package.json `exports` 解決
+# TypeScript module resolution の版移行: bundler/commonjs と nodenext の exports 境界
 
-`moduleResolution` の `bundler` と `nodenext` が package.json `exports` をどう解決するか、ペア制約・条件マッチ・拡張子要求の違いを公式一次情報で比較する。[Handbook Modules Reference](https://www.typescriptlang.org/docs/handbook/modules/reference.html) / [TSConfig Reference](https://www.typescriptlang.org/tsconfig) / [TS 4.7 Release Notes](https://www.typescriptlang.org/docs/handbook/release-notes/typescript-4-7.html) / [TS 5.0 Release Notes](https://www.typescriptlang.org/docs/handbook/release-notes/typescript-5-0.html) / [Node.js Modules: Packages](https://nodejs.org/api/packages.html)
+## 問いと結論
 
-## 要点
+`moduleResolution: bundler` と `nodenext` を、出力形式・package.json exports・依存パッケージの条件分岐まで含めてどう選ぶか。特に TypeScript 6.0 移行で、古い「bundler は esnext/preserve のみ」「commonjs なら node10 が既定」という説明をそのまま使えるかを扱う。
 
-以下は公式一次情報の記述であり、推奨構成そのものではない。
+**6.0 は bundler + commonjs を追加している。6.0.3 のソースでは commonjs の既定解決も bundler である。** ただし許可される組み合わせと、実際の処理系に合う組み合わせは別問題になる。条件分岐はソースの `import` という見た目だけで判断せず、想定される emit と対象ファイルの形式を見る。[6.0 発表](https://devblogs.microsoft.com/typescript/announcing-typescript-6-0/) / [6.0.3 ソース](https://github.com/microsoft/TypeScript/tree/050880ce59e30b356b686bd3144efe24f875ebc8)
 
-### 役割と `module` とのペア制約 (Handbook Modules Reference / TSConfig Reference)
+## 確認した事実: 版を混ぜない
 
-- `moduleResolution` はモジュールスペシフィアの解決方法を制御する。公式は「ランタイム/バンドラに合わせて設定すべき」と記載する。
-- `--moduleResolution node16|nodenext` は `--module node16|node18|node20|nodenext` とのペアが必須。
-- `moduleResolution: bundler` は `--module esnext` または `preserve` とペア必須で、`--allowSyntheticDefaultImports` を示唆すると Handbook は記載する。
-- TSConfig Reference の `moduleResolution` 既定値は `module` に依存する: `CommonJS` なら `node10`、`node16|node18|node20` なら `node16`、`nodenext` なら `nodenext`、`preserve` なら `bundler`、その他は `classic`。
-- `node16`/`nodenext` は Node.js v12 以降の解決動作を反映する。TSConfig Reference では、この2モードが Node.js v12 以降の ESM/CJS 双方向アルゴリズムを、出力側の `import`/`require` に応じて選択すると説明されている。
+### 6.0 の追加とライブ文書の不整合
 
-### package.json `exports` の解決 (Handbook Modules Reference / TSConfig Reference)
+- 2026-03-23 の 6.0 発表は `module: commonjs` と `moduleResolution: bundler` の組み合わせを追加し、`moduleResolution: node` / `node10` を非推奨と説明する。Node.js 直接実行は nodenext、バンドラ利用は bundler への移行を案内している。6.0 の非推奨設定を `ignoreDeprecations: "6.0"` で一時的に抑止できても、7.0 での継続利用を保証しない。[6.0 発表](https://devblogs.microsoft.com/typescript/announcing-typescript-6-0/)
+- 取得した [Modules Reference](https://www.typescriptlang.org/docs/handbook/modules/reference.html) は更新日を 2026-09-28 と表示する一方、bundler の組み合わせを esnext/preserve に限定する文章が残る。この更新日だけを根拠に 6.0 の完全な契約とは扱わない。
+- [TSConfig Reference](https://www.typescriptlang.org/tsconfig/) にも CommonJS → Node10、Node16/Node18/Node20 → Node16、NodeNext → NodeNext、Preserve → Bundler、その他 → Classic という旧既定値表が残る。これは下記の 6.0.3 実装と一致しない。ページ間の不整合を確認したのであり、ローカル compiler 実行で障害を再現したという意味ではない。
 
-- `bundler` と `nodenext` はどちらも、`resolvePackageJsonExports` が有効なら package.json `exports` を Node.js 仕様に従って解決する。`bundler` も `node16`/`nodenext` と同様に package.json `"imports"` / `"exports"` をサポートする (TSConfig Reference)。
-- 条件マッチ: `types` と `default` は常にマッチする。追加条件は `customConditions` で指定する。`customConditions` は `node16`/`nodenext`/`bundler` でのみ有効 (Released 5.0、TSConfig Reference)。
-- `nodenext` の条件の考慮順は、import 文脈で `types, node, import`、require 文脈で `types, node, require` (Handbook Modules Reference)。
-- `bundler` は `types` に加えて、構文により `import` または `require` を使用する (Handbook Modules Reference)。つまり条件付き `exports` の `import`/`require` 分岐は、ソースが import 文か require 呼び出し文かで決まる。
-- `exports` が存在すると、未列挙サブパスの解決は遮断される。Handbook も Node.js も同様に記載しており、Node.js では encapsulation と呼ばれ、未導出サブパスは `ERR_PACKAGE_PATH_NOT_EXPORTED` になる (Node.js Modules: Packages)。
-- `resolvePackageJsonExports` / `resolvePackageJsonImports` は `node16`/`nodenext`/`bundler` で既定 `true` (TS 5.0 Release Notes)。
+### 6.0.3 に固定した実装確認
 
-### 機能差: 拡張子省略とディレクトリ解決 (Handbook Modules Reference / TSConfig Reference / TS 4.7 Release Notes)
+公式 tag v6.0.3 の commit `050880ce59e30b356b686bd3144efe24f875ebc8` を使った静的分析である。将来版全体の保証ではない。
 
-- 拡張子省略した相対パスとディレクトリ解決は、`bundler` では import 文脈・require 文脈とも可能。`nodenext` では import 文脈では不可、require 文脈でのみ可能 (Handbook Modules Reference)。
-- TSConfig Reference も、`bundler` は Node.js 解決モードと異なり相対パスのファイル拡張子を「決して要求しない」と明記する。
-- `nodenext` 側の背景として、TS 4.7 Release Notes は ESM では相対 import に完全な拡張子 (`./foo.js`) が必要と記載する。
+1. [`program.ts`](https://github.com/microsoft/TypeScript/blob/050880ce59e30b356b686bd3144efe24f875ebc8/src/compiler/program.ts#L4369) の検査と [`utilities.ts`](https://github.com/microsoft/TypeScript/blob/050880ce59e30b356b686bd3144efe24f875ebc8/src/compiler/utilities.ts#L9326) の判定から、bundler の組み合わせには preserve、commonjs、非 Node 系の ES2015〜ESNext module 値が含まれる。esnext/preserve だけという限定は不正確である。
+2. [`utilities.ts` の computed options](https://github.com/microsoft/TypeScript/blob/050880ce59e30b356b686bd3144efe24f875ebc8/src/compiler/utilities.ts#L9077) は、`moduleResolution` の明示値を先に採用する。省略時は NodeNext → NodeNext、Node16/Node18/Node20 → Node16、None/AMD/UMD/System → Classic、それ以外 → Bundler。したがって commonjs、preserve、ES 系 module の既定は Bundler となる。非推奨の module 値を計算する分岐が残ることは、その設定の新規採用を勧める根拠にならない。
+3. `module` 自体の省略値も同じファイルでは `target` から計算される。6.0 発表の「module の既定は esnext」という要約も、全 target に無条件に当てはめない。移行時は両方の値を明示し、使用版の実効設定を確認する。
 
-### Node.js `exports` の仕様 (Node.js Modules: Packages)
+## 条件分岐: 一致する条件の集合とキーの順番
 
-- `"exports"` は `"main"` の現代的代替で、複数エントリと条件付き解決を提供する。`exports` と `main` が共存する場合は、対応バージョンの Node.js では `exports` が優先される。
-- 条件オブジェクトではキー順が有意で、具体的→一般的の順に定義すべき。`import` と `require` は相互排他、`default` は常に最後。`"types"` 条件は typing system 用で、常に先頭に含めるべき (community conditions)。
-- 導入履歴: subpath exports は v12.7.0、conditional exports は v13.2.0/v12.16.0、subpath patterns (`*` は文字列置換) は v14.13.0/v12.20.0 で追加。
-- エクスポートターゲットは `./` 始まりの相対 URL で、パストラバーサルは禁止。
+以下は [Modules Reference](https://www.typescriptlang.org/docs/handbook/modules/reference.html)、[Node.js Packages](https://nodejs.org/api/packages.html)、および固定版の [`getConditions`](https://github.com/microsoft/TypeScript/blob/050880ce59e30b356b686bd3144efe24f875ebc8/src/compiler/moduleNameResolver.ts#L755) から整理した事実である。
 
-### 導入経緯 (TS 4.7 / TS 5.0 Release Notes)
+- `types`、`node`、`import` / `require` は「この順番で必ず優先されるリスト」ではない。通常の型解決では TypeScript が一致可能な条件を用意し、実際の優先順位は package.json の conditional exports オブジェクトのキー挿入順で決まる。`default` は常に一致するフォールバックとして最後に置く。`types` 条件を先頭に置く指針は [4.7 release notes](https://www.typescriptlang.org/docs/handbook/release-notes/typescript-4-7.html) でも確認できる。
+- nodenext はファイル形式と想定 emit により import/require 側を選ぶ。CommonJS と判定される `.ts` の静的 `import` でも、想定出力が `require` なら require 条件になる。nodenext の ESM では `./foo.js` のような相対 import の完全拡張子が必要になる。
+- bundler + preserve では ESM import と `import = require` をそれぞれの形式で扱う。`noEmit` でも hypothetical emit が解決に影響するため、型検査だけだから module は無関係とはいえない。
+- 6.0.3 の upstream [`bundlerCommonJS.ts`](https://github.com/microsoft/TypeScript/blob/050880ce59e30b356b686bd3144efe24f875ebc8/tests/cases/conformance/moduleResolution/bundler/bundlerCommonJS.ts) と [trace baseline](https://github.com/microsoft/TypeScript/blob/050880ce59e30b356b686bd3144efe24f875ebc8/tests/baselines/reference/bundlerCommonJS.trace.json) では、bundler + commonjs の `.ts` import が require 専用 export を解決する。一方、同じ設定の `.mts` は import 条件になり、そのパッケージの解決に失敗する期待値になっている。これは公開テストの入力・期待値を読んだ結果であり、今回実行したテスト結果ではない。
+- bundler は通常の組み込み条件として `node` を足さない。`customConditions` は既存の条件に追加する設定であり、並べた順番で export のキー順を上書きするものではない。`node16` / `nodenext` / `bundler` で使える。[TSConfig Reference](https://www.typescriptlang.org/tsconfig/)
 
-- `module: node16` / `nodenext` は TS 4.7 で導入。package.json `"type"` と `.mts` / `.cts` / `.d.mts` / `.d.cts` 拡張子でモジュール形式を検出する。
-- `exports` / `imports` / セルフレレンスは import conditions で解決され、import 文脈では `import` フィールド、CommonJS 文脈では `require` フィールドを参照する。型宣言には `"types"` 条件を追加でき、`"types"` は `"exports"` の先頭に置くべき。
-- CJS エントリと ESM エントリは、それぞれ別の宣言ファイルが必要。
-- `--moduleResolution bundler` は TS 5.0 で導入 (実装 PR #51669)。node16/nodenext は ESM の厳格な拡張子要求など制約が多いため、Vite・esbuild・swc・Webpack・Parcel 等のハイブリッド解決を行うバンドラ向けに新設された。
+## exports・拡張子・宣言ファイルの境界
 
-## 推奨方法
+- bundler は TypeScript 5.0 で導入された。Vite・esbuild・swc・Webpack・Parcel などの hybrid lookup 向けで、拡張子省略やディレクトリ解決と package.json imports/exports を扱う。`resolvePackageJsonExports` と `resolvePackageJsonImports` は node16/nodenext/bundler で既定 true。設定で無効化した場合まで同じ契約とは扱わない。[5.0 release notes](https://www.typescriptlang.org/docs/handbook/release-notes/typescript-5-0.html)
+- node16/nodenext は 4.7 で導入された Node の dual-format を扱うモードである。`.mts` / `.cts`、`.d.mts` / `.d.cts`、package.json の `type` が形式判断に関わる。ESM 用と CJS 用の entrypoint には、それぞれの形式に対応する宣言ファイルを用意する。内容が同じという理由だけで一つの宣言に統合できるとは限らない。[4.7 release notes](https://www.typescriptlang.org/docs/handbook/release-notes/typescript-4-7.html)
+- exports が存在すると、公開キーやパターンで一致しない package subpath は解決対象から外れる。Node.js では `ERR_PACKAGE_PATH_NOT_EXPORTED` になる。これは package の公開境界であって、絶対パス等に対する強いセキュリティ境界ではない。exports は対応処理系で main より優先し、ターゲットには `./` 始まりやパストラバーサル禁止などの制約がある。[Node.js Packages](https://nodejs.org/api/packages.html)
 
-以下は上記の公式契約からの設計上のまとめであり、公式が定める実装構成そのものではない。
+## 推奨する選び方と移行手順
 
-- バンドラだけで完結するアプリ (Vite / esbuild / Webpack 等) は `moduleResolution: "bundler"` を選び、ペア制約に従って `module` を `esnext` または `preserve` にする。
-- Node.js で直接実行するコード、および npm 公開ライブラリは `moduleResolution: "nodenext"` + `module: "nodenext"` を選ぶ。TS 5.0 Release Notes が「npm 公開ライブラリでは `bundler` は非バンドラ利用ユーザーとの互換性問題を隠しうるため `node16`/`nodenext` の方が適切」と明記しているため、公式記載に基づく判断になる。
-- `exports` は `"types"` 条件を先頭に置き、具体的→一般的の順、`default` は最後に並べる (Node.js / TS 4.7 の記載)。
-- CJS と ESM の両方のエントリを公開するなら、それぞれ別の宣言ファイルを用意する (TS 4.7)。
-- `nodenext` で ESM import を書くときは `./foo.js` のように完全な拡張子を付ける。拡張子省略が必要なリポジトリでは `bundler` 側を選ぶか、コード側を揃える。
+以下は検証済みの事実に基づく独自の設計推奨であり、全プロジェクトに必須の設定ではない。
 
-```json
-// アプリ (バンドラ完結) と Node.js/npm ライブラリの設定骨格
-{
-  "compilerOptions": {
-    "moduleResolution": "bundler",
-    "module": "esnext"
-  }
-}
-```
+1. **バンドラが生の TypeScript を読むアプリ**: bundler + preserve、またはバンドラの入力規則に合う esnext を起点にする。最終成果物が CommonJS という理由だけで TypeScript 側も commonjs に変えず、依存解決より前に実際に何へ変換されるかを確認する。
+2. **先に CommonJS 化してからバンドラが解決する構成**: 6.0 の bundler + commonjs は候補になる。ただし `.mts` を含む場合や import/require 別 entrypoint の型が異なる依存を重点的に検証する。
+3. **Node.js が直接読むアプリ・非バンドラ利用者に配布するライブラリ**: 実行先に合う Node 系 module / moduleResolution を使う。例えば両方を nodenext に揃える。npm 公開で bundler のみを使うと利用者側の解決失敗を隠しうるという 5.0 の警告を、無条件の bundler 禁止へ言い換えない。配布物を実際の利用方法で検証する。
+4. **node10 からの移行**: compiler 版と tsconfig 継承元を固定してから module/moduleResolution を明示する。パッケージの root と subpath、ESM import と CJS require、ソースと公開 declaration を別々に確認する。TSConfig の `traceResolution` で選んだファイルと条件を記録し、ランタイムやバンドラが選ぶ実装と照合する。
+5. **customConditions**: 開発用・ブラウザ用条件を追加したら、バンドラや実行時にも同じ意図の条件が成立するか確認する。型検査だけ別 entrypoint を読む構成を避ける。
 
-```json
-{
-  "compilerOptions": {
-    "moduleResolution": "nodenext",
-    "module": "nodenext"
-  }
-}
-```
+### 避ける使い方
 
-## 避ける使い方
+- 公式ページの更新日やナビゲーションの版表示だけを見て、本文の全オプション説明を 6.0 対応とみなす
+- import という構文だけで import 条件を選ぶと考え、module・拡張子・package.json `type` を無視する
+- 型解決の条件集合を優先順位リストと混同し、`default` を先頭に置いた exports をそのまま使う
+- Node.js の ESM 実行を想定するのに bundler の拡張子省略がそのまま通ると期待する
+- `ignoreDeprecations` を、非推奨設定の恒久互換性やランタイム互換性の保証として使う
 
-- **npm 公開ライブラリで `bundler` を使う**。TS 5.0 Release Notes が、非バンドラ利用ユーザーとの互換性問題を隠しうると明記している。
-- **ペア制約に反する組み合わせ**。`nodenext` + `module: commonjs` や `bundler` + `module: node16` は公式のペア必須に反する。既定値は `module` から導出されるため、明示時に不整合を作らない。
-- **`nodenext` で拡張子省略した相対 import を期待する**。ESM 文脈では不可で、require 文脈のみ可。ESM では `./foo.js` が必須 (TS 4.7)。
-- **`exports` 追加後に未列挙サブパスが通ると思う**。`exports` は未列挙サブパスを遮断し、Node.js では `ERR_PACKAGE_PATH_NOT_EXPORTED` になる。
-- **条件オブジェクトの順序を雑にする**。キー順が有意で、`default` を先頭に置くと具体条件が死ぬ。`types` は先頭、`import`/`require` は相互排他として扱う。
-- **`customConditions` を `bundler`/`nodenext`/`node16` 以外で使う**。この3モードでしか有効でない (TSConfig Reference、Released 5.0)。
+## 適用版・証拠・未確認事項
 
-## 適用版と本番での注意
-
-- Handbook Modules Reference のページ表示 `Last updated: 2026-09-28` (TypeScript 6.0 時点の記載)、TSConfig Reference は `moduleResolution` エントリ、Node.js は `v26.10.0` Documentation、release notes は TS 4.7 / TS 5.0 の各ページを 2026-09-29 に取得して確認した。将来の最新とは扱わない。
-- 明示期限は 2026-10-29。根拠5件のうち TS 4.7 / TS 5.0 release notes は source type 上 `release_notes`（TTL 30日）で最短、`official_docs` 3件（Handbook・TSConfig・Node.js）は 2026-12-28 が相当。`typescript` は `config/freshness.json` に技術 TTL の定義がないため技術期限は適用されない。release notes は過去の出来事の記録だが、契約上は30日で再取得して内容を確認する。
-- **未確認**: Vite / esbuild / Webpack / Parcel 各版の実際の解決実装と TypeScript 側の型解決の一致具合、`node10` モードの詳細仕様、特定 TypeScript バージョンでのエラー文言。本文は Handbook・TSConfig・release notes・Node.js 文書の記載のみを根拠にし、実測は含まない。
-- 本節の設定選択方針 (バンドラ完結なら bundler、Node.js 実行と npm 公開は nodenext) は公式記載を根拠にした設計推奨であり、公式が定める必須構成そのものではない。
+- 取得日: **2026-10-02 UTC**。6.0 発表の公開日は 2026-03-23。Handbook と 4.7/5.0 ページは 2026-09-28 の更新表示を確認したが、4.7/5.0 は導入履歴としてのみ用いた。Node.js 文書の表示版は **v26.10.0**。ライブ文書は patch 固定ではない。
+- 実装確認は **v6.0.3 / 050880ce59e30b356b686bd3144efe24f875ebc8** に固定。全称的な最新仕様の断言を避け、ページ記述との相違とソース読解を明示した。
+- **実行していない**: TypeScript compiler のプローブ、upstream test suite、Vite/esbuild/Webpack 等のビルド、Node.js 実行、生成 declaration の利用者テスト。検索・metadata 検証が通っても compiler の振る舞いを証明するものではない。特定 runtime のエラー全文やすべての許容オプション組み合わせも実測していない。
+- 調査途中の実装コミットと raw URL の web 取得には一部失敗した。最終的に固定した 6.0.3 のソース・baseline・LICENSE.txt は GitHub の読み取り API で取得した。公開ライセンスは固定 TypeScript repository の **Apache-2.0** を確認。その他のページの再利用ライセンスは未確認として catalog に `unknown` を記録し、本文は独自の要約のみ、コードの転載・module 昇格は行っていない。
+- 明示期限は **2026-11-01**。参照する release_notes の TTL 30 日が最短となる。参照資料の該当節と文書全体を再点検して新しい catalog record を作成し、以前の record は変更していない。

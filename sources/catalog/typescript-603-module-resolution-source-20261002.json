@@ -1,0 +1,12 @@
+{
+  "id": "typescript-603-module-resolution-source-20261002",
+  "url": "https://github.com/microsoft/TypeScript/tree/050880ce59e30b356b686bd3144efe24f875ebc8",
+  "repository_url": "https://github.com/microsoft/TypeScript",
+  "commit_sha": "050880ce59e30b356b686bd3144efe24f875ebc8",
+  "version": "TypeScript v6.0.3 tag at 050880ce59e30b356b686bd3144efe24f875ebc8; source and upstream baselines inspected 2026-10-02, not executed",
+  "retrieved_at": "2026-10-02",
+  "license": "Apache-2.0 (LICENSE.txt at the pinned commit verified)",
+  "trust": "primary-source",
+  "type": "github_repository_analysis",
+  "purpose": "src/compiler/utilities.ts の computed module/moduleResolution、program.ts の bundler 組み合わせ検査、types.ts の ModuleKind、moduleNameResolver.ts の getConditions、bundlerCommonJS.ts と trace baseline を読む。LICENSE.txt を確認。実装と upstream 期待値の静的分析でありローカル compiler 実行結果ではない。"
+}

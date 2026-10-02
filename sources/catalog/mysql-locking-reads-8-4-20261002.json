@@ -1,0 +1,12 @@
+{
+  "id": "mysql-locking-reads-8-4-20261002",
+  "url": "https://dev.mysql.com/doc/refman/8.4/en/innodb-locking-reads.html",
+  "repository_url": "",
+  "commit_sha": "",
+  "version": "MySQL 8.4 Reference Manual, §17.7.2.4; preface identifies 8.4.11 LTS; page publication date not shown",
+  "license": "Oracle documentation terms, not GPL (https://dev.mysql.com/doc/refman/8.4/en/preface.html#legalnotice); original factual summary only, no code or prose reproduction",
+  "trust": "official",
+  "type": "official_docs",
+  "purpose": "WebでLocking Reads本文と同manualのPreface/Legal Noticesを開いた。FOR SHAREとFOR UPDATEの違い、commit/rollbackまでのlock、共有読取り後の更新でdeadlockが起こり得る境界を確認。8.4の説明を旧版の保証へ外挿しない。",
+  "retrieved_at": "2026-10-02"
+}

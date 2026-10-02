@@ -1,0 +1,12 @@
+{
+  "id": "typescript-tsconfig-module-options-20261002",
+  "url": "https://www.typescriptlang.org/tsconfig/",
+  "repository_url": "https://github.com/microsoft/TypeScript-Website",
+  "commit_sha": "",
+  "version": "Live TSConfig Reference module/moduleResolution/customConditions/traceResolution; retrieved 2026-10-02; default table conflicts with pinned 6.0.3 source",
+  "retrieved_at": "2026-10-02",
+  "license": "unknown",
+  "trust": "official",
+  "type": "official_docs",
+  "purpose": "moduleResolution の旧既定値表と実装の相違を記録し、customConditions の適用モード、noEmit 時も想定出力が型解決に影響すること、traceResolution を確認。コード転載なし。"
+}

@@ -479,6 +479,62 @@
       "expected_ids": [
         "react-browser-suspense-bailout-boundary"
       ]
+    },
+    {
+      "name": "ts60-bundler-commonjs-migration",
+      "query": "6.0 bundler commonjs node10",
+      "expected_ids": [
+        "typescript-module-resolution-bundler-vs-nodenext"
+      ]
+    },
+    {
+      "name": "ts603-default-module-resolution-source",
+      "query": "6.0.3 CommonJS Bundler 既定",
+      "expected_ids": [
+        "typescript-module-resolution-bundler-vs-nodenext"
+      ]
+    },
+    {
+      "name": "ts-module-resolution-live-document-conflict",
+      "query": "TSConfig 不整合 Classic",
+      "expected_ids": [
+        "typescript-module-resolution-bundler-vs-nodenext"
+      ]
+    },
+    {
+      "name": "ts-bundler-commonjs-mts-condition",
+      "query": "bundlerCommonJS .mts require",
+      "expected_ids": [
+        "typescript-module-resolution-bundler-vs-nodenext"
+      ]
+    },
+    {
+      "name": "ts-export-conditions-key-order",
+      "query": "条件 集合 キー挿入順",
+      "expected_ids": [
+        "typescript-module-resolution-bundler-vs-nodenext"
+      ]
+    },
+    {
+      "name": "ts-noemit-hypothetical-emit-conditions",
+      "query": "noEmit hypothetical emit",
+      "expected_ids": [
+        "typescript-module-resolution-bundler-vs-nodenext"
+      ]
+    },
+    {
+      "name": "ts-bundler-customconditions-node-boundary",
+      "query": "bundler customConditions node",
+      "expected_ids": [
+        "typescript-module-resolution-bundler-vs-nodenext"
+      ]
+    },
+    {
+      "name": "ts60-ignoredeprecations-migration-limits",
+      "query": "ignoreDeprecations 7.0 非推奨",
+      "expected_ids": [
+        "typescript-module-resolution-bundler-vs-nodenext"
+      ]
     }
   ]
 }

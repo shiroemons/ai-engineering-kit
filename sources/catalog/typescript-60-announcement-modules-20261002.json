@@ -1,0 +1,12 @@
+{
+  "id": "typescript-60-announcement-modules-20261002",
+  "url": "https://devblogs.microsoft.com/typescript/announcing-typescript-6-0/",
+  "repository_url": "https://github.com/microsoft/TypeScript",
+  "commit_sha": "",
+  "version": "TypeScript 6.0 announcement published 2026-03-23; retrieved 2026-10-02",
+  "retrieved_at": "2026-10-02",
+  "license": "unknown",
+  "trust": "official",
+  "type": "release_notes",
+  "purpose": "6.0 の bundler + commonjs 対応、node/node10 非推奨、6.0 の ignoreDeprecations と 7.0 の非対応境界を確認。module の既定値という要約も pinned 6.0.3 source と照合し、無条件な適用を避ける。コード転載なし。"
+}

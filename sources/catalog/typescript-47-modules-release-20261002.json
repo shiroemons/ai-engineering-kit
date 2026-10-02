@@ -1,0 +1,12 @@
+{
+  "id": "typescript-47-modules-release-20261002",
+  "url": "https://www.typescriptlang.org/docs/handbook/release-notes/typescript-4-7.html",
+  "repository_url": "https://github.com/microsoft/TypeScript-Website",
+  "commit_sha": "",
+  "version": "TypeScript 4.7 historical release notes; page last updated 2026-09-28; retrieved 2026-10-02",
+  "retrieved_at": "2026-10-02",
+  "license": "unknown",
+  "trust": "official",
+  "type": "release_notes",
+  "purpose": "node16/nodenext の導入、Node ESM 相対 import の完全拡張子、.mts/.cts/.d.mts/.d.cts、types 条件の配置、ESM と CJS entrypoint に別宣言が必要な理由を確認。歴史的説明を現行全版の保証にしない。"
+}
