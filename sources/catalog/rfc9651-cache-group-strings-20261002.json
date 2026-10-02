@@ -1,0 +1,12 @@
+{
+  "id": "rfc9651-cache-group-strings-20261002",
+  "url": "https://www.rfc-editor.org/info/rfc9651/",
+  "repository_url": "",
+  "commit_sha": "",
+  "version": "RFC 9651, September 2024",
+  "retrieved_at": "2026-10-02",
+  "license": "IETF Trust Legal Provisions (RFC text); code components under Revised BSD License per copyright notice",
+  "trust": "official",
+  "type": "official_docs",
+  "purpose": "§3.3.3 の ASCII String と quoting、§4.2 の parse failure 時の field 全体無視またはmessage拒否を確認。 Copyright Notice を確認。原文・コードの転載なし。"
+}

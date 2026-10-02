@@ -438,6 +438,76 @@
       "expected_ids": [
         "postgres-output-plugin-allowlist-cdc-upgrade"
       ]
+    },
+    {
+      "name": "redis-idmp-introduction-entry-id",
+      "query": "IDMP 8.6.0 entry",
+      "expected_ids": [
+        "redis-streams-idmp-retry-window-reset"
+      ]
+    },
+    {
+      "name": "redis-idmp-changed-payload",
+      "query": "iid payload 更新",
+      "expected_ids": [
+        "redis-streams-idmp-retry-window-reset"
+      ]
+    },
+    {
+      "name": "redis-idmpauto-distinct-events",
+      "query": "IDMPAUTO 同内容 別イベント",
+      "expected_ids": [
+        "redis-streams-idmp-retry-window-reset"
+      ]
+    },
+    {
+      "name": "redis-idmp-producer-restart",
+      "query": "pid 再起動 iid",
+      "expected_ids": [
+        "redis-streams-idmp-retry-window-reset"
+      ]
+    },
+    {
+      "name": "redis-idmp-capacity-over-duration",
+      "query": "IDMP-MAXSIZE IDMP-DURATION capacity",
+      "expected_ids": [
+        "redis-streams-idmp-retry-window-reset"
+      ]
+    },
+    {
+      "name": "redis-idmp-config-map-reset",
+      "query": "XCFGSET 値変更 消去",
+      "expected_ids": [
+        "redis-streams-idmp-retry-window-reset"
+      ]
+    },
+    {
+      "name": "redis-idmp-identical-config-boundary",
+      "query": "同値 XCFGSET patch",
+      "expected_ids": [
+        "redis-streams-idmp-retry-window-reset"
+      ]
+    },
+    {
+      "name": "redis-idmp-pipeline-window",
+      "query": "12,000 10,000 未確定",
+      "expected_ids": [
+        "redis-streams-idmp-retry-window-reset"
+      ]
+    },
+    {
+      "name": "redis-idmp-consumer-side-effects",
+      "query": "IDMP XACK 副作用",
+      "expected_ids": [
+        "redis-streams-idmp-retry-window-reset"
+      ]
+    },
+    {
+      "name": "redis-idmp-observability-total-per-producer",
+      "query": "iids-tracked pid 合計",
+      "expected_ids": [
+        "redis-streams-idmp-retry-window-reset"
+      ]
     }
   ]
 }

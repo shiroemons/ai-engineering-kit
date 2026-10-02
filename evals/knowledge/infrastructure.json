@@ -562,6 +562,69 @@
       "expected_ids": [
         "kubernetes-memoryqos-beta-defaults-rollback"
       ]
+    },
+    {
+      "name": "kubernetes-selinuxmount-ga-boundary",
+      "query": "SELinuxMount SELinuxChangePolicy v1.36 v1.37",
+      "expected_ids": [
+        "kubernetes-selinuxmount-shared-volume-upgrade"
+      ]
+    },
+    {
+      "name": "kubernetes-selinuxmount-csi-eligibility",
+      "query": "SELinuxMount PVC spec.seLinuxMount",
+      "expected_ids": [
+        "kubernetes-selinuxmount-shared-volume-upgrade"
+      ]
+    },
+    {
+      "name": "kubernetes-selinuxmount-policy-field",
+      "query": "spec.securityContext.seLinuxChangePolicy Recursive",
+      "expected_ids": [
+        "kubernetes-selinuxmount-shared-volume-upgrade"
+      ]
+    },
+    {
+      "name": "kubernetes-selinuxmount-subpath-conflict",
+      "query": "SELinuxMount subPath ContainerCreating",
+      "expected_ids": [
+        "kubernetes-selinuxmount-shared-volume-upgrade"
+      ]
+    },
+    {
+      "name": "kubernetes-selinuxmount-policy-mixing",
+      "query": "Recursive MountOption 混在",
+      "expected_ids": [
+        "kubernetes-selinuxmount-shared-volume-upgrade"
+      ]
+    },
+    {
+      "name": "kubernetes-selinuxmount-observation-boundary",
+      "query": "selinux_warning_controller_selinux_volume_conflict warnings_total errors_total",
+      "expected_ids": [
+        "kubernetes-selinuxmount-shared-volume-upgrade"
+      ]
+    },
+    {
+      "name": "kubernetes-selinuxmount-warning-controller-opt-in",
+      "query": "SELinuxWarningController 既定無効",
+      "expected_ids": [
+        "kubernetes-selinuxmount-shared-volume-upgrade"
+      ]
+    },
+    {
+      "name": "kubernetes-selinuxmount-mcs-isolation",
+      "query": "SELinuxMount MCS 保護",
+      "expected_ids": [
+        "kubernetes-selinuxmount-shared-volume-upgrade"
+      ]
+    },
+    {
+      "name": "kubernetes-selinuxmount-level-required",
+      "query": "SELinuxMount seLinuxOptions.level ランダム 再帰的",
+      "expected_ids": [
+        "kubernetes-selinuxmount-shared-volume-upgrade"
+      ]
     }
   ]
 }

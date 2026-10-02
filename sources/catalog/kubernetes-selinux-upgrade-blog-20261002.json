@@ -1,0 +1,12 @@
+{
+  "id": "kubernetes-selinux-upgrade-blog-20261002",
+  "url": "https://kubernetes.io/blog/2026/04/22/breaking-changes-in-selinux-volume-labeling/",
+  "repository_url": "https://github.com/kubernetes/website",
+  "commit_sha": "",
+  "version": "Kubernetes v1.36 upgrade preparation; published/modified 2026-04-22; v1.37 was anticipated at publication",
+  "retrieved_at": "2026-10-02",
+  "license": "CC-BY-4.0 (https://github.com/kubernetes/website/blob/main/LICENSE; checked 2026-10-02)",
+  "trust": "maintainer",
+  "type": "maintainer_article",
+  "purpose": "subPathおよびprivileged共有の互換性、警告とエラーメトリクスの違い、namespace情報の露出を確認"
+}

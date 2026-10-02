@@ -1,0 +1,12 @@
+{
+  "id": "redis-xreadgroup-pending-boundary-20261002",
+  "url": "https://redis.io/docs/latest/commands/xreadgroup/",
+  "repository_url": "https://github.com/redis/docs",
+  "commit_sha": "",
+  "version": "XREADGROUP current unversioned（2026-10-02確認）; commandは5.0.0導入、PEL/XACK/recoveryの基本契約のみ参照",
+  "retrieved_at": "2026-10-02",
+  "license": "CC-BY-NC-SA-4.0（Redis Website and Documentation: https://github.com/redis/docs/blob/main/LICENSE）; 旧redis-doc由来の一部にCC-BY-SA-4.0例外あり、当該箇所の適用は未特定。独自要約のみ、コード・図・長文転載なし",
+  "trust": "official",
+  "type": "official_docs",
+  "purpose": "既配信未ACKのPEL、同じメッセージの再取得、XACKでのPEL除去、consumer crash後の回復を確認。IDMPはconsumer副作用をexactly-onceにしないという境界の根拠。8.10 MAXCOUNT/MAXSIZE等の後発機能は対象外。公開日表示なし。"
+}

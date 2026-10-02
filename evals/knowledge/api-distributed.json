@@ -498,6 +498,69 @@
     {"name": "http-signatures-clock-skew-retention", "query": "expires 30秒 記録", "expected_ids": ["http-message-signatures-content-digest-replay"]},
     {"name": "http-signatures-verified-errata-params", "query": "8102 8103 @signature-params", "expected_ids": ["http-message-signatures-content-digest-replay"]},
     {"name": "http-digest-brotli-reported-errata", "query": "8890 Brotli Reported", "expected_ids": ["http-message-signatures-content-digest-replay"]},
-    {"name": "http-signatures-weak-digest-reject", "query": "sha-256 Deprecated 32バイト", "expected_ids": ["http-message-signatures-content-digest-replay"]}
+    {"name": "http-signatures-weak-digest-reject", "query": "sha-256 Deprecated 32バイト", "expected_ids": ["http-message-signatures-content-digest-replay"]},
+    {
+      "name": "http-cache-groups-origin-case",
+      "query": "Cache-Groups origin case-sensitive",
+      "expected_ids": [
+        "http-cache-groups-invalidation-scope"
+      ]
+    },
+    {
+      "name": "http-cache-groups-may-vs-must",
+      "query": "Cache-Group-Invalidation MAY MUST",
+      "expected_ids": [
+        "http-cache-groups-invalidation-scope"
+      ]
+    },
+    {
+      "name": "http-cache-groups-safe-ignore",
+      "query": "Cache-Group-Invalidation safe ignore",
+      "expected_ids": [
+        "http-cache-groups-invalidation-scope"
+      ]
+    },
+    {
+      "name": "http-cache-groups-no-cascade",
+      "query": "Cache-Groups 非推移性 catalog",
+      "expected_ids": [
+        "http-cache-groups-invalidation-scope"
+      ]
+    },
+    {
+      "name": "http-cache-groups-string-format",
+      "query": "Cache-Groups ASCII Display",
+      "expected_ids": [
+        "http-cache-groups-invalidation-scope"
+      ]
+    },
+    {
+      "name": "http-cache-groups-shared-origin",
+      "query": "Cache-Groups tenant 権限",
+      "expected_ids": [
+        "http-cache-groups-invalidation-scope"
+      ]
+    },
+    {
+      "name": "http-cache-groups-multi-cache",
+      "query": "Cache-Groups 複数 cache 同期",
+      "expected_ids": [
+        "http-cache-groups-invalidation-scope"
+      ]
+    },
+    {
+      "name": "http-cache-groups-invalidation-boundary",
+      "query": "Cache-Groups 2xx 3xx",
+      "expected_ids": [
+        "http-cache-groups-invalidation-scope"
+      ]
+    },
+    {
+      "name": "http-cache-groups-coverage-date",
+      "query": "RFC 9875 2025年10月",
+      "expected_ids": [
+        "http-cache-groups-invalidation-scope"
+      ]
+    }
   ]
 }
