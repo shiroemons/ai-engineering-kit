@@ -1,0 +1,12 @@
+{
+  "id": "rfc9421-signatures-errata-20261002",
+  "url": "https://errata.rfc-editor.org/search/?rfc_number=9421",
+  "repository_url": "",
+  "commit_sha": "",
+  "version": "RFC 9421 errata 8102/8103: reported 2024-09-15, Verified 2024-10-29; status read 2026-10-02",
+  "retrieved_at": "2026-10-02",
+  "license": "unknown",
+  "trust": "official",
+  "type": "official_docs",
+  "purpose": "RFC Editor の公式 errata 一覧で Verified 訂正8102/8103と確認日を照合。ページ固有のライセンス表示は未確認で、コードや例の転載はしない"
+}

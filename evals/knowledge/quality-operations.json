@@ -299,6 +299,41 @@
     {"name": "k6-v23-local-abort-108", "query": "execution_result 108", "expected_ids": ["performance-k6-completion-exit-code-linger"]},
     {"name": "k6-v2-rest-address-disabled", "query": "K6_ADDRESS 既定", "expected_ids": ["performance-k6-completion-exit-code-linger"]},
     {"name": "k6-cloud-upload-not-run", "query": "cloud upload 実行しない", "expected_ids": ["performance-k6-completion-exit-code-linger"]},
-    {"name": "k6-v2-unknown-nonzero", "query": "未知 非ゼロ", "expected_ids": ["performance-k6-completion-exit-code-linger"]}
+    {"name": "k6-v2-unknown-nonzero", "query": "未知 非ゼロ", "expected_ids": ["performance-k6-completion-exit-code-linger"]},
+    {
+      "name": "playwright-locks-shared-resource",
+      "query": "Playwright lock shared resource",
+      "expected_ids": ["testing-playwright-test-locks-shared-resource-boundary"]
+    },
+    {
+      "name": "playwright-locks-file-wide",
+      "query": "Playwright default serial file-wide",
+      "expected_ids": ["testing-playwright-test-locks-shared-resource-boundary"]
+    },
+    {
+      "name": "playwright-locks-project-boundary",
+      "query": "Playwright lock project",
+      "expected_ids": ["testing-playwright-test-locks-shared-resource-boundary"]
+    },
+    {
+      "name": "playwright-locks-multiple-resources",
+      "query": "Playwright 複数 lock",
+      "expected_ids": ["testing-playwright-test-locks-shared-resource-boundary"]
+    },
+    {
+      "name": "playwright-locks-sharding-boundary",
+      "query": "Playwright lock shard invocation",
+      "expected_ids": ["testing-playwright-test-locks-shared-resource-boundary"]
+    },
+    {
+      "name": "playwright-locks-retry-cleanup",
+      "query": "Playwright retry cleanup",
+      "expected_ids": ["testing-playwright-test-locks-shared-resource-boundary"]
+    },
+    {
+      "name": "playwright-locks-introduction-version",
+      "query": "Playwright lock v1.42 1.63",
+      "expected_ids": ["testing-playwright-test-locks-shared-resource-boundary"]
+    }
   ]
 }

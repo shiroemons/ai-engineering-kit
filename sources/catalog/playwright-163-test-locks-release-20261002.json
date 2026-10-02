@@ -1,0 +1,12 @@
+{
+  "id": "playwright-163-test-locks-release-20261002",
+  "url": "https://github.com/microsoft/playwright/releases/tag/v1.63.0",
+  "repository_url": "https://github.com/microsoft/playwright",
+  "commit_sha": "",
+  "version": "Playwright v1.63.0; published 2026-09-04T22:40:31Z",
+  "retrieved_at": "2026-10-02",
+  "license": "unknown",
+  "trust": "official",
+  "type": "release_notes",
+  "purpose": "2026-09-04 公開の named test locks 導入を確認。GitHub release 本文の個別ライセンスは未確認。コードは転載せず独自要約する。"
+}

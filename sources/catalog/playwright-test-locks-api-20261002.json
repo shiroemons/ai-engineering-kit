@@ -1,0 +1,12 @@
+{
+  "id": "playwright-test-locks-api-20261002",
+  "url": "https://playwright.dev/docs/api/class-test",
+  "repository_url": "https://github.com/microsoft/playwright.dev",
+  "commit_sha": "",
+  "version": "Playwright 1.63 live Node.js documentation, retrieved 2026-10-02",
+  "retrieved_at": "2026-10-02",
+  "license": "CC-BY-4.0",
+  "trust": "official",
+  "type": "official_docs",
+  "purpose": "test と test.describe の details.lock の string/string[]、group 適用、default と serial の再試行差を確認。サイト LICENSE: https://github.com/microsoft/playwright.dev/blob/main/LICENSE"
+}

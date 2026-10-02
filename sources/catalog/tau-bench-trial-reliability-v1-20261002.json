@@ -1,0 +1,12 @@
+{
+  "id": "tau-bench-trial-reliability-v1-20261002",
+  "url": "https://arxiv.org/html/2406.12045v1",
+  "repository_url": "",
+  "commit_sha": "",
+  "version": "τ-bench: A Benchmark for Tool-Agent-User Interaction in Real-World Domains; arXiv:2406.12045v1; published 2024-06-17",
+  "retrieved_at": "2026-10-02",
+  "license": "CC-BY-4.0 (paper; https://creativecommons.org/licenses/by/4.0/; verified via arXiv license link)",
+  "trust": "primary-source",
+  "type": "maintainer_article",
+  "purpose": "著者による一次研究の§3で、同一taskのi.i.d.試行に対するpass@k/pass^kの定義と組合せによる不偏推定量、終状態報酬だけでは途中の方針違反を検出しきれない限界を確認。論文のみ参照し、コード・データ・試験問題は取り込まない。"
+}

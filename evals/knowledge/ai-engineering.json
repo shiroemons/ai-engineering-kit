@@ -656,6 +656,76 @@
       "expected_ids": [
         "mcp-tasks-extension-polling-cancellation-migration"
       ]
+    },
+    {
+      "name": "agent-eval-outcome-not-completion-message",
+      "query": "outcome 保存済み",
+      "expected_ids": [
+        "evals-agent-resource-envelope-trial-reliability"
+      ]
+    },
+    {
+      "name": "agent-eval-resource-sweep-scoped",
+      "query": "1x 3x 5.8% 2.1%",
+      "expected_ids": [
+        "evals-agent-resource-envelope-trial-reliability"
+      ]
+    },
+    {
+      "name": "agent-eval-iid-metrics",
+      "query": "i.i.d. pass@k pass^k",
+      "expected_ids": [
+        "evals-agent-resource-envelope-trial-reliability"
+      ]
+    },
+    {
+      "name": "agent-eval-finite-sample-estimator",
+      "query": "n=5 c=3 pass@2=0.9",
+      "expected_ids": [
+        "evals-agent-resource-envelope-trial-reliability"
+      ]
+    },
+    {
+      "name": "agent-eval-task-heterogeneity",
+      "query": "taskごとの 集約 0.41",
+      "expected_ids": [
+        "evals-agent-resource-envelope-trial-reliability"
+      ]
+    },
+    {
+      "name": "agent-eval-trial-isolation",
+      "query": "trial isolation Git履歴",
+      "expected_ids": [
+        "evals-agent-resource-envelope-trial-reliability"
+      ]
+    },
+    {
+      "name": "agent-eval-infra-retry-denominator",
+      "query": "基盤エラー 分母 再実行",
+      "expected_ids": [
+        "evals-agent-resource-envelope-trial-reliability"
+      ]
+    },
+    {
+      "name": "agent-eval-model-alias-snapshot",
+      "query": "snapshot alias 未固定",
+      "expected_ids": [
+        "evals-agent-resource-envelope-trial-reliability"
+      ]
+    },
+    {
+      "name": "agent-eval-resource-enforcement-difference",
+      "query": "CPU制限 メモリ上限 kill",
+      "expected_ids": [
+        "evals-agent-resource-envelope-trial-reliability"
+      ]
+    },
+    {
+      "name": "agent-eval-insufficient-trials",
+      "query": "k>n 算出不可",
+      "expected_ids": [
+        "evals-agent-resource-envelope-trial-reliability"
+      ]
     }
   ]
 }

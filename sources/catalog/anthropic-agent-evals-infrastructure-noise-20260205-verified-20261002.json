@@ -1,0 +1,12 @@
+{
+  "id": "anthropic-agent-evals-infrastructure-noise-20260205-verified-20261002",
+  "url": "https://www.anthropic.com/engineering/infrastructure-noise",
+  "repository_url": "",
+  "commit_sha": "",
+  "version": "Quantifying infrastructure noise in agentic coding evals; published 2026-02-05; Terminal-Bench 2.0 experiment; verified 2026-10-02",
+  "retrieved_at": "2026-10-02",
+  "license": "unknown",
+  "trust": "maintainer",
+  "type": "maintainer_article",
+  "purpose": "Terminal-Bench 2.0における固定モデル・harness・task集合での資源条件変更、1x/3xの基盤エラー率と成功率の検定、上限なしの成功率差、保証量と上限を分離して較正する提案を確認。一般的なAPI保証や普遍倍率とは扱わない。取得本文にオープンライセンス表示を確認できず、コード・図を転載しない。"
+}
