@@ -1,0 +1,12 @@
+{
+  "id": "go127-json-v1-migration-20261001",
+  "url": "https://pkg.go.dev/encoding/json@go1.27.1",
+  "repository_url": "https://github.com/golang/go",
+  "commit_sha": "",
+  "version": "go1.27.1; published 2026-09-01",
+  "retrieved_at": "2026-10-01",
+  "license": "BSD-3-Clause",
+  "trust": "official",
+  "type": "official_docs",
+  "purpose": "版固定 API の Migrating to v2 と DefaultOptionsV1 を確認。nil/omitempty/field matching/Duration/map 順序の互換差分、options 後勝ちを照合。ページの License 表示および https://go.dev/LICENSE を確認。コード転載なし。"
+}

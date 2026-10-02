@@ -1,0 +1,12 @@
+{
+  "id": "postgres-documentation-license-20261001",
+  "url": "https://www.postgresql.org/docs/18/legalnotice.html",
+  "repository_url": "",
+  "commit_sha": "",
+  "version": "PostgreSQL 18 documentation legal notice; 1996-2026 PGDG / 1994 University of California",
+  "retrieved_at": "2026-10-01",
+  "license": "PostgreSQL License",
+  "trust": "official",
+  "type": "official_docs",
+  "purpose": "個別公開日なし。PostgreSQL Licenseがsoftwareとdocumentationに適用されることを確認。名称はhttps://www.postgresql.org/about/licence/で照合。 ライセンス根拠: https://www.postgresql.org/docs/18/legalnotice.html ; 原文・実装コードの転載なし。"
+}

@@ -1,0 +1,12 @@
+{
+  "id": "aws-sqs-visibility-timeout-docs-20261001",
+  "url": "https://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/sqs-visibility-timeout.html",
+  "repository_url": "",
+  "commit_sha": "",
+  "version": "Amazon SQS Developer Guide current page (Visibility Timeout)",
+  "retrieved_at": "2026-10-01",
+  "license": "unknown",
+  "trust": "official",
+  "type": "official_docs",
+  "purpose": "2026-10-01 に全文を再確認した consumer ack / redelivery / dead-letter 契約。独自の日本語要約のみ、コード転載なし。visibility timeout の一次情報: 受信でメッセージが不可視化されること、既定 30秒、ChangeMessageVisibility による延長と初回受信起点の最大 12時間、DeleteMessage なしの期限切れで再可視化される at-least-once 再配送、standard キューの in-flight 上限約 120000 と short polling での OverLimit、FIFO の同一 message-group-ID ブロックを確認する"
+}

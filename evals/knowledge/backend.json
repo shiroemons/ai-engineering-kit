@@ -376,6 +376,83 @@
       "expected_ids": [
         "python-futures-bounded-map-timeout-shutdown"
       ]
+    },
+    {
+      "name": "go-json-v2-toolchain-keeps-v1",
+      "query": "toolchain 互換 入力契約",
+      "expected_ids": [
+        "go-json-v2-migration-strict-input-wire-contract"
+      ]
+    },
+    {
+      "name": "go-json-v2-unknown-case-mismatch",
+      "query": "RejectUnknownMembers Name 誤記",
+      "expected_ids": [
+        "go-json-v2-migration-strict-input-wire-contract"
+      ]
+    },
+    {
+      "name": "go-json-v2-duplicate-utf8",
+      "query": "重複キー 不正 UTF-8",
+      "expected_ids": [
+        "go-json-v2-migration-strict-input-wire-contract"
+      ]
+    },
+    {
+      "name": "go-json-v2-nil-wire-contract",
+      "query": "nil wire FormatNilSliceAsNull",
+      "expected_ids": [
+        "go-json-v2-migration-strict-input-wire-contract"
+      ]
+    },
+    {
+      "name": "go-json-v2-omitempty-zero",
+      "query": "omitempty omitzero false",
+      "expected_ids": [
+        "go-json-v2-migration-strict-input-wire-contract"
+      ]
+    },
+    {
+      "name": "go-json-v2-single-value-eof",
+      "query": "UnmarshalRead EOF 単一",
+      "expected_ids": [
+        "go-json-v2-migration-strict-input-wire-contract"
+      ]
+    },
+    {
+      "name": "go-json-v2-compatibility-option-order",
+      "query": "DefaultOptionsV1 後勝ち",
+      "expected_ids": [
+        "go-json-v2-migration-strict-input-wire-contract"
+      ]
+    },
+    {
+      "name": "go-json-v2-deterministic-binary-boundary",
+      "query": "Deterministic 同一バイナリ",
+      "expected_ids": [
+        "go-json-v2-migration-strict-input-wire-contract"
+      ]
+    },
+    {
+      "name": "go-json-v2-partial-error-output",
+      "query": "エラー時 出力値 業務処理",
+      "expected_ids": [
+        "go-json-v2-migration-strict-input-wire-contract"
+      ]
+    },
+    {
+      "name": "go-json-v2-duration-format",
+      "query": "time.Duration FormatDurationAsNano",
+      "expected_ids": [
+        "go-json-v2-migration-strict-input-wire-contract"
+      ]
+    },
+    {
+      "name": "go-json-v2-experimental-rename",
+      "query": "inline embed SkipFunc",
+      "expected_ids": [
+        "go-json-v2-migration-strict-input-wire-contract"
+      ]
     }
   ]
 }

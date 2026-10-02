@@ -375,6 +375,69 @@
       "expected_ids": [
         "sqlite-wal-checkpoint-progress-reset-safety"
       ]
+    },
+    {
+      "name": "postgres-output-plugin-minor-update",
+      "query": "18.6 17.11 output_plugin_libraries",
+      "expected_ids": [
+        "postgres-output-plugin-allowlist-cdc-upgrade"
+      ]
+    },
+    {
+      "name": "postgres-output-plugin-exact-name",
+      "query": "output_plugin_libraries 厳密一致 path",
+      "expected_ids": [
+        "postgres-output-plugin-allowlist-cdc-upgrade"
+      ]
+    },
+    {
+      "name": "postgres-output-plugin-all-users",
+      "query": "superuser 許可リスト",
+      "expected_ids": [
+        "postgres-output-plugin-allowlist-cdc-upgrade"
+      ]
+    },
+    {
+      "name": "postgres-output-plugin-reload-recovery",
+      "query": "plugin configuration reload",
+      "expected_ids": [
+        "postgres-output-plugin-allowlist-cdc-upgrade"
+      ]
+    },
+    {
+      "name": "postgres-output-plugin-upgrade-preflight",
+      "query": "pg_upgrade --check 許可",
+      "expected_ids": [
+        "postgres-output-plugin-allowlist-cdc-upgrade"
+      ]
+    },
+    {
+      "name": "postgres-output-plugin-slot-inventory",
+      "query": "temporary inventory 拒否",
+      "expected_ids": [
+        "postgres-output-plugin-allowlist-cdc-upgrade"
+      ]
+    },
+    {
+      "name": "postgres-output-plugin-slot-lost",
+      "query": "safe_wal_size lost NULL",
+      "expected_ids": [
+        "postgres-output-plugin-allowlist-cdc-upgrade"
+      ]
+    },
+    {
+      "name": "postgres-output-plugin-major-version-boundary",
+      "query": "17.0 slot 移行",
+      "expected_ids": [
+        "postgres-output-plugin-allowlist-cdc-upgrade"
+      ]
+    },
+    {
+      "name": "postgres-output-plugin-upgrade-doc-inconsistency",
+      "query": "conflicting 不整合 usable",
+      "expected_ids": [
+        "postgres-output-plugin-allowlist-cdc-upgrade"
+      ]
     }
   ]
 }

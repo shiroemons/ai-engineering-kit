@@ -1,0 +1,12 @@
+{
+  "id": "go127-json-release-20261001",
+  "url": "https://go.dev/doc/go1.27",
+  "repository_url": "https://github.com/golang/website",
+  "commit_sha": "",
+  "version": "Go 1.27.0; released 2026-08-19 per official release history",
+  "retrieved_at": "2026-10-01",
+  "license": "CC-BY-4.0 (site text); BSD-3-Clause (code)",
+  "trust": "official",
+  "type": "release_notes",
+  "purpose": "Go 1.27 JSON v2 の正式導入、v1 実装互換、暫定 nojsonv2 opt-out、実験版 API からの削除・改名を確認。公開日は release history と照合。サイト著作権は https://go.dev/copyright で確認。コード転載なし。"
+}

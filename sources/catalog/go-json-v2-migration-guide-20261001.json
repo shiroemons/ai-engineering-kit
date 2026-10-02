@@ -1,0 +1,12 @@
+{
+  "id": "go-json-v2-migration-guide-20261001",
+  "url": "https://go.dev/doc/jsonv2-migration",
+  "repository_url": "https://github.com/golang/website",
+  "commit_sha": "",
+  "version": "Go 1.27 JSON v2 migration guide; no separate publication date shown; retrieved 2026-10-01",
+  "retrieved_at": "2026-10-01",
+  "license": "CC-BY-4.0 (site text); BSD-3-Clause (code)",
+  "trust": "official",
+  "type": "official_docs",
+  "purpose": "公式 migration guide の API 置換と振る舞い移行の分離、DefaultOptionsV1 による段階移行、jsonsplit の二重実行コストを確認。サイト著作権は https://go.dev/copyright。コード転載なし。"
+}

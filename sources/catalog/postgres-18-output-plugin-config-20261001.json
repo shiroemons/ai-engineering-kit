@@ -1,0 +1,12 @@
+{
+  "id": "postgres-18-output-plugin-config-20261001",
+  "url": "https://www.postgresql.org/docs/18/runtime-config-replication.html",
+  "repository_url": "",
+  "commit_sha": "",
+  "version": "PostgreSQL 18 manual as retrieved 2026-10-01; output_plugin_libraries introduced in 18.6",
+  "retrieved_at": "2026-10-01",
+  "license": "PostgreSQL License",
+  "trust": "official",
+  "type": "official_docs",
+  "purpose": "個別公開日なし。output_plugin_librariesの全userへの制限、厳密な名前照合、安全性審査とconfiguration reload、max_slot_wal_keep_sizeの条件を確認。 ライセンス根拠: https://www.postgresql.org/docs/18/legalnotice.html ; 原文・実装コードの転載なし。"
+}
