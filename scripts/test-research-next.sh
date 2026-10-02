@@ -8,10 +8,11 @@ export RESEARCH_TEST_DIR="$TEST_DIR"
 export RESEARCH_LOG_DIR="$TEST_DIR/logs"
 export RESEARCH_ENV_FILE="$TEST_DIR/research.env"
 export RESEARCH_DRY_RUN=1
-mkdir -p "$TEST_DIR/bin" "$TEST_DIR/repo/scripts" "$TEST_DIR/repo/config"
+mkdir -p "$TEST_DIR/bin" "$TEST_DIR/repo/scripts" "$TEST_DIR/repo/config" "$TEST_DIR/repo/.github"
 : > "$TEST_DIR/worktrees"
 : > "$TEST_DIR/branches"
-cp "$ROOT/scripts/research-next.sh" "$TEST_DIR/repo/scripts/"
+cp "$ROOT/scripts/research-next.sh" "$ROOT/scripts/research-pr-body.sh" "$TEST_DIR/repo/scripts/"
+cp "$ROOT/.github/pull_request_template.md" "$TEST_DIR/repo/.github/"
 cp "$ROOT/scripts/research-platform.sh" "$TEST_DIR/repo/scripts/"
 cp "$ROOT/config/research.json" "$TEST_DIR/repo/config/"
 
@@ -56,13 +57,16 @@ case "$1" in
     fi
     ;;
   diff)
-    if [[ "$*" == *'--cached --name-only'* ]]; then
+    if [[ "$*" == *'--name-only'* ]]; then
       printf 'knowledge/testing/go-test.md\nevals/knowledge/quality-operations.json\n'
     elif [[ "$*" == *'--cached --stat'* ]]; then
       printf ' 2 files changed\n'
     elif [[ "$*" == *'--cached --quiet'* ]]; then
       exit 1
     fi
+    ;;
+  show)
+    printf '%s\n' '---' '{"sources":[{"id":"test-source","url":"https://example.test/source"}]}' '---'
     ;;
   add) ;;
   commit) touch "$RESEARCH_TEST_DIR/committed" ;;
@@ -172,7 +176,14 @@ cat > "$TEST_DIR/bin/gh" <<'EOF'
 #!/bin/bash
 case "$1:$2" in
   auth:status) ;;
-  pr:create) printf 'https://example.test/owner/repo/pull/1\n' ;;
+  pr:create)
+    while [[ "$#" -gt 0 ]]; do
+      if [[ "$1" == --body-file ]]; then cp "$2" "$RESEARCH_TEST_DIR/pr-body.md"; break; fi
+      shift
+    done
+    [[ -f "$RESEARCH_TEST_DIR/pr-body.md" ]] || exit 1
+    printf 'https://example.test/owner/repo/pull/1\n'
+    ;;
   pr:view)
     case "$*" in
       *'--json mergeable,mergeStateStatus'*) printf 'MERGEABLE\tCLEAN\n' ;;
@@ -285,6 +296,9 @@ rm "$RESEARCH_LOG_DIR/cooldown-until"
 MOCK_FULL_RESEARCH=1 RESEARCH_DRY_RUN=0 bash "$RUNNER"
 [[ -f "$RESEARCH_TEST_DIR/pulled-main" ]]
 grep -Fq 'pulled merged origin/main into original checkout' "$RESEARCH_LOG_DIR/research.log"
+diff <(grep '^## ' "$ROOT/.github/pull_request_template.md") <(grep '^## ' "$RESEARCH_TEST_DIR/pr-body.md")
+grep -Fq '[test-source](https://example.test/source)' "$RESEARCH_TEST_DIR/pr-body.md"
+grep -Fq -- '- CI: 未確認' "$RESEARCH_TEST_DIR/pr-body.md"
 
 # A Muse Spark rate limit is recorded without counting as a batch failure.
 rm -f "$RESEARCH_TEST_DIR/committed"

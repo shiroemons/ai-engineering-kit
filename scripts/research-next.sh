@@ -1202,10 +1202,13 @@ else
   else
     PR_BODY_FILE="$(mktemp "$LOG_DIR/research-pr.XXXXXXXX")"
   fi
-  # Literal backticks form Markdown code spans in the PR body.
-  # shellcheck disable=SC2016
-  printf '自動 Research Pipeline による更新です。\n\n対象テーマ: %s\n\n`just validate`・`just index`・`just check` は成功しました。\n' \
-    "$TOPIC" > "$PR_BODY_FILE"
+  if [[ -n "$RUN_STATE_FILE" ]]; then
+    PR_BASE_SHA="$(jq -er '.base' "$RUN_STATE_FILE")" || fail 'could not read research baseline for PR body' 2
+  else
+    PR_BASE_SHA="$(git rev-parse HEAD^)" || fail 'could not read research baseline for PR body' 2
+  fi
+  bash "$BASE_ROOT/scripts/research-pr-body.sh" "$TOPIC" "$PR_BASE_SHA" "$PARTIAL" \
+    > "$PR_BODY_FILE" || fail 'could not render research PR body' 2
   chmod 600 "$PR_BODY_FILE"
 
   PR_URL=''

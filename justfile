@@ -15,6 +15,7 @@ test:
     go test -race ./...
     bash scripts/test-research-platform.sh
     bash scripts/test-research-next.sh
+    bash scripts/test-research-pr-body.sh
     bash scripts/test-research-loop.sh
     bash scripts/test-install-research-agent.sh
     bash scripts/test-research-gpt.sh

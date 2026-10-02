@@ -14,7 +14,8 @@ topics. Publication and merge require the user's authorization for this reposito
 ## Bootstrap and scope
 
 1. Read `AGENTS.md`, `README.md`, `docs/metadata.md`, `docs/workflows.md`,
-   `docs/research-gpt.md`, and `config/research.json` from current `origin/main`.
+   `docs/research-gpt.md`, `.github/pull_request_template.md`, and
+   `config/research.json` from current `origin/main`.
    Re-read these in every fresh cloud task; local files are not durable state.
 2. Use an authorized fresh checkout or clean control checkout. Do not disturb a
    user's dirty tree. Verify `origin` is the intended repository. Install only the
@@ -140,8 +141,14 @@ and search checks does not establish truth; review source accuracy separately.
    has no authentication, use GitHub blob/tree/commit/ref tools preserving modes
    and all unchanged base-tree entries. Fetch the resulting commit and verify
    the exact tree; never report a local SHA as the remote SHA without checking.
-2. Open a draft PR with topics, source URLs, baseline, tests and known limits.
-   Do not mix workflow implementation into a content PR. Check remote main again.
+2. Open a draft PR using `.github/pull_request_template.md` as the body source.
+   Keep its Japanese headings and order. Fill in topics, changed files, source
+   URLs/catalog records, versions, baseline/head SHAs, actual checks and known
+   limits. Use `該当なし（理由）` where appropriate; distinguish successful, failed
+   and not-run checks. CI starts as unverified: update it only after reading the
+   exact head results, with that SHA and real run/job URLs. Never pre-check review
+   or CI success. Do not mix workflow implementation into a content PR. Check
+   remote main again.
 3. If main advanced (including OpenCode), inspect its changes for topic overlap.
    Fetch and merge `origin/main` into the research branch without rewriting remote
    history. Resolve only understood content conflicts; otherwise preserve work
