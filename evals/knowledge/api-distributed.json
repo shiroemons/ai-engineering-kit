@@ -486,6 +486,18 @@
     {"name": "messaging-43-delayed-retry-selection", "query": "delayed-retry-type failed returned", "expected_ids": ["messaging-consumer-ack-redelivery-dead-letter"]},
     {"name": "messaging-43-acquired-not-seen", "query": "x-acquired-count 割当 証拠", "expected_ids": ["messaging-consumer-ack-redelivery-dead-letter"]},
     {"name": "messaging-43-dlx-activation-not-timeout", "query": "stream_queue consumer-timeout 必須", "expected_ids": ["messaging-consumer-ack-redelivery-dead-letter"]},
-    {"name": "messaging-43-dlx-cycle-rejection-condition", "query": "循環 rejection drop", "expected_ids": ["messaging-consumer-ack-redelivery-dead-letter"]}
+    {"name": "messaging-43-dlx-cycle-rejection-condition", "query": "循環 rejection drop", "expected_ids": ["messaging-consumer-ack-redelivery-dead-letter"]},
+    {"name": "http-signatures-profile-covered-components", "query": "Signature-Input covered components profile", "expected_ids": ["http-message-signatures-content-digest-replay"]},
+    {"name": "http-signatures-digest-recompute-body", "query": "Content-Digest body 再計算", "expected_ids": ["http-message-signatures-content-digest-replay"]},
+    {"name": "http-signatures-repr-head-range", "query": "Repr-Digest HEAD Range", "expected_ids": ["http-message-signatures-content-digest-replay"]},
+    {"name": "http-signatures-proxy-target-uri", "query": "@target-uri reverse proxy", "expected_ids": ["http-message-signatures-content-digest-replay"]},
+    {"name": "http-signatures-nonce-race-boundary", "query": "nonce 原子的 同時", "expected_ids": ["http-message-signatures-content-digest-replay"]},
+    {"name": "http-signatures-retry-business-id", "query": "nonce 業務操作 ID 応答紛失", "expected_ids": ["http-message-signatures-content-digest-replay"]},
+    {"name": "http-signatures-label-not-permission", "query": "label 権限", "expected_ids": ["http-message-signatures-content-digest-replay"]},
+    {"name": "http-signatures-encoding-profile-reject", "query": "Content-Encoding profile 拒否", "expected_ids": ["http-message-signatures-content-digest-replay"]},
+    {"name": "http-signatures-clock-skew-retention", "query": "expires 30秒 記録", "expected_ids": ["http-message-signatures-content-digest-replay"]},
+    {"name": "http-signatures-verified-errata-params", "query": "8102 8103 @signature-params", "expected_ids": ["http-message-signatures-content-digest-replay"]},
+    {"name": "http-digest-brotli-reported-errata", "query": "8890 Brotli Reported", "expected_ids": ["http-message-signatures-content-digest-replay"]},
+    {"name": "http-signatures-weak-digest-reject", "query": "sha-256 Deprecated 32バイト", "expected_ids": ["http-message-signatures-content-digest-replay"]}
   ]
 }

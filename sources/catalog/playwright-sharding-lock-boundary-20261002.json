@@ -1,0 +1,12 @@
+{
+  "id": "playwright-sharding-lock-boundary-20261002",
+  "url": "https://playwright.dev/docs/test-sharding",
+  "repository_url": "https://github.com/microsoft/playwright.dev",
+  "commit_sha": "",
+  "version": "Playwright 1.63 live Node.js documentation, retrieved 2026-10-02",
+  "retrieved_at": "2026-10-02",
+  "license": "CC-BY-4.0",
+  "trust": "official",
+  "type": "official_docs",
+  "purpose": "複数マシンで別 CLI 実行を行う sharding の配置を確認。lock のマシン間保証はこのページに記載なし。サイト LICENSE: https://github.com/microsoft/playwright.dev/blob/main/LICENSE"
+}

@@ -1,0 +1,12 @@
+{
+  "id": "anthropic-agent-evals-design-20260109-verified-20261002",
+  "url": "https://www.anthropic.com/engineering/demystifying-evals-for-ai-agents",
+  "repository_url": "",
+  "commit_sha": "",
+  "version": "Demystifying evals for AI agents; published 2026-01-09; verified 2026-10-02",
+  "retrieved_at": "2026-10-02",
+  "license": "unknown",
+  "trust": "maintainer",
+  "type": "maintainer_article",
+  "purpose": "開発元の運用報告として task/trial/transcript/outcome と agent harness の区別、共有状態による試行間汚染・相関を確認。取得本文でオープンライセンスを確認できず、短い独自要約のみ使用し、コードや図は転載しない。"
+}

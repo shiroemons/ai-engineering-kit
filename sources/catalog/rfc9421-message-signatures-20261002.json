@@ -1,0 +1,12 @@
+{
+  "id": "rfc9421-message-signatures-20261002",
+  "url": "https://www.rfc-editor.org/rfc/rfc9421.html",
+  "repository_url": "",
+  "commit_sha": "",
+  "version": "RFC 9421, February 2024",
+  "retrieved_at": "2026-10-02",
+  "license": "IETF Trust Legal Provisions / BCP 78 (RFC text); extracted Code Components: Revised BSD License per RFC copyright notice; https://trustee.ietf.org/license-info",
+  "trust": "official",
+  "type": "official_docs",
+  "purpose": "§1.4, §2.1.1, §2.3, §3.2, §4, §7: HTTP Message Signatures の profile、署名対象、鍵・アルゴリズム制約、Content-Digest 再照合と replay 境界を確認"
+}
