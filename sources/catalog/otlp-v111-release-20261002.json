@@ -1,0 +1,12 @@
+{
+  "id": "otlp-v111-release-20261002",
+  "url": "https://github.com/open-telemetry/opentelemetry-proto/releases/tag/v1.11.0",
+  "repository_url": "https://github.com/open-telemetry/opentelemetry-proto",
+  "commit_sha": "790608c4d51e6ffc12210b541e8514cbed9e91a4",
+  "version": "opentelemetry-proto v1.11.0; published_at 2026-07-21T13:54:02Z; verified 2026-10-02 UTC",
+  "retrieved_at": "2026-10-02",
+  "license": "Apache-2.0 repository; corresponding CHANGELOG.md and LICENSE at v1.11.0 verified; no copied code",
+  "trust": "official",
+  "type": "release_notes",
+  "purpose": "2026-07-21 release の request/response size 制限の文書追加と Retry-After の HTTP-date 明確化を確認。公開年日時は releases/tags/v1.11.0 API、tag commit は git/ref/tags/v1.11.0 API、日付は固定 release commit の CHANGELOG.md でも照合。全 SDK が同日に実装したとは扱わない。"
+}

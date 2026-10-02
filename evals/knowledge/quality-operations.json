@@ -446,6 +446,16 @@
       "expected_ids": [
         "opentelemetry-metric-cardinality-overflow-slo-boundary"
       ]
-    }
+    },
+    {"name": "otlp-v111-request-compression-boundary", "query": "OTLP 64 MiB 圧縮前", "expected_ids": ["opentelemetry-otlp-message-size-retry-boundary"]},
+    {"name": "otlp-v111-resource-exhausted-retryinfo", "query": "RESOURCE_EXHAUSTED RetryInfo サイズ超過", "expected_ids": ["opentelemetry-otlp-message-size-retry-boundary"]},
+    {"name": "otlp-v111-http-500-not-retryable", "query": "HTTP 500 再送禁止", "expected_ids": ["opentelemetry-otlp-message-size-retry-boundary"]},
+    {"name": "otlp-v111-partial-success-not-retryable", "query": "partial_success 100件 拒否数", "expected_ids": ["opentelemetry-otlp-message-size-retry-boundary"]},
+    {"name": "otlp-v111-response-size-boundary", "query": "response 4 MiB 展開後", "expected_ids": ["opentelemetry-otlp-message-size-retry-boundary"]},
+    {"name": "otlp-v111-spec-not-runtime-default", "query": "1.11.0 仕様文書 既定値", "expected_ids": ["opentelemetry-otlp-message-size-retry-boundary"]},
+    {"name": "otlp-v111-wal-not-size-remedy", "query": "WAL 恒久的 サイズ超過", "expected_ids": ["opentelemetry-otlp-message-size-retry-boundary"]},
+    {"name": "otlp-v111-ack-duplicate-boundary", "query": "ACK 隣接 重複", "expected_ids": ["opentelemetry-otlp-message-size-retry-boundary"]},
+    {"name": "otlp-v111-retry-after-httpdate", "query": "Retry-After HTTP-date 秒数", "expected_ids": ["opentelemetry-otlp-message-size-retry-boundary"]},
+    {"name": "otlp-v111-new-batches-not-replay", "query": "payload 分割再送 retry", "expected_ids": ["opentelemetry-otlp-message-size-retry-boundary"]}
   ]
 }

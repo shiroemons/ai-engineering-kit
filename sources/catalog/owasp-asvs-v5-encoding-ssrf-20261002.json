@@ -1,0 +1,12 @@
+{
+  "id": "owasp-asvs-v5-encoding-ssrf-20261002",
+  "url": "https://raw.githubusercontent.com/OWASP/ASVS/5cf9b032440be53ce345ab3c130fda46ba1ce7a2/5.0/en/0x10-V1-Encoding-and-Sanitization.md",
+  "repository_url": "https://github.com/OWASP/ASVS",
+  "commit_sha": "5cf9b032440be53ce345ab3c130fda46ba1ce7a2",
+  "version": "OWASP ASVS 5.0.0 v5.0.0_release (2025-05-30T09:35:31Z), V1 pinned to release commit",
+  "license": "CC-BY-SA-4.0; https://raw.githubusercontent.com/OWASP/ASVS/5cf9b032440be53ce345ab3c130fda46ba1ce7a2/LICENSE.md verified 2026-10-02",
+  "trust": "official",
+  "type": "official_docs",
+  "purpose": "v5.0.0-1.3.6 L2 の SSRF allowlist、1.5.3 L3 の parser 一貫性、1.1.1 L2 の正規化順序を固定 release 本文で確認。個別要件の参照を ASVS 全体への適合としない",
+  "retrieved_at": "2026-10-02"
+}

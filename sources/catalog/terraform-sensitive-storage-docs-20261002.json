@@ -1,0 +1,12 @@
+{
+  "id": "terraform-sensitive-storage-docs-20261002",
+  "url": "https://developer.hashicorp.com/terraform/language/manage-sensitive-data",
+  "repository_url": "https://github.com/hashicorp/web-unified-docs",
+  "commit_sha": "",
+  "version": "Terraform Docs v1.16.x; sensitive variable/output 0.15+, ephemeral 1.10+, write-only 1.11+; page publication date not stated",
+  "retrieved_at": "2026-10-02",
+  "license": "BUSL-1.1 (web-unified-docs root LICENSE; Licensed Work /web-unified-docs; documentation source repository)",
+  "trust": "official",
+  "type": "official_docs",
+  "purpose": "sensitiveの表示抑制とstate/plan保存、output -json/-rawの平文、ephemeralの許可context、root module output制限、backendによる保存時暗号化の違いを確認。文書全体の契約を2026-10-02に再読。サンプルの転載なし。"
+}
