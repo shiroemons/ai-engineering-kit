@@ -1,10 +1,10 @@
 ---
 {
   "id": "react-automatic-batching-transitions",
-  "title": "React 18/19 の automatic batching 範囲と flushSync・useTransition・useDeferredValue の使い分け",
+  "title": "React 18/19 の automatic batching と React 19.3 Transition 独立描画・async Action の境界",
   "kind": "knowledge",
   "technology": "react",
-  "version": "React 19.3.0 (npm latest, 2026-09-28 確認) / automatic batching・useTransition・useDeferredValue は React 18.0.0 導入、Actions は React 19 導入 / react.dev reference は unversioned current (2026-09-28 取得)",
+  "version": "React 18.0.0 introduction (2022-03-29), React 19 Actions (2024-12-05), React 19.3 release (2026-09-09); v19.3.0 source commit 1d34f91dfde6bba84d08b683aaba164c7194dacb; live major-19 references retrieved 2026-10-02 UTC",
   "tags": [
     "research-domain:frontend",
     "react",
@@ -20,43 +20,64 @@
     "react-18",
     "react-19",
     "createRoot",
-    "concurrent rendering"
+    "concurrent rendering",
+    "parallel-transitions",
+    "entanglement",
+    "async-action",
+    "19.3",
+    "same-event",
+    "update-queue"
   ],
   "sources": [
     {
-      "id": "react-v18-release-blog-2022-03-29",
+      "id": "react-18-batching-release-2026-10-02",
       "url": "https://react.dev/blog/2022/03/29/react-v18",
       "type": "release_notes"
     },
     {
-      "id": "react-v19-release-blog-2024-12-05",
+      "id": "react-19-actions-release-2026-10-02",
       "url": "https://react.dev/blog/2024/12/05/react-19",
       "type": "release_notes"
     },
     {
-      "id": "react-flushsync-docs",
+      "id": "react-193-browser-release-2026-10-02",
+      "url": "https://react.dev/blog/2026/09/09/react-19-3",
+      "type": "release_notes"
+    },
+    {
+      "id": "react-flushsync-reference-2026-10-02",
       "url": "https://react.dev/reference/react-dom/flushSync",
       "type": "official_docs"
     },
     {
-      "id": "react-use-transition-docs",
+      "id": "react-use-transition-reference-2026-10-02",
       "url": "https://react.dev/reference/react/useTransition",
       "type": "official_docs"
     },
     {
-      "id": "react-use-deferred-value-docs",
+      "id": "react-start-transition-reference-2026-10-02",
+      "url": "https://react.dev/reference/react/startTransition",
+      "type": "official_docs"
+    },
+    {
+      "id": "react-use-deferred-value-reference-2026-10-02",
       "url": "https://react.dev/reference/react/useDeferredValue",
       "type": "official_docs"
     },
     {
-      "id": "npm-react-latest-manifest",
-      "url": "https://registry.npmjs.org/react/latest",
+      "id": "react-versions-browser-reference-2026-10-02",
+      "url": "https://react.dev/versions",
       "type": "official_docs"
+    },
+    {
+      "id": "react-193-transition-scheduler-source-2026-10-02",
+      "url": "https://github.com/react/react/tree/1d34f91dfde6bba84d08b683aaba164c7194dacb",
+      "type": "github_repository_analysis"
     }
   ],
-  "retrieved_at": "2026-09-28",
-  "expires_at": "2026-10-28",
-  "trust": "official",
+  "retrieved_at": "2026-10-02",
+  "expires_at": "2026-11-01",
+  "trust": "primary-source",
   "status": "active",
   "evals": [
     "evals/knowledge/frontend.json"
@@ -64,84 +85,105 @@
 }
 ---
 
-# React 18/19 の automatic batching 範囲と flushSync・useTransition・useDeferredValue の使い分け
+# automatic batching と React 19.3 Transition の独立描画
 
-React 18 で自動化された state 更新の batching がどこまで効くか、同期的に flush する `flushSync`、非同期で割り込ませる `useTransition` / `startTransition`、追従レンダーを遅らせる `useDeferredValue` をどう使い分けるか。[React v18 リリース投稿](https://react.dev/blog/2022/03/29/react-v18) / [React v19 リリース投稿](https://react.dev/blog/2024/12/05/react-19) / [`flushSync` reference](https://react.dev/reference/react-dom/flushSync) / [`useTransition` reference](https://react.dev/reference/react/useTransition) / [`useDeferredValue` reference](https://react.dev/reference/react/useDeferredValue) / [npm registry `react` latest](https://registry.npmjs.org/react/latest)。以下は「要点」が公式記載の事実、「推奨方法」がそれからの設計案。
+## 問いと訂正の理由
 
-## 要点（公式文書に記載された事実）
+更新のまとめ方を利用して入力の応答性を保つとき、`automatic batching`、`flushSync`、`useTransition`、`useDeferredValue` はどの責務を持つか。特に、遅い処理Aが別の更新Bを待たせるかを、React 19.3 でどう判断するか。
 
-### automatic batching の適用範囲 (React v18 リリース投稿)
+本稿の旧版は適用版を19.3.0としながら、進行中の Transition は常にまとめられるという注意を一律に適用していた。[2026-09-09公開の React 19.3 発表](https://react.dev/blog/2026/09/09/react-19-3)は、無関係な Transition が遅い Transition に巻き込まれないよう独立した render を行う変更を明記する。今回は新しい紹介文を増やす代わりに、この版境界を訂正し、本文全体の出典を再確認した。
 
-- batching は「複数の state 更新を1回の再レンダーに束ねる」処理で、性能のためのもの。
-- React 18 以前は React event handlers 内の更新だけが batch された。promises、`setTimeout`、native event handlers、その他のイベント内の更新は React に既定では batch されない。
-- React 18 の automatic batching ではこれらが自動で batch される。公式の `setTimeout` 例では、以前は state 更新ごとに render が2回走り、以後は末尾で1回だけ re-render する。
-- React 18 の新機能は `createRoot` / `hydrateRoot` なしでは動作しない（`ReactDOM.render` / `ReactDOM.hydrate` の代替として両 API を案内し「New features in React 18 don't work without it」と明記）。
+結論は「19.3で全部が独立する」でもない。同じ event の lane 割当、同じ update queue の結合、並行する async Action の entanglement は固定した19.3.0 sourceにも残る。描画の独立性と、非同期処理の完了・順序を区別する。独立した render という変更だけから、各 `useTransition` の `isPending` が完全に独立するという保証は導かない。
 
-### flushSync による同期 flush (`flushSync` reference)
+## 確認した公開契約
 
-- `flushSync(callback)` (`react-dom`) は callback 内の pending work と更新を同期的に flush し、次の行までに DOM が更新済みになる。戻り値は `undefined`。
-- caveat（公式記載）: 必要に応じて callback 外の更新（例: pending な click 更新）を先に flush することがある。pending Effects を実行してその更新を同期的に適用することがある。suspend した場合は Suspense の fallback が再表示され得る。著しく性能を害し得るため「last resort」。
-- render 中、`useLayoutEffect` / `useEffect`、class component の lifecycle 内で呼ぶと noop となり `flushSync was called from inside a lifecycle method` と警告される。event handler 内での呼出は安全と公式が明記し、Effect からどうしても使う場合は `queueMicrotask` への延期が代替例。
-- `beforeprint` の例: `flushSync` を使わないと印刷ダイアログには `isPrinting` が "no" と表示される。React が既定で更新を非同期に batch するため、ダイアログ表示時点では state が更新前だから。
+以下は公式文書の要約。後述の実装観察と独自の設計案とは区別する。
 
-### useTransition / startTransition (React v18 リリース投稿 + `useTransition` reference)
+### React 18 で導入された automatic batching
 
-- 両方 React 18 で追加。changelog は `startTransition` を「pending feedback のない `useTransition` 版」と説明する。`useTransition` は `[isPending, startTransition]` の正確に2要素の配列を返す。
-- update は urgent（クリック・キー入力等の直接操作）と non-urgent（画面遷移等）に区分される。`startTransition` 内の更新は non-urgent として扱われ、urgent 更新に割り込まれ、中断された描画作業は破棄されて最新更新だけが描画される。
-- `startTransition` のコールバック（React 19 では "Action"）は遅延せず即時実行される（`1, 2, 3` の順に print される公式 Troubleshooting）。Action の呼び出し中に**同期的に**予約された state 更新だけが Transition 扱いになる。
-- Action 内の `setTimeout` で行う state 更新は Transition 扱いにならない。`await` の後に行う state 更新も Transition 扱いにならず、さらに `startTransition` で包む必要がある。公式は「async context のスコープが失われる JS の制限により、`AsyncContext` が使えるようになるまで修正する既知の制限」と明記する。
-- Transition は中断可能だが、controlled text input を制御する state には使えない（入力への応答は同期的であるべきため）。
-- 進行中の複数の Transition は現在 React がまとめて batch する。公式は「将来のリリースで解消され得る制限」と記載する。
-- Action が throw または rejected Promise を返すと、`useTransition` 由来のエラーは Error Boundary に表示される。component に関連付けられない standalone の `startTransition` は `isPending` を持たず、そのエラーは Error Boundary で扱えない。
-- `await` を挟んだ連続した Action は応答が out-of-order になり得る（既知の制限）。公式は順序保証を `useActionState` や `<form>` action 等の組み込み抽象に任せるか、自分で queuing / abort を実装すると案内する。
+[React 18.0.0 発表（2022-03-29）](https://react.dev/blog/2022/03/29/react-v18)は、複数の state 更新をまとめて再描画する範囲を拡張したと説明する。React event handlers に限らず、promises、`setTimeout`、native event handlers 内などの更新も既定で batch される。React 18移行時には `createRoot` / `hydrateRoot` が新機能を使う入口となる。
 
-### React 19 の Actions (React v19 リリース投稿)
+同記事は urgent な入力への反応と non-urgent な表示更新を区別し、Transition の描画作業が入力に割り込まれ得ることも説明する。これは「別々の更新がどこまで相互に待つか」という19.3の変更と異なる軸であり、19.3で automatic batching 全体が廃止されたとは読まない。
 
-- React 19 で `startTransition` に async 関数を渡す Actions が導入された。async transition は `isPending` を即 `true` にし、pending はリクエスト開始時に始まり、最終の state update が commit されたら自動でリセットされる。pending state、エラー、optimistic updates、フォームの管理を自動化する。
-- `useActionState`、`useOptimistic`、`react-dom` の `useFormStatus`、`<form>` の action prop に関数を渡す form Actions が導入された。
-- `useDeferredValue` に `initialValue` オプションが追加された。提供すると初回レンダーでは `initialValue` を返し、その後に deferredValue で background re-render をスケジュールする。
-- React 19 は Canary チャンネルの Server Components の機能一式を包含する。
+### startTransition、useTransition、async Action
 
-### useDeferredValue (`useDeferredValue` reference)
+[`startTransition` reference](https://react.dev/reference/react/startTransition)で確認した範囲:
 
-- signature は `useDeferredValue(value, initialValue?)`。`initialValue` は省略可で、省略時は初回レンダーで defer されない（前バージョンの value が存在しないため）。
-- 更新時、React はまず旧 value での再レンダー（返り値は旧値）を行い、その後に新 value での background re-render をスケジュールする。background re-render は中断可能で、`value` の更新が来れば最初からやり直す（比較は `Object.is`）。
-- 固定の delay はなく、元の re-render が終わるやいなや background re-render を開始する。イベント（キー入力等）による更新が優先され、background re-render を割り込む。
-- Transition の中の更新では、`useDeferredValue` は常に新しい value を返し、deferred render を作らない（既に defer されているため）。
-- Suspense と統合しており、background update が suspend しても fallback は表示されず、旧い deferred value を表示し続ける。
-- それ単体では追加の network request を防がない。キー入力ごとに request は発生し、defer されるのは表示だけである。
-- background re-render は画面に commit されるまで Effects を発火しない。
-- 描画の最適化として使う場合、子コンポーネントは `memo` で包む必要がある（公式 Pitfall）。render の中に作った新規 object を渡すと毎回別物になり、不要な background re-render が起きる。渡す値は primitive か、render の外で作った object にする。
+- callback は直ちに実行され、その呼出中に同期予約された state 更新が Transition になる。`setTimeout` 内で後から行う更新は自動的に引き継がない。
+- async Action の `await` は完了待ちに含められるが、`await` 後の state 更新を Transition とするには追加の `startTransition` が必要。完了待ちと更新の分類は別の契約。
+- controlled text input 自体の更新には使えない。standalone の関数は `isPending` を返さず、callback の throw / rejected Promise は `reportError` へ報告される。
 
-## 推奨方法
+[`useTransition` reference](https://react.dev/reference/react/useTransition)で確認した範囲:
 
-以下は上記の公式記載からの設計案であり、公式が定める実装構成そのものではない。
+- `[isPending, startTransition]` を返す。pending は最初の開始で true となり、関係する Actions が完了し最終状態が表示されるまで続く。
+- この Hook の Action エラーは、Hook を呼ぶコンポーネントを包んだ Error Boundary に表示できる。standalone のエラー経路と区別する。
+- async Action 内のリクエストは応答が out-of-order になり得る。`useActionState` / `<form>` action 等の上位抽象が案内され、自作する場合は queuing / abort 等の順序制御が必要とされる。
 
-- render 回数の削減は automatic batching に任せる。テストは「state 更新ごとに1回 render」を固定期待せず、React 18 以前の前提（event handler 外は毎回 render）を確認していた箇所を更新する。
-- 同期的な DOM 更新が必要なのは browser API 統合のような特殊ケース（`beforeprint` 等）だけと割り切り、event handler 内の `flushSync` に限定する。Effect 内からは `queueMicrotask` へ延期するか、event handler へ移す（公式の代替案）。
-- タブ切替・ナビゲーション等の画面遷移は `useTransition` と `isPending` の視覚表示で包み、遅い下位ツリーの入力追従は `useDeferredValue` + 子の `memo` で扱う。入力そのものの state は同期のままにする。
-- 順序保証が必要な送信（フォームや連続するリクエスト）は自前で `startTransition` + async に頼らず、React 19 の `useActionState` / form Actions へ預ける。
-- `await` 後の state 更新は `startTransition` で再ラップして Transition 扱いにする。
-- 遅れが気になる導出値には `query !== deferredQuery` のような比較で stale 表示（減光など）を添える（公式例のパターン）。
+[React 19 発表（2024-12-05）](https://react.dev/blog/2024/12/05/react-19)は async 関数を使う Transitions、Actions による pending・エラー・optimistic updates の管理と、`useActionState` / `useFormStatus` / form Actions を説明する。これらの導入を、19.3で新規追加されたものとは扱わない。
 
-## 避ける使い方
+### flushSync は同期 DOM 連携の例外
 
-- **controlled text input の state を Transition で更新する**。公式が明示的に不可とし、代替として2つの state か `useDeferredValue` を挙げる。
-- **Action 内の `setTimeout` で setState して Transition とみなす**。コールバックは即時実行され、呼び出し中に同期予約された更新だけが対象。
-- **`await` 後の setState を再ラップせず Transition と信じる**。公式が既知の制限として再ラップを要求している。
-- **render / `useLayoutEffect` / `useEffect` / class lifecycle 内で `flushSync`**。noop になり警告されるだけ。
-- **`useDeferredValue` を最適化として使うのに子を `memo` で包まない**。親の再レンダーで子が毎回再描画され、効果が消える。
-- **`useDeferredValue` で network request が減ると期待する**。公式は「単体では防がない」と明記。
-- **render の中で作った新規 object を `useDeferredValue` に渡す**。毎回変わるので background re-render が連発する。
-- **複数の進行中 Transition が個別に pending 管理される前提で組む**。現在はまとめて batch される（既知の制限）。
-- **standalone `startTransition` のエラーを Error Boundary で捕捉できる前提にする**。component と紐づかないため扱えない。
-- **自前の async Action だけで応答順序を保証する**。out-of-order は既知の制限で、順序は組み込み抽象か自前の queuing / abort で担保する。
+[`flushSync` reference](https://react.dev/reference/react-dom/flushSync)によると、callback 内の更新を同期反映し、戻った時点の DOM を外部 API が使えるようにする。必要なら callback 外の pending 更新や Effects も処理し、suspend によって fallback が再表示され得る。範囲を callback だけと仮定しない。
 
-## 適用版と本番での注意
+同ページの `beforeprint` / `isPrinting` 例は印刷前の同期反映を示す。render、`useEffect` / `useLayoutEffect`、class lifecycle 内からの呼出は noop と警告の対象。通常は event handler に移し、難しい場合の `queueMicrotask` は追加の同期 render を生み性能面でも最後の手段とされる。Transition の待ちを一般的に解消する用途ではない。
 
-- npm registry の `react` latest は **19.3.0**（2026-09-28 取得、license MIT）。automatic batching と `useTransition` / `startTransition` / `useDeferredValue` は React 18.0.0（2022-03-29 投稿）導入、Actions と `useDeferredValue(initialValue)` は React 19（2024-12-05 投稿）導入。
-- reference 3ページは版ラベルのない unversioned な現行 react.dev ページ（2026-09-28 取得）で、記載内容は React 19.x の挙動として読む。React 18.x での差（`initialValue` なし以外）は未確認。
-- 明示期限は 2026-10-28。最短の期限は2つのリリース投稿（`release_notes`、TTL 30日）によるもので、reference ページと npm manifest は `official_docs`（TTL 90日）。React の新リリース時と reference 改訂時に再確認する。
-- **未確認**: React 17 以前（`ReactDOM.render` の legacy mode）での実挙動、dev / production の差、`<StrictMode>` 下の差。公式投稿の説明に基づく historic な記載のみ。
-- **未確認**: render 回数の実測。`setTimeout` 例の「2回→1回」は公式コード内の説明であり、本リポジトリでの再現計測は行っていない。
-- **未確認**: scheduler の内部優先度や React 19.3.0 固有の挙動差。reference ページは版非依存で書かれている。
+### useDeferredValue は表示の追従を遅らせる
+
+[`useDeferredValue` reference](https://react.dev/reference/react/useDeferredValue)で再確認した契約:
+
+- `initialValue` の省略時は初回から渡した値を返す。指定時はそれを先に使って background re-render を予約する。この引数は[React 19](https://react.dev/blog/2024/12/05/react-19)で導入された。
+- 更新値は `Object.is` で比較され、旧値を使う render の後に新値の中断可能な再描画を試みる。固定 delay はなく、新しい入力が来れば再試行できる。Transition 内では既に遅延されているため新しい値を返す。
+- background render が Suspense で止まる場合は旧値を維持する。Effects は画面へ commit するまで発火しない。これは network request の削減機能ではない。
+- primitive 値か安定した object を使う。render ごとに新しい object を作ると余計な background re-render が起きる。公式の遅いリスト最適化例は `memo` で同じ props の再描画を省く構成であり、Hookを追加するだけで計算そのものが高速化するわけではない。
+
+## React 19.3 の境界を固定 source で確認する
+
+### live reference と release の説明差
+
+UTC 2026-10-02取得の `useTransition` / `startTransition` reference には、複数の進行中 Transition をまとめるという注意が残る。一方、19.3 release は無関係な Transition の独立描画を明記する。この注意を19.3のすべての render に適用することも、releaseを根拠にすべての async Action が独立したと拡張することも避ける。
+
+[React Versions](https://react.dev/versions)によれば文書は major 内で更新され、minor / patch 別 reference は公開されない。ここでは19.3の公開変更を release に、残る結合条件を下記の immutable source に分けて根拠付ける。live reference の一文だけで版差を決めない。
+
+### 19.3.0 の実装観察（公開 API の追加保証ではない）
+
+対象は [v19.3.0 tag が指す commit 1d34f91dfde6bba84d08b683aaba164c7194dacb](https://github.com/react/react/tree/1d34f91dfde6bba84d08b683aaba164c7194dacb)。GitHub APIで tag と40桁 commit の対応を確認した。次はコードを読んだ観察であり、本リポジトリで React の runtime test を実行した結果ではない。
+
+1. [`ReactFeatureFlags.js`](https://github.com/react/react/blob/1d34f91dfde6bba84d08b683aaba164c7194dacb/packages/shared/ReactFeatureFlags.js)の `enableParallelTransitions` は true。[`ReactFiberLane.js`](https://github.com/react/react/blob/1d34f91dfde6bba84d08b683aaba164c7194dacb/packages/react-reconciler/src/ReactFiberLane.js)の Transition update lane 選択は、この条件下で `getHighestPriorityLane` を返す。すべての Transition update lanes を一括選択する分岐とは異なる。
+2. 同じ `ReactFiberLane.js` には `getEntangledLanes` / `markRootEntangled` が残る。独立描画を有効にしても、結合済みの lane を加える仕組みは取り除かれていない。
+3. [`ReactFiberRootScheduler.js`](https://github.com/react/react/blob/1d34f91dfde6bba84d08b683aaba164c7194dacb/packages/react-reconciler/src/ReactFiberRootScheduler.js)の `requestTransitionLane` は、同一 event の Transition に同じ lane を使う。これはscheduler内部の割当単位であり、あらゆるJavaScriptイベント境界を本稿で定義し直すものではない。async scope が存在する場合はその lane を再利用する。「別の startTransition 呼出なら必ず別 render」とは解釈できない。
+4. [`ReactFiberHooks.js`](https://github.com/react/react/blob/1d34f91dfde6bba84d08b683aaba164c7194dacb/packages/react-reconciler/src/ReactFiberHooks.js)の `entangleTransitionUpdate` は、同じ update queue に残っている Transition lanes と新しい lane を結合する。関数を2回呼ぶだけで共有 state の意味や中間状態の制約が消えるわけではない。
+5. [`ReactFiberAsyncAction.js`](https://github.com/react/react/blob/1d34f91dfde6bba84d08b683aaba164c7194dacb/packages/react-reconciler/src/ReactFiberAsyncAction.js)は、並行する async Actions の pending count、共有 lane、完了通知を管理する。`AsyncContext` のような対応付けなしには独立した Action を区別できないため結合する旨の説明と処理が残る。
+
+したがって、同一 queue / event / async scope の条件を調べずに、19.3で一律に「全部待つ」または「絶対に待たない」と結論しない。lane の値や内部関数をアプリから利用する提案でもない。
+
+## 実装を選ぶ判断（独自提案）
+
+- 入力値と遅くてもよい結果表示を分ける。入力は同期的に更新し、結果側の state を扱えるなら Transition、prop や Hook の戻り値に追従させるなら `useDeferredValue` を選ぶ。
+- 遅いAと無関係なBを19.3で独立させたいときは、まず state とデータの依存を調べる。同じ queue を共有している処理や、完了を待つ async Action を、見た目の別パネルという理由だけで独立とみなさない。
+- 同時完了が製品要件なら、旧来の render batching を取引や整合性の代わりにしない。アプリ側で必要な結果を揃えてから公開する状態遷移を設計する。
+- 各操作の送信完了を示したい場合、単一の `isPending` を全ネットワーク処理の台帳にしない。操作ID・成功/失敗・キャンセルを持つアプリの状態と、表示の pending を区別する。
+- `await` 後の state 更新を再ラップすることと、古い応答を採用しないことを別々にレビューする。Transition化だけで request ordering の問題が解消したとみなさない。
+- 古い結果を見せ続ける画面では、`query !== deferredQuery` 等から更新待ちを表示する。検索回数や帯域を減らす必要があれば、表示の defer とは別に request 制御を設計する。
+- `flushSync` はブラウザ連携の同期要件を確認して局所化する。Aの待ちがBへ波及する理由を調べずに投入すると、入力やSuspenseの見え方を悪化させるおそれがある。
+
+## 採用側で追加する試験案（未実装・未実測）
+
+本稿の検索 eval は知識の取得を検証するだけで、以下の React 実行時の振る舞いを証明しない。
+
+1. 独立した state / データを持つ2つの表示を用意し、異なる操作でAを遅く、Bを先に解決する。19.3でBがAの完了まで巻き込まれないケースを、採用 framework と実際の構成で確認する。
+2. 同じ試験を同一 event、同じ update queue、重なる async Actions へ変える。別々の完了が必ず得られるという期待値を機械的に使い回さない。
+3. async Action の `await` 前後と `setTimeout` の更新を区別し、入力の同期反映、pending の終了、Error Boundary / `reportError` の観測先を確認する。
+4. リクエストを逆順に完了させ、後から返った古い結果が現在の選択を上書きしないことをアプリ側の期待値で検証する。
+5. `useDeferredValue` の初回 `initialValue`、primitive / object identity、`memo`、Suspenseによる旧表示の保持を個別に試す。network request数とrender数を別々に計測する。
+6. `beforeprint` 連携がある場合だけ `isPrinting` の反映と印刷後の復帰を試す。通常の画面操作に `flushSync` を広げた効果と解釈しない。
+
+## 適用版・取得日・ライセンス・限界
+
+- 取得日はすべて2026-10-02 UTC。導入日の根拠は18.0.0の2022-03-29、19の2024-12-05、19.3の2026-09-09公開記事。v19.3.0 の日付は Versions でも確認した。
+- runtime source は上記の40桁 commit（commit日時2026-09-09T13:21:53Z）だけを解析した。react.dev reference はv19.3表示だが固定patchの文書ではなく、各referenceの公開日・更新日は明記されていない。
+- 19.2以前の全patchや独自rendererへ一律の結論を広げない。React Native、SSR / hydration、framework独自のdata cacheやAction統合、開発/production差、StrictMode下のrender回数、性能の実測は未確認。
+- upstreamのテストやReactのruntime testは今回実行していない。本稿の結論はrelease、公開reference、限定したsource観察であり、すべての依存関係・スケジューラ経路の証明ではない。
+- GitHubの一部blobページはnative web取得で失敗したため、同一commitのファイルをGitHub connectorで取得した。`LICENSE-DOCS.md`のHTML取得失敗は公式raw URLで補った。未取得ページの内容を推測して埋めていない。
+- react.dev の[README](https://raw.githubusercontent.com/reactjs/react.dev/main/README.md)と[LICENSE-DOCS.md](https://raw.githubusercontent.com/reactjs/react.dev/main/LICENSE-DOCS.md)を開き、文書のCC-BY-4.0を確認した。著作者はMeta Platforms, Inc.とcontributor。日本語で独自に再構成し、設計・試験案を追加した。
+- runtime source は[固定commitのLICENSE](https://github.com/react/react/blob/1d34f91dfde6bba84d08b683aaba164c7194dacb/LICENSE)と解析対象のヘッダーでMITを確認した。コードの転載・改変・module昇格はない。
+- 明示期限は2026-11-01。release_notesの30日TTLに合わせた再確認期限であり、古いリリースの歴史的事実がその日に変わるという意味ではない。新しいReact版、referenceの記述修正、アプリのAction構成変更時にも再確認する。

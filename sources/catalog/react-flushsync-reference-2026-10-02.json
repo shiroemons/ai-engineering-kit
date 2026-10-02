@@ -1,0 +1,12 @@
+{
+  "id": "react-flushsync-reference-2026-10-02",
+  "url": "https://react.dev/reference/react-dom/flushSync",
+  "repository_url": "https://github.com/reactjs/react.dev",
+  "commit_sha": "",
+  "version": "React 19.3 displayed; live major-19 reference; publication/update date not stated",
+  "retrieved_at": "2026-10-02",
+  "license": "CC-BY-4.0 (react.dev content; https://raw.githubusercontent.com/reactjs/react.dev/main/README.md and LICENSE-DOCS.md verified 2026-10-02 UTC; original Japanese summary, no copied code)",
+  "trust": "official",
+  "type": "official_docs",
+  "purpose": "同期 DOM flush、callback 外の pending work、Suspense fallback、lifecycle の制限を再確認。"
+}

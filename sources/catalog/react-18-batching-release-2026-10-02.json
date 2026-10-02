@@ -1,0 +1,12 @@
+{
+  "id": "react-18-batching-release-2026-10-02",
+  "url": "https://react.dev/blog/2022/03/29/react-v18",
+  "repository_url": "https://github.com/reactjs/react.dev",
+  "commit_sha": "",
+  "version": "React 18.0.0; published 2022-03-29",
+  "retrieved_at": "2026-10-02",
+  "license": "CC-BY-4.0 (react.dev content; https://raw.githubusercontent.com/reactjs/react.dev/main/README.md and LICENSE-DOCS.md verified 2026-10-02 UTC; original Japanese summary, no copied code)",
+  "trust": "official",
+  "type": "release_notes",
+  "purpose": "React 18 の automatic batching、createRoot / hydrateRoot と non-urgent Transition の導入を再確認。"
+}

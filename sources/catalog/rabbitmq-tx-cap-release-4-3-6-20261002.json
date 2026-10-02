@@ -1,0 +1,12 @@
+{
+  "id": "rabbitmq-tx-cap-release-4-3-6-20261002",
+  "url": "https://github.com/rabbitmq/rabbitmq-server/releases/tag/v4.3.6",
+  "repository_url": "",
+  "commit_sha": "",
+  "version": "RabbitMQ 4.3.6; GitHub published_at 2026-09-14T07:24:14Z",
+  "retrieved_at": "2026-10-02",
+  "license": "unknown",
+  "trust": "official",
+  "type": "release_notes",
+  "purpose": "channel_tx_message_max の導入、既定10000件と超過時のchannel例外。GitHub公開日時は公式release一覧の2026-09-16と異なるため両者を区別する。独自要約のみ。"
+}

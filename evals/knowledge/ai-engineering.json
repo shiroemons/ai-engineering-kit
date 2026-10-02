@@ -859,6 +859,83 @@
       "expected_ids": [
         "mcp-tool-schema-json-value-ref-validation"
       ]
+    },
+    {
+      "name": "langgraph-interrupt-typed-version",
+      "query": "interrupt response_schema 1.2.12",
+      "expected_ids": [
+        "agents-langgraph-interrupt-response-schema-resume-boundary"
+      ]
+    },
+    {
+      "name": "langgraph-interrupt-raw-schema-no-validation",
+      "query": "JSON Schema dict validation",
+      "expected_ids": [
+        "agents-langgraph-interrupt-response-schema-resume-boundary"
+      ]
+    },
+    {
+      "name": "langgraph-interrupt-typed-return",
+      "query": "Pydantic TypedDict dataclass 返り値",
+      "expected_ids": [
+        "agents-langgraph-interrupt-response-schema-resume-boundary"
+      ]
+    },
+    {
+      "name": "langgraph-interrupt-coercion-extra",
+      "query": "coercion extra field",
+      "expected_ids": [
+        "agents-langgraph-interrupt-response-schema-resume-boundary"
+      ]
+    },
+    {
+      "name": "langgraph-interrupt-corrected-resume",
+      "query": "ValidationError thread_id 訂正",
+      "expected_ids": [
+        "agents-langgraph-interrupt-response-schema-resume-boundary"
+      ]
+    },
+    {
+      "name": "langgraph-interrupt-consumed-resume-prefix",
+      "query": "scratchpad.resume[:idx+1] 未検証",
+      "expected_ids": [
+        "agents-langgraph-interrupt-response-schema-resume-boundary"
+      ]
+    },
+    {
+      "name": "langgraph-interrupt-id-map-second-invalid",
+      "query": "ID-map 二つ目 不正",
+      "expected_ids": [
+        "agents-langgraph-interrupt-response-schema-resume-boundary"
+      ]
+    },
+    {
+      "name": "langgraph-interrupt-node-replay",
+      "query": "node 先頭 副作用",
+      "expected_ids": [
+        "agents-langgraph-interrupt-response-schema-resume-boundary"
+      ]
+    },
+    {
+      "name": "langgraph-interrupt-schema-pinning-design",
+      "query": "schema fingerprint 配備",
+      "expected_ids": [
+        "agents-langgraph-interrupt-response-schema-resume-boundary"
+      ]
+    },
+    {
+      "name": "langgraph-interrupt-not-authorization",
+      "query": "型検証 認証 認可",
+      "expected_ids": [
+        "agents-langgraph-interrupt-response-schema-resume-boundary"
+      ]
+    },
+    {
+      "name": "langgraph-interrupt-no-exactly-once",
+      "query": "承認後 exactly-once",
+      "expected_ids": [
+        "agents-langgraph-interrupt-response-schema-resume-boundary"
+      ]
     }
   ]
 }

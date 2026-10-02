@@ -1,0 +1,12 @@
+{
+  "id": "react-19-actions-release-2026-10-02",
+  "url": "https://react.dev/blog/2024/12/05/react-19",
+  "repository_url": "https://github.com/reactjs/react.dev",
+  "commit_sha": "",
+  "version": "React 19; stable-release post dated 2024-12-05",
+  "retrieved_at": "2026-10-02",
+  "license": "CC-BY-4.0 (react.dev content; https://raw.githubusercontent.com/reactjs/react.dev/main/README.md and LICENSE-DOCS.md verified 2026-10-02 UTC; original Japanese summary, no copied code)",
+  "trust": "official",
+  "type": "release_notes",
+  "purpose": "async Actions と useDeferredValue(initialValue) の導入版、pending とフォーム抽象の関係を再確認。"
+}

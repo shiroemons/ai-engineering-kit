@@ -715,6 +715,69 @@
       "expected_ids": [
         "messaging-kafka-share-lock-renewal-group-limits"
       ]
+    },
+    {
+      "name": "rabbitmq-tx-limit-count",
+      "query": "channel_tx_message_max 件数 publish",
+      "expected_ids": [
+        "messaging-rabbitmq-transaction-publish-cap-commit-boundary"
+      ]
+    },
+    {
+      "name": "rabbitmq-tx-limit-close",
+      "query": "transaction 406 channel close",
+      "expected_ids": [
+        "messaging-rabbitmq-transaction-publish-cap-commit-boundary"
+      ]
+    },
+    {
+      "name": "rabbitmq-tx-limit-not-bytes",
+      "query": "transaction payload byte数",
+      "expected_ids": [
+        "messaging-rabbitmq-transaction-publish-cap-commit-boundary"
+      ]
+    },
+    {
+      "name": "rabbitmq-tx-rollback-delivery",
+      "query": "tx.rollback 受信済み 再キューイング",
+      "expected_ids": [
+        "messaging-rabbitmq-transaction-publish-cap-commit-boundary"
+      ]
+    },
+    {
+      "name": "rabbitmq-tx-commit-atomicity",
+      "query": "tx.commit atomicity 単一queue",
+      "expected_ids": [
+        "messaging-rabbitmq-transaction-publish-cap-commit-boundary"
+      ]
+    },
+    {
+      "name": "rabbitmq-tx-return-before-commit",
+      "query": "mandatory basic.return tx.commit-ok",
+      "expected_ids": [
+        "messaging-rabbitmq-transaction-publish-cap-commit-boundary"
+      ]
+    },
+    {
+      "name": "rabbitmq-tx-mode-exclusive",
+      "query": "transaction confirm mode 切替",
+      "expected_ids": [
+        "messaging-rabbitmq-transaction-publish-cap-commit-boundary"
+      ]
+    },
+    {
+      "name": "rabbitmq-tx-new-channel-config",
+      "query": "channel_tx_message_max 初期化",
+      "expected_ids": [
+        "messaging-rabbitmq-transaction-publish-cap-commit-boundary"
+      ]
+    },
+    {
+      "name": "rabbitmq-tx-infinity",
+      "query": "channel_tx_message_max infinity 正の整数",
+      "expected_ids": [
+        "messaging-rabbitmq-transaction-publish-cap-commit-boundary"
+      ]
     }
   ]
 }

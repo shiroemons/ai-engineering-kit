@@ -1,0 +1,12 @@
+{
+  "id": "langgraph-interrupt-repository-49cce0c-20261002",
+  "url": "https://github.com/langchain-ai/langgraph/tree/49cce0ca852be4cfb567a1cbe0e511ff325a1682",
+  "repository_url": "https://github.com/langchain-ai/langgraph",
+  "commit_sha": "49cce0ca852be4cfb567a1cbe0e511ff325a1682",
+  "version": "langgraph 1.2.12 release target 49cce0ca852be4cfb567a1cbe0e511ff325a1682; pyproject.toml version=1.2.12",
+  "retrieved_at": "2026-10-02",
+  "license": "MIT; root LICENSE and libs/langgraph/pyproject.toml at 49cce0ca852be4cfb567a1cbe0e511ff325a1682 verified; no source code copied",
+  "trust": "official",
+  "type": "github_repository_analysis",
+  "purpose": "Native webで固定commitのlibs/langgraph/langgraph/types.py、libs/langgraph/pyproject.toml、LICENSEを実読。types.pyのinterruptはdict/Noneでadapterを作らず、型指定ではTypeAdapterを使い、validation後に消費済みresume prefixをRESUMEへ送る。test_interruption.pyはnative web取得失敗後curlで固定URLを読み、型別返り値、extra field、直接/ID-map再開の不正値訂正、先行interruptがある場合の回帰テストを照合。テスト実行なし。取得日2026-10-02 UTC。"
+}
