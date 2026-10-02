@@ -14,6 +14,8 @@ import (
 	"strings"
 	"testing"
 	"time"
+
+	"github.com/shiroemons/ai-engineering-kit/internal/kb"
 )
 
 var testDate = time.Date(2026, 9, 23, 0, 0, 0, 0, time.UTC)
@@ -158,6 +160,16 @@ func TestCommandsAndRetrievalEvals(t *testing.T) {
 			}
 		})
 	}
+	// Corpus はこの eval 群では変更しない。整合性検証は一度行い、全ケースで
+	// 本番と同じ検索・並べ替え・出力経路を評価する。CLI の更新検知は別途検証する。
+	repo, err := kb.Load(root, testDate)
+	if err != nil {
+		t.Fatal(err)
+	}
+	prepared, err := repo.PrepareSearch(t.Context())
+	if err != nil {
+		t.Fatal(err)
+	}
 	evalPaths, err := filepath.Glob(filepath.Join(repositoryRoot(t), "evals/knowledge/*.json"))
 	if err != nil {
 		t.Fatal(err)
@@ -186,10 +198,15 @@ func TestCommandsAndRetrievalEvals(t *testing.T) {
 		}
 		for _, scenario := range evaluation.Cases {
 			t.Run(scenario.Name, func(t *testing.T) {
-				stdout, stderr, code := invoke("search", scenario.Query, "--json", "--root", root)
-				if code != 0 || stderr != "" {
-					t.Fatalf("search failed: %d %s", code, stderr)
+				opts, err := parseArgs([]string{"search", scenario.Query, "--json", "--root", root}, testDate)
+				if err != nil {
+					t.Fatal(err)
 				}
+				var output bytes.Buffer
+				if err := executeSearch(t.Context(), prepared, opts, &output); err != nil {
+					t.Fatalf("search failed: %v", err)
+				}
+				stdout := output.String()
 				results := decodeResults(t, stdout)
 				ids := map[string]bool{}
 				for _, result := range results {
@@ -225,6 +242,46 @@ func TestCommandsAndRetrievalEvals(t *testing.T) {
 		if !strings.Contains(stdout, `"`+field+`"`) {
 			t.Errorf("text output lacks %s", field)
 		}
+	}
+}
+
+func TestPreparedSearchMatchesCLI(t *testing.T) {
+	root := copyRepository(t)
+	if _, stderr, code := invoke("index", "--root", root); code != 0 {
+		t.Fatal(stderr)
+	}
+	repo, err := kb.Load(root, testDate)
+	if err != nil {
+		t.Fatal(err)
+	}
+	prepared, err := repo.PrepareSearch(t.Context())
+	if err != nil {
+		t.Fatal(err)
+	}
+	for _, args := range [][]string{
+		{"search", "context", "--json"},
+		{"search", "context cancellation", "--json", "--limit", "1"},
+		{"search", "qzxvnonexistenttokenqzxv", "--json"},
+		{"search", "context", "cancellation"},
+	} {
+		t.Run(strings.Join(args, " "), func(t *testing.T) {
+			args = append(args, "--root", root)
+			opts, err := parseArgs(args, testDate)
+			if err != nil {
+				t.Fatal(err)
+			}
+			var output bytes.Buffer
+			if err := executeSearch(t.Context(), prepared, opts, &output); err != nil {
+				t.Fatal(err)
+			}
+			stdout, stderr, code := invoke(args...)
+			if code != 0 || stderr != "" || stdout != output.String() {
+				t.Fatalf("prepared/CLI mismatch: code=%d stderr=%s prepared=%s CLI=%s", code, stderr, output.String(), stdout)
+			}
+			if err := executeSearch(t.Context(), prepared, opts, failingWriter{}); err == nil || !strings.Contains(err.Error(), "output unavailable") {
+				t.Fatalf("prepared search output failure: %v", err)
+			}
+		})
 	}
 }
 
