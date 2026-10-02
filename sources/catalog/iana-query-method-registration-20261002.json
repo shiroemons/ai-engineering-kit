@@ -1,0 +1,12 @@
+{
+  "id": "iana-query-method-registration-20261002",
+  "url": "https://www.iana.org/assignments/http-methods",
+  "repository_url": "",
+  "commit_sha": "",
+  "version": "HTTP Method Registry, Last Updated 2026-06-17",
+  "retrieved_at": "2026-10-02",
+  "license": "CC0-1.0 (IANA Protocol Registries; https://www.iana.org/help/licensing-terms)",
+  "trust": "official",
+  "type": "official_docs",
+  "purpose": "QUERY の safe=yes、idempotent=yes と RFC 10008 参照を確認。IANA licensing terms も開いて確認。登録は製品実装の証拠ではない。"
+}

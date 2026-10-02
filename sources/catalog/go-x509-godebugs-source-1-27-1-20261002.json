@@ -1,0 +1,12 @@
+{
+  "id": "go-x509-godebugs-source-1-27-1-20261002",
+  "url": "https://raw.githubusercontent.com/golang/go/862c888e612ac346c7c4d99c9392bdfd265f33b0/src/internal/godebugs/table.go",
+  "repository_url": "https://github.com/golang/go",
+  "commit_sha": "862c888e612ac346c7c4d99c9392bdfd265f33b0",
+  "version": "go1.27.1",
+  "retrieved_at": "2026-10-02",
+  "license": "BSD-3-Clause; https://raw.githubusercontent.com/golang/go/862c888e612ac346c7c4d99c9392bdfd265f33b0/LICENSE",
+  "trust": "primary-source",
+  "type": "github_repository_analysis",
+  "purpose": "同一tagのtable.goをpublic raw HTTPで取得し、locked go1.27.1の同ファイルとの完全一致をcmpで確認。x509sslcertoverrideplatform が Changed:27, Old:0 であることを照合。native web取得はcache missだったため通常HTTP取得へ切替。コード転載なし。"
+}

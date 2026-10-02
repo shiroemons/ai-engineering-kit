@@ -1,0 +1,12 @@
+{
+  "id": "rfc9111-query-cache-storage-20261002",
+  "url": "https://www.rfc-editor.org/rfc/rfc9111.html",
+  "repository_url": "",
+  "commit_sha": "",
+  "version": "RFC 9111, STD 98, June 2022",
+  "retrieved_at": "2026-10-02",
+  "license": "IETF Trust Legal Provisions (RFC text); code components under Revised BSD License per copyright notice",
+  "trust": "official",
+  "type": "official_docs",
+  "purpose": "§3–4 の understood method / Authorization / cache storage 条件を QUERY の配備に関連して再確認。info URL は timeout、/rfc/rfc9111.html 全文で確認。Copyright Notice確認。コード転載なし。"
+}

@@ -1,0 +1,12 @@
+{
+  "id": "go-x509-root-source-1-27-1-20261002",
+  "url": "https://raw.githubusercontent.com/golang/go/862c888e612ac346c7c4d99c9392bdfd265f33b0/src/crypto/x509/root.go",
+  "repository_url": "https://github.com/golang/go",
+  "commit_sha": "862c888e612ac346c7c4d99c9392bdfd265f33b0",
+  "version": "go1.27.1",
+  "retrieved_at": "2026-10-02",
+  "license": "BSD-3-Clause; https://raw.githubusercontent.com/golang/go/862c888e612ac346c7c4d99c9392bdfd265f33b0/LICENSE",
+  "trust": "primary-source",
+  "type": "github_repository_analysis",
+  "purpose": "git ls-remote で tag の40桁 SHAを照合し、固定root.goとLICENSEをnative webで取得。loadSystemRoots の空値分岐、loadOnDiskRoots の空pool・missing path・エラー処理、systemRootsPool のキャッシュを読む。コード転載なし。"
+}

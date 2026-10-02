@@ -1,0 +1,12 @@
+{
+  "id": "react-193-browser-release-2026-10-02",
+  "url": "https://react.dev/blog/2026/09/09/react-19-3",
+  "repository_url": "https://github.com/reactjs/react.dev",
+  "commit_sha": "",
+  "version": "React 19.3; published 2026-09-09",
+  "retrieved_at": "2026-10-02",
+  "license": "CC-BY-4.0 (react.dev content; https://github.com/reactjs/react.dev/blob/main/LICENSE-DOCS.md and README.md verified 2026-10-02; original Japanese summary, no copied code)",
+  "trust": "official",
+  "type": "release_notes",
+  "purpose": "React 19.3 の browser() 導入、SSR の fallback と client-only 描画、条件付き初期データの扱いを確認。"
+}
