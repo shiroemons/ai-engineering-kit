@@ -1,0 +1,12 @@
+{
+  "id": "mcp-sampling-deprecated-registry-2026-07-28-20261002",
+  "url": "https://modelcontextprotocol.io/specification/2026-07-28/deprecated",
+  "repository_url": "https://github.com/modelcontextprotocol/modelcontextprotocol",
+  "commit_sha": "",
+  "version": "MCP Deprecated Features registry 2026-07-28; verified 2026-10-02 UTC",
+  "retrieved_at": "2026-10-02",
+  "license": "Apache-2.0 for new/relicensed specification contributions; MIT for unrelicensed historical contributions (official repository LICENSE checked 2026-10-02 UTC; per-contribution allocation unverified); original summary, no code copied",
+  "trust": "official",
+  "type": "official_docs",
+  "purpose": "Sampling の最早削除対象が 2027-07-28 以降に公開する最初の改訂であること、確定削除日ではないこと、includeContext の扱いを確認。独立した公開・更新日は表示なし。"
+}

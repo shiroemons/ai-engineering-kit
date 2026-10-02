@@ -456,6 +456,15 @@
     {"name": "otlp-v111-wal-not-size-remedy", "query": "WAL 恒久的 サイズ超過", "expected_ids": ["opentelemetry-otlp-message-size-retry-boundary"]},
     {"name": "otlp-v111-ack-duplicate-boundary", "query": "ACK 隣接 重複", "expected_ids": ["opentelemetry-otlp-message-size-retry-boundary"]},
     {"name": "otlp-v111-retry-after-httpdate", "query": "Retry-After HTTP-date 秒数", "expected_ids": ["opentelemetry-otlp-message-size-retry-boundary"]},
-    {"name": "otlp-v111-new-batches-not-replay", "query": "payload 分割再送 retry", "expected_ids": ["opentelemetry-otlp-message-size-retry-boundary"]}
+    {"name": "otlp-v111-new-batches-not-replay", "query": "payload 分割再送 retry", "expected_ids": ["opentelemetry-otlp-message-size-retry-boundary"]},
+    {"name": "otel-tail-late-decision-cache", "query": "tail_sampling late decision_cache", "expected_ids": ["opentelemetry-tail-sampling-late-span-decision-cache"]},
+    {"name": "otel-tail-wait-eviction", "query": "decision_wait num_traces eviction", "expected_ids": ["opentelemetry-tail-sampling-late-span-decision-cache"]},
+    {"name": "otel-tail-nonsampled-error", "query": "non_sampled_cache_size ERROR 再評価", "expected_ids": ["opentelemetry-tail-sampling-late-span-decision-cache"]},
+    {"name": "otel-tail-v0162-threshold-fix", "query": "v0.162.0 FinalThreshold th:8", "expected_ids": ["opentelemetry-tail-sampling-late-span-decision-cache"]},
+    {"name": "otel-tail-cache-lru-ttl", "query": "LRU TTL 64", "expected_ids": ["opentelemetry-tail-sampling-late-span-decision-cache"]},
+    {"name": "otel-tail-affinity-dns", "query": "tail sampling affinity DNS", "expected_ids": ["opentelemetry-tail-sampling-late-span-decision-cache"]},
+    {"name": "otel-tail-late-metric-scope", "query": "sampling_late_span_age early_releases_from_cache_decision", "expected_ids": ["opentelemetry-tail-sampling-late-span-decision-cache"]},
+    {"name": "otel-tail-overflow-shutdown", "query": "block_on_overflow drop_pending_traces_on_shutdown", "expected_ids": ["opentelemetry-tail-sampling-late-span-decision-cache"]},
+    {"name": "otel-tail-root-ingest-boundary", "query": "decision_wait_after_root_received span-ingest", "expected_ids": ["opentelemetry-tail-sampling-late-span-decision-cache"]}
   ]
 }

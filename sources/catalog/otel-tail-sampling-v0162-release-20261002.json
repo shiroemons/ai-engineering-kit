@@ -1,0 +1,12 @@
+{
+  "id": "otel-tail-sampling-v0162-release-20261002",
+  "url": "https://github.com/open-telemetry/opentelemetry-collector-contrib/releases/tag/v0.162.0",
+  "repository_url": "https://github.com/open-telemetry/opentelemetry-collector-contrib",
+  "commit_sha": "ae8c507510f48f433ab47dd1c6b01a59d6c388b5",
+  "version": "Collector Contrib v0.162.0; published 2026-09-29T10:11:33Z; tail_sampling fix #50623",
+  "retrieved_at": "2026-10-02",
+  "license": "Apache-2.0",
+  "trust": "official",
+  "type": "release_notes",
+  "purpose": "2026-09-29公開版に含まれる、late spanへ元のsampling thresholdを再適用する修正を確認。GitHub release APIでpublished_at、annotated tag APIでrelease commitを照合。リリース本文のtail_samplingとadaptive_tail_samplingを混同しない。"
+}

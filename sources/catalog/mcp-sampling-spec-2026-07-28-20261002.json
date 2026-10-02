@@ -1,0 +1,12 @@
+{
+  "id": "mcp-sampling-spec-2026-07-28-20261002",
+  "url": "https://modelcontextprotocol.io/specification/2026-07-28/client/sampling",
+  "repository_url": "https://github.com/modelcontextprotocol/modelcontextprotocol",
+  "commit_sha": "",
+  "version": "MCP Sampling specification 2026-07-28; verified 2026-10-02 UTC",
+  "retrieved_at": "2026-10-02",
+  "license": "Apache-2.0 for new/relicensed specification contributions; MIT for unrelicensed historical contributions (official repository LICENSE checked 2026-10-02 UTC; per-contribution allocation unverified); original summary, no code copied",
+  "trust": "official",
+  "type": "official_docs",
+  "purpose": "Sampling の非推奨通知、毎要求の capability、要求内 tools、モデル選択、maxTokens、利用者レビュー、拒否後の非再試行を確認。独立した公開・更新日は表示なし。"
+}

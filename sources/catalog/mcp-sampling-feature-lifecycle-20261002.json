@@ -1,0 +1,12 @@
+{
+  "id": "mcp-sampling-feature-lifecycle-20261002",
+  "url": "https://modelcontextprotocol.io/community/feature-lifecycle",
+  "repository_url": "https://github.com/modelcontextprotocol/modelcontextprotocol",
+  "commit_sha": "",
+  "version": "MCP Feature Lifecycle and Deprecation Policy (SEP-2596); verified 2026-10-02 UTC",
+  "retrieved_at": "2026-10-02",
+  "license": "CC-BY-4.0 for non-specification documentation per official repository LICENSE checked 2026-10-02 UTC; original summary, no code copied",
+  "trust": "official",
+  "type": "official_docs",
+  "purpose": "Deprecated/Removed の区別、改訂公開から最低12か月、SDK独自の対応期間、セキュリティ上の短縮例外を確認。版番号・独立した公開日は表示なし。"
+}
