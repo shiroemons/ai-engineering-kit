@@ -1,0 +1,12 @@
+{
+  "id": "owasp-ssrf-prevention-20261002",
+  "url": "https://cheatsheetseries.owasp.org/cheatsheets/Server_Side_Request_Forgery_Prevention_Cheat_Sheet.html",
+  "repository_url": "https://github.com/OWASP/CheatSheetSeries",
+  "commit_sha": "",
+  "version": "OWASP SSRF Cheat Sheet public-page snapshot 2026-10-02; no independent version or publication date shown",
+  "license": "CC-BY-SA-4.0; official page footer and repository LICENSE.md verified 2026-10-02",
+  "trust": "official",
+  "type": "official_docs",
+  "purpose": "SSRF 防御の Case 1 / Case 2、全 A/AAAA 検査、redirect 無効化、network layer、denylist の限界を確認。コードや図は転載しない",
+  "retrieved_at": "2026-10-02"
+}

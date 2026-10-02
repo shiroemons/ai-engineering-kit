@@ -1,0 +1,12 @@
+{
+  "id": "terraform-write-only-storage-docs-20261002",
+  "url": "https://developer.hashicorp.com/terraform/language/manage-sensitive-data/write-only",
+  "repository_url": "https://github.com/hashicorp/web-unified-docs",
+  "commit_sha": "",
+  "version": "Terraform Docs v1.16.x; write-only requires Terraform 1.11+ and supporting resource; page publication date not stated",
+  "retrieved_at": "2026-10-02",
+  "license": "BUSL-1.1 (web-unified-docs root LICENSE; Licensed Work /web-unified-docs; documentation source repository)",
+  "trust": "official",
+  "type": "official_docs",
+  "purpose": "write-onlyはephemeral/非ephemeral双方を受け取り、入力自体を保存しないこと、version引数の意味はprovider依存であること、secret managerへ外部保存してephemeralで読み直す公式構成例の概念を確認。provider固有版・実動作は未検証。"
+}

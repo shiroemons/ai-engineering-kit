@@ -1,0 +1,12 @@
+{
+  "id": "otlp-v111-spec-size-20261002",
+  "url": "https://github.com/open-telemetry/opentelemetry-proto/blob/790608c4d51e6ffc12210b541e8514cbed9e91a4/docs/specification.md",
+  "repository_url": "https://github.com/open-telemetry/opentelemetry-proto",
+  "commit_sha": "790608c4d51e6ffc12210b541e8514cbed9e91a4",
+  "version": "OTLP Specification 1.11.0; v1.11.0 tag resolved to 790608c4d51e6ffc12210b541e8514cbed9e91a4; release 2026-07-21; verified 2026-10-02 UTC",
+  "retrieved_at": "2026-10-02",
+  "license": "Apache-2.0; verified LICENSE at 790608c4d51e6ffc12210b541e8514cbed9e91a4 via GitHub file API and v1.11.0 raw LICENSE",
+  "trust": "official",
+  "type": "official_docs",
+  "purpose": "OTLP 1.11.0 の request/response size 制限、圧縮境界、MUST/SHOULD、RESOURCE_EXHAUSTED と HTTP 413/500 の再送条件、partial_success と ACK の限界を確認。live site の表示版も 1.11.0 だが根拠は固定版。公式仕様の要約であり SDK/Collector 実装分析ではない。"
+}

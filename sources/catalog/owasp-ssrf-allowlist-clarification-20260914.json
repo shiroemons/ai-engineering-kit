@@ -1,0 +1,12 @@
+{
+  "id": "owasp-ssrf-allowlist-clarification-20260914",
+  "url": "https://github.com/OWASP/CheatSheetSeries/commit/e2d422148bebd737e7d85e45347ae85ae5e878ba",
+  "repository_url": "https://github.com/OWASP/CheatSheetSeries",
+  "commit_sha": "e2d422148bebd737e7d85e45347ae85ae5e878ba",
+  "version": "OWASP CheatSheetSeries PR #2412; commit 2026-09-14T12:51:31Z",
+  "license": "CC-BY-SA-4.0; https://raw.githubusercontent.com/OWASP/CheatSheetSeries/e2d422148bebd737e7d85e45347ae85ae5e878ba/LICENSE.md verified through GitHub read 2026-10-02",
+  "trust": "maintainer",
+  "type": "github_repository_analysis",
+  "purpose": "SSRF host-only allowlist と request 再構築、path/query 持ち越し禁止、parser disagreement 拒否の4行追加を固定差分で確認。日付は commit API、差分は native web と API で確認。コード転載なし",
+  "retrieved_at": "2026-10-02"
+}

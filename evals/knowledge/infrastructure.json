@@ -681,6 +681,76 @@
       "expected_ids": [
         "docker-registry-dns-tls-downgrade-2982"
       ]
+    },
+    {
+      "name": "terraform-data-store-write-only-persistence",
+      "query": "store.input write-only sensitive_output",
+      "expected_ids": [
+        "terraform-data-store-ephemeral-persistence"
+      ]
+    },
+    {
+      "name": "terraform-data-store-version-change",
+      "query": "store.version RawEquals",
+      "expected_ids": [
+        "terraform-data-store-ephemeral-persistence"
+      ]
+    },
+    {
+      "name": "terraform-data-store-version-freeze",
+      "query": "version 固定 ローテーション",
+      "expected_ids": [
+        "terraform-data-store-ephemeral-persistence"
+      ]
+    },
+    {
+      "name": "terraform-data-store-arbitrary-types",
+      "query": "store DynamicPseudoType bool",
+      "expected_ids": [
+        "terraform-data-store-ephemeral-persistence"
+      ]
+    },
+    {
+      "name": "terraform-data-store-apply-value",
+      "query": "store applyDataStoreResourceChange config",
+      "expected_ids": [
+        "terraform-data-store-ephemeral-persistence"
+      ]
+    },
+    {
+      "name": "terraform-data-store-sensitive-plaintext",
+      "query": "sensitive_output -json 平文",
+      "expected_ids": [
+        "terraform-data-store-ephemeral-persistence"
+      ]
+    },
+    {
+      "name": "terraform-data-store-release-boundary",
+      "query": "store 1.10 1.16.0",
+      "expected_ids": [
+        "terraform-data-store-ephemeral-persistence"
+      ]
+    },
+    {
+      "name": "terraform-data-store-sensitive-switch",
+      "query": "sensitive 既知 出力間",
+      "expected_ids": [
+        "terraform-data-store-ephemeral-persistence"
+      ]
+    },
+    {
+      "name": "terraform-data-store-external-secret-path",
+      "query": "store 外部secret ephemeral",
+      "expected_ids": [
+        "terraform-data-store-ephemeral-persistence"
+      ]
+    },
+    {
+      "name": "terraform-data-store-replace-lifecycle",
+      "query": "store replace identity",
+      "expected_ids": [
+        "terraform-data-store-ephemeral-persistence"
+      ]
     }
   ]
 }

@@ -1,0 +1,12 @@
+{
+  "id": "otel-collector-resiliency-20261002",
+  "url": "https://opentelemetry.io/docs/collector/resiliency/",
+  "repository_url": "https://github.com/open-telemetry/opentelemetry.io",
+  "commit_sha": "",
+  "version": "Collector Resiliency official guide; page last modified 2026-01-14 (formatting change); retrieved 2026-10-02 UTC; no Collector implementation version claimed",
+  "retrieved_at": "2026-10-02",
+  "license": "CC-BY-4.0; https://raw.githubusercontent.com/open-telemetry/opentelemetry.io/main/LICENSE verified 2026-10-02",
+  "trust": "official",
+  "type": "official_docs",
+  "purpose": "sending queue / retry timeout / persistent WAL の喪失境界と queue_size・queue_capacity の監視を確認。永続化をサイズ超過・非再送エラーの解決策や end-to-end 配送保証にしないための補助資料。last-modified 日を新機能の導入日とは扱わない。"
+}

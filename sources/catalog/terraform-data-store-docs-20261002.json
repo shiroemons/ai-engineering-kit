@@ -1,0 +1,12 @@
+{
+  "id": "terraform-data-store-docs-20261002",
+  "url": "https://developer.hashicorp.com/terraform/language/resources/terraform-data",
+  "repository_url": "https://github.com/hashicorp/web-unified-docs",
+  "commit_sha": "",
+  "version": "Terraform Docs v1.16.x; store introduced in v1.16.0; page publication date not stated; retrieved 2026-10-02 UTC",
+  "retrieved_at": "2026-10-02",
+  "license": "BUSL-1.1 (web-unified-docs root LICENSE; Licensed Work /web-unified-docs; source linked by Edit this page on GitHub)",
+  "trust": "official",
+  "type": "official_docs",
+  "purpose": "store.input の任意型・write-only入力からapply時にoutput/sensitive_outputへstate保存する契約、versionによる更新抑制、replace、組込みproviderを確認。2026-10-02に現行ページとリンク先MDX、https://github.com/hashicorp/web-unified-docs/blob/main/LICENSE を開いた。原文・サンプルコードは転載せず独自要約。"
+}

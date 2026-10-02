@@ -1,0 +1,12 @@
+{
+  "id": "terraform-v1164-store-release-20261002",
+  "url": "https://github.com/hashicorp/terraform/releases/tag/v1.16.4",
+  "repository_url": "https://github.com/hashicorp/terraform",
+  "commit_sha": "6ee8af215a535cfca08bf729ff1017d4221d6667",
+  "version": "Terraform v1.16.4; published 2026-09-23; release commit 6ee8af215a535cfca08bf729ff1017d4221d6667",
+  "retrieved_at": "2026-10-02",
+  "license": "BUSL-1.1 (root LICENSE at commit 6ee8af215a535cfca08bf729ff1017d4221d6667; Licensed Work Terraform Version 1.6.0 or later)",
+  "trust": "official",
+  "type": "release_notes",
+  "purpose": "v1.16.4のリリース日とcommit参照を確認し、実装観察の対象を特定する。取得時のlatest表示を将来へ一般化しない。"
+}

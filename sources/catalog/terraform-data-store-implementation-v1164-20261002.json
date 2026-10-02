@@ -1,0 +1,12 @@
+{
+  "id": "terraform-data-store-implementation-v1164-20261002",
+  "url": "https://github.com/hashicorp/terraform/blob/6ee8af215a535cfca08bf729ff1017d4221d6667/internal/builtin/providers/terraform/resource_data.go",
+  "repository_url": "https://github.com/hashicorp/terraform",
+  "commit_sha": "6ee8af215a535cfca08bf729ff1017d4221d6667",
+  "version": "Terraform v1.16.4 builtin provider implementation; resource_data.go; identical bytes to v1.16.0 commit bfe8a941dc45f9f39227b2cd0adc21069ba99319",
+  "retrieved_at": "2026-10-02",
+  "license": "BUSL-1.1 (resource_data.go SPDX header and root LICENSE at the pinned commit verified; no source code copied)",
+  "trust": "primary-source",
+  "type": "github_repository_analysis",
+  "purpose": "dataStoreResourceSchema、planDataStoreResourceChange、storeMap、applyDataStoreResourceChangeを読んだ実装観察。任意型versionのRawEquals比較、versionなしの入力比較、sensitive/replaceのplan時既知条件、sensitive変更時の出力移動、apply時configのinput取得を確認。native webの固定raw/commit取得はcache missだったため、同一公開raw.githubusercontent.com URLをread-only HTTP取得して確認。resource_data.go SHA-256 069bc2883b69435e72df77133f9af078704fbaa06eb589026cfc3b91b17b8b3c。Terraform実行・upstream test実行・moduleへのコード移植なし。"
+}

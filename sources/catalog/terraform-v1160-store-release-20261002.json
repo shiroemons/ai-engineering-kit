@@ -1,0 +1,12 @@
+{
+  "id": "terraform-v1160-store-release-20261002",
+  "url": "https://github.com/hashicorp/terraform/releases/tag/v1.16.0",
+  "repository_url": "https://github.com/hashicorp/terraform",
+  "commit_sha": "bfe8a941dc45f9f39227b2cd0adc21069ba99319",
+  "version": "Terraform v1.16.0; published 2026-08-26; release commit bfe8a941dc45f9f39227b2cd0adc21069ba99319",
+  "retrieved_at": "2026-10-02",
+  "license": "BUSL-1.1 (Terraform root LICENSE identifies Terraform Version 1.6.0 or later; source code SPDX BUSL-1.1)",
+  "trust": "official",
+  "type": "release_notes",
+  "purpose": "v1.16.0でterraform_data.storeが導入されたこととリリース日を確認。release linkのcommitを解決。ライセンスはv1.16.4固定commitのroot LICENSEと同系列ソースのSPDXで確認。release本文の転載なし。"
+}

@@ -1,0 +1,12 @@
+{
+  "id": "owasp-asvs-v5-tls-client-20261002",
+  "url": "https://raw.githubusercontent.com/OWASP/ASVS/5cf9b032440be53ce345ab3c130fda46ba1ce7a2/5.0/en/0x21-V12-Secure-Communication.md",
+  "repository_url": "https://github.com/OWASP/ASVS",
+  "commit_sha": "5cf9b032440be53ce345ab3c130fda46ba1ce7a2",
+  "version": "OWASP ASVS 5.0.0 v5.0.0_release (2025-05-30T09:35:31Z), V12 pinned to release commit",
+  "license": "CC-BY-SA-4.0; https://raw.githubusercontent.com/OWASP/ASVS/5cf9b032440be53ce345ab3c130fda46ba1ce7a2/LICENSE.md verified 2026-10-02",
+  "trust": "official",
+  "type": "official_docs",
+  "purpose": "v5.0.0-12.3.2 L2 の TLS client 証明書検証要件を確認。SSRF 接続先制御と TLS hostname/HTTP identity を併存させる設計提案の基礎。特定 transport の実装保証はしない",
+  "retrieved_at": "2026-10-02"
+}

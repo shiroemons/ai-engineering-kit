@@ -91,5 +91,14 @@
     {"name": "npm-stage-version-tag-immutability", "query": "stage-id semver immutable", "expected_ids": ["npm-trusted-publishing-stage-dist-tag-permissions"]},
     {"name": "npm-stage-public-placeholder", "query": "0.0.0-stage placeholder", "expected_ids": ["npm-trusted-publishing-stage-dist-tag-permissions"]},
     {"name": "npm-trusted-dist-tag-version", "query": "11.21.0 12.2.0 dist-tag", "expected_ids": ["npm-trusted-publishing-stage-dist-tag-permissions"]},
-    {"name": "npm-trusted-doc-conflict", "query": "2026-09-24 2026-09-30 短命", "expected_ids": ["npm-trusted-publishing-stage-dist-tag-permissions"]}
+    {"name": "npm-trusted-doc-conflict", "query": "2026-09-24 2026-09-30 短命", "expected_ids": ["npm-trusted-publishing-stage-dist-tag-permissions"]},
+    {"name": "ssrf-host-reconstruction", "query": "SSRF host-only path/query", "expected_ids": ["security-ssrf-fetch-dns-redirect-boundary"]},
+    {"name": "ssrf-parser-disagreement", "query": "SSRF parser disagreement", "expected_ids": ["security-ssrf-fetch-dns-redirect-boundary"]},
+    {"name": "ssrf-resolve-dial-toctou", "query": "DNS rebinding TOCTOU", "expected_ids": ["security-ssrf-fetch-dns-redirect-boundary"]},
+    {"name": "ssrf-all-addresses", "query": "SSRF A + AAAA mixed", "expected_ids": ["security-ssrf-fetch-dns-redirect-boundary"]},
+    {"name": "ssrf-tls-identity", "query": "SSRF SNI :authority", "expected_ids": ["security-ssrf-fetch-dns-redirect-boundary"]},
+    {"name": "ssrf-redirect-revalidation", "query": "SSRF Location 再審査", "expected_ids": ["security-ssrf-fetch-dns-redirect-boundary"]},
+    {"name": "ssrf-asvs-levels", "query": "v5.0.0-1.3.6 L2", "expected_ids": ["security-ssrf-fetch-dns-redirect-boundary"]},
+    {"name": "ssrf-recent-clarification", "query": "SSRF 2026-09-14 2026-09-29", "expected_ids": ["security-ssrf-fetch-dns-redirect-boundary"]},
+    {"name": "ssrf-proxy-resolution", "query": "SSRF proxy 最終宛先", "expected_ids": ["security-ssrf-fetch-dns-redirect-boundary"]}
   ]}
