@@ -1034,6 +1034,111 @@
       "expected_ids": [
         "mcp-sampling-deprecation-mrtr-consent-migration"
       ]
+    },
+    {
+      "name": "claude-eager-two-independent-options",
+      "query": "eager_input_streaming run_tools_eagerly",
+      "expected_ids": [
+        "agents-claude-eager-tool-streaming-approval-retry-boundary"
+      ]
+    },
+    {
+      "name": "claude-eager-legacy-header-false",
+      "query": "fine-grained-tool-streaming-2025-05-14 明示false",
+      "expected_ids": [
+        "agents-claude-eager-tool-streaming-approval-retry-boundary"
+      ]
+    },
+    {
+      "name": "claude-eager-user-defined-not-toolset",
+      "query": "user-defined toolset configs",
+      "expected_ids": [
+        "agents-claude-eager-tool-streaming-approval-retry-boundary"
+      ]
+    },
+    {
+      "name": "claude-eager-block-stop-not-trigger",
+      "query": "EagerToolCalls.track content_block_stop",
+      "expected_ids": [
+        "agents-claude-eager-tool-streaming-approval-retry-boundary"
+      ]
+    },
+    {
+      "name": "claude-eager-read-before-execution",
+      "query": "次イベント 例外 開始",
+      "expected_ids": [
+        "agents-claude-eager-tool-streaming-approval-retry-boundary"
+      ]
+    },
+    {
+      "name": "claude-eager-defer-loop-body",
+      "query": "defer_tool_call 外側 延期",
+      "expected_ids": [
+        "agents-claude-eager-tool-streaming-approval-retry-boundary"
+      ]
+    },
+    {
+      "name": "claude-eager-inner-break-not-rejection",
+      "query": "内側 break 拒否操作",
+      "expected_ids": [
+        "agents-claude-eager-tool-streaming-approval-retry-boundary"
+      ]
+    },
+    {
+      "name": "claude-eager-result-helper-runs-held",
+      "query": "generate_tool_call_response 保留call 実行",
+      "expected_ids": [
+        "agents-claude-eager-tool-streaming-approval-retry-boundary"
+      ]
+    },
+    {
+      "name": "claude-eager-max-tokens-explicit-generate",
+      "query": "deferred_tool_calls max_tokens stop_reason",
+      "expected_ids": [
+        "agents-claude-eager-tool-streaming-approval-retry-boundary"
+      ]
+    },
+    {
+      "name": "claude-eager-partial-snapshot-not-complete",
+      "query": "partial_mode snapshot 完全JSON",
+      "expected_ids": [
+        "agents-claude-eager-tool-streaming-approval-retry-boundary"
+      ]
+    },
+    {
+      "name": "claude-eager-not-persistent-dedup",
+      "query": "返信 exactly-once 永続",
+      "expected_ids": [
+        "agents-claude-eager-tool-streaming-approval-retry-boundary"
+      ]
+    },
+    {
+      "name": "claude-eager-helper-consumes",
+      "query": "text_stream get_final_message 承認",
+      "expected_ids": [
+        "agents-claude-eager-tool-streaming-approval-retry-boundary"
+      ]
+    },
+    {
+      "name": "claude-eager-serial-stream-waits",
+      "query": "async 並列実行器 読み進め",
+      "expected_ids": [
+        "agents-claude-eager-tool-streaming-approval-retry-boundary"
+      ]
+    },
+    {
+      "name": "claude-eager-fallback-not-rollback",
+      "query": "fallback 先行 rollback",
+      "expected_ids": [
+        "agents-claude-eager-tool-streaming-approval-retry-boundary"
+      ]
+    },
+    {
+      "name": "claude-eager-business-operation-ledger",
+      "query": "業務operation 結果配送状態",
+      "expected_ids": [
+        "agents-claude-eager-tool-streaming-approval-retry-boundary"
+      ]
     }
   ]
 }

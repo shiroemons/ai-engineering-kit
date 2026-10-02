@@ -1,0 +1,12 @@
+{
+  "id": "whatwg-html-popover-lifecycle-20261002",
+  "url": "https://html.spec.whatwg.org/multipage/popover.html",
+  "repository_url": "https://github.com/whatwg/html",
+  "commit_sha": "",
+  "version": "WHATWG HTML Living Standard, Last Updated 2 October 2026; popover algorithms",
+  "retrieved_at": "2026-10-02",
+  "license": "CC-BY-4.0; portions incorporated into source code: BSD-3-Clause (whatwg/html LICENSE at 0cd32204c6d9408be0a42cb15c86145e21deab9d)",
+  "trust": "official",
+  "type": "official_docs",
+  "purpose": "showPopover/hidePopover の通常の状態不一致は no-op、例外条件と再入制限、beforetoggle、toggle の集約、auto/hint の祖先関係と manual の責務を確認する。"
+}

@@ -1,0 +1,12 @@
+{
+  "id": "anthropic-python-eager-tools-release-1-9-0-20261002",
+  "url": "https://github.com/anthropics/anthropic-sdk-python/releases/tag/v1.9.0",
+  "repository_url": "https://github.com/anthropics/anthropic-sdk-python",
+  "commit_sha": "",
+  "version": "anthropic Python SDK v1.9.0; release notes dated 2026-09-28",
+  "retrieved_at": "2026-10-02",
+  "license": "unknown (release-page prose license not independently established; original summary only)",
+  "trust": "official",
+  "type": "release_notes",
+  "purpose": "2026-09-28公開v1.9.0で、返信stream中にtoolを実行するオプションが追加された事実を確認。機能の実行順序はrelease proseから推測せず、同版固定commitの実装・テストと照合。"
+}

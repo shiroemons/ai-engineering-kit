@@ -818,6 +818,19 @@
       "name": "http-dictionary-case-study-cohort",
       "query": "dictionary 23%",
       "expected_ids": ["http-compression-dictionary-negotiation-cache-boundary"]
-    }
+    },
+    {"name": "openapi-streaming-item-vs-whole", "query": "itemSchema content 全体", "expected_ids": ["api-design-openapi-streaming-sse-validation-boundary"]},
+    {"name": "openapi-streaming-320-not-patch", "query": "3.2.0 新機能 同一", "expected_ids": ["api-design-openapi-streaming-sse-validation-boundary"]},
+    {"name": "openapi-streaming-schema-placement", "query": "Media Type Object items 配置", "expected_ids": ["api-design-openapi-streaming-sse-validation-boundary"]},
+    {"name": "openapi-streaming-maxitems-boundary", "query": "itemSchema maxItems 接続全体", "expected_ids": ["api-design-openapi-streaming-sse-validation-boundary"]},
+    {"name": "openapi-sse-data-string", "query": "SSE data 文字列", "expected_ids": ["api-design-openapi-streaming-sse-validation-boundary"]},
+    {"name": "openapi-sse-multiline-dispatch", "query": "data LF 空行", "expected_ids": ["api-design-openapi-streaming-sse-validation-boundary"]},
+    {"name": "openapi-sse-retry-wire-ignore", "query": "retry ASCII digits 無視", "expected_ids": ["api-design-openapi-streaming-sse-validation-boundary"]},
+    {"name": "openapi-sse-content-opt-in", "query": "contentSchema opt-in annotation", "expected_ids": ["api-design-openapi-streaming-sse-validation-boundary"]},
+    {"name": "openapi-sse-inner-outer-result", "query": "外側 内包 別々", "expected_ids": ["api-design-openapi-streaming-sse-validation-boundary"]},
+    {"name": "openapi-sse-validation-stage", "query": "minimum integer parse", "expected_ids": ["api-design-openapi-streaming-sse-validation-boundary"]},
+    {"name": "openapi-schema-base-scope", "query": "schema-base Schema Object", "expected_ids": ["api-design-openapi-streaming-sse-validation-boundary"]},
+    {"name": "openapi-streaming-generated-buffer", "query": "generated SDK buffer", "expected_ids": ["api-design-openapi-streaming-sse-validation-boundary"]},
+    {"name": "openapi-sse-no-delivery-guarantee", "query": "exactly-once replay window", "expected_ids": ["api-design-openapi-streaming-sse-validation-boundary"]}
   ]
 }

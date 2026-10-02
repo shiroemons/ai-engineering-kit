@@ -766,6 +766,111 @@
       "expected_ids": [
         "css-scroll-marker-group-links-tabs-focus-boundary"
       ]
+    },
+    {
+      "name": "html-dialog-requestclose-public-value-cancel",
+      "query": "requestClose 公開 保留値",
+      "expected_ids": [
+        "html-dialog-showmodal-close-popover-distinction"
+      ]
+    },
+    {
+      "name": "html-dialog-close-preserves-stale-result",
+      "query": "再オープン 過去の承認 初期化",
+      "expected_ids": [
+        "html-dialog-showmodal-close-popover-distinction"
+      ]
+    },
+    {
+      "name": "html-dialog-closedby-none-programmatic-close",
+      "query": "closedby none プログラム",
+      "expected_ids": [
+        "html-dialog-showmodal-close-popover-distinction"
+      ]
+    },
+    {
+      "name": "html-dialog-close-event-queued",
+      "query": "close user interaction task",
+      "expected_ids": [
+        "html-dialog-showmodal-close-popover-distinction"
+      ]
+    },
+    {
+      "name": "html-popover-repeat-noop",
+      "query": "showPopover hidePopover no-op",
+      "expected_ids": [
+        "html-dialog-showmodal-close-popover-distinction"
+      ]
+    },
+    {
+      "name": "html-popover-attribute-vs-state-errors",
+      "query": "NotSupportedError InvalidStateError 属性なし",
+      "expected_ids": [
+        "html-dialog-showmodal-close-popover-distinction"
+      ]
+    },
+    {
+      "name": "html-popover-reentrancy-before-validity",
+      "query": "再入ガード 状態検査",
+      "expected_ids": [
+        "html-dialog-showmodal-close-popover-distinction"
+      ]
+    },
+    {
+      "name": "html-popover-cancel-opening-normal-return",
+      "query": "beforetoggle 正常 return",
+      "expected_ids": [
+        "html-dialog-showmodal-close-popover-distinction"
+      ]
+    },
+    {
+      "name": "html-popover-nested-auto-ancestor",
+      "query": "auto 有効な祖先",
+      "expected_ids": [
+        "html-dialog-showmodal-close-popover-distinction"
+      ]
+    },
+    {
+      "name": "html-popover-toggle-events-coalesced",
+      "query": "toggle イベント数 集約",
+      "expected_ids": [
+        "html-dialog-showmodal-close-popover-distinction"
+      ]
+    },
+    {
+      "name": "html-dialog-chrome154-standard-proposal-gap",
+      "query": "Chrome 154 unmerged",
+      "expected_ids": [
+        "html-dialog-showmodal-close-popover-distinction"
+      ]
+    },
+    {
+      "name": "html-dialog-light-dismiss-touch-drag",
+      "query": "touch scroll 右クリック drag",
+      "expected_ids": [
+        "html-dialog-showmodal-close-popover-distinction"
+      ]
+    },
+    {
+      "name": "html-dialog-example-no-stale-approval",
+      "query": "returnValue 今回は未承認",
+      "expected_ids": [
+        "html-dialog-showmodal-close-popover-distinction"
+      ]
+    },
+    {
+      "name": "html-dialog-canceled-pending-native-close",
+      "query": "内部保留値 native close request",
+      "expected_ids": [
+        "html-dialog-showmodal-close-popover-distinction"
+      ]
+    },
+    {
+      "name": "html-dialog-approval-explicit-independent-guard",
+      "query": "承認導線 独立 業務ガード",
+      "expected_ids": [
+        "html-dialog-showmodal-close-popover-distinction"
+      ]
     }
   ]
 }

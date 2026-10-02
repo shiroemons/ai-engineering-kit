@@ -1,0 +1,12 @@
+{
+  "id": "claude-tool-reference-streaming-scope-20261002",
+  "url": "https://platform.claude.com/docs/en/agents-and-tools/tool-use/tool-reference",
+  "repository_url": "",
+  "commit_sha": "",
+  "version": "Unversioned tool reference retrieved 2026-10-02 UTC; computer_toolset_20260801 and browser_toolset_20260801",
+  "retrieved_at": "2026-10-02",
+  "license": "unknown (website documentation license not established; original attributed summary, no copied examples)",
+  "trust": "official",
+  "type": "official_docs",
+  "purpose": "eager_input_streamingの適用先がuser-defined toolsであること、dated client toolsetとlegacy fine-grained headerの併用拒否、member inputが一つの完全なinput_json_deltaで届く記述を確認。"
+}
