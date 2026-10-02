@@ -1,0 +1,12 @@
+{
+  "id": "rabbitmq-tx-semantics-4-3-20261002",
+  "url": "https://www.rabbitmq.com/docs/semantics",
+  "repository_url": "",
+  "commit_sha": "",
+  "version": "RabbitMQ documentation displayed 4.3; retrieved 2026-10-02 UTC",
+  "retrieved_at": "2026-10-02",
+  "license": "unknown",
+  "trust": "official",
+  "type": "official_docs",
+  "purpose": "AMQP 0-9-1 txの対象、rollbackと再配送の違い、単一queueでも障害時atomicityを保証しないこと、commit-okの意味を確認。独自要約のみ。"
+}

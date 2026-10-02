@@ -1,0 +1,12 @@
+{
+  "id": "rabbitmq-tx-schema-7a34a0ca-20261002",
+  "url": "https://github.com/rabbitmq/rabbitmq-server/blob/7a34a0caf4fa5cf4009cb934ea7a94dbe7e08095/deps/rabbit/priv/schema/rabbit.schema",
+  "repository_url": "https://github.com/rabbitmq/rabbitmq-server",
+  "commit_sha": "7a34a0caf4fa5cf4009cb934ea7a94dbe7e08095",
+  "version": "RabbitMQ v4.3.6 @ 7a34a0caf4fa5cf4009cb934ea7a94dbe7e08095",
+  "retrieved_at": "2026-10-02",
+  "license": "MPL-2.0",
+  "trust": "official",
+  "type": "github_repository_analysis",
+  "purpose": "channel_tx_message_maxの設定型と正の整数/infinityの受理条件を固定版で確認。root LICENSEによるRabbitMQ coreのMPL-2.0識別、コード転載なし。"
+}

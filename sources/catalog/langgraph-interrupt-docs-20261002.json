@@ -1,0 +1,12 @@
+{
+  "id": "langgraph-interrupt-docs-20261002",
+  "url": "https://docs.langchain.com/oss/python/langgraph/interrupts",
+  "repository_url": "https://github.com/langchain-ai/docs",
+  "commit_sha": "",
+  "version": "Unversioned Python LangGraph Interrupts documentation; response_schema requires langgraph>=1.2.12; checked 2026-10-02 UTC",
+  "retrieved_at": "2026-10-02",
+  "license": "unknown for rendered website; original attributed summary only, no text or code copied",
+  "trust": "official",
+  "type": "official_docs",
+  "purpose": "Native webでresponse_schemaの型別契約、同一thread_idでのValidationError後の訂正、node先頭からの再実行、複数interruptの順序を確認。ページ固有の公開日表示なし。"
+}

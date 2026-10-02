@@ -1,0 +1,12 @@
+{
+  "id": "react-193-transition-scheduler-source-2026-10-02",
+  "url": "https://github.com/react/react/tree/1d34f91dfde6bba84d08b683aaba164c7194dacb",
+  "repository_url": "https://github.com/react/react",
+  "commit_sha": "1d34f91dfde6bba84d08b683aaba164c7194dacb",
+  "version": "React v19.3.0 tag; commit 1d34f91dfde6bba84d08b683aaba164c7194dacb (2026-09-09T13:21:53Z)",
+  "retrieved_at": "2026-10-02",
+  "license": "MIT (https://github.com/react/react/blob/1d34f91dfde6bba84d08b683aaba164c7194dacb/LICENSE and analyzed file headers verified 2026-10-02 UTC; no copied code)",
+  "trust": "official",
+  "type": "github_repository_analysis",
+  "purpose": "ReactFeatureFlags、ReactFiberLane、ReactFiberRootScheduler、ReactFiberAsyncAction、ReactFiberHooks を固定commitで解析。parallel selectionと、同一event・同一queue・async Actionで残るentanglementを区別。"
+}

@@ -1,0 +1,12 @@
+{
+  "id": "rabbitmq-release-dates-4-3-6-20261002",
+  "url": "https://www.rabbitmq.com/release-information",
+  "repository_url": "",
+  "commit_sha": "",
+  "version": "RabbitMQ Release Information snapshot retrieved 2026-10-02; 4.3.6 listed 2026-09-16",
+  "retrieved_at": "2026-10-02",
+  "license": "unknown",
+  "trust": "official",
+  "type": "official_docs",
+  "purpose": "公式release一覧の4.3.6日付とGitHub release公開日時の相違を記録するため参照。日付差の理由は未確認、独自要約のみ。"
+}

@@ -1,0 +1,12 @@
+{
+  "id": "langgraph-interrupt-release-1-2-12-20261002",
+  "url": "https://github.com/langchain-ai/langgraph/releases/tag/1.2.12",
+  "repository_url": "https://github.com/langchain-ai/langgraph",
+  "commit_sha": "49cce0ca852be4cfb567a1cbe0e511ff325a1682",
+  "version": "langgraph 1.2.12; published 2026-09-21T14:43:40Z",
+  "retrieved_at": "2026-10-02",
+  "license": "unknown for release-note prose; repository MIT confirmed separately; no text or code copied",
+  "trust": "official",
+  "type": "release_notes",
+  "purpose": "Native webで1.2.12 release notesのresponse_schema追加と1.2.11からの変更を確認。GitHub releases APIをcurlで取得しpublished_at=2026-09-21T14:43:40Zとtarget_commitishを照合。取得日2026-10-02 UTC。"
+}

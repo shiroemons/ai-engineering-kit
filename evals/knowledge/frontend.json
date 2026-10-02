@@ -535,6 +535,62 @@
       "expected_ids": [
         "typescript-module-resolution-bundler-vs-nodenext"
       ]
+    },
+    {
+      "name": "react193-parallel-transitions-release-boundary",
+      "query": "19.3 独立 render",
+      "expected_ids": [
+        "react-automatic-batching-transitions"
+      ]
+    },
+    {
+      "name": "react193-reference-batching-discrepancy",
+      "query": "reference 一律 batching",
+      "expected_ids": [
+        "react-automatic-batching-transitions"
+      ]
+    },
+    {
+      "name": "react193-parallel-lane-selection",
+      "query": "enableParallelTransitions getHighestPriorityLane",
+      "expected_ids": [
+        "react-automatic-batching-transitions"
+      ]
+    },
+    {
+      "name": "react193-same-event-lane-boundary",
+      "query": "requestTransitionLane 同一 event",
+      "expected_ids": [
+        "react-automatic-batching-transitions"
+      ]
+    },
+    {
+      "name": "react193-same-queue-entanglement",
+      "query": "entangleTransitionUpdate update queue",
+      "expected_ids": [
+        "react-automatic-batching-transitions"
+      ]
+    },
+    {
+      "name": "react193-async-action-entanglement",
+      "query": "ReactFiberAsyncAction AsyncContext",
+      "expected_ids": [
+        "react-automatic-batching-transitions"
+      ]
+    },
+    {
+      "name": "react193-async-ordering-separate-from-render",
+      "query": "async Action out-of-order",
+      "expected_ids": [
+        "react-automatic-batching-transitions"
+      ]
+    },
+    {
+      "name": "react193-transition-error-paths",
+      "query": "Error Boundary reportError",
+      "expected_ids": [
+        "react-automatic-batching-transitions"
+      ]
     }
   ]
 }
