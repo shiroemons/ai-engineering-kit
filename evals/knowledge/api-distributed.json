@@ -778,6 +778,46 @@
       "expected_ids": [
         "messaging-rabbitmq-transaction-publish-cap-commit-boundary"
       ]
+    },
+    {
+      "name": "http-dictionary-negotiation",
+      "query": "Available-Dictionary dcb",
+      "expected_ids": ["http-compression-dictionary-negotiation-cache-boundary"]
+    },
+    {
+      "name": "http-dictionary-hash-not-id",
+      "query": "Dictionary-ID hash",
+      "expected_ids": ["http-compression-dictionary-negotiation-cache-boundary"]
+    },
+    {
+      "name": "http-dictionary-vary-isolation",
+      "query": "dictionary Vary",
+      "expected_ids": ["http-compression-dictionary-negotiation-cache-boundary"]
+    },
+    {
+      "name": "http-dictionary-old-token-migration",
+      "query": "br-d zstd-d",
+      "expected_ids": ["http-compression-dictionary-negotiation-cache-boundary"]
+    },
+    {
+      "name": "http-dictionary-origin-readability",
+      "query": "dictionary CORS",
+      "expected_ids": ["http-compression-dictionary-negotiation-cache-boundary"]
+    },
+    {
+      "name": "http-dictionary-privacy-clearing",
+      "query": "dictionary cookie",
+      "expected_ids": ["http-compression-dictionary-negotiation-cache-boundary"]
+    },
+    {
+      "name": "http-dictionary-fallback-unknown-hash",
+      "query": "fallback 未知",
+      "expected_ids": ["http-compression-dictionary-negotiation-cache-boundary"]
+    },
+    {
+      "name": "http-dictionary-case-study-cohort",
+      "query": "dictionary 23%",
+      "expected_ids": ["http-compression-dictionary-negotiation-cache-boundary"]
     }
   ]
 }

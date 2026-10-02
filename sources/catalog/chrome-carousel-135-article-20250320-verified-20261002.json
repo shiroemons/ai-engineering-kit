@@ -1,0 +1,12 @@
+{
+  "id": "chrome-carousel-135-article-20250320-verified-20261002",
+  "url": "https://developer.chrome.com/blog/carousels-with-css",
+  "version": "Carousels with CSS by Adam Argyle; published and last updated 2025-03-20; Chrome 135-era article",
+  "license": "CC-BY-4.0 prose; Apache-2.0 code samples; page footer https://developer.chrome.com/blog/carousels-with-css",
+  "trust": "maintainer",
+  "type": "maintainer_article",
+  "purpose": "Historical migration evidence: bare before/after examples accompany focusgroup/tablist descriptions. This is not evidence that omitted mode remains tabs in Chrome 154, nor a measured accessibility or performance guarantee. Original summary; examples and images not copied.",
+  "repository_url": "",
+  "commit_sha": "",
+  "retrieved_at": "2026-10-02"
+}

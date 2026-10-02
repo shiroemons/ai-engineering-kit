@@ -1,0 +1,12 @@
+{
+  "id": "mdn-scroll-marker-group-reference-20261002",
+  "url": "https://developer.mozilla.org/en-US/docs/Web/CSS/Reference/Properties/scroll-marker-group",
+  "version": "MDN scroll-marker-group reference; last modified 2026-07-26; retrieved 2026-10-02",
+  "license": "CC-BY-SA-2.5-or-later documentation by Mozilla Contributors; https://developer.mozilla.org/en-US/docs/MDN/Writing_guidelines/Attrib_copyright_license",
+  "trust": "official",
+  "type": "official_docs",
+  "purpose": "Observed limited-availability/experimental status, distinction from scroll-target-group for existing anchors, and an internal documentation gap: formal syntax includes links/tabs while prose values discuss only before/after/none. Complete browser compatibility data did not appear in the retrieved text. Original summary; no examples copied.",
+  "repository_url": "",
+  "commit_sha": "",
+  "retrieved_at": "2026-10-02"
+}

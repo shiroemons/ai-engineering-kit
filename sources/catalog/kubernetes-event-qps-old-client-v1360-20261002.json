@@ -1,0 +1,12 @@
+{
+  "id": "kubernetes-event-qps-old-client-v1360-20261002",
+  "url": "https://github.com/kubernetes/kubernetes/blob/ecf6decece6a6de25a57aad9ba90b6ce580f6f78/cmd/kubelet/app/server.go",
+  "repository_url": "https://github.com/kubernetes/kubernetes",
+  "commit_sha": "ecf6decece6a6de25a57aad9ba90b6ce580f6f78",
+  "version": "Kubernetes v1.36.0; official tag dated 2026-04-22; fixed release commit ecf6decece6a6de25a57aad9ba90b6ce580f6f78",
+  "retrieved_at": "2026-10-02",
+  "license": "Apache-2.0 (LICENSE and reviewed Go file headers checked); analysis only, no copied code",
+  "trust": "official",
+  "type": "github_repository_analysis",
+  "purpose": "server.goのevent専用client生成、pkg/kubelet/apis/config/v1beta1/defaults.goのnilだけに50を補う処理、client-go/kubernetes/clientset.goのshallow copyとtyped/core/v1/core_client.goのREST client生成経路を確認。実行未検証"
+}

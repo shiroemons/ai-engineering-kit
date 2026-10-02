@@ -1,0 +1,12 @@
+{
+  "id": "chrome154-scroll-marker-modes-release-20261002",
+  "url": "https://developer.chrome.com/release-notes/154",
+  "version": "Chrome 154 stable release 2026-09-22; page last updated 2026-09-22",
+  "license": "CC-BY-4.0 prose; Apache-2.0 code samples; page footer https://developer.chrome.com/release-notes/154",
+  "trust": "official",
+  "type": "release_notes",
+  "purpose": "Confirms Chrome 154 shipment of scroll-marker-group links/tabs modes, their roles, tab stops and inactive accessibility-tree content. Release prose summarizes links activation as moving focus to the target; the document preserves the more precise Editor Draft focus-starting-point boundary. No source code copied.",
+  "repository_url": "",
+  "commit_sha": "",
+  "retrieved_at": "2026-10-02"
+}

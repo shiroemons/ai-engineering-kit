@@ -1,0 +1,12 @@
+{
+  "id": "kubernetes-event-qps-rest-default-v1360-20261002",
+  "url": "https://github.com/kubernetes/kubernetes/blob/ecf6decece6a6de25a57aad9ba90b6ce580f6f78/staging/src/k8s.io/client-go/rest/config.go",
+  "repository_url": "https://github.com/kubernetes/kubernetes",
+  "commit_sha": "ecf6decece6a6de25a57aad9ba90b6ce580f6f78",
+  "version": "Kubernetes v1.36.0 bundled client-go; fixed release commit ecf6decece6a6de25a57aad9ba90b6ce580f6f78",
+  "retrieved_at": "2026-10-02",
+  "license": "Apache-2.0 (LICENSE and file header checked); analysis only, no copied code",
+  "trust": "official",
+  "type": "github_repository_analysis",
+  "purpose": "DefaultQPS=5とRESTClientForConfigAndClientでRateLimiter未指定かつQPS=0のときfallbackする処理、positive QPSでtoken bucketを作る分岐を確認"
+}

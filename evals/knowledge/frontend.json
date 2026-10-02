@@ -703,6 +703,69 @@
       "expected_ids": [
         "javascript-fetch-abort-cancellation"
       ]
+    },
+    {
+      "name": "css-marker-chrome154-links-default",
+      "query": "scroll-marker-group Chrome 154 links",
+      "expected_ids": [
+        "css-scroll-marker-group-links-tabs-focus-boundary"
+      ]
+    },
+    {
+      "name": "css-marker-tabs-inactive-accessibility",
+      "query": "scroll-marker tabs accessibility tree",
+      "expected_ids": [
+        "css-scroll-marker-group-links-tabs-focus-boundary"
+      ]
+    },
+    {
+      "name": "css-marker-links-focus-starting-point",
+      "query": "scroll-marker sequential focus navigation starting point",
+      "expected_ids": [
+        "css-scroll-marker-group-links-tabs-focus-boundary"
+      ]
+    },
+    {
+      "name": "css-marker-activeelement-pseudo-focus",
+      "query": "scroll-marker activeElement focus-visible",
+      "expected_ids": [
+        "css-scroll-marker-group-links-tabs-focus-boundary"
+      ]
+    },
+    {
+      "name": "css-marker-published-editor-version-gap",
+      "query": "scroll-marker-group 2024-12-17 Editor",
+      "expected_ids": [
+        "css-scroll-marker-group-links-tabs-focus-boundary"
+      ]
+    },
+    {
+      "name": "css-marker-chrome135-migration",
+      "query": "scroll-marker-group 135 tablist migration",
+      "expected_ids": [
+        "css-scroll-marker-group-links-tabs-focus-boundary"
+      ]
+    },
+    {
+      "name": "css-marker-mode-specific-fallback",
+      "query": "scroll-marker-group @supports fallback",
+      "expected_ids": [
+        "css-scroll-marker-group-links-tabs-focus-boundary"
+      ]
+    },
+    {
+      "name": "css-marker-tabs-visible-cards",
+      "query": "scroll-marker tabs 複数カード",
+      "expected_ids": [
+        "css-scroll-marker-group-links-tabs-focus-boundary"
+      ]
+    },
+    {
+      "name": "css-marker-existing-anchor-distinction",
+      "query": "scroll-target-group existing anchors",
+      "expected_ids": [
+        "css-scroll-marker-group-links-tabs-focus-boundary"
+      ]
     }
   ]
 }

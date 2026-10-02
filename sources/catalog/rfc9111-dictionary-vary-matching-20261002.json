@@ -1,0 +1,12 @@
+{
+  "id": "rfc9111-dictionary-vary-matching-20261002",
+  "url": "https://www.rfc-editor.org/rfc/rfc9111.html",
+  "version": "RFC 9111 / STD 98, June 2022, §4.1",
+  "license": "IETF Trust Legal Provisions; extracted code components under Revised BSD License per Copyright Notice",
+  "trust": "official",
+  "type": "official_docs",
+  "purpose": "辞書違い・辞書なしの表現を区別する根拠として§4.1のVary照合と欠落headerの一致条件を確認。著作権表示を確認し独自要約のみ。",
+  "repository_url": "",
+  "commit_sha": "",
+  "retrieved_at": "2026-10-02"
+}
