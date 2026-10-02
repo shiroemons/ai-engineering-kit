@@ -1,0 +1,12 @@
+{
+  "id": "python-lazy-sys-315rc2-20261002",
+  "url": "https://docs.python.org/3.15/library/sys.html",
+  "repository_url": "",
+  "commit_sha": "",
+  "version": "Python 3.15.0rc2 documentation; rolling /3.15 page as retrieved",
+  "retrieved_at": "2026-10-02",
+  "license": "PSF-2.0; documentation examples, recipes and code additionally 0BSD (https://docs.python.org/3.15/license.html)",
+  "trust": "official",
+  "type": "official_docs",
+  "purpose": "normal/allの2モード、libraryからのglobal policy変更非推奨、filterの引数とFalseによるeager指定を確認。"
+}

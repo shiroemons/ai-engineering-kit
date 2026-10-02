@@ -1,0 +1,12 @@
+{
+  "id": "chrome154-iterator-includes-release-20261002",
+  "url": "https://developer.chrome.com/release-notes/154",
+  "repository_url": "",
+  "commit_sha": "",
+  "version": "Chrome 154 stable release 2026-09-22; release notes updated 2026-09-22 UTC",
+  "license": "CC-BY-4.0 (text); Apache-2.0 (code samples); page footer verified; no copied code",
+  "trust": "official",
+  "type": "release_notes",
+  "purpose": "Chrome 154 における Iterator.prototype.includes の出荷を確認。仕様の完成や他エンジン対応の根拠にはしない。",
+  "retrieved_at": "2026-10-02"
+}

@@ -591,6 +591,62 @@
       "expected_ids": [
         "react-automatic-batching-transitions"
       ]
+    },
+    {
+      "name": "javascript-iterator-includes-chrome154-stage3",
+      "query": "Iterator.prototype.includes Chrome 154 Stage 3",
+      "expected_ids": [
+        "javascript-iterator-includes-consumption-close-boundary"
+      ]
+    },
+    {
+      "name": "javascript-iterator-includes-skipped-elements",
+      "query": "skippedElements fromIndex 型変換",
+      "expected_ids": [
+        "javascript-iterator-includes-consumption-close-boundary"
+      ]
+    },
+    {
+      "name": "javascript-iterator-includes-upper-bound",
+      "query": "skippedElements MAX_SAFE_INTEGER RangeError",
+      "expected_ids": [
+        "javascript-iterator-includes-consumption-close-boundary"
+      ]
+    },
+    {
+      "name": "javascript-iterator-includes-infinity-consumption",
+      "query": "includes Infinity 全消費",
+      "expected_ids": [
+        "javascript-iterator-includes-consumption-close-boundary"
+      ]
+    },
+    {
+      "name": "javascript-iterator-includes-samevaluezero",
+      "query": "includes SameValueZero NaN",
+      "expected_ids": [
+        "javascript-iterator-includes-consumption-close-boundary"
+      ]
+    },
+    {
+      "name": "javascript-iterator-includes-close-error-priority",
+      "query": "IteratorClose NormalCompletion cleanup",
+      "expected_ids": [
+        "javascript-iterator-includes-consumption-close-boundary"
+      ]
+    },
+    {
+      "name": "javascript-iterator-includes-next-failure",
+      "query": "includes next throw close",
+      "expected_ids": [
+        "javascript-iterator-includes-consumption-close-boundary"
+      ]
+    },
+    {
+      "name": "javascript-iterator-includes-prototype-discrepancy",
+      "query": "spec.emu src/index.ts 不一致",
+      "expected_ids": [
+        "javascript-iterator-includes-consumption-close-boundary"
+      ]
     }
   ]
 }

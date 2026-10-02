@@ -1,0 +1,12 @@
+{
+  "id": "tc39-iterator-includes-draft-20261002",
+  "url": "https://tc39.es/proposal-iterator-includes/",
+  "repository_url": "https://github.com/tc39/proposal-iterator-includes",
+  "commit_sha": "",
+  "version": "Stage 3 Draft / August 8, 2026; rendered specification retrieved 2026-10-02 UTC",
+  "license": "unknown",
+  "trust": "official",
+  "type": "official_docs",
+  "purpose": "searchElement / skippedElements、厳格な数値検証、SameValueZero、消費と IteratorClose の提案契約。公開ページにlicense表示なし。独自要約のみ。",
+  "retrieved_at": "2026-10-02"
+}

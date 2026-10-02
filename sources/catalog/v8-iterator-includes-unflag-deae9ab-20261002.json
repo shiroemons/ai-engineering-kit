@@ -1,0 +1,12 @@
+{
+  "id": "v8-iterator-includes-unflag-deae9ab-20261002",
+  "url": "https://github.com/v8/v8/tree/deae9ab1cc95243bbc82663d2588caedd587a032",
+  "repository_url": "https://github.com/v8/v8",
+  "commit_sha": "deae9ab1cc95243bbc82663d2588caedd587a032",
+  "version": "V8 shipping/unflag snapshot deae9ab1cc95243bbc82663d2588caedd587a032 (commit 2026-08-25 UTC); not a Chrome patch-binary pin",
+  "license": "BSD-3-Clause; root LICENSE and src/builtins/iterator-helpers.tq, iterator.tq, test/mjsunit/harmony/iterator-includes.js headers verified at pinned SHA",
+  "trust": "primary-source",
+  "type": "github_repository_analysis",
+  "purpose": "IteratorPrototypeIncludes の型・上限検証、IteratorClose/IteratorCloseOnException の区別、next失敗テストとunflag差分を確認。Chrome出荷版は別のrelease notesに依拠し、このSHAをChrome154の全patchと同一視しない。",
+  "retrieved_at": "2026-10-02"
+}

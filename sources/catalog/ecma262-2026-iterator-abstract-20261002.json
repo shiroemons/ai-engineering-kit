@@ -1,0 +1,12 @@
+{
+  "id": "ecma262-2026-iterator-abstract-20261002",
+  "url": "https://tc39.es/ecma262/2026/multipage/abstract-operations.html",
+  "repository_url": "https://github.com/tc39/ecma262",
+  "commit_sha": "",
+  "version": "ECMAScript 2026 edition, sections 7.2.10-11 and 7.4.2/7.4.10-11; retrieved 2026-10-02 UTC",
+  "license": "Ecma alternative copyright notice and copyright license (text); BSD-3-Clause (software); 2026 edition copyright-and-software-license.html verified; original summary only",
+  "trust": "official",
+  "type": "official_docs",
+  "purpose": "SameValueZero、GetIteratorDirect、IteratorStepValue、IteratorCloseのreturn取得・呼出し・エラー優先順位を確認。includes自体の標準化完了を示す資料ではない。",
+  "retrieved_at": "2026-10-02"
+}

@@ -751,6 +751,76 @@
       "expected_ids": [
         "terraform-data-store-ephemeral-persistence"
       ]
+    },
+    {
+      "name": "kubernetes-nftables-localhost-alpha-opt-in",
+      "query": "KubeProxyNFTablesLocalhostNodePorts Alpha false",
+      "expected_ids": [
+        "kubernetes-nftables-localhost-nodeport-migration"
+      ]
+    },
+    {
+      "name": "kubernetes-nftables-localhost-all-not-explicit",
+      "query": "nftables all 明示的loopback",
+      "expected_ids": [
+        "kubernetes-nftables-localhost-nodeport-migration"
+      ]
+    },
+    {
+      "name": "kubernetes-nftables-localhost-family-listener",
+      "query": "nftables 127.0.0.1 ::1 family",
+      "expected_ids": [
+        "kubernetes-nftables-localhost-nodeport-migration"
+      ]
+    },
+    {
+      "name": "kubernetes-nftables-localhost-config-overrides-flag",
+      "query": "nodePortAddresses --config 無視",
+      "expected_ids": [
+        "kubernetes-nftables-localhost-nodeport-migration"
+      ]
+    },
+    {
+      "name": "kubernetes-nftables-localhost-protocol-rejection",
+      "query": "nftables UDP SCTP reject",
+      "expected_ids": [
+        "kubernetes-nftables-localhost-nodeport-migration"
+      ]
+    },
+    {
+      "name": "kubernetes-nftables-localhost-local-endpoints",
+      "query": "localhost externalTrafficPolicy fallback",
+      "expected_ids": [
+        "kubernetes-nftables-localhost-nodeport-migration"
+      ]
+    },
+    {
+      "name": "kubernetes-nftables-localhost-affinity-sliding",
+      "query": "localhost ClientIP sliding",
+      "expected_ids": [
+        "kubernetes-nftables-localhost-nodeport-migration"
+      ]
+    },
+    {
+      "name": "kubernetes-nftables-localhost-observation",
+      "query": "nftables_localhost_nodeport_listeners backend",
+      "expected_ids": [
+        "kubernetes-nftables-localhost-nodeport-migration"
+      ]
+    },
+    {
+      "name": "kubernetes-nftables-localhost-rollback-syntax",
+      "query": "localhost v1.36 validator",
+      "expected_ids": [
+        "kubernetes-nftables-localhost-nodeport-migration"
+      ]
+    },
+    {
+      "name": "kubernetes-nftables-localhost-inflight-rollback",
+      "query": "nftables rollback in-flight",
+      "expected_ids": [
+        "kubernetes-nftables-localhost-nodeport-migration"
+      ]
     }
   ]
 }

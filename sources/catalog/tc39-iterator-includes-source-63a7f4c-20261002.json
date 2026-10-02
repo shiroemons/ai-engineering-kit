@@ -1,0 +1,12 @@
+{
+  "id": "tc39-iterator-includes-source-63a7f4c-20261002",
+  "url": "https://github.com/tc39/proposal-iterator-includes/tree/63a7f4c95d84240f57a5cf79beca0eb2cd8911f3",
+  "repository_url": "https://github.com/tc39/proposal-iterator-includes",
+  "commit_sha": "63a7f4c95d84240f57a5cf79beca0eb2cd8911f3",
+  "version": "Stage 3 proposal snapshot 63a7f4c95d84240f57a5cf79beca0eb2cd8911f3 (commit 2026-08-08 UTC)",
+  "license": "unknown",
+  "trust": "primary-source",
+  "type": "github_repository_analysis",
+  "purpose": "spec.emu と src/index.ts・test/index.mjs の成功時 close 例外に関する不一致を固定SHAで分析。package.jsonにlicense欄なし、LICENSE取得404、spec.emuのcopyright:falseは許諾と解釈しない。コードの複製・実行・module昇格なし。",
+  "retrieved_at": "2026-10-02"
+}

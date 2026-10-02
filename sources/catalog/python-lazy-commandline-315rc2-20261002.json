@@ -1,0 +1,12 @@
+{
+  "id": "python-lazy-commandline-315rc2-20261002",
+  "url": "https://docs.python.org/3.15/using/cmdline.html",
+  "repository_url": "",
+  "commit_sha": "",
+  "version": "Python 3.15.0rc2 documentation; last updated 2026-10-01 17:02 UTC",
+  "retrieved_at": "2026-10-02",
+  "license": "PSF-2.0; documentation examples, recipes and code additionally 0BSD (https://docs.python.org/3.15/license.html)",
+  "trust": "official",
+  "type": "official_docs",
+  "purpose": "-X lazy_importsとPYTHON_LAZY_IMPORTSのnormal/all指定を確認。PEPに残るnoneを実装済み設定として配布しない境界。"
+}
