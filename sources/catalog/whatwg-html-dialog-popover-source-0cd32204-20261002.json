@@ -1,0 +1,12 @@
+{
+  "id": "whatwg-html-dialog-popover-source-0cd32204-20261002",
+  "url": "https://github.com/whatwg/html/tree/0cd32204c6d9408be0a42cb15c86145e21deab9d",
+  "repository_url": "https://github.com/whatwg/html",
+  "commit_sha": "0cd32204c6d9408be0a42cb15c86145e21deab9d",
+  "version": "WHATWG HTML source commit 0cd32204c6d9408be0a42cb15c86145e21deab9d (2026-10-02T15:54:17Z)",
+  "retrieved_at": "2026-10-02",
+  "license": "CC-BY-4.0; portions incorporated into source code: BSD-3-Clause; LICENSE verified at this commit",
+  "trust": "primary-source",
+  "type": "github_repository_analysis",
+  "purpose": "source の dialog-request-close、close watcher の取消分岐と内部保留値の持ち越し、close the dialog、check popover validity、show/hide popover、light dismiss の分岐を固定する。raw source の Git blob SHA 05319af4659e15aafb3f5137362b7d9561db8812 を照合。独自例のみで仕様コードの転載なし。"
+}

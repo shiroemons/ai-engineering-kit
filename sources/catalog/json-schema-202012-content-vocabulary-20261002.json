@@ -1,0 +1,12 @@
+{
+  "id": "json-schema-202012-content-vocabulary-20261002",
+  "url": "https://json-schema.org/draft/2020-12/json-schema-validation",
+  "repository_url": "",
+  "commit_sha": "",
+  "version": "JSON Schema Draft 2020-12 Validation; draft-bhutton-json-schema-validation-01, published 2022-06-16",
+  "retrieved_at": "2026-10-02",
+  "license": "IETF Trust Legal Provisions / BCP 78; code components Revised BSD per document notice; no source code copied",
+  "trust": "official",
+  "type": "official_docs",
+  "purpose": "sections 8.1–8.5: content vocabulary は annotation で、内包文字列の decode/parse/validate は既定で禁止、opt-in 時も外側とは別の結果を返すこと、contentMediaType と contentSchema の条件を確認。"
+}

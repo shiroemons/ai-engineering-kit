@@ -1,0 +1,12 @@
+{
+  "id": "claude-fine-grained-input-streaming-20261002",
+  "url": "https://platform.claude.com/docs/en/agents-and-tools/tool-use/fine-grained-tool-streaming",
+  "repository_url": "",
+  "commit_sha": "",
+  "version": "Unversioned Messages API guide retrieved 2026-10-02 UTC; eager_input_streaming and legacy fine-grained-tool-streaming-2025-05-14 header",
+  "retrieved_at": "2026-10-02",
+  "license": "unknown (website documentation license not established; original attributed summary, no copied examples)",
+  "trust": "official",
+  "type": "official_docs",
+  "purpose": "user-defined toolごとのeager_input_streaming、旧headerと明示falseの優先順位、対応platformについての文書上の記載、input placeholderとpartial_jsonの蓄積、invalid JSON/max_tokensの境界を確認。各platformでの動作試験は未実施。"
+}

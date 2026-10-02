@@ -1,0 +1,12 @@
+{
+  "id": "openapi-schema-iterations-20261002",
+  "url": "https://spec.openapis.org/oas/",
+  "repository_url": "",
+  "commit_sha": "",
+  "version": "OpenAPI publication index checked 2026-10-02; 3.2 schema/schema-base iteration 2026-08-30",
+  "retrieved_at": "2026-10-02",
+  "license": "Apache-2.0 (OpenAPI Initiative publication index footer)",
+  "trust": "official",
+  "type": "official_docs",
+  "purpose": "minor ごとに schema iteration があり patch 公開日と別であること、schema と schema-base の Schema Object 検証範囲の違い、規範本文優先を確認。"
+}

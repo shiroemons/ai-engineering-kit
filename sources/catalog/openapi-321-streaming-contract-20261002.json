@@ -1,0 +1,12 @@
+{
+  "id": "openapi-321-streaming-contract-20261002",
+  "url": "https://spec.openapis.org/oas/v3.2.1.html",
+  "repository_url": "",
+  "commit_sha": "",
+  "version": "OpenAPI Specification 3.2.1, published 2026-09-10",
+  "retrieved_at": "2026-10-02",
+  "license": "Apache-2.0 (specification section 1.1)",
+  "trust": "official",
+  "type": "official_docs",
+  "purpose": "3.2.1 の Media Type Object、schema/itemSchema、SSE mapping、multipart の位置対応、規範本文の優先を確認。公式 HTML を 3.2.0 と節単位で比較した。"
+}

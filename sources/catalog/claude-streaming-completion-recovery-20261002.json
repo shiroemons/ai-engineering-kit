@@ -1,0 +1,12 @@
+{
+  "id": "claude-streaming-completion-recovery-20261002",
+  "url": "https://platform.claude.com/docs/en/build-with-claude/streaming",
+  "repository_url": "",
+  "commit_sha": "",
+  "version": "Unversioned Messages API SSE event/recovery guide retrieved 2026-10-02 UTC",
+  "retrieved_at": "2026-10-02",
+  "license": "unknown (website documentation license not established; original attributed summary, no copied examples)",
+  "trust": "official",
+  "type": "official_docs",
+  "purpose": "content blockのindex、block完了とmessage_stopの区別、stream内error、tool-use/thinking blockを部分回復できない制約を確認。SSE受信成功をtool実行許可・外部commitとして扱わない設計の根拠。"
+}

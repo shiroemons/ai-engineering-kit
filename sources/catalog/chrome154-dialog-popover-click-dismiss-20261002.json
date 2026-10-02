@@ -1,0 +1,12 @@
+{
+  "id": "chrome154-dialog-popover-click-dismiss-20261002",
+  "url": "https://developer.chrome.com/release-notes/154",
+  "repository_url": "",
+  "commit_sha": "",
+  "version": "Chrome 154 stable, 2026-09-22; page last updated 2026-09-22 UTC",
+  "retrieved_at": "2026-10-02",
+  "license": "CC-BY-4.0 (prose); Apache-2.0 (code samples); page footer verified",
+  "trust": "official",
+  "type": "release_notes",
+  "purpose": "Chrome 154 の light dismiss が pointerdown/pointerup 追跡から click ベースへ変更され、touch scroll と右クリックによる意図しない終了を修正するという出荷説明を確認する。全ブラウザ対応は主張しない。"
+}

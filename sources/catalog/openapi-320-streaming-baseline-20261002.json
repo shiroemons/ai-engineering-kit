@@ -1,0 +1,12 @@
+{
+  "id": "openapi-320-streaming-baseline-20261002",
+  "url": "https://spec.openapis.org/oas/v3.2.0.html",
+  "repository_url": "",
+  "commit_sha": "",
+  "version": "OpenAPI Specification 3.2.0, published 2025-09-19",
+  "retrieved_at": "2026-10-02",
+  "license": "Apache-2.0 (specification section 1.1)",
+  "trust": "official",
+  "type": "official_docs",
+  "purpose": "3.2.1 と比較し、Complete vs Streaming Content および SSE 節の本文が同一で、itemSchema と contentSchema の境界が patch 新機能ではないことを確認。"
+}

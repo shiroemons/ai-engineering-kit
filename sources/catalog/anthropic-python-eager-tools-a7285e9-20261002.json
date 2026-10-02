@@ -1,0 +1,12 @@
+{
+  "id": "anthropic-python-eager-tools-a7285e9-20261002",
+  "url": "https://github.com/anthropics/anthropic-sdk-python/tree/a7285e919ab79998d9380b3b57f6315b7860b8d8",
+  "repository_url": "https://github.com/anthropics/anthropic-sdk-python",
+  "commit_sha": "a7285e919ab79998d9380b3b57f6315b7860b8d8",
+  "version": "anthropic Python SDK 1.9.0; release commit a7285e919ab79998d9380b3b57f6315b7860b8d8",
+  "retrieved_at": "2026-10-02",
+  "license": "MIT; LICENSE and pyproject.toml checked at pinned commit; original analysis, no copied implementation",
+  "trust": "official",
+  "type": "github_repository_analysis",
+  "purpose": "固定commitのtools.md、src/anthropic/lib/tools/_beta_runner.py、src/anthropic/lib/streaming/_beta_messages.py、tests/lib/tools/test_runner_eager_tools.py、pyproject.toml、LICENSEをGitHub connectorで実際に取得。run_tools_eagerlyの境界、deferの有効期間、明示的generateとmax_tokens、reply単位の結果再利用、partial JSON snapshotを静的分析。upstreamテストは未実行。"
+}

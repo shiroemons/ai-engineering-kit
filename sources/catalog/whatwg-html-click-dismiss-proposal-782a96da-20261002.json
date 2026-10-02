@@ -1,0 +1,12 @@
+{
+  "id": "whatwg-html-click-dismiss-proposal-782a96da-20261002",
+  "url": "https://github.com/josepharhar/html/tree/782a96da0106027d0778c7ae9def1da024362d22",
+  "repository_url": "https://github.com/josepharhar/html",
+  "commit_sha": "782a96da0106027d0778c7ae9def1da024362d22",
+  "version": "WHATWG HTML PR #11536 head 782a96da0106027d0778c7ae9def1da024362d22 (2026-06-01); open and unmerged verified 2026-10-02 21:35 UTC",
+  "retrieved_at": "2026-10-02",
+  "license": "CC-BY-4.0 (specification source); source-code portions: BSD-3-Clause; PR conversation license unknown, original summary only",
+  "trust": "primary-source",
+  "type": "github_repository_analysis",
+  "purpose": "PR #11536 の open/unmerged 状態を GitHub API と公開ページで確認。固定 source の light dismiss 引数が pointerdown/up の target と座標をなお保持する点を読む。raw source blob dc59a2184845c9ca9f83de30014d628a29d07e1a を照合。"
+}

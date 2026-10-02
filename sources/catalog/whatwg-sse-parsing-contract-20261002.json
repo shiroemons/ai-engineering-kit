@@ -1,0 +1,12 @@
+{
+  "id": "whatwg-sse-parsing-contract-20261002",
+  "url": "https://html.spec.whatwg.org/multipage/server-sent-events.html",
+  "repository_url": "",
+  "commit_sha": "",
+  "version": "WHATWG HTML Living Standard, Server-sent events; page Last Updated 2026-10-02, retrieved 2026-10-02 UTC",
+  "retrieved_at": "2026-10-02",
+  "license": "CC-BY-4.0 (HTML intellectual property rights); source-code portions BSD-3-Clause; no code copied",
+  "trust": "official",
+  "type": "official_docs",
+  "purpose": "SSE の UTF-8、複数 data 行、空行 dispatch、未知 field/comment、retry、未完イベント破棄を確認。ライセンスは https://html.spec.whatwg.org/multipage/acknowledgements.html#ipr を実際に開いて確認。"
+}

@@ -1,0 +1,12 @@
+{
+  "id": "openapi-321-release-20261002",
+  "url": "https://github.com/OAI/OpenAPI-Specification/releases/tag/3.2.1",
+  "repository_url": "",
+  "commit_sha": "",
+  "version": "OAS 3.2.1 release, published 2026-09-10",
+  "retrieved_at": "2026-10-02",
+  "license": "unknown (release-page prose license not independently declared; original summary only)",
+  "trust": "official",
+  "type": "release_notes",
+  "purpose": "3.2.1 が大きな機能追加ではなく仕様文の修正・明確化であり、encoding の位置対応等の訂正を含むことを確認。repository implementation analysis は行わない。"
+}
