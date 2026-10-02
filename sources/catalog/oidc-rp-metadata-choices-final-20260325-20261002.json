@@ -1,0 +1,12 @@
+{
+  "id": "oidc-rp-metadata-choices-final-20260325-20261002",
+  "url": "https://openid.net/specs/openid-connect-rp-metadata-choices-1_0-final.html",
+  "repository_url": "",
+  "commit_sha": "",
+  "version": "OpenID Connect Relying Party Metadata Choices 1.0 Final, 2026-03-25",
+  "retrieved_at": "2026-10-02",
+  "license": "OpenID Foundation specification copyright license, Appendix A (attribution and specification/implementation purposes); original summary only",
+  "trust": "official",
+  "type": "official_docs",
+  "purpose": "Sections 2-4: supported-value arrays as registration input, scalar outputs, scalar membership, compatibility and client-authentication method scope."
+}

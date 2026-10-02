@@ -648,6 +648,76 @@
       "expected_ids": [
         "search-redis-timeout-partial-results"
       ]
+    },
+    {
+      "name": "postgres-wait-preview-not-beta-parity",
+      "query": "WAIT Beta 4 厳密",
+      "expected_ids": [
+        "postgres-wait-replica-read-your-writes"
+      ]
+    },
+    {
+      "name": "postgres-wait-post-commit-token",
+      "query": "commit pg_current_wal_insert_lsn token",
+      "expected_ids": [
+        "postgres-wait-replica-read-your-writes"
+      ]
+    },
+    {
+      "name": "postgres-wait-replay-not-flush",
+      "query": "standby_replay standby_flush read",
+      "expected_ids": [
+        "postgres-wait-replica-read-your-writes"
+      ]
+    },
+    {
+      "name": "postgres-wait-timeout-rounds-indefinite",
+      "query": "TIMEOUT 0.5ms 無期限",
+      "expected_ids": [
+        "postgres-wait-replica-read-your-writes"
+      ]
+    },
+    {
+      "name": "postgres-wait-no-throw-other-errors",
+      "query": "NO_THROW 入力不正 error",
+      "expected_ids": [
+        "postgres-wait-replica-read-your-writes"
+      ]
+    },
+    {
+      "name": "postgres-wait-top-level-snapshot",
+      "query": "top-level snapshot procedure",
+      "expected_ids": [
+        "postgres-wait-replica-read-your-writes"
+      ]
+    },
+    {
+      "name": "postgres-wait-read-committed-lock",
+      "query": "READ COMMITTED lock 未到達",
+      "expected_ids": [
+        "postgres-wait-replica-read-your-writes"
+      ]
+    },
+    {
+      "name": "postgres-wait-timeline-numeric-success",
+      "query": "numeric LSN cascading success",
+      "expected_ids": [
+        "postgres-wait-replica-read-your-writes"
+      ]
+    },
+    {
+      "name": "postgres-wait-pool-replica-affinity",
+      "query": "transaction pooling 接続 固定",
+      "expected_ids": [
+        "postgres-wait-replica-read-your-writes"
+      ]
+    },
+    {
+      "name": "postgres-wait-remote-apply-scope",
+      "query": "remote_apply 全read replica",
+      "expected_ids": [
+        "postgres-wait-replica-read-your-writes"
+      ]
     }
   ]
 }

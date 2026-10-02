@@ -1,0 +1,12 @@
+{
+  "id": "postgres-19-wait-beta4-release-20261002",
+  "url": "https://www.postgresql.org/about/news/postgresql-19-beta-4-released-3386/",
+  "repository_url": "",
+  "commit_sha": "",
+  "version": "PostgreSQL 19 Beta 4 announcement; published 2026-09-24",
+  "retrieved_at": "2026-10-02",
+  "license": "unknown",
+  "trust": "official",
+  "type": "release_notes",
+  "purpose": "2026-09-24公開。WAITのdeadlock/isolation-level error修正とpreview段階を確認。ニュース本文固有の再利用ライセンスは未確認。原文・コード転載なしの独自要約。"
+}

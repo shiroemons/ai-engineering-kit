@@ -1,0 +1,12 @@
+{
+  "repository_url": "",
+  "commit_sha": "",
+  "retrieved_at": "2026-10-02",
+  "trust": "official",
+  "type": "release_notes",
+  "id": "chrome-154-fetch-abort-reason-20261002",
+  "url": "https://developer.chrome.com/release-notes/154",
+  "version": "Chrome 154 stable release 2026-09-22; page last updated 2026-09-22 UTC; Fetch API: Forward reason from AbortController to fetch Response",
+  "license": "CC-BY-4.0 (page content); Apache-2.0 (code samples), per page footer; no copied code",
+  "purpose": "実装差分: Chrome 154 の release statement として、custom abort reason を fetch promise だけでなく Response methods と ReadableStream へ伝播する変更、stable 日付と適用プラットフォームを確認。DOM any() 自体の新規変更や全ブラウザ対応の根拠にはしない。"
+}

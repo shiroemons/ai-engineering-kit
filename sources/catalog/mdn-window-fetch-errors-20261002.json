@@ -1,0 +1,12 @@
+{
+  "repository_url": "",
+  "commit_sha": "",
+  "retrieved_at": "2026-10-02",
+  "trust": "official",
+  "type": "official_docs",
+  "id": "mdn-window-fetch-errors-20261002",
+  "url": "https://developer.mozilla.org/en-US/docs/Web/API/Window/fetch",
+  "version": "MDN Window.fetch() reference; last modified 2025-12-16; retrieved 2026-10-02",
+  "license": "CC-BY-SA-2.5-or-later (Mozilla Contributors documentation); source code not copied; license checked at https://developer.mozilla.org/en-US/docs/MDN/Writing_guidelines/Attrib_copyright_license",
+  "purpose": "HTTP 4xx/5xx で Promise は拒否されないこと、ok/status 確認、RequestInit 不正値を含む TypeError の例を確認。network/URL/block/abort だけで拒否理由を網羅したとは扱わない。"
+}

@@ -100,5 +100,14 @@
     {"name": "ssrf-redirect-revalidation", "query": "SSRF Location 再審査", "expected_ids": ["security-ssrf-fetch-dns-redirect-boundary"]},
     {"name": "ssrf-asvs-levels", "query": "v5.0.0-1.3.6 L2", "expected_ids": ["security-ssrf-fetch-dns-redirect-boundary"]},
     {"name": "ssrf-recent-clarification", "query": "SSRF 2026-09-14 2026-09-29", "expected_ids": ["security-ssrf-fetch-dns-redirect-boundary"]},
-    {"name": "ssrf-proxy-resolution", "query": "SSRF proxy 最終宛先", "expected_ids": ["security-ssrf-fetch-dns-redirect-boundary"]}
+    {"name": "ssrf-proxy-resolution", "query": "SSRF proxy 最終宛先", "expected_ids": ["security-ssrf-fetch-dns-redirect-boundary"]},
+    {"name": "oidc-rp-choices-input-only", "query": "input-only scalar response", "expected_ids": ["oidc-rp-metadata-choices-registration-runtime-boundary"]},
+    {"name": "oidc-rp-choices-scalar-membership", "query": "Choices scalar-in-list", "expected_ids": ["oidc-rp-metadata-choices-registration-runtime-boundary"]},
+    {"name": "oidc-rp-choices-legacy-ignore", "query": "旧 OP ignored array", "expected_ids": ["oidc-rp-metadata-choices-registration-runtime-boundary"]},
+    {"name": "oidc-rp-choices-supported-alternative", "query": "alternative supported ES256", "expected_ids": ["oidc-rp-metadata-choices-registration-runtime-boundary"]},
+    {"name": "oidc-rp-choices-no-common-value", "query": "no common value invalid_client_metadata", "expected_ids": ["oidc-rp-metadata-choices-registration-runtime-boundary"]},
+    {"name": "oidc-rp-choices-runtime-policy", "query": "runtime allowlist 未採用", "expected_ids": ["oidc-rp-metadata-choices-registration-runtime-boundary"]},
+    {"name": "oidc-rp-choices-capability-subject", "query": "OP capability RP capability", "expected_ids": ["oidc-rp-metadata-choices-registration-runtime-boundary"]},
+    {"name": "oidc-rp-choices-endpoint-scope", "query": "endpoint scope revocation introspection PAR", "expected_ids": ["oidc-rp-metadata-choices-registration-runtime-boundary"]},
+    {"name": "oidc-rp-choices-final-version", "query": "Choices Final 2026-03-25", "expected_ids": ["oidc-rp-metadata-choices-registration-runtime-boundary"]}
   ]}

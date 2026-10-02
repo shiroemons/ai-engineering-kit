@@ -1,0 +1,12 @@
+{
+  "repository_url": "",
+  "commit_sha": "",
+  "retrieved_at": "2026-10-02",
+  "trust": "official",
+  "type": "official_docs",
+  "id": "mdn-abort-signal-any-20261002",
+  "url": "https://developer.mozilla.org/en-US/docs/Web/API/AbortSignal/any_static",
+  "version": "MDN AbortSignal.any() static method; last modified 2026-09-01; retrieved 2026-10-02",
+  "license": "CC-BY-SA-2.5-or-later (Mozilla Contributors documentation); source code not copied; license checked at https://developer.mozilla.org/en-US/docs/MDN/Writing_guidelines/Attrib_copyright_license",
+  "purpose": "any() が最初の abort reason を保持し、既に abort 済みの入力なら直ちに aborted になる説明、入力側の abort や timeout cancellation を行わない境界、weak references と条件付き保持を確認。DOM 規範算法の補助資料。"
+}

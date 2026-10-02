@@ -1,0 +1,12 @@
+{
+  "id": "postgres-19-wait-lsn-functions-20261002",
+  "url": "https://www.postgresql.org/docs/19/functions-admin.html",
+  "repository_url": "",
+  "commit_sha": "",
+  "version": "PostgreSQL 19 development manual observed 2026-10-02; Beta 4 announced 2026-09-24; exact Beta 4 implementation parity unverified",
+  "retrieved_at": "2026-10-02",
+  "license": "PostgreSQL License",
+  "trust": "official",
+  "type": "official_docs",
+  "purpose": "9.29.3/9.29.4のinsert/write/flush LSNの意味とrecovery観測値を確認。個別更新日表示なし。 ライセンス根拠: https://www.postgresql.org/docs/19/legalnotice.html はsoftwareとdocumentationを対象とし、名称は https://www.postgresql.org/about/licence/ で確認。原文・実装コードの転載なし。"
+}

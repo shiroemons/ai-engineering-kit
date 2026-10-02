@@ -4,7 +4,7 @@
   "title": "JavaScript fetch cancellation with AbortController and AbortSignal timeout scope and cleanup",
   "kind": "knowledge",
   "technology": "javascript",
-  "version": "MDN AbortSignal (2026-09-01) + WHATWG DOM s3 (2026-09-24) + WHATWG Fetch s4-5 (2026-09-21) + MDN fetch() (2025-12-16); retrieved 2026-09-26",
+  "version": "WHATWG DOM snapshot b2e32dc (2026-09-24) + Fetch snapshot 357bd98 (2026-09-21); Chrome 154 release statement (2026-09-22); MDN references rechecked 2026-10-02",
   "tags": [
     "research-domain:frontend",
     "fetch",
@@ -17,33 +17,53 @@
     "signal",
     "cleanup",
     "removeEventListener",
-    "throwIfAborted"
+    "throwIfAborted",
+    "reason",
+    "dependent-signal",
+    "Chrome-154",
+    "ReadableStream",
+    "garbage-collection"
   ],
   "sources": [
     {
-      "id": "mdn-abort-signal-docs",
+      "id": "whatwg-dom-abort-reason-20261002",
+      "url": "https://dom.spec.whatwg.org/commit-snapshots/b2e32dc730eb0dc0cce1a431393fe4a17fda1d54/",
+      "type": "official_docs"
+    },
+    {
+      "id": "whatwg-fetch-abort-reason-20261002",
+      "url": "https://fetch.spec.whatwg.org/commit-snapshots/357bd98924d94b81fbe8608192a2ee1f123b82f4/",
+      "type": "official_docs"
+    },
+    {
+      "id": "chrome-154-fetch-abort-reason-20261002",
+      "url": "https://developer.chrome.com/release-notes/154",
+      "type": "release_notes"
+    },
+    {
+      "id": "mdn-abort-signal-cleanup-20261002",
       "url": "https://developer.mozilla.org/en-US/docs/Web/API/AbortSignal",
       "type": "official_docs"
     },
     {
-      "id": "whatwg-dom-abort-signal",
-      "url": "https://dom.spec.whatwg.org/#interface-AbortSignal",
+      "id": "mdn-abort-signal-any-20261002",
+      "url": "https://developer.mozilla.org/en-US/docs/Web/API/AbortSignal/any_static",
       "type": "official_docs"
     },
     {
-      "id": "whatwg-fetch-standard",
-      "url": "https://fetch.spec.whatwg.org/",
+      "id": "mdn-abort-signal-timeout-20261002",
+      "url": "https://developer.mozilla.org/en-US/docs/Web/API/AbortSignal/timeout_static",
       "type": "official_docs"
     },
     {
-      "id": "mdn-window-fetch-docs",
+      "id": "mdn-window-fetch-errors-20261002",
       "url": "https://developer.mozilla.org/en-US/docs/Web/API/Window/fetch",
       "type": "official_docs"
     }
   ],
-  "retrieved_at": "2026-09-26",
-  "expires_at": "2026-12-25",
-  "trust": "official",
+  "retrieved_at": "2026-10-02",
+  "expires_at": "2026-11-01",
+  "trust": "primary-source",
   "status": "active",
   "evals": [
     "evals/knowledge/frontend.json"
@@ -53,95 +73,103 @@
 
 # JavaScript fetch cancellation with AbortController and AbortSignal timeout scope and cleanup
 
-`fetch` の network 処理と response body 読み取りを `AbortController` / `AbortSignal` で取り消す方法と、timeout 適用範囲・後始末の条件。[MDN AbortSignal](https://developer.mozilla.org/en-US/docs/Web/API/AbortSignal) / [WHATWG DOM §3](https://dom.spec.whatwg.org/#interface-AbortSignal) / [WHATWG Fetch](https://fetch.spec.whatwg.org/) / [MDN fetch()](https://developer.mozilla.org/en-US/docs/Web/API/Window/fetch)
+## 問いと結論
 
-## 要点
+`AbortSignal.any()` で利用者の取り消しと timeout を合成すると、理由は失われるか。`fetch()` が解決した後の body 読み取りまで、何を取り消せるか。
 
-以下は公式一次情報の記述であり、推奨構成そのものではない。
+**合成後も選ばれた abort reason は保持される。** 標準の `TimeoutError` と既定の `AbortError` を区別できる構成はある。ただし reason の分類と、原因となった入力 signal の識別は別問題である。以下は DOM / Fetch の規範契約、Chrome の実装リリース、独自の利用判断を分けた訂正であり、`any()` の新機能として紹介するものではない。
 
-### signal の束縛と単回性 (MDN AbortSignal + WHATWG Fetch)
+## DOM の契約: reason を保持する dependent signal
 
-- `new AbortController()` の `controller.signal` を `fetch(url, { signal })` の `RequestInit.signal` に渡す。Fetch 標準は `Request.signal` を fetch-controller の abort / terminate 状態に束縛する。
-- signal は単回使い切り (single-use) である。既に abort 済みの signal を新しい `fetch` に渡すと、network に出る前に即時拒否される。再試行には新しい `AbortController` を作る。
-- API 統合パターンは、依存処理の前に `signal.aborted` の確認と abort 手順の追加を求める。`signal.throwIfAborted()` は abort 済みの場合に abort 理由で throw する。
+[WHATWG DOM §3 の固定 snapshot](https://dom.spec.whatwg.org/commit-snapshots/b2e32dc730eb0dc0cce1a431393fe4a17fda1d54/#interface-AbortSignal) で確認した。
 
-### fetch の解決・拒否と HTTP error status (MDN fetch())
+- `abort()` の理由が省略または `undefined` なら `AbortError` の `DOMException`。`abort(reason)` には任意の JavaScript 値を渡せる。`AbortSignal.timeout()` は期限到来時に `TimeoutError` を理由にする
+- `any(signals)` は dependent signal を作る。生成時に既に abort 済みの入力があれば、**入力列挙順で最初のもの**の reason を採用する。過去に実際に abort した時刻の比較ではない
+- 未 abort の入力から合成した場合、最初に合成 signal を abort させる入力の reason がそのまま代入される。DOM 内のこの代入で clone や名前の正規化は行われず、後の abort で上書きされない
+- `signal.throwIfAborted()` はその reason を throw する。abort 状態は元に戻せない。一方、まだ abort していない同じ signal で複数処理をまとめて取り消すことはできる。「単回性」は一回の fetch にしか渡せないという意味ではない
 
-- `fetch(resource, options)` は headers 到達時点で解決する `Promise<Response>` を返す。`options` は `Request()` コンストラクタと同一の `RequestInit` であり、`signal` を含む。
-- 拒否するのは network 失敗・不正 URL・block された要求、および `AbortController.abort()` による取り消し (後者は `AbortError` の `DOMException`) に限られる。
-- HTTP error status (4xx / 5xx) では拒否されない。`Response.ok` / `Response.status` の確認が必須である。
+[MDN any() 個別ページ](https://developer.mozilla.org/en-US/docs/Web/API/AbortSignal/any_static) も reason の保持を説明する。一方、[MDN AbortSignal 総合ページ](https://developer.mozilla.org/en-US/docs/Web/API/AbortSignal#examples) の合成例直後には timeout の判別を否定する注記が残っている。これを「合成時に理由が必ず消える」と一般化せず、規範算法と個別ページを根拠に判断する。
 
-### エラー名: AbortError と TimeoutError (MDN AbortSignal)
+### reason の分類と source identity の境界
 
-- `controller.abort()` による取り消しでは `fetch()` が `AbortError` の `DOMException` で拒否される。abort 後に response body を読む操作も `AbortError` で拒否される。
-- `AbortSignal.timeout()` による期限切れパスの拒否は `TimeoutError` である。`catch` では `err.name` で区別する。
-- `AbortSignal.any()` は timeout signal と明示的な signal を合成できるが、timeout 由来か abort 由来かの区別は失われる。どちらが発火したかを `name` だけで判別できない前提で扱う。
+以下は上記算法からの導出である。
 
-### signal 適用範囲: network + body 消費 (WHATWG Fetch)
+- 自分が管理する `controller.abort()` と `AbortSignal.timeout()` だけなら、合成 signal の `reason.name` は先に選ばれた方に応じて `AbortError` / `TimeoutError` になる
+- `any()` は公開の winning-source 属性を持たない。`abort(new DOMException(..., "TimeoutError"))` も可能なので、名前だけでは「本物の timer が原因」と証明できない。文字列・`null` などの custom reason に `name` があるとも限らない
+- 入力ごとに一意な理由を自分で管理し、同一 realm の DOM signal 間で `Object.is(combined.reason, source.reason)` を比較する設計は可能。ただし同じ値・オブジェクトを複数入力で再利用すると曖昧になる
+- `catch` が実行されるまでに複数の入力が abort する場合がある。そこでの `timeoutSignal.aborted` だけを見て先着を推定しない。入力の発火履歴が必要なら別途記録し、生成前に abort 済みの入力の順序も定義する
 
-- signal の適用範囲は network だけでなく response body の消費も覆う。`await response.text()` の待機中に abort しても拒否される。
-- abort された fetch は、明示的な理由 (reason) が渡されない限り、直列化された `AbortError` の fallback 理由を使う。`controller.abort(reason)` で明示理由を渡した場合はその理由が用いられる。
+## Fetch の契約: promise と body は別の完了段階
 
-### DOM 規範 interface と listener 意味 (WHATWG DOM §3)
+[WHATWG Fetch §5.4・§5.6 の固定 snapshot](https://fetch.spec.whatwg.org/commit-snapshots/357bd98924d94b81fbe8608192a2ee1f123b82f4/#fetch-method) が規範の根拠である。
 
-- 規範 interface は `AbortController` / `AbortSignal`、signal の `abort` イベント、`reason`、`throwIfAborted()`、静的メソッド `AbortSignal.timeout()` / `AbortSignal.any()` / `AbortSignal.abort()` を定義する。
-- `addEventListener` の options として `signal` (別 signal による自動解除)・`once`・`passive`・`capture` の意味が定義されている。一回限りの abort ハンドラには `once: true` が使える。
+`fetch(url, { signal })` は `RequestInit.signal` を受け取り、Request はそれに依存する signal を作る。正常に Request を構築した後、既に abort 済みなら取得処理を開始せず理由で拒否する。Request 構築自体が失敗する場合はその例外で拒否するため、常に abort 理由が優先されるとは限らない。
 
-### GC 保持の違いと解放義務 (MDN AbortSignal + WHATWG DOM)
+`Promise<Response>` の解決は body 全体の読了を意味しない。local abort の手順は未確定の fetch promise を reason で拒否し、response body が non-null かつ readable なら同じ reason で stream を error にする。既に解決した fetch promise の結果は変わらず、完了済みまたは null の body を遡って失敗にはしない。body の読取中に abort すれば、その読取が拒否され得る。
 
-- controller 所有の signal は listener が付いていても GC 回収可能である。一方 `timeout()` / `any()` の signal は、pending の間または listener が付いている間は保持される。
-- そのため `timeout()` / `any()` の signal に付けた listener は `finally` で `removeEventListener` し、`await response.text()` 等で body を消費または破棄して保持を解く。
+[Fetch §2 の直列化手順](https://fetch.spec.whatwg.org/commit-snapshots/357bd98924d94b81fbe8608192a2ee1f123b82f4/#fetch-controller) は別の境界である。理由の `StructuredSerialize` が失敗すれば既定の `AbortError` に fallback する。復元失敗等にも fallback がある。従って、DOM 内での reason の同一性を、直列化経路を含むすべての fetch/body 拒否値のオブジェクト同一性へ拡張しない。
 
-## 推奨方法
+### HTTP status と拒否を混同しない
 
-以下は上記の公式契約からの設計上のまとめであり、公式が定める実装構成そのものではない。
+[MDN Window.fetch()](https://developer.mozilla.org/en-US/docs/Web/API/Window/fetch) の説明どおり、HTTP 4xx / 5xx だけでは promise は拒否されない。`Response.ok` / `Response.status` を用途に合わせて確認する。
 
-- 要求ごとに `AbortController` を作る。連続する fetch で使い回さず、共同取り消しが意図の場合だけ `AbortSignal.any()` で合成する。
+拒否理由を network 失敗・不正 URL・block・既定 `AbortError` だけに限定しない。MDN は不正な RequestInit 値も挙げ、Fetch は Request 構築例外を引き継ぐ。custom abort reason もあり、続く `response.json()` 等には読み取り・変換の失敗もある。`TypeError` だけでネットワーク障害や未対応 API と断定する分岐は不十分である。
+
+## Chrome 154 の実装差分
+
+[Chrome 154 release notes](https://developer.chrome.com/release-notes/154) は stable 日付を **2026-09-22** とし、開発者が渡した abort reason を fetch promise だけでなく **Response のメソッドと ReadableStream** へ伝播する変更を記載する。これは Fetch 標準への整合を述べるリリース情報であり、DOM `any()` の理由選択規則の変更ではない。
+
+このため `catch` の `err.name === "AbortError"` だけで全取り消しを捕捉する実装は、custom reason や timeout を見落とす。Chrome のこの変更を他ブラウザや旧版の保証には使わない。リリース記述は確認したが、Chrome 153/154 の実機比較は行っていない。
+
+## GC と listener cleanup の正確な条件
+
+[DOM timeout / garbage collection](https://dom.spec.whatwg.org/commit-snapshots/b2e32dc730eb0dc0cce1a431393fe4a17fda1d54/#garbage-collection) と [MDN の cleanup 説明](https://developer.mozilla.org/en-US/docs/Web/API/AbortSignal#removing_the_abort_event_listener) に基づく。
+
+- timeout signal の明示的な強参照条件は「timeout が継続中 **かつ** abort listener がある」である
+- dependent signal の回収禁止条件は「未 abort **かつ** source signals が空でない **かつ**（abort listener または内部 abort algorithm がある）」である
+- controller 由来の signal も、listener が付いているだけで永久に保持されるわけではない。MDN の説明は controller と signal の両方が unreachable になった場合であり、到達可能なオブジェクトまで回収可能とする意味ではない
+
+`{ once: true }` はイベントが実際に発火したときの解除であり、正常完了時には自作 listener が残る。自分で登録したものは処理終了時に `removeEventListener` する。body を読むだけでは自作 listener は消えない。逆に解除しただけで fetch 内部の abort 処理や timer の停止、即時 GC まで保証されるわけではない。
+
+[MDN timeout()](https://developer.mozilla.org/en-US/docs/Web/API/AbortSignal/timeout_static) は timeout 自体を取り消す API がなく、操作の早期完了や合成相手の abort でも timer が取り消されないことを説明する。[MDN any()](https://developer.mozilla.org/en-US/docs/Web/API/AbortSignal/any_static) によれば合成 signal の abort は他の入力も abort させない。
+
+## 利用判断と最小例
+
+以下は公式仕様の追加要件ではなく、この契約からの独自の設計判断である。
+
+- 取り消し単位ごとに controller を所有する。独立した再試行では新しいものを使い、意図した共同取り消しには未 abort の signal を共有する
+- 利用者の abort と timeout を合成するだけなら `any()` を使える。「理由が消えるから」という理由で自前 timer へ置き換える必要はない
+- `timeout()` は **active time** 基準で、suspended worker や bfcache では進行が止まる。壁時計の厳密な deadline と同一視しない。timer を早期に確実に解除する必要があるときは `setTimeout` / `clearTimeout` を検討する。この代替で停止中の実行が保証されるわけではない
+- body の利用までを同じ cancellation scope に入れる。使用しない body の終了方針も決めるが、GC を約束するために巨大な body を全量読むような設計は避ける
+
+次は本文用に作成した例。小さな text response を全量読み、その後に HTTP status を確認する方針を採る。任意のサイズのダウンロード向け汎用 wrapper ではない。呼出側が渡す `onAbort` は例外を投げない軽量な観測処理とする。
 
 ```js
-const controller = new AbortController();
-function onAbort() { /* 一回限りの後始末 */ }
-controller.signal.addEventListener("abort", onAbort, { once: true });
-try {
-  const res = await fetch(url, { signal: controller.signal });
-  if (!res.ok) throw new Error(`HTTP ${res.status}`);
-  const text = await res.text(); // 読取中の abort も AbortError で拒否される
-  controller.signal.throwIfAborted(); // 後続の依存処理前の guard
-  return text;
-} catch (err) {
-  if (err?.name === "AbortError") { /* 取り消しとして扱う */ throw err; }
-  throw err;
-} finally {
-  controller.signal.removeEventListener("abort", onAbort);
+async function fetchText(url, userSignal, onAbort) {
+  const deadline = AbortSignal.timeout(5000);
+  const signal = AbortSignal.any([userSignal, deadline]);
+  signal.throwIfAborted();
+  signal.addEventListener("abort", onAbort, { once: true });
+  try {
+    const response = await fetch(url, { signal });
+    const text = await response.text();
+    if (!response.ok) throw new Error(`HTTP ${response.status}`);
+    return text;
+  } finally {
+    signal.removeEventListener("abort", onAbort);
+  }
 }
 ```
 
-- 純粋な deadline には `AbortSignal.timeout(ms)` を使う。利用者の明示 abort と合成する場合は `AbortSignal.any()` を使うが、区別喪失を受け入れる。
+`await response.text()` を `try` の中で待つことで、body の成功・失敗まで自作 listener の寿命を揃える。例は理由を `AbortError` に置換せず拒否値を呼出側へ返す。実装差がある環境で `catch` の値と `signal.reason` が一致するかは別途確認する。`signal.aborted` が true という事実だけで、直前の network / HTTP / parse failure を取り消しへ分類し直さない。
 
-```js
-const combined = AbortSignal.any([controller.signal, AbortSignal.timeout(5000)]);
-const res = await fetch(url, { signal: combined });
-// NOTE: combined の拒否では timeout 由来か abort 由来かを name だけで区別できない。
-// 区別が必須なら自前の flag (どちらが先に発火したか) で記録する設計にする。
-```
+## 版・provenance・確認範囲
 
-- timeout と利用者 abort の区別が必須の場合は、`setTimeout` + `controller.abort()` の手動 timeout 構成にし、発火元を自前の flag で記録する (公式契約ではなく設計判断)。
-- `timeout()` / `any()` の signal に付けた listener は必ず `finally` で `removeEventListener` する。body は消費 (`await response.text()`) または reader 破棄まで行い、保持を残さない。
-- エラー分岐は `err.name === "AbortError"` と `err.name === "TimeoutError"` で行う。`any()` 合成時は上記の区別喪失に注意し、flag 併用を検討する。
+- DOM は 2026-09-24 更新の snapshot `b2e32dc730eb0dc0cce1a431393fe4a17fda1d54`、Fetch は 2026-09-21 更新の snapshot `357bd98924d94b81fbe8608192a2ee1f123b82f4`。規範算法の参照先を固定し、2026-10-02 UTC に再取得した
+- Chrome 154 は 2026-09-22 の stable release statement。ページ更新日も同日。一般の仕様書と区別して `release_notes` とした
+- MDN の AbortSignal / any() / timeout() は 2026-09-01 更新、Window.fetch() は 2025-12-16 更新。Mozilla Contributors の各ページを 2026-10-02 に開き直した。長い引用・コードの転載はなく、上の例は独自作成
+- WHATWG の本文ライセンスは **CC-BY-4.0**、ソースコードに取り込む部分は **BSD-3-Clause**。Chrome ページは本文 CC-BY-4.0 / サンプル Apache-2.0。MDN 本文は CC-BY-SA-2.5-or-later。旧 catalog の CC0 記載や誤った要約は履歴として保存するが、現行本文の根拠には使用しない
+- 取得日から release notes の TTL 30日を適用し、再確認期限は **2026-11-01**。DOM/Fetch の説明がこの日に無効になるという意味ではない
+- 未確認: ブラウザ別の全対応版、Service Worker / cross-realm の実装比較、GC の実測、React lifecycle との組合せ。本稿の検索 eval は検索到達性を検証するもので、ブラウザ挙動のテストではない
 
-## 避ける使い方
-
-- **abort 済みの signal (使い終わった controller) を次の fetch に使い回す**。即時拒否される。要求ごとに作り直す。
-- **HTTP error status が fetch を拒否するという想定**。拒否されず `Response.ok` が `false` の解決になる。status 確認を省くと失敗を見落とす。
-- **`AbortSignal.any()` が発火元を保持するという想定**。timeout と abort の区別は失われる。区別が必要な設計では flag を持つ。
-- **`timeout()` / `any()` の signal の listener を付けっぱなしにする**。pending または listener がある間は保持され、GC されない。`finally` で `removeEventListener` する。
-- **body を消費せず放置する**。保持が残る。`await response.text()` 等で消費または破棄する。
-- **abort 後の body 読み取りを通常失敗として扱う**。`AbortError` で拒否されるため、取り消し分岐に入れる。
-
-## 適用版と本番での注意
-
-- `MDN AbortSignal` (last modified 2026-09-01、Baseline Widely available)、`WHATWG DOM Living Standard §3` (last updated 2026-09-24)、`WHATWG Fetch Living Standard §4-5` (last updated 2026-09-21)、`MDN Window: fetch()` (last modified 2025-12-16、Baseline Widely available) を 2026-09-26 取得の内容で確認した。将来の最新とは扱わない。
-- 本文は `expires_at` 2026-12-25 (official_docs TTL 90日)。Living Standard は継続改訂のため、期限到来時に §3・§4-5 の改訂を再確認する。
-- **未確認**: `AbortSignal.timeout()` / `AbortSignal.any()` のブラウザ別対応版 (compat table は今回の根拠に含めない)。導入前に利用環境の対応表を確認する必要がある。
-- **未確認**: abort 理由 (reason) の直列化のブラウザ間の差、React の effect cleanup や二重実行との組み合わせ、Service Worker 経由時の挙動。本文は Fetch / DOM の契約のみを根拠にし、適用構成の実測は含まない。
-- 本文の timeout 構成・flag 併用・cleanup 順序は設計判断であり、公式 API 契約そのものではない。境界は各節の書き分けに従う。
+実機検証では、生成前の abort、入力順、timeout 先行、custom reason、headers 前と body 読取中の abort、body 完了後の abort、正常完了時の自作 listener 解除を別ケースにする。
