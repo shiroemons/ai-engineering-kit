@@ -1,0 +1,12 @@
+{
+  "id": "kubernetes-selinux-pod-api-v137-20261002",
+  "url": "https://kubernetes.io/docs/reference/kubernetes-api/core/pod-v1/",
+  "repository_url": "https://github.com/kubernetes/website",
+  "commit_sha": "",
+  "version": "Kubernetes v1.37 generated Pod v1 API; generated/modified 2026-08-26",
+  "retrieved_at": "2026-10-02",
+  "license": "CC-BY-4.0 (https://github.com/kubernetes/website/blob/main/LICENSE; checked 2026-10-02)",
+  "trust": "official",
+  "type": "official_docs",
+  "purpose": "PodSecurityContext.seLinuxChangePolicyの正式な位置、既定値、共有Pod間のpolicy一致要件を確認"
+}

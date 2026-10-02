@@ -1,0 +1,12 @@
+{
+  "id": "redis-xadd-idmp-command-20261002",
+  "url": "https://redis.io/docs/latest/commands/xadd/",
+  "repository_url": "https://github.com/redis/docs",
+  "commit_sha": "",
+  "version": "XADD command reference current unversioned（2026-10-02確認）; IDMP/IDMPAUTOは8.6.0から",
+  "retrieved_at": "2026-10-02",
+  "license": "CC-BY-NC-SA-4.0（Redis Website and Documentation: https://github.com/redis/docs/blob/main/LICENSE）; 旧redis-doc由来の一部にCC-BY-SA-4.0例外あり、当該箇所の適用は未特定。独自要約のみ、コード・図・長文転載なし",
+  "trust": "official",
+  "type": "official_docs",
+  "purpose": "entry IDに*が必須、保持中の同じpid/iidには元のentry IDを返すこと、異なるpayloadでも重複扱いする公式例を確認。公開日表示なし。"
+}

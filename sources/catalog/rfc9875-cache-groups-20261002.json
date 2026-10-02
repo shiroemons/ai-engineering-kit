@@ -1,0 +1,12 @@
+{
+  "id": "rfc9875-cache-groups-20261002",
+  "url": "https://www.rfc-editor.org/info/rfc9875/",
+  "repository_url": "",
+  "commit_sha": "",
+  "version": "RFC 9875, Proposed Standard, October 2025",
+  "retrieved_at": "2026-10-02",
+  "license": "IETF Trust Legal Provisions (RFC text); code components under Revised BSD License per copyright notice",
+  "trust": "official",
+  "type": "official_docs",
+  "purpose": "§2–3 の同一 origin・case-sensitive group、任意の無効化と非推移性、safe method での無視、§5 の共有 origin の権限境界を確認。 /rfc/rfc9875.html は429、info URL の全文で確認。 Copyright Notice を確認。原文・コードの転載なし。"
+}

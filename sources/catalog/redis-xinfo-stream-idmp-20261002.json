@@ -1,0 +1,12 @@
+{
+  "id": "redis-xinfo-stream-idmp-20261002",
+  "url": "https://redis.io/docs/latest/commands/xinfo-stream/",
+  "repository_url": "https://github.com/redis/docs",
+  "commit_sha": "",
+  "version": "XINFO STREAM current unversioned（2026-10-02確認）; IDMP関連6フィールドは8.6.0導入",
+  "retrieved_at": "2026-10-02",
+  "license": "CC-BY-NC-SA-4.0（Redis Website and Documentation: https://github.com/redis/docs/blob/main/LICENSE）; 旧redis-doc由来の一部にCC-BY-SA-4.0例外あり、当該箇所の適用は未特定。独自要約のみ、コード・図・長文転載なし",
+  "trust": "official",
+  "type": "official_docs",
+  "purpose": "IDMP設定、現在追跡数、累積追加・重複抑止数の意味と8.6.0導入を確認。FULLの8.8以後の追加仕様は対象外。公開日表示なし。"
+}

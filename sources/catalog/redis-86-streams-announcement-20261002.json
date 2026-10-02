@@ -1,0 +1,12 @@
+{
+  "id": "redis-86-streams-announcement-20261002",
+  "url": "https://redis.io/blog/announcing-redis-86-performance-improvements-streams/",
+  "repository_url": "",
+  "commit_sha": "",
+  "version": "Redis Open Source 8.6 GA announcement（2026-02-10公開、2026-10-02確認）",
+  "retrieved_at": "2026-10-02",
+  "license": "unknown（当該ブログ記事単体への明示ライセンス適用は確認できず。Redisソフトウェア本体のライセンスを流用しない。帰属付き独自要約のみ、コード・図・長文転載なし）",
+  "trust": "official",
+  "type": "release_notes",
+  "purpose": "公開日とIDMP導入、同内容の別メッセージにIDMPAUTOを使わない注意、iidとentry IDの役割、値変更XCFGSETのmap消去を確認。最新patchや性能一般化の根拠にはしない。"
+}

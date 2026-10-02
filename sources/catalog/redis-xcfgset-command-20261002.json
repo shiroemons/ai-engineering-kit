@@ -1,0 +1,12 @@
+{
+  "id": "redis-xcfgset-command-20261002",
+  "url": "https://redis.io/docs/latest/commands/xcfgset/",
+  "repository_url": "https://github.com/redis/docs",
+  "commit_sha": "",
+  "version": "XCFGSET command reference current unversioned（2026-10-02確認）; command導入8.6.0",
+  "retrieved_at": "2026-10-02",
+  "license": "CC-BY-NC-SA-4.0（Redis Website and Documentation: https://github.com/redis/docs/blob/main/LICENSE）; 旧redis-doc由来の一部にCC-BY-SA-4.0例外あり、当該箇所の適用は未特定。独自要約のみ、コード・図・長文転載なし",
+  "trust": "official",
+  "type": "official_docs",
+  "purpose": "既存stream要件、duration 1〜86400秒/default100、maxsize 1〜10000件/default100、容量優先を確認。Behaviorは無条件map消去と記載し、解説の値変更限定と粒度が異なる。同値設定の安全性は断定しない。公開日表示なし。"
+}

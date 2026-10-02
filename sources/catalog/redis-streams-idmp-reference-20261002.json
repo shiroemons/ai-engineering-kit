@@ -1,0 +1,12 @@
+{
+  "id": "redis-streams-idmp-reference-20261002",
+  "url": "https://redis.io/docs/latest/develop/data-types/streams/idempotency/",
+  "repository_url": "https://github.com/redis/docs",
+  "commit_sha": "",
+  "version": "Redis Streams idempotency reference current unversioned（2026-10-02確認）; 対象機能はRedis 8.6導入",
+  "retrieved_at": "2026-10-02",
+  "license": "CC-BY-NC-SA-4.0（Redis Website and Documentation: https://github.com/redis/docs/blob/main/LICENSE）; 旧redis-doc由来の一部にCC-BY-SA-4.0例外あり、当該箇所の適用は未特定。独自要約のみ、コード・図・長文転載なし",
+  "trust": "official",
+  "type": "official_docs",
+  "purpose": "IDMP/IDMPAUTO、再起動後のpid/iid安定性、producer別追跡、再送窓、RDB/AOF保存、値変更XCFGSETでのmap消去を確認。公開日表示なし。性能値は本番保証に採用しない。"
+}

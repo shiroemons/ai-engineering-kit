@@ -1,0 +1,12 @@
+{
+  "id": "kubernetes-v137-selinux-release-20261002",
+  "url": "https://kubernetes.io/blog/2026/08/26/kubernetes-v1-37-release/",
+  "repository_url": "https://github.com/kubernetes/website",
+  "commit_sha": "",
+  "version": "Kubernetes v1.37 release announcement; published 2026-08-26; modified 2026-09-02",
+  "retrieved_at": "2026-10-02",
+  "license": "CC-BY-4.0 (https://github.com/kubernetes/website/blob/main/LICENSE; checked 2026-10-02)",
+  "trust": "official",
+  "type": "release_notes",
+  "purpose": "SELinuxMountのv1.37既定有効化を確認し、概要内のGA時期・field pathの省略と詳細referenceとの差異を記録"
+}

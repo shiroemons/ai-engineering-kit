@@ -1,0 +1,12 @@
+{
+  "id": "rfc9111-invalidation-boundary-20261002",
+  "url": "https://www.rfc-editor.org/info/rfc9111/",
+  "repository_url": "",
+  "commit_sha": "",
+  "version": "RFC 9111, STD 98, June 2022",
+  "retrieved_at": "2026-10-02",
+  "license": "IETF Trust Legal Provisions (RFC text); code components under Revised BSD License per copyright notice",
+  "trust": "official",
+  "type": "official_docs",
+  "purpose": "§3–4 の保存・再利用条件、§4.4 の unsafe method / 2xx・3xx / target URI の MUST と invalidation の意味を再確認。 Copyright Notice を確認。原文・コードの転載なし。"
+}
