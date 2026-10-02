@@ -40,10 +40,21 @@ run report and a separately authorized implementation task.
 
 ## Cross-host ownership
 
-Use the append-only `research/gpt-coordinator` branch. It contains `state.json`
-only and is never merged to main. A claim lasts at most two hours. Expiry stops
-the owner; it never permits automatic takeover. GPT runs use this protocol;
-the existing OpenCode runner does not, and remains unchanged.
+Use the append-only `research/gpt-coordinator` branch, never merged to main.
+Every coordinator commit preserves its parent's entire tree and changes only
+`state.json`, a regular file with mode `100644`. The initial parent is the fetched
+main commit; any existing `state.json` path in that main tree is a collision and
+must fail closed. Its preserved files are an immutable baseline except for the
+state file: never sync or merge the coordinator with later main. An existing
+state.json-only coordinator is also supported by preserving its exact parent
+tree; do not automatically restore missing files or migrate it.
+
+A claim lasts at most two hours. Expiry stops the owner; it never permits
+automatic takeover. This is a cooperative lease, without server-side fencing or
+an atomic ownership check at publication/merge of research artifacts. A prior
+lease check cannot prevent subsequent expiry or ownership changes; every worker
+must obey the stop conditions. GPT runs use this protocol; the existing
+OpenCode runner does not, and remains unchanged.
 
 Generate an unpredictable unique lowercase RUN_ID, for example UTC timestamp
 plus a random hexadecimal suffix. In the clean control checkout:
@@ -53,22 +64,47 @@ bash scripts/research-gpt-state.sh status
 bash scripts/research-gpt-state.sh claim RUN_ID > /tmp/gpt-claim.json
 ```
 
-The second command only prepares a transition, not a claim. Publish its exact
-`state` using existing authorized GitHub tools: create a UTF-8 blob of the JSON,
-create a tree containing only `state.json` (mode `100644`), and create a commit
-whose single parent is `expected_parent`. If `create` is true, atomically create
-the coordinator branch at that commit; otherwise update it with `force:false`.
-Never switch an existing-branch rejection into a forced update. Concurrent
-siblings cannot both fast-forward. If the write result is uncertain, read the
+The second command only prepares a transition, not a published claim. Its
+`base_tree` is the exact tree SHA of `expected_parent`. Both local helper commands
+`tree TRANSITION_FILE` and `verify-commit TRANSITION_FILE COMMIT_SHA` validate the
+full transition and require `base_tree` to equal `expected_parent^{tree}`. They
+fail closed on invalid data or a state path/type mismatch. The tree helper
+creates local Git objects without changing the checkout, index, or refs. The
+verification helper also leaves those unchanged. Neither publishes or updates
+remote refs.
+
+Publish with existing authorized GitHub tools in this order:
+
+1. Create a UTF-8 JSON blob from the transition's exact `state` value.
+2. Call `create_tree` with the transition's `base_tree` and exactly one entry:
+   `state.json`, mode `100644`, referencing the new blob. Preserve all other
+   entries. Never omit `base_tree`, build a state.json-only tree from scratch, or
+   supply deletion entries.
+3. Create a candidate commit whose single parent is `expected_parent`.
+4. Fetch that candidate SHA into the control checkout and run
+   `bash scripts/research-gpt-state.sh verify-commit /tmp/gpt-claim.json CANDIDATE_SHA`.
+   It checks the exact single parent, preservation of the entire unrelated tree,
+   regular mode-`100644` state file, and JSON equality to the proposed `state`
+   (whitespace and object key order may differ). Do not publish a failed candidate.
+5. Only after verification, if `create` is true, atomically create the coordinator
+   branch at the candidate commit; otherwise update it with `force:false`.
+
+Never switch an existing-branch rejection into a forced update, delete/recreate
+the branch, or substitute another operation to bypass a guard. Concurrent sibling
+claims cannot both fast-forward. If the write result is uncertain, read the
 remote ref/state and verify ownership before retrying. A rejected claim means
 stop this invocation without researching or modifying artifacts.
 
-Authenticated CLI users may publish the same blob/tree/commit using
-`git hash-object -w --stdin`, `git mktree`, `git commit-tree -p EXPECTED_PARENT`,
-and a normal `git push origin COMMIT:refs/heads/research/gpt-coordinator`.
-Use an existing configured Git identity; do not install/save authentication.
-GitHub connector publication is equivalent and does not require local git push
+Authenticated CLI users must construct the tree with
+`bash scripts/research-gpt-state.sh tree /tmp/gpt-claim.json`, then create its
+single-parent commit with `git commit-tree -p EXPECTED_PARENT`, run
+`verify-commit` against that candidate, and only then use a normal
+`git push origin COMMIT:refs/heads/research/gpt-coordinator`. Do not use raw
+`git mktree` to construct a state.json-only tree. Use an existing configured Git
+identity; do not install/save authentication. Connector publication has the same
+preservation and verification requirements and does not require local git push
 authentication. Details and a complete CLI example are in `docs/research-gpt.md`.
+Apply the same construction and verification to release transitions.
 
 After publication, save the actual remote commit as CLAIM_SHA. Before research,
 every publication, and merging, run:
