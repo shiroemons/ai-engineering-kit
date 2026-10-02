@@ -1,0 +1,12 @@
+{
+  "id": "mcp-sampling-changelog-2026-07-28-20261002",
+  "url": "https://modelcontextprotocol.io/specification/2026-07-28/changelog",
+  "repository_url": "https://github.com/modelcontextprotocol/modelcontextprotocol",
+  "commit_sha": "",
+  "version": "MCP Key Changes 2026-07-28; verified 2026-10-02 UTC",
+  "retrieved_at": "2026-10-02",
+  "license": "Apache-2.0 for new/relicensed specification contributions; MIT for unrelicensed historical contributions (official repository LICENSE checked 2026-10-02 UTC; per-contribution allocation unverified); original summary, no code copied",
+  "trust": "official",
+  "type": "official_docs",
+  "purpose": "Sampling の非推奨と直接provider APIへの移行、これとは独立した MRTR・毎要求capabilityへの破壊的変更、includeContext再分類を確認。独立した公開・更新日は表示なし。"
+}

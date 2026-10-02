@@ -1,0 +1,12 @@
+{
+  "id": "otel-tail-sampling-v0162-implementation-20261002",
+  "url": "https://github.com/open-telemetry/opentelemetry-collector-contrib/tree/ae8c507510f48f433ab47dd1c6b01a59d6c388b5/processor/tailsamplingprocessor",
+  "repository_url": "https://github.com/open-telemetry/opentelemetry-collector-contrib",
+  "commit_sha": "ae8c507510f48f433ab47dd1c6b01a59d6c388b5",
+  "version": "Collector Contrib v0.162.0 / tailsamplingprocessor at ae8c507510f48f433ab47dd1c6b01a59d6c388b5",
+  "retrieved_at": "2026-10-02",
+  "license": "Apache-2.0",
+  "trust": "primary-source",
+  "type": "github_repository_analysis",
+  "purpose": "README.md、config.go、factory.go、processor.go、sharded_processor.go、metadata.yaml、cache/types.go・lru_cache.go、internal/sampling/util.go、processor_decisions_test.goを固定版で静的解析。待機・判定cache・early eviction・late spanのthreshold継承・観測範囲を区別。LICENSEおよびGoファイルSPDXを確認。upstreamテストの実行はしていない。"
+}

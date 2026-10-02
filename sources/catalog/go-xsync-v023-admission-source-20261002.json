@@ -1,0 +1,12 @@
+{
+  "id": "go-xsync-v023-admission-source-20261002",
+  "url": "https://go.googlesource.com/sync/+/f75267d8412fc1dfd12b343644a7ea46e4d9c85d/errgroup/errgroup.go",
+  "repository_url": "https://go.googlesource.com/sync",
+  "commit_sha": "f75267d8412fc1dfd12b343644a7ea46e4d9c85d",
+  "version": "golang.org/x/sync v0.23.0; commit 2026-08-31T03:04:41Z; go.mod requires Go 1.26.0",
+  "retrieved_at": "2026-10-02",
+  "license": "BSD-3-Clause",
+  "trust": "primary-source",
+  "type": "github_repository_analysis",
+  "purpose": "公式 tag https://go.googlesource.com/sync/+/refs/tags/v0.23.0 と go mod download -json golang.org/x/sync@v0.23.0 の Origin.Hash が同じ40桁 SHA を指すことを確認。固定ファイルの web 取得は失敗したため、module archive（Sum h1:KameEIfc1IkluZyXWLn39Wd4tURc6GbCiISGiZm2bQk=）内の errgroup/errgroup.go、errgroup/errgroup_test.go、go.mod、LICENSE をローカルで読んだ。Go の slot 待ちは context を参照せず、TryGo は容量のみで判断し、Wait は g.err を返すことを固定版の観察として記録。source header と LICENSE、web の tag LICENSE で BSD-3-Clause を確認。実装・テストのコード転載や module 昇格なし。"
+}

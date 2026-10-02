@@ -1,0 +1,12 @@
+{
+  "id": "go-errgroup-v023-task-lifecycle-api-20261002",
+  "url": "https://pkg.go.dev/golang.org/x/sync@v0.23.0/errgroup",
+  "repository_url": "https://go.googlesource.com/sync",
+  "commit_sha": "",
+  "version": "golang.org/x/sync v0.23.0; published 2026-08-31",
+  "retrieved_at": "2026-10-02",
+  "license": "BSD-3-Clause",
+  "trust": "official",
+  "type": "official_docs",
+  "purpose": "版固定 API の zero Group、WithContext、Wait、SetLimit、TryGo の契約を確認。ページの BSD-3-Clause 表示と v0.23.0 の LICENSE 本文を確認。最新バージョンの主張や公式コードの転載はしない。"
+}

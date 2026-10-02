@@ -1,0 +1,12 @@
+{
+  "id": "mcp-sampling-legacy-2025-11-25-20261002",
+  "url": "https://modelcontextprotocol.io/specification/2025-11-25/client/sampling",
+  "repository_url": "https://github.com/modelcontextprotocol/modelcontextprotocol",
+  "commit_sha": "",
+  "version": "MCP Sampling specification 2025-11-25; verified 2026-10-02 UTC",
+  "retrieved_at": "2026-10-02",
+  "license": "Apache-2.0 for new/relicensed specification contributions; MIT for unrelicensed historical contributions (official repository LICENSE checked 2026-10-02 UTC; per-contribution allocation unverified); original summary, no code copied",
+  "trust": "official",
+  "type": "official_docs",
+  "purpose": "旧 initialization capability、独立 sampling/createMessage RPC、拒否時 -1、tool result の順序・対応関係を比較確認。独立した公開・更新日は表示なし。"
+}

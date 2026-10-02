@@ -936,6 +936,104 @@
       "expected_ids": [
         "agents-langgraph-interrupt-response-schema-resume-boundary"
       ]
+    },
+    {
+      "name": "mcp-sampling-deprecated-not-removed",
+      "query": "Sampling deprecated removed",
+      "expected_ids": [
+        "mcp-sampling-deprecation-mrtr-consent-migration"
+      ]
+    },
+    {
+      "name": "mcp-sampling-earliest-revision-not-date",
+      "query": "Sampling 2027-07-28 最初の改訂",
+      "expected_ids": [
+        "mcp-sampling-deprecation-mrtr-consent-migration"
+      ]
+    },
+    {
+      "name": "mcp-sampling-deprecation-independent-mrtr",
+      "query": "Sampling 非推奨依存 MRTR",
+      "expected_ids": [
+        "mcp-sampling-deprecation-mrtr-consent-migration"
+      ]
+    },
+    {
+      "name": "mcp-sampling-capability-per-request",
+      "query": "sampling/createMessage clientCapabilities initialization",
+      "expected_ids": [
+        "mcp-sampling-deprecation-mrtr-consent-migration"
+      ]
+    },
+    {
+      "name": "mcp-sampling-decline-no-retry",
+      "query": "Sampling -1 再試行する必要がない",
+      "expected_ids": [
+        "mcp-sampling-deprecation-mrtr-consent-migration"
+      ]
+    },
+    {
+      "name": "mcp-sampling-tools-capability-boundary",
+      "query": "sampling.tools tool-enabled 未宣言",
+      "expected_ids": [
+        "mcp-sampling-deprecation-mrtr-consent-migration"
+      ]
+    },
+    {
+      "name": "mcp-sampling-tools-name-collision",
+      "query": "Sampling 同名 実行器",
+      "expected_ids": [
+        "mcp-sampling-deprecation-mrtr-consent-migration"
+      ]
+    },
+    {
+      "name": "mcp-sampling-denial-no-provider-fallback",
+      "query": "拒否 provider fallback",
+      "expected_ids": [
+        "mcp-sampling-deprecation-mrtr-consent-migration"
+      ]
+    },
+    {
+      "name": "mcp-sampling-hints-client-choice",
+      "query": "modelPreferences.hints systemPrompt 裁量",
+      "expected_ids": [
+        "mcp-sampling-deprecation-mrtr-consent-migration"
+      ]
+    },
+    {
+      "name": "mcp-sampling-context-none-not-redaction",
+      "query": "includeContext messages 秘密",
+      "expected_ids": [
+        "mcp-sampling-deprecation-mrtr-consent-migration"
+      ]
+    },
+    {
+      "name": "mcp-sampling-tool-result-balance",
+      "query": "Sampling ToolUseContent toolUseId 混在",
+      "expected_ids": [
+        "mcp-sampling-deprecation-mrtr-consent-migration"
+      ]
+    },
+    {
+      "name": "mcp-sampling-budget-vs-max-tokens",
+      "query": "maxTokens 総支出 上限",
+      "expected_ids": [
+        "mcp-sampling-deprecation-mrtr-consent-migration"
+      ]
+    },
+    {
+      "name": "mcp-sampling-lifecycle-sdk-distinction",
+      "query": "Sampling SDK 12か月",
+      "expected_ids": [
+        "mcp-sampling-deprecation-mrtr-consent-migration"
+      ]
+    },
+    {
+      "name": "mcp-sampling-expedited-security-window",
+      "query": "Sampling セキュリティリスク 90日",
+      "expected_ids": [
+        "mcp-sampling-deprecation-mrtr-consent-migration"
+      ]
     }
   ]
 }

@@ -839,6 +839,97 @@
       "expected_ids": [
         "python-lazy-imports-release-readiness-boundary"
       ]
+    },
+    {
+      "name": "go-waitgroup-go-registration-before-wait",
+      "query": "WaitGroup.Go 最初の登録",
+      "expected_ids": [
+        "go-waitgroup-errgroup-join-cancel-admission"
+      ]
+    },
+    {
+      "name": "go-waitgroup-go-no-double-done",
+      "query": "wg.Done 二重",
+      "expected_ids": [
+        "go-waitgroup-errgroup-join-cancel-admission"
+      ]
+    },
+    {
+      "name": "go-waitgroup-go-added-125",
+      "query": "WaitGroup.Go 1.25.0",
+      "expected_ids": [
+        "go-waitgroup-errgroup-join-cancel-admission"
+      ]
+    },
+    {
+      "name": "go-errgroup-wait-success-cancels-derived",
+      "query": "Wait nil 派生 context 取消済み",
+      "expected_ids": [
+        "go-waitgroup-errgroup-join-cancel-admission"
+      ]
+    },
+    {
+      "name": "go-errgroup-join-after-failure",
+      "query": "Wait 全終了 失敗通知",
+      "expected_ids": [
+        "go-waitgroup-errgroup-join-cancel-admission"
+      ]
+    },
+    {
+      "name": "go-errgroup-parent-cancel-nil-error",
+      "query": "親 context 自動的 戻り値",
+      "expected_ids": [
+        "go-waitgroup-errgroup-join-cancel-admission"
+      ]
+    },
+    {
+      "name": "go-errgroup-context-cause-first-cancel",
+      "query": "Cause 最初の取消原因",
+      "expected_ids": [
+        "go-waitgroup-errgroup-join-cancel-admission"
+      ]
+    },
+    {
+      "name": "go-errgroup-blocked-admission-cancel",
+      "query": "slot 待機中の取消",
+      "expected_ids": [
+        "go-waitgroup-errgroup-join-cancel-admission"
+      ]
+    },
+    {
+      "name": "go-errgroup-trygo-not-queued",
+      "query": "TryGo false 保留キュー",
+      "expected_ids": [
+        "go-waitgroup-errgroup-join-cancel-admission"
+      ]
+    },
+    {
+      "name": "go-errgroup-recursive-limit-deadlock",
+      "query": "limit=1 循環待ち",
+      "expected_ids": [
+        "go-waitgroup-errgroup-join-cancel-admission"
+      ]
+    },
+    {
+      "name": "go-errgroup-panic-not-error",
+      "query": "panic recover",
+      "expected_ids": [
+        "go-waitgroup-errgroup-join-cancel-admission"
+      ]
+    },
+    {
+      "name": "go-errgroup-producer-memory-boundary",
+      "query": "SetLimit 入力保持量",
+      "expected_ids": [
+        "go-waitgroup-errgroup-join-cancel-admission"
+      ]
+    },
+    {
+      "name": "go-errgroup-xsync-minimum-go",
+      "query": "v0.23.0 1.26.0",
+      "expected_ids": [
+        "go-waitgroup-errgroup-join-cancel-admission"
+      ]
     }
   ]
 }

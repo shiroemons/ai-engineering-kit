@@ -1,0 +1,12 @@
+{
+  "id": "go127-waitgroup-task-lifecycle-20261002",
+  "url": "https://pkg.go.dev/sync@go1.27.1",
+  "repository_url": "https://github.com/golang/go",
+  "commit_sha": "",
+  "version": "go1.27.1; published 2026-09-01; WaitGroup.Go added in go1.25.0",
+  "retrieved_at": "2026-10-02",
+  "license": "BSD-3-Clause",
+  "trust": "official",
+  "type": "official_docs",
+  "purpose": "版固定 API の WaitGroup.Go、登録と Wait の順序、再利用、panic 禁止、終了時の同期関係を確認。ページの License 表示と https://go.dev/LICENSE を確認。公式コードの転載なし。"
+}
