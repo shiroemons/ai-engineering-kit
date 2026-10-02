@@ -7,6 +7,7 @@ import (
 	"fmt"
 	"os"
 	"path/filepath"
+	"slices"
 	"sort"
 	"strings"
 )
@@ -128,15 +129,19 @@ func (r *Repository) Index() error {
 	return current.writeGenerated("rag/index/snapshot.json", snapshot{1, current.fingerprint, current.documents})
 }
 
-// Search は入力のフィンガープリントを検証してから索引を使う。
-// 鮮度は索引作成時の状態を使わず、呼び出し側の UTC 時刻で判定する。
-func (r *Repository) Search(ctx context.Context, query string, limit int) ([]Result, error) {
-	if strings.TrimSpace(query) == "" {
-		return nil, errors.New("search query must not be empty")
-	}
-	if limit < 1 {
-		return nil, errors.New("search limit must be positive")
-	}
+// SearchSnapshot は検証済みの入力と時刻を固定した検索用スナップショット。
+// 作成後のファイル更新は反映しない。更新検知が必要な通常の検索には Repository.Search を使う。
+// 既定の FullTextBackend では複数 goroutine から検索できる。
+// 独自 Backend を使う場合は、その Backend 自体も並行呼び出しに対応する必要がある。
+type SearchSnapshot struct {
+	documents []Document
+	results   []Result
+	backend   Backend
+}
+
+// PrepareSearch は入力と索引を一度検証し、同じ corpus を繰り返し評価するために固定する。
+// 鮮度の基準時刻は呼び出し元 Repository を Load したときの UTC 時刻となる。
+func (r *Repository) PrepareSearch(ctx context.Context) (*SearchSnapshot, error) {
 	if err := ctx.Err(); err != nil {
 		return nil, err
 	}
@@ -157,18 +162,62 @@ func (r *Repository) Search(ctx context.Context, query string, limit int) ([]Res
 	if string(expected) != string(actual) {
 		return nil, errors.New("index content is inconsistent; run kb index")
 	}
-	backend := r.Backend
-	if backend == nil {
+	if r.Backend == nil {
 		return nil, errors.New("search backend is nil")
 	}
-	scores, err := backend.Search(ctx, index.Documents, query)
+	results := make([]Result, len(index.Documents))
+	for i, doc := range index.Documents {
+		results[i] = current.result(doc, 0)
+	}
+	return &SearchSnapshot{documents: index.Documents, results: results, backend: r.Backend}, nil
+}
+
+// Search は呼び出しごとに入力・索引の整合性を検証する。
+// 鮮度は索引作成時の状態を使わず、呼び出し側の UTC 時刻で判定する。
+func (r *Repository) Search(ctx context.Context, query string, limit int) ([]Result, error) {
+	if err := validateSearch(ctx, query, limit); err != nil {
+		return nil, err
+	}
+	prepared, err := r.PrepareSearch(ctx)
+	if err != nil {
+		return nil, err
+	}
+	return prepared.Search(ctx, query, limit)
+}
+
+func validateSearch(ctx context.Context, query string, limit int) error {
+	if strings.TrimSpace(query) == "" {
+		return errors.New("search query must not be empty")
+	}
+	if limit < 1 {
+		return errors.New("search limit must be positive")
+	}
+	return ctx.Err()
+}
+
+// Search は準備時点の入力を検索する。返した結果を変更しても後続の検索に影響しない。
+func (s *SearchSnapshot) Search(ctx context.Context, query string, limit int) ([]Result, error) {
+	if err := validateSearch(ctx, query, limit); err != nil {
+		return nil, err
+	}
+	documents := s.documents
+	switch s.backend.(type) {
+	case FullTextBackend, *FullTextBackend:
+		// 標準 backend は入力を変更しないので、検証済みの内容を共有できる。
+	default:
+		// 独自 backend に可変 slice を渡しても snapshot 自体は変更させない。
+		documents = cloneDocuments(documents)
+	}
+	scores, err := s.backend.Search(ctx, documents, query)
 	if err != nil {
 		return nil, err
 	}
 	results := []Result{}
-	for _, doc := range index.Documents {
+	for i, doc := range s.documents {
 		if score, ok := scores[doc.Path]; ok && score > 0 {
-			results = append(results, current.result(doc, score))
+			result := s.results[i]
+			result.Relevance = score
+			results = append(results, result)
 		}
 	}
 	sort.Slice(results, func(i, j int) bool {
@@ -188,4 +237,15 @@ func (r *Repository) Search(ctx context.Context, query string, limit int) ([]Res
 		results = results[:limit]
 	}
 	return results, nil
+}
+
+func cloneDocuments(documents []Document) []Document {
+	cloned := slices.Clone(documents)
+	for i := range cloned {
+		m := &cloned[i].Metadata
+		m.Tags = slices.Clone(m.Tags)
+		m.Sources = slices.Clone(m.Sources)
+		m.Evals = slices.Clone(m.Evals)
+	}
+	return cloned
 }

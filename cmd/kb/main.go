@@ -228,14 +228,22 @@ func execute(ctx context.Context, repo *kb.Repository, opts options, stdout io.W
 	case "freshness":
 		return writeResults(stdout, repo.Freshness(), opts.json)
 	case "search":
-		results, err := repo.Search(ctx, opts.query, opts.limit)
-		if err != nil {
-			return err
-		}
-		return writeResults(stdout, results, opts.json)
+		return executeSearch(ctx, repo, opts, stdout)
 	default:
 		return fmt.Errorf("unsupported command %q", opts.command)
 	}
+}
+
+type searcher interface {
+	Search(context.Context, string, int) ([]kb.Result, error)
+}
+
+func executeSearch(ctx context.Context, search searcher, opts options, stdout io.Writer) error {
+	results, err := search.Search(ctx, opts.query, opts.limit)
+	if err != nil {
+		return err
+	}
+	return writeResults(stdout, results, opts.json)
 }
 
 func writeMessage(w io.Writer, asJSON bool, message string) error {
