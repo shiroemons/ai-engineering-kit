@@ -1,1 +1,1 @@
-{"schema":1,"status":"active","run_id":"safety-check-20261002-1654-261eb938","branch":"research/gpt-safety-check-20261002-1654-261eb938","base_sha":"559e2cf85db4fbc79aa1cfd5b56ac079fa0f25f7","started_at":1790960057,"expires_at":1790967257}
+{"schema":1,"status":"idle","run_id":"safety-check-20261002-1654-261eb938","branch":"research/gpt-safety-check-20261002-1654-261eb938","base_sha":"559e2cf85db4fbc79aa1cfd5b56ac079fa0f25f7","started_at":1790960057,"expires_at":1790967257,"finished_at":1790960660}
