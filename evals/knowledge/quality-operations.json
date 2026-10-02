@@ -465,6 +465,76 @@
     {"name": "otel-tail-affinity-dns", "query": "tail sampling affinity DNS", "expected_ids": ["opentelemetry-tail-sampling-late-span-decision-cache"]},
     {"name": "otel-tail-late-metric-scope", "query": "sampling_late_span_age early_releases_from_cache_decision", "expected_ids": ["opentelemetry-tail-sampling-late-span-decision-cache"]},
     {"name": "otel-tail-overflow-shutdown", "query": "block_on_overflow drop_pending_traces_on_shutdown", "expected_ids": ["opentelemetry-tail-sampling-late-span-decision-cache"]},
-    {"name": "otel-tail-root-ingest-boundary", "query": "decision_wait_after_root_received span-ingest", "expected_ids": ["opentelemetry-tail-sampling-late-span-decision-cache"]}
+    {"name": "otel-tail-root-ingest-boundary", "query": "decision_wait_after_root_received span-ingest", "expected_ids": ["opentelemetry-tail-sampling-late-span-decision-cache"]},
+    {
+      "name": "k6-scenario-configured-filter",
+      "query": "k6 threshold 設定済み 除外",
+      "expected_ids": [
+        "performance-k6-scenario-selection-threshold-coverage"
+      ]
+    },
+    {
+      "name": "k6-scenario-matching-tag",
+      "query": "k6 sample 判定 復帰",
+      "expected_ids": [
+        "performance-k6-scenario-selection-threshold-coverage"
+      ]
+    },
+    {
+      "name": "k6-scenario-global-count",
+      "query": "k6 global count 部分実行",
+      "expected_ids": [
+        "performance-k6-scenario-selection-threshold-coverage"
+      ]
+    },
+    {
+      "name": "k6-scenario-once-each",
+      "query": "k6 各選択scenario 合計1回",
+      "expected_ids": [
+        "performance-k6-scenario-selection-threshold-coverage"
+      ]
+    },
+    {
+      "name": "k6-scenario-timing-reset",
+      "query": "k6 startTime gracefulStop once",
+      "expected_ids": [
+        "performance-k6-scenario-selection-threshold-coverage"
+      ]
+    },
+    {
+      "name": "k6-scenario-archive-selection",
+      "query": "k6 archive flag 全体",
+      "expected_ids": [
+        "performance-k6-scenario-selection-threshold-coverage"
+      ]
+    },
+    {
+      "name": "k6-scenario-shortcut-layer",
+      "query": "k6 shortcut 警告 環境変数",
+      "expected_ids": [
+        "performance-k6-scenario-selection-threshold-coverage"
+      ]
+    },
+    {
+      "name": "k6-scenario-check-exit",
+      "query": "k6 check 終了状態 threshold",
+      "expected_ids": [
+        "performance-k6-scenario-selection-threshold-coverage"
+      ]
+    },
+    {
+      "name": "k6-scenario-default-selection",
+      "query": "k6 default 明示的",
+      "expected_ids": [
+        "performance-k6-scenario-selection-threshold-coverage"
+      ]
+    },
+    {
+      "name": "k6-scenario-scope-manifest",
+      "query": "k6 selected-smoke 未検証",
+      "expected_ids": [
+        "performance-k6-scenario-selection-threshold-coverage"
+      ]
+    }
   ]
 }

@@ -1,0 +1,12 @@
+{
+  "id": "redis-himport-set-replacement-20261002",
+  "url": "https://redis.io/docs/latest/commands/himport-set/",
+  "repository_url": "https://github.com/redis/docs",
+  "commit_sha": "",
+  "version": "Redis Open Source 8.10.0導入; 2026-10-02のunversioned command reference",
+  "retrieved_at": "2026-10-02",
+  "license": "CC-BY-NC-SA-4.0（https://github.com/redis/docs/blob/main/LICENSE を2026-10-02確認）; 旧redis-doc由来部分にはCC-BY-SA-4.0例外があるが当該ページの適用箇所は未特定。独自要約のみ、コード・図・長文転載なし",
+  "trust": "official",
+  "type": "official_docs",
+  "purpose": "既存key上書き、宣言順のvalues、field数不一致・未prepareのエラー、OK replyを確認。TTLや失敗時の全境界は文書で確定しない。公開日表示なし。"
+}

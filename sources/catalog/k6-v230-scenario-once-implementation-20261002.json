@@ -1,0 +1,12 @@
+{
+  "id": "k6-v230-scenario-once-implementation-20261002",
+  "url": "https://github.com/grafana/k6/tree/e0887846143ab176d4b5483c9d52cf3b3e009f1a/internal/cmd",
+  "repository_url": "https://github.com/grafana/k6",
+  "commit_sha": "e0887846143ab176d4b5483c9d52cf3b3e009f1a",
+  "version": "k6 v2.3.0, immutable commit e0887846143ab176d4b5483c9d52cf3b3e009f1a",
+  "retrieved_at": "2026-10-02",
+  "license": "AGPL-3.0 (pinned LICENSE.md); implementation inspected, no source code copied",
+  "trust": "official",
+  "type": "github_repository_analysis",
+  "purpose": "scenarios.go・once.go・scenarios_test.go を固定commitで読み、shortcut の優先度・threshold の configured/selected 判定・1 VU/1 iteration への変換を照合する。LICENSE.md も同commitで確認。GitHub HTML取得失敗後、同commitの公式raw URLを取得した"
+}

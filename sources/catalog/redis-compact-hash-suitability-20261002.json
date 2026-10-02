@@ -1,0 +1,12 @@
+{
+  "id": "redis-compact-hash-suitability-20261002",
+  "url": "https://redis.io/docs/latest/develop/data-types/hashes/",
+  "repository_url": "https://github.com/redis/docs",
+  "commit_sha": "",
+  "version": "Compact hashesはRedis 8.10導入; 2026-10-02のunversioned解説",
+  "retrieved_at": "2026-10-02",
+  "license": "CC-BY-NC-SA-4.0（https://github.com/redis/docs/blob/main/LICENSE を2026-10-02確認）; 旧redis-doc由来部分にはCC-BY-SA-4.0例外があるが当該ページの適用箇所は未特定。独自要約のみ、コード・図・長文転載なし",
+  "trust": "official",
+  "type": "official_docs",
+  "purpose": "共有field名による内部encoding、安定schemaへの適性、動的schema・大きなhashでの制約を確認。後からplain hashへ戻らない記述は現在文書の契約として扱い、個別patch実行は未検証。公開日表示なし。"
+}

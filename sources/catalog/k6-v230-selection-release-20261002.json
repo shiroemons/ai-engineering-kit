@@ -1,0 +1,12 @@
+{
+  "id": "k6-v230-selection-release-20261002",
+  "url": "https://github.com/grafana/k6/releases/tag/v2.3.0",
+  "repository_url": "",
+  "commit_sha": "",
+  "version": "k6 v2.3.0; published 2026-09-21T15:17:03Z; verified 2026-10-02 UTC",
+  "retrieved_at": "2026-10-02",
+  "license": "unknown (release prose has no separate license statement); attributed original summary only",
+  "trust": "official",
+  "type": "release_notes",
+  "purpose": "--scenario と --once の導入版、選択した workload を保つ既定動作、対象 release の公開日を確認する"
+}
