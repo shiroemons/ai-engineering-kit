@@ -1,0 +1,12 @@
+{
+  "id": "python-lazy-315-rc3-delay-20261002",
+  "url": "https://discuss.python.org/t/python-3-15-following-tradition-lets-have-a-surprise-rc3/109313",
+  "repository_url": "",
+  "commit_sha": "",
+  "version": "Hugo van Kemenade release announcement; published 2026-10-01",
+  "retrieved_at": "2026-10-02",
+  "license": "unknown",
+  "trust": "maintainer",
+  "type": "maintainer_article",
+  "purpose": "release managerによるlazy-import blockersと3.15.0 final延期、rc3予定の一次告知。配布完了を保証する告知ではない。公開ライセンス未確認のため文章・コードの転載なし。"
+}

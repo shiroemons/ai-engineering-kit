@@ -1,0 +1,12 @@
+{
+  "id": "kubernetes-nftables-localhost-implementation-v1370-20261002",
+  "url": "https://github.com/kubernetes/kubernetes/blob/f54c212e3a2f75d674b717a9b29052b20b60aefc/pkg/proxy/nftables/proxier.go",
+  "repository_url": "https://github.com/kubernetes/kubernetes",
+  "commit_sha": "f54c212e3a2f75d674b717a9b29052b20b60aefc",
+  "version": "Kubernetes v1.37.0; tag dated 2026-08-26; fixed release commit f54c212e3a2f75d674b717a9b29052b20b60aefc",
+  "retrieved_at": "2026-10-02",
+  "license": "Apache-2.0 (LICENSE and file headers at f54c212e3a2f75d674b717a9b29052b20b60aefc checked 2026-10-02); analysis only, no copied code",
+  "trust": "official",
+  "type": "github_repository_analysis",
+  "purpose": "pkg/features/kube_features.go、cmd/kube-proxy/app/server.go、pkg/proxy/util/nodeport_addresses.goとtests、nftables/proxier.goとtests、localnodeportproxy/proxy.goとtests、metrics/metrics.goを読み、gate・IP family・TCP・reject・endpoint選択・監視・shutdownを確認。実行はしていない"
+}

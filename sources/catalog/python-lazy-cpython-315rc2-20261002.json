@@ -1,0 +1,12 @@
+{
+  "id": "python-lazy-cpython-315rc2-20261002",
+  "url": "https://github.com/python/cpython/tree/435c9e5a798c99653e3ab64ce29baed0e4f3dfee",
+  "repository_url": "https://github.com/python/cpython",
+  "commit_sha": "435c9e5a798c99653e3ab64ce29baed0e4f3dfee",
+  "version": "CPython v3.15.0rc2; commit 435c9e5a798c99653e3ab64ce29baed0e4f3dfee",
+  "retrieved_at": "2026-10-02",
+  "license": "PSF-2.0; repository LICENSE contains historical license notices; no code copied",
+  "trust": "official",
+  "type": "github_repository_analysis",
+  "purpose": "git cloneしたtagのdereferenced SHAを固定。Python/sysmodule.c・Python/ceval.c・Python/import.c・Lib/test/test_lazy_import/__init__.pyとdata、LICENSEを読み、none拒否・compatibility・filter・再解決・proxy観察を照合。テストは実行していない。"
+}

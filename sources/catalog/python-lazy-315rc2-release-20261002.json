@@ -1,0 +1,12 @@
+{
+  "id": "python-lazy-315rc2-release-20261002",
+  "url": "https://www.python.org/downloads/release/python-3150rc2/",
+  "repository_url": "",
+  "commit_sha": "",
+  "version": "Python 3.15.0rc2; released 2026-09-01",
+  "retrieved_at": "2026-10-02",
+  "license": "unknown",
+  "trust": "official",
+  "type": "release_notes",
+  "purpose": "rc2の公開日・previewであること・本番非推奨を確認。記載のfinal予定2026-10-01は10月1日の延期告知により更新されており、実際のfinal公開日とは扱わない。"
+}

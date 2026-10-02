@@ -762,6 +762,83 @@
       "expected_ids": [
         "rails-create-or-find-mysql-shared-lock-boundary"
       ]
+    },
+    {
+      "name": "python-lazy-release-final-postponed",
+      "query": "lazy-import release blockers 延期",
+      "expected_ids": [
+        "python-lazy-imports-release-readiness-boundary"
+      ]
+    },
+    {
+      "name": "python-lazy-first-use-failure",
+      "query": "lazy 初回利用 ImportError",
+      "expected_ids": [
+        "python-lazy-imports-release-readiness-boundary"
+      ]
+    },
+    {
+      "name": "python-lazy-normal-not-off",
+      "query": "normal 全面無効化",
+      "expected_ids": [
+        "python-lazy-imports-release-readiness-boundary"
+      ]
+    },
+    {
+      "name": "python-lazy-none-rejected",
+      "query": "none ValueError rollback",
+      "expected_ids": [
+        "python-lazy-imports-release-readiness-boundary"
+      ]
+    },
+    {
+      "name": "python-lazy-module-compat-from-member",
+      "query": "__lazy_modules__ 完全修飾 member名",
+      "expected_ids": [
+        "python-lazy-imports-release-readiness-boundary"
+      ]
+    },
+    {
+      "name": "python-lazy-try-eager",
+      "query": "try 通常import fallback",
+      "expected_ids": [
+        "python-lazy-imports-release-readiness-boundary"
+      ]
+    },
+    {
+      "name": "python-lazy-registration-readiness",
+      "query": "plugin 登録 readiness",
+      "expected_ids": [
+        "python-lazy-imports-release-readiness-boundary"
+      ]
+    },
+    {
+      "name": "python-lazy-path-at-resolution",
+      "query": "sys.path reification 探索",
+      "expected_ids": [
+        "python-lazy-imports-release-readiness-boundary"
+      ]
+    },
+    {
+      "name": "python-lazy-globals-proxy",
+      "query": "globals() LazyImportType proxy",
+      "expected_ids": [
+        "python-lazy-imports-release-readiness-boundary"
+      ]
+    },
+    {
+      "name": "python-lazy-runtime-filter-owner",
+      "query": "filter library mode",
+      "expected_ids": [
+        "python-lazy-imports-release-readiness-boundary"
+      ]
+    },
+    {
+      "name": "python-lazy-prerelease-source-limit",
+      "query": "rc3 固定snapshot 未検証",
+      "expected_ids": [
+        "python-lazy-imports-release-readiness-boundary"
+      ]
     }
   ]
 }
