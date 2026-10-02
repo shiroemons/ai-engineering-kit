@@ -158,6 +158,11 @@ func validateEvals(ctx context.Context, root string, r *kb.Repository) error {
 	if len(paths) == 0 {
 		return fmt.Errorf("%w: no knowledge evals", errInvalidEvalSuite)
 	}
+	// Evaluation is a read-only phase over one validated corpus. Reuse its
+	// searchable text, but preserve the per-query input/index verification.
+	// The final check also catches changes made during the last backend call.
+	// Prepare lazily so malformed/empty suites keep their existing diagnostics.
+	var prepared *kb.SearchSnapshot
 	for _, path := range paths {
 		data, err := os.ReadFile(path)
 		if err != nil {
@@ -174,7 +179,15 @@ func validateEvals(ctx context.Context, root string, r *kb.Repository) error {
 			if c.Name == "" || strings.TrimSpace(c.Query) == "" || len(c.ExpectedIDs) == 0 {
 				return fmt.Errorf("%w: incomplete eval: %s", errInvalidEvalSuite, path)
 			}
-			results, err := r.Search(ctx, c.Query, 20)
+			if prepared == nil {
+				prepared, err = r.PrepareSearch(ctx)
+				if err != nil {
+					return err
+				}
+			} else if err := prepared.CheckCurrent(ctx); err != nil {
+				return err
+			}
+			results, err := prepared.Search(ctx, c.Query, 20)
 			if err != nil {
 				return err
 			}
@@ -189,5 +202,5 @@ func validateEvals(ctx context.Context, root string, r *kb.Repository) error {
 			}
 		}
 	}
-	return nil
+	return prepared.CheckCurrent(ctx)
 }

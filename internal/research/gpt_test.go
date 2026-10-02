@@ -16,9 +16,20 @@ import (
 func gptFixture(t *testing.T) (string, string, string) {
 	t.Helper()
 	root, state := fixture(t, "normal")
+	return root, prepareGPTFixture(t, root), state
+}
+
+func gptRepositoryFixture(t *testing.T) (string, string) {
+	t.Helper()
+	root := repositoryFixture(t)
+	return root, prepareGPTFixture(t, root)
+}
+
+func prepareGPTFixture(t *testing.T, root string) string {
+	t.Helper()
 	writeFile(t, filepath.Join(root, "evals/knowledge/one.json"), []byte(`{"cases":[{"name":"baseline-context","query":"context cancellation","expected_ids":["go-context"]}]}`), 0644)
 	gptTestCommit(t, root)
-	return root, gptTestHEAD(t, root), state
+	return gptTestHEAD(t, root)
 }
 
 func gptTestHEAD(t *testing.T, root string) string {
@@ -409,9 +420,13 @@ func TestGPTValidateRejectsUnsafeArtifacts(t *testing.T) {
 			writeFile(t, filepath.Join(root, "sources/catalog/unrelated.json"), bytes.ReplaceAll(data, []byte("go-context-docs"), []byte("unrelated-docs")), 0644)
 		}},
 	}
+	// Keep the full corpus and Git history, but prepare this immutable baseline
+	// only once. Each case owns its working tree, index, refs, and object files.
+	seed, base := gptRepositoryFixture(t)
 	for _, tc := range cases {
 		t.Run(tc.name, func(t *testing.T) {
-			root, base, _ := gptFixture(t)
+			root := copyRepositoryFixture(t, seed)
+			openCodeFixture(t, "normal")
 			path := gptTestDocument(t, root, "one", "one-research")
 			tc.edit(t, root, path)
 			if _, err := ValidateGPT(t.Context(), root, base, 3); err == nil || !strings.Contains(err.Error(), tc.want) {

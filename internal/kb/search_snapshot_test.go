@@ -177,6 +177,9 @@ func TestSearchSnapshotRetainsValidatedState(t *testing.T) {
 				t.Fatal(err)
 			}
 			scenario.change(t, root, &index)
+			if err := prepared.CheckCurrent(t.Context()); err == nil || !strings.Contains(err.Error(), scenario.want) {
+				t.Fatalf("CheckCurrent error = %v; want %q", err, scenario.want)
+			}
 			if _, err := r.PrepareSearch(t.Context()); err == nil || !strings.Contains(err.Error(), scenario.want) {
 				t.Fatalf("PrepareSearch error = %v; want %q", err, scenario.want)
 			}
@@ -319,5 +322,102 @@ func TestSearchSnapshotConcurrentSearches(t *testing.T) {
 				got[0].Title = "caller changed result"
 			}
 		})
+	}
+}
+
+func TestSearchSnapshotCheckCurrentAfterReindex(t *testing.T) {
+	for _, scenario := range []struct {
+		name   string
+		change func(*testing.T, string)
+	}{
+		{"unchanged", func(*testing.T, string) {}},
+		{"document", func(t *testing.T, root string) {
+			writeDoc(t, root, "knowledge/go/context.md", metadata("context"), "Changed retry guidance")
+		}},
+		{"source", func(t *testing.T, root string) {
+			src := source("official", "official")
+			src.Purpose = "Changed source purpose"
+			writeJSON(t, root, "sources/catalog/official.json", src)
+		}},
+	} {
+		t.Run(scenario.name, func(t *testing.T) {
+			root := fixture(t)
+			r := mustLoad(t, root)
+			if err := r.Index(); err != nil {
+				t.Fatal(err)
+			}
+			prepared := prepareSnapshot(t, r)
+			if err := prepared.CheckCurrent(t.Context()); err != nil {
+				t.Fatalf("unchanged snapshot: %v", err)
+			}
+			want, err := prepared.Search(t.Context(), "retry", 10)
+			if err != nil {
+				t.Fatal(err)
+			}
+			scenario.change(t, root)
+			if err := r.Index(); err != nil {
+				t.Fatal(err)
+			}
+			// The guard uses captured inputs/time and never the mutable backend.
+			r.Backend = nil
+			r.now = r.now.AddDate(100, 0, 0)
+			err = prepared.CheckCurrent(t.Context())
+			if scenario.name == "unchanged" {
+				if err != nil {
+					t.Fatalf("identical reindex must remain valid: %v", err)
+				}
+			} else if err == nil || !strings.Contains(err.Error(), "search snapshot is out of date") {
+				t.Fatalf("changed corpus with valid index must be rejected: %v", err)
+			}
+			got, err := prepared.Search(t.Context(), "retry", 10)
+			if err != nil || !reflect.DeepEqual(got, want) {
+				t.Fatalf("guard changed frozen results: %+v, %v; want %+v", got, err, want)
+			}
+		})
+	}
+}
+
+func TestSearchSnapshotCheckCurrentCancellation(t *testing.T) {
+	r := mustLoad(t, fixture(t))
+	if err := r.Index(); err != nil {
+		t.Fatal(err)
+	}
+	prepared := prepareSnapshot(t, r)
+	canceled, cancel := context.WithCancel(t.Context())
+	cancel()
+	for _, ctx := range []context.Context{
+		canceled,
+		&cancelAfterContextChecks{Context: t.Context(), remaining: 1},
+		&cancelAfterContextChecks{Context: t.Context(), remaining: 2},
+	} {
+		if err := prepared.CheckCurrent(ctx); !errors.Is(err, context.Canceled) {
+			t.Fatalf("canceled validation = %v; want context.Canceled", err)
+		}
+	}
+}
+
+func TestSearchSnapshotAcceptsEquivalentOmittedIndexFields(t *testing.T) {
+	r := mustLoad(t, fixture(t))
+	if err := r.Index(); err != nil {
+		t.Fatal(err)
+	}
+	prepared := prepareSnapshot(t, r)
+	path := "rag/index/snapshot.json"
+	data, err := os.ReadFile(filepath.Join(r.root, path))
+	if err != nil {
+		t.Fatal(err)
+	}
+	var index map[string]any
+	if err := json.Unmarshal(data, &index); err != nil {
+		t.Fatal(err)
+	}
+	indexedDoc := index["documents"].([]any)[0].(map[string]any)
+	indexedDoc["metadata"].(map[string]any)["evals"] = []string{}
+	writeJSON(t, r.root, path, index)
+	if _, err := r.PrepareSearch(t.Context()); err != nil {
+		t.Fatalf("explicit empty omitempty field must preserve JSON equivalence: %v", err)
+	}
+	if err := prepared.CheckCurrent(t.Context()); err != nil {
+		t.Fatalf("equivalent index must remain current: %v", err)
 	}
 }

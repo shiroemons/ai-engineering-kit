@@ -190,6 +190,11 @@ func TestOpenCodeProcess(t *testing.T) {
 
 func fixture(t *testing.T, mode string) (string, string) {
 	t.Helper()
+	return repositoryFixture(t), openCodeFixture(t, mode)
+}
+
+func repositoryFixture(t *testing.T) string {
+	t.Helper()
 	root, err := filepath.EvalSymlinks(t.TempDir())
 	if err != nil {
 		t.Fatal(err)
@@ -236,6 +241,11 @@ func fixture(t *testing.T, mode string) (string, string) {
 			t.Fatal(err)
 		}
 	}
+	return root
+}
+
+func openCodeFixture(t *testing.T, mode string) string {
+	t.Helper()
 	state := t.TempDir()
 	bin := t.TempDir()
 	exe, err := os.Executable()
@@ -248,7 +258,7 @@ func fixture(t *testing.T, mode string) (string, string) {
 	t.Setenv("RESEARCH_TEST_STATE", state)
 	t.Setenv("PATH", bin+string(os.PathListSeparator)+os.Getenv("PATH"))
 	writeFile(t, filepath.Join(bin, "opencode"), []byte("#!/bin/sh\nexec \"$RESEARCH_TEST_BIN\" -test.run='^TestOpenCodeProcess$' -- \"$@\"\n"), 0755)
-	return root, state
+	return state
 }
 
 func writeFile(t *testing.T, path string, data []byte, mode os.FileMode) {
