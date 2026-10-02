@@ -69,5 +69,13 @@
     {"name": "oauth-bff-proxy-allowlist", "query": "BFF proxy allowlist", "expected_ids": ["oauth-bff-cookie-csrf-proxy-boundary"]},
     {"name": "oauth-bff-token-mediation", "query": "token-mediating backend", "expected_ids": ["oauth-bff-cookie-csrf-proxy-boundary"]},
     {"name": "oauth-bff-hijacking-boundary", "query": "BFF client hijacking", "expected_ids": ["oauth-bff-cookie-csrf-proxy-boundary"]},
-    {"name": "oauth-bff-callback-separation", "query": "BFF callback PKCE", "expected_ids": ["oauth-bff-cookie-csrf-proxy-boundary"]}
+    {"name": "oauth-bff-callback-separation", "query": "BFF callback PKCE", "expected_ids": ["oauth-bff-cookie-csrf-proxy-boundary"]},
+    {"name": "webauthn-passkey-backup-eligibility", "query": "WebAuthn BE BS", "expected_ids": ["security-webauthn-passkey-backup-flags-signcount"]},
+    {"name": "webauthn-passkey-record-state", "query": "backupEligible backupState", "expected_ids": ["security-webauthn-passkey-backup-flags-signcount"]},
+    {"name": "webauthn-passkey-counter-zero", "query": "signCount 0→0", "expected_ids": ["security-webauthn-passkey-backup-flags-signcount"]},
+    {"name": "webauthn-passkey-counter-race", "query": "signCount race condition", "expected_ids": ["security-webauthn-passkey-backup-flags-signcount"]},
+    {"name": "webauthn-passkey-policy-condition", "query": "step 19 ポリシー", "expected_ids": ["security-webauthn-passkey-backup-flags-signcount"]},
+    {"name": "webauthn-passkey-device-trust", "query": "BE=0 attestation", "expected_ids": ["security-webauthn-passkey-backup-flags-signcount"]},
+    {"name": "webauthn-passkey-legacy-flags", "query": "RFU2 移行", "expected_ids": ["security-webauthn-passkey-backup-flags-signcount"]},
+    {"name": "webauthn-passkey-backup-recovery", "query": "BS=1→0 復旧", "expected_ids": ["security-webauthn-passkey-backup-flags-signcount"]}
   ]}

@@ -381,6 +381,55 @@
       "expected_ids": [
         "react-fragment-ref-dom-boundaries"
       ]
+    },
+    {
+      "name": "css-anchor-normal-default",
+      "query": "position-anchor normal auto",
+      "expected_ids": [
+        "css-anchor-positioning-fallback-scope-boundaries"
+      ]
+    },
+    {
+      "name": "css-anchor-scope-explicit-implicit",
+      "query": "anchor-scope implicit subtree",
+      "expected_ids": [
+        "css-anchor-positioning-fallback-scope-boundaries"
+      ]
+    },
+    {
+      "name": "css-anchor-fallback-combined-options",
+      "query": "position-try-fallbacks flip-block flip-inline",
+      "expected_ids": [
+        "css-anchor-positioning-fallback-scope-boundaries"
+      ]
+    },
+    {
+      "name": "css-anchor-fallback-current-styles",
+      "query": "fallback current styles",
+      "expected_ids": [
+        "css-anchor-positioning-fallback-scope-boundaries"
+      ]
+    },
+    {
+      "name": "css-anchor-visibility-singular-alias",
+      "query": "anchor-valid anchor-visible legacy alias",
+      "expected_ids": [
+        "css-anchor-positioning-fallback-scope-boundaries"
+      ]
+    },
+    {
+      "name": "css-anchor-accessibility-bindings",
+      "query": "Anchor Positioning accessibility bindings",
+      "expected_ids": [
+        "css-anchor-positioning-fallback-scope-boundaries"
+      ]
+    },
+    {
+      "name": "css-anchor-publication-version-boundary",
+      "query": "Working Draft 404",
+      "expected_ids": [
+        "css-anchor-positioning-fallback-scope-boundaries"
+      ]
     }
   ]
 }

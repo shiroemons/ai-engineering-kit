@@ -1,0 +1,12 @@
+{
+  "id": "ruby-ractor-release-4-0-0-20261002",
+  "url": "https://www.ruby-lang.org/en/news/2025/12/25/ruby-4-0-0-released/",
+  "repository_url": "https://github.com/ruby/www.ruby-lang.org",
+  "commit_sha": "",
+  "version": "Ruby 4.0.0; published 2025-12-25",
+  "retrieved_at": "2026-10-02",
+  "license": "unknown (official release article; separate article-content license not established; original summary only)",
+  "trust": "official",
+  "type": "release_notes",
+  "purpose": "2025-12-25 公開。Ractor::Port 導入、yield/take と旧 close API の削除、join/value と select の変更、experimental 継続を確認する"
+}

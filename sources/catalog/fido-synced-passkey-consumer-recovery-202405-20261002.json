@@ -1,0 +1,12 @@
+{
+  "id": "fido-synced-passkey-consumer-recovery-202405-20261002",
+  "url": "https://fidoalliance.org/wp-content/uploads/2024/05/Synced-Passkey-Deployment_-Emerging-Practices-for-Consumer-Use-Cases_2024-May-31.pdf",
+  "repository_url": "",
+  "commit_sha": "",
+  "version": "FIDO Alliance Synced Passkey Deployment: Emerging Practices for Consumer Use Cases, cover date May 2024, May-31 PDF",
+  "retrieved_at": "2026-10-02",
+  "license": "unknown (PDF states Copyright 2024 FIDO Alliance, All rights reserved; no reuse license verified; original summary only)",
+  "trust": "maintainer",
+  "type": "maintainer_article",
+  "purpose": "規範仕様ではない FIDO Alliance の展開解説として、2.1-2.2 の provider アクセス喪失・非対応端末への移行・同期済みでも残る復旧経路の必要性を確認する。2023 年時点の製品表を2026年の対応状況へ流用せず、本文・表・コードはコピーしない。"
+}

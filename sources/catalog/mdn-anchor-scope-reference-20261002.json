@@ -1,0 +1,12 @@
+{
+  "id": "mdn-anchor-scope-reference-20261002",
+  "url": "https://developer.mozilla.org/en-US/docs/Web/CSS/Reference/Properties/anchor-scope",
+  "version": "MDN anchor-scope reference; last modified 26 July 2026; live Baseline banner says January 2026 on retrieval",
+  "license": "CC-BY-SA-2.5-or-later documentation; https://developer.mozilla.org/en-US/docs/MDN/Writing_guidelines/Attrib_copyright_license",
+  "trust": "maintainer",
+  "type": "official_docs",
+  "purpose": "Explicit-name subtree scoping using none/all/dashed-ident and exclusion of implicit associations; January 2026 Baseline banner. Generic last-in-source-order wording is not used to override the published specification nearest-ancestor lookup rule.",
+  "repository_url": "",
+  "commit_sha": "",
+  "retrieved_at": "2026-10-02"
+}

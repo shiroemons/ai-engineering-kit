@@ -1,0 +1,12 @@
+{
+  "id": "ruby-ractor-port-4-0-docs-20261002",
+  "url": "https://docs.ruby-lang.org/en/4.0/Ractor/Port.html",
+  "repository_url": "https://github.com/ruby/ruby",
+  "commit_sha": "",
+  "version": "Ruby 4.0 RDoc; patch version and page publication date not displayed",
+  "retrieved_at": "2026-10-02",
+  "license": "Ruby License OR BSD-2-Clause (source-derived RDoc; https://docs.ruby-lang.org/en/4.0/COPYING.html verified; original summary only)",
+  "trust": "official",
+  "type": "official_docs",
+  "purpose": "Port の作成者だけが receive/close できること、非同期 send、閉鎖後の drain と ClosedError、既定 deep clone を確認する"
+}

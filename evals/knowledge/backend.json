@@ -453,6 +453,76 @@
       "expected_ids": [
         "go-json-v2-migration-strict-input-wire-contract"
       ]
+    },
+    {
+      "name": "ruby-ractor-4-removes-yield-take",
+      "query": "Ractor.yield Ractor#take 削除",
+      "expected_ids": [
+        "ruby-ractor-port-ownership-migration"
+      ]
+    },
+    {
+      "name": "ruby-ractor-port-receiver-owner",
+      "query": "Ractor::Port 作成者 receive close",
+      "expected_ids": [
+        "ruby-ractor-port-ownership-migration"
+      ]
+    },
+    {
+      "name": "ruby-ractor-select-termination-message",
+      "query": "Ractor.select termination_value message",
+      "expected_ids": [
+        "ruby-ractor-port-ownership-migration"
+      ]
+    },
+    {
+      "name": "ruby-ractor-closed-port-drain",
+      "query": "ClosedError drain 未受信",
+      "expected_ids": [
+        "ruby-ractor-port-ownership-migration"
+      ]
+    },
+    {
+      "name": "ruby-ractor-send-copy-move",
+      "query": "deep clone move: true",
+      "expected_ids": [
+        "ruby-ractor-port-ownership-migration"
+      ]
+    },
+    {
+      "name": "ruby-ractor-shareable-nested-freeze",
+      "query": "Ractor.shareable? 入れ子 freeze",
+      "expected_ids": [
+        "ruby-ractor-port-ownership-migration"
+      ]
+    },
+    {
+      "name": "ruby-ractor-infinite-queue-backpressure",
+      "query": "無制限 queue バックプレッシャー",
+      "expected_ids": [
+        "ruby-ractor-port-ownership-migration"
+      ]
+    },
+    {
+      "name": "ruby-ractor-termination-single-owner",
+      "query": "終了値 最大一つ value",
+      "expected_ids": [
+        "ruby-ractor-port-ownership-migration"
+      ]
+    },
+    {
+      "name": "ruby-ractor-worker-failure-cause",
+      "query": "Ractor::RemoteError cause ractor",
+      "expected_ids": [
+        "ruby-ractor-port-ownership-migration"
+      ]
+    },
+    {
+      "name": "ruby-ractor-experimental-patch-scope",
+      "query": "experimental 4.0.7 未検証",
+      "expected_ids": [
+        "ruby-ractor-port-ownership-migration"
+      ]
     }
   ]
 }

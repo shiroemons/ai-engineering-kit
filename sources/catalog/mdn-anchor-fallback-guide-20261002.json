@@ -1,0 +1,12 @@
+{
+  "id": "mdn-anchor-fallback-guide-20261002",
+  "url": "https://developer.mozilla.org/en-US/docs/Web/CSS/Guides/Anchor_positioning/Try_options_hiding",
+  "version": "MDN Fallback options and conditional hiding for overflow; last modified 6 September 2026",
+  "license": "CC-BY-SA-2.5-or-later documentation; https://developer.mozilla.org/en-US/docs/MDN/Writing_guidelines/Attrib_copyright_license",
+  "trust": "maintainer",
+  "type": "official_docs",
+  "purpose": "Comma-separated alternative options versus combined space-separated flip tactics; position-try-order and shorthand. Records the guide original-position fallback wording as a documentation discrepancy, not as a universal contract; compare W3C current-styles algorithm.",
+  "repository_url": "",
+  "commit_sha": "",
+  "retrieved_at": "2026-10-02"
+}

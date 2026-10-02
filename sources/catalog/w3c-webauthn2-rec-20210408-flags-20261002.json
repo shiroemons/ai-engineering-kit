@@ -1,0 +1,12 @@
+{
+  "id": "w3c-webauthn2-rec-20210408-flags-20261002",
+  "url": "https://www.w3.org/TR/2021/REC-webauthn-2-20210408/",
+  "repository_url": "",
+  "commit_sha": "",
+  "version": "Web Authentication Level 2, W3C Recommendation, 8 April 2021",
+  "retrieved_at": "2026-10-02",
+  "license": "W3C Document License; 2021 specification document-use link redirected to https://www.w3.org/copyright/document-license-2023/ when checked",
+  "trust": "official",
+  "type": "official_docs",
+  "purpose": "旧 Level 2 の 6.1 が flags bit 3-5 を RFU2 としていたことと公開版の成熟度・日付を確認し、Level 3 の BE/BS 割当との移行差分を説明する。旧版を現行の保証として扱わず、コードや仕様本文を転載しない。"
+}
