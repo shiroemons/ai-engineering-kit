@@ -1,0 +1,12 @@
+{
+  "id": "kubernetes-pvc-unused-pv-guide-20261003",
+  "url": "https://kubernetes.io/docs/concepts/storage/persistent-volumes/",
+  "repository_url": "https://github.com/kubernetes/website",
+  "commit_sha": "",
+  "version": "Kubernetes v1.37 documentation; page footer last modified 2026-06-17",
+  "retrieved_at": "2026-10-03",
+  "license": "CC-BY-4.0",
+  "trust": "official",
+  "type": "official_docs",
+  "purpose": "Unused状態、処理遅延・途中有効化による時刻の制約、削除中の更新停止、Retain/Delete reclaim policy。ページ全体の更新表示を当該機能の導入日とはしない。"
+}

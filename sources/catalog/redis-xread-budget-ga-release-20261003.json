@@ -1,0 +1,12 @@
+{
+  "id": "redis-xread-budget-ga-release-20261003",
+  "url": "https://github.com/redis/redis/releases/tag/8.10.0",
+  "repository_url": "https://github.com/redis/redis",
+  "commit_sha": "",
+  "version": "Redis 8.10.0 GA; published_at 2026-07-29T17:20:06Z",
+  "retrieved_at": "2026-10-03",
+  "license": "unknown; release notes本文の個別ライセンスは未特定。Redisコードの三択ライセンスをrelease本文へ自動適用しない。独自要約のみ。",
+  "trust": "official",
+  "type": "release_notes",
+  "purpose": "GA releaseにXREAD/XREADGROUP MAXCOUNT/MAXSIZE追加の記載。native webで本文を開きGitHub release APIのpublished_atも照合した。"
+}

@@ -1,0 +1,12 @@
+{
+  "id": "kubernetes-pvc-unused-terminal-v1370-20261003",
+  "url": "https://github.com/kubernetes/kubernetes/blob/f54c212e3a2f75d674b717a9b29052b20b60aefc/pkg/volume/util/util.go",
+  "repository_url": "https://github.com/kubernetes/kubernetes",
+  "commit_sha": "f54c212e3a2f75d674b717a9b29052b20b60aefc",
+  "version": "Kubernetes v1.37.0 IsPodTerminated/notRunning implementation",
+  "retrieved_at": "2026-10-03",
+  "license": "Apache-2.0",
+  "trust": "primary-source",
+  "type": "github_repository_analysis",
+  "purpose": "Pod phaseがSucceeded/Failedの場合と、deletionTimestampありかつ全container statusが待機・終了・空の場合のIsPodTerminated分岐を確認。unmountやI/O完了の保証とはしない。"
+}

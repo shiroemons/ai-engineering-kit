@@ -1,0 +1,12 @@
+{
+  "id": "redis-xreadgroup-budget-upstream-tests-20261003",
+  "url": "https://github.com/redis/redis/blob/498ecd0d6d007db11ddb3aea9428552598a78622/tests/unit/type/stream-cgroups.tcl",
+  "repository_url": "https://github.com/redis/redis",
+  "commit_sha": "498ecd0d6d007db11ddb3aea9428552598a78622",
+  "version": "Redis 8.10.2 at 498ecd0d6d007db11ddb3aea9428552598a78622",
+  "retrieved_at": "2026-10-03",
+  "license": "Redis 8: RSALv2 OR SSPLv1 OR AGPLv3; LICENSE.txt at 498ecd0d6d007db11ddb3aea9428552598a78622 を2026-10-03確認。src/t_stream.cとsrc/networking.cのfile headerも同じ選択制を明記。testsは個別license headerなし、repository licenseを記録。コード転載・移植なし。",
+  "trust": "primary-source",
+  "type": "github_repository_analysis",
+  "purpose": "新規とPEL読み直しのMAXCOUNT、巨大entry、blocking解除後MAXCOUNTのupstream testを確認。今回の実行結果や全failure mode検証と扱わない。"
+}

@@ -236,5 +236,15 @@
       "expected_ids": [
         "security-sri-policy-admission-digest-boundary"
       ]
-    }
+    },
+    {"name": "cosign-legacy-affected-commands", "query": "verify-blob LocalSignedPayload v2.6.5", "expected_ids": ["cosign-legacy-bundle-identity-key-boundary"]},
+    {"name": "cosign-legacy-oci-not-affected", "query": "GHSA-fx35 OCI 非該当", "expected_ids": ["cosign-legacy-bundle-identity-key-boundary"]},
+    {"name": "cosign-legacy-key-override", "query": "legacy cert --key 置き換わる", "expected_ids": ["cosign-legacy-bundle-identity-key-boundary"]},
+    {"name": "cosign-legacy-parser-patch", "query": "legacy cert parse失敗", "expected_ids": ["cosign-legacy-bundle-identity-key-boundary"]},
+    {"name": "cosign-legacy-modern-flag-not-gate", "query": "Cosign --new-bundle-format=true strict gate", "expected_ids": ["cosign-legacy-bundle-identity-key-boundary"]},
+    {"name": "cosign-legacy-identity-key-exclusive", "query": "Cosign identity 相互排他", "expected_ids": ["cosign-legacy-bundle-identity-key-boundary"]},
+    {"name": "cosign-legacy-out-of-band-key", "query": "publicKey.hint out-of-band", "expected_ids": ["cosign-legacy-bundle-identity-key-boundary"]},
+    {"name": "cosign-legacy-conversion-acceptance", "query": "変換後 artifact 信頼元", "expected_ids": ["cosign-legacy-bundle-identity-key-boundary"]},
+    {"name": "cosign-legacy-retrospective-unknown", "query": "Cosign 影響不明", "expected_ids": ["cosign-legacy-bundle-identity-key-boundary"]},
+    {"name": "cosign-legacy-format-json", "query": "protobuf JSON serialization", "expected_ids": ["cosign-legacy-bundle-identity-key-boundary"]}
   ]}

@@ -1,0 +1,12 @@
+{
+  "id": "kubernetes-pvc-unused-tests-v1370-20261003",
+  "url": "https://github.com/kubernetes/kubernetes/blob/f54c212e3a2f75d674b717a9b29052b20b60aefc/pkg/controller/volume/pvcprotection/pvc_protection_controller_test.go",
+  "repository_url": "https://github.com/kubernetes/kubernetes",
+  "commit_sha": "f54c212e3a2f75d674b717a9b29052b20b60aefc",
+  "version": "Kubernetes v1.37.0 upstream unit-test source; not executed",
+  "retrieved_at": "2026-10-03",
+  "license": "Apache-2.0",
+  "trust": "primary-source",
+  "type": "github_repository_analysis",
+  "purpose": "Boundのみ、未schedule Pod、terminal Pod、複数Pod、API fallback、status更新失敗retry、削除中condition保持のtest期待値を読解。上流test実行結果ではない。"
+}

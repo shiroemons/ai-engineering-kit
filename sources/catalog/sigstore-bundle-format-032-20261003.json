@@ -1,0 +1,12 @@
+{
+  "id": "sigstore-bundle-format-032-20261003",
+  "url": "https://docs.sigstore.dev/about/bundle/",
+  "repository_url": "https://github.com/sigstore/docs",
+  "commit_sha": "",
+  "version": "Sigstore Bundle Format guide Version 0.3.2; page last updated 2025-01-14; retrieved 2026-10-03 UTC",
+  "license": "MIT (https://github.com/sigstore/docs/blob/main/LICENSE, checked 2026-10-03)",
+  "trust": "official",
+  "type": "official_docs",
+  "purpose": "protobuf由来JSON serialization、X.509 certificateとout-of-band publicKey.hint、artifact/digestの検証時入力を確認。ページ表示版を記録し、現在の全schemaや全client対応版を保証しない。",
+  "retrieved_at": "2026-10-03"
+}

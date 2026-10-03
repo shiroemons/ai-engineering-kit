@@ -1,0 +1,12 @@
+{
+  "id": "kubernetes-pvc-unused-blog-20261003",
+  "url": "https://kubernetes.io/blog/2026/09/21/kubernetes-v1-37-pvc-last-used-time/",
+  "repository_url": "https://github.com/kubernetes/website",
+  "commit_sha": "",
+  "version": "Kubernetes v1.37 beta; published 2026-09-21",
+  "retrieved_at": "2026-10-03",
+  "license": "CC-BY-4.0",
+  "trust": "maintainer",
+  "type": "maintainer_article",
+  "purpose": "Roman Bednář (Red Hat) によるbeta/default-onの説明、Pending Podと完了Podの通常時の扱い。記事のeach PVC表現は固定v1.37.0実装のBound条件と区別する。"
+}

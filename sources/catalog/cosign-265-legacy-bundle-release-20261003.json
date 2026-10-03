@@ -1,0 +1,12 @@
+{
+  "id": "cosign-265-legacy-bundle-release-20261003",
+  "url": "https://github.com/sigstore/cosign/releases/tag/v2.6.5",
+  "repository_url": "https://github.com/sigstore/cosign",
+  "commit_sha": "",
+  "version": "Cosign v2.6.5, released 2026-08-06; advisory backport to v2.6.x",
+  "license": "unknown (release prose has no separate explicit license; attributed original summary only)",
+  "trust": "official",
+  "type": "release_notes",
+  "purpose": "v2.6.5へのbackportと、v3.1.xの署名既定形式・新旧bundleの検証時auto-detectionを確認。v2の内部実装の全分岐は未検証。",
+  "retrieved_at": "2026-10-03"
+}
