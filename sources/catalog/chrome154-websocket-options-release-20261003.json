@@ -1,0 +1,12 @@
+{
+  "id": "chrome154-websocket-options-release-20261003",
+  "url": "https://developer.chrome.com/release-notes/154",
+  "repository_url": "",
+  "commit_sha": "",
+  "version": "Chrome 154 stable release 2026-09-22; retrieved 2026-10-03; runtime untested",
+  "license": "CC-BY-4.0 (page text); Apache-2.0 (code samples); page footer verified 2026-10-03, no code copied",
+  "trust": "official",
+  "type": "release_notes",
+  "purpose": "WebSocketInit と targetAddressSpace の Chrome 154 導入、permission と local IP 条件を確認",
+  "retrieved_at": "2026-10-03"
+}

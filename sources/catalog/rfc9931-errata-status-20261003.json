@@ -1,0 +1,12 @@
+{
+  "id": "rfc9931-errata-status-20261003",
+  "url": "https://errata.rfc-editor.org/search/?rfc_number=9931",
+  "repository_url": "",
+  "commit_sha": "",
+  "retrieved_at": "2026-10-03",
+  "trust": "official",
+  "type": "official_docs",
+  "version": "RFC 9931 errata search; no matching entries displayed when checked 2026-10-03 UTC",
+  "license": "unknown",
+  "purpose": "現行公式errata検索が一致なしと表示することを確認。将来の訂正不存在の保証とはしない。独自要約のみ、コード・moduleへの取り込みなし。"
+}

@@ -927,6 +927,46 @@
       "expected_ids": [
         "react-viewtransition-commit-router-motion-boundary"
       ]
+    },
+    {
+      "name": "websocket-options-local-permission",
+      "query": "WebSocket targetAddressSpace permission",
+      "expected_ids": ["javascript-websocket-options-local-permission-boundary"]
+    },
+    {
+      "name": "websocket-options-standardization",
+      "query": "WebSocketInit 未merge",
+      "expected_ids": ["javascript-websocket-options-local-permission-boundary"]
+    },
+    {
+      "name": "websocket-options-protocols-type",
+      "query": "WebSocket protocols sequence",
+      "expected_ids": ["javascript-websocket-options-local-permission-boundary"]
+    },
+    {
+      "name": "websocket-options-mixed-content",
+      "query": "WebSocket mixed content",
+      "expected_ids": ["javascript-websocket-options-local-permission-boundary"]
+    },
+    {
+      "name": "websocket-options-loopback",
+      "query": "WebSocket loopback 実IP",
+      "expected_ids": ["javascript-websocket-options-local-permission-boundary"]
+    },
+    {
+      "name": "websocket-options-failure-observation",
+      "query": "WebSocket error close",
+      "expected_ids": ["javascript-websocket-options-local-permission-boundary"]
+    },
+    {
+      "name": "websocket-options-historical-lna",
+      "query": "WebSocket 初期 milestone",
+      "expected_ids": ["javascript-websocket-options-local-permission-boundary"]
+    },
+    {
+      "name": "websocket-options-constructor-open",
+      "query": "WebSocket constructor open",
+      "expected_ids": ["javascript-websocket-options-local-permission-boundary"]
     }
   ]
 }

@@ -1,0 +1,12 @@
+{
+  "id": "wicg-lna-websocket-target-proposal-source-20261003",
+  "url": "https://github.com/WICG/local-network-access/blob/332b714a7b9097fefc2fba899bc54be80f9d8f88/index.bs",
+  "repository_url": "https://github.com/WICG/local-network-access",
+  "commit_sha": "332b714a7b9097fefc2fba899bc54be80f9d8f88",
+  "version": "WICG PR125 head 332b714a7b9097fefc2fba899bc54be80f9d8f88; PR created 2026-08-05, open/unmerged verified 2026-10-03; proposal, not verified browser implementation",
+  "license": "unknown",
+  "trust": "primary-source",
+  "type": "github_repository_analysis",
+  "purpose": "targetAddressSpaceをWebSocket handshakeへ渡す提案とpublic/local/loopback分岐を確認。採用済み規範やChrome実装として扱わずコード転載なし",
+  "retrieved_at": "2026-10-03"
+}

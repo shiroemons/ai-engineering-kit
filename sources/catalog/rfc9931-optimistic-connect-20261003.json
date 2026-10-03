@@ -1,0 +1,12 @@
+{
+  "id": "rfc9931-optimistic-connect-20261003",
+  "url": "https://www.rfc-editor.org/info/rfc9931/",
+  "repository_url": "",
+  "commit_sha": "",
+  "retrieved_at": "2026-10-03",
+  "trust": "official",
+  "type": "official_docs",
+  "version": "RFC 9931, Proposed Standard, March 2026",
+  "license": "IETF Trust Legal Provisions; Code Components under Revised BSD License per Copyright Notice",
+  "purpose": "§5の一般Upgrade拒否、§6.3のHTTP/1.x CONNECT-UDP先行送信禁止、§8のTCP CONNECT client二択・server close・限定例外を確認。独自要約のみ、コード転載なし。"
+}

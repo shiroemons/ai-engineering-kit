@@ -1,0 +1,12 @@
+{
+  "id": "whatwg-websocket-live-interface-20261003",
+  "url": "https://websockets.spec.whatwg.org/",
+  "repository_url": "https://github.com/whatwg/websockets",
+  "commit_sha": "9879e5cf0d66c66af6990e4c75f72dda794e1b87",
+  "version": "Living Standard, Last Updated 2026-03-15; linked commit snapshot 9879e5cf0d66c66af6990e4c75f72dda794e1b87; verified 2026-10-03",
+  "license": "CC-BY-4.0 (document); BSD-3-Clause for portions incorporated into source code; Intellectual property rights section verified 2026-10-03; original summary only",
+  "trust": "official",
+  "type": "official_docs",
+  "purpose": "公開済み IDL、constructor/handshake の非同期境界、失敗詳細を隠す契約と標準提案との差を確認",
+  "retrieved_at": "2026-10-03"
+}

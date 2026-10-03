@@ -1,0 +1,12 @@
+{
+  "id": "whatwg-websocket-options-proposal-source-20261003",
+  "url": "https://github.com/christhompson/websockets/blob/7e677cfb410744d833d3261a3cbf46d98ff30925/index.bs",
+  "repository_url": "https://github.com/christhompson/websockets",
+  "commit_sha": "7e677cfb410744d833d3261a3cbf46d98ff30925",
+  "version": "WHATWG PR76 head 7e677cfb410744d833d3261a3cbf46d98ff30925; PR created 2026-08-04, open/unmerged verified 2026-10-03; not an adopted standard",
+  "license": "unknown",
+  "trust": "primary-source",
+  "type": "github_repository_analysis",
+  "purpose": "未mergeのWebSocketInit提案の固定IDLを読み、protocolsのsequence型とrelease notesの文字列例の資料差を確認。コード転載なし",
+  "retrieved_at": "2026-10-03"
+}

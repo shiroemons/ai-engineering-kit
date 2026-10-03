@@ -1,0 +1,12 @@
+{
+  "id": "rfc9112-close-request-boundary-20261003",
+  "url": "https://www.rfc-editor.org/rfc/rfc9112.html",
+  "repository_url": "",
+  "commit_sha": "",
+  "retrieved_at": "2026-10-03",
+  "trust": "official",
+  "type": "official_docs",
+  "version": "RFC 9112, STD 99, June 2022; CONNECT behavior additionally constrained by RFC 9931",
+  "license": "IETF Trust Legal Provisions; Code Components under Revised BSD License per Copyright Notice",
+  "purpose": "§9.6のConnection: closeを受信したserverの後続request非処理と接続終了、即時TCP closeのreset問題を確認。独自要約のみ、コード転載なし。"
+}

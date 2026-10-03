@@ -1,0 +1,12 @@
+{
+  "id": "rfc6455-handshake-wait-20261003",
+  "url": "https://www.rfc-editor.org/rfc/rfc6455.html",
+  "repository_url": "",
+  "commit_sha": "",
+  "retrieved_at": "2026-10-03",
+  "trust": "official",
+  "type": "official_docs",
+  "version": "RFC 6455, Proposed Standard, December 2011",
+  "license": "IETF Trust Legal Provisions; Code Components under Simplified BSD License per Copyright Notice",
+  "purpose": "§4.1のopening handshake応答待機と101以外の検証条件を確認し、RFC9931で新設された義務と混同しない。browser JavaScript APIの調査ではない。独自要約のみ。"
+}

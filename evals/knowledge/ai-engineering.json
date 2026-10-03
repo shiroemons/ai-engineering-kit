@@ -1139,6 +1139,90 @@
       "expected_ids": [
         "agents-claude-eager-tool-streaming-approval-retry-boundary"
       ]
+    },
+    {
+      "name": "mcp-cache-complete-discovery",
+      "query": "server/discover caching 6種類",
+      "expected_ids": [
+        "mcp-result-cache-authorization-mrtr-invalidation"
+      ]
+    },
+    {
+      "name": "mcp-cache-mrtr-complete-exclusion",
+      "query": "inputResponses requestState complete cache",
+      "expected_ids": [
+        "mcp-result-cache-authorization-mrtr-invalidation"
+      ]
+    },
+    {
+      "name": "mcp-cache-private-token-isolation",
+      "query": "private 異なる access token",
+      "expected_ids": [
+        "mcp-result-cache-authorization-mrtr-invalidation"
+      ]
+    },
+    {
+      "name": "mcp-cache-public-authenticated-endpoint",
+      "query": "public 認証済み endpoint",
+      "expected_ids": [
+        "mcp-result-cache-authorization-mrtr-invalidation"
+      ]
+    },
+    {
+      "name": "mcp-cache-ttl-not-poll",
+      "query": "ttlMs polling jitter",
+      "expected_ids": [
+        "mcp-result-cache-authorization-mrtr-invalidation"
+      ]
+    },
+    {
+      "name": "mcp-cache-negative-missing-ttl",
+      "query": "ttlMs 欠落 負値",
+      "expected_ids": [
+        "mcp-result-cache-authorization-mrtr-invalidation"
+      ]
+    },
+    {
+      "name": "mcp-cache-page-snapshot-boundary",
+      "query": "ページ snapshot cacheScope",
+      "expected_ids": [
+        "mcp-result-cache-authorization-mrtr-invalidation"
+      ]
+    },
+    {
+      "name": "mcp-cache-empty-nextcursor",
+      "query": "nextCursor 空文字 truthiness",
+      "expected_ids": [
+        "mcp-result-cache-authorization-mrtr-invalidation"
+      ]
+    },
+    {
+      "name": "mcp-cache-subscription-ack-subset",
+      "query": "acknowledged subset filter",
+      "expected_ids": [
+        "mcp-result-cache-authorization-mrtr-invalidation"
+      ]
+    },
+    {
+      "name": "mcp-cache-inflight-generation",
+      "query": "list_changed 旧read 世代",
+      "expected_ids": [
+        "mcp-result-cache-authorization-mrtr-invalidation"
+      ]
+    },
+    {
+      "name": "mcp-cache-ttl-not-task-retention",
+      "query": "ttlMs task 保有期限",
+      "expected_ids": [
+        "mcp-result-cache-authorization-mrtr-invalidation"
+      ]
+    },
+    {
+      "name": "mcp-cache-legacy-scope-no-public-default",
+      "query": "legacy cacheScope 保守的",
+      "expected_ids": [
+        "mcp-result-cache-authorization-mrtr-invalidation"
+      ]
     }
   ]
 }

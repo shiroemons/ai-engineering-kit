@@ -1,0 +1,12 @@
+{
+  "id": "chrome-lna-historical-websocket-limit-20261003",
+  "url": "https://developer.chrome.com/blog/local-network-access",
+  "repository_url": "",
+  "commit_sha": "",
+  "version": "Published 2025-06-09; in-page update 2025-09-29; Chrome138 initial milestone and Chrome142 launch note; retrieved 2026-10-03",
+  "license": "CC-BY-4.0 (page text); Apache-2.0 (samples); footer verified 2026-10-03; no code copied",
+  "trust": "maintainer",
+  "type": "maintainer_article",
+  "purpose": "Chrome138のWebSocket対象外という古い注記を現在のChrome154契約と誤認しないため、PNAとLNAの経緯を限定的に確認",
+  "retrieved_at": "2026-10-03"
+}
