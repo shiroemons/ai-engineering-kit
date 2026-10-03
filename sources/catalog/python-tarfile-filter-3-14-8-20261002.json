@@ -1,0 +1,12 @@
+{
+  "id": "python-tarfile-filter-3-14-8-20261002",
+  "url": "https://docs.python.org/3.14/library/tarfile.html",
+  "repository_url": "",
+  "commit_sha": "",
+  "version": "Python 3.14.8 documentation（取得時表示版）",
+  "retrieved_at": "2026-10-02",
+  "license": "PSF-2.0; documentation code additionally 0BSD",
+  "trust": "official",
+  "type": "official_docs",
+  "purpose": "data既定、3.14.8のmember名正規化、フィルタの範囲、部分展開、DoSとlive-directoryの制約を確認。表示版とrelease tagの実装を区別する。"
+}

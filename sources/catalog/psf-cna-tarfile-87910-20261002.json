@@ -1,0 +1,12 @@
+{
+  "id": "psf-cna-tarfile-87910-20261002",
+  "url": "https://cveawg.mitre.org/api/cve/CVE-2026-87910",
+  "repository_url": "",
+  "commit_sha": "",
+  "version": "PSF CNA record; providerMetadata.dateUpdated 2026-10-02T00:35:07.049Z",
+  "retrieved_at": "2026-10-02",
+  "license": "unknown",
+  "trust": "official",
+  "type": "official_docs",
+  "purpose": "CVE ServicesのJSONを直接取得し、containers.cna.providerMetadata.shortName=PSF、3.14.0a1以上3.15.0未満のaffected範囲と3.13.16修正版境界を確認。継続更新recordであり、後続release全体への恒久的推論には使わない。全文・コード転載なし。"
+}

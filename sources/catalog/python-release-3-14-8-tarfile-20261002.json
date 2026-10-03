@@ -1,0 +1,12 @@
+{
+  "id": "python-release-3-14-8-tarfile-20261002",
+  "url": "https://www.python.org/downloads/release/python-3148/",
+  "repository_url": "",
+  "commit_sha": "",
+  "version": "CPython 3.14.8; released 2026-09-30",
+  "retrieved_at": "2026-10-02",
+  "license": "unknown",
+  "trust": "official",
+  "type": "release_notes",
+  "purpose": "2026-09-30公開の緊急security releaseでtarfileのgh-155999/gh-157190を列挙することを確認。列挙を全CVEの影響版・解消保証に読み替えない。記事固有ライセンス未確認、原文・コード転載なし。"
+}

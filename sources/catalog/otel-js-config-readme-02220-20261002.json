@@ -1,0 +1,12 @@
+{
+  "id": "otel-js-config-readme-02220-20261002",
+  "url": "https://github.com/open-telemetry/opentelemetry-js/blob/0b72a81636fa476e8f1f1afd2ae0c90a1362194c/experimental/packages/opentelemetry-sdk-node/README.md",
+  "repository_url": "https://github.com/open-telemetry/opentelemetry-js",
+  "commit_sha": "0b72a81636fa476e8f1f1afd2ae0c90a1362194c",
+  "version": "OpenTelemetry JS experimental/v0.222.0 / @opentelemetry/sdk-node 0.222.0 (2026-08-31); verified 2026-10-02",
+  "retrieved_at": "2026-10-02",
+  "license": "Apache-2.0; verified package LICENSE at https://github.com/open-telemetry/opentelemetry-js/blob/0b72a81636fa476e8f1f1afd2ae0c90a1362194c/experimental/packages/opentelemetry-sdk-node/LICENSE and SPDX source headers; no code copied",
+  "trust": "primary-source",
+  "type": "github_repository_analysis",
+  "purpose": "experimental package の破壊的変更注意、NodeSDK の推奨初期化、class 用 resourceDetectors と all の説明を確認。README の記述を startNodeSDK の実装対応表に流用しない。"
+}

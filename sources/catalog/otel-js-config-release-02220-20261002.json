@@ -1,0 +1,12 @@
+{
+  "id": "otel-js-config-release-02220-20261002",
+  "url": "https://github.com/open-telemetry/opentelemetry-js/releases/tag/experimental%2Fv0.222.0",
+  "repository_url": "https://github.com/open-telemetry/opentelemetry-js",
+  "commit_sha": "",
+  "version": "OpenTelemetry JS experimental/v0.222.0 / @opentelemetry/sdk-node 0.222.0 (2026-08-31); verified 2026-10-02",
+  "retrieved_at": "2026-10-02",
+  "license": "unknown (GitHub release prose; original summary only)",
+  "trust": "official",
+  "type": "release_notes",
+  "purpose": "2026-08-31 公開 experimental/v0.222.0。設定からの propagator・provider・resource 作成の厳格化、startNodeSDK と all の組み合わせによる no-op、new NodeSDK がこの変更の対象外であることを確認。"
+}

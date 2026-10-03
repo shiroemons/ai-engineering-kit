@@ -1,0 +1,12 @@
+{
+  "id": "github-actions-expired-artifact-visibility-20261002",
+  "url": "https://github.blog/changelog/2026-09-24-expired-github-actions-artifacts-no-longer-shown-in-ui-and-api/",
+  "repository_url": "",
+  "commit_sha": "",
+  "version": "GitHub Actions: 2026-09-24 公開告知（製品の版番号なし）",
+  "retrieved_at": "2026-10-02",
+  "license": "unknown（GitHub Blog ページは © 2026 GitHub, Inc. と表示し、本文の再利用ライセンス表示なし。事実の独自要約のみ、コード転載なし）",
+  "trust": "official",
+  "type": "release_notes",
+  "purpose": "期限切れ artifact が run summary と REST API に表示されなくなる変更、repository一覧・個別取得エンドポイントの明記、保持設定と課金はこの表示変更の対象外、生成履歴は残存するrunログから確認できることを確認する"
+}

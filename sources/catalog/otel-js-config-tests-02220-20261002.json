@@ -1,0 +1,12 @@
+{
+  "id": "otel-js-config-tests-02220-20261002",
+  "url": "https://github.com/open-telemetry/opentelemetry-js/blob/0b72a81636fa476e8f1f1afd2ae0c90a1362194c/experimental/packages/opentelemetry-sdk-node/test/start.test.ts",
+  "repository_url": "https://github.com/open-telemetry/opentelemetry-js",
+  "commit_sha": "0b72a81636fa476e8f1f1afd2ae0c90a1362194c",
+  "version": "OpenTelemetry JS experimental/v0.222.0 / @opentelemetry/sdk-node 0.222.0 (2026-08-31); verified 2026-10-02",
+  "retrieved_at": "2026-10-02",
+  "license": "Apache-2.0; verified package LICENSE at https://github.com/open-telemetry/opentelemetry-js/blob/0b72a81636fa476e8f1f1afd2ae0c90a1362194c/experimental/packages/opentelemetry-sdk-node/LICENSE and SPDX source headers; no code copied",
+  "trust": "primary-source",
+  "type": "github_repository_analysis",
+  "purpose": "不存在／不正設定ファイルと未知 LogRecordProcessor の upstream test が診断と NOOP_SDK、shutdown 呼出を検証していることを読解。upstream tests 自体は実行していない。固定 raw HTTPS から取得。"
+}

@@ -1,0 +1,12 @@
+{
+  "id": "python-license-tarfile-3-14-8-20261002",
+  "url": "https://docs.python.org/3.14/license.html",
+  "repository_url": "",
+  "commit_sha": "",
+  "version": "Python 3.14.8 documentation（取得時表示版）",
+  "retrieved_at": "2026-10-02",
+  "license": "PSF-2.0; documentation code additionally 0BSD",
+  "trust": "official",
+  "type": "official_docs",
+  "purpose": "公式文書のPSF-2.0、文書コード例の追加0BSDを確認。個別tarfile.pyにはMITヘッダーがあるためrepository分析のライセンスを一律PSFだけにしない。"
+}

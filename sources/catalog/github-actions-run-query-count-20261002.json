@@ -1,0 +1,12 @@
+{
+  "id": "github-actions-run-query-count-20261002",
+  "url": "https://github.blog/changelog/2026-09-25-changes-to-query-results-in-the-github-actions-api-and-ui/",
+  "repository_url": "",
+  "commit_sha": "",
+  "version": "GitHub Actions on github.com / GitHub Enterprise Cloud: 2026-09-25 段階展開告知",
+  "retrieved_at": "2026-10-02",
+  "license": "unknown（GitHub Blog ページは © 2026 GitHub, Inc. と表示し、本文の再利用ライセンス表示なし。事実の独自要約のみ、コード転載なし）",
+  "trust": "official",
+  "type": "release_notes",
+  "purpose": "workflow・event・status・branch・actor検索の2,500超件数表示、ページ分割した取得上限1,000件の維持、日付等の絞り込み推奨、告知時点で段階展開中という適用範囲を確認する。JSON上の件数表現は告知から推測しない"
+}
