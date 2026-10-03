@@ -1,0 +1,12 @@
+{
+  "id": "vitest5-cancellable-resources-20261003",
+  "url": "https://github.com/vitest-dev/vitest/blob/f441c6fab25e579c5b7dd3dd50538416f415fbae/docs/guide/recipes/cancellable.md",
+  "repository_url": "https://github.com/vitest-dev/vitest",
+  "commit_sha": "f441c6fab25e579c5b7dd3dd50538416f415fbae",
+  "version": "Vitest v5.0.0 Cancellable Test Resources at release commit",
+  "retrieved_at": "2026-10-03",
+  "license": "MIT",
+  "trust": "official",
+  "type": "official_docs",
+  "purpose": "テスト取消だけでは下流資源は自動停止せず、対応 API と独自 helper へ signal を伝播する必要があることを確認。live 公式ページを web、固定版を GitHub connector で確認。停止要求と処理停止完了の観測を分ける提案の根拠。 同 commit の LICENSE が associated documentation を含む MIT であることを確認。コード・設定例転載なし、独自の日本語要約のみ。"
+}

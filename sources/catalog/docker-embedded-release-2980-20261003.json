@@ -1,0 +1,12 @@
+{
+  "id": "docker-embedded-release-2980-20261003",
+  "url": "https://docs.docker.com/engine/release-notes/29/",
+  "repository_url": "https://github.com/docker/docs",
+  "commit_sha": "",
+  "version": "Docker Engine 29.7.0 (2026-07-30), 29.8.0 (2026-09-03), 29.8.2 (2026-09-30)",
+  "license": "Apache-2.0 (docker/docs README and LICENSE, https://github.com/docker/docs/blob/main/LICENSE; verified 2026-10-03)",
+  "trust": "official",
+  "type": "release_notes",
+  "purpose": "29.7.0でembedded-containerd実験機能を追加、29.8.0でsystem containerd未構成かつ実行ファイル欠如時のfallbackを追加した版・公開日を確認。29.8.2を固定実装の対象版として照合",
+  "retrieved_at": "2026-10-03"
+}

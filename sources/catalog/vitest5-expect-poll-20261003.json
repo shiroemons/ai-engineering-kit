@@ -1,0 +1,12 @@
+{
+  "id": "vitest5-expect-poll-20261003",
+  "url": "https://github.com/vitest-dev/vitest/blob/f441c6fab25e579c5b7dd3dd50538416f415fbae/docs/api/expect.md",
+  "repository_url": "https://github.com/vitest-dev/vitest",
+  "commit_sha": "f441c6fab25e579c5b7dd3dd50538416f415fbae",
+  "version": "Vitest v5.0.0 Expect API at release commit",
+  "retrieved_at": "2026-10-03",
+  "license": "MIT",
+  "trust": "official",
+  "type": "official_docs",
+  "purpose": "poll 全体の timeout、callback 例外の再試行、poll 期限時の AbortSignal、非対応 matcher を確認。未 await poll の失敗は v3 からという履歴も確認。live 公式 API と v5.0.0 raw 本文を web で開き、固定 SHA を connector で照合。 同 commit の LICENSE が associated documentation を含む MIT であることを確認。コード・設定例転載なし、独自の日本語要約のみ。"
+}

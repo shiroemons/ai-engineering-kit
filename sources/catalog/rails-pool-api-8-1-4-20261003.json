@@ -1,0 +1,12 @@
+{
+  "id": "rails-pool-api-8-1-4-20261003",
+  "url": "https://api.rubyonrails.org/v8.1.4/classes/ActiveRecord/ConnectionAdapters/ConnectionPool.html",
+  "repository_url": "https://github.com/rails/rails",
+  "commit_sha": "",
+  "version": "Ruby on Rails v8.1.4 ConnectionPool API; publication date not shown",
+  "retrieved_at": "2026-10-03",
+  "license": "unknown",
+  "trust": "official",
+  "type": "official_docs",
+  "purpose": "Webでv8.1.4 API本文を開き、checkout_timeout・idle_timeout・keepaliveの意味と既定値、checkout/checkin、with_connection、statを確認。公開日表示なし。版別APIのライセンス表示は直接確認できなかったためunknownとし、独自要約だけを使用。"
+}

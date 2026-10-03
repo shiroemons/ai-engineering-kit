@@ -1,0 +1,12 @@
+{
+  "id": "rails-release-pool-maintenance-8-1-4-20261003",
+  "url": "https://github.com/rails/rails/releases/tag/v8.1.4",
+  "repository_url": "https://github.com/rails/rails",
+  "commit_sha": "c3466ea00d7121798e3aa3144ffdf7174b81d8cb",
+  "version": "Rails v8.1.4 (2026-09-24), c3466ea00d7121798e3aa3144ffdf7174b81d8cb",
+  "retrieved_at": "2026-10-03",
+  "license": "unknown",
+  "trust": "official",
+  "type": "release_notes",
+  "purpose": "Webで実際のrelease本文を開いた。2026-09-24公開、maintenance待ちの固定100秒をcheckout_timeoutへ揃える修正とkeepalive:falseが600秒へ戻る不具合の修正を確認。release proseのライセンスは未確定で独自要約のみ。"
+}

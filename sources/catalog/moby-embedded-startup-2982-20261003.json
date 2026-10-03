@@ -1,0 +1,12 @@
+{
+  "id": "moby-embedded-startup-2982-20261003",
+  "url": "https://github.com/moby/moby/tree/8af9fe3a36bab3e039862a2ab1cef1880c9b4d03/daemon/command",
+  "repository_url": "https://github.com/moby/moby",
+  "commit_sha": "8af9fe3a36bab3e039862a2ab1cef1880c9b4d03",
+  "version": "docker-v29.8.2 tag (2026-09-30) dereferenced from annotated tag a8816ccac86853a18a9903da4dfaaebf01cb1774",
+  "license": "Apache-2.0 (LICENSE at 8af9fe3a36bab3e039862a2ab1cef1880c9b4d03, retrieved via GitHub connector 2026-10-03)",
+  "trust": "primary-source",
+  "type": "github_repository_analysis",
+  "purpose": "daemon_unix.go/daemon_windows.goのinitContainerd、daemon.goのinitializeContainerd/systemContainerdRunning/containerdRootDir、daemon_embedded_containerd.go、daemon_no_embedded_containerd.goをGitHub connectorで読み、true/false、外部endpoint、system検出、exec.ErrNotFound、共通root、build tagの境界を固定解析。実機未実行、コード転記なし",
+  "retrieved_at": "2026-10-03"
+}

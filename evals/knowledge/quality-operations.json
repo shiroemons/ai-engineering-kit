@@ -591,6 +591,16 @@
       "expected_ids": [
         "opentelemetry-js-config-failfast-noop-boundary"
       ]
-    }
+    },
+    {"name": "vitest5-unawaited-assertion", "query": "Vitest resolves rejects 未 await", "expected_ids": ["testing-vitest5-async-assertion-poll-cancellation-boundary"]},
+    {"name": "vitest5-poll-existing-v3", "query": "Vitest poll v3 初めて", "expected_ids": ["testing-vitest5-async-assertion-poll-cancellation-boundary"]},
+    {"name": "vitest5-poll-timeout-matcher", "query": "Vitest timeout callback matcher", "expected_ids": ["testing-vitest5-async-assertion-poll-cancellation-boundary"]},
+    {"name": "vitest5-cancellation-two-scopes", "query": "Vitest signal cancelCurrentRun poll", "expected_ids": ["testing-vitest5-async-assertion-poll-cancellation-boundary"]},
+    {"name": "vitest5-cancellation-not-side-effect-stop", "query": "Vitest helper 副作用 停止完了", "expected_ids": ["testing-vitest5-async-assertion-poll-cancellation-boundary"]},
+    {"name": "vitest5-poll-write-retry", "query": "Vitest poll 注文作成 再試行", "expected_ids": ["testing-vitest5-async-assertion-poll-cancellation-boundary"]},
+    {"name": "vitest5-assertion-never-called", "query": "Vitest 空配列 hasAssertions", "expected_ids": ["testing-vitest5-async-assertion-poll-cancellation-boundary"]},
+    {"name": "vitest5-late-success", "query": "Vitest 100 ms 150", "expected_ids": ["testing-vitest5-async-assertion-poll-cancellation-boundary"]},
+    {"name": "vitest5-poll-unsupported-matchers", "query": "Vitest poll snapshot toThrow", "expected_ids": ["testing-vitest5-async-assertion-poll-cancellation-boundary"]},
+    {"name": "vitest5-context-signal-not-new", "query": "Vitest signal v3.2.0", "expected_ids": ["testing-vitest5-async-assertion-poll-cancellation-boundary"]}
   ]
 }
