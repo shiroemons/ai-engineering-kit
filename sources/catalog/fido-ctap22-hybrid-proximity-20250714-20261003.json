@@ -1,0 +1,12 @@
+{
+  "id": "fido-ctap22-hybrid-proximity-20250714-20261003",
+  "url": "https://fidoalliance.org/specs/fido-v2.2-ps-20250714/fido-client-to-authenticator-protocol-v2.2-ps-20250714.html",
+  "repository_url": "",
+  "commit_sha": "",
+  "version": "Client to Authenticator Protocol 2.2, Proposed Standard, July 14, 2025; section 11.5 Hybrid transports and 11.5.1 QR-initiated Transactions",
+  "retrieved_at": "2026-10-03",
+  "license": "unknown; copyright 2025 FIDO Alliance, All Rights Reserved; document warns of third-party intellectual-property licenses; original summary only, no code copied",
+  "trust": "official",
+  "type": "official_docs",
+  "purpose": "RFC10027が参照する固定CTAP2.2版で、hybrid transportのBLE proximityとnetwork tunnelの分離、およびQRが鍵情報を運ぶことを照合する"
+}

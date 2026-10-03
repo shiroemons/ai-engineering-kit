@@ -611,6 +611,16 @@
     {"name": "pytest-importorskip-skip-reason", "query": "pytest importorskip reason 診断", "expected_ids": ["testing-pytest-importorskip-transitive-collection-boundary"]},
     {"name": "pytest-importorskip-full-dependency-job", "query": "pytest 完全依存job 必須", "expected_ids": ["testing-pytest-importorskip-transitive-collection-boundary"]},
     {"name": "pytest-importorskip-compatibility-wide-catch", "query": "pytest exc_type=ImportError 一律", "expected_ids": ["testing-pytest-importorskip-transitive-collection-boundary"]},
-    {"name": "pytest-importorskip-source-not-runtime", "query": "pytest importorskip 実機試験結果", "expected_ids": ["testing-pytest-importorskip-transitive-collection-boundary"]}
+    {"name": "pytest-importorskip-source-not-runtime", "query": "pytest importorskip 実機試験結果", "expected_ids": ["testing-pytest-importorskip-transitive-collection-boundary"]},
+    {"name": "alertmanager-v0341-inhibition-release", "query": "Alertmanager 0.34.1 2026-09-17", "expected_ids": ["observability-alertmanager-inhibition-source-lifecycle-boundary"]},
+    {"name": "alertmanager-inhibition-surviving-source", "query": "Alertmanager S1 S2 1件解消", "expected_ids": ["observability-alertmanager-inhibition-source-lifecycle-boundary"]},
+    {"name": "alertmanager-inhibition-gc-set", "query": "FingerprintSet GC equal-key", "expected_ids": ["observability-alertmanager-inhibition-source-lifecycle-boundary"]},
+    {"name": "alertmanager-inhibition-refreshed-source", "query": "Alertmanager fingerprint EndsAt 更新", "expected_ids": ["observability-alertmanager-inhibition-source-lifecycle-boundary"]},
+    {"name": "alertmanager-inhibition-missing-empty-label", "query": "Alertmanager equal 欠落 空文字", "expected_ids": ["observability-alertmanager-inhibition-source-lifecycle-boundary"]},
+    {"name": "alertmanager-inhibition-two-sided-source-only", "query": "Alertmanager two-sided source-only", "expected_ids": ["observability-alertmanager-inhibition-source-lifecycle-boundary"]},
+    {"name": "alertmanager-inhibition-one-witness", "query": "Alertmanager fingerprint 全候補", "expected_ids": ["observability-alertmanager-inhibition-source-lifecycle-boundary"]},
+    {"name": "alertmanager-inhibition-lock-not-ha", "query": "Alertmanager lock HA", "expected_ids": ["observability-alertmanager-inhibition-source-lifecycle-boundary"]},
+    {"name": "alertmanager-inhibition-arrival-group-wait", "query": "Alertmanager group_wait 到着前", "expected_ids": ["observability-alertmanager-inhibition-source-lifecycle-boundary"]},
+    {"name": "alertmanager-inhibition-tests-not-executed", "query": "Alertmanager 検索 eval 実機試験", "expected_ids": ["observability-alertmanager-inhibition-source-lifecycle-boundary"]}
   ]
 }

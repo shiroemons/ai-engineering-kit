@@ -1,0 +1,12 @@
+{
+  "id": "terraform-forget-cbd-release-1163-20261003",
+  "url": "https://github.com/hashicorp/terraform/releases/tag/v1.16.3",
+  "repository_url": "https://github.com/hashicorp/terraform",
+  "commit_sha": "",
+  "version": "Terraform v1.16.3; released 2026-09-16; tag resolves to 42121cd5ca5e1ab1d37e286540ce11acf70e290a",
+  "retrieved_at": "2026-10-03",
+  "license": "BUSL-1.1 (Terraform repository LICENSE at 42121cd5ca5e1ab1d37e286540ce11acf70e290a; release facts originally summarized)",
+  "trust": "official",
+  "type": "release_notes",
+  "purpose": "destroy=falseとcreate_before_destroy併用の修正#39169の収録を確認。GitHub connectorでrelease tagのcommitとCHANGELOGを照合。全旧版の影響範囲を実行検証したものではない。"
+}

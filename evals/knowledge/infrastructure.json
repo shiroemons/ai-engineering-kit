@@ -1115,6 +1115,104 @@
       "expected_ids": [
         "linux-cgroup-v2-cpu-throttling-ancestor-accounting"
       ]
+    },
+    {
+      "name": "terraform-forget-resource-introduced",
+      "query": "1.16.0 resource block",
+      "expected_ids": [
+        "terraform-forget-replacement-deposed-boundary"
+      ]
+    },
+    {
+      "name": "terraform-forget-cbd-fixed-version",
+      "query": "1.16.3 #39169",
+      "expected_ids": [
+        "terraform-forget-replacement-deposed-boundary"
+      ]
+    },
+    {
+      "name": "terraform-forget-not-prevent-destroy",
+      "query": "destroy=false 置換禁止",
+      "expected_ids": [
+        "terraform-forget-replacement-deposed-boundary"
+      ]
+    },
+    {
+      "name": "terraform-forget-config-removal",
+      "query": "resource blockごと消して",
+      "expected_ids": [
+        "terraform-forget-replacement-deposed-boundary"
+      ]
+    },
+    {
+      "name": "terraform-forget-removed-default-destroy",
+      "query": "removed 既定はtrue",
+      "expected_ids": [
+        "terraform-forget-replacement-deposed-boundary"
+      ]
+    },
+    {
+      "name": "terraform-forget-removed-instance-scope",
+      "query": "from instance key",
+      "expected_ids": [
+        "terraform-forget-replacement-deposed-boundary"
+      ]
+    },
+    {
+      "name": "terraform-forget-replacement-two-orders",
+      "query": "ForgetThenCreate CreateThenForget",
+      "expected_ids": [
+        "terraform-forget-replacement-deposed-boundary"
+      ]
+    },
+    {
+      "name": "terraform-forget-deposed-identity",
+      "query": "deposed key 事前割当",
+      "expected_ids": [
+        "terraform-forget-replacement-deposed-boundary"
+      ]
+    },
+    {
+      "name": "terraform-forget-prevent-guard",
+      "query": "checkPreventDestroy 条件に含めない",
+      "expected_ids": [
+        "terraform-forget-replacement-deposed-boundary"
+      ]
+    },
+    {
+      "name": "terraform-forget-trigger-replacement-only",
+      "query": "単なるForget trigger",
+      "expected_ids": [
+        "terraform-forget-replacement-deposed-boundary"
+      ]
+    },
+    {
+      "name": "terraform-forget-json-destroy-count",
+      "query": "0 to destroy 管理対象",
+      "expected_ids": [
+        "terraform-forget-replacement-deposed-boundary"
+      ]
+    },
+    {
+      "name": "terraform-forget-regression-propagated",
+      "query": "explicit propagated tainted",
+      "expected_ids": [
+        "terraform-forget-replacement-deposed-boundary"
+      ]
+    },
+    {
+      "name": "terraform-forget-regression-provider-replace",
+      "query": "RequiresReplace create合計2回",
+      "expected_ids": [
+        "terraform-forget-replacement-deposed-boundary"
+      ]
+    },
+    {
+      "name": "terraform-forget-tests-not-run",
+      "query": "upstream test 実行を行った結果ではない",
+      "expected_ids": [
+        "terraform-forget-replacement-deposed-boundary"
+      ]
     }
   ]
 }

@@ -1,0 +1,12 @@
+{
+  "id": "terraform-forget-removed-docs-20261003",
+  "url": "https://developer.hashicorp.com/terraform/language/block/removed",
+  "repository_url": "https://github.com/hashicorp/web-unified-docs",
+  "commit_sha": "",
+  "version": "Terraform Docs v1.16.x; publication date not shown; retrieved 2026-10-03 UTC",
+  "retrieved_at": "2026-10-03",
+  "license": "BUSL-1.1 (web-unified-docs root LICENSE; no text or code copied)",
+  "trust": "official",
+  "type": "official_docs",
+  "purpose": "removed blockのdestroy既定trueとfalseの管理解除を確認。Edit this pageのv1.16.x removed.mdxと同repositoryのLICENSEをnative webで開いた。原文・コード転載なし。"
+}

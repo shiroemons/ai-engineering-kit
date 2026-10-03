@@ -1,0 +1,12 @@
+{
+  "id": "terraform-forget-state-remove-docs-20261003",
+  "url": "https://developer.hashicorp.com/terraform/language/state/remove",
+  "repository_url": "https://github.com/hashicorp/web-unified-docs",
+  "commit_sha": "",
+  "version": "Terraform Docs v1.16.x; publication date not shown; retrieved 2026-10-03 UTC",
+  "retrieved_at": "2026-10-03",
+  "license": "BUSL-1.1 (web-unified-docs root LICENSE; no text or code copied)",
+  "trust": "official",
+  "type": "official_docs",
+  "purpose": "resourceをremovedへ置換する手順、fromにinstance keyを含められない制約、管理再開時のimport、plan可能なremoved推奨を確認。Docs本文はnative webで取得したがEdit this pageは取得失敗。licenseは同じweb-unified-docs root LICENSEで確認。"
+}

@@ -1,0 +1,12 @@
+{
+  "id": "alertmanager-inhibition-tests-0-34-1-20261003",
+  "url": "https://github.com/prometheus/alertmanager/blob/73c6bfe7393929211294c1954f30d8ed78e4d0ad/inhibit/inhibit_test.go",
+  "repository_url": "https://github.com/prometheus/alertmanager",
+  "commit_sha": "73c6bfe7393929211294c1954f30d8ed78e4d0ad",
+  "version": "Alertmanager v0.34.1 inhibitor regression tests at 73c6bfe7393929211294c1954f30d8ed78e4d0ad",
+  "retrieved_at": "2026-10-03",
+  "license": "Apache-2.0",
+  "trust": "primary-source",
+  "type": "github_repository_analysis",
+  "purpose": "TestInhibitRuleIndexSurvivesGC、TestInhibitRuleTwoSidedDoesNotShadow、TestInhibitRuleGCCallbackDoesNotRemoveRefreshedSameFingerprintSourceAlert などの期待値を固定 commit で確認。web の Cache miss 後に GitHub read connector で本文を取得。LICENSE とファイル先頭を確認。upstream テストは読解のみで実行していない。"
+}

@@ -1,0 +1,12 @@
+{
+  "id": "alertmanager-inhibition-config-0-34-1-20261003",
+  "url": "https://github.com/prometheus/alertmanager/blob/73c6bfe7393929211294c1954f30d8ed78e4d0ad/docs/configuration.md",
+  "repository_url": "https://github.com/prometheus/alertmanager",
+  "commit_sha": "73c6bfe7393929211294c1954f30d8ed78e4d0ad",
+  "version": "Alertmanager v0.34.1 configuration documentation at release commit; live official configuration checked 2026-10-03",
+  "retrieved_at": "2026-10-03",
+  "license": "Apache-2.0",
+  "trust": "official",
+  "type": "official_docs",
+  "purpose": "inhibit_rule の source/target/equal、欠落 label と空文字の同値、two-sided self-inhibition 例外、group_wait の到着順境界を確認。https://prometheus.io/docs/alerting/latest/configuration/ を native web で開き、同じ契約を固定 commit の文書で照合。独立した文書公開日は未確認。同 commit の LICENSE を確認。"
+}

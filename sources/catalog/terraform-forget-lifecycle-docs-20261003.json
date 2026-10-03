@@ -1,0 +1,12 @@
+{
+  "id": "terraform-forget-lifecycle-docs-20261003",
+  "url": "https://developer.hashicorp.com/terraform/language/meta-arguments/lifecycle",
+  "repository_url": "https://github.com/hashicorp/web-unified-docs",
+  "commit_sha": "",
+  "version": "Terraform Docs v1.16.x; publication date not shown; retrieved 2026-10-03 UTC",
+  "retrieved_at": "2026-10-03",
+  "license": "BUSL-1.1 (web-unified-docs root LICENSE; no text or code copied)",
+  "trust": "official",
+  "type": "official_docs",
+  "purpose": "destroy=falseとprevent_destroyの目的差、create_before_destroyの依存伝播、構成削除時のlifecycle非永続化を確認。Docs本文をnative webで読み、https://github.com/hashicorp/web-unified-docs/blob/main/LICENSE を開いてBUSL-1.1を確認。"
+}

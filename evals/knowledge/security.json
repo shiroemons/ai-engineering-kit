@@ -148,5 +148,16 @@
     {"name": "oauth-exchange-client-actor-separation", "query": "交換 client identity actor identity", "expected_ids": ["oauth-token-exchange-delegation-audience-revocation-boundary"]},
     {"name": "oauth-exchange-cache-boundary", "query": "交換 user-only key", "expected_ids": ["oauth-token-exchange-delegation-audience-revocation-boundary"]},
     {"name": "oauth-exchange-expiry-policy", "query": "RFC 8693 残存期間 必須条件", "expected_ids": ["oauth-token-exchange-delegation-audience-revocation-boundary"]},
-    {"name": "oauth-exchange-not-rotation", "query": "token-exchange refresh token rotation", "expected_ids": ["oauth-token-exchange-delegation-audience-revocation-boundary"]}
+    {"name": "oauth-exchange-not-rotation", "query": "token-exchange refresh token rotation", "expected_ids": ["oauth-token-exchange-delegation-audience-revocation-boundary"]},
+    {"name": "oauth-cross-device-bcp-status", "query": "RFC 10027 BCP 247 2026年8月", "expected_ids": ["oauth-cross-device-consent-phishing-proximity-boundary"]},
+    {"name": "oauth-cross-device-mfa-channel", "query": "CDCP MFA channel", "expected_ids": ["oauth-cross-device-consent-phishing-proximity-boundary"]},
+    {"name": "oauth-cross-device-risk-normative", "query": "risk assessment mitigation MUST", "expected_ids": ["oauth-cross-device-consent-phishing-proximity-boundary"]},
+    {"name": "oauth-cross-device-qr-display", "query": "verification_uri_complete user_code MUST", "expected_ids": ["oauth-cross-device-consent-phishing-proximity-boundary"]},
+    {"name": "oauth-cross-device-dpop-key", "query": "DPoP 攻撃者の鍵", "expected_ids": ["oauth-cross-device-consent-phishing-proximity-boundary"]},
+    {"name": "oauth-cross-device-proximity-not-ip", "query": "同じIP BLE", "expected_ids": ["oauth-cross-device-consent-phishing-proximity-boundary"]},
+    {"name": "oauth-cross-device-fido-transport", "query": "hybrid BLE tunnel", "expected_ids": ["oauth-cross-device-consent-phishing-proximity-boundary"]},
+    {"name": "oauth-cross-device-no-unconditional-fallback", "query": "無条件fallback 保証", "expected_ids": ["oauth-cross-device-consent-phishing-proximity-boundary"]},
+    {"name": "oauth-cross-device-stop-polling", "query": "access_denied expired_token polling", "expected_ids": ["oauth-cross-device-consent-phishing-proximity-boundary"]},
+    {"name": "oauth-cross-device-protocol-selection", "query": "same-device CIBA PKCE", "expected_ids": ["oauth-cross-device-consent-phishing-proximity-boundary"]},
+    {"name": "oauth-cross-device-errata-unverified", "query": "errata 取得エラー", "expected_ids": ["oauth-cross-device-consent-phishing-proximity-boundary"]}
   ]}

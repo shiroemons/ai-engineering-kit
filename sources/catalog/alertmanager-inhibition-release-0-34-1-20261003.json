@@ -1,0 +1,12 @@
+{
+  "id": "alertmanager-inhibition-release-0-34-1-20261003",
+  "url": "https://github.com/prometheus/alertmanager/releases/tag/v0.34.1",
+  "repository_url": "https://github.com/prometheus/alertmanager",
+  "commit_sha": "73c6bfe7393929211294c1954f30d8ed78e4d0ad",
+  "version": "Alertmanager v0.34.1; release title and release page date 2026-09-17",
+  "retrieved_at": "2026-10-03",
+  "license": "unknown",
+  "trust": "official",
+  "type": "release_notes",
+  "purpose": "inhibition が不適切に解除される修正 #5542/#5449/#5559 の収録版と日付を native web の release 本文で確認。GitHub connector で tag を full commit に解決し、CHANGELOG の release date 変更も照合。release 本文の独立した license は未確認。転載なし、独自要約のみ。"
+}
