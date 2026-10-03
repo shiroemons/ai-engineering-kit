@@ -1,0 +1,12 @@
+{
+  "id": "python-multiprocessing-context-3148-20261003",
+  "url": "https://docs.python.org/3.14/library/multiprocessing.html",
+  "repository_url": "",
+  "commit_sha": "",
+  "version": "Python 3.14.8 documentation; spawn/forkserver/context contracts",
+  "retrieved_at": "2026-10-03",
+  "license": "PSF-2.0; documentation code additionally 0BSD (https://docs.python.org/3.14/license.html); no copied code",
+  "trust": "official",
+  "type": "official_docs",
+  "purpose": "spawn/forkserverでのglobal値・安全なmain import・context間lock非互換・caller提供context・POSIX frozen executableの制約を確認。native webで本文を取得。ページ更新表示2026-10-02 20:52 UTC。"
+}

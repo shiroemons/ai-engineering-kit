@@ -1,0 +1,12 @@
+{
+  "id": "linux-cpu-stat-local-introduction-677ea015-20261003",
+  "url": "https://github.com/torvalds/linux/commit/677ea015f231aa38b3972aa7be54ecd2637e99fd",
+  "repository_url": "https://github.com/torvalds/linux",
+  "commit_sha": "677ea015f231aa38b3972aa7be54ecd2637e99fd",
+  "version": "cpu.stat.local introduction commit, 2023-07-13T13:21:49Z; first containing release not established",
+  "retrieved_at": "2026-10-03",
+  "license": "GPL-2.0 WITH Linux-syscall-note (repository COPYING verified at this commit; no implementation copied)",
+  "trust": "primary-source",
+  "type": "github_repository_analysis",
+  "purpose": "Read introduction commit and diff across cgroup/scheduler files. Confirms interface predates the 2026 documentation clarification and explains why children not runnable through a parent throttle interval need not accrue self-throttling time. Distribution backports and release availability unverified."
+}

@@ -1045,6 +1045,76 @@
       "expected_ids": [
         "docker-embedded-containerd-fallback-storage-boundary"
       ]
+    },
+    {
+      "name": "linux-cpu-throttling-ancestor-quota",
+      "query": "cpu.stat.local 祖先 quota",
+      "expected_ids": [
+        "linux-cgroup-v2-cpu-throttling-ancestor-accounting"
+      ]
+    },
+    {
+      "name": "linux-cpu-throttling-usage-scope",
+      "query": "usage_usec 二重計上",
+      "expected_ids": [
+        "linux-cgroup-v2-cpu-throttling-ancestor-accounting"
+      ]
+    },
+    {
+      "name": "linux-cpu-throttling-own-limit-counter",
+      "query": "nr_throttled 階層集計",
+      "expected_ids": [
+        "linux-cgroup-v2-cpu-throttling-ancestor-accounting"
+      ]
+    },
+    {
+      "name": "linux-cpu-throttling-local-not-wallclock",
+      "query": "throttled_time_self wall-clock",
+      "expected_ids": [
+        "linux-cgroup-v2-cpu-throttling-ancestor-accounting"
+      ]
+    },
+    {
+      "name": "linux-cpu-throttling-psi-not-utilization",
+      "query": "PSI 使用率 残量",
+      "expected_ids": [
+        "linux-cgroup-v2-cpu-throttling-ancestor-accounting"
+      ]
+    },
+    {
+      "name": "linux-cpu-throttling-system-psi-full",
+      "query": "/proc/pressure/cpu full 5.13",
+      "expected_ids": [
+        "linux-cgroup-v2-cpu-throttling-ancestor-accounting"
+      ]
+    },
+    {
+      "name": "linux-cpu-throttling-v1-v2-unit",
+      "query": "throttled_time ナノ秒 throttled_usec",
+      "expected_ids": [
+        "linux-cgroup-v2-cpu-throttling-ancestor-accounting"
+      ]
+    },
+    {
+      "name": "linux-cpu-throttling-missing-not-zero",
+      "query": "測定なし 上位未確認",
+      "expected_ids": [
+        "linux-cgroup-v2-cpu-throttling-ancestor-accounting"
+      ]
+    },
+    {
+      "name": "linux-cpu-throttling-doc-not-feature-introduction",
+      "query": "171569f8 2026-06-29 2023-07-13",
+      "expected_ids": [
+        "linux-cgroup-v2-cpu-throttling-ancestor-accounting"
+      ]
+    },
+    {
+      "name": "linux-cpu-throttling-pressure-disable-nonhierarchical",
+      "query": "cgroup.pressure 無効化 子孫",
+      "expected_ids": [
+        "linux-cgroup-v2-cpu-throttling-ancestor-accounting"
+      ]
     }
   ]
 }

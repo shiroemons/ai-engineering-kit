@@ -139,5 +139,14 @@
     {"name": "github-cache-mode-skip-success", "query": "cache-mode skip 保存成功", "expected_ids": ["github-cache-mode-reusable-default-poisoning-boundary"]},
     {"name": "github-cache-mode-reader-trust", "query": "cache-mode read-only 汚染", "expected_ids": ["github-cache-mode-reusable-default-poisoning-boundary"]},
     {"name": "github-cache-mode-service-not-env", "query": "scoped cache tokens ACTIONS_CACHE_MODE", "expected_ids": ["github-cache-mode-reusable-default-poisoning-boundary"]},
-    {"name": "github-cache-mode-ga-version", "query": "cache-mode 2026-09-10 GHES", "expected_ids": ["github-cache-mode-reusable-default-poisoning-boundary"]}
+    {"name": "github-cache-mode-ga-version", "query": "cache-mode 2026-09-10 GHES", "expected_ids": ["github-cache-mode-reusable-default-poisoning-boundary"]},
+    {"name": "oauth-exchange-scope-cartesian", "query": "token-exchange Cartesian product", "expected_ids": ["oauth-token-exchange-delegation-audience-revocation-boundary"]},
+    {"name": "oauth-exchange-actor-history", "query": "nested act current actor", "expected_ids": ["oauth-token-exchange-delegation-audience-revocation-boundary"]},
+    {"name": "oauth-exchange-revocation-independent", "query": "交換 revocation 伝播", "expected_ids": ["oauth-token-exchange-delegation-audience-revocation-boundary"]},
+    {"name": "oauth-exchange-downscope-vocabulary", "query": "downscoping 語彙", "expected_ids": ["oauth-token-exchange-delegation-audience-revocation-boundary"]},
+    {"name": "oauth-exchange-audience-mapping", "query": "exchange audience mapping", "expected_ids": ["oauth-token-exchange-delegation-audience-revocation-boundary"]},
+    {"name": "oauth-exchange-client-actor-separation", "query": "交換 client identity actor identity", "expected_ids": ["oauth-token-exchange-delegation-audience-revocation-boundary"]},
+    {"name": "oauth-exchange-cache-boundary", "query": "交換 user-only key", "expected_ids": ["oauth-token-exchange-delegation-audience-revocation-boundary"]},
+    {"name": "oauth-exchange-expiry-policy", "query": "RFC 8693 残存期間 必須条件", "expected_ids": ["oauth-token-exchange-delegation-audience-revocation-boundary"]},
+    {"name": "oauth-exchange-not-rotation", "query": "token-exchange refresh token rotation", "expected_ids": ["oauth-token-exchange-delegation-audience-revocation-boundary"]}
   ]}

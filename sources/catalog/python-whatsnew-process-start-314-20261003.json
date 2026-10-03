@@ -1,0 +1,12 @@
+{
+  "id": "python-whatsnew-process-start-314-20261003",
+  "url": "https://docs.python.org/3.14/whatsnew/3.14.html",
+  "repository_url": "",
+  "commit_sha": "",
+  "version": "Python 3.14 (released 2025-10-07); page displayed 3.14.8",
+  "retrieved_at": "2026-10-03",
+  "license": "PSF-2.0; documentation code additionally 0BSD (https://docs.python.org/3.14/license.html); no copied code",
+  "trust": "official",
+  "type": "release_notes",
+  "purpose": "3.14でmacOS以外のUnixの既定がforkからforkserverへ変更、Windows/macOSはspawn維持というmultiprocessing/ProcessPoolExecutorの移行条件を確認。native webで本文を取得。"
+}

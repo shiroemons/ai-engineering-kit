@@ -1,0 +1,12 @@
+{
+  "id": "rfc9700-downstream-privilege-boundary-20261003",
+  "url": "https://www.rfc-editor.org/rfc/rfc9700.html",
+  "repository_url": "",
+  "commit_sha": "",
+  "version": "RFC 9700 / BCP 240, January 2025; sections 2.2.1, 2.3 and 4.10.2",
+  "retrieved_at": "2026-10-03",
+  "license": "IETF Trust Legal Provisions / BCP 78 (RFC text); extracted Code Components subject to Revised BSD License per copyright notice; no code copied",
+  "trust": "official",
+  "type": "official_docs",
+  "purpose": "最小権限、audience restriction と resource/action のリクエストごとの検証、sender-constraining を exchange 導入時の責務分担に適用する"
+}

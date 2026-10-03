@@ -1,0 +1,12 @@
+{
+  "id": "python-futures-recycling-3148-20261003",
+  "url": "https://docs.python.org/3.14/library/concurrent.futures.html",
+  "repository_url": "",
+  "commit_sha": "",
+  "version": "Python 3.14.8 documentation; max_tasks_per_child added 3.11; gh-115634 fixed 3.14.7",
+  "retrieved_at": "2026-10-03",
+  "license": "PSF-2.0; documentation code additionally 0BSD (https://docs.python.org/3.14/license.html); no copied code",
+  "trust": "official",
+  "type": "official_docs",
+  "purpose": "ProcessPoolExecutorのmp_context、再生成有効時のspawn選択、fork非互換、initializer失敗とpicklabilityを確認。native webで本文を取得。ページ更新表示2026-10-02 20:52 UTC。"
+}
