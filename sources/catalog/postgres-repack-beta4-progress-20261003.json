@@ -1,0 +1,12 @@
+{
+  "id": "postgres-repack-beta4-progress-20261003",
+  "url": "https://github.com/postgres/postgres/blob/b73d13c32c834a2c8e1c60cb92f79530376cedf1/doc/src/sgml/monitoring.sgml",
+  "repository_url": "https://github.com/postgres/postgres",
+  "commit_sha": "b73d13c32c834a2c8e1c60cb92f79530376cedf1",
+  "version": "PostgreSQL 19beta4 bundled documentation; REL_19_BETA4 at b73d13c32c834a2c8e1c60cb92f79530376cedf1; announced 2026-09-24; runtime behavior not tested",
+  "retrieved_at": "2026-10-03",
+  "license": "PostgreSQL License",
+  "trust": "official",
+  "type": "github_repository_analysis",
+  "purpose": "repack-progress-reporting節を確認。pg_stat_progress_repackのphaseとphase限定counter、snapshot時点のheap_blks_totalを分析。 ライセンス根拠: https://github.com/postgres/postgres/blob/b73d13c32c834a2c8e1c60cb92f79530376cedf1/COPYRIGHT はsoftwareとdocumentationを対象とする。名称は https://www.postgresql.org/about/licence/ で確認。原文・実装コードを転載しない独自要約。"
+}

@@ -1,0 +1,12 @@
+{
+  "id": "postgres-repack-beta4-release-20261003",
+  "url": "https://www.postgresql.org/about/news/postgresql-19-beta-4-released-3386/",
+  "repository_url": "",
+  "commit_sha": "",
+  "version": "PostgreSQL 19 Beta 4 announcement published 2026-09-24",
+  "retrieved_at": "2026-10-03",
+  "license": "unknown",
+  "trust": "official",
+  "type": "release_notes",
+  "purpose": "Beta 4でのREPACK crash・invalid index・materialized view・権限/error修正の告知と、beta中の変更可能性を確認。GA日は本調査で確定しない。 記事固有の再利用ライセンスは未確認。短い独自要約のみ。"
+}

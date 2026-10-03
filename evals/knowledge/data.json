@@ -858,6 +858,62 @@
       "expected_ids": [
         "sqlite-alter-constraint-validation-null-boundary"
       ]
+    },
+    {
+      "name": "postgres-repack-final-exclusive-lock",
+      "query": "REPACK CONCURRENTLY ACCESS EXCLUSIVE",
+      "expected_ids": [
+        "postgres-repack-concurrent-lock-snapshot-boundary"
+      ]
+    },
+    {
+      "name": "postgres-repack-old-snapshot-empty",
+      "query": "REPACK snapshot 空",
+      "expected_ids": [
+        "postgres-repack-concurrent-lock-snapshot-boundary"
+      ]
+    },
+    {
+      "name": "postgres-repack-beta4-invalid-matview",
+      "query": "19beta4 materialized invalid index",
+      "expected_ids": [
+        "postgres-repack-concurrent-lock-snapshot-boundary"
+      ]
+    },
+    {
+      "name": "postgres-repack-full-replica-identity",
+      "query": "REPACK REPLICA IDENTITY FULL",
+      "expected_ids": [
+        "postgres-repack-concurrent-lock-snapshot-boundary"
+      ]
+    },
+    {
+      "name": "postgres-repack-slot-limit-start",
+      "query": "max_repack_replication_slots 5 再起動",
+      "expected_ids": [
+        "postgres-repack-concurrent-lock-snapshot-boundary"
+      ]
+    },
+    {
+      "name": "postgres-repack-extra-sort-space",
+      "query": "REPACK 2T+I disk",
+      "expected_ids": [
+        "postgres-repack-concurrent-lock-snapshot-boundary"
+      ]
+    },
+    {
+      "name": "postgres-repack-progress-not-finished",
+      "query": "pg_stat_progress_repack catch-up 100%",
+      "expected_ids": [
+        "postgres-repack-concurrent-lock-snapshot-boundary"
+      ]
+    },
+    {
+      "name": "postgres-repack-ddl-retry-preflight",
+      "query": "REPACK DDL 再試行",
+      "expected_ids": [
+        "postgres-repack-concurrent-lock-snapshot-boundary"
+      ]
     }
   ]
 }

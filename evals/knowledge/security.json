@@ -129,5 +129,15 @@
     {"name": "trusted-types-cdn-enforce", "query": "CDN enforce 緩和", "expected_ids": ["security-trusted-types-csp-report-only-default-policy"]},
     {"name": "trusted-types-policy-owner", "query": "policy 所有者 除去条件", "expected_ids": ["security-trusted-types-csp-report-only-default-policy"]},
     {"name": "trusted-types-observation-coverage", "query": "監視 到達率 UIエラー", "expected_ids": ["security-trusted-types-csp-report-only-default-policy"]},
-    {"name": "trusted-types-browser-build-unverified", "query": "browser build 未実行", "expected_ids": ["security-trusted-types-csp-report-only-default-policy"]}
+    {"name": "trusted-types-browser-build-unverified", "query": "browser build 未実行", "expected_ids": ["security-trusted-types-csp-report-only-default-policy"]},
+    {"name": "github-cache-mode-default-not-cap", "query": "cache-mode 暗黙 callee", "expected_ids": ["github-cache-mode-reusable-default-poisoning-boundary"]},
+    {"name": "github-cache-mode-write-only-disjoint", "query": "write-only 非包含", "expected_ids": ["github-cache-mode-reusable-default-poisoning-boundary"]},
+    {"name": "github-cache-mode-reusable-validation", "query": "cache-mode 開始前 validation", "expected_ids": ["github-cache-mode-reusable-default-poisoning-boundary"]},
+    {"name": "github-cache-mode-trigger-override", "query": "cache-mode pull_request_target 上書き", "expected_ids": ["github-cache-mode-reusable-default-poisoning-boundary"]},
+    {"name": "github-cache-mode-pr-scope", "query": "cache-mode refs/pull/.../merge", "expected_ids": ["github-cache-mode-reusable-default-poisoning-boundary"]},
+    {"name": "github-cache-mode-token-separation", "query": "cache-mode permissions read-all", "expected_ids": ["github-cache-mode-reusable-default-poisoning-boundary"]},
+    {"name": "github-cache-mode-skip-success", "query": "cache-mode skip 保存成功", "expected_ids": ["github-cache-mode-reusable-default-poisoning-boundary"]},
+    {"name": "github-cache-mode-reader-trust", "query": "cache-mode read-only 汚染", "expected_ids": ["github-cache-mode-reusable-default-poisoning-boundary"]},
+    {"name": "github-cache-mode-service-not-env", "query": "scoped cache tokens ACTIONS_CACHE_MODE", "expected_ids": ["github-cache-mode-reusable-default-poisoning-boundary"]},
+    {"name": "github-cache-mode-ga-version", "query": "cache-mode 2026-09-10 GHES", "expected_ids": ["github-cache-mode-reusable-default-poisoning-boundary"]}
   ]}

@@ -1,0 +1,12 @@
+{
+  "id": "github-cache-mode-syntax-20261003",
+  "url": "https://docs.github.com/en/actions/reference/workflows-and-actions/workflow-syntax",
+  "repository_url": "https://github.com/github/docs",
+  "commit_sha": "",
+  "version": "GitHub Docs github.com live reference, no page release/version/date label; cache-mode and jobs.<job_id>.cache-mode sections verified 2026-10-03 UTC",
+  "retrieved_at": "2026-10-03",
+  "license": "CC-BY-4.0 documentation; github/docs LICENSE verified 2026-10-03 at https://raw.githubusercontent.com/github/docs/main/LICENSE; original summary, no code copied",
+  "trust": "official",
+  "type": "official_docs",
+  "purpose": "4 mode の read/save 能力、workflow/job の上書き、scoped cache tokens、許可されない操作を skip して run 継続する契約を確認"
+}

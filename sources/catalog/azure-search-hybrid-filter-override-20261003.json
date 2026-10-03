@@ -1,0 +1,12 @@
+{
+  "id": "azure-search-hybrid-filter-override-20261003",
+  "url": "https://learn.microsoft.com/en-us/azure/search/hybrid-search-how-to-query",
+  "repository_url": "",
+  "commit_sha": "",
+  "version": "Hybrid search rolling guide; Last updated 2026-08-06; examples target 2026-04-01 and 2026-08-01-preview",
+  "retrieved_at": "2026-10-03",
+  "license": "unknown",
+  "trust": "official",
+  "type": "official_docs",
+  "purpose": "filterOverride の置換契約、必須filterの再指定、kとtop、semantic rankerへの候補供給を確認。一次ページを実際に開いて確認。ライセンス未確定のため独自要約のみでコード・図表の転載なし。"
+}

@@ -1,0 +1,12 @@
+{
+  "id": "azure-search-vector-filters-20261003",
+  "url": "https://learn.microsoft.com/en-us/azure/search/vector-search-filters",
+  "repository_url": "",
+  "commit_sha": "",
+  "version": "Vector filters rolling guide; Last updated 2026-04-27",
+  "retrieved_at": "2026-10-03",
+  "license": "unknown",
+  "trust": "official",
+  "type": "official_docs",
+  "purpose": "preFilter・shard-local postFilter・global strictPostFilter の適用位置、選択性、旧indexの既定を確認。一次ページを実際に開いて確認。ライセンス未確定のため独自要約のみでコード・図表の転載なし。"
+}
