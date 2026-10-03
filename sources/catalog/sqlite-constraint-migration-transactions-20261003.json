@@ -1,0 +1,12 @@
+{
+  "id": "sqlite-constraint-migration-transactions-20261003",
+  "url": "https://www.sqlite.org/lang_transaction.html",
+  "repository_url": "",
+  "commit_sha": "",
+  "version": "SQLite transaction reference; page updated 2026-02-18 11:56:50Z",
+  "retrieved_at": "2026-10-03",
+  "license": "Public domain (SQLite code and documentation; https://www.sqlite.org/copyright.html; pinned repository LICENSE.md also confirms src/ and test/ for repository analysis)",
+  "trust": "official",
+  "type": "official_docs",
+  "purpose": "単一writer、BEGIN IMMEDIATE、COMMIT時BUSY、明示transactionの失敗処理を移行設計の根拠として確認"
+}

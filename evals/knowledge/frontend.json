@@ -871,6 +871,62 @@
       "expected_ids": [
         "html-dialog-showmodal-close-popover-distinction"
       ]
+    },
+    {
+      "name": "react-viewtransition-urgent-state",
+      "query": "ViewTransition 即時 setState",
+      "expected_ids": [
+        "react-viewtransition-commit-router-motion-boundary"
+      ]
+    },
+    {
+      "name": "react-viewtransition-async-state",
+      "query": "ViewTransition await startTransition",
+      "expected_ids": [
+        "react-viewtransition-commit-router-motion-boundary"
+      ]
+    },
+    {
+      "name": "react-viewtransition-type-reset",
+      "query": "addTransitionType commit reset",
+      "expected_ids": [
+        "react-viewtransition-commit-router-motion-boundary"
+      ]
+    },
+    {
+      "name": "react-viewtransition-router-deadlock",
+      "query": "ViewTransition Navigation useLayoutEffect",
+      "expected_ids": [
+        "react-viewtransition-commit-router-motion-boundary"
+      ]
+    },
+    {
+      "name": "react-viewtransition-history-restore",
+      "query": "ViewTransition popstate 復元",
+      "expected_ids": [
+        "react-viewtransition-commit-router-motion-boundary"
+      ]
+    },
+    {
+      "name": "react-viewtransition-reduced-motion",
+      "query": "ViewTransition prefers-reduced-motion",
+      "expected_ids": [
+        "react-viewtransition-commit-router-motion-boundary"
+      ]
+    },
+    {
+      "name": "react-viewtransition-resource-opt-out",
+      "query": "ViewTransition onLoad timeout",
+      "expected_ids": [
+        "react-viewtransition-commit-router-motion-boundary"
+      ]
+    },
+    {
+      "name": "react-viewtransition-shared-fallback",
+      "query": "ViewTransition share fallback",
+      "expected_ids": [
+        "react-viewtransition-commit-router-motion-boundary"
+      ]
     }
   ]
 }

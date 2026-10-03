@@ -119,5 +119,15 @@
     {"name": "oidc-token-hash-slh-provisional", "query": "SLH-DSA 決定待ち", "expected_ids": ["oidc-token-hash-eddsa-xof-validation-boundary"]},
     {"name": "oidc-token-hash-deprecation-boundary", "query": "EdDSA Deprecated Prohibited", "expected_ids": ["oidc-token-hash-eddsa-xof-validation-boundary"]},
     {"name": "oidc-token-hash-octets-not-hex", "query": "digest hex バイト列", "expected_ids": ["oidc-token-hash-eddsa-xof-validation-boundary"]},
-    {"name": "oidc-token-hash-cross-endpoint", "query": "front-channel back-channel 取り違え", "expected_ids": ["oidc-token-hash-eddsa-xof-validation-boundary"]}
+    {"name": "oidc-token-hash-cross-endpoint", "query": "front-channel back-channel 取り違え", "expected_ids": ["oidc-token-hash-eddsa-xof-validation-boundary"]},
+    {"name": "trusted-types-directive-separation", "query": "require-trusted-types-for trusted-types 作成名", "expected_ids": ["security-trusted-types-csp-report-only-default-policy"]},
+    {"name": "trusted-types-report-only-transform", "query": "Report-Only default 変換後", "expected_ids": ["security-trusted-types-csp-report-only-default-policy"]},
+    {"name": "trusted-types-report-only-exception", "query": "Report-Only callback 例外", "expected_ids": ["security-trusted-types-csp-report-only-default-policy"]},
+    {"name": "trusted-types-default-reject-mode", "query": "default enforce 元入力", "expected_ids": ["security-trusted-types-csp-report-only-default-policy"]},
+    {"name": "trusted-types-react193-coercion", "query": "React 19.3 文字列化 型の保持", "expected_ids": ["security-trusted-types-csp-report-only-default-policy"]},
+    {"name": "trusted-types-csp-delivery", "query": "Report-Only meta 配送", "expected_ids": ["security-trusted-types-csp-report-only-default-policy"]},
+    {"name": "trusted-types-cdn-enforce", "query": "CDN enforce 緩和", "expected_ids": ["security-trusted-types-csp-report-only-default-policy"]},
+    {"name": "trusted-types-policy-owner", "query": "policy 所有者 除去条件", "expected_ids": ["security-trusted-types-csp-report-only-default-policy"]},
+    {"name": "trusted-types-observation-coverage", "query": "監視 到達率 UIエラー", "expected_ids": ["security-trusted-types-csp-report-only-default-policy"]},
+    {"name": "trusted-types-browser-build-unverified", "query": "browser build 未実行", "expected_ids": ["security-trusted-types-csp-report-only-default-policy"]}
   ]}

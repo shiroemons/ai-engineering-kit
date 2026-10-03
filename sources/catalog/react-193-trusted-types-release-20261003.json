@@ -1,0 +1,12 @@
+{
+  "id": "react-193-trusted-types-release-20261003",
+  "url": "https://react.dev/blog/2026/09/09/react-19-3",
+  "repository_url": "https://github.com/reactjs/react.dev",
+  "commit_sha": "",
+  "version": "React 19.3; official release announcement published 2026-09-09; Trusted Types support section",
+  "retrieved_at": "2026-10-03",
+  "license": "CC-BY-4.0 (react.dev README.md and LICENSE-DOCS.md verified via official raw.githubusercontent.com/reactjs/react.dev/main/ URLs 2026-10-03 after GitHub HTML license page returned 503; original Japanese summary, no copied code)",
+  "trust": "official",
+  "type": "release_notes",
+  "purpose": "React 19.3 が DOM API 前の文字列化をやめて Trusted Types の値を保持する変更を確認し、framework の型保持とアプリ側 sanitization／CSP enforcement の責務を区別する。実行テストは未実施。"
+}

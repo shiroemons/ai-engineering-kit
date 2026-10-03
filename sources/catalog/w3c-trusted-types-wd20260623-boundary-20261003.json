@@ -1,0 +1,12 @@
+{
+  "id": "w3c-trusted-types-wd20260623-boundary-20261003",
+  "url": "https://www.w3.org/TR/2026/WD-trusted-types-20260623/",
+  "repository_url": "https://github.com/w3c/trusted-types",
+  "commit_sha": "",
+  "version": "Trusted Types W3C Working Draft, published 2026-06-23; fixed TR edition",
+  "retrieved_at": "2026-10-03",
+  "license": "W3C Software and Document License 2023 (publication footer and https://www.w3.org/copyright/software-license-2023/ verified 2026-10-03; original Japanese summary, no copied code)",
+  "trust": "official",
+  "type": "official_docs",
+  "purpose": "Trusted Types の sink 型制約と policy 作成制約、および Report-Only でも実行される default policy の変換・例外・拒否モードの境界を固定草案で確認する。ブラウザ実装の適合性は未検証。"
+}
