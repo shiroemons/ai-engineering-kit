@@ -1,0 +1,12 @@
+{
+  "id": "pytest-skip-scope-reporting-20261003",
+  "url": "https://docs.pytest.org/en/stable/how-to/skipping.html#skipping-on-a-missing-import-dependency",
+  "repository_url": "https://github.com/pytest-dev/pytest",
+  "commit_sha": "",
+  "version": "pytest stable skipping guide; publication date not displayed; verified 2026-10-03",
+  "retrieved_at": "2026-10-03",
+  "license": "MIT (https://docs.pytest.org/en/stable/license.html and pinned pytest LICENSE verified; original summary, no copied implementation)",
+  "trust": "official",
+  "type": "official_docs",
+  "purpose": "module/test/setupの配置と、skip詳細を表示する-rsの範囲を確認する"
+}

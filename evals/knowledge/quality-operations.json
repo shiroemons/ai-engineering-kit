@@ -601,6 +601,16 @@
     {"name": "vitest5-assertion-never-called", "query": "Vitest 空配列 hasAssertions", "expected_ids": ["testing-vitest5-async-assertion-poll-cancellation-boundary"]},
     {"name": "vitest5-late-success", "query": "Vitest 100 ms 150", "expected_ids": ["testing-vitest5-async-assertion-poll-cancellation-boundary"]},
     {"name": "vitest5-poll-unsupported-matchers", "query": "Vitest poll snapshot toThrow", "expected_ids": ["testing-vitest5-async-assertion-poll-cancellation-boundary"]},
-    {"name": "vitest5-context-signal-not-new", "query": "Vitest signal v3.2.0", "expected_ids": ["testing-vitest5-async-assertion-poll-cancellation-boundary"]}
+    {"name": "vitest5-context-signal-not-new", "query": "Vitest signal v3.2.0", "expected_ids": ["testing-vitest5-async-assertion-poll-cancellation-boundary"]},
+    {"name": "pytest-importorskip-default-exception", "query": "pytest 9.1 exc_type ModuleNotFoundError", "expected_ids": ["testing-pytest-importorskip-transitive-collection-boundary"]},
+    {"name": "pytest-importorskip-broken-import", "query": "pytest importorskip 壊れた 環境", "expected_ids": ["testing-pytest-importorskip-transitive-collection-boundary"]},
+    {"name": "pytest-importorskip-transitive-missing", "query": "pytest adapter codec_backend 推移依存", "expected_ids": ["testing-pytest-importorskip-transitive-collection-boundary"]},
+    {"name": "pytest-importorskip-exception-name", "query": "pytest importorskip exc.name modname", "expected_ids": ["testing-pytest-importorskip-transitive-collection-boundary"]},
+    {"name": "pytest-importorskip-module-collection", "query": "pytest module 収集0項目", "expected_ids": ["testing-pytest-importorskip-transitive-collection-boundary"]},
+    {"name": "pytest-importorskip-minversion-metadata", "query": "pytest minversion __version__ distribution", "expected_ids": ["testing-pytest-importorskip-transitive-collection-boundary"]},
+    {"name": "pytest-importorskip-skip-reason", "query": "pytest importorskip reason 診断", "expected_ids": ["testing-pytest-importorskip-transitive-collection-boundary"]},
+    {"name": "pytest-importorskip-full-dependency-job", "query": "pytest 完全依存job 必須", "expected_ids": ["testing-pytest-importorskip-transitive-collection-boundary"]},
+    {"name": "pytest-importorskip-compatibility-wide-catch", "query": "pytest exc_type=ImportError 一律", "expected_ids": ["testing-pytest-importorskip-transitive-collection-boundary"]},
+    {"name": "pytest-importorskip-source-not-runtime", "query": "pytest importorskip 実機試験結果", "expected_ids": ["testing-pytest-importorskip-transitive-collection-boundary"]}
   ]
 }

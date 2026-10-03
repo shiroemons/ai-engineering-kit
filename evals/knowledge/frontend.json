@@ -967,6 +967,76 @@
       "name": "websocket-options-constructor-open",
       "query": "WebSocket constructor open",
       "expected_ids": ["javascript-websocket-options-local-permission-boundary"]
+    },
+    {
+      "name": "css-iframe-parent-child-opt-in",
+      "query": "frame-sizing responsive-embedded-sizing 親",
+      "expected_ids": [
+        "css-responsive-iframe-opt-in-resize-boundary"
+      ]
+    },
+    {
+      "name": "css-iframe-origin-prefix-negative",
+      "query": "allow-origins ALLOW-ORIGINS 150",
+      "expected_ids": [
+        "css-responsive-iframe-opt-in-resize-boundary"
+      ]
+    },
+    {
+      "name": "css-iframe-embedding-permission-separation",
+      "query": "allow-origins frame-ancestors",
+      "expected_ids": [
+        "css-responsive-iframe-opt-in-resize-boundary"
+      ]
+    },
+    {
+      "name": "css-iframe-draft-reveal-discrepancy",
+      "query": "body reveal 未merge",
+      "expected_ids": [
+        "css-responsive-iframe-opt-in-resize-boundary"
+      ]
+    },
+    {
+      "name": "css-iframe-explicit-dynamic-update",
+      "query": "requestResize DOMContentLoaded load",
+      "expected_ids": [
+        "css-responsive-iframe-opt-in-resize-boundary"
+      ]
+    },
+    {
+      "name": "css-iframe-request-resize-notallowed",
+      "query": "requestResize NotAllowedError undefined",
+      "expected_ids": [
+        "css-responsive-iframe-opt-in-resize-boundary"
+      ]
+    },
+    {
+      "name": "css-iframe-logical-axis-host-mode",
+      "query": "content-block-size writing mode",
+      "expected_ids": [
+        "css-responsive-iframe-opt-in-resize-boundary"
+      ]
+    },
+    {
+      "name": "css-iframe-icb-reset-unresolved",
+      "query": "ICB off/on",
+      "expected_ids": [
+        "css-responsive-iframe-opt-in-resize-boundary"
+      ]
+    },
+    {
+      "name": "css-iframe-support-not-opt-in",
+      "query": "@supports 子の許可",
+      "expected_ids": [
+        "css-responsive-iframe-opt-in-resize-boundary"
+      ]
+    },
+    {
+      "name": "css-iframe-layout-shift-guard",
+      "query": "iframe first viewport layout shift",
+      "expected_ids": [
+        "css-responsive-iframe-opt-in-resize-boundary"
+      ]
     }
   ]
 }

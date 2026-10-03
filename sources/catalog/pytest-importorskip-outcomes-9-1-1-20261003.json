@@ -1,0 +1,12 @@
+{
+  "id": "pytest-importorskip-outcomes-9-1-1-20261003",
+  "url": "https://github.com/pytest-dev/pytest/blob/cf470ec0bf7eb89cd97dd56df4859eae5db46447/src/_pytest/outcomes.py",
+  "repository_url": "https://github.com/pytest-dev/pytest",
+  "commit_sha": "cf470ec0bf7eb89cd97dd56df4859eae5db46447",
+  "version": "pytest 9.1.1; tag dereferenced to cf470ec0bf7eb89cd97dd56df4859eae5db46447",
+  "retrieved_at": "2026-10-03",
+  "license": "MIT (https://docs.pytest.org/en/stable/license.html and pinned pytest LICENSE verified; original summary, no copied implementation)",
+  "trust": "official",
+  "type": "github_repository_analysis",
+  "purpose": "例外の型だけで捕捉しexc.nameとmodnameを照合しない実装、module-level skip、__version__不足時の扱いを固定commitで確認する"
+}

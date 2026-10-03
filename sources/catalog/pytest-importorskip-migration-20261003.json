@@ -1,0 +1,12 @@
+{
+  "id": "pytest-importorskip-migration-20261003",
+  "url": "https://docs.pytest.org/en/stable/deprecations.html#import-or-skip-import-error",
+  "repository_url": "https://github.com/pytest-dev/pytest",
+  "commit_sha": "",
+  "version": "pytest 9.1 default change; rolling stable docs verified 2026-10-03",
+  "retrieved_at": "2026-10-03",
+  "license": "MIT (https://docs.pytest.org/en/stable/license.html and pinned pytest LICENSE verified; original summary, no copied implementation)",
+  "trust": "official",
+  "type": "official_docs",
+  "purpose": "8.2のexc_type追加から9.1のModuleNotFoundError既定化への移行と、旧ImportError捕捉を明示する条件を確認する"
+}

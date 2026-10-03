@@ -841,6 +841,62 @@
     {"name": "http-connect-success-header-boundary", "query": "2xx header section 途中", "expected_ids": ["http-optimistic-connect-upgrade-rejection-boundary"]},
     {"name": "http-connect-wait-buffer-budget", "query": "CONNECT bounded buffer cancel", "expected_ids": ["http-optimistic-connect-upgrade-rejection-boundary"]},
     {"name": "http-connectudp-fallback-version", "query": "CONNECT-UDP fallback 101", "expected_ids": ["http-optimistic-connect-upgrade-rejection-boundary"]},
-    {"name": "http-websocket-existing-handshake-validation", "query": "WebSocket 101 Sec-WebSocket-Accept", "expected_ids": ["http-optimistic-connect-upgrade-rejection-boundary"]}
+    {"name": "http-websocket-existing-handshake-validation", "query": "WebSocket 101 Sec-WebSocket-Accept", "expected_ids": ["http-optimistic-connect-upgrade-rejection-boundary"]},
+    {
+      "name": "etcd-fencing-external-resource",
+      "query": "etcd fencing 外部資源",
+      "expected_ids": [
+        "distributed-systems-etcd-lease-fencing-resource-boundary"
+      ]
+    },
+    {
+      "name": "etcd-isowner-atomic-transaction",
+      "query": "IsOwner Txn Succeeded",
+      "expected_ids": [
+        "distributed-systems-etcd-lease-fencing-resource-boundary"
+      ]
+    },
+    {
+      "name": "etcd-lease-shared-session",
+      "query": "同一lease session 単一取得",
+      "expected_ids": [
+        "distributed-systems-etcd-lease-fencing-resource-boundary"
+      ]
+    },
+    {
+      "name": "etcd-session-close-context",
+      "query": "Orphan Close WithContext",
+      "expected_ids": [
+        "distributed-systems-etcd-lease-fencing-resource-boundary"
+      ]
+    },
+    {
+      "name": "etcd-fencing-high-water-mark",
+      "query": "high-water mark 42",
+      "expected_ids": [
+        "distributed-systems-etcd-lease-fencing-resource-boundary"
+      ]
+    },
+    {
+      "name": "etcd-fencing-not-deduplication",
+      "query": "fencing operation ID deduplication",
+      "expected_ids": [
+        "distributed-systems-etcd-lease-fencing-resource-boundary"
+      ]
+    },
+    {
+      "name": "etcd-fencing-restore-epoch",
+      "query": "fencing snapshot restore epoch",
+      "expected_ids": [
+        "distributed-systems-etcd-lease-fencing-resource-boundary"
+      ]
+    },
+    {
+      "name": "etcd-lock-watch-not-linearizable",
+      "query": "Watch linearizability timeout",
+      "expected_ids": [
+        "distributed-systems-etcd-lease-fencing-resource-boundary"
+      ]
+    }
   ]
 }

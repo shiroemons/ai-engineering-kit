@@ -1,0 +1,12 @@
+{
+  "id": "whatwg-responsive-iframe-proposal-20261003",
+  "url": "https://github.com/kojiishi/html/commit/8fd9d8995c50145b4eda0c18382aa81880f877ee",
+  "repository_url": "https://github.com/kojiishi/html",
+  "commit_sha": "8fd9d8995c50145b4eda0c18382aa81880f877ee",
+  "version": "WHATWG HTML PR 12444 open/unmerged on 2026-10-03; exact head 8fd9d8995c50145b4eda0c18382aa81880f877ee, commit dated 2026-09-10",
+  "retrieved_at": "2026-10-03",
+  "license": "CC-BY-4.0; BSD-3-Clause for portions incorporated into source code; LICENSE at exact commit verified via GitHub connector; no code copied",
+  "trust": "primary-source",
+  "type": "github_repository_analysis",
+  "purpose": "exact commit diff の source 変更を確認。allow-origins= prefix、container origin照合、重複meta禁止、flag確定後の変更無効、reveal時のfalse確定を未merge提案として区別。PR概要中の古いpreview SHAは採用しない。"
+}

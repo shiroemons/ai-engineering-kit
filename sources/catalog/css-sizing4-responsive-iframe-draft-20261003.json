@@ -1,0 +1,12 @@
+{
+  "id": "css-sizing4-responsive-iframe-draft-20261003",
+  "url": "https://drafts.csswg.org/css-sizing-4/",
+  "repository_url": "",
+  "commit_sha": "",
+  "version": "CSS Box Sizing Module Level 4 Editor's Draft 2026-09-06, sections 5.3–5.3.2; retrieved 2026-10-03 UTC",
+  "retrieved_at": "2026-10-03",
+  "license": "W3C Software and Document License 2023; linked permissive document license resolves to https://www.w3.org/copyright/software-license-2023/; no specification text copied",
+  "trust": "official",
+  "type": "official_docs",
+  "purpose": "intrinsic size の選択軸、host writing mode、body開始時のflag固定、DOMContentLoaded/load更新、ICB固定、requestResize例外を草案の契約として確認。Chrome記事・未merge HTML提案との差を記録。"
+}

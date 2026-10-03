@@ -1,0 +1,12 @@
+{
+  "id": "python-import-exceptions-3-14-20261003",
+  "url": "https://docs.python.org/3.14/builtins/exceptions.html#ModuleNotFoundError",
+  "repository_url": "https://github.com/python/cpython",
+  "commit_sha": "",
+  "version": "Python 3.14.8 docs; page updated 2026-10-02 20:52 UTC",
+  "retrieved_at": "2026-10-03",
+  "license": "PSF-2.0 (documentation); examples additionally 0BSD; page footer verified",
+  "trust": "official",
+  "type": "official_docs",
+  "purpose": "ModuleNotFoundErrorがImportErrorのsubclassであること、name/pathとsys.modulesのNoneを確認する"
+}
