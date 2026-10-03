@@ -1,0 +1,12 @@
+{
+  "id": "react-viewtransition-reference-20261003",
+  "url": "https://react.dev/reference/react/ViewTransition",
+  "repository_url": "https://github.com/reactjs/react.dev",
+  "commit_sha": "",
+  "version": "React 19.3 表示の参照文書（2026-10-03取得、ページ固有の公開日表示なし）",
+  "retrieved_at": "2026-10-03",
+  "license": "CC-BY-4.0（react.dev本文。https://raw.githubusercontent.com/reactjs/react.dev/main/README.md と LICENSE-DOCS.md を2026-10-03 UTCに確認。Reactチームへの帰属を伴う独自日本語要約、コード転載なし）",
+  "trust": "official",
+  "type": "official_docs",
+  "purpose": "animationの成立条件、name衝突、Reactによる統制、router復元とmotion設定の境界を確認"
+}

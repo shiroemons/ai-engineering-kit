@@ -1,0 +1,12 @@
+{
+  "id": "sqlite-check-null-semantics-20261003",
+  "url": "https://www.sqlite.org/lang_createtable.html",
+  "repository_url": "",
+  "commit_sha": "",
+  "version": "SQLite CREATE TABLE reference; page updated 2025-04-30 20:02:34Z",
+  "retrieved_at": "2026-10-03",
+  "license": "Public domain (SQLite code and documentation; https://www.sqlite.org/copyright.html; pinned repository LICENSE.md also confirms src/ and test/ for repository analysis)",
+  "trust": "official",
+  "type": "official_docs",
+  "purpose": "通常CHECKのNULL許容、NOT NULL、制約検査時点、CREATE TABLE ASの制約欠落を確認"
+}

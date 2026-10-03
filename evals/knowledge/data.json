@@ -788,6 +788,76 @@
       "expected_ids": [
         "redis-himport-session-safe-bulk-replacement"
       ]
+    },
+    {
+      "name": "sqlite-alter-constraint-introduction-not-withdrawn",
+      "query": "3.53.0 Withdrawn 制約",
+      "expected_ids": [
+        "sqlite-alter-constraint-validation-null-boundary"
+      ]
+    },
+    {
+      "name": "sqlite-alter-constraint-native-check-named-syntax",
+      "query": "ADD CONSTRAINT qty_nonnegative",
+      "expected_ids": [
+        "sqlite-alter-constraint-validation-null-boundary"
+      ]
+    },
+    {
+      "name": "sqlite-alter-constraint-check-null-validation-boundary",
+      "query": "IS NOT TRUE NULL 既存",
+      "expected_ids": [
+        "sqlite-alter-constraint-validation-null-boundary"
+      ]
+    },
+    {
+      "name": "sqlite-alter-constraint-check-source-patch-boundary",
+      "query": "3.53.4 静的 実行再現",
+      "expected_ids": [
+        "sqlite-alter-constraint-validation-null-boundary"
+      ]
+    },
+    {
+      "name": "sqlite-alter-constraint-not-null-existing-generated",
+      "query": "SET NOT NULL generated column",
+      "expected_ids": [
+        "sqlite-alter-constraint-validation-null-boundary"
+      ]
+    },
+    {
+      "name": "sqlite-alter-constraint-drop-redundant-not-null",
+      "query": "DROP NOT NULL 冗長",
+      "expected_ids": [
+        "sqlite-alter-constraint-validation-null-boundary"
+      ]
+    },
+    {
+      "name": "sqlite-alter-constraint-unsupported-constraint-kinds",
+      "query": "UNIQUE FOREIGN KEY 削除 拒否",
+      "expected_ids": [
+        "sqlite-alter-constraint-validation-null-boundary"
+      ]
+    },
+    {
+      "name": "sqlite-alter-constraint-name-collision-retry",
+      "query": "同名 CHECK 再送",
+      "expected_ids": [
+        "sqlite-alter-constraint-validation-null-boundary"
+      ]
+    },
+    {
+      "name": "sqlite-alter-constraint-commit-busy-active",
+      "query": "COMMIT BUSY active",
+      "expected_ids": [
+        "sqlite-alter-constraint-validation-null-boundary"
+      ]
+    },
+    {
+      "name": "sqlite-alter-constraint-rebuild-reference-order",
+      "query": "旧table 仮名 参照",
+      "expected_ids": [
+        "sqlite-alter-constraint-validation-null-boundary"
+      ]
     }
   ]
 }

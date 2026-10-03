@@ -1,0 +1,12 @@
+{
+  "id": "sqlite-352-constraint-withdrawal-20261003",
+  "url": "https://www.sqlite.org/releaselog/3_52_0.html",
+  "repository_url": "",
+  "commit_sha": "",
+  "version": "SQLite 3.52.0; heading date 2026-03-06; marked Withdrawn",
+  "retrieved_at": "2026-10-03",
+  "license": "Public domain (SQLite code and documentation; https://www.sqlite.org/copyright.html; pinned repository LICENSE.md also confirms src/ and test/ for repository analysis)",
+  "trust": "official",
+  "type": "release_notes",
+  "purpose": "3.52.0 を採用境界とせず予定機能の3.53.0への移動を確認。撤回自体の日付は当該ページに明示なし"
+}

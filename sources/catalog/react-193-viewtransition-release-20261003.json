@@ -1,0 +1,12 @@
+{
+  "id": "react-193-viewtransition-release-20261003",
+  "url": "https://react.dev/blog/2026/09/09/react-19-3",
+  "repository_url": "https://github.com/reactjs/react.dev",
+  "commit_sha": "",
+  "version": "React 19.3（2026-09-09公開）",
+  "retrieved_at": "2026-10-03",
+  "license": "CC-BY-4.0（react.dev本文。https://raw.githubusercontent.com/reactjs/react.dev/main/README.md と LICENSE-DOCS.md を2026-10-03 UTCに確認。Reactチームへの帰属を伴う独自日本語要約、コード転載なし）",
+  "trust": "official",
+  "type": "release_notes",
+  "purpose": "ViewTransition の安定版化、urgent updateとの区別、fallbackだけを即時表示する調整を確認"
+}

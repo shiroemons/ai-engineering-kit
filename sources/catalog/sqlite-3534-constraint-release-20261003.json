@@ -1,0 +1,12 @@
+{
+  "id": "sqlite-3534-constraint-release-20261003",
+  "url": "https://www.sqlite.org/releaselog/3_53_4.html",
+  "repository_url": "",
+  "commit_sha": "",
+  "version": "SQLite 3.53.4; published 2026-07-24",
+  "retrieved_at": "2026-10-03",
+  "license": "Public domain (SQLite code and documentation; https://www.sqlite.org/copyright.html; pinned repository LICENSE.md also confirms src/ and test/ for repository analysis)",
+  "trust": "official",
+  "type": "release_notes",
+  "purpose": "固定して読んだpatch版の公開日を確認。3.53.0の機能を当該patchの新機能と混同しない"
+}

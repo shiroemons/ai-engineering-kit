@@ -1,0 +1,12 @@
+{
+  "id": "sqlite-353-constraint-release-20261003",
+  "url": "https://www.sqlite.org/releaselog/3_53_0.html",
+  "repository_url": "",
+  "commit_sha": "",
+  "version": "SQLite 3.53.0; published 2026-04-09",
+  "retrieved_at": "2026-10-03",
+  "license": "Public domain (SQLite code and documentation; https://www.sqlite.org/copyright.html; pinned repository LICENSE.md also confirms src/ and test/ for repository analysis)",
+  "trust": "official",
+  "type": "release_notes",
+  "purpose": "NOT NULL / CHECK の直接追加・削除の導入版と公開日を確認"
+}

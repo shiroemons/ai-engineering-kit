@@ -1,0 +1,12 @@
+{
+  "id": "sqlite-353-constraint-implementation-20261003",
+  "url": "https://github.com/sqlite/sqlite/tree/4ebc7fdcf459e8d88eb5b019c2949bda86565528",
+  "repository_url": "https://github.com/sqlite/sqlite",
+  "commit_sha": "4ebc7fdcf459e8d88eb5b019c2949bda86565528",
+  "version": "SQLite 3.53.0; version tag resolved to Git commit 4ebc7fdcf459e8d88eb5b019c2949bda86565528, committed 2026-04-09 11:41:38Z",
+  "retrieved_at": "2026-10-03",
+  "license": "Public domain (SQLite code and documentation; https://www.sqlite.org/copyright.html; pinned repository LICENSE.md also confirms src/ and test/ for repository analysis)",
+  "trust": "primary-source",
+  "type": "github_repository_analysis",
+  "purpose": "src/alter.c、src/parse.y、test/altercons.test、test/altercons2.test、VERSION、manifest.uuid、LICENSE.mdを静的確認。追加時の既存行検査と失敗例を照合。コード実行・転載なし"
+}

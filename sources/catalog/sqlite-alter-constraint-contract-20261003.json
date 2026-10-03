@@ -1,0 +1,12 @@
+{
+  "id": "sqlite-alter-constraint-contract-20261003",
+  "url": "https://www.sqlite.org/lang_altertable.html",
+  "repository_url": "",
+  "commit_sha": "",
+  "version": "SQLite ALTER TABLE reference; NOT NULL change introduced 3.53.0; page updated 2026-06-04 01:35:31Z",
+  "retrieved_at": "2026-10-03",
+  "license": "Public domain (SQLite code and documentation; https://www.sqlite.org/copyright.html; pinned repository LICENSE.md also confirms src/ and test/ for repository analysis)",
+  "trust": "official",
+  "type": "official_docs",
+  "purpose": "SET/DROP NOT NULL、冗長制約、ADD COLUMNとの区別、文書概要の更新差、旧版の再構築手順を確認"
+}
