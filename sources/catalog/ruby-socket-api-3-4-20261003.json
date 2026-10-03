@@ -1,0 +1,12 @@
+{
+  "id": "ruby-socket-api-3-4-20261003",
+  "url": "https://docs.ruby-lang.org/en/3.4/Socket.html",
+  "repository_url": "https://github.com/ruby/ruby",
+  "commit_sha": "",
+  "version": "Ruby 3.4 RDoc; patch version and page publication date not displayed; retrieved 2026-10-03",
+  "retrieved_at": "2026-10-03",
+  "license": "unknown",
+  "trust": "official",
+  "type": "official_docs",
+  "purpose": "Socket.tcpのconnect_timeout/resolv_timeout、Happy Eyeballsとfast_fallback、global設定、blockの返却・close、connect_nonblockの例とexception:false契約を確認。COPYING/LEGALも確認したがページはProgramming Ruby由来の許可済み記述を含むと表示するため本文全体の個別ライセンスを断定せず独自要約のみ"
+}

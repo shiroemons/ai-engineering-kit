@@ -1,0 +1,12 @@
+{
+  "id": "github-actions-execution-pr-target-20261003",
+  "url": "https://docs.github.com/en/actions/reference/security/securely-using-pull_request_target",
+  "repository_url": "https://github.com/github/docs",
+  "commit_sha": "",
+  "version": "GitHub Docs github.com live security reference, no page version/publication date; verified 2026-10-03 UTC; default policy currently evaluate with qualified enforcement announced for 2026-11-02",
+  "retrieved_at": "2026-10-03",
+  "license": "CC-BY-4.0 documentation; https://raw.githubusercontent.com/github/docs/main/LICENSE verified 2026-10-03; attributed original summary, no code copied",
+  "trust": "official",
+  "type": "official_docs",
+  "purpose": "既定 pull_request_target 制限の対象・例外・evaluate 状態と fork コード実行の信頼境界を確認"
+}

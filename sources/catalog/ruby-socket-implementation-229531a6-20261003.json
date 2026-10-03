@@ -1,0 +1,12 @@
+{
+  "id": "ruby-socket-implementation-229531a6-20261003",
+  "url": "https://github.com/ruby/ruby/blob/229531a6cfbf07e3caef30dbac24a2a3f3fed482/ext/socket/lib/socket.rb",
+  "repository_url": "https://github.com/ruby/ruby",
+  "commit_sha": "229531a6cfbf07e3caef30dbac24a2a3f3fed482",
+  "version": "CRuby v4.0.7",
+  "retrieved_at": "2026-10-03",
+  "license": "Ruby License OR BSD-2-Clause; fixed-commit COPYING and LEGAL verified",
+  "trust": "official",
+  "type": "github_repository_analysis",
+  "purpose": "4.0.7固定sourceのAddrinfo#connect_internalでもwait_writable後にSO_ERRORを読み、非0ならSystemCallErrorとする修正を確認。3.4の全sourceと同一と仮定せず当該methodに限定。tagの完全SHAとlicenseを照合"
+}

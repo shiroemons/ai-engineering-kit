@@ -1,0 +1,12 @@
+{
+  "id": "ruby-socket-refused-report-22223-20261003",
+  "url": "https://bugs.ruby-lang.org/issues/22223",
+  "repository_url": "https://github.com/ruby/ruby",
+  "commit_sha": "",
+  "version": "Bug #22223; reported CRuby 3.4.5 / 3.4.10, macOS 27.0 beta build 26A5388g arm64; maintainer confirmation and backport history read 2026-10-03",
+  "retrieved_at": "2026-10-03",
+  "license": "unknown",
+  "trust": "primary-source",
+  "type": "incident_report",
+  "purpose": "接続拒否時のwritable通知、EISCONN、SO_ERROR=ECONNREFUSEDの食い違い、IP literalとfast_fallback無効化の関係、運用上のprobe偽陽性、maintainerによる経路確認を読む。報告環境を全OSへ一般化しない。正確な初回公開日は相対表示から推測しない"
+}

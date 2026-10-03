@@ -1,0 +1,12 @@
+{
+  "id": "ruby-socket-release-3-4-11-20261003",
+  "url": "https://github.com/ruby/ruby/releases/tag/v3_4_11",
+  "repository_url": "https://github.com/ruby/ruby",
+  "commit_sha": "",
+  "version": "Ruby 3.4.11; published 2026-09-23",
+  "retrieved_at": "2026-10-03",
+  "license": "unknown",
+  "trust": "official",
+  "type": "release_notes",
+  "purpose": "Bug #22223が3.4.11 releaseに掲載されることと公開日を確認。ニュース記事 https://www.ruby-lang.org/en/news/2026/09/23/ruby-3-4-11-released/ でも日付を照合。本文の個別ライセンスは未確定のため独自要約のみ"
+}

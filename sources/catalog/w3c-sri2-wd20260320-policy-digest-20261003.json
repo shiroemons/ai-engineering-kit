@@ -1,0 +1,12 @@
+{
+  "id": "w3c-sri2-wd20260320-policy-digest-20261003",
+  "url": "https://www.w3.org/TR/2026/WD-sri-2-20260320/",
+  "repository_url": "https://github.com/w3c/webappsec-subresource-integrity",
+  "commit_sha": "",
+  "version": "Subresource Integrity 2, W3C Working Draft 2026-03-20, sections 3.3 and 3.8",
+  "retrieved_at": "2026-10-03",
+  "license": "W3C-20230101",
+  "trust": "official",
+  "type": "official_docs",
+  "purpose": "Integrity-Policyの要求許可、Report-Only、最強hash候補による応答検証を区別する。現行TRと固定版を照合。本文copyrightリンクはW3C Software and Document License 2023。コード転載なし。"
+}
