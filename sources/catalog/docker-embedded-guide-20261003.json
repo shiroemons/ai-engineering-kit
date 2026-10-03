@@ -1,0 +1,12 @@
+{
+  "id": "docker-embedded-guide-20261003",
+  "url": "https://docs.docker.com/engine/daemon/embedded-containerd/",
+  "repository_url": "https://github.com/docker/docs",
+  "commit_sha": "",
+  "version": "Rolling Docker Engine guide, feature introduced in 29.7.0; verified 2026-10-03; publication date not shown",
+  "license": "Apache-2.0 (docker/docs README and LICENSE, https://github.com/docker/docs/blob/main/LICENSE; verified 2026-10-03)",
+  "trust": "official",
+  "type": "official_docs",
+  "purpose": "同一process内通信と別process shim、explicit featureの優先、CRI非対応、system containerdとの保存先差、debug socketの所有境界を確認。guideの将来形の警告例を29.8 release notesと区別",
+  "retrieved_at": "2026-10-03"
+}

@@ -1,0 +1,12 @@
+{
+  "id": "moby-embedded-fallback-observation-20261003",
+  "url": "https://github.com/moby/moby/pull/53388",
+  "repository_url": "https://github.com/moby/moby",
+  "commit_sha": "",
+  "version": "PR #53388, maintainer description 2026-08-16, merged 2026-08-26; delivered in Docker Engine 29.8.0",
+  "license": "unknown (PR discussion text licensing not independently established; attributed original summary only, no copied code)",
+  "trust": "maintainer",
+  "type": "maintainer_article",
+  "purpose": "fallback追加の意図と、shim未導入でもdaemon起動/pullが成功してcontainer startで失敗するmaintainer観測を確認。自分の再現試験や29.8.2全環境保証として扱わない",
+  "retrieved_at": "2026-10-03"
+}

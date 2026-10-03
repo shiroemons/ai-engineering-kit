@@ -1,0 +1,12 @@
+{
+  "id": "docker-daemon-data-root-20261003",
+  "url": "https://docs.docker.com/engine/daemon/",
+  "repository_url": "https://github.com/docker/docs",
+  "commit_sha": "",
+  "version": "Docker Engine rolling daemon configuration guide verified 2026-10-03; publication date not shown",
+  "license": "Apache-2.0 (docker/docs README and LICENSE, https://github.com/docker/docs/blob/main/LICENSE; verified 2026-10-03)",
+  "trust": "official",
+  "type": "official_docs",
+  "purpose": "system containerdの/var/lib/containerdはDocker data-rootだけでは移動しないこと、volumes/configsとの保存先差を確認。embedded/managedの配置へ無条件に一般化しない",
+  "retrieved_at": "2026-10-03"
+}

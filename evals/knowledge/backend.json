@@ -1028,6 +1028,97 @@
       "expected_ids": [
         "python-tarfile-filter-patch-partial-extraction-boundary"
       ]
+    },
+    {
+      "name": "rails-pool-maintenance-fixed-budget",
+      "query": "8.1.4 固定100秒 checkout_timeout",
+      "expected_ids": [
+        "rails-pool-maintenance-checkout-timeout-boundary"
+      ]
+    },
+    {
+      "name": "rails-pool-maintenance-spare-capacity",
+      "query": "connections max_connections 増設余地",
+      "expected_ids": [
+        "rails-pool-maintenance-checkout-timeout-boundary"
+      ]
+    },
+    {
+      "name": "rails-pool-maintenance-queue-predicate",
+      "query": "@maintaining @available.num_waiting",
+      "expected_ids": [
+        "rails-pool-maintenance-checkout-timeout-boundary"
+      ]
+    },
+    {
+      "name": "rails-pool-maintenance-timeout-no-fallback",
+      "query": "ConnectionTimeoutError 新規作成 fallback",
+      "expected_ids": [
+        "rails-pool-maintenance-checkout-timeout-boundary"
+      ]
+    },
+    {
+      "name": "rails-pool-monotonic-lock-scope",
+      "query": "CLOCK_MONOTONIC lock取得時間",
+      "expected_ids": [
+        "rails-pool-maintenance-checkout-timeout-boundary"
+      ]
+    },
+    {
+      "name": "rails-pool-not-total-deadline",
+      "query": "単一deadline SQL完了",
+      "expected_ids": [
+        "rails-pool-maintenance-checkout-timeout-boundary"
+      ]
+    },
+    {
+      "name": "rails-pool-maintenance-not-cancelled",
+      "query": "maintenance cancel ensure",
+      "expected_ids": [
+        "rails-pool-maintenance-checkout-timeout-boundary"
+      ]
+    },
+    {
+      "name": "rails-pool-keepalive-false-nil",
+      "query": "boolean false 600.0",
+      "expected_ids": [
+        "rails-pool-maintenance-checkout-timeout-boundary"
+      ]
+    },
+    {
+      "name": "rails-pool-keepalive-not-all-maintenance",
+      "query": "keepalive無効化 preconnect 全停止",
+      "expected_ids": [
+        "rails-pool-maintenance-checkout-timeout-boundary"
+      ]
+    },
+    {
+      "name": "rails-pool-regression-test-time-bound",
+      "query": "join(1) 厳密に0.1秒",
+      "expected_ids": [
+        "rails-pool-maintenance-checkout-timeout-boundary"
+      ]
+    },
+    {
+      "name": "rails-pool-stat-maintenance-gap",
+      "query": "stat maintenance専用",
+      "expected_ids": [
+        "rails-pool-maintenance-checkout-timeout-boundary"
+      ]
+    },
+    {
+      "name": "rails-pool-checkout-return-ownership",
+      "query": "手動checkout checkin 所有責任",
+      "expected_ids": [
+        "rails-pool-maintenance-checkout-timeout-boundary"
+      ]
+    },
+    {
+      "name": "rails-pool-tests-not-executed",
+      "query": "実行していない 検索eval",
+      "expected_ids": [
+        "rails-pool-maintenance-checkout-timeout-boundary"
+      ]
     }
   ]
 }

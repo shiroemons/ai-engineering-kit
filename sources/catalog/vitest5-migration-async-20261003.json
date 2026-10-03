@@ -1,0 +1,12 @@
+{
+  "id": "vitest5-migration-async-20261003",
+  "url": "https://github.com/vitest-dev/vitest/blob/f441c6fab25e579c5b7dd3dd50538416f415fbae/docs/guide/migration/index.md",
+  "repository_url": "https://github.com/vitest-dev/vitest",
+  "commit_sha": "f441c6fab25e579c5b7dd3dd50538416f415fbae",
+  "version": "Vitest v5.0.0 migration guide at release commit; Node.js >=22.12.0, Vite >=6.4.0",
+  "retrieved_at": "2026-10-03",
+  "license": "MIT",
+  "trust": "official",
+  "type": "official_docs",
+  "purpose": "v5 の未 await assertion 失敗、従来の末尾自動待機と警告、callback・非同期 matcher の poll 期限超過を失敗にする移行境界。live 公式ページを web で確認し、固定版本文を GitHub connector で照合。独立した文書公開日時は未確認。 同 commit の LICENSE が associated documentation を含む MIT であることを確認。コード・設定例転載なし、独自の日本語要約のみ。"
+}

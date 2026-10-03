@@ -1,0 +1,12 @@
+{
+  "id": "docker-containerd-store-boundary-20261003",
+  "url": "https://docs.docker.com/engine/storage/containerd/",
+  "repository_url": "https://github.com/docker/docs",
+  "commit_sha": "",
+  "version": "Docker Engine 29.0+ fresh-install defaults and rolling storage guide verified 2026-10-03; publication date not shown",
+  "license": "Apache-2.0 (docker/docs README and LICENSE, https://github.com/docker/docs/blob/main/LICENSE; verified 2026-10-03)",
+  "trust": "official",
+  "type": "official_docs",
+  "purpose": "containerd-snapshotterというimage storeの選択がembedded-containerdというprocess選択と別であること、新規/upgradeの既定値差、store切替で旧images/containersが隠れることを確認",
+  "retrieved_at": "2026-10-03"
+}

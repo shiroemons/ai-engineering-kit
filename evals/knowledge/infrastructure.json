@@ -961,6 +961,90 @@
       "expected_ids": [
         "github-actions-retention-query-evidence-boundary"
       ]
+    },
+    {
+      "name": "docker-embedded-fallback-version",
+      "query": "embedded-containerd 29.7.0 29.8.0",
+      "expected_ids": [
+        "docker-embedded-containerd-fallback-storage-boundary"
+      ]
+    },
+    {
+      "name": "docker-embedded-false-not-disable",
+      "query": "embedded-containerd false exec.ErrNotFound",
+      "expected_ids": [
+        "docker-embedded-containerd-fallback-storage-boundary"
+      ]
+    },
+    {
+      "name": "docker-embedded-explicit-address-priority",
+      "query": "embedded-containerd --containerd 優先",
+      "expected_ids": [
+        "docker-embedded-containerd-fallback-storage-boundary"
+      ]
+    },
+    {
+      "name": "docker-embedded-startup-errors",
+      "query": "embedded-containerd permission runtime",
+      "expected_ids": [
+        "docker-embedded-containerd-fallback-storage-boundary"
+      ]
+    },
+    {
+      "name": "docker-embedded-store-separate",
+      "query": "embedded-containerd containerd-snapshotter 別",
+      "expected_ids": [
+        "docker-embedded-containerd-fallback-storage-boundary"
+      ]
+    },
+    {
+      "name": "docker-embedded-managed-root",
+      "query": "managed embedded containerdRootDir",
+      "expected_ids": [
+        "docker-embedded-containerd-fallback-storage-boundary"
+      ]
+    },
+    {
+      "name": "docker-embedded-system-root",
+      "query": "embedded-containerd data-root /var/lib/containerd",
+      "expected_ids": [
+        "docker-embedded-containerd-fallback-storage-boundary"
+      ]
+    },
+    {
+      "name": "docker-embedded-shim-start-boundary",
+      "query": "containerd-shim-runc-v2 pull start",
+      "expected_ids": [
+        "docker-embedded-containerd-fallback-storage-boundary"
+      ]
+    },
+    {
+      "name": "docker-embedded-windows-build-boundary",
+      "query": "embedded-containerd Windows no_embedded_containerd",
+      "expected_ids": [
+        "docker-embedded-containerd-fallback-storage-boundary"
+      ]
+    },
+    {
+      "name": "docker-embedded-rollback-false",
+      "query": "embedded-containerd rollback false",
+      "expected_ids": [
+        "docker-embedded-containerd-fallback-storage-boundary"
+      ]
+    },
+    {
+      "name": "docker-embedded-doc-release-drift",
+      "query": "embedded-containerd 将来形 fallback",
+      "expected_ids": [
+        "docker-embedded-containerd-fallback-storage-boundary"
+      ]
+    },
+    {
+      "name": "docker-embedded-cri-debug-boundary",
+      "query": "embedded-containerd CRI endpoint",
+      "expected_ids": [
+        "docker-embedded-containerd-fallback-storage-boundary"
+      ]
     }
   ]
 }

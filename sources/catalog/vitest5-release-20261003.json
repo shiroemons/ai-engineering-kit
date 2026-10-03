@@ -1,0 +1,12 @@
+{
+  "id": "vitest5-release-20261003",
+  "url": "https://github.com/vitest-dev/vitest/releases/tag/v5.0.0",
+  "repository_url": "https://github.com/vitest-dev/vitest",
+  "commit_sha": "f441c6fab25e579c5b7dd3dd50538416f415fbae",
+  "version": "Vitest v5.0.0; published_at 2026-09-03T12:19:51Z; prerelease false",
+  "retrieved_at": "2026-10-03",
+  "license": "unknown",
+  "trust": "official",
+  "type": "release_notes",
+  "purpose": "公式 v5.0.0 release の非同期 assertion 未 await と expect.poll 期限超過の breaking changes を確認。公開日時は releases/tags/v5.0.0 API、full commit は git/ref/tags/v5.0.0 API と release commit link で照合。release note 本文の独立した license 表示は未確認。独自要約のみでコード転載なし。"
+}
