@@ -1,0 +1,12 @@
+{
+  "id": "go-os-root-trailing-slash-advisory-20261003",
+  "url": "https://pkg.go.dev/vuln/GO-2026-4970",
+  "repository_url": "https://github.com/golang/vulndb",
+  "commit_sha": "",
+  "version": "GO-2026-4970 / CVE-2026-39822; published and modified 2026-07-07T21:34:47Z; fixed 1.25.12 / 1.26.5 / 1.27.0-rc.2",
+  "retrieved_at": "2026-10-03",
+  "license": "CC-BY-4.0",
+  "trust": "official",
+  "type": "official_docs",
+  "purpose": "公式 vulnerability report と https://vuln.go.dev/ID/GO-2026-4970.json を実際に開き、Unix の最終 symlink + trailing slash による escape、影響範囲、修正版、REVIEWED status を照合。https://github.com/golang/vulndb/blob/master/LICENSE の data directory CC-BY-4.0 を確認。個別 report の要約であり、全脆弱性の監査や固定 commit のコード分析ではない。"
+}

@@ -1,0 +1,12 @@
+{
+  "id": "claude-batch-create-reference-20261003",
+  "url": "https://platform.claude.com/docs/en/api/messages/batches/create",
+  "repository_url": "",
+  "commit_sha": "",
+  "version": "Claude API POST /v1/messages/batches live HTTP reference; example anthropic-version 2023-06-01; retrieved 2026-10-03 UTC",
+  "retrieved_at": "2026-10-03",
+  "license": "unknown",
+  "trust": "official",
+  "type": "official_docs",
+  "purpose": "Native webでbodyのcustom_id定義を実読。バッチ内一意性、長さ1〜64、ASCII英数字・hyphen・underscoreのpatternを確認。cross-batchの冪等性をこの定義から推定しない。ページ固有の公開・更新日は表示なし。2023-06-01はexampleのAPIヘッダー値であって機能公開日ではない。SDK/source実装の分析なし。 取得した文書本文にオープンライセンスを確認できず。独自の出典付き要約のみで外部コードはコピーしていない。"
+}

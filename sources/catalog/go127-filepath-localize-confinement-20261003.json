@@ -1,0 +1,12 @@
+{
+  "id": "go127-filepath-localize-confinement-20261003",
+  "url": "https://pkg.go.dev/path/filepath@go1.27.1",
+  "repository_url": "https://github.com/golang/go",
+  "commit_sha": "",
+  "version": "go1.27.1; published 2026-09-01; IsLocal added go1.20; Localize added go1.23.0",
+  "retrieved_at": "2026-10-03",
+  "license": "BSD-3-Clause",
+  "trust": "official",
+  "type": "official_docs",
+  "purpose": "IsLocal の字句解析限定、Localize の io/fs.ValidPath 要件と OS 表現可能性、FromSlash との差を確認。Published/License 表示と https://go.dev/LICENSE を確認。"
+}

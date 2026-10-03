@@ -1,0 +1,12 @@
+{
+  "id": "claude-batch-results-reference-20261003",
+  "url": "https://platform.claude.com/docs/en/api/messages/batches/results",
+  "repository_url": "",
+  "commit_sha": "",
+  "version": "Claude API GET /v1/messages/batches/{message_batch_id}/results live HTTP reference; retrieved 2026-10-03 UTC",
+  "retrieved_at": "2026-10-03",
+  "license": "unknown",
+  "trust": "official",
+  "type": "official_docs",
+  "purpose": "Native webで結果endpoint本文とMessageBatchIndividualResponse定義を実読。JSONLの1行は単一requestの結果、入力順序は保証されずcustom_idで対応付ける、結果IDはバッチ内一意という契約を確認。ページ固有の公開・更新日表示なし。download再開や取込transactionの保証は検証していない。 取得した文書本文にオープンライセンスを確認できず。独自の出典付き要約のみで外部コードはコピーしていない。"
+}

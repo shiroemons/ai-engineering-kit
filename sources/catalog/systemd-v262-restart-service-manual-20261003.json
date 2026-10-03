@@ -1,0 +1,12 @@
+{
+  "id": "systemd-v262-restart-service-manual-20261003",
+  "url": "https://raw.githubusercontent.com/systemd/systemd/8cc40e0c5e9234bf45084751ac53b1fbfe70b492/man/systemd.service.xml",
+  "repository_url": "https://github.com/systemd/systemd",
+  "commit_sha": "8cc40e0c5e9234bf45084751ac53b1fbfe70b492",
+  "version": "systemd v262, man/systemd.service.xml at 8cc40e0c5e9234bf45084751ac53b1fbfe70b492",
+  "retrieved_at": "2026-10-03",
+  "license": "LGPL-2.1-or-later (SPDX header; LICENSE.LGPL2.1 and LICENSES/README.md checked at the same commit)",
+  "trust": "official",
+  "type": "official_docs",
+  "purpose": "RestartSec、RestartSteps、RestartMaxDelaySec、RestartRandomizedDelaySec の既定値・版・加算契約、再起動条件と RestartMode を確認する。公式 HTML は取得失敗のため upstream XML を使用。"
+}

@@ -1419,6 +1419,104 @@
       "expected_ids": [
         "mcp-header-mirroring-routing-validation-boundary"
       ]
+    },
+    {
+      "name": "claude-batch-terminal-not-all-success",
+      "query": "ended succeeded 全件成功",
+      "expected_ids": [
+        "llm-claude-batch-outcome-reconciliation-retry-boundary"
+      ]
+    },
+    {
+      "name": "claude-batch-create-not-validation",
+      "query": "params 非同期 検証合格",
+      "expected_ids": [
+        "llm-claude-batch-outcome-reconciliation-retry-boundary"
+      ]
+    },
+    {
+      "name": "claude-batch-identity-not-idempotency",
+      "query": "custom_id バッチ内 冪等性",
+      "expected_ids": [
+        "llm-claude-batch-outcome-reconciliation-retry-boundary"
+      ]
+    },
+    {
+      "name": "claude-batch-order-not-line-position",
+      "query": "custom_id 第n行 JSONL",
+      "expected_ids": [
+        "llm-claude-batch-outcome-reconciliation-retry-boundary"
+      ]
+    },
+    {
+      "name": "claude-batch-cancel-zero-requests",
+      "query": "canceling canceled 0件",
+      "expected_ids": [
+        "llm-claude-batch-outcome-reconciliation-retry-boundary"
+      ]
+    },
+    {
+      "name": "claude-batch-pause-not-client-tools",
+      "query": "pause_turn tool_result 続行",
+      "expected_ids": [
+        "llm-claude-batch-outcome-reconciliation-retry-boundary"
+      ]
+    },
+    {
+      "name": "claude-batch-retention-from-created",
+      "query": "created_at ended_at 29日",
+      "expected_ids": [
+        "llm-claude-batch-outcome-reconciliation-retry-boundary"
+      ]
+    },
+    {
+      "name": "claude-batch-create-uncertain",
+      "query": "submission_unknown 無条件 全件再送",
+      "expected_ids": [
+        "llm-claude-batch-outcome-reconciliation-retry-boundary"
+      ]
+    },
+    {
+      "name": "claude-batch-download-not-inference-retry",
+      "query": "download 通信失敗 推論失敗",
+      "expected_ids": [
+        "llm-claude-batch-outcome-reconciliation-retry-boundary"
+      ]
+    },
+    {
+      "name": "claude-batch-reconcile-equal-count-wrong-set",
+      "query": "集合不一致 件数一致 公開",
+      "expected_ids": [
+        "llm-claude-batch-outcome-reconciliation-retry-boundary"
+      ]
+    },
+    {
+      "name": "claude-batch-duplicate-conflicting-result",
+      "query": "取込キー 異なる内容 整合性異常",
+      "expected_ids": [
+        "llm-claude-batch-outcome-reconciliation-retry-boundary"
+      ]
+    },
+    {
+      "name": "claude-batch-user-cancel-no-auto-retry",
+      "query": "利用者中止 canceled 再送しない",
+      "expected_ids": [
+        "llm-claude-batch-outcome-reconciliation-retry-boundary"
+      ]
+    },
+    {
+      "name": "claude-batch-message-success-task-unfinished",
+      "query": "Message成功 業務未完 pause_turn",
+      "expected_ids": [
+        "llm-claude-batch-outcome-reconciliation-retry-boundary"
+      ]
+    },
+    {
+      "name": "claude-batch-truncated-not-completed",
+      "query": "max_tokens 未完 完成品",
+      "expected_ids": [
+        "llm-claude-batch-outcome-reconciliation-retry-boundary"
+      ]
     }
   ]
 }

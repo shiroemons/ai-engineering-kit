@@ -1213,6 +1213,90 @@
       "expected_ids": [
         "terraform-forget-replacement-deposed-boundary"
       ]
+    },
+    {
+      "name": "systemd-restart-jitter-introduction",
+      "query": "RestartRandomizedDelaySec v262 v254",
+      "expected_ids": [
+        "linux-systemd-restart-jitter-start-limit-clock"
+      ]
+    },
+    {
+      "name": "systemd-restart-jitter-additive-cap",
+      "query": "RestartMaxDelaySec 総遅延 上限",
+      "expected_ids": [
+        "linux-systemd-restart-jitter-start-limit-clock"
+      ]
+    },
+    {
+      "name": "systemd-restart-jitter-backoff-sequence",
+      "query": "RestartSteps 2〜6秒 16〜20秒",
+      "expected_ids": [
+        "linux-systemd-restart-jitter-start-limit-clock"
+      ]
+    },
+    {
+      "name": "systemd-restart-jitter-infinity-is-zero",
+      "query": "RestartRandomizedDelaySec=infinity 警告",
+      "expected_ids": [
+        "linux-systemd-restart-jitter-start-limit-clock"
+      ]
+    },
+    {
+      "name": "systemd-restart-jitter-daemon-reload-choice",
+      "query": "daemon-reload 再抽選",
+      "expected_ids": [
+        "linux-systemd-restart-jitter-start-limit-clock"
+      ]
+    },
+    {
+      "name": "systemd-restart-jitter-next-property",
+      "query": "RestartUSecNext 非加算",
+      "expected_ids": [
+        "linux-systemd-restart-jitter-start-limit-clock"
+      ]
+    },
+    {
+      "name": "systemd-restart-jitter-startlimit-no-wakeup",
+      "query": "StartLimitIntervalSec 自動生成",
+      "expected_ids": [
+        "linux-systemd-restart-jitter-start-limit-clock"
+      ]
+    },
+    {
+      "name": "systemd-restart-jitter-startlimit-initial-attempt",
+      "query": "StartLimitBurst 初回 46秒",
+      "expected_ids": [
+        "linux-systemd-restart-jitter-start-limit-clock"
+      ]
+    },
+    {
+      "name": "systemd-restart-jitter-manual-stop",
+      "query": "RestartRandomizedDelaySec 手動 stop",
+      "expected_ids": [
+        "linux-systemd-restart-jitter-start-limit-clock"
+      ]
+    },
+    {
+      "name": "systemd-restart-jitter-suspend-clocks",
+      "query": "unit_arm_timer CLOCK_MONOTONIC CLOCK_BOOTTIME",
+      "expected_ids": [
+        "linux-systemd-restart-jitter-start-limit-clock"
+      ]
+    },
+    {
+      "name": "systemd-restart-jitter-reexec-old-timestamp",
+      "query": "reexecution timestamp 早く",
+      "expected_ids": [
+        "linux-systemd-restart-jitter-start-limit-clock"
+      ]
+    },
+    {
+      "name": "systemd-restart-jitter-unknown-option",
+      "query": "未知 option rollback",
+      "expected_ids": [
+        "linux-systemd-restart-jitter-start-limit-clock"
+      ]
     }
   ]
 }

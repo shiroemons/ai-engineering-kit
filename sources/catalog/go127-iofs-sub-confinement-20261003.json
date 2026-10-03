@@ -1,0 +1,12 @@
+{
+  "id": "go127-iofs-sub-confinement-20261003",
+  "url": "https://pkg.go.dev/io/fs@go1.27.1",
+  "repository_url": "https://github.com/golang/go",
+  "commit_sha": "",
+  "version": "go1.27.1; published 2026-09-01",
+  "retrieved_at": "2026-10-03",
+  "license": "BSD-3-Clause",
+  "trust": "official",
+  "type": "official_docs",
+  "purpose": "Path Names、ValidPath、Sub の一般契約と DirFS に対する chroot 非保証を確認。Root.FS を fs.Sub で包むだけでは子 directory 自体が新しい Root になると推論しない。Published/License 表示を確認。"
+}

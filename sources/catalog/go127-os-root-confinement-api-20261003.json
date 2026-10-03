@@ -1,0 +1,12 @@
+{
+  "id": "go127-os-root-confinement-api-20261003",
+  "url": "https://pkg.go.dev/os@go1.27.1",
+  "repository_url": "https://github.com/golang/go",
+  "commit_sha": "",
+  "version": "go1.27.1; published 2026-09-01; Root/OpenRoot/Root.FS added go1.24.0; listed mutation methods added go1.25.0",
+  "retrieved_at": "2026-10-03",
+  "license": "BSD-3-Clause",
+  "trust": "official",
+  "type": "official_docs",
+  "purpose": "Root、OpenRoot、Root.FS、DirFS、Symlink、Readlink、Name の境界と OS 別の制約を版固定 API で確認。Published/License 表示と https://go.dev/LICENSE を照合。原文・外部コードの転載なし。"
+}

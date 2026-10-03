@@ -1,0 +1,12 @@
+{
+  "id": "systemd-v262-restart-timing-source-20261003",
+  "url": "https://github.com/systemd/systemd/blob/8cc40e0c5e9234bf45084751ac53b1fbfe70b492/src/core/service.c",
+  "repository_url": "https://github.com/systemd/systemd",
+  "commit_sha": "8cc40e0c5e9234bf45084751ac53b1fbfe70b492",
+  "version": "systemd v262 source snapshot 8cc40e0c5e9234bf45084751ac53b1fbfe70b492",
+  "retrieved_at": "2026-10-03",
+  "license": "LGPL-2.1-or-later (SPDX headers; ratelimit.c additionally acknowledges GPLv2 Linux ratelimit inspiration; no source code copied)",
+  "trust": "primary-source",
+  "type": "github_repository_analysis",
+  "purpose": "固定版の service.c・unit.c・dbus-service.c・src/basic/ratelimit.c を静的確認。jitter の保存・再構築、cap 後の加算、infinity 正規化、RestartUSecNext の観測範囲、restart timer と rate-limit clock を区別する。LICENSE.LGPL2.1、LICENSES/README.md も同版で確認。"
+}
