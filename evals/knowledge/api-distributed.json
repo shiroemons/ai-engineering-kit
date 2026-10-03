@@ -957,6 +957,19 @@
     {"name": "rabbitmq-mqtt-retained-custom-store", "query": "custom info/1 count size_bytes", "expected_ids": ["messaging-rabbitmq-mqtt-retained-limit-ack-boundary"]},
     {"name": "rabbitmq-mqtt-retained-warning", "query": "60000ms ログ行数", "expected_ids": ["messaging-rabbitmq-mqtt-retained-limit-ack-boundary"]},
     {"name": "rabbitmq-mqtt-retained-read-tests-not-run", "query": "retainer_SUITE この環境で実行したわけではない", "expected_ids": ["messaging-rabbitmq-mqtt-retained-limit-ack-boundary"]},
-    {"name": "rabbitmq-mqtt-retained-release-not-first-fix", "query": "GHSA-5jgm-jxp7-gwjh 4.3.5 最初", "expected_ids": ["messaging-rabbitmq-mqtt-retained-limit-ack-boundary"]}
+    {"name": "rabbitmq-mqtt-retained-release-not-first-fix", "query": "GHSA-5jgm-jxp7-gwjh 4.3.5 最初", "expected_ids": ["messaging-rabbitmq-mqtt-retained-limit-ack-boundary"]},
+    {"name": "http-upload-offset-not-transport", "query": "Upload-Offset transport ACK", "expected_ids": ["http-resumable-upload-offset-completion-boundary"]},
+    {"name": "http-upload-completion-not-success", "query": "Upload-Complete 業務成功", "expected_ids": ["http-resumable-upload-offset-completion-boundary"]},
+    {"name": "http-upload-lost-response-replay-optional", "query": "最終応答 replay 必須", "expected_ids": ["http-resumable-upload-offset-completion-boundary"]},
+    {"name": "http-upload-expiry-two-clocks", "query": "2026-11-13 2027-01-07", "expected_ids": ["http-resumable-upload-offset-completion-boundary"]},
+    {"name": "http-upload-interop-version-change", "query": "interop 8 interop 9", "expected_ids": ["http-resumable-upload-offset-completion-boundary"]},
+    {"name": "http-upload-offset-mismatch", "query": "409 正しい offset", "expected_ids": ["http-resumable-upload-offset-completion-boundary"]},
+    {"name": "http-upload-no-progress-poll-during-append", "query": "progress poller HEAD", "expected_ids": ["http-resumable-upload-offset-completion-boundary"]},
+    {"name": "http-upload-resource-gone-not-rollback", "query": "resource 不在 副作用", "expected_ids": ["http-resumable-upload-offset-completion-boundary"]},
+    {"name": "http-upload-partial-put-agreement", "query": "partial PUT private agreement", "expected_ids": ["http-resumable-upload-offset-completion-boundary"]},
+    {"name": "http-upload-server-completion-migration", "query": "草案11 server 完了", "expected_ids": ["http-resumable-upload-offset-completion-boundary"]},
+    {"name": "http-upload-operation-result-reconciliation", "query": "operation ID 結果照合", "expected_ids": ["http-resumable-upload-offset-completion-boundary"]},
+    {"name": "http-upload-retrieval-state-loss", "query": "状態喪失 無効化", "expected_ids": ["http-resumable-upload-offset-completion-boundary"]},
+    {"name": "http-upload-false-after-completed", "query": "false 完了済み 不正操作", "expected_ids": ["http-resumable-upload-offset-completion-boundary"]}
   ]
 }

@@ -1,0 +1,12 @@
+{
+  "id": "iana-http104-temporary-status-20261003",
+  "url": "https://www.iana.org/assignments/http-status-codes",
+  "repository_url": "",
+  "commit_sha": "",
+  "version": "HTTP Status Code Registry, last updated 2025-09-15; 104 temporary registration expires 2026-11-13; verified 2026-10-03",
+  "retrieved_at": "2026-10-03",
+  "license": "CC0-1.0 (protocol registry data; https://www.iana.org/help/licensing-terms)",
+  "trust": "official",
+  "type": "official_docs",
+  "purpose": "104 の暫定登録、登録参照が draft-05 である点、草案 -12 の expiry と異なる登録期限を確認。Licensing Terms の protocol registry data の CC0 宣言も開いて確認。"
+}

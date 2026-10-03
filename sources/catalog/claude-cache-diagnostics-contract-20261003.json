@@ -1,0 +1,12 @@
+{
+  "id": "claude-cache-diagnostics-contract-20261003",
+  "url": "https://platform.claude.com/docs/en/build-with-claude/cache-diagnostics",
+  "repository_url": "",
+  "commit_sha": "",
+  "version": "Claude API Cache diagnostics GA guide, rolling documentation accessed 2026-10-03 UTC; no separate publication/update date verified",
+  "retrieved_at": "2026-10-03",
+  "license": "unknown",
+  "trust": "official",
+  "type": "official_docs",
+  "purpose": "null・比較未確定・差分・比較不能を区別し、message_start、workspace、保持・比較範囲、推定token数とusageの境界を確認。open licenseは確認できず、独自要約のみ。"
+}

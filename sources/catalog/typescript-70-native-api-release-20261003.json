@@ -1,0 +1,12 @@
+{
+  "id": "typescript-70-native-api-release-20261003",
+  "url": "https://devblogs.microsoft.com/typescript/announcing-typescript-7-0/",
+  "repository_url": "https://github.com/microsoft/typescript-go",
+  "commit_sha": "",
+  "version": "TypeScript 7.0 announcement, published 2026-07-08; retrieved 2026-10-03",
+  "retrieved_at": "2026-10-03",
+  "license": "unknown",
+  "trust": "official",
+  "type": "release_notes",
+  "purpose": "7.0 CLI と未提供の programmatic API、typescript6 併用、language server plugin の適用境界を確認。性能数値や全 tool の互換性へ一般化せず、コード転載なし。"
+}

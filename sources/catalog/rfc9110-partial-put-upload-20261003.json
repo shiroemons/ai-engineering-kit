@@ -1,0 +1,12 @@
+{
+  "id": "rfc9110-partial-put-upload-20261003",
+  "url": "https://www.rfc-editor.org/rfc/rfc9110.html",
+  "repository_url": "",
+  "commit_sha": "",
+  "version": "RFC 9110 / STD 97, June 2022, sections 14.4-14.5; verified 2026-10-03",
+  "retrieved_at": "2026-10-03",
+  "license": "IETF Trust Legal Provisions / BCP 78; Code Components: Revised BSD",
+  "trust": "official",
+  "type": "official_docs",
+  "purpose": "Content-Range partial PUT の private agreement、非互換、非対応 target の 400 SHOULD を確認。一般的な再開アップロード契約と混同しない。独自要約のみ。"
+}

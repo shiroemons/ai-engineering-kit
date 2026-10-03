@@ -1,0 +1,12 @@
+{
+  "id": "claude-messages-diagnostics-api-20261003",
+  "url": "https://platform.claude.com/docs/en/api/messages/create",
+  "repository_url": "",
+  "commit_sha": "",
+  "version": "Claude API POST /v1/messages reference, diagnostics.previous_message_id and stateless conversation contract, accessed 2026-10-03 UTC",
+  "retrieved_at": "2026-10-03",
+  "license": "unknown",
+  "trust": "official",
+  "type": "official_docs",
+  "purpose": "previous_message_idがMessages response IDを参照し初回nullを使うrequest契約、messagesとcache_controlが別指定であることを確認。open licenseは確認できず、独自要約のみ。"
+}

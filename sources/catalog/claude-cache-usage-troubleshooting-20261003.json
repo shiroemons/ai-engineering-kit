@@ -1,0 +1,12 @@
+{
+  "id": "claude-cache-usage-troubleshooting-20261003",
+  "url": "https://platform.claude.com/docs/en/build-with-claude/prompt-caching",
+  "repository_url": "",
+  "commit_sha": "",
+  "version": "Claude Prompt caching guide, usage and troubleshooting sections, rolling documentation accessed 2026-10-03 UTC",
+  "retrieved_at": "2026-10-03",
+  "license": "unknown",
+  "trust": "official",
+  "type": "official_docs",
+  "purpose": "cache_read_input_tokensとcache_creation_input_tokens、モデル別最小長・期限・prefix一致によるcache利用条件を診断結果と分けて確認。open licenseは確認できず、独自要約のみ。"
+}

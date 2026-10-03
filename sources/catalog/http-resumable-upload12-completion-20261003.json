@@ -1,0 +1,12 @@
+{
+  "id": "http-resumable-upload12-completion-20261003",
+  "url": "https://datatracker.ietf.org/doc/html/draft-ietf-httpbis-resumable-upload-12",
+  "repository_url": "https://github.com/httpwg/http-extensions",
+  "commit_sha": "",
+  "version": "draft-ietf-httpbis-resumable-upload-12, published 2026-07-06, expires 2027-01-07; interop version 9; active Internet-Draft verified 2026-10-03",
+  "retrieved_at": "2026-10-03",
+  "license": "IETF Trust Legal Provisions / BCP 78; Code Components: Revised BSD",
+  "trust": "official",
+  "type": "official_docs",
+  "purpose": "作業中草案の offset、server completion、失われた最終応答の任意 replay、直列再開、interop version 9 を確認。RFC と扱わず、独自要約のみ。"
+}

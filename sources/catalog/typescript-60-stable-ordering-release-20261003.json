@@ -1,0 +1,12 @@
+{
+  "id": "typescript-60-stable-ordering-release-20261003",
+  "url": "https://devblogs.microsoft.com/typescript/announcing-typescript-6-0/",
+  "repository_url": "https://github.com/microsoft/TypeScript",
+  "commit_sha": "",
+  "version": "TypeScript 6.0 announcement, published 2026-03-23; stableTypeOrdering migration section verified 2026-10-03",
+  "retrieved_at": "2026-10-03",
+  "license": "unknown",
+  "trust": "official",
+  "type": "release_notes",
+  "purpose": "6.0 の診断用 stableTypeOrdering、宣言差分と推論差、非推奨抑止が 7.0 移行の完了条件にならない点を確認。コード転載なし。"
+}

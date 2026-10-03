@@ -1,0 +1,12 @@
+{
+  "id": "typescript-download-major-status-20261003",
+  "url": "https://www.typescriptlang.org/download/",
+  "repository_url": "https://github.com/microsoft/TypeScript-Website",
+  "commit_sha": "",
+  "version": "Live Download TypeScript page identifies current major as 7.0; retrieved 2026-10-03, patch not pinned",
+  "retrieved_at": "2026-10-03",
+  "license": "unknown",
+  "trust": "official",
+  "type": "official_docs",
+  "purpose": "公式配布案内の current 7.0、project-local install と lockfile の指針を確認。ページの表示を全 patch の一覧や runtime 試験とは扱わない。"
+}

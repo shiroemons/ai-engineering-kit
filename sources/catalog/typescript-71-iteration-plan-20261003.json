@@ -1,0 +1,12 @@
+{
+  "id": "typescript-71-iteration-plan-20261003",
+  "url": "https://github.com/microsoft/TypeScript/issues/63703",
+  "repository_url": "https://github.com/microsoft/TypeScript",
+  "commit_sha": "",
+  "version": "TypeScript 7.1 Iteration Plan opened 2026-07-31; beta planned 2026-10-06 and stable planned 2026-11-24; observed 2026-10-03",
+  "retrieved_at": "2026-10-03",
+  "license": "unknown",
+  "trust": "maintainer",
+  "type": "maintainer_article",
+  "purpose": "Daniel Rosenwasser による公開計画の API 安定化と予定日を確認。未出荷の計画を実装済み契約や確約へ変えない。issue の記事を参照し repository 実装解析やコード転載は行わない。"
+}
