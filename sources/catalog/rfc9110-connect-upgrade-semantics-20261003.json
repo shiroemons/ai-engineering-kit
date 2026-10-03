@@ -1,0 +1,12 @@
+{
+  "id": "rfc9110-connect-upgrade-semantics-20261003",
+  "url": "https://www.rfc-editor.org/rfc/rfc9110.html",
+  "repository_url": "",
+  "commit_sha": "",
+  "retrieved_at": "2026-10-03",
+  "trust": "official",
+  "type": "official_docs",
+  "version": "RFC 9110, STD 97, June 2022",
+  "license": "IETF Trust Legal Provisions; Code Components under Revised BSD License per Copyright Notice",
+  "purpose": "§7.8 / §9.3.6のUpgrade 101とCONNECT 2xx、response header section後のtunnel切替、失敗時未成立を確認。独自要約のみ、コード転載なし。"
+}

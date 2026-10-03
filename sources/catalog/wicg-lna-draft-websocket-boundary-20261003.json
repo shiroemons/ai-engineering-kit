@@ -1,0 +1,12 @@
+{
+  "id": "wicg-lna-draft-websocket-boundary-20261003",
+  "url": "https://wicg.github.io/local-network-access/",
+  "repository_url": "https://github.com/WICG/local-network-access",
+  "commit_sha": "",
+  "version": "Draft Community Group Report 2026-08-07, live page retrieved 2026-10-03; WebSocket options not yet integrated into this text",
+  "license": "W3C Software and Document License - 2023 version (page copyright link https://www.w3.org/copyright/software-license-2023/ verified 2026-10-03); original summary only",
+  "trust": "primary-source",
+  "type": "official_docs",
+  "purpose": "secure context・permission・対象IP空間を分け、公開draftのWebSocket説明がChrome公開説明と同時点ではないことを確認",
+  "retrieved_at": "2026-10-03"
+}

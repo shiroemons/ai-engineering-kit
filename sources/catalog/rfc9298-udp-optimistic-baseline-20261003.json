@@ -1,0 +1,12 @@
+{
+  "id": "rfc9298-udp-optimistic-baseline-20261003",
+  "url": "https://www.rfc-editor.org/rfc/rfc9298.html",
+  "repository_url": "",
+  "commit_sha": "",
+  "retrieved_at": "2026-10-03",
+  "trust": "official",
+  "type": "official_docs",
+  "version": "RFC 9298, Proposed Standard, August 2022; optimistic-send sentence updated by RFC 9931 §6.3",
+  "license": "IETF Trust Legal Provisions; Code Components under Revised BSD License per Copyright Notice",
+  "purpose": "§3.2–3.5のHTTP/1.1 GET+Upgrade/101とHTTP/2・3 Extended CONNECT/2xx、§5の元の先行送信許可とpacket drop制約を確認。旧許可をRFC9931の更新抜きで適用しない。独自要約のみ。"
+}

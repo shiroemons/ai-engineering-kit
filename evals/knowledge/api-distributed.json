@@ -831,6 +831,16 @@
     {"name": "openapi-sse-validation-stage", "query": "minimum integer parse", "expected_ids": ["api-design-openapi-streaming-sse-validation-boundary"]},
     {"name": "openapi-schema-base-scope", "query": "schema-base Schema Object", "expected_ids": ["api-design-openapi-streaming-sse-validation-boundary"]},
     {"name": "openapi-streaming-generated-buffer", "query": "generated SDK buffer", "expected_ids": ["api-design-openapi-streaming-sse-validation-boundary"]},
-    {"name": "openapi-sse-no-delivery-guarantee", "query": "exactly-once replay window", "expected_ids": ["api-design-openapi-streaming-sse-validation-boundary"]}
+    {"name": "openapi-sse-no-delivery-guarantee", "query": "exactly-once replay window", "expected_ids": ["api-design-openapi-streaming-sse-validation-boundary"]},
+    {"name": "http-connect-client-wait-or-close", "query": "CONNECT 2xx 少なくとも", "expected_ids": ["http-optimistic-connect-upgrade-rejection-boundary"]},
+    {"name": "http-connect-rejection-407-close", "query": "CONNECT 407 拒否時close", "expected_ids": ["http-optimistic-connect-upgrade-rejection-boundary"]},
+    {"name": "http-connect-close-exception-waiting-client", "query": "User-Agent vendor 例外", "expected_ids": ["http-optimistic-connect-upgrade-rejection-boundary"]},
+    {"name": "http-connectudp-http1-optimistic-forbidden", "query": "CONNECT-UDP HTTP/1.x MUST NOT", "expected_ids": ["http-optimistic-connect-upgrade-rejection-boundary"]},
+    {"name": "http-connectudp-close-not-exception", "query": "CONNECT-UDP close 二択", "expected_ids": ["http-optimistic-connect-upgrade-rejection-boundary"]},
+    {"name": "http-upgrade-rejection-not-connect", "query": "Upgrade 一律 拒否", "expected_ids": ["http-optimistic-connect-upgrade-rejection-boundary"]},
+    {"name": "http-connect-success-header-boundary", "query": "2xx header section 途中", "expected_ids": ["http-optimistic-connect-upgrade-rejection-boundary"]},
+    {"name": "http-connect-wait-buffer-budget", "query": "CONNECT bounded buffer cancel", "expected_ids": ["http-optimistic-connect-upgrade-rejection-boundary"]},
+    {"name": "http-connectudp-fallback-version", "query": "CONNECT-UDP fallback 101", "expected_ids": ["http-optimistic-connect-upgrade-rejection-boundary"]},
+    {"name": "http-websocket-existing-handshake-validation", "query": "WebSocket 101 Sec-WebSocket-Accept", "expected_ids": ["http-optimistic-connect-upgrade-rejection-boundary"]}
   ]
 }

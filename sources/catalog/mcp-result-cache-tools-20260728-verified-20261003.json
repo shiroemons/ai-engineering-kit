@@ -1,0 +1,12 @@
+{
+  "id": "mcp-result-cache-tools-20260728-verified-20261003",
+  "url": "https://modelcontextprotocol.io/specification/2026-07-28/server/tools",
+  "repository_url": "https://github.com/modelcontextprotocol/modelcontextprotocol",
+  "commit_sha": "",
+  "version": "MCP specification 2026-07-28 revision; named revision pages verified 2026-10-03 UTC",
+  "retrieved_at": "2026-10-03",
+  "license": "Apache-2.0 or original MIT (specification licensing transition; repository LICENSE at 3098fe94caa1b9e0afaaa6d30e040b61d5802471 verified)",
+  "trust": "official",
+  "type": "official_docs",
+  "purpose": "tools/listは接続によらないが要求の認可で変わり得ること、決定的な順序のSHOULDと一覧変更通知"
+}
