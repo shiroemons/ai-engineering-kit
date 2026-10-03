@@ -1,0 +1,12 @@
+{
+  "id": "rabbitmq-mqtt-retained-advisory-20261003",
+  "url": "https://github.com/rabbitmq/rabbitmq-server/security/advisories/GHSA-5jgm-jxp7-gwjh",
+  "repository_url": "https://github.com/rabbitmq/rabbitmq-server",
+  "commit_sha": "",
+  "version": "GHSA-5jgm-jxp7-gwjh; published 2026-09-18; advisory lists patched version 4.3.5",
+  "retrieved_at": "2026-10-03",
+  "license": "unknown",
+  "trust": "official",
+  "type": "official_docs",
+  "purpose": "Reconcile advisory patched-version claim with 4.3.6 release-note listing; do not assert first introduction or security-fix release"
+}

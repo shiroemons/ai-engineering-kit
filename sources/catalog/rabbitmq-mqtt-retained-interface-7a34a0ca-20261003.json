@@ -1,0 +1,12 @@
+{
+  "id": "rabbitmq-mqtt-retained-interface-7a34a0ca-20261003",
+  "url": "https://github.com/rabbitmq/rabbitmq-server/blob/7a34a0caf4fa5cf4009cb934ea7a94dbe7e08095/deps/rabbitmq_mqtt/src/rabbit_mqtt_retained_msg_store.erl",
+  "repository_url": "https://github.com/rabbitmq/rabbitmq-server",
+  "commit_sha": "7a34a0caf4fa5cf4009cb934ea7a94dbe7e08095",
+  "version": "RabbitMQ v4.3.6 @ 7a34a0caf4fa5cf4009cb934ea7a94dbe7e08095",
+  "retrieved_at": "2026-10-03",
+  "license": "MPL-2.0",
+  "trust": "primary-source",
+  "type": "github_repository_analysis",
+  "purpose": "New info callback and map keys required of custom retained store implementations"
+}

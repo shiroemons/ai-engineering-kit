@@ -1,0 +1,12 @@
+{
+  "id": "rabbitmq-mqtt-retained-release-436-20261003",
+  "url": "https://github.com/rabbitmq/rabbitmq-server/releases/tag/v4.3.6",
+  "repository_url": "https://github.com/rabbitmq/rabbitmq-server",
+  "commit_sha": "",
+  "version": "RabbitMQ 4.3.6; GitHub published_at 2026-09-14T07:24:14Z",
+  "retrieved_at": "2026-10-03",
+  "license": "unknown",
+  "trust": "official",
+  "type": "release_notes",
+  "purpose": "Retained-store count/size settings and defaults listed in 4.3.6 release notes; first introduction patch is not asserted"
+}

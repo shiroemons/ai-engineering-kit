@@ -1,0 +1,12 @@
+{
+  "id": "webkit-safari27-top-level-await-article-20261003",
+  "url": "https://webkit.org/blog/18227/fixing-top-level-await-in-safari/",
+  "repository_url": "",
+  "commit_sha": "",
+  "version": "WebKit maintainer article published 2026-09-02; Safari 27 / Technology Preview 251 context",
+  "license": "unknown",
+  "trust": "maintainer",
+  "type": "maintainer_article",
+  "purpose": "同一moduleへの並行dynamic importが評価前に完了する旧loaderの不具合、namespace列挙失敗、独立siblingの進行を確認。修正前後の例は独自に要約し、元コードはコピーしない。",
+  "retrieved_at": "2026-10-03"
+}

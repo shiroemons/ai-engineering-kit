@@ -944,6 +944,19 @@
     {"name": "rabbitmq-priority-consumer-selection", "query": "x-priority basic.consume routing", "expected_ids": ["messaging-rabbitmq-strict-priority-prefetch-boundary"]},
     {"name": "rabbitmq-priority-capacity-reservation", "query": "通常 worker枠 DB pool", "expected_ids": ["messaging-rabbitmq-strict-priority-prefetch-boundary"]},
     {"name": "rabbitmq-priority-delivery-not-completion", "query": "配送順 完了順", "expected_ids": ["messaging-rabbitmq-strict-priority-prefetch-boundary"]},
-    {"name": "rabbitmq-priority-old-fair-share-exception", "query": "normalの番 high 先", "expected_ids": ["messaging-rabbitmq-strict-priority-prefetch-boundary"]}
+    {"name": "rabbitmq-priority-old-fair-share-exception", "query": "normalの番 high 先", "expected_ids": ["messaging-rabbitmq-strict-priority-prefetch-boundary"]},
+    {"name": "rabbitmq-mqtt-retained-defaults", "query": "max_messages 100000 1073741824", "expected_ids": ["messaging-rabbitmq-mqtt-retained-limit-ack-boundary"]},
+    {"name": "rabbitmq-mqtt-retained-ack-not-retention", "query": "PUBACK gen_server:cast", "expected_ids": ["messaging-rabbitmq-mqtt-retained-limit-ack-boundary"]},
+    {"name": "rabbitmq-mqtt-retained-count-overwrite", "query": "既存topic byte条件", "expected_ids": ["messaging-rabbitmq-mqtt-retained-limit-ack-boundary"]},
+    {"name": "rabbitmq-mqtt-retained-old-value-expiry", "query": "既存値 expiry timer", "expected_ids": ["messaging-rabbitmq-mqtt-retained-limit-ack-boundary"]},
+    {"name": "rabbitmq-mqtt-retained-zero-clear", "query": "空payload clear 一括消去", "expected_ids": ["messaging-rabbitmq-mqtt-retained-limit-ack-boundary"]},
+    {"name": "rabbitmq-mqtt-retained-size-accounting", "query": "file_size wordsize", "expected_ids": ["messaging-rabbitmq-mqtt-retained-limit-ack-boundary"]},
+    {"name": "rabbitmq-mqtt-retained-properties", "query": "Correlation-Data wire overhead", "expected_ids": ["messaging-rabbitmq-mqtt-retained-limit-ack-boundary"]},
+    {"name": "rabbitmq-mqtt-retained-node-local", "query": "node-local cluster quota", "expected_ids": ["messaging-rabbitmq-mqtt-retained-limit-ack-boundary"]},
+    {"name": "rabbitmq-mqtt-retained-not-live-config", "query": "init 再読込", "expected_ids": ["messaging-rabbitmq-mqtt-retained-limit-ack-boundary"]},
+    {"name": "rabbitmq-mqtt-retained-custom-store", "query": "custom info/1 count size_bytes", "expected_ids": ["messaging-rabbitmq-mqtt-retained-limit-ack-boundary"]},
+    {"name": "rabbitmq-mqtt-retained-warning", "query": "60000ms ログ行数", "expected_ids": ["messaging-rabbitmq-mqtt-retained-limit-ack-boundary"]},
+    {"name": "rabbitmq-mqtt-retained-read-tests-not-run", "query": "retainer_SUITE この環境で実行したわけではない", "expected_ids": ["messaging-rabbitmq-mqtt-retained-limit-ack-boundary"]},
+    {"name": "rabbitmq-mqtt-retained-release-not-first-fix", "query": "GHSA-5jgm-jxp7-gwjh 4.3.5 最初", "expected_ids": ["messaging-rabbitmq-mqtt-retained-limit-ack-boundary"]}
   ]
 }

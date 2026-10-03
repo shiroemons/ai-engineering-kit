@@ -1,0 +1,12 @@
+{
+  "id": "rabbitmq-mqtt-retained-guide-43-20261003",
+  "url": "https://www.rabbitmq.com/docs/mqtt",
+  "repository_url": "",
+  "commit_sha": "",
+  "version": "RabbitMQ Documentation 4.3; live guide verified 2026-10-03 UTC",
+  "retrieved_at": "2026-10-03",
+  "license": "unknown",
+  "trust": "official",
+  "type": "official_docs",
+  "purpose": "Node-local retained storage, exact-topic lookup, built-in ETS and DETS limitations"
+}

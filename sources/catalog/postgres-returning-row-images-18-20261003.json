@@ -1,0 +1,12 @@
+{
+  "id": "postgres-returning-row-images-18-20261003",
+  "url": "https://www.postgresql.org/docs/18/dml-returning.html",
+  "repository_url": "",
+  "commit_sha": "",
+  "version": "PostgreSQL 18 manual; verified 2026-10-03 UTC; page publication date not stated",
+  "retrieved_at": "2026-10-03",
+  "license": "PostgreSQL License",
+  "trust": "official",
+  "type": "official_docs",
+  "purpose": "RETURNINGの既定値、明示的なold/new、triggerによる行変更が返却値に反映される契約を確認。 ライセンス根拠 https://www.postgresql.org/about/licence/ はsoftwareとdocumentationを対象とする。原文・コードの転載なし、独自の日本語要約。"
+}
