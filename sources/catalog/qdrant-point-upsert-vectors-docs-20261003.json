@@ -1,0 +1,12 @@
+{
+  "id": "qdrant-point-upsert-vectors-docs-20261003",
+  "url": "https://qdrant.tech/documentation/manage-data/points/",
+  "repository_url": "",
+  "commit_sha": "",
+  "version": "Rolling Points docs retrieved 2026-10-03 UTC; Update Mode marked v1.17.0, Update Vectors v1.2.0; publication date not displayed",
+  "retrieved_at": "2026-10-03",
+  "license": "unknown",
+  "trust": "official",
+  "type": "official_docs",
+  "purpose": "upsertのpoint置換と省略vector消失、update_vectorsの非指定vector保持・全point存在条件、insert_only/update_onlyの意味、count exact=trueを確認。冪等性を新旧revisionの順序保証へ拡張しない。コード転載なし"
+}

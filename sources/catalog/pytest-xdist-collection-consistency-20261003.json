@@ -1,0 +1,12 @@
+{
+  "id": "pytest-xdist-collection-consistency-20261003",
+  "url": "https://pytest-xdist.readthedocs.io/en/stable/known-limitations.html",
+  "repository_url": "https://github.com/pytest-dev/pytest-xdist",
+  "commit_sha": "",
+  "version": "stable documentation retrieved 2026-10-03 UTC; page does not display a package version or publication date",
+  "retrieved_at": "2026-10-03",
+  "license": "unknown; page footer has Sphinx/Read the Docs attribution but no documentation license statement was verified; original attributed summary only, no code copied",
+  "trust": "official",
+  "type": "official_docs",
+  "purpose": "worker間でtestの順番と件数が一致する必要、unordered parametrizationの制約を確認。異なる値集合はsortだけでは一致しないという独自判断の前提。"
+}

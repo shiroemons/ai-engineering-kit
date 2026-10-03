@@ -1,0 +1,12 @@
+{
+  "id": "hypothesis-replay-regression-tutorial-20261003",
+  "url": "https://hypothesis.readthedocs.io/en/latest/tutorial/replaying-failures.html",
+  "repository_url": "https://github.com/HypothesisWorks/hypothesis",
+  "commit_sha": "",
+  "version": "Rendered documentation 6.168.3, retrieved 2026-10-03 UTC; page publication date not stated",
+  "retrieved_at": "2026-10-03",
+  "license": "unknown; documentation footer credits the Hypothesis team (2013-2026), but no separate documentation license was verified. Repository LICENSE.txt covers code under MPL-2.0; original attributed summary only, no copied code.",
+  "trust": "official",
+  "type": "official_docs",
+  "purpose": "ExampleDatabaseを永続的correctness根拠にせず@exampleを使う推奨、test変更・版更新によるcache無効化、再現blobの一時利用を確認。phase名はAPI Referenceで別途照合する。"
+}

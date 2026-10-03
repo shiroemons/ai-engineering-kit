@@ -1,0 +1,12 @@
+{
+  "id": "wcag22-target-size-rec-20241212-20261003",
+  "url": "https://www.w3.org/TR/2024/REC-WCAG22-20241212/",
+  "repository_url": "",
+  "commit_sha": "",
+  "version": "WCAG 2.2 W3C Recommendation 12 December 2024; SC 2.5.8 and glossary target / CSS pixel",
+  "retrieved_at": "2026-10-03",
+  "license": "W3C Document License 2023; https://www.w3.org/copyright/document-license-2023/",
+  "trust": "official",
+  "type": "official_docs",
+  "purpose": "SC 2.5.8 AA の24 CSS px要件、spacing/equivalent/inline/UA/essential例外、target定義と重複領域の扱いを確認する"
+}

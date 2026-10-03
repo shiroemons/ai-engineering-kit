@@ -1,0 +1,12 @@
+{
+  "id": "qdrant-embedding-migration-guide-20261003",
+  "url": "https://qdrant.tech/documentation/tutorials-operations/embedding-model-migration/",
+  "repository_url": "",
+  "commit_sha": "",
+  "version": "Rolling official tutorial retrieved 2026-10-03 UTC; page says tested with Qdrant 1.19.0; named-vector migration 1.18+; publication date not displayed",
+  "retrieved_at": "2026-10-03",
+  "license": "unknown",
+  "trust": "official",
+  "type": "official_docs",
+  "purpose": "Blue-green と named vectors の移行手順、再埋め込み元本文、dual writes、named-vector backfill時の更新削除停止とin-flight drain、query modelと宛先切替、観察期間の旧系更新を確認。insert_only導入版は本文1.16+とPoints文書1.17+で不一致のため下限保証に使わない。コード転載なし"
+}

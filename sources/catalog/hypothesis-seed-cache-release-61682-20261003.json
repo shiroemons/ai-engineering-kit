@@ -1,0 +1,12 @@
+{
+  "id": "hypothesis-seed-cache-release-61682-20261003",
+  "url": "https://hypothesis.readthedocs.io/en/latest/changelog.html#v6-168-2",
+  "repository_url": "https://github.com/HypothesisWorks/hypothesis",
+  "commit_sha": "",
+  "version": "Hypothesis 6.168.2 (2026-09-27); changelog rendered as 6.168.3 (2026-09-28), retrieved 2026-10-03 UTC",
+  "retrieved_at": "2026-10-03",
+  "license": "unknown; documentation footer credits the Hypothesis team (2013-2026), but no separate documentation license was verified. Repository LICENSE.txt covers code under MPL-2.0; original attributed summary only, no copied code.",
+  "trust": "official",
+  "type": "release_notes",
+  "purpose": "6.168.2で共有source constants cacheの非原子的writeが修正されたことと公開日。6.168.3の別の性能修正と混同しない。"
+}

@@ -641,6 +641,14 @@
     {"name": "otel-log-split-no-progress", "query": "removedSize 進捗なし", "expected_ids": ["opentelemetry-collector-log-batch-oversize-survivor-boundary"]},
     {"name": "otel-log-split-empty-resource", "query": "recordなし 巨大resource", "expected_ids": ["opentelemetry-collector-log-batch-oversize-survivor-boundary"]},
     {"name": "otel-log-split-signal-boundary", "query": "traces_batch.go metrics_batch.go 早期終了", "expected_ids": ["opentelemetry-collector-log-batch-oversize-survivor-boundary"]},
-    {"name": "otel-log-split-runtime-unverified", "query": "検索eval データ保持 runtime", "expected_ids": ["opentelemetry-collector-log-batch-oversize-survivor-boundary"]}
+    {"name": "otel-log-split-runtime-unverified", "query": "検索eval データ保持 runtime", "expected_ids": ["opentelemetry-collector-log-batch-oversize-survivor-boundary"]},
+    {"name": "hypothesis-seed-atomic-release", "query": "Hypothesis 6.168.2 非原子的", "expected_ids": ["testing-hypothesis-seed-cache-replay-boundary"]},
+    {"name": "hypothesis-cache-not-example-database", "query": "Hypothesis database=None constants", "expected_ids": ["testing-hypothesis-seed-cache-replay-boundary"]},
+    {"name": "hypothesis-cache-upgrade-not-repair", "query": "Hypothesis parse可能 旧cache", "expected_ids": ["testing-hypothesis-seed-cache-replay-boundary"]},
+    {"name": "hypothesis-cache-test-not-race", "query": "Hypothesis temporary-file race", "expected_ids": ["testing-hypothesis-seed-cache-replay-boundary"]},
+    {"name": "hypothesis-seed-external-state", "query": "Hypothesis seed draw 外部状態", "expected_ids": ["testing-hypothesis-seed-cache-replay-boundary"]},
+    {"name": "hypothesis-replay-blob-not-regression", "query": "Hypothesis 再現blob 恒久fixture", "expected_ids": ["testing-hypothesis-seed-cache-replay-boundary"]},
+    {"name": "hypothesis-explicit-phase-coverage", "query": "Hypothesis Phase.explicit 除外", "expected_ids": ["testing-hypothesis-seed-cache-replay-boundary"]},
+    {"name": "hypothesis-xdist-sort-not-values", "query": "Hypothesis 値集合 sort", "expected_ids": ["testing-hypothesis-seed-cache-replay-boundary"]}
   ]
 }
