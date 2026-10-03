@@ -1,0 +1,12 @@
+{
+  "repository_url": "https://github.com/reactjs/react.dev",
+  "commit_sha": "",
+  "retrieved_at": "2026-10-03",
+  "license": "CC-BY-4.0; reactjs/react.dev README.md and LICENSE-DOCS.md verified 2026-10-03; original summary, no copied code",
+  "trust": "official",
+  "id": "react-192-effectevent-introduction-20261003",
+  "url": "https://react.dev/blog/2025/10/01/react-19-2",
+  "version": "React 19.2 release post, published 2025-10-01 by The React Team; retrieved 2026-10-03 UTC",
+  "type": "release_notes",
+  "purpose": "useEffectEventの導入版と公開日、Effect Eventをdependenciesから除くHooks lintへの更新要求を確認。lint最小patchや19.2全patchへのbackportを保証しない。"
+}

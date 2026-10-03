@@ -1,0 +1,12 @@
+{
+  "repository_url": "https://github.com/reactjs/react.dev",
+  "commit_sha": "",
+  "retrieved_at": "2026-10-03",
+  "license": "CC-BY-4.0; reactjs/react.dev README.md and LICENSE-DOCS.md verified 2026-10-03; original summary, no copied code",
+  "trust": "official",
+  "id": "react-separating-effect-events-20261003",
+  "url": "https://react.dev/learn/separating-events-from-effects",
+  "version": "Live React major-19 guide; publication/update date not stated; retrieved 2026-10-03 UTC",
+  "type": "official_docs",
+  "purpose": "再同期条件と非reactiveな通知処理の分離、visitedUrlを明示引数にして遅延前の出来事を保持する理由、他HookへEffect Eventを渡さず所有Hook内で宣言する境界を確認。"
+}

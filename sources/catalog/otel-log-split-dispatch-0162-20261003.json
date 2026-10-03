@@ -1,0 +1,12 @@
+{
+  "id": "otel-log-split-dispatch-0162-20261003",
+  "url": "https://github.com/open-telemetry/opentelemetry-collector/blob/62cdad2ea133239380b44d20d84eb26e114779b6/exporter/exporterhelper/internal/queuebatch/partition_batcher.go",
+  "repository_url": "https://github.com/open-telemetry/opentelemetry-collector",
+  "commit_sha": "62cdad2ea133239380b44d20d84eb26e114779b6",
+  "version": "Collector v0.162.0",
+  "retrieved_at": "2026-10-03",
+  "license": "Apache-2.0",
+  "trust": "official",
+  "type": "github_repository_analysis",
+  "purpose": "Partition batcher logs split errors yet continues surviving requestList processing and Done accounting; no claim about ultimate backend persistence or receiver ACK semantics. SPDX header verified."
+}

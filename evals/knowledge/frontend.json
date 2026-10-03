@@ -1179,6 +1179,14 @@
     {"name": "ts-native-deprecation-not-migration", "query": "ignoreDeprecations 互換性", "expected_ids": ["typescript-native-cli-compiler-api-migration-boundary"]},
     {"name": "ts-native-future-api-plan", "query": "7.1 2026-10-06 予定", "expected_ids": ["typescript-native-cli-compiler-api-migration-boundary"]},
     {"name": "ts-native-toolchain-acceptance", "query": "smoke test lockfile", "expected_ids": ["typescript-native-cli-compiler-api-migration-boundary"]},
-    {"name": "ts-native-not-benchmarked", "query": "性能 機能同等性", "expected_ids": ["typescript-native-cli-compiler-api-migration-boundary"]}
+    {"name": "ts-native-not-benchmarked", "query": "性能 機能同等性", "expected_ids": ["typescript-native-cli-compiler-api-migration-boundary"]},
+    {"name": "react-effectevent-committed-values", "query": "useEffectEvent latest committed", "expected_ids": ["react-useeffectevent-committed-values-resync-boundary"]},
+    {"name": "react-effectevent-memo-context-fix", "query": "useEffectEvent memo Context 34831", "expected_ids": ["react-useeffectevent-committed-values-resync-boundary"]},
+    {"name": "react-effectevent-forwardref-listener", "query": "forwardRef listener 初回", "expected_ids": ["react-useeffectevent-committed-values-resync-boundary"]},
+    {"name": "react-effectevent-delay-event-identity", "query": "visitedUrl setTimeout", "expected_ids": ["react-useeffectevent-committed-values-resync-boundary"]},
+    {"name": "react-effectevent-unstable-dependency", "query": "useEffectEvent identity dependencies", "expected_ids": ["react-useeffectevent-committed-values-resync-boundary"]},
+    {"name": "react-effectevent-custom-hook-owner", "query": "custom Hook delay", "expected_ids": ["react-useeffectevent-committed-values-resync-boundary"]},
+    {"name": "react-effectevent-cleanup-resource", "query": "useEffectEvent cleanup リソース", "expected_ids": ["react-useeffectevent-committed-values-resync-boundary"]},
+    {"name": "react-effectevent-uncommitted-test-boundary", "query": "未 commit 候補値", "expected_ids": ["react-useeffectevent-committed-values-resync-boundary"]}
   ]
 }

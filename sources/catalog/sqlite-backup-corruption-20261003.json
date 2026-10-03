@@ -1,0 +1,12 @@
+{
+  "id": "sqlite-backup-corruption-20261003",
+  "url": "https://www.sqlite.org/howtocorrupt.html",
+  "repository_url": "",
+  "commit_sha": "",
+  "version": "SQLite unversioned corruption guide; page updated 2026-04-13 10:54:51Z; retrieved 2026-10-03",
+  "retrieved_at": "2026-10-03",
+  "license": "Public domain (SQLite deliverable code and documentation; https://www.sqlite.org/copyright.html)",
+  "trust": "official",
+  "type": "official_docs",
+  "purpose": "稼働中の生ファイルcopy、journalの分離、開いたdatabaseのrename/置換の危険を確認"
+}

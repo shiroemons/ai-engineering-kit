@@ -631,6 +631,16 @@
     {"name": "prometheus-missing-keep-firing-scope", "query": "keep_firing_for 一度も firing", "expected_ids": ["observability-prometheus-missing-series-alert-staleness-boundary"]},
     {"name": "prometheus-missing-step-resolution", "query": "Prometheus step resolution 評価時刻", "expected_ids": ["observability-prometheus-missing-series-alert-staleness-boundary"]},
     {"name": "prometheus-missing-fixture-stale", "query": "promtool stale pending inactive", "expected_ids": ["observability-prometheus-missing-series-alert-staleness-boundary"]},
-    {"name": "prometheus-missing-release-stale-marker", "query": "3.15.0 series reference stale marker", "expected_ids": ["observability-prometheus-missing-series-alert-staleness-boundary"]}
+    {"name": "prometheus-missing-release-stale-marker", "query": "3.15.0 series reference stale marker", "expected_ids": ["observability-prometheus-missing-series-alert-staleness-boundary"]},
+    {"name": "otel-log-split-release-logs-only", "query": "Collector v0.162.0 logs のみ", "expected_ids": ["opentelemetry-collector-log-batch-oversize-survivor-boundary"]},
+    {"name": "otel-log-split-prior-tail-loss", "query": "v0.161.0 未抽出 後続", "expected_ids": ["opentelemetry-collector-log-batch-oversize-survivor-boundary"]},
+    {"name": "otel-log-split-record-capacity", "query": "maxRecordSize capacityLeft", "expected_ids": ["opentelemetry-collector-log-batch-oversize-survivor-boundary"]},
+    {"name": "otel-log-split-protobuf-not-body", "query": "LogsBytesSizer ProtoMarshaler 文字数", "expected_ids": ["opentelemetry-collector-log-batch-oversize-survivor-boundary"]},
+    {"name": "otel-log-split-zero-unlimited", "query": "max_size: 0 上限なし", "expected_ids": ["opentelemetry-collector-log-batch-oversize-survivor-boundary"]},
+    {"name": "otel-log-split-partial-error", "query": "MergeSplit error 全batch", "expected_ids": ["opentelemetry-collector-log-batch-oversize-survivor-boundary"]},
+    {"name": "otel-log-split-no-progress", "query": "removedSize 進捗なし", "expected_ids": ["opentelemetry-collector-log-batch-oversize-survivor-boundary"]},
+    {"name": "otel-log-split-empty-resource", "query": "recordなし 巨大resource", "expected_ids": ["opentelemetry-collector-log-batch-oversize-survivor-boundary"]},
+    {"name": "otel-log-split-signal-boundary", "query": "traces_batch.go metrics_batch.go 早期終了", "expected_ids": ["opentelemetry-collector-log-batch-oversize-survivor-boundary"]},
+    {"name": "otel-log-split-runtime-unverified", "query": "検索eval データ保持 runtime", "expected_ids": ["opentelemetry-collector-log-batch-oversize-survivor-boundary"]}
   ]
 }

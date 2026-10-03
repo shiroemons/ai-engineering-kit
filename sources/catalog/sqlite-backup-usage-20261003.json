@@ -1,0 +1,12 @@
+{
+  "id": "sqlite-backup-usage-20261003",
+  "url": "https://www.sqlite.org/backup.html",
+  "repository_url": "",
+  "commit_sha": "",
+  "version": "SQLite unversioned Backup API guide; page updated 2025-11-13 07:12:58Z; retrieved 2026-10-03",
+  "retrieved_at": "2026-10-03",
+  "license": "Public domain (SQLite deliverable code and documentation; https://www.sqlite.org/copyright.html)",
+  "trust": "official",
+  "type": "official_docs",
+  "purpose": "途中のsource更新による自動再開始、完了しない条件、snapshot時点と進捗表示の制限"
+}

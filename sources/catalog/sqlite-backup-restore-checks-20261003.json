@@ -1,0 +1,12 @@
+{
+  "id": "sqlite-backup-restore-checks-20261003",
+  "url": "https://www.sqlite.org/pragma.html",
+  "repository_url": "",
+  "commit_sha": "",
+  "version": "SQLite unversioned PRAGMA reference; page updated 2026-06-04 01:35:31Z; retrieved 2026-10-03",
+  "retrieved_at": "2026-10-03",
+  "license": "Public domain (SQLite deliverable code and documentation; https://www.sqlite.org/copyright.html)",
+  "trust": "official",
+  "type": "official_docs",
+  "purpose": "integrity_checkの成功行とforeign_key_checkを分離する復元検証の根拠"
+}

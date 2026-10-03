@@ -1,0 +1,12 @@
+{
+  "id": "sqlite-backup-vacuum-into-20261003",
+  "url": "https://www.sqlite.org/lang_vacuum.html",
+  "repository_url": "",
+  "commit_sha": "",
+  "version": "SQLite unversioned VACUUM reference; page updated 2025-07-12 15:11:36Z; retrieved 2026-10-03",
+  "retrieved_at": "2026-10-03",
+  "license": "Public domain (SQLite deliverable code and documentation; https://www.sqlite.org/copyright.html)",
+  "trust": "official",
+  "type": "official_docs",
+  "purpose": "VACUUM INTOの一貫性、出力先制約、source synchronous NORMAL/FULLでの同期、ROWIDと中断の注意"
+}

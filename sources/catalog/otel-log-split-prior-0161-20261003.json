@@ -1,0 +1,12 @@
+{
+  "id": "otel-log-split-prior-0161-20261003",
+  "url": "https://github.com/open-telemetry/opentelemetry-collector/blob/0bf928af5487d3c4e0b4174eabb7ba075c322517/exporter/exporterhelper/internal/queuebatch/logs_batch.go",
+  "repository_url": "https://github.com/open-telemetry/opentelemetry-collector",
+  "commit_sha": "0bf928af5487d3c4e0b4174eabb7ba075c322517",
+  "version": "Collector v0.161.0; published 2026-09-14T22:49:14Z",
+  "retrieved_at": "2026-10-03",
+  "license": "Apache-2.0",
+  "trust": "official",
+  "type": "github_repository_analysis",
+  "purpose": "Prior fixed release implementation returns earlier split results when extraction yields zero records, without retaining remaining request. Tag commit resolved via REST commits endpoint; source SPDX header verified."
+}
