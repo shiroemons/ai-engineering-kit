@@ -1,0 +1,12 @@
+{
+  "id": "kubernetes-pvc-unused-gates-20261003",
+  "url": "https://kubernetes.io/docs/reference/command-line-tools-reference/feature-gates/",
+  "repository_url": "https://github.com/kubernetes/website",
+  "commit_sha": "",
+  "version": "PersistentVolumeClaimUnusedSinceTime: v1.36 alpha false; v1.37 beta true; current v1.37 docs",
+  "retrieved_at": "2026-10-03",
+  "license": "CC-BY-4.0",
+  "trust": "official",
+  "type": "official_docs",
+  "purpose": "feature gate表の版と既定値を確認。footerは2026-01-27であり、個別featureの公開日とは扱わない。"
+}

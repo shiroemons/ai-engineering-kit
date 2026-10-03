@@ -1,0 +1,12 @@
+{
+  "id": "redis-xread-budget-patch-release-20261003",
+  "url": "https://github.com/redis/redis/releases/tag/8.10.2",
+  "repository_url": "https://github.com/redis/redis",
+  "commit_sha": "",
+  "version": "Redis 8.10.2; published_at 2026-09-17T15:06:56Z; tag commit 498ecd0d6d007db11ddb3aea9428552598a78622",
+  "retrieved_at": "2026-10-03",
+  "license": "unknown; release notes本文の個別ライセンスは未特定。Redisコードの三択ライセンスをrelease本文へ自動適用しない。独自要約のみ。",
+  "trust": "official",
+  "type": "release_notes",
+  "purpose": "コード読解対象patchのrelease日とSECURITY区分、リンク先tag commitを確認。機能導入日とpatch選択を分ける。"
+}

@@ -1,0 +1,12 @@
+{
+  "id": "redis-xreadgroup-reply-budget-command-20261003",
+  "url": "https://redis.io/docs/latest/commands/xreadgroup/",
+  "repository_url": "https://github.com/redis/docs",
+  "commit_sha": "",
+  "version": "Redis command reference retrieved 2026-10-03; MAXCOUNT/MAXSIZE since 8.10.0",
+  "retrieved_at": "2026-10-03",
+  "license": "CC-BY-NC-SA-4.0; redis/docs LICENSE (https://github.com/redis/docs/blob/main/LICENSE) を2026-10-03確認。旧redis-doc由来部分はCC-BY-SA-4.0の例外あり、本ページ内の該当範囲は未特定。独自要約のみ、コード・図・長文の転載なし。",
+  "trust": "official",
+  "type": "official_docs",
+  "purpose": "新規・history/PEL・unblock後のbudget適用、送信前の判定、group順序、NOACK、再配信時のcounterとpending回復を確認。公開・更新日の表示は確認できず。"
+}

@@ -1,0 +1,12 @@
+{
+  "id": "cosign-legacy-bundle-fix-11926fa-20261003",
+  "url": "https://github.com/sigstore/cosign/commit/11926fa5bbbbde47e88fc006b625a17769b743b2",
+  "repository_url": "https://github.com/sigstore/cosign",
+  "commit_sha": "11926fa5bbbbde47e88fc006b625a17769b743b2",
+  "version": "Cosign v3.1.3 / fix commit 11926fa5bbbbde47e88fc006b625a17769b743b2; source read 2026-10-03 UTC",
+  "license": "Apache-2.0 (LICENSE and headers of inspected Go files at pinned commit)",
+  "trust": "primary-source",
+  "type": "github_repository_analysis",
+  "purpose": "修正差分と固定版cmd/cosign/cli/verify/{verify_blob.go,verify_blob_attestation.go,verify_blob_test.go,verify_blob_attestation_test.go,verify_bundle.go,common.go}をnative webで閲覧。cert型拒否・外部鍵・相互排他・checkNewBundleのbool自動判定を確認。生成側のcertへのraw key保存削除も差分で確認。上流テストは読み取りのみ、コード転載・clone・実行なし。",
+  "retrieved_at": "2026-10-03"
+}

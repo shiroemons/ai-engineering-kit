@@ -1,0 +1,12 @@
+{
+  "id": "cosign-313-legacy-bundle-release-20261003",
+  "url": "https://github.com/sigstore/cosign/releases/tag/v3.1.3",
+  "repository_url": "https://github.com/sigstore/cosign",
+  "commit_sha": "",
+  "version": "Cosign v3.1.3, released 2026-08-06; tag points to 11926fa5bbbbde47e88fc006b625a17769b743b2",
+  "license": "unknown (release prose has no separate explicit license; no copied code)",
+  "trust": "official",
+  "type": "release_notes",
+  "purpose": "GHSA-fx35-mq7g-6g98のv3修正releaseとリンク先commitを確認。2026-10-03取得時にLatest表示を見たが、文書は将来もlatestとは主張しない。",
+  "retrieved_at": "2026-10-03"
+}

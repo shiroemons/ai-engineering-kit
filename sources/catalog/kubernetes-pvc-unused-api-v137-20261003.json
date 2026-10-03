@@ -1,0 +1,12 @@
+{
+  "id": "kubernetes-pvc-unused-api-v137-20261003",
+  "url": "https://kubernetes.io/docs/reference/kubernetes-api/core/persistent-volume-claim-v1/",
+  "repository_url": "https://github.com/kubernetes/website",
+  "commit_sha": "",
+  "version": "Generated Kubernetes v1.37 API reference; footer 2026-08-26",
+  "retrieved_at": "2026-10-03",
+  "license": "CC-BY-4.0",
+  "trust": "official",
+  "type": "official_docs",
+  "purpose": "PersistentVolumeClaimConditionのtype/status/lastTransitionTime/lastProbeTime契約。一般型がUnknownを認めることとcontrollerが通常書く二状態を分ける。"
+}

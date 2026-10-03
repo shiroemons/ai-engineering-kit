@@ -1,0 +1,12 @@
+{
+  "id": "cosign-legacy-bundle-advisory-20261003",
+  "url": "https://github.com/sigstore/cosign/security/advisories/GHSA-fx35-mq7g-6g98",
+  "repository_url": "https://github.com/sigstore/cosign",
+  "commit_sha": "",
+  "version": "GHSA-fx35-mq7g-6g98, published 2026-08-06; v2 <=2.6.4 and v3 <=3.1.2 affected; patched v2.6.5 / v3.1.3",
+  "license": "unknown (advisory page has no explicit content license; attributed original summary only)",
+  "trust": "maintainer",
+  "type": "maintainer_article",
+  "purpose": "開発元の告知でlegacy LocalSignedPayloadを読むverify-blob系の影響範囲、certificate identity/issuerの不適用と明示鍵の上書き、OCI/modern bundleの非該当、修正版と移行案を確認。被害発生の証拠とは扱わない。",
+  "retrieved_at": "2026-10-03"
+}

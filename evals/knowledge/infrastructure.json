@@ -1367,6 +1367,104 @@
       "expected_ids": [
         "github-actions-execution-policy-workflow-path-boundary"
       ]
+    },
+    {
+      "name": "kubernetes-pvc-unused-beta-default-version",
+      "query": "PersistentVolumeClaimUnusedSinceTime v1.36 v1.37",
+      "expected_ids": [
+        "kubernetes-pvc-unused-condition-cleanup-boundary"
+      ]
+    },
+    {
+      "name": "kubernetes-pvc-unused-pending-pvc-pod-separation",
+      "query": "Pending PVC Bound",
+      "expected_ids": [
+        "kubernetes-pvc-unused-condition-cleanup-boundary"
+      ]
+    },
+    {
+      "name": "kubernetes-pvc-unused-false-timestamp-direction",
+      "query": "Unused False 使用中側",
+      "expected_ids": [
+        "kubernetes-pvc-unused-condition-cleanup-boundary"
+      ]
+    },
+    {
+      "name": "kubernetes-pvc-unused-same-state-no-heartbeat",
+      "query": "lastTransitionTime heartbeat",
+      "expected_ids": [
+        "kubernetes-pvc-unused-condition-cleanup-boundary"
+      ]
+    },
+    {
+      "name": "kubernetes-pvc-unused-terminal-helper-deletion",
+      "query": "IsPodTerminated waiting ephemeral",
+      "expected_ids": [
+        "kubernetes-pvc-unused-condition-cleanup-boundary"
+      ]
+    },
+    {
+      "name": "kubernetes-pvc-unused-rollback-observation-gap",
+      "query": "古いTrue 連続して未使用",
+      "expected_ids": [
+        "kubernetes-pvc-unused-condition-cleanup-boundary"
+      ]
+    },
+    {
+      "name": "kubernetes-pvc-unused-missing-unknown-hold",
+      "query": "condition欠落 Unknown 判定保留",
+      "expected_ids": [
+        "kubernetes-pvc-unused-condition-cleanup-boundary"
+      ]
+    },
+    {
+      "name": "kubernetes-pvc-unused-deletion-predicates-differ",
+      "query": "podUsesPVCForUnusedSince podUsesPVCForDeletion",
+      "expected_ids": [
+        "kubernetes-pvc-unused-condition-cleanup-boundary"
+      ]
+    },
+    {
+      "name": "kubernetes-pvc-unused-deleting-condition-not-completion",
+      "query": "deletionTimestamp 成功報告",
+      "expected_ids": [
+        "kubernetes-pvc-unused-condition-cleanup-boundary"
+      ]
+    },
+    {
+      "name": "kubernetes-pvc-unused-reclaim-external-asset",
+      "query": "Unused Delete 外部資産",
+      "expected_ids": [
+        "kubernetes-pvc-unused-condition-cleanup-boundary"
+      ]
+    },
+    {
+      "name": "kubernetes-pvc-unused-statefulset-retention-separate",
+      "query": "Unused whenScaled Retain",
+      "expected_ids": [
+        "kubernetes-pvc-unused-condition-cleanup-boundary"
+      ]
+    },
+    {
+      "name": "kubernetes-pvc-unused-read-check-delete-not-lock",
+      "query": "read-check-delete 排他ロック",
+      "expected_ids": [
+        "kubernetes-pvc-unused-condition-cleanup-boundary"
+      ]
+    },
+    {
+      "name": "kubernetes-pvc-unused-identity-recreation",
+      "query": "同名再作成 UID",
+      "expected_ids": [
+        "kubernetes-pvc-unused-condition-cleanup-boundary"
+      ]
+    },
+    {
+      "name": "kubernetes-pvc-unused-upstream-test-not-executed",
+      "query": "上流testを実行して合格させたわけではない",
+      "expected_ids": [
+        "kubernetes-pvc-unused-condition-cleanup-boundary"
+      ]
     }
   ]
 }

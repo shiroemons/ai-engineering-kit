@@ -1,0 +1,12 @@
+{
+  "id": "redis-xread-budget-upstream-tests-20261003",
+  "url": "https://github.com/redis/redis/blob/498ecd0d6d007db11ddb3aea9428552598a78622/tests/unit/type/stream.tcl",
+  "repository_url": "https://github.com/redis/redis",
+  "commit_sha": "498ecd0d6d007db11ddb3aea9428552598a78622",
+  "version": "Redis 8.10.2 at 498ecd0d6d007db11ddb3aea9428552598a78622",
+  "retrieved_at": "2026-10-03",
+  "license": "Redis 8: RSALv2 OR SSPLv1 OR AGPLv3; LICENSE.txt at 498ecd0d6d007db11ddb3aea9428552598a78622 を2026-10-03確認。src/t_stream.cとsrc/networking.cのfile headerも同じ選択制を明記。testsは個別license headerなし、repository licenseを記録。コード転載・移植なし。",
+  "trust": "primary-source",
+  "type": "github_repository_analysis",
+  "purpose": "引数検証、複数stream総数、first-stream優先、巨大entry、MULTI/EXEC内のcommand別budgetを確認。MAXSIZEの該当testは全体のwire bytes <= 指定値をassertしていない。upstream test本文を読んだだけで、この調査で実行していない。"
+}

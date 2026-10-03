@@ -1180,6 +1180,20 @@
       "expected_ids": [
         "sqlite-backup-done-finish-publication-boundary"
       ]
-    }
+    },
+    {"name": "xread-budget-count-global", "query": "MAXCOUNT COUNT N×C", "expected_ids": ["redis-xread-reply-budget-pel-fairness-boundary"]},
+    {"name": "xread-budget-zero-rejected", "query": "MAXCOUNT 0 無制限", "expected_ids": ["redis-xread-reply-budget-pel-fairness-boundary"]},
+    {"name": "xread-budget-later-entry-overshoot", "query": "MAXSIZE 二件目以降 予測サイズ", "expected_ids": ["redis-xread-reply-budget-pel-fairness-boundary"]},
+    {"name": "xread-budget-network-not-rss", "query": "MAXSIZE TLS resident memory", "expected_ids": ["redis-xread-reply-budget-pel-fairness-boundary"]},
+    {"name": "xread-budget-empty-timeout", "query": "MAXSIZE RESP2 nil", "expected_ids": ["redis-xread-reply-budget-pel-fairness-boundary"]},
+    {"name": "xread-budget-pel-stop-before-delivery", "query": "MAXSIZE last-delivered PEL", "expected_ids": ["redis-xread-reply-budget-pel-fairness-boundary"]},
+    {"name": "xread-budget-history-retained", "query": "history 未読 pending", "expected_ids": ["redis-xread-reply-budget-pel-fairness-boundary"]},
+    {"name": "xread-budget-lost-reply-recovery", "query": "MAXCOUNT 応答消失 pending", "expected_ids": ["redis-xread-reply-budget-pel-fairness-boundary"]},
+    {"name": "xread-budget-stream-starvation", "query": "MAXCOUNT 巡回 cursor", "expected_ids": ["redis-xread-reply-budget-pel-fairness-boundary"]},
+    {"name": "xread-budget-multi-exec-baseline", "query": "MAXSIZE MULTI/EXEC baseline", "expected_ids": ["redis-xread-reply-budget-pel-fairness-boundary"]},
+    {"name": "xread-budget-unblocked-test", "query": "MAXCOUNT blocking解除後", "expected_ids": ["redis-xread-reply-budget-pel-fairness-boundary"]},
+    {"name": "xread-budget-not-whole-consumer", "query": "MAXCOUNT in-flight", "expected_ids": ["redis-xread-reply-budget-pel-fairness-boundary"]},
+    {"name": "xread-budget-introduction", "query": "MAXCOUNT 8.10.0 2026-07-29", "expected_ids": ["redis-xread-reply-budget-pel-fairness-boundary"]},
+    {"name": "xread-budget-upstream-not-byte-assert", "query": "MAXSIZE wire bytes assert", "expected_ids": ["redis-xread-reply-budget-pel-fairness-boundary"]}
   ]
 }
