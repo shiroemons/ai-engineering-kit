@@ -1,0 +1,12 @@
+{
+  "id": "claude-batch-guide-20261003",
+  "url": "https://platform.claude.com/docs/en/build-with-claude/batch-processing",
+  "repository_url": "",
+  "commit_sha": "",
+  "version": "Claude API Message Batches live guide; /v1/messages/batches; retrieved 2026-10-03 UTC",
+  "retrieved_at": "2026-10-03",
+  "license": "unknown",
+  "trust": "official",
+  "type": "official_docs",
+  "purpose": "Native webで作成・追跡・結果取得・取消・server tools・結果期限の本文を実読。paramsの非同期検証、endedと4種類の個別結果、独立処理、24時間の処理期限、created_at基準29日の結果回収期限、batchからpause_turnを続行する契約を確認。ページ固有の公開・更新日表示は取得本文に見当たらない。生API試験なし。 取得した文書本文にオープンライセンスを確認できず。独自の出典付き要約のみで外部コードはコピーしていない。"
+}

@@ -1294,6 +1294,118 @@
       "expected_ids": [
         "rails-dynamic-route-removal-dispatch-boundary"
       ]
+    },
+    {
+      "name": "go-root-lexical-islocal-symlink",
+      "query": "IsLocal 字句解析 symlink",
+      "expected_ids": [
+        "go-os-root-filesystem-confinement-boundary"
+      ]
+    },
+    {
+      "name": "go-root-localize-not-fromslash",
+      "query": "Localize FromSlash 検査",
+      "expected_ids": [
+        "go-os-root-filesystem-confinement-boundary"
+      ]
+    },
+    {
+      "name": "go-root-fs-path-grammar",
+      "query": "Root.FS 文法エラー",
+      "expected_ids": [
+        "go-os-root-filesystem-confinement-boundary"
+      ]
+    },
+    {
+      "name": "go-root-sub-not-tenant-boundary",
+      "query": "fs.Sub alice bob",
+      "expected_ids": [
+        "go-os-root-filesystem-confinement-boundary"
+      ]
+    },
+    {
+      "name": "go-root-child-root-tenant",
+      "query": "子 Root cross-tenant",
+      "expected_ids": [
+        "go-os-root-filesystem-confinement-boundary"
+      ]
+    },
+    {
+      "name": "go-root-symlink-creation-not-dereference",
+      "query": "Root.Symlink oldname 検査されない",
+      "expected_ids": [
+        "go-os-root-filesystem-confinement-boundary"
+      ]
+    },
+    {
+      "name": "go-root-openroot-selection-trust",
+      "query": "OpenRoot 初期 trust",
+      "expected_ids": [
+        "go-os-root-filesystem-confinement-boundary"
+      ]
+    },
+    {
+      "name": "go-root-trailing-slash-cve-patch",
+      "query": "GO-2026-4970 1.26.5 1.27.0-rc.2",
+      "expected_ids": [
+        "go-os-root-filesystem-confinement-boundary"
+      ]
+    },
+    {
+      "name": "go-root-api-added-version",
+      "query": "1.24追加 1.25追加",
+      "expected_ids": [
+        "go-os-root-filesystem-confinement-boundary"
+      ]
+    },
+    {
+      "name": "go-root-name-not-current-path",
+      "query": "Root.Name rename replacement",
+      "expected_ids": [
+        "go-os-root-filesystem-confinement-boundary"
+      ]
+    },
+    {
+      "name": "go-root-dirfs-outside-observation",
+      "query": "DirFS outside 取得",
+      "expected_ids": [
+        "go-os-root-filesystem-confinement-boundary"
+      ]
+    },
+    {
+      "name": "go-root-no-unsafe-fallback",
+      "query": "fallback 通常 再試行",
+      "expected_ids": [
+        "go-os-root-filesystem-confinement-boundary"
+      ]
+    },
+    {
+      "name": "go-root-mount-not-sandbox",
+      "query": "bind mount /proc sandbox",
+      "expected_ids": [
+        "go-os-root-filesystem-confinement-boundary"
+      ]
+    },
+    {
+      "name": "go-root-unix-metadata-race",
+      "query": "Chmod Chown link target",
+      "expected_ids": [
+        "go-os-root-filesystem-confinement-boundary"
+      ]
+    },
+    {
+      "name": "go-root-js-toctou-limit",
+      "query": "GOOS=js TOCTOU",
+      "expected_ids": [
+        "go-os-root-filesystem-confinement-boundary"
+      ]
+    },
+    {
+      "name": "go-root-runtime-probe-limits",
+      "query": "Linux 1.27.1 競合 未検証",
+      "expected_ids": [
+        "go-os-root-filesystem-confinement-boundary"
+      ]
     }
   ]
 }

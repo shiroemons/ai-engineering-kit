@@ -1,0 +1,12 @@
+{
+  "id": "claude-stop-reasons-batch-review-20261003",
+  "url": "https://platform.claude.com/docs/en/build-with-claude/handling-stop-reasons",
+  "repository_url": "",
+  "commit_sha": "",
+  "version": "Claude Messages API live stop-reasons guide; batch integration reviewed 2026-10-03 UTC",
+  "retrieved_at": "2026-10-03",
+  "license": "unknown",
+  "trust": "official",
+  "type": "official_docs",
+  "purpose": "Native webでstop_reasonとAPI errorの区別、end_turn・max_tokens・pause_turn・tool_use・refusalの意味、pause_turnはassistant content、client tool_useはtool_resultによる続行という区別を実読。batch固有の反復上限はこのページから転用しない。ページ固有の公開・更新日表示なし。SDKのenum・runtimeは未検証。 取得した文書本文にオープンライセンスを確認できず。独自の出典付き要約のみで外部コードはコピーしていない。"
+}

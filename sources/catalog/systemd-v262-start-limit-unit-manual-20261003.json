@@ -1,0 +1,12 @@
+{
+  "id": "systemd-v262-start-limit-unit-manual-20261003",
+  "url": "https://raw.githubusercontent.com/systemd/systemd/8cc40e0c5e9234bf45084751ac53b1fbfe70b492/man/systemd.unit.xml",
+  "repository_url": "https://github.com/systemd/systemd",
+  "commit_sha": "8cc40e0c5e9234bf45084751ac53b1fbfe70b492",
+  "version": "systemd v262, man/systemd.unit.xml at 8cc40e0c5e9234bf45084751ac53b1fbfe70b492",
+  "retrieved_at": "2026-10-03",
+  "license": "LGPL-2.1-or-later (SPDX header; LICENSE.LGPL2.1 and LICENSES/README.md checked at the same commit)",
+  "trust": "official",
+  "type": "official_docs",
+  "purpose": "StartLimitIntervalSec/StartLimitBurst の対象、上限到達後の外部再起動、reset-failed、GC、condition と未知optionの扱いを確認する。web では v262 tag XML、GitHub connector では full commit の同ファイルを取得。"
+}

@@ -1,0 +1,12 @@
+{
+  "id": "go-osroot-traversal-article-20261003",
+  "url": "https://go.dev/blog/osroot",
+  "repository_url": "https://github.com/golang/website",
+  "commit_sha": "",
+  "version": "Traversal-resistant file APIs; Damien Neil; published 2025-03-12; describes Go 1.24 introduction",
+  "retrieved_at": "2026-10-03",
+  "license": "CC-BY-4.0 (article); BSD (code)",
+  "trust": "maintainer",
+  "type": "maintainer_article",
+  "purpose": "開発元著者の説明から EvalSymlinks と後続 open の TOCTOU、相対成分の OS 差、root 選択、プラットフォーム上の限界を確認。https://go.dev/copyright を開き本文 CC-BY-4.0 / code BSD 表示を確認。1.24 当時の記事の未実装一覧を1.27の API 一覧として流用しない。外部コードの転載なし。"
+}

@@ -1,0 +1,12 @@
+{
+  "id": "claude-batch-cancel-reference-20261003",
+  "url": "https://platform.claude.com/docs/en/api/messages/batches/cancel",
+  "repository_url": "",
+  "commit_sha": "",
+  "version": "Claude API POST /v1/messages/batches/{message_batch_id}/cancel live HTTP reference; retrieved 2026-10-03 UTC",
+  "retrieved_at": "2026-10-03",
+  "license": "unknown",
+  "trust": "official",
+  "type": "official_docs",
+  "purpose": "Native webでcancel本文を実読。canceling中に実行中のnon-interruptible requestが完了し得ること、取消を要求してもcanceledが0件になり得ること、対象requestは個別結果で確認することを確認。ページ固有の公開・更新日表示なし。response exampleを実測イベント列としては扱っていない。 取得した文書本文にオープンライセンスを確認できず。独自の出典付き要約のみで外部コードはコピーしていない。"
+}

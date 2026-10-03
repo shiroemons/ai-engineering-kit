@@ -1,0 +1,12 @@
+{
+  "id": "systemd-v262-restart-release-20261003",
+  "url": "https://github.com/systemd/systemd/releases/tag/v262",
+  "repository_url": "https://github.com/systemd/systemd",
+  "commit_sha": "8cc40e0c5e9234bf45084751ac53b1fbfe70b492",
+  "version": "systemd v262; published 2026-09-22T13:19:16Z; tag commit 8cc40e0c5e9234bf45084751ac53b1fbfe70b492",
+  "retrieved_at": "2026-10-03",
+  "license": "unknown",
+  "trust": "official",
+  "type": "release_notes",
+  "purpose": "v262 の RestartRandomizedDelaySec 追加と start-rate-limit の CLOCK_BOOTTIME 移行、upgrade/reexecution 時の既存 timestamp 注意を確認する。release API の published_at も照合。 release ページ単体のライセンスは未確認。出典付きの独自要約のみでコード・本文の転載はしない。"
+}
