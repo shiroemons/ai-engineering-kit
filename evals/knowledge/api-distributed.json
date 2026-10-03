@@ -970,6 +970,22 @@
     {"name": "http-upload-server-completion-migration", "query": "草案11 server 完了", "expected_ids": ["http-resumable-upload-offset-completion-boundary"]},
     {"name": "http-upload-operation-result-reconciliation", "query": "operation ID 結果照合", "expected_ids": ["http-resumable-upload-offset-completion-boundary"]},
     {"name": "http-upload-retrieval-state-loss", "query": "状態喪失 無効化", "expected_ids": ["http-resumable-upload-offset-completion-boundary"]},
-    {"name": "http-upload-false-after-completed", "query": "false 完了済み 不正操作", "expected_ids": ["http-resumable-upload-offset-completion-boundary"]}
+    {"name": "http-upload-false-after-completed", "query": "false 完了済み 不正操作", "expected_ids": ["http-resumable-upload-offset-completion-boundary"]},
+    {"name": "nats-evacuate-r1-data", "query": "R1 evacuate 最後", "expected_ids": ["messaging-nats-jetstream-desired-state-evacuation"]},
+    {"name": "nats-evacuate-stream-replacement", "query": "STREAM.PEER.EVACUATE requireReplicas:true", "expected_ids": ["messaging-nats-jetstream-desired-state-evacuation"]},
+    {"name": "nats-evacuate-server-best-effort", "query": "SERVER.EVACUATE unsupported success", "expected_ids": ["messaging-nats-jetstream-desired-state-evacuation"]},
+    {"name": "nats-evacuate-server-underreplicated", "query": "spareなし 実体2peer", "expected_ids": ["messaging-nats-jetstream-desired-state-evacuation"]},
+    {"name": "nats-evacuate-meta-membership", "query": "evacuation meta group", "expected_ids": ["messaging-nats-jetstream-desired-state-evacuation"]},
+    {"name": "nats-desired-info-schema", "query": "DesiredPeerInfo current lag", "expected_ids": ["messaging-nats-jetstream-desired-state-evacuation"]},
+    {"name": "nats-desired-status-diagnosis", "query": "status.type catchup blocked", "expected_ids": ["messaging-nats-jetstream-desired-state-evacuation"]},
+    {"name": "nats-desired-store-current", "query": "Raft log データコピー済み", "expected_ids": ["messaging-nats-jetstream-desired-state-evacuation"]},
+    {"name": "nats-desired-id-term", "query": "NATS id term 古い", "expected_ids": ["messaging-nats-jetstream-desired-state-evacuation"]},
+    {"name": "nats-desired-consumer-order", "query": "consumer 旧peer 取り外し", "expected_ids": ["messaging-nats-jetstream-desired-state-evacuation"]},
+    {"name": "nats-desired-upgrade-compat", "query": "2.14.7 mixed-version scale/move", "expected_ids": ["messaging-nats-jetstream-desired-state-evacuation"]},
+    {"name": "nats-cancel-origin-rollback", "query": "CANCEL_MOVE origin undo", "expected_ids": ["messaging-nats-jetstream-desired-state-evacuation"]},
+    {"name": "nats-cancel-not-message-rollback", "query": "取消 業務message", "expected_ids": ["messaging-nats-jetstream-desired-state-evacuation"]},
+    {"name": "nats-downgrade-noop-discard", "query": "no-op desired state 捨て", "expected_ids": ["messaging-nats-jetstream-desired-state-evacuation"]},
+    {"name": "nats-evacuate-completion-gates", "query": "保守 replica数 追従状態", "expected_ids": ["messaging-nats-jetstream-desired-state-evacuation"]},
+    {"name": "nats-evacuate-upstream-tests-not-run", "query": "NATS upstream test 実行していない", "expected_ids": ["messaging-nats-jetstream-desired-state-evacuation"]}
   ]
 }

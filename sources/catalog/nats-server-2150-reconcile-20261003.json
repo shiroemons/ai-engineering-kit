@@ -1,0 +1,12 @@
+{
+  "id": "nats-server-2150-reconcile-20261003",
+  "url": "https://github.com/nats-io/nats-server/blob/eb763679aa3c24a40dcd3012aa046ad1996d851c/server/jetstream_cluster.go",
+  "repository_url": "https://github.com/nats-io/nats-server",
+  "commit_sha": "eb763679aa3c24a40dcd3012aa046ad1996d851c",
+  "version": "NATS Server v2.15.0",
+  "retrieved_at": "2026-10-03",
+  "license": "Apache-2.0",
+  "trust": "maintainer",
+  "type": "github_repository_analysis",
+  "purpose": "removePeerFromStreamLocked、runStreamMigration、runConsumerMigration、reconcileDesiredState、jsClusteredStreamCancelMoveLocked、clusterInfoを読む。catch-upとquorum、ID/term、移行元復帰、非同期提案と実体配置を検証。LICENSEとfile header確認。実行なし・コード転載なし。"
+}

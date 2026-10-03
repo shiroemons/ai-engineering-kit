@@ -1,0 +1,12 @@
+{
+  "id": "alce-citation-quality-emnlp2023-20261003",
+  "url": "https://aclanthology.org/2023.emnlp-main.398.pdf",
+  "repository_url": "",
+  "commit_sha": "",
+  "version": "Enabling Large Language Models to Generate Text with Citations, Gao et al., EMNLP 2023, December 2023, pp. 6465–6488, DOI 10.18653/v1/2023.emnlp-main.398; sections 3.3–3.4 and Limitations",
+  "retrieved_at": "2026-10-03",
+  "license": "CC-BY-4.0 (paper; ACL Anthology publication page states materials published in or after 2016 use CC BY 4.0: https://aclanthology.org/2023.emnlp-main.398/)",
+  "trust": "primary-source",
+  "type": "maintainer_article",
+  "purpose": "Original author research: citation recall measures support of generated statements; citation precision penalizes irrelevant citations with recall prerequisite and does not demand a minimal citation set. Citation-only scores do not measure answer completeness; NLI partial-support limitation. No code, dataset, prompts, figures, or benchmark scores copied."
+}

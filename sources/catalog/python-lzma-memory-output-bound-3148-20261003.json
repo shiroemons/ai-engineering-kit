@@ -1,0 +1,12 @@
+{
+  "id": "python-lzma-memory-output-bound-3148-20261003",
+  "url": "https://docs.python.org/3.14/library/lzma.html",
+  "repository_url": "https://github.com/python/cpython",
+  "commit_sha": "",
+  "version": "Python 3.14.8 documentation retrieved 2026-10-03 UTC",
+  "retrieved_at": "2026-10-03",
+  "license": "PSF-2.0; documentation code additionally 0BSD; no copied code",
+  "trust": "official",
+  "type": "official_docs",
+  "purpose": "LZMADecompressorのmax_lengthとneeds_input、および別引数memlimitの責務をnative webで確認。zipfileがmemlimitを公開するとの主張はしない。ライセンスはPython3.14ライセンス頁を確認。"
+}

@@ -1,0 +1,12 @@
+{
+  "id": "nats-server-2150-evacuate-api-20261003",
+  "url": "https://github.com/nats-io/nats-server/blob/eb763679aa3c24a40dcd3012aa046ad1996d851c/server/jetstream_api.go",
+  "repository_url": "https://github.com/nats-io/nats-server",
+  "commit_sha": "eb763679aa3c24a40dcd3012aa046ad1996d851c",
+  "version": "NATS Server v2.15.0",
+  "retrieved_at": "2026-10-03",
+  "license": "Apache-2.0",
+  "trust": "maintainer",
+  "type": "github_repository_analysis",
+  "purpose": "公開subject、request field、jsStreamRemapPeerRequestのrequireReplicas:true、jsLeaderServerEvacuateRequestのunsupported skip・個別return未集計・Success応答、cancel対象の存在条件を固定実装で確認。LICENSEとfile headerを確認。"
+}

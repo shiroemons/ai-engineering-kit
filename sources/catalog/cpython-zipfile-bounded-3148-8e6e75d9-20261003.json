@@ -1,0 +1,12 @@
+{
+  "id": "cpython-zipfile-bounded-3148-8e6e75d9-20261003",
+  "url": "https://github.com/python/cpython/tree/8e6e75d9102e39bed2a2b279203a396741180f12",
+  "repository_url": "https://github.com/python/cpython",
+  "commit_sha": "8e6e75d9102e39bed2a2b279203a396741180f12",
+  "version": "CPython v3.14.8 (2026-09-30); tag commit 8e6e75d9102e39bed2a2b279203a396741180f12",
+  "retrieved_at": "2026-10-03",
+  "license": "PSF-2.0; LICENSE at pinned commit; no copied code",
+  "trust": "official",
+  "type": "github_repository_analysis",
+  "purpose": "GitHub read-only connectorでLib/zipfile/__init__.py、Lib/test/test_zipfile/test_core.py、Misc/NEWS.d/3.14.8.rst、LICENSEを取得し、read/_read1/LZMA wrapper、central directory、testzip、bounded test、monkeypatch test、残存脆弱性警告を確認。タグAPIのannotated tagをcommitへ解決。web raw/blobはcache miss、統合changelogはサイズ超過のためconnectorと版固定NEWSへ代替。対象ファイル冒頭に別ライセンス表示なし。Python3.14.8試験は未実行。"
+}

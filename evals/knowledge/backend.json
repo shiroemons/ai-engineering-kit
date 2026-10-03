@@ -1518,6 +1518,132 @@
       "expected_ids": [
         "ruby-socket-connect-success-timeout-boundary"
       ]
+    },
+    {
+      "name": "python-zipfile-release-fix-scope",
+      "query": "3.14.8 2026-09-30 CVE-2026-15310",
+      "expected_ids": [
+        "python-zipfile-decompression-output-memory-boundary"
+      ]
+    },
+    {
+      "name": "python-zipfile-post-allocation-clip",
+      "query": "allocation data[:self._left]",
+      "expected_ids": [
+        "python-zipfile-decompression-output-memory-boundary"
+      ]
+    },
+    {
+      "name": "python-zipfile-read-private-minimum",
+      "query": "_read1(100) 4096",
+      "expected_ids": [
+        "python-zipfile-decompression-output-memory-boundary"
+      ]
+    },
+    {
+      "name": "python-zipfile-unbounded-public-read",
+      "query": "ZipFile.read(name) member全体",
+      "expected_ids": [
+        "python-zipfile-decompression-output-memory-boundary"
+      ]
+    },
+    {
+      "name": "python-zipfile-drain-not-compressed-eof",
+      "query": "needs_input=False _compress_left",
+      "expected_ids": [
+        "python-zipfile-decompression-output-memory-boundary"
+      ]
+    },
+    {
+      "name": "python-zipfile-lzma-header-drain",
+      "query": "header needs_input=True",
+      "expected_ids": [
+        "python-zipfile-decompression-output-memory-boundary"
+      ]
+    },
+    {
+      "name": "python-zipfile-old-codec-fallback",
+      "query": "TypeError 1引数 fallback",
+      "expected_ids": [
+        "python-zipfile-decompression-output-memory-boundary"
+      ]
+    },
+    {
+      "name": "python-zipfile-old-codec-remains-vulnerable",
+      "query": "公式の版固定NEWS 脆弱なまま",
+      "expected_ids": [
+        "python-zipfile-decompression-output-memory-boundary"
+      ]
+    },
+    {
+      "name": "python-zipfile-third-party-scope",
+      "query": "全てのthird-party 個別",
+      "expected_ids": [
+        "python-zipfile-decompression-output-memory-boundary"
+      ]
+    },
+    {
+      "name": "python-zipfile-attribute-not-assurance",
+      "query": "属性が存在 安全判定",
+      "expected_ids": [
+        "python-zipfile-decompression-output-memory-boundary"
+      ]
+    },
+    {
+      "name": "python-zipfile-constructor-before-count",
+      "query": "constructor infolist() allocation",
+      "expected_ids": [
+        "python-zipfile-decompression-output-memory-boundary"
+      ]
+    },
+    {
+      "name": "python-zipfile-actual-output-budget",
+      "query": "実際の出力bytes 保存前判定",
+      "expected_ids": [
+        "python-zipfile-decompression-output-memory-boundary"
+      ]
+    },
+    {
+      "name": "python-zipfile-memlimit-distinction",
+      "query": "FORMAT_RAW memlimit RSS",
+      "expected_ids": [
+        "python-zipfile-decompression-output-memory-boundary"
+      ]
+    },
+    {
+      "name": "python-zipfile-deadline-between-chunks",
+      "query": "chunk間 強制停止",
+      "expected_ids": [
+        "python-zipfile-decompression-output-memory-boundary"
+      ]
+    },
+    {
+      "name": "python-zipfile-testzip-cost",
+      "query": "testzip() 展開コスト",
+      "expected_ids": [
+        "python-zipfile-decompression-output-memory-boundary"
+      ]
+    },
+    {
+      "name": "python-zipfile-bounded-test-not-rss",
+      "query": "test_read1_output_is_bounded peak",
+      "expected_ids": [
+        "python-zipfile-decompression-output-memory-boundary"
+      ]
+    },
+    {
+      "name": "python-zipfile-monkeypatch-test-scope",
+      "query": "test_roundtrip_monkeypatched_decompressor 互換性",
+      "expected_ids": [
+        "python-zipfile-decompression-output-memory-boundary"
+      ]
+    },
+    {
+      "name": "python-zipfile-runtime-not-tested",
+      "query": "3.12.14 3.14.8のruntime試験は実行していない",
+      "expected_ids": [
+        "python-zipfile-decompression-output-memory-boundary"
+      ]
     }
   ]
 }

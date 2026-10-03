@@ -1,0 +1,12 @@
+{
+  "id": "nats-server-2150-evacuate-matrix-20261003",
+  "url": "https://github.com/nats-io/nats-server/blob/eb763679aa3c24a40dcd3012aa046ad1996d851c/server/jetstream_cluster_1_test.go",
+  "repository_url": "https://github.com/nats-io/nats-server",
+  "commit_sha": "eb763679aa3c24a40dcd3012aa046ad1996d851c",
+  "version": "NATS Server v2.15.0 upstream test source",
+  "retrieved_at": "2026-10-03",
+  "license": "Apache-2.0",
+  "trust": "maintainer",
+  "type": "github_repository_analysis",
+  "purpose": "TestJetStreamClusterPeerRemoveAndEvacuateMatrixおよびEvacuateExclusion系testを読み、R1のdata保持、spareなしR3、meta membership保持、後から追加したnodeでの補充の期待値を検証。テストはこの環境で実行していない。"
+}

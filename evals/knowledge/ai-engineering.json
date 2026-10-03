@@ -1615,6 +1615,104 @@
       "expected_ids": [
         "llm-claude-cache-diagnostics-comparison-usage-boundary"
       ]
+    },
+    {
+      "name": "rag-citations-two-index-namespaces",
+      "query": "document_index search_result_index 名前空間",
+      "expected_ids": [
+        "rag-citation-evidence-coordinate-evaluation"
+      ]
+    },
+    {
+      "name": "rag-citations-half-open-pages",
+      "query": "PDF [3,4) 第3ページ",
+      "expected_ids": [
+        "rag-citation-evidence-coordinate-evaluation"
+      ]
+    },
+    {
+      "name": "rag-citations-custom-block-range",
+      "query": "block列[A,B,C] [1,2)",
+      "expected_ids": [
+        "rag-citation-evidence-coordinate-evaluation"
+      ]
+    },
+    {
+      "name": "rag-citations-snapshot-not-current-url",
+      "query": "v1回答 v2本文",
+      "expected_ids": [
+        "rag-citation-evidence-coordinate-evaluation"
+      ]
+    },
+    {
+      "name": "rag-citations-transformed-offset",
+      "query": "Unicode正規化 対応表",
+      "expected_ids": [
+        "rag-citation-evidence-coordinate-evaluation"
+      ]
+    },
+    {
+      "name": "rag-citations-unknown-unicode-unit",
+      "query": "UTF-16 scalar 未確定",
+      "expected_ids": [
+        "rag-citation-evidence-coordinate-evaluation"
+      ]
+    },
+    {
+      "name": "rag-citations-pointer-not-support",
+      "query": "pointer 全体支持",
+      "expected_ids": [
+        "rag-citation-evidence-coordinate-evaluation"
+      ]
+    },
+    {
+      "name": "rag-citations-support-not-answer-coverage",
+      "query": "citation recall answer coverage 1/2",
+      "expected_ids": [
+        "rag-citation-evidence-coordinate-evaluation"
+      ]
+    },
+    {
+      "name": "rag-citations-stream-partial",
+      "query": "citations_delta partial 引用未着",
+      "expected_ids": [
+        "rag-citation-evidence-coordinate-evaluation"
+      ]
+    },
+    {
+      "name": "rag-citations-source-metadata",
+      "query": "title context 引用可能",
+      "expected_ids": [
+        "rag-citation-evidence-coordinate-evaluation"
+      ]
+    },
+    {
+      "name": "rag-citations-alce-partial-support",
+      "query": "ALCE NLI partial support",
+      "expected_ids": [
+        "rag-citation-evidence-coordinate-evaluation"
+      ]
+    },
+    {
+      "name": "rag-citations-json-format-conflict",
+      "query": "citations output_config.format 400",
+      "expected_ids": [
+        "rag-citation-evidence-coordinate-evaluation"
+      ]
+    },
+    {
+      "name": "rag-citations-context-not-original",
+      "query": "生成補足 直接引用",
+      "expected_ids": [
+        "rag-citation-evidence-coordinate-evaluation"
+      ]
+    },
+    {
+      "name": "rag-citations-empty-denominator",
+      "query": "分母が0 100%",
+      "expected_ids": [
+        "rag-citation-evidence-coordinate-evaluation"
+      ]
     }
   ]
 }

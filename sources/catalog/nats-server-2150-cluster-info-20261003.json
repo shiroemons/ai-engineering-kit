@@ -1,0 +1,12 @@
+{
+  "id": "nats-server-2150-cluster-info-20261003",
+  "url": "https://github.com/nats-io/nats-server/blob/eb763679aa3c24a40dcd3012aa046ad1996d851c/server/stream.go",
+  "repository_url": "https://github.com/nats-io/nats-server",
+  "commit_sha": "eb763679aa3c24a40dcd3012aa046ad1996d851c",
+  "version": "NATS Server v2.15.0 public response model",
+  "retrieved_at": "2026-10-03",
+  "license": "Apache-2.0",
+  "trust": "maintainer",
+  "type": "github_repository_analysis",
+  "purpose": "ClusterInfo、DesiredClusterInfo、DesiredPeerInfo、DesiredClusterInfoStatusのJSON fieldを検証。desired.replicasにcurrent/lag/pendingがないことと7つのstatus typeを確認。同commit jetstream_cluster_3_test.goのMigrationStatusReportedInClusterInfoも読み、テスト実行とは区別。"
+}

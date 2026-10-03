@@ -1,0 +1,12 @@
+{
+  "id": "nats-adr62-desired-state-7dfdbb4f-20261003",
+  "url": "https://github.com/nats-io/nats-architecture-and-design/blob/7dfdbb4f17c848263499eb96ad4f6ccbe810ed14/adr/ADR-62.md",
+  "repository_url": "https://github.com/nats-io/nats-architecture-and-design",
+  "commit_sha": "7dfdbb4f17c848263499eb96ad4f6ccbe810ed14",
+  "version": "ADR-62 rev.1, dated 2026-08-26, Implemented/2.15; repository snapshot 2026-10-02",
+  "retrieved_at": "2026-10-03",
+  "license": "Apache-2.0",
+  "trust": "maintainer",
+  "type": "github_repository_analysis",
+  "purpose": "meta leaderとasset leaderの責務、desired origin、依存するconsumer移動、操作の重なりを確認。同commit LICENSEを確認。mainページをwebで開き、固定commitはGit checkoutで全文検証。設計例のdesired.replicasと2.15.0実装の型差を区別。"
+}

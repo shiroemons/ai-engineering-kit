@@ -1,0 +1,12 @@
+{
+  "id": "python-zipfile-release-3148-20261003",
+  "url": "https://www.python.org/downloads/release/python-3148/",
+  "repository_url": "",
+  "commit_sha": "",
+  "version": "Python 3.14.8; released 2026-09-30",
+  "retrieved_at": "2026-10-03",
+  "license": "unknown",
+  "trust": "official",
+  "type": "release_notes",
+  "purpose": "Native webで公開日とCVE-2026-15310 / gh-156002の修正収録を確認。https://www.python.org/about/legal/ のサイト権利表示を確認し帰属付き独自要約のみ。CVEサイトはJavaScript必須で詳細取得不可のためCVSSや全影響版の根拠にはしない。"
+}
