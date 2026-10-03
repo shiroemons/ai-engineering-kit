@@ -1,0 +1,12 @@
+{
+  "id": "etcd-372-mutex-owner-20261003",
+  "url": "https://github.com/etcd-io/etcd/blob/68c065e562994b89e333e77b039ad066f933c586/client/v3/concurrency/mutex.go",
+  "repository_url": "https://github.com/etcd-io/etcd",
+  "commit_sha": "68c065e562994b89e333e77b039ad066f933c586",
+  "version": "etcd v3.7.2 @ 68c065e562994b89e333e77b039ad066f933c586",
+  "retrieved_at": "2026-10-03",
+  "license": "Apache-2.0",
+  "trust": "maintainer",
+  "type": "github_repository_analysis",
+  "purpose": "固定mutex.goのtryAcquire、Lock、IsOwner、Key、Headerを読み、IsOwnerがcreate revision比較式を返すだけである点とsession共有の境界を確認する。同commitのtests/integration/clientv3/concurrency/mutex_test.goとLICENSE・各file headerも確認。実行検証やコード転載はしない。"
+}

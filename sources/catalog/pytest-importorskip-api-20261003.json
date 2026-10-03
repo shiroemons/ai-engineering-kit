@@ -1,0 +1,12 @@
+{
+  "id": "pytest-importorskip-api-20261003",
+  "url": "https://docs.pytest.org/en/stable/reference/reference.html#pytest-importorskip",
+  "repository_url": "https://github.com/pytest-dev/pytest",
+  "commit_sha": "",
+  "version": "pytest stable API; versionchanged 9.1; verified 2026-10-03",
+  "retrieved_at": "2026-10-03",
+  "license": "MIT (https://docs.pytest.org/en/stable/license.html and pinned pytest LICENSE verified; original summary, no copied implementation)",
+  "trust": "official",
+  "type": "official_docs",
+  "purpose": "exc_type、minversion、reasonと返却moduleの契約を確認する"
+}

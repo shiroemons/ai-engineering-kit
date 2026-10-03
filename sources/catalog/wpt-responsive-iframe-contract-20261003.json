@@ -1,0 +1,12 @@
+{
+  "id": "wpt-responsive-iframe-contract-20261003",
+  "url": "https://github.com/web-platform-tests/wpt/blob/2beef90fd2b8d267ebed384b0edc7f59f309f991/css/css-sizing/responsive-iframe/responsive-iframe-allow-origins.html",
+  "repository_url": "https://github.com/web-platform-tests/wpt",
+  "commit_sha": "2beef90fd2b8d267ebed384b0edc7f59f309f991",
+  "version": "WPT commit 2beef90fd2b8d267ebed384b0edc7f59f309f991 dated 2026-08-27; Require allow-origins prefix, PR 62229",
+  "retrieved_at": "2026-10-03",
+  "license": "BSD-3-Clause; LICENSE.md at exact commit verified via GitHub connector; inspected test files have no conflicting license header; tests not copied or executed",
+  "trust": "primary-source",
+  "type": "github_repository_analysis",
+  "purpose": "allow-origins tests と resources、request-resize と request-resize-error testsを固定commitで読む。prefix欠落・大小文字・same/cross origin、load後の明示更新、NotAllowedErrorの期待値を確認。ブラウザー合格結果ではない。"
+}

@@ -1,0 +1,12 @@
+{
+  "id": "chrome-responsive-iframe-article-20261003",
+  "url": "https://developer.chrome.com/blog/responsive-iframes",
+  "repository_url": "",
+  "commit_sha": "",
+  "version": "Sebastian Benz and Bramus; published and updated 2026-09-16; Chrome 154 guidance",
+  "retrieved_at": "2026-10-03",
+  "license": "CC-BY-4.0 for page content; Apache-2.0 for code samples, per page footer; original summary only",
+  "trust": "maintainer",
+  "type": "maintainer_article",
+  "purpose": "親の frame-sizing、子の allow-origins opt-in、動的更新時の requestResize、CSP frame-ancestors との分離、feature query とレイアウトシフトの注意を確認。"
+}

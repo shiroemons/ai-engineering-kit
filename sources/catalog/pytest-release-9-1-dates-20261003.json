@@ -1,0 +1,12 @@
+{
+  "id": "pytest-release-9-1-dates-20261003",
+  "url": "https://docs.pytest.org/en/stable/changelog.html#pytest-9-1-0-2026-06-13",
+  "repository_url": "https://github.com/pytest-dev/pytest",
+  "commit_sha": "",
+  "version": "pytest 9.1.0 (2026-06-13) and 9.1.1 (2026-06-19)",
+  "retrieved_at": "2026-10-03",
+  "license": "MIT (https://docs.pytest.org/en/stable/license.html and pinned pytest LICENSE verified; original summary, no copied implementation)",
+  "trust": "official",
+  "type": "release_notes",
+  "purpose": "調査対象版の公開日を確認し、新着リリースと既存変更の再調査を区別する"
+}

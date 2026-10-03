@@ -1,0 +1,12 @@
+{
+  "id": "etcd-372-release-20261003",
+  "url": "https://github.com/etcd-io/etcd/releases/tag/v3.7.2",
+  "repository_url": "https://github.com/etcd-io/etcd",
+  "commit_sha": "",
+  "version": "etcd v3.7.2, published 2026-09-22T21:22:39Z",
+  "retrieved_at": "2026-10-03",
+  "license": "unknown",
+  "trust": "official",
+  "type": "release_notes",
+  "purpose": "release実ページとGitHub APIの公開日時を確認。annotated tag cb9b1aa2b1237b59255d65773c34ab0cd9df3679をdereferenceしcommit 68c065e562994b89e333e77b039ad066f933c586へ固定した。fencingを当該版で新規導入したという根拠にはしない。"
+}
