@@ -1,0 +1,12 @@
+{
+  "id": "azure-search-vector-ranking-exact-20261003",
+  "url": "https://learn.microsoft.com/en-us/azure/search/vector-search-ranking",
+  "repository_url": "",
+  "commit_sha": "",
+  "version": "Vector relevance rolling guide; Last updated 2026-01-21",
+  "retrieved_at": "2026-10-03",
+  "license": "unknown",
+  "trust": "official",
+  "type": "official_docs",
+  "purpose": "HNSWの近似性とexhaustive KNNによるground truth、HNSW fieldでのexhaustive:trueを確認。一次ページを実際に開いて確認。ライセンス未確定のため独自要約のみでコード・図表の転載なし。"
+}

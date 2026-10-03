@@ -1,0 +1,12 @@
+{
+  "id": "azure-search-security-filter-pattern-20261003",
+  "url": "https://learn.microsoft.com/en-us/azure/search/search-security-trimming-for-azure-search",
+  "repository_url": "",
+  "commit_sha": "",
+  "version": "Security filter pattern rolling guide; Last updated 2026-08-24",
+  "retrieved_at": "2026-10-03",
+  "license": "unknown",
+  "trust": "official",
+  "type": "official_docs",
+  "purpose": "principal文字列のfilterはそれ自体で認証・認可しないという境界だけを確認。一次ページを実際に開いて確認。ライセンス未確定のため独自要約のみでコード・図表の転載なし。"
+}

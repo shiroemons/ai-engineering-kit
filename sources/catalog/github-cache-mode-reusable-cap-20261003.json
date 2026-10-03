@@ -1,0 +1,12 @@
+{
+  "id": "github-cache-mode-reusable-cap-20261003",
+  "url": "https://docs.github.com/en/actions/how-tos/reuse-automations/reuse-workflows",
+  "repository_url": "https://github.com/github/docs",
+  "commit_sha": "",
+  "version": "GitHub Docs github.com live reference, no page release/version/date label; Controlling cache access in reusable workflows verified 2026-10-03 UTC",
+  "retrieved_at": "2026-10-03",
+  "license": "CC-BY-4.0 documentation; github/docs LICENSE verified 2026-10-03 at https://raw.githubusercontent.com/github/docs/main/LICENSE; original summary, no code copied",
+  "trust": "official",
+  "type": "official_docs",
+  "purpose": "caller の明示 cache-mode のみが上限を作ること、implicit read では callee write 要求可、read と write-only が非包含、過大要求時の開始前 validation error を確認"
+}

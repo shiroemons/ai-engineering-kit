@@ -1223,6 +1223,90 @@
       "expected_ids": [
         "mcp-result-cache-authorization-mrtr-invalidation"
       ]
+    },
+    {
+      "name": "azure-filter-stage-shard-global",
+      "query": "postFilter strictPostFilter local global",
+      "expected_ids": [
+        "rag-azure-filtered-retrieval-candidate-starvation"
+      ]
+    },
+    {
+      "name": "azure-filter-count-not-exact",
+      "query": "件数充足 exact recall",
+      "expected_ids": [
+        "rag-azure-filtered-retrieval-candidate-starvation"
+      ]
+    },
+    {
+      "name": "azure-filter-preview-stable-drift",
+      "query": "strictPostFilter 2026-04-01 不一致",
+      "expected_ids": [
+        "rag-azure-filtered-retrieval-candidate-starvation"
+      ]
+    },
+    {
+      "name": "azure-filter-override-replacement",
+      "query": "filterOverride 置換 AND",
+      "expected_ids": [
+        "rag-azure-filtered-retrieval-candidate-starvation"
+      ]
+    },
+    {
+      "name": "azure-filter-override-inheritance",
+      "query": "override 省略 継承",
+      "expected_ids": [
+        "rag-azure-filtered-retrieval-candidate-starvation"
+      ]
+    },
+    {
+      "name": "azure-filter-principal-not-auth",
+      "query": "principal 文字列 認証",
+      "expected_ids": [
+        "rag-azure-filtered-retrieval-candidate-starvation"
+      ]
+    },
+    {
+      "name": "azure-filter-toy-empty-result",
+      "query": "a3 a4 b1 0件",
+      "expected_ids": [
+        "rag-azure-filtered-retrieval-candidate-starvation"
+      ]
+    },
+    {
+      "name": "azure-filter-recall-empty-denominator",
+      "query": "同一filter 分母0 N/A",
+      "expected_ids": [
+        "rag-azure-filtered-retrieval-candidate-starvation"
+      ]
+    },
+    {
+      "name": "azure-filter-recall-small-population",
+      "query": "適合3件 3/3 3/10",
+      "expected_ids": [
+        "rag-azure-filtered-retrieval-candidate-starvation"
+      ]
+    },
+    {
+      "name": "azure-filter-selectivity-stratification",
+      "query": "selected fraction 偏り",
+      "expected_ids": [
+        "rag-azure-filtered-retrieval-candidate-starvation"
+      ]
+    },
+    {
+      "name": "azure-filter-k-top-reranker-starvation",
+      "query": "k=50 50件 候補",
+      "expected_ids": [
+        "rag-azure-filtered-retrieval-candidate-starvation"
+      ]
+    },
+    {
+      "name": "azure-filter-old-index-mode",
+      "query": "2023-10-15 index再作成",
+      "expected_ids": [
+        "rag-azure-filtered-retrieval-candidate-starvation"
+      ]
     }
   ]
 }

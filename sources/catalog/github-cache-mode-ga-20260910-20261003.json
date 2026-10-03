@@ -1,0 +1,12 @@
+{
+  "id": "github-cache-mode-ga-20260910-20261003",
+  "url": "https://github.blog/changelog/2026-09-10-control-github-actions-cache-access-with-cache-mode/",
+  "repository_url": "",
+  "commit_sha": "",
+  "version": "GitHub Changelog, published 2026-09-10; cache-mode generally available on github.com, all plans",
+  "retrieved_at": "2026-10-03",
+  "license": "unknown; Copyright 2026 GitHub, Inc. on page; no open-content license identified; original attributed summary only, no code copied",
+  "trust": "official",
+  "type": "release_notes",
+  "purpose": "2026-09-10 GA の対象、cache service による enforcement、低信頼 trigger への明示 write/write-only と warning annotation を確認"
+}

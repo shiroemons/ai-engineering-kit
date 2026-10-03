@@ -1,0 +1,12 @@
+{
+  "id": "postgres-repack-beta4-command-20261003",
+  "url": "https://github.com/postgres/postgres/blob/b73d13c32c834a2c8e1c60cb92f79530376cedf1/doc/src/sgml/ref/repack.sgml",
+  "repository_url": "https://github.com/postgres/postgres",
+  "commit_sha": "b73d13c32c834a2c8e1c60cb92f79530376cedf1",
+  "version": "PostgreSQL 19beta4 bundled documentation; REL_19_BETA4 at b73d13c32c834a2c8e1c60cb92f79530376cedf1; announced 2026-09-24; runtime behavior not tested",
+  "retrieved_at": "2026-10-03",
+  "license": "PostgreSQL License",
+  "trust": "official",
+  "type": "github_repository_analysis",
+  "purpose": "19beta4同梱REPACK文書を確認。CONCURRENTLYのlock・追加容量・利用不可条件・invalid index拒否を分析。tagはgit ls-remoteで確認、commitのStamp 19beta4と2026-09-21T19:15:09ZをGitHubで照合。実装コード分析・server実行は未実施。 ライセンス根拠: https://github.com/postgres/postgres/blob/b73d13c32c834a2c8e1c60cb92f79530376cedf1/COPYRIGHT はsoftwareとdocumentationを対象とする。名称は https://www.postgresql.org/about/licence/ で確認。原文・実装コードを転載しない独自要約。"
+}
