@@ -1,9 +1,10 @@
 {
   "schema": 1,
-  "status": "active",
+  "status": "idle",
   "run_id": "20261003t1130-36be5023cb20",
   "branch": "research/gpt-20261003t1130-36be5023cb20",
   "base_sha": "12a420ae2a566c6d274030ac0fafeeb05005ae11",
   "started_at": 1791027261,
-  "expires_at": 1791034461
+  "expires_at": 1791034461,
+  "finished_at": 1791030213
 }
