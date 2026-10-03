@@ -1,0 +1,12 @@
+{
+  "id": "ruby-socket-tests-592f1ffd-20261003",
+  "url": "https://github.com/ruby/ruby/blob/592f1ffdb36153e8be83603ade3c2e9ab6138a77/test/socket/test_socket.rb",
+  "repository_url": "https://github.com/ruby/ruby",
+  "commit_sha": "592f1ffdb36153e8be83603ade3c2e9ab6138a77",
+  "version": "CRuby v3_4_11; test_connect_timeout_connection_refused and test_connect_timeout",
+  "retrieved_at": "2026-10-03",
+  "license": "Ruby License OR BSD-2-Clause; fixed-commit COPYING and LEGAL verified",
+  "trust": "official",
+  "type": "github_repository_analysis",
+  "purpose": "loopback待受けなしportにconnect_timeout:5でECONNREFUSEDを要求する回帰testとmswin/mingw除外、隣接testのLinux限定ETIMEDOUT条件を読解。wall-clock上限や全protocolをassertするtestではない。今回未実行"
+}

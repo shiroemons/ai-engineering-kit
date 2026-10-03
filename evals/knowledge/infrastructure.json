@@ -1297,6 +1297,76 @@
       "expected_ids": [
         "linux-systemd-restart-jitter-start-limit-clock"
       ]
+    },
+    {
+      "name": "github-actions-execution-create-update-omission",
+      "query": "workflow_path 省略 保持",
+      "expected_ids": [
+        "github-actions-execution-policy-workflow-path-boundary"
+      ]
+    },
+    {
+      "name": "github-actions-execution-empty-array-validation",
+      "query": "workflow_path 空配列 server-side",
+      "expected_ids": [
+        "github-actions-execution-policy-workflow-path-boundary"
+      ]
+    },
+    {
+      "name": "github-actions-execution-all-exclude",
+      "query": "~ALL exclude pattern",
+      "expected_ids": [
+        "github-actions-execution-policy-workflow-path-boundary"
+      ]
+    },
+    {
+      "name": "github-actions-execution-actor-event-intersection",
+      "query": "actor event 同時",
+      "expected_ids": [
+        "github-actions-execution-policy-workflow-path-boundary"
+      ]
+    },
+    {
+      "name": "github-actions-execution-inherited-policy-read",
+      "query": "has_parents 上位",
+      "expected_ids": [
+        "github-actions-execution-policy-workflow-path-boundary"
+      ]
+    },
+    {
+      "name": "github-actions-execution-default-rollout-cohort",
+      "query": "pull_request_target 2026-11-02 GA",
+      "expected_ids": [
+        "github-actions-execution-policy-workflow-path-boundary"
+      ]
+    },
+    {
+      "name": "github-actions-execution-evaluate-availability",
+      "query": "Evaluate Enterprise Cloud",
+      "expected_ids": [
+        "github-actions-execution-policy-workflow-path-boundary"
+      ]
+    },
+    {
+      "name": "github-actions-execution-bot-exemption-boundary",
+      "query": "dependabot[bot] 独自",
+      "expected_ids": [
+        "github-actions-execution-policy-workflow-path-boundary"
+      ]
+    },
+    {
+      "name": "github-actions-execution-administration-read",
+      "query": "Administration write 監査",
+      "expected_ids": [
+        "github-actions-execution-policy-workflow-path-boundary"
+      ]
+    },
+    {
+      "name": "github-actions-execution-approval-input-boundary",
+      "query": "起動許可 fork 信頼",
+      "expected_ids": [
+        "github-actions-execution-policy-workflow-path-boundary"
+      ]
     }
   ]
 }

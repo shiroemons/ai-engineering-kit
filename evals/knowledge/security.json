@@ -166,5 +166,75 @@
     {"name": "http-framing-h2-stream-error", "query": "PROTOCOL_ERROR stream error", "expected_ids": ["security-http-framing-downgrade-smuggling-boundary"]},
     {"name": "http-framing-buffer-before-forward", "query": "bounded buffering backend", "expected_ids": ["security-http-framing-downgrade-smuggling-boundary"]},
     {"name": "http-framing-pool-retire", "query": "streaming pool 副作用", "expected_ids": ["security-http-framing-downgrade-smuggling-boundary"]},
-    {"name": "http-framing-errata-rejected", "query": "7633 7870 Rejected", "expected_ids": ["security-http-framing-downgrade-smuggling-boundary"]}
+    {"name": "http-framing-errata-rejected", "query": "7633 7870 Rejected", "expected_ids": ["security-http-framing-downgrade-smuggling-boundary"]},
+    {
+      "name": "sri-policy-digest-boundary-1",
+      "query": "SRI Integrity-Policy 要求",
+      "expected_ids": [
+        "security-sri-policy-admission-digest-boundary"
+      ]
+    },
+    {
+      "name": "sri-policy-digest-boundary-2",
+      "query": "Report-Only digest 不一致",
+      "expected_ids": [
+        "security-sri-policy-admission-digest-boundary"
+      ]
+    },
+    {
+      "name": "sri-policy-digest-boundary-3",
+      "query": "SRI 最強 algorithm",
+      "expected_ids": [
+        "security-sri-policy-admission-digest-boundary"
+      ]
+    },
+    {
+      "name": "sri-policy-digest-boundary-4",
+      "query": "SRI 未知 algorithm",
+      "expected_ids": [
+        "security-sri-policy-admission-digest-boundary"
+      ]
+    },
+    {
+      "name": "sri-policy-digest-boundary-5",
+      "query": "SRI CORS 応答",
+      "expected_ids": [
+        "security-sri-policy-admission-digest-boundary"
+      ]
+    },
+    {
+      "name": "sri-policy-digest-boundary-6",
+      "query": "SRI 同一algorithm 候補",
+      "expected_ids": [
+        "security-sri-policy-admission-digest-boundary"
+      ]
+    },
+    {
+      "name": "sri-policy-digest-boundary-7",
+      "query": "SRI sources inline",
+      "expected_ids": [
+        "security-sri-policy-admission-digest-boundary"
+      ]
+    },
+    {
+      "name": "sri-policy-digest-boundary-8",
+      "query": "SRI rollback manifest",
+      "expected_ids": [
+        "security-sri-policy-admission-digest-boundary"
+      ]
+    },
+    {
+      "name": "sri-policy-digest-boundary-9",
+      "query": "SRI browser destination",
+      "expected_ids": [
+        "security-sri-policy-admission-digest-boundary"
+      ]
+    },
+    {
+      "name": "sri-policy-digest-boundary-10",
+      "query": "SRI metadata network error",
+      "expected_ids": [
+        "security-sri-policy-admission-digest-boundary"
+      ]
+    }
   ]}

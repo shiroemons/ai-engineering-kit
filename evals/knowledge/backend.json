@@ -1406,6 +1406,118 @@
       "expected_ids": [
         "go-os-root-filesystem-confinement-boundary"
       ]
+    },
+    {
+      "name": "ruby-socket-released-patch-versions",
+      "query": "3.4.11 4.0.7 22223",
+      "expected_ids": [
+        "ruby-socket-connect-success-timeout-boundary"
+      ]
+    },
+    {
+      "name": "ruby-socket-beta-report-scope",
+      "query": "26A5388g 全build",
+      "expected_ids": [
+        "ruby-socket-connect-success-timeout-boundary"
+      ]
+    },
+    {
+      "name": "ruby-socket-writable-not-success",
+      "query": "writable EISCONN ECONNREFUSED",
+      "expected_ids": [
+        "ruby-socket-connect-success-timeout-boundary"
+      ]
+    },
+    {
+      "name": "ruby-socket-soerror-before-retry",
+      "query": "SO_ERROR 再試行する前",
+      "expected_ids": [
+        "ruby-socket-connect-success-timeout-boundary"
+      ]
+    },
+    {
+      "name": "ruby-socket-soerror-zero-not-return",
+      "query": "SO_ERROR == 0 直ちにsocket",
+      "expected_ids": [
+        "ruby-socket-connect-success-timeout-boundary"
+      ]
+    },
+    {
+      "name": "ruby-socket-failed-connect-close",
+      "query": "接続過程 close 再raise",
+      "expected_ids": [
+        "ruby-socket-connect-success-timeout-boundary"
+      ]
+    },
+    {
+      "name": "ruby-socket-ip-literal-fast-fallback",
+      "query": "IP literal 経路は変わらない",
+      "expected_ids": [
+        "ruby-socket-connect-success-timeout-boundary"
+      ]
+    },
+    {
+      "name": "ruby-socket-he-last-candidate",
+      "query": "Happy Eyeballs 最後の接続候補",
+      "expected_ids": [
+        "ruby-socket-connect-success-timeout-boundary"
+      ]
+    },
+    {
+      "name": "ruby-socket-per-candidate-timeout",
+      "query": "各候補 個別timeout",
+      "expected_ids": [
+        "ruby-socket-connect-success-timeout-boundary"
+      ]
+    },
+    {
+      "name": "ruby-socket-last-error-not-all",
+      "query": "最後の記録した例外 全候補",
+      "expected_ids": [
+        "ruby-socket-connect-success-timeout-boundary"
+      ]
+    },
+    {
+      "name": "ruby-socket-manual-nonblock-loop",
+      "query": "独自loop 自動的",
+      "expected_ids": [
+        "ruby-socket-connect-success-timeout-boundary"
+      ]
+    },
+    {
+      "name": "ruby-socket-block-not-deadline",
+      "query": "block全体 実行制限",
+      "expected_ids": [
+        "ruby-socket-connect-success-timeout-boundary"
+      ]
+    },
+    {
+      "name": "ruby-socket-readiness-protocol",
+      "query": "TLS認証 HTTP readiness",
+      "expected_ids": [
+        "ruby-socket-connect-success-timeout-boundary"
+      ]
+    },
+    {
+      "name": "ruby-socket-regression-platform-scope",
+      "query": "test_connect_timeout_connection_refused mswin",
+      "expected_ids": [
+        "ruby-socket-connect-success-timeout-boundary"
+      ]
+    },
+    {
+      "name": "ruby-socket-regression-not-wallclock",
+      "query": "5秒以内 wall-clock assert",
+      "expected_ids": [
+        "ruby-socket-connect-success-timeout-boundary"
+      ]
+    },
+    {
+      "name": "ruby-socket-runtime-not-executed",
+      "query": "Ruby runtime 実行していない",
+      "expected_ids": [
+        "ruby-socket-connect-success-timeout-boundary"
+      ]
     }
   ]
 }

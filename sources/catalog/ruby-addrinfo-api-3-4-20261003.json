@@ -1,0 +1,12 @@
+{
+  "id": "ruby-addrinfo-api-3-4-20261003",
+  "url": "https://docs.ruby-lang.org/en/3.4/Addrinfo.html",
+  "repository_url": "https://github.com/ruby/ruby",
+  "commit_sha": "",
+  "version": "Ruby 3.4 RDoc; patch version and page publication date not displayed; retrieved 2026-10-03",
+  "retrieved_at": "2026-10-03",
+  "license": "unknown",
+  "trust": "official",
+  "type": "official_docs",
+  "purpose": "Addrinfo#connect、connect_from、connect_toのtimeout契約とconnect_internalへの委譲を確認。RDoc本文個別のライセンス範囲を確定できず独自要約のみ。固定版の挙動は別のsource recordで照合"
+}

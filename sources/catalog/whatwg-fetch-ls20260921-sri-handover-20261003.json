@@ -1,0 +1,12 @@
+{
+  "id": "whatwg-fetch-ls20260921-sri-handover-20261003",
+  "url": "https://fetch.spec.whatwg.org/",
+  "repository_url": "https://github.com/whatwg/fetch",
+  "commit_sha": "357bd98924d94b81fbe8608192a2ee1f123b82f4",
+  "version": "Fetch Living Standard, Last Updated 2026-09-21; main fetch and CORS check; snapshot 357bd98924d94b81fbe8608192a2ee1f123b82f4",
+  "retrieved_at": "2026-10-03",
+  "license": "CC-BY-4.0",
+  "trust": "official",
+  "type": "official_docs",
+  "purpose": "非空integrity metadataのbody検証とnetwork error、CORS応答許可の独立性を確認。現行Living Standardを根拠としcommit snapshotは取得内容を識別する補助。文末Intellectual property rightsで文書CC-BY-4.0、コード部分BSD-3-Clauseを確認。コード転載なし。"
+}

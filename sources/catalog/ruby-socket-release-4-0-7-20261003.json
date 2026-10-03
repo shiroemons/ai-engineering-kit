@@ -1,0 +1,12 @@
+{
+  "id": "ruby-socket-release-4-0-7-20261003",
+  "url": "https://github.com/ruby/ruby/releases/tag/v4.0.7",
+  "repository_url": "https://github.com/ruby/ruby",
+  "commit_sha": "",
+  "version": "Ruby 4.0.7; published 2026-09-15",
+  "retrieved_at": "2026-10-03",
+  "license": "unknown",
+  "trust": "official",
+  "type": "release_notes",
+  "purpose": "Bug #22223が4.0.7 releaseに掲載されることと公開日を確認。ニュース記事 https://www.ruby-lang.org/en/news/2026/09/15/ruby-4-0-7-released/ でも日付を照合。全旧版の影響範囲や最新性の主張には用いない"
+}

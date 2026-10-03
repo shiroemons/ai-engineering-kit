@@ -1,0 +1,12 @@
+{
+  "id": "github-actions-execution-ga-20260917-20261003",
+  "url": "https://github.blog/changelog/2026-09-17-workflow-execution-protections-in-github-actions-generally-available/",
+  "repository_url": "",
+  "commit_sha": "",
+  "version": "GitHub Changelog published 2026-09-17; workflow execution protections GA on github.com; default pull_request_target enforcement announced for a qualified cohort on 2026-11-02",
+  "retrieved_at": "2026-10-03",
+  "license": "unknown; Copyright 2026 GitHub, Inc. on page, no open-content license identified; attributed original summary only, no code copied",
+  "trust": "official",
+  "type": "release_notes",
+  "purpose": "2026-09-17 GA、workflow file targeting、Insights、REST API と将来の default policy enforcement 対象を確認"
+}

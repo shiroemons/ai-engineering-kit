@@ -1,0 +1,12 @@
+{
+  "id": "github-actions-execution-admin-20261003",
+  "url": "https://docs.github.com/en/actions/how-tos/administer/control-workflow-execution",
+  "repository_url": "https://github.com/github/docs",
+  "commit_sha": "",
+  "version": "GitHub Docs github.com live how-to, no page version/publication date; verified 2026-10-03 UTC; Evaluate creation described as GitHub Enterprise Cloud only",
+  "retrieved_at": "2026-10-03",
+  "license": "CC-BY-4.0 documentation; https://raw.githubusercontent.com/github/docs/main/LICENSE verified 2026-10-03; attributed original summary, no code copied",
+  "trust": "official",
+  "type": "official_docs",
+  "purpose": "公開範囲と plan、階層的制限、actor/event の組合せ、組込み処理と Dependabot identity の区別、policy insights を確認"
+}
