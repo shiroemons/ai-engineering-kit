@@ -1,0 +1,12 @@
+{
+  "id": "postgres-returning-old-fix-186-20261003",
+  "url": "https://www.postgresql.org/docs/18/release-18-6.html",
+  "repository_url": "",
+  "commit_sha": "",
+  "version": "PostgreSQL 18.6; released 2026-08-13; 18.5 was never released",
+  "retrieved_at": "2026-10-03",
+  "license": "PostgreSQL License",
+  "trust": "official",
+  "type": "release_notes",
+  "purpose": "READ COMMITTED・並行UPDATE・BEFORE UPDATE triggerの組合せでRETURNING OLDが古い値となる修正を確認。trigger自身と更新後の行は正しい値だった点を区別する。 ライセンス根拠 https://www.postgresql.org/about/licence/ はsoftwareとdocumentationを対象とする。原文・コードの転載なし、独自の日本語要約。"
+}

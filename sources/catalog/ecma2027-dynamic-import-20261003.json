@@ -1,0 +1,12 @@
+{
+  "id": "ecma2027-dynamic-import-20261003",
+  "url": "https://tc39.es/ecma262/multipage/ecmascript-language-expressions.html#sec-import-calls",
+  "repository_url": "https://github.com/tc39/ecma262",
+  "commit_sha": "",
+  "version": "Draft ECMA-262 / October 3, 2026, ECMAScript 2027; 13.3.10.2 EvaluateImportCall and 13.3.10.3 ContinueDynamicImport; not a published 2027 edition",
+  "license": "Ecma alternative copyright notice and copyright license (text); BSD-3-Clause (software); copyright-and-software-license.html verified 2026-10-03; original summary only",
+  "trust": "official",
+  "type": "official_docs",
+  "purpose": "呼出しごとのPromise作成、load/link/evaluateの段階、評価Promise完了後のnamespace解決とrejection伝播。",
+  "retrieved_at": "2026-10-03"
+}

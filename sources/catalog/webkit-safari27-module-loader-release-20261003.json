@@ -1,0 +1,12 @@
+{
+  "id": "webkit-safari27-module-loader-release-20261003",
+  "url": "https://webkit.org/blog/18325/webkit-features-for-safari-27-0/",
+  "repository_url": "",
+  "commit_sha": "",
+  "version": "Safari 27.0; WebKit release article published 2026-09-17; JavaScript and resolved-issues sections",
+  "license": "unknown",
+  "trust": "maintainer",
+  "type": "release_notes",
+  "purpose": "Safari 27.0にESM loader再実装とtop-level awaitの実行順・初期化修正が含まれる出荷根拠。記事本文のライセンスは特定できず、コードや文章を転載しない。",
+  "retrieved_at": "2026-10-03"
+}

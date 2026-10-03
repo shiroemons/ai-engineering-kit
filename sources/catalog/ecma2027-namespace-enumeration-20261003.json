@@ -1,0 +1,12 @@
+{
+  "id": "ecma2027-namespace-enumeration-20261003",
+  "url": "https://tc39.es/ecma262/multipage/abstract-operations.html#sec-enumerableownproperties",
+  "repository_url": "https://github.com/tc39/ecma262",
+  "commit_sha": "",
+  "version": "Draft ECMA-262 / October 3, 2026, ECMAScript 2027; 7.3.23 EnumerableOwnProperties; not a published 2027 edition",
+  "license": "Ecma alternative copyright notice and copyright license (text); BSD-3-Clause (software); copyright-and-software-license.html verified 2026-10-03; original summary only",
+  "trust": "official",
+  "type": "official_docs",
+  "purpose": "名前列挙でもenumerable判定のためGetOwnPropertyを呼ぶことを確認。",
+  "retrieved_at": "2026-10-03"
+}

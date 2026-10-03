@@ -949,6 +949,76 @@
       "expected_ids": [
         "postgres-gin-reltuples-post-upgrade-analyze-boundary"
       ]
+    },
+    {
+      "name": "postgres-returning-old-fix-version",
+      "query": "18.6 RETURNING OLD",
+      "expected_ids": [
+        "postgres-returning-old-concurrent-trigger-boundary"
+      ]
+    },
+    {
+      "name": "postgres-returning-old-concurrent-trigger",
+      "query": "READ COMMITTED BEFORE UPDATE 旧値",
+      "expected_ids": [
+        "postgres-returning-old-concurrent-trigger-boundary"
+      ]
+    },
+    {
+      "name": "postgres-returning-old-prior-select",
+      "query": "OLD 事前SELECT snapshot",
+      "expected_ids": [
+        "postgres-returning-old-concurrent-trigger-boundary"
+      ]
+    },
+    {
+      "name": "postgres-returning-old-delta-trace",
+      "query": "OLD=11 NEW=14 差分=3",
+      "expected_ids": [
+        "postgres-returning-old-concurrent-trigger-boundary"
+      ]
+    },
+    {
+      "name": "postgres-returning-old-trigger-normalization",
+      "query": "NEW 加工 正規化",
+      "expected_ids": [
+        "postgres-returning-old-concurrent-trigger-boundary"
+      ]
+    },
+    {
+      "name": "postgres-returning-old-zero-versus-unchanged",
+      "query": "UPDATE 0 同値更新",
+      "expected_ids": [
+        "postgres-returning-old-concurrent-trigger-boundary"
+      ]
+    },
+    {
+      "name": "postgres-returning-old-before-null",
+      "query": "row-level NULL 抑止",
+      "expected_ids": [
+        "postgres-returning-old-concurrent-trigger-boundary"
+      ]
+    },
+    {
+      "name": "postgres-returning-old-recheck-predicate",
+      "query": "WHERE再評価 version",
+      "expected_ids": [
+        "postgres-returning-old-concurrent-trigger-boundary"
+      ]
+    },
+    {
+      "name": "postgres-returning-old-rollback-after-result",
+      "query": "返却後のROLLBACK 確定監査",
+      "expected_ids": [
+        "postgres-returning-old-concurrent-trigger-boundary"
+      ]
+    },
+    {
+      "name": "postgres-returning-old-repeatable-read-test",
+      "query": "REPEATABLE READ 成功期待値",
+      "expected_ids": [
+        "postgres-returning-old-concurrent-trigger-boundary"
+      ]
     }
   ]
 }

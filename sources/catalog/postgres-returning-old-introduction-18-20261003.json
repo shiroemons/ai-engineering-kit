@@ -1,0 +1,12 @@
+{
+  "id": "postgres-returning-old-introduction-18-20261003",
+  "url": "https://www.postgresql.org/docs/18/release-18.html",
+  "repository_url": "",
+  "commit_sha": "",
+  "version": "PostgreSQL 18; released 2025-09-25",
+  "retrieved_at": "2026-10-03",
+  "license": "PostgreSQL License",
+  "trust": "official",
+  "type": "release_notes",
+  "purpose": "DML RETURNINGにOLD/NEWと別名が追加された導入版を確認。18.6で機能自体が新設されたとは扱わない。 ライセンス根拠 https://www.postgresql.org/about/licence/ はsoftwareとdocumentationを対象とする。原文・コードの転載なし、独自の日本語要約。"
+}

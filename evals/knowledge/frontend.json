@@ -1107,6 +1107,69 @@
       "expected_ids": [
         "react-activity-hidden-store-reconnect-boundary"
       ]
+    },
+    {
+      "name": "safari27-tla-release-vs-beta",
+      "query": "Safari 27.0 beta 出荷",
+      "expected_ids": [
+        "javascript-top-level-await-import-evaluation-boundary"
+      ]
+    },
+    {
+      "name": "tla-concurrent-import-initialization",
+      "query": "top-level await 並行 未初期化",
+      "expected_ids": [
+        "javascript-top-level-await-import-evaluation-boundary"
+      ]
+    },
+    {
+      "name": "tla-import-vs-evaluation-promise",
+      "query": "EvaluateImportCall TopLevelCapability Promise identity",
+      "expected_ids": [
+        "javascript-top-level-await-import-evaluation-boundary"
+      ]
+    },
+    {
+      "name": "tla-retry-evaluation-error",
+      "query": "import 評価エラー 再試行",
+      "expected_ids": [
+        "javascript-top-level-await-import-evaluation-boundary"
+      ]
+    },
+    {
+      "name": "tla-namespace-object-keys-binding",
+      "query": "Object.keys GetOwnProperty binding",
+      "expected_ids": [
+        "javascript-top-level-await-import-evaluation-boundary"
+      ]
+    },
+    {
+      "name": "tla-cycle-names-not-ready",
+      "query": "Object.getOwnPropertyNames TDZ",
+      "expected_ids": [
+        "javascript-top-level-await-import-evaluation-boundary"
+      ]
+    },
+    {
+      "name": "tla-independent-sibling",
+      "query": "top-level await sibling 直列化",
+      "expected_ids": [
+        "javascript-top-level-await-import-evaluation-boundary"
+      ]
+    },
+    {
+      "name": "tla-node-not-safari-runtime",
+      "query": "Node v24.19.0 Safari fixture",
+      "expected_ids": [
+        "javascript-top-level-await-import-evaluation-boundary"
+      ]
+    },
+    {
+      "name": "tla-production-build-boundary",
+      "query": "production build native ESM",
+      "expected_ids": [
+        "javascript-top-level-await-import-evaluation-boundary"
+      ]
     }
   ]
 }

@@ -1,0 +1,12 @@
+{
+  "id": "ecma2027-module-environment-20261003",
+  "url": "https://tc39.es/ecma262/multipage/executable-code-and-execution-contexts.html#sec-module-environment-records-getbindingvalue-n-s",
+  "repository_url": "https://github.com/tc39/ecma262",
+  "commit_sha": "",
+  "version": "Draft ECMA-262 / October 3, 2026, ECMAScript 2027; 9.1.1.5.1 Module Environment Records GetBindingValue; not a published 2027 edition",
+  "license": "Ecma alternative copyright notice and copyright license (text); BSD-3-Clause (software); copyright-and-software-license.html verified 2026-10-03; original summary only",
+  "trust": "official",
+  "type": "official_docs",
+  "purpose": "未初期化bindingのReferenceErrorは仕様上の動作であり、Safariのloader修正で循環依存のTDZがなくなるわけではないことを確認。",
+  "retrieved_at": "2026-10-03"
+}

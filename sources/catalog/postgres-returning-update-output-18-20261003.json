@@ -1,0 +1,12 @@
+{
+  "id": "postgres-returning-update-output-18-20261003",
+  "url": "https://www.postgresql.org/docs/18/sql-update.html",
+  "repository_url": "",
+  "commit_sha": "",
+  "version": "PostgreSQL 18 UPDATE reference; verified 2026-10-03 UTC; page publication date not stated",
+  "retrieved_at": "2026-10-03",
+  "license": "PostgreSQL License",
+  "trust": "official",
+  "type": "official_docs",
+  "purpose": "実際に更新された行のRETURNING、OLD/NEWの別名、同値更新を含むcount、BEFORE triggerで抑止された更新、UPDATE 0の扱いを確認。 ライセンス根拠 https://www.postgresql.org/about/licence/ はsoftwareとdocumentationを対象とする。原文・コードの転載なし、独自の日本語要約。"
+}
