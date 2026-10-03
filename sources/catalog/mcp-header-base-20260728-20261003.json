@@ -1,0 +1,12 @@
+{
+  "id": "mcp-header-base-20260728-20261003",
+  "url": "https://modelcontextprotocol.io/specification/2026-07-28/basic",
+  "repository_url": "https://github.com/modelcontextprotocol/modelcontextprotocol",
+  "commit_sha": "",
+  "version": "MCP specification 2026-07-28, Base Protocol; no separate page publication/update date displayed; verified 2026-10-03 UTC",
+  "retrieved_at": "2026-10-03",
+  "license": "Apache-2.0 for new specification contributions; MIT for unrelicensed historical contributions; CC-BY-4.0 only for non-specification documentation (LICENSE at 3098fe94caa1b9e0afaaa6d30e040b61d5802471); original summaries only, no source code copied",
+  "trust": "official",
+  "type": "official_docs",
+  "purpose": "body必須_metaの欠落400/-32602、client capability欠落400/-32021、HeaderMismatch -32020、self-reported identityをセキュリティ判断に使わない責務を確認。複合エラー時の優先順は未確認。"
+}

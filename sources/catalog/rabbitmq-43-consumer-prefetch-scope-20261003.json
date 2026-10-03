@@ -1,0 +1,12 @@
+{
+  "id": "rabbitmq-43-consumer-prefetch-scope-20261003",
+  "url": "https://www.rabbitmq.com/docs/consumer-prefetch",
+  "repository_url": "",
+  "commit_sha": "",
+  "version": "RabbitMQ Documentation 4.3 live page, AMQP 0-9-1 Consumer Prefetch; page publication date not displayed",
+  "retrieved_at": "2026-10-03",
+  "license": "unknown",
+  "trust": "official",
+  "type": "official_docs",
+  "purpose": "prefetchがunacknowledged配送数を制限し、RabbitMQでは各consumerへ個別適用される点を確認。global制約の一般例をquorumへ適用しない。独自要約のみ。"
+}

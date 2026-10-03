@@ -1,0 +1,12 @@
+{
+  "id": "react-192-activity-introduction-20261003",
+  "url": "https://react.dev/blog/2025/10/01/react-19-2",
+  "repository_url": "https://github.com/reactjs/react.dev",
+  "commit_sha": "",
+  "version": "React 19.2 release post, published 2025-10-01 by The React Team; retrieved 2026-10-03 UTC",
+  "retrieved_at": "2026-10-03",
+  "license": "CC-BY-4.0; reactjs/react.dev README.md and LICENSE-DOCS.md verified 2026-10-03; original summary, no copied code",
+  "trust": "official",
+  "type": "release_notes",
+  "purpose": "Activity自体の導入を19.2に帰属させ、hidden/visibleの優先度・Effect契約を19.3の不具合修正と分離する。19.2系全patchへの修正backport有無の根拠にはしない。"
+}

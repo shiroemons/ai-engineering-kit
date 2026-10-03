@@ -1,0 +1,12 @@
+{
+  "id": "rabbitmq-43-priority-dispatch-20261003",
+  "url": "https://www.rabbitmq.com/docs/priority",
+  "repository_url": "",
+  "commit_sha": "",
+  "version": "RabbitMQ Documentation 4.3 live page, verified 2026-10-03 UTC; not patch-pinned",
+  "retrieved_at": "2026-10-03",
+  "license": "unknown",
+  "trust": "official",
+  "type": "official_docs",
+  "purpose": "priorityの0–31範囲、未指定4、quorumでx-max-priority無効、strict schedulingによるstarvationとprefetchの適用境界を確認。ページ公開日なし。独自要約のみ。"
+}

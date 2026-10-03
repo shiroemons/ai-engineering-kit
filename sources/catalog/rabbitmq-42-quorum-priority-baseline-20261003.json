@@ -1,0 +1,12 @@
+{
+  "id": "rabbitmq-42-quorum-priority-baseline-20261003",
+  "url": "https://www.rabbitmq.com/docs/4.2/quorum-queues",
+  "repository_url": "",
+  "commit_sha": "",
+  "version": "RabbitMQ Documentation 4.2, Quorum Queues / Priorities; page publication date not displayed",
+  "retrieved_at": "2026-10-03",
+  "license": "unknown",
+  "trust": "official",
+  "type": "official_docs",
+  "purpose": "旧版のnormal/high分類、2:1のfair share、先着highの例外を確認。4.3移行前の保証を固定版ドキュメントと比較する。独自要約のみ。"
+}
