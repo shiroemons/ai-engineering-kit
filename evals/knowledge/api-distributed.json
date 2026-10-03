@@ -897,6 +897,41 @@
       "expected_ids": [
         "distributed-systems-etcd-lease-fencing-resource-boundary"
       ]
+    },
+    {
+      "name": "http-cache-precedence-must-ignore",
+      "query": "If-None-Match MUST ignore",
+      "expected_ids": [
+        "http-caching-cache-control-conditional"
+      ]
+    },
+    {
+      "name": "http-cache-request-response-directive",
+      "query": "リクエスト no-cache advisory",
+      "expected_ids": [
+        "http-caching-cache-control-conditional"
+      ]
+    },
+    {
+      "name": "http-cache-last-modified-scope",
+      "query": "Last-Modified subrange 単一保存応答",
+      "expected_ids": [
+        "http-caching-cache-control-conditional"
+      ]
+    },
+    {
+      "name": "http-cache-304-strong-target-selection",
+      "query": "304 strong 更新対象",
+      "expected_ids": [
+        "http-caching-cache-control-conditional"
+      ]
+    },
+    {
+      "name": "http-cache-client-tag-200-response",
+      "query": "304 クライアント 200",
+      "expected_ids": [
+        "http-caching-cache-control-conditional"
+      ]
     }
   ]
 }

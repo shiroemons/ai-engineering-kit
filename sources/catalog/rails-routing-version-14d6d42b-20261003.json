@@ -1,0 +1,12 @@
+{
+  "id": "rails-routing-version-14d6d42b-20261003",
+  "url": "https://github.com/rails/rails/blob/14d6d42b21be8527dda803ad3e8c790471c2521e/RAILS_VERSION",
+  "repository_url": "https://github.com/rails/rails",
+  "commit_sha": "14d6d42b21be8527dda803ad3e8c790471c2521e",
+  "version": "8.2.0.alpha at 14d6d42b21be8527dda803ad3e8c790471c2521e",
+  "retrieved_at": "2026-10-03",
+  "license": "MIT (root MIT-LICENSE at 14d6d42b21be8527dda803ad3e8c790471c2521e)",
+  "trust": "official",
+  "type": "github_repository_analysis",
+  "purpose": "GitHub connectorで固定commitのRAILS_VERSION本文8.2.0.alphaを確認。将来の正式release名・公開日をこのdevelopment versionから推定しない。"
+}

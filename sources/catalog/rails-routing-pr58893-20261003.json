@@ -1,0 +1,12 @@
+{
+  "id": "rails-routing-pr58893-20261003",
+  "url": "https://github.com/rails/rails/pull/58893",
+  "repository_url": "https://github.com/rails/rails",
+  "commit_sha": "",
+  "version": "PR #58893; merged 2026-09-30",
+  "retrieved_at": "2026-10-03",
+  "license": "unknown",
+  "trust": "maintainer",
+  "type": "maintainer_article",
+  "purpose": "WebでPR本文・merge表示・日付を開いた。controller/action動的segment、controller classのaction、Regexpの境界を確認。GitHub connectorでmerge commitを14d6d42b21be8527dda803ad3e8c790471c2521e、作成時刻2026-09-30T17:47:30Zとして照合。コメントはコードのライセンスと同一視せず独自要約のみ。"
+}

@@ -1,0 +1,12 @@
+{
+  "id": "postgres-gin-reltuples-catalog-18-20261003",
+  "url": "https://www.postgresql.org/docs/18/catalog-pg-class.html",
+  "repository_url": "",
+  "commit_sha": "",
+  "version": "PostgreSQL 18 major-version manual observed 2026-10-03",
+  "retrieved_at": "2026-10-03",
+  "license": "PostgreSQL License",
+  "trust": "official",
+  "type": "official_docs",
+  "purpose": "pg_class.reltuplesのestimate、更新契機、-1の未計測状態を確認。個別公開・更新日表示なし。 ライセンス根拠 https://www.postgresql.org/about/licence/ はsoftwareとdocumentationを対象とする。本文は独自要約でコード転載なし。"
+}

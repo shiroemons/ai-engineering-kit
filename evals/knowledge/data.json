@@ -914,6 +914,41 @@
       "expected_ids": [
         "postgres-repack-concurrent-lock-snapshot-boundary"
       ]
+    },
+    {
+      "name": "postgres-gin-upgrade-repair-distinction",
+      "query": "GIN reltuples バイナリ 更新",
+      "expected_ids": [
+        "postgres-gin-reltuples-post-upgrade-analyze-boundary"
+      ]
+    },
+    {
+      "name": "postgres-gin-statistics-nan-infinity",
+      "query": "reltuples NaN Infinity",
+      "expected_ids": [
+        "postgres-gin-reltuples-post-upgrade-analyze-boundary"
+      ]
+    },
+    {
+      "name": "postgres-gin-unknown-minus-one",
+      "query": "reltuples -1 行数不明",
+      "expected_ids": [
+        "postgres-gin-reltuples-post-upgrade-analyze-boundary"
+      ]
+    },
+    {
+      "name": "postgres-gin-wraparound-separate-path",
+      "query": "reltuples wraparound 閾値",
+      "expected_ids": [
+        "postgres-gin-reltuples-post-upgrade-analyze-boundary"
+      ]
+    },
+    {
+      "name": "postgres-gin-analyze-skip-verification",
+      "query": "ANALYZE SKIP_LOCKED 修復前後",
+      "expected_ids": [
+        "postgres-gin-reltuples-post-upgrade-analyze-boundary"
+      ]
     }
   ]
 }

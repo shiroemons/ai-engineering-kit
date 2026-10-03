@@ -1,0 +1,12 @@
+{
+  "id": "postgres-gin-reltuples-release-186-20261003",
+  "url": "https://www.postgresql.org/docs/18/release-18-6.html",
+  "repository_url": "",
+  "commit_sha": "",
+  "version": "PostgreSQL 18.6; released 2026-08-13; 18.5 was not released",
+  "retrieved_at": "2026-10-03",
+  "license": "PostgreSQL License",
+  "trust": "official",
+  "type": "release_notes",
+  "purpose": "parallel GIN buildによるreltuples異常、更新後のANALYZE必要性、18.Xのdump/restore不要を確認。公開日2026-08-13。 ライセンス根拠 https://www.postgresql.org/about/licence/ はsoftwareとdocumentationを対象とする。本文は独自要約でコード転載なし。"
+}
