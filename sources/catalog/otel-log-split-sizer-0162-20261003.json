@@ -1,0 +1,12 @@
+{
+  "id": "otel-log-split-sizer-0162-20261003",
+  "url": "https://github.com/open-telemetry/opentelemetry-collector/blob/62cdad2ea133239380b44d20d84eb26e114779b6/exporter/exporterhelper/internal/sizer/logs_sizer.go",
+  "repository_url": "https://github.com/open-telemetry/opentelemetry-collector",
+  "commit_sha": "62cdad2ea133239380b44d20d84eb26e114779b6",
+  "version": "Collector v0.162.0",
+  "retrieved_at": "2026-10-03",
+  "license": "Apache-2.0",
+  "trust": "official",
+  "type": "github_repository_analysis",
+  "purpose": "LogsBytesSizer uses plog.ProtoMarshaler; LogsCountSizer counts records. Distinguishes serialized protobuf size from body length and compressed wire size. SPDX header verified."
+}

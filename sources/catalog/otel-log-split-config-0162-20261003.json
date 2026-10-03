@@ -1,0 +1,12 @@
+{
+  "id": "otel-log-split-config-0162-20261003",
+  "url": "https://github.com/open-telemetry/opentelemetry-collector/blob/62cdad2ea133239380b44d20d84eb26e114779b6/exporter/exporterhelper/README.md",
+  "repository_url": "https://github.com/open-telemetry/opentelemetry-collector",
+  "commit_sha": "62cdad2ea133239380b44d20d84eb26e114779b6",
+  "version": "Collector v0.162.0",
+  "retrieved_at": "2026-10-03",
+  "license": "Apache-2.0",
+  "trust": "official",
+  "type": "github_repository_analysis",
+  "purpose": "Pinned exporter helper README: batching opt-in, batch max_size=0, items/bytes sizing and queue/batch separation. Native web opened v0.162.0 raw README; exact commit bytes retrieved separately and tag resolved to this commit."
+}

@@ -1096,6 +1096,90 @@
       "expected_ids": [
         "postgres-temporal-foreign-key-coverage-boundary"
       ]
+    },
+    {
+      "name": "sqlite-backup-finish-ok-not-done",
+      "query": "backup_finish 未完了 SQLITE_OK",
+      "expected_ids": [
+        "sqlite-backup-done-finish-publication-boundary"
+      ]
+    },
+    {
+      "name": "sqlite-backup-cancel-old-file",
+      "query": "425 previous_backup 取消し",
+      "expected_ids": [
+        "sqlite-backup-done-finish-publication-boundary"
+      ]
+    },
+    {
+      "name": "sqlite-backup-busy-finish-doc-observation",
+      "query": "BUSY alt1 一致しない",
+      "expected_ids": [
+        "sqlite-backup-done-finish-publication-boundary"
+      ]
+    },
+    {
+      "name": "sqlite-backup-readonly-page-size",
+      "query": "READONLY WAL page size",
+      "expected_ids": [
+        "sqlite-backup-done-finish-publication-boundary"
+      ]
+    },
+    {
+      "name": "sqlite-backup-progress-restart",
+      "query": "remaining 単調 再開始",
+      "expected_ids": [
+        "sqlite-backup-done-finish-publication-boundary"
+      ]
+    },
+    {
+      "name": "sqlite-backup-snapshot-not-job-start",
+      "query": "201行 cutoff 開始",
+      "expected_ids": [
+        "sqlite-backup-done-finish-publication-boundary"
+      ]
+    },
+    {
+      "name": "sqlite-backup-destination-pool",
+      "query": "destination pool health check",
+      "expected_ids": [
+        "sqlite-backup-done-finish-publication-boundary"
+      ]
+    },
+    {
+      "name": "sqlite-backup-vacuum-sync",
+      "query": "VACUUM INTO NORMAL FULL fsync",
+      "expected_ids": [
+        "sqlite-backup-done-finish-publication-boundary"
+      ]
+    },
+    {
+      "name": "sqlite-backup-vacuum-target",
+      "query": "非空 世代 出力先",
+      "expected_ids": [
+        "sqlite-backup-done-finish-publication-boundary"
+      ]
+    },
+    {
+      "name": "sqlite-backup-restore-integrity-fk",
+      "query": "integrity_check FOREIGN KEY ok",
+      "expected_ids": [
+        "sqlite-backup-done-finish-publication-boundary"
+      ]
+    },
+    {
+      "name": "sqlite-backup-live-restore-rename",
+      "query": "復元 unlink rename",
+      "expected_ids": [
+        "sqlite-backup-done-finish-publication-boundary"
+      ]
+    },
+    {
+      "name": "sqlite-backup-vacuum-introduction",
+      "query": "3.27.0 2019-02-07 逆適用",
+      "expected_ids": [
+        "sqlite-backup-done-finish-publication-boundary"
+      ]
     }
   ]
 }

@@ -1,0 +1,12 @@
+{
+  "id": "otel-log-split-tests-0162-20261003",
+  "url": "https://github.com/open-telemetry/opentelemetry-collector/blob/62cdad2ea133239380b44d20d84eb26e114779b6/exporter/exporterhelper/internal/queuebatch/logs_batch_test.go",
+  "repository_url": "https://github.com/open-telemetry/opentelemetry-collector",
+  "commit_sha": "62cdad2ea133239380b44d20d84eb26e114779b6",
+  "version": "Collector v0.162.0",
+  "retrieved_at": "2026-10-03",
+  "license": "Apache-2.0",
+  "trust": "official",
+  "type": "github_repository_analysis",
+  "purpose": "Read upstream assertions for oversized first/middle/last, all-oversized, multiple resources/scopes, recordless resources, exact cached byte sizes and no-progress. Tests were inspected, not executed. SPDX header verified."
+}

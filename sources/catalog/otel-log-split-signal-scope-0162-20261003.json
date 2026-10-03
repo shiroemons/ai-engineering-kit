@@ -1,0 +1,12 @@
+{
+  "id": "otel-log-split-signal-scope-0162-20261003",
+  "url": "https://github.com/open-telemetry/opentelemetry-collector/tree/62cdad2ea133239380b44d20d84eb26e114779b6/exporter/exporterhelper/internal/queuebatch",
+  "repository_url": "https://github.com/open-telemetry/opentelemetry-collector",
+  "commit_sha": "62cdad2ea133239380b44d20d84eb26e114779b6",
+  "version": "Collector v0.162.0",
+  "retrieved_at": "2026-10-03",
+  "license": "Apache-2.0",
+  "trust": "official",
+  "type": "github_repository_analysis",
+  "purpose": "Compared exact metrics_batch.go and traces_batch.go split loops at this directory; both retain empty-extraction early return. Logs-only claim independently grounded in release notes. Both source headers and repository LICENSE verified."
+}

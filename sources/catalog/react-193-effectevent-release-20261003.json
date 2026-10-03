@@ -1,0 +1,12 @@
+{
+  "repository_url": "https://github.com/reactjs/react.dev",
+  "commit_sha": "",
+  "retrieved_at": "2026-10-03",
+  "license": "CC-BY-4.0; reactjs/react.dev README.md and LICENSE-DOCS.md verified 2026-10-03; original summary, no copied code",
+  "trust": "official",
+  "id": "react-193-effectevent-release-20261003",
+  "url": "https://react.dev/blog/2026/09/09/react-19-3",
+  "version": "React 19.3 release post, published 2026-09-09 by The React Team; retrieved 2026-10-03 UTC",
+  "type": "release_notes",
+  "purpose": "forwardRefおよびmemo componentでuseEffectEventが最新値を読む修正#34831が19.3に含まれることを確認。PRのmain merge日をstable導入日と同一視しない。"
+}

@@ -1,0 +1,12 @@
+{
+  "id": "sqlite-backup-c-api-20261003",
+  "url": "https://www.sqlite.org/c3ref/backup_finish.html",
+  "repository_url": "",
+  "commit_sha": "",
+  "version": "SQLite unversioned Online Backup API reference retrieved 2026-10-03; page publication/update date not displayed",
+  "retrieved_at": "2026-10-03",
+  "license": "Public domain (SQLite deliverable code and documentation; https://www.sqlite.org/copyright.html)",
+  "trust": "official",
+  "type": "official_docs",
+  "purpose": "step/finishの完了判定、destination接続の専有、page size、再試行と進捗の文書契約"
+}

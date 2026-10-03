@@ -1,0 +1,12 @@
+{
+  "repository_url": "https://github.com/reactjs/react.dev",
+  "commit_sha": "",
+  "retrieved_at": "2026-10-03",
+  "license": "CC-BY-4.0; reactjs/react.dev README.md and LICENSE-DOCS.md verified 2026-10-03; original summary, no copied code",
+  "trust": "official",
+  "id": "react-useeffectevent-reference-20261003",
+  "url": "https://react.dev/reference/react/useEffectEvent",
+  "version": "Live React major-19 reference, v19.3 site label; publication/update date not stated; retrieved 2026-10-03 UTC",
+  "type": "official_docs",
+  "purpose": "useEffectEventのlatest committed values、Effect内での呼出し、非stable identity、dependenciesに含めない制約、custom Hook内での宣言を確認。汎用UIイベントハンドラーや依存を隠す手段にはしない。"
+}

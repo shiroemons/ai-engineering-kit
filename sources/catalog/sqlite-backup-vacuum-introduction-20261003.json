@@ -1,0 +1,12 @@
+{
+  "id": "sqlite-backup-vacuum-introduction-20261003",
+  "url": "https://www.sqlite.org/releaselog/3_27_0.html",
+  "repository_url": "",
+  "commit_sha": "",
+  "version": "SQLite 3.27.0 released 2019-02-07; VACUUM INTO introduction",
+  "retrieved_at": "2026-10-03",
+  "license": "Public domain (SQLite deliverable code and documentation; https://www.sqlite.org/copyright.html)",
+  "trust": "official",
+  "type": "release_notes",
+  "purpose": "VACUUM INTOの導入版・公開日を確認し、現行文書の全詳細を導入版に逆適用しない"
+}

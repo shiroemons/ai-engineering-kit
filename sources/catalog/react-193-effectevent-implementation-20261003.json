@@ -1,0 +1,12 @@
+{
+  "id": "react-193-effectevent-implementation-20261003",
+  "url": "https://github.com/react/react/tree/1d34f91dfde6bba84d08b683aaba164c7194dacb",
+  "repository_url": "https://github.com/react/react",
+  "commit_sha": "1d34f91dfde6bba84d08b683aaba164c7194dacb",
+  "version": "React v19.3.0 tag resolved to 1d34f91dfde6bba84d08b683aaba164c7194dacb; release 2026-09-09; retrieved 2026-10-03 UTC",
+  "retrieved_at": "2026-10-03",
+  "license": "MIT; root LICENSE and headers of ReactFiberHooks.js, ReactFiberCommitWork.js, useEffectEvent-test.js verified at this exact commit; no code copied",
+  "trust": "primary-source",
+  "type": "github_repository_analysis",
+  "purpose": "ReactFiberHooksのupdate queueとwrapper生成、ReactFiberCommitWorkのFunctionComponent/ForwardRef/SimpleMemoComponentのcommit反映、useEffectEvent-testのidentity・登録維持・Context回帰を閲読。修正#34831（93d4458fdc054929e54fb25017d237ed85415533）と照合。upstream試験は未実行、内部flag依存の順序は公開保証にしない。"
+}
