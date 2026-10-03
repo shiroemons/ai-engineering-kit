@@ -1,0 +1,12 @@
+{
+  "id": "mcp-header-sep2243-history-20261003",
+  "url": "https://modelcontextprotocol.io/seps/2243-http-standardization",
+  "repository_url": "https://github.com/modelcontextprotocol/modelcontextprotocol",
+  "commit_sha": "",
+  "version": "SEP-2243 Final Standards Track; created 2026-02-04; historical accepted design, not current normative specification; verified 2026-10-03 UTC",
+  "retrieved_at": "2026-10-03",
+  "license": "Apache-2.0 for new specification contributions; MIT for unrelicensed historical contributions; CC-BY-4.0 only for non-specification documentation (LICENSE at 3098fe94caa1b9e0afaaa6d30e040b61d5802471); original summaries only, no source code copied",
+  "trust": "official",
+  "type": "official_docs",
+  "purpose": "旧notification例、任意深さのannotation、schema未取得時省略注記と現行版の差を記録。末尾のHeaderMismatch再割当注記を確認。規範は版付き2026-07-28仕様を優先。"
+}

@@ -1037,6 +1037,76 @@
       "expected_ids": [
         "css-responsive-iframe-opt-in-resize-boundary"
       ]
+    },
+    {
+      "name": "activity-hidden-subscription-cleanup",
+      "query": "Activity hidden 購読解除",
+      "expected_ids": [
+        "react-activity-hidden-store-reconnect-boundary"
+      ]
+    },
+    {
+      "name": "activity193-reconnect-effect-list",
+      "query": "Activity updateStoreInstance HookHasEffect",
+      "expected_ids": [
+        "react-activity-hidden-store-reconnect-boundary"
+      ]
+    },
+    {
+      "name": "activity193-reveal-layout-window",
+      "query": "Activity layout 再購読前",
+      "expected_ids": [
+        "react-activity-hidden-store-reconnect-boundary"
+      ]
+    },
+    {
+      "name": "activity193-props-only-memo-regression",
+      "query": "Activity props-only memo bailout",
+      "expected_ids": [
+        "react-activity-hidden-store-reconnect-boundary"
+      ]
+    },
+    {
+      "name": "activity-snapshot-not-event-replay",
+      "query": "Activity snapshot イベント履歴",
+      "expected_ids": [
+        "react-activity-hidden-store-reconnect-boundary"
+      ]
+    },
+    {
+      "name": "activity-hidden-effect-fetch-boundary",
+      "query": "Activity Effect fetch Suspense",
+      "expected_ids": [
+        "react-activity-hidden-store-reconnect-boundary"
+      ]
+    },
+    {
+      "name": "activity-dom-video-layout-cleanup",
+      "query": "Activity 動画 useLayoutEffect",
+      "expected_ids": [
+        "react-activity-hidden-store-reconnect-boundary"
+      ]
+    },
+    {
+      "name": "activity-shared-store-production-owner",
+      "query": "Activity データ生産 subscription",
+      "expected_ids": [
+        "react-activity-hidden-store-reconnect-boundary"
+      ]
+    },
+    {
+      "name": "activity193-native-shim-paint-limit",
+      "query": "Activity ReactNoop shim paint",
+      "expected_ids": [
+        "react-activity-hidden-store-reconnect-boundary"
+      ]
+    },
+    {
+      "name": "activity193-version-backport-boundary",
+      "query": "Activity 19.2 backport",
+      "expected_ids": [
+        "react-activity-hidden-store-reconnect-boundary"
+      ]
     }
   ]
 }

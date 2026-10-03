@@ -1,0 +1,12 @@
+{
+  "id": "mcp-header-changelog-20260728-20261003",
+  "url": "https://modelcontextprotocol.io/specification/2026-07-28/changelog",
+  "repository_url": "https://github.com/modelcontextprotocol/modelcontextprotocol",
+  "commit_sha": "",
+  "version": "MCP specification 2026-07-28 Key Changes; comparison baseline 2025-11-25; no separate page publication/update date displayed; verified 2026-10-03 UTC",
+  "retrieved_at": "2026-10-03",
+  "license": "Apache-2.0 for new specification contributions; MIT for unrelicensed historical contributions; CC-BY-4.0 only for non-specification documentation (LICENSE at 3098fe94caa1b9e0afaaa6d30e040b61d5802471); original summaries only, no source code copied",
+  "trust": "official",
+  "type": "official_docs",
+  "purpose": "Minor changes 4のheader標準化と12のHeaderMismatch -32001→-32020再割当を確認。改訂日を10月の新規導入や個別ページ更新日とみなさない。"
+}

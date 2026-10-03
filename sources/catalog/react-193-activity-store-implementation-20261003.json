@@ -1,0 +1,12 @@
+{
+  "id": "react-193-activity-store-implementation-20261003",
+  "url": "https://github.com/react/react/blob/1d34f91dfde6bba84d08b683aaba164c7194dacb/packages/react-reconciler/src/ReactFiberHooks.js",
+  "repository_url": "https://github.com/react/react",
+  "commit_sha": "1d34f91dfde6bba84d08b683aaba164c7194dacb",
+  "version": "React v19.3.0 tag resolved via GitHub API; commit 1d34f91dfde6bba84d08b683aaba164c7194dacb dated 2026-09-09; retrieved 2026-10-03 UTC",
+  "retrieved_at": "2026-10-03",
+  "license": "MIT; root LICENSE and headers in ReactFiberHooks.js and useSyncExternalStore-test.js verified at exact commit; original analysis only, no code or tests copied",
+  "trust": "primary-source",
+  "type": "github_repository_analysis",
+  "purpose": "updateSyncExternalStore/updateStoreInstanceのEffect list保持とHookHasEffect条件を固定版で確認。同commitのpackages/react-reconciler/src/__tests__/useSyncExternalStore-test.jsにあるlayout-effect revealとprops-only更新後のmemo bailoutの2回帰テストを読む。native hook用でありshim・browser paintの実測ではない。"
+}

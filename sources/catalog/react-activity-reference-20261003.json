@@ -1,0 +1,12 @@
+{
+  "id": "react-activity-reference-20261003",
+  "url": "https://react.dev/reference/react/Activity",
+  "repository_url": "https://github.com/reactjs/react.dev",
+  "commit_sha": "",
+  "version": "React 19.3 displayed; live major-19 reference retrieved 2026-10-03 UTC; publication/update date not displayed",
+  "retrieved_at": "2026-10-03",
+  "license": "CC-BY-4.0; reactjs/react.dev README.md and LICENSE-DOCS.md verified 2026-10-03; original summary, no copied code",
+  "trust": "official",
+  "type": "official_docs",
+  "purpose": "hidden中のstate/DOM保持、Effect cleanupと再作成、低優先度props更新、Suspense対応sourceだけのpre-render、動画のlayout cleanup、text-only境界を確認。非表示を全処理の凍結と混同しないための公開契約。"
+}

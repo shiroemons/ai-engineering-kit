@@ -1,0 +1,12 @@
+{
+  "id": "rabbitmq-43-strict-priority-release-20261003",
+  "url": "https://www.rabbitmq.com/blog/2026/04/23/rabbitmq-4.3-release",
+  "repository_url": "",
+  "commit_sha": "",
+  "version": "RabbitMQ 4.3 release highlights, published 2026-04-23",
+  "retrieved_at": "2026-10-03",
+  "license": "unknown",
+  "trust": "official",
+  "type": "release_notes",
+  "purpose": "4.0–4.2のrelativeな2:1から4.3の32段階strict priorityへの変更時点を確認。公開日を10月の取得日と混同しない。独自要約のみ、掲載コード・図の転載なし。"
+}

@@ -932,6 +932,18 @@
       "expected_ids": [
         "http-caching-cache-control-conditional"
       ]
-    }
+    },
+    {"name": "rabbitmq-priority-fairness-upgrade", "query": "4.2 2:1 starvation", "expected_ids": ["messaging-rabbitmq-strict-priority-prefetch-boundary"]},
+    {"name": "rabbitmq-priority-missing-default", "query": "未指定 1対4", "expected_ids": ["messaging-rabbitmq-strict-priority-prefetch-boundary"]},
+    {"name": "rabbitmq-priority-always-on", "query": "x-max-priority quorum 無視", "expected_ids": ["messaging-rabbitmq-strict-priority-prefetch-boundary"]},
+    {"name": "rabbitmq-priority-clamp-255", "query": "255 31 wire", "expected_ids": ["messaging-rabbitmq-strict-priority-prefetch-boundary"]},
+    {"name": "rabbitmq-priority-inflight-boundary", "query": "priority prefetch preemption", "expected_ids": ["messaging-rabbitmq-strict-priority-prefetch-boundary"]},
+    {"name": "rabbitmq-priority-return-order", "query": "returns queue 返却順", "expected_ids": ["messaging-rabbitmq-strict-priority-prefetch-boundary"]},
+    {"name": "rabbitmq-priority-return-not-property-removal", "query": "priority property 削除", "expected_ids": ["messaging-rabbitmq-strict-priority-prefetch-boundary"]},
+    {"name": "rabbitmq-priority-global-qos", "query": "quorum global QoS channel error", "expected_ids": ["messaging-rabbitmq-strict-priority-prefetch-boundary"]},
+    {"name": "rabbitmq-priority-consumer-selection", "query": "x-priority basic.consume routing", "expected_ids": ["messaging-rabbitmq-strict-priority-prefetch-boundary"]},
+    {"name": "rabbitmq-priority-capacity-reservation", "query": "通常 worker枠 DB pool", "expected_ids": ["messaging-rabbitmq-strict-priority-prefetch-boundary"]},
+    {"name": "rabbitmq-priority-delivery-not-completion", "query": "配送順 完了順", "expected_ids": ["messaging-rabbitmq-strict-priority-prefetch-boundary"]},
+    {"name": "rabbitmq-priority-old-fair-share-exception", "query": "normalの番 high 先", "expected_ids": ["messaging-rabbitmq-strict-priority-prefetch-boundary"]}
   ]
 }

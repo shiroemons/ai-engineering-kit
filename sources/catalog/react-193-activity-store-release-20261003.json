@@ -1,0 +1,12 @@
+{
+  "id": "react-193-activity-store-release-20261003",
+  "url": "https://react.dev/blog/2026/09/09/react-19-3",
+  "repository_url": "https://github.com/reactjs/react.dev",
+  "commit_sha": "",
+  "version": "React 19.3 release post, published 2026-09-09 by The React Team; retrieved 2026-10-03 UTC",
+  "retrieved_at": "2026-10-03",
+  "license": "CC-BY-4.0; reactjs/react.dev README.md and LICENSE-DOCS.md verified 2026-10-03; original summary, no copied code",
+  "trust": "official",
+  "type": "release_notes",
+  "purpose": "Notable bug fixesがhidden Activity中のstore mutation取り逃し修正#36947を19.3に含めることを明記。PR merge日だけから出荷版を推定せず、版と修正内容を結び付ける。"
+}

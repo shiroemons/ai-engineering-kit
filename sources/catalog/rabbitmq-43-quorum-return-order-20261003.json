@@ -1,0 +1,12 @@
+{
+  "id": "rabbitmq-43-quorum-return-order-20261003",
+  "url": "https://www.rabbitmq.com/docs/quorum-queues",
+  "repository_url": "",
+  "commit_sha": "",
+  "version": "RabbitMQ Documentation 4.3 live page, verified 2026-10-03 UTC; not patch-pinned",
+  "retrieved_at": "2026-10-03",
+  "license": "unknown",
+  "trust": "official",
+  "type": "official_docs",
+  "purpose": "returned messageのreturns queueへの返却順処理と、quorumでglobal QoSが非対応という例外を確認。priority propertyの削除や返却列と新着列のmerge順は断定しない。独自要約のみ。"
+}

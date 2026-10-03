@@ -1,0 +1,12 @@
+{
+  "id": "rabbitmq-43-consumer-priority-selector-20261003",
+  "url": "https://www.rabbitmq.com/docs/consumer-priority",
+  "repository_url": "",
+  "commit_sha": "",
+  "version": "RabbitMQ Documentation 4.3 live page, AMQP 0-9-1 Consumer Priorities; page publication date not displayed",
+  "retrieved_at": "2026-10-03",
+  "license": "unknown",
+  "trust": "official",
+  "type": "official_docs",
+  "purpose": "basic.consumeのx-priorityはconsumerの選択であり、messageのbasic.properties.priorityとは別の仕組みであることを確認。独自要約のみ。"
+}

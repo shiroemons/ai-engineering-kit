@@ -1307,6 +1307,118 @@
       "expected_ids": [
         "rag-azure-filtered-retrieval-candidate-starvation"
       ]
+    },
+    {
+      "name": "mcp-header-static-properties-only",
+      "query": "x-mcp-header properties-only annotation",
+      "expected_ids": [
+        "mcp-header-mirroring-routing-validation-boundary"
+      ]
+    },
+    {
+      "name": "mcp-header-schema-separate-conformance",
+      "query": "JSON Schema 抽出経路",
+      "expected_ids": [
+        "mcp-header-mirroring-routing-validation-boundary"
+      ]
+    },
+    {
+      "name": "mcp-header-invalid-tool-exclusion",
+      "query": "HTTP client tools/list 除外",
+      "expected_ids": [
+        "mcp-header-mirroring-routing-validation-boundary"
+      ]
+    },
+    {
+      "name": "mcp-header-name-applicable-only",
+      "query": "Mcp-Name tools/list 必須化しない",
+      "expected_ids": [
+        "mcp-header-mirroring-routing-validation-boundary"
+      ]
+    },
+    {
+      "name": "mcp-header-null-not-schema-valid",
+      "query": "null inputSchema 適合させる規則ではない",
+      "expected_ids": [
+        "mcp-header-mirroring-routing-validation-boundary"
+      ]
+    },
+    {
+      "name": "mcp-header-falsy-presence",
+      "query": "false 0 欠落",
+      "expected_ids": [
+        "mcp-header-mirroring-routing-validation-boundary"
+      ]
+    },
+    {
+      "name": "mcp-header-sentinel-ascii-encoding",
+      "query": "sentinel ASCII 符号化",
+      "expected_ids": [
+        "mcp-header-mirroring-routing-validation-boundary"
+      ]
+    },
+    {
+      "name": "mcp-header-integer-numeric-comparison",
+      "query": "42.0 42 数値",
+      "expected_ids": [
+        "mcp-header-mirroring-routing-validation-boundary"
+      ]
+    },
+    {
+      "name": "mcp-header-meta-distinct-error",
+      "query": "HeaderMismatch -32602 -32021",
+      "expected_ids": [
+        "mcp-header-mirroring-routing-validation-boundary"
+      ]
+    },
+    {
+      "name": "mcp-header-historical-notification",
+      "query": "notification POST 未定義",
+      "expected_ids": [
+        "mcp-header-mirroring-routing-validation-boundary"
+      ]
+    },
+    {
+      "name": "mcp-header-historical-error-renumber",
+      "query": "再割当 -32001 -32020",
+      "expected_ids": [
+        "mcp-header-mirroring-routing-validation-boundary"
+      ]
+    },
+    {
+      "name": "mcp-header-schema-reload-not-omit",
+      "query": "HeaderMismatch tools/list 訂正再送",
+      "expected_ids": [
+        "mcp-header-mirroring-routing-validation-boundary"
+      ]
+    },
+    {
+      "name": "mcp-header-consistency-not-authorization",
+      "query": "tenant 主体A 許可集合",
+      "expected_ids": [
+        "mcp-header-mirroring-routing-validation-boundary"
+      ]
+    },
+    {
+      "name": "mcp-header-gateway-jsonrpc-optional",
+      "query": "intermediary JSON-RPC 必須ではない",
+      "expected_ids": [
+        "mcp-header-mirroring-routing-validation-boundary"
+      ]
+    },
+    {
+      "name": "mcp-header-no-blind-legacy-fallback",
+      "query": "legacy fallback 配備方針",
+      "expected_ids": [
+        "mcp-header-mirroring-routing-validation-boundary"
+      ]
+    },
+    {
+      "name": "mcp-header-duplicate-product-boundary",
+      "query": "重複header 採用順 MCP契約",
+      "expected_ids": [
+        "mcp-header-mirroring-routing-validation-boundary"
+      ]
     }
   ]
 }

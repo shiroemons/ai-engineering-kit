@@ -1,0 +1,12 @@
+{
+  "id": "mcp-header-repository-3098fe9-20261003",
+  "url": "https://github.com/modelcontextprotocol/modelcontextprotocol/tree/3098fe94caa1b9e0afaaa6d30e040b61d5802471",
+  "repository_url": "https://github.com/modelcontextprotocol/modelcontextprotocol",
+  "commit_sha": "3098fe94caa1b9e0afaaa6d30e040b61d5802471",
+  "version": "modelcontextprotocol commit 3098fe94caa1b9e0afaaa6d30e040b61d5802471 (2026-10-01T12:55:32Z); 2026-07-28 spec prose, SEP-2243 and LICENSE",
+  "retrieved_at": "2026-10-03",
+  "license": "Apache-2.0 for new specification contributions; MIT for unrelicensed historical contributions; CC-BY-4.0 only for non-specification documentation (LICENSE at 3098fe94caa1b9e0afaaa6d30e040b61d5802471); original summaries only, no source code copied",
+  "trust": "official",
+  "type": "github_repository_analysis",
+  "purpose": "公式GitHub connectorで固定SHAのdocs/specification/2026-07-28/basic/transports/streamable-http.mdx、server/tools.mdx、basic/index.mdx、seps/2243-http-standardization.md、LICENSEを読み、native webで取得した公開仕様と対照。LICENSE移行は固定URLをnative webでも確認。SDKコード・runtimeは解析/実行していない。"
+}
