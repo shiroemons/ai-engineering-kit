@@ -1,0 +1,12 @@
+{
+  "id": "rfc9111-cache-revalidation-contract-20261003",
+  "url": "https://www.rfc-editor.org/rfc/rfc9111.html",
+  "repository_url": "",
+  "commit_sha": "",
+  "version": "RFC 9111 / STD 98; June 2022",
+  "retrieved_at": "2026-10-03",
+  "license": "IETF Trust Legal Provisions (BCP 78); Code Components: Revised BSD License",
+  "trust": "official",
+  "type": "official_docs",
+  "purpose": "既存HTTP caching文書全体の再検証。§2/3/4/4.1/4.2/4.3/4.4/5.2でcache key、freshness、requestとresponse no-cache、conditional requestの条件、304対象選択、無効化範囲を確認。 公開日2022年6月。本文のCopyright NoticeでBCP 78・IETF Trust Legal Provisionsを確認。原文やコードを転載しない独自要約。"
+}

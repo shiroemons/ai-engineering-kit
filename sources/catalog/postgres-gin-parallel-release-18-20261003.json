@@ -1,0 +1,12 @@
+{
+  "id": "postgres-gin-parallel-release-18-20261003",
+  "url": "https://www.postgresql.org/docs/18/release-18.html",
+  "repository_url": "",
+  "commit_sha": "",
+  "version": "PostgreSQL 18; released 2025-09-25",
+  "retrieved_at": "2026-10-03",
+  "license": "PostgreSQL License",
+  "trust": "official",
+  "type": "release_notes",
+  "purpose": "GIN indexのparallel buildがPostgreSQL 18で導入された版境界を確認。公開日2025-09-25。 ライセンス根拠 https://www.postgresql.org/about/licence/ はsoftwareとdocumentationを対象とする。本文は独自要約でコード転載なし。"
+}

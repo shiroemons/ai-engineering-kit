@@ -1,0 +1,12 @@
+{
+  "id": "rails-routing-merge-14d6d42b-20261003",
+  "url": "https://github.com/rails/rails/commit/14d6d42b21be8527dda803ad3e8c790471c2521e",
+  "repository_url": "https://github.com/rails/rails",
+  "commit_sha": "14d6d42b21be8527dda803ad3e8c790471c2521e",
+  "version": "Rails main / 8.2.0.alpha; merge 2026-09-30",
+  "retrieved_at": "2026-10-03",
+  "license": "MIT (root, actionpack and railties MIT-LICENSE at 14d6d42b21be8527dda803ad3e8c790471c2521e; David Heinemeier Hansson)",
+  "trust": "official",
+  "type": "github_repository_analysis",
+  "purpose": "GitHub connectorでmerge diff、Action Pack CHANGELOG、routing/mapper.rb、http/request.rb、routing/route_set.rb、Railties routes_reloader.rbを固定commitから読んだ。dispatch routing/request tests・controller routing tests・Railties application routing testsの差分も読解。root、actionpack、railtiesのMIT-LICENSEを取得して確認。実装・testを実行したとの主張はしない。ガイド本文の転載なし。raw WebのCHANGELOG取得はCache miss、connectorによる固定版読解を採用。"
+}

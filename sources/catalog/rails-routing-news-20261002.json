@@ -1,0 +1,12 @@
+{
+  "id": "rails-routing-news-20261002",
+  "url": "https://rubyonrails.org/2026/10/2/this-week-in-rails",
+  "repository_url": "https://github.com/rails/rails",
+  "commit_sha": "",
+  "version": "This Week in Rails 2026-10-02; main development changes",
+  "retrieved_at": "2026-10-03",
+  "license": "unknown",
+  "trust": "maintainer",
+  "type": "maintainer_article",
+  "purpose": "Webで本文を開き、2026-10-02の公開日とdynamic controller/action route removalの紹介、PR #58893へのリンクを確認。週報はstable releaseの採用証明としない。本文転載なし。"
+}

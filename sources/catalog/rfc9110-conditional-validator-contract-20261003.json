@@ -1,0 +1,12 @@
+{
+  "id": "rfc9110-conditional-validator-contract-20261003",
+  "url": "https://www.rfc-editor.org/rfc/rfc9110.html",
+  "repository_url": "",
+  "commit_sha": "",
+  "version": "RFC 9110 / STD 97; June 2022",
+  "retrieved_at": "2026-10-03",
+  "license": "IETF Trust Legal Provisions (BCP 78); Code Components: Revised BSD License",
+  "trust": "official",
+  "type": "official_docs",
+  "purpose": "既存HTTP caching文書全体の再検証。§8.8/13.1/13.2/15.4.5でvalidator比較、If-None-Match優先のMUST、If-Range条件、304 content/trailer禁止を確認。 公開日2022年6月。本文のCopyright NoticeでBCP 78・IETF Trust Legal Provisionsを確認。原文やコードを転載しない独自要約。"
+}

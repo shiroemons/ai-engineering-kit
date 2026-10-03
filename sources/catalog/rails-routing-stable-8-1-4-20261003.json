@@ -1,0 +1,12 @@
+{
+  "id": "rails-routing-stable-8-1-4-20261003",
+  "url": "https://github.com/rails/rails/blob/c3466ea00d7121798e3aa3144ffdf7174b81d8cb/actionpack/lib/action_dispatch/routing/route_set.rb",
+  "repository_url": "https://github.com/rails/rails",
+  "commit_sha": "c3466ea00d7121798e3aa3144ffdf7174b81d8cb",
+  "version": "Rails v8.1.4 (2026-09-24); c3466ea00d7121798e3aa3144ffdf7174b81d8cb",
+  "retrieved_at": "2026-10-03",
+  "license": "MIT (actionpack/MIT-LICENSE at c3466ea00d7121798e3aa3144ffdf7174b81d8cb; David Heinemeier Hansson)",
+  "trust": "official",
+  "type": "github_repository_analysis",
+  "purpose": "GitHub connectorでv8.1.4 tagと同じ固定commitのRouteSet#add_routeを読み、動的controller/actionを追加後にdeprecationを出すこと、その文言がRails 9.0への削除予告であることを確認。同commitのAction Pack MIT-LICENSEも取得。これはmainの8.2.0.alpha snapshotとの比較であり、8.1.4にremovalが入ったとの主張はしない。"
+}

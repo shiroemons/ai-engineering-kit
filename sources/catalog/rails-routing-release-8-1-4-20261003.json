@@ -1,0 +1,12 @@
+{
+  "id": "rails-routing-release-8-1-4-20261003",
+  "url": "https://github.com/rails/rails/releases/tag/v8.1.4",
+  "repository_url": "https://github.com/rails/rails",
+  "commit_sha": "",
+  "version": "Rails v8.1.4; published 2026-09-24",
+  "retrieved_at": "2026-10-03",
+  "license": "unknown",
+  "trust": "official",
+  "type": "release_notes",
+  "purpose": "Webでrelease本文・v8.1.4 tag・c3466eaへの参照と24 Sepの公開表示を確認。GitHub connectorで同tagのPreparing for 8.1.4 release commitをc3466ea00d7121798e3aa3144ffdf7174b81d8cb、作成日時2026-09-24T14:18:57Zと照合し、公式Rails releases検索結果の2026-09-24表示とも整合。本文転載なし。動的route removalの適用版は別途固定sourceで比較。"
+}

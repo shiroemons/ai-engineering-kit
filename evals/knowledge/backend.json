@@ -1210,6 +1210,90 @@
       "expected_ids": [
         "python-process-pool-recycling-start-method-boundary"
       ]
+    },
+    {
+      "name": "rails-routing-main-only-version",
+      "query": "8.2.0.alpha 8.1.4 Rails 9.0",
+      "expected_ids": [
+        "rails-dynamic-route-removal-dispatch-boundary"
+      ]
+    },
+    {
+      "name": "rails-routing-single-dynamic-segment",
+      "query": "両方そろっている ArgumentError",
+      "expected_ids": [
+        "rails-dynamic-route-removal-dispatch-boundary"
+      ]
+    },
+    {
+      "name": "rails-routing-rack-reserved-segment",
+      "query": "Rack endpoint operation",
+      "expected_ids": [
+        "rails-dynamic-route-removal-dispatch-boundary"
+      ]
+    },
+    {
+      "name": "rails-routing-controller-class-action",
+      "query": "ReportsController action 解決",
+      "expected_ids": [
+        "rails-dynamic-route-removal-dispatch-boundary"
+      ]
+    },
+    {
+      "name": "rails-routing-regexp-scope",
+      "query": "Regexp :id 正規表現",
+      "expected_ids": [
+        "rails-dynamic-route-removal-dispatch-boundary"
+      ]
+    },
+    {
+      "name": "rails-routing-load-defaults-no-fallback",
+      "query": "config.load_defaults 復活",
+      "expected_ids": [
+        "rails-dynamic-route-removal-dispatch-boundary"
+      ]
+    },
+    {
+      "name": "rails-routing-middleware-missing-controller",
+      "query": "path_parameters MissingController middleware",
+      "expected_ids": [
+        "rails-dynamic-route-removal-dispatch-boundary"
+      ]
+    },
+    {
+      "name": "rails-routing-nameerror-preserved",
+      "query": "NameError 再raise",
+      "expected_ids": [
+        "rails-dynamic-route-removal-dispatch-boundary"
+      ]
+    },
+    {
+      "name": "rails-routing-startup-warning-not-failure",
+      "query": "warning 自動的な起動失敗",
+      "expected_ids": [
+        "rails-dynamic-route-removal-dispatch-boundary"
+      ]
+    },
+    {
+      "name": "rails-routing-warning-checks-controller-not-action",
+      "query": "StaticDispatcher 全action",
+      "expected_ids": [
+        "rails-dynamic-route-removal-dispatch-boundary"
+      ]
+    },
+    {
+      "name": "rails-routing-url-contract-migration",
+      "query": "inbound url_for negative",
+      "expected_ids": [
+        "rails-dynamic-route-removal-dispatch-boundary"
+      ]
+    },
+    {
+      "name": "rails-routing-main-tests-not-run",
+      "query": "RequestControllerClass 実行したものではない",
+      "expected_ids": [
+        "rails-dynamic-route-removal-dispatch-boundary"
+      ]
     }
   ]
 }
