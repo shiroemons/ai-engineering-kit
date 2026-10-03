@@ -1170,6 +1170,15 @@
       "expected_ids": [
         "javascript-top-level-await-import-evaluation-boundary"
       ]
-    }
+    },
+    {"name": "ts-native-cli-api-separation", "query": "CLI programmatic API", "expected_ids": ["typescript-native-cli-compiler-api-migration-boundary"]},
+    {"name": "ts-native-tsc6-alias", "query": "tsc6 npm alias", "expected_ids": ["typescript-native-cli-compiler-api-migration-boundary"]},
+    {"name": "ts-native-peer-resolution", "query": "peer dependency workspace", "expected_ids": ["typescript-native-cli-compiler-api-migration-boundary"]},
+    {"name": "ts-native-editor-plugin-boundary", "query": "language server plugin", "expected_ids": ["typescript-native-cli-compiler-api-migration-boundary"]},
+    {"name": "ts-native-ordering-diagnostics", "query": "stableTypeOrdering 宣言", "expected_ids": ["typescript-native-cli-compiler-api-migration-boundary"]},
+    {"name": "ts-native-deprecation-not-migration", "query": "ignoreDeprecations 互換性", "expected_ids": ["typescript-native-cli-compiler-api-migration-boundary"]},
+    {"name": "ts-native-future-api-plan", "query": "7.1 2026-10-06 予定", "expected_ids": ["typescript-native-cli-compiler-api-migration-boundary"]},
+    {"name": "ts-native-toolchain-acceptance", "query": "smoke test lockfile", "expected_ids": ["typescript-native-cli-compiler-api-migration-boundary"]},
+    {"name": "ts-native-not-benchmarked", "query": "性能 機能同等性", "expected_ids": ["typescript-native-cli-compiler-api-migration-boundary"]}
   ]
 }

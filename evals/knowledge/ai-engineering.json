@@ -1517,6 +1517,104 @@
       "expected_ids": [
         "llm-claude-batch-outcome-reconciliation-retry-boundary"
       ]
+    },
+    {
+      "name": "claude-cache-diagnostics-ga-header-not-opt-in",
+      "query": "diagnostics header 保存",
+      "expected_ids": [
+        "llm-claude-cache-diagnostics-comparison-usage-boundary"
+      ]
+    },
+    {
+      "name": "claude-cache-diagnostics-null-not-cache-hit",
+      "query": "diagnostics null cache_hit=true",
+      "expected_ids": [
+        "llm-claude-cache-diagnostics-comparison-usage-boundary"
+      ]
+    },
+    {
+      "name": "claude-cache-diagnostics-pending-distinct-from-null",
+      "query": "cache_miss_reason 未確定 外側",
+      "expected_ids": [
+        "llm-claude-cache-diagnostics-comparison-usage-boundary"
+      ]
+    },
+    {
+      "name": "claude-cache-diagnostics-missing-fingerprint-not-divergence",
+      "query": "previous_message_not_found 欠測",
+      "expected_ids": [
+        "llm-claude-cache-diagnostics-comparison-usage-boundary"
+      ]
+    },
+    {
+      "name": "claude-cache-diagnostics-unavailable-no-business-retry",
+      "query": "unavailable 業務request 再実行しない",
+      "expected_ids": [
+        "llm-claude-cache-diagnostics-comparison-usage-boundary"
+      ]
+    },
+    {
+      "name": "claude-cache-diagnostics-response-id-not-session",
+      "query": "previous_message_id 会話ID stateless",
+      "expected_ids": [
+        "llm-claude-cache-diagnostics-comparison-usage-boundary"
+      ]
+    },
+    {
+      "name": "claude-cache-diagnostics-stream-start-not-text",
+      "query": "message_start text専用",
+      "expected_ids": [
+        "llm-claude-cache-diagnostics-comparison-usage-boundary"
+      ]
+    },
+    {
+      "name": "claude-cache-diagnostics-estimate-not-billing",
+      "query": "cache_missed_input_tokens 課金token数",
+      "expected_ids": [
+        "llm-claude-cache-diagnostics-comparison-usage-boundary"
+      ]
+    },
+    {
+      "name": "claude-cache-diagnostics-diagnostics-usage-separate",
+      "query": "比較できたか 実際にcache",
+      "expected_ids": [
+        "llm-claude-cache-diagnostics-comparison-usage-boundary"
+      ]
+    },
+    {
+      "name": "claude-cache-diagnostics-first-divergence-not-all",
+      "query": "最初の差分 全差分一覧",
+      "expected_ids": [
+        "llm-claude-cache-diagnostics-comparison-usage-boundary"
+      ]
+    },
+    {
+      "name": "claude-cache-diagnostics-same-workspace-api-only",
+      "query": "workspace Claude APIのみ",
+      "expected_ids": [
+        "llm-claude-cache-diagnostics-comparison-usage-boundary"
+      ]
+    },
+    {
+      "name": "claude-cache-diagnostics-branch-specific-previous",
+      "query": "全worker 直前response",
+      "expected_ids": [
+        "llm-claude-cache-diagnostics-comparison-usage-boundary"
+      ]
+    },
+    {
+      "name": "claude-cache-diagnostics-missing-null-log-compatibility",
+      "query": "field省略 過去ログ 未知reason",
+      "expected_ids": [
+        "llm-claude-cache-diagnostics-comparison-usage-boundary"
+      ]
+    },
+    {
+      "name": "claude-cache-diagnostics-null-miss-not-proven-expiry",
+      "query": "TTL切れを証明した 最小長",
+      "expected_ids": [
+        "llm-claude-cache-diagnostics-comparison-usage-boundary"
+      ]
     }
   ]
 }
