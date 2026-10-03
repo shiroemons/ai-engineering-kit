@@ -1,0 +1,12 @@
+{
+  "id": "alertmanager-inhibition-implementation-0-34-1-20261003",
+  "url": "https://github.com/prometheus/alertmanager/tree/73c6bfe7393929211294c1954f30d8ed78e4d0ad/inhibit",
+  "repository_url": "https://github.com/prometheus/alertmanager",
+  "commit_sha": "73c6bfe7393929211294c1954f30d8ed78e4d0ad",
+  "version": "Alertmanager v0.34.1 inhibit/cache.go and inhibit/inhibit.go at 73c6bfe7393929211294c1954f30d8ed78e4d0ad",
+  "retrieved_at": "2026-10-03",
+  "license": "Apache-2.0",
+  "trust": "primary-source",
+  "type": "github_repository_analysis",
+  "purpose": "固定 commit の cache.go と inhibit.go を静的に確認。equal-key ごとの FingerprintSet、単一 RWMutex による cache/index の更新、ResolvedAt を除外する探索、GC の個別削除、two-sided の候補除外、最初の有効 source で Mutes が返る境界を読む。native web で PR #5542/#5559 と tag raw inhibit.go も確認。cache.go の web 取得は Cache miss のため GitHub read connector で取得。LICENSE とファイル先頭 Apache-2.0 を確認。コード転載・実行なし。"
+}

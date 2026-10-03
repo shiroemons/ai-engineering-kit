@@ -1,0 +1,12 @@
+{
+  "id": "terraform-forget-cbd-tests-1163-20261003",
+  "url": "https://github.com/hashicorp/terraform/blob/42121cd5ca5e1ab1d37e286540ce11acf70e290a/internal/terraform/context_apply2_test.go",
+  "repository_url": "https://github.com/hashicorp/terraform",
+  "commit_sha": "42121cd5ca5e1ab1d37e286540ce11acf70e290a",
+  "version": "Terraform v1.16.3; TestContext2Apply_forget_createBeforeDestroy / InvalidResult / forget_replace",
+  "retrieved_at": "2026-10-03",
+  "license": "BUSL-1.1 (pinned root LICENSE verified; no code copied)",
+  "trust": "primary-source",
+  "type": "github_repository_analysis",
+  "purpose": "固定版の回帰テストをGitHub connectorで読んだ。explicit/propagated CBD、tainted object、provider RequiresReplace、create回数、destroy呼出し拒否、deposed state消去のassertionを確認。テストは実行していない。全providerや失敗途中の原子性保証ではない。"
+}

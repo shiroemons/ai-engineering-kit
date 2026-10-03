@@ -1,0 +1,12 @@
+{
+  "id": "terraform-forget-cbd-implementation-1163-20261003",
+  "url": "https://github.com/hashicorp/terraform/tree/42121cd5ca5e1ab1d37e286540ce11acf70e290a",
+  "repository_url": "https://github.com/hashicorp/terraform",
+  "commit_sha": "42121cd5ca5e1ab1d37e286540ce11acf70e290a",
+  "version": "Terraform v1.16.3; 42121cd5ca5e1ab1d37e286540ce11acf70e290a",
+  "retrieved_at": "2026-10-03",
+  "license": "BUSL-1.1 (pinned root LICENSE and action.go SPDX header verified; no code copied)",
+  "trust": "primary-source",
+  "type": "github_repository_analysis",
+  "purpose": "固定snapshotのinternal/plans/action.go、internal/command/jsonplan/plan.go、internal/command/jsonformat/plan.go、internal/terraform/node_resource_abstract_instance.go、transform_diff.go、node_resource_destroy_deposed.go、eval_context_builtin.goをread-only GitHub connectorで確認。ForgetThenCreate/CreateThenForget、deposed key整合、prevent_destroy判定、replace_triggered_by対象、JSON action配列と集計を独自要約。LICENSEも同SHAで取得しaction.goのSPDXと照合。native webで固定commit/ファイルを取得する試みはcache miss。コード転載・実行なし。"
+}
