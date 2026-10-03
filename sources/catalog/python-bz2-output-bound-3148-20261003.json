@@ -1,0 +1,12 @@
+{
+  "id": "python-bz2-output-bound-3148-20261003",
+  "url": "https://docs.python.org/3.14/library/bz2.html",
+  "repository_url": "https://github.com/python/cpython",
+  "commit_sha": "",
+  "version": "Python 3.14.8 documentation; page last updated 2026-10-02 17:26 UTC",
+  "retrieved_at": "2026-10-03",
+  "license": "PSF-2.0; documentation code additionally 0BSD; no copied code",
+  "trust": "official",
+  "type": "official_docs",
+  "purpose": "BZ2Decompressor.decompress(data,max_length)の戻り値上限、needs_input=False時の空入力drainとEOFErrorをnative webで確認。ライセンスはfooterとPython3.14ライセンス頁を確認。"
+}

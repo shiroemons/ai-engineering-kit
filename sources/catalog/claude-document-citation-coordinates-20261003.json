@@ -1,0 +1,12 @@
+{
+  "id": "claude-document-citation-coordinates-20261003",
+  "url": "https://platform.claude.com/docs/en/build-with-claude/citations",
+  "repository_url": "",
+  "commit_sha": "",
+  "version": "Claude Messages API Citations rolling guide; no page version or publication date; examples use claude-opus-5-5; verified 2026-10-03 UTC",
+  "retrieved_at": "2026-10-03",
+  "license": "unknown",
+  "trust": "official",
+  "type": "official_docs",
+  "purpose": "document citation types, request-wide document_index, half-open character/page/block ranges, granularity, citable source versus metadata, valid-pointer guarantee, citations_delta and structured-output incompatibility. No code or examples copied; no open license established on the retrieved page."
+}

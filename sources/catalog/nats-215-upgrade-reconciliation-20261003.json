@@ -1,0 +1,12 @@
+{
+  "id": "nats-215-upgrade-reconciliation-20261003",
+  "url": "https://docs.nats.io/release-notes/upgrade-to-2.15",
+  "repository_url": "https://github.com/nats-io/nats.docs.v2",
+  "commit_sha": "",
+  "version": "NATS 2.14.x to 2.15.x upgrade guide; live page retrieved 2026-10-03 UTC",
+  "retrieved_at": "2026-10-03",
+  "license": "unknown",
+  "trust": "official",
+  "type": "official_docs",
+  "purpose": "2.14.7以降を経由する推奨、mixed-version中のscale/move延期、downgrade後のdesired state保持とno-op更新の意味を確認。本文に公開日なし。文書ライセンス未確認のため独自要約のみ。"
+}

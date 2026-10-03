@@ -1,0 +1,12 @@
+{
+  "id": "python-zstd-output-bound-3148-20261003",
+  "url": "https://docs.python.org/3.14/library/compression.zstd.html",
+  "repository_url": "https://github.com/python/cpython",
+  "commit_sha": "",
+  "version": "Python 3.14.8 documentation; compression.zstd added in 3.14",
+  "retrieved_at": "2026-10-03",
+  "license": "PSF-2.0; documentation code additionally 0BSD; no copied code",
+  "trust": "official",
+  "type": "official_docs",
+  "purpose": "ZstdDecompressor.decompressのmax_length、needs_input、eofおよび空入力drainの契約をnative webで確認。CPython実行やcodec内部メモリ測定は行わず。ライセンスはPython3.14ライセンス頁を確認。"
+}

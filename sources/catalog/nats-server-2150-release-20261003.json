@@ -1,0 +1,12 @@
+{
+  "id": "nats-server-2150-release-20261003",
+  "url": "https://github.com/nats-io/nats-server/releases/tag/v2.15.0",
+  "repository_url": "https://github.com/nats-io/nats-server",
+  "commit_sha": "eb763679aa3c24a40dcd3012aa046ad1996d851c",
+  "version": "NATS Server v2.15.0; published 2026-09-17 UTC",
+  "retrieved_at": "2026-10-03",
+  "license": "unknown",
+  "trust": "official",
+  "type": "release_notes",
+  "purpose": "正式releaseの公開日、desired-state metalayer、evacuationとcancel API導入を確認。release本文の独立した再配布ライセンスは未確認。コード転載なし。"
+}

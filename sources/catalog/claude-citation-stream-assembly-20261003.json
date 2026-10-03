@@ -1,0 +1,12 @@
+{
+  "id": "claude-citation-stream-assembly-20261003",
+  "url": "https://platform.claude.com/docs/en/build-with-claude/streaming",
+  "repository_url": "",
+  "commit_sha": "",
+  "version": "Claude Messages API SSE rolling guide; message_start/content_block_*/message_delta/message_stop; no page version or publication date; verified 2026-10-03 UTC",
+  "retrieved_at": "2026-10-03",
+  "license": "unknown",
+  "trust": "official",
+  "type": "official_docs",
+  "purpose": "Content-block index corresponds to final Message.content; streams may carry error events and new event types. Used for a proposed citation-preserving renderer and incomplete-stream handling, not an SDK implementation claim. No code copied; open license unconfirmed."
+}

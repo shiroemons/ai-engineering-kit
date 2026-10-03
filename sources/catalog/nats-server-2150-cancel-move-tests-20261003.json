@@ -1,0 +1,12 @@
+{
+  "id": "nats-server-2150-cancel-move-tests-20261003",
+  "url": "https://github.com/nats-io/nats-server/blob/eb763679aa3c24a40dcd3012aa046ad1996d851c/server/jetstream_super_cluster_test.go",
+  "repository_url": "https://github.com/nats-io/nats-server",
+  "commit_sha": "eb763679aa3c24a40dcd3012aa046ad1996d851c",
+  "version": "NATS Server v2.15.0 upstream test source",
+  "retrieved_at": "2026-10-03",
+  "license": "Apache-2.0",
+  "trust": "maintainer",
+  "type": "github_repository_analysis",
+  "purpose": "StreamCancelMoveAPIおよびMoveCancelWithStalledCatchupを読む。進行していない操作のerror、originへの非同期復帰、移動先catch-up停止時の取消テスト条件を確認。テストはこの環境で実行していない。"
+}

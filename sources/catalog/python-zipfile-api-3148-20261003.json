@@ -1,0 +1,12 @@
+{
+  "id": "python-zipfile-api-3148-20261003",
+  "url": "https://docs.python.org/3.14/library/zipfile.html",
+  "repository_url": "https://github.com/python/cpython",
+  "commit_sha": "",
+  "version": "Python 3.14.8 documentation; page last updated 2026-10-03 15:47 UTC",
+  "retrieved_at": "2026-10-03",
+  "license": "PSF-2.0; documentation code additionally 0BSD; no copied code",
+  "trust": "official",
+  "type": "official_docs",
+  "purpose": "Native webでZipFile.open/read、ZipInfoの圧縮方式・サイズ、Zstandard対応追加版とmethod ID、decompression pitfallsの資源不足・中断を確認。ライセンスはページfooterとhttps://docs.python.org/3.14/license.htmlを確認。"
+}

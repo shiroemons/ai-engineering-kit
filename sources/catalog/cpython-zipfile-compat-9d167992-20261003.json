@@ -1,0 +1,12 @@
+{
+  "id": "cpython-zipfile-compat-9d167992-20261003",
+  "url": "https://github.com/python/cpython/commit/9d167992b59cf5e23c66b9ed742b13f5925f7d70",
+  "repository_url": "https://github.com/python/cpython",
+  "commit_sha": "9d167992b59cf5e23c66b9ed742b13f5925f7d70",
+  "version": "CPython 3.14 gh-156002 / PR157557; commit 2026-09-16 13:52:44 UTC",
+  "retrieved_at": "2026-10-03",
+  "license": "PSF-2.0 for repository code; no copied code",
+  "trust": "official",
+  "type": "github_repository_analysis",
+  "purpose": "Native webで公式PRとcommitを開き、GitHub read-only connectorでdiff/dateを確認。needs_input属性不在の既定True、TypeError時の一引数fallback、monkeypatch roundtrip回帰テスト、旧codecがCVE-2026-15310の対象であり続けるNEWSを確認。"
+}

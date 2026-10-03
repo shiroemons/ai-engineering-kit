@@ -1,0 +1,12 @@
+{
+  "id": "claude-search-result-citation-mapping-20261003",
+  "url": "https://platform.claude.com/docs/en/build-with-claude/search-results",
+  "repository_url": "",
+  "commit_sha": "",
+  "version": "Claude Messages API search_result / search_result_location rolling guide; no page version or publication date; verified 2026-10-03 UTC",
+  "retrieved_at": "2026-10-03",
+  "license": "unknown",
+  "trust": "official",
+  "type": "official_docs",
+  "purpose": "search_result_index counts search_result blocks across messages and tool results; citations contain whole content blocks with exclusive end; source may be a stable internal identifier. No sample code copied; no open license established on the retrieved page."
+}
