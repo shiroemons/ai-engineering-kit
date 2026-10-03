@@ -1,0 +1,12 @@
+{
+  "id": "prometheus-staleness-release-3-15-20261003",
+  "url": "https://github.com/prometheus/prometheus/releases/tag/v3.15.0",
+  "repository_url": "https://github.com/prometheus/prometheus",
+  "commit_sha": "",
+  "version": "Prometheus v3.15.0; release title 2026-09-24, GitHub publication display 2026-09-25",
+  "retrieved_at": "2026-10-03",
+  "license": "unknown (release prose license not independently identified; original summary only)",
+  "trust": "official",
+  "type": "release_notes",
+  "purpose": "storage が新しい series reference を返したとき、公開中の系列へ誤って stale marker を付ける問題の修正 #19328 を確認"
+}

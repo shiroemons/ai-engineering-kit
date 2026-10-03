@@ -1,0 +1,12 @@
+{
+  "id": "rfc9113-framing-errata-20261003",
+  "url": "https://errata.rfc-editor.org/search/?rfc_number=9113&presentation=records",
+  "repository_url": "",
+  "commit_sha": "",
+  "retrieved_at": "2026-10-03",
+  "trust": "official",
+  "type": "official_docs",
+  "version": "RFC 9113 errata records checked 2026-10-03; 7013 Verified Editorial 2022-07-06; 9175 Reported 2026-09-13",
+  "license": "unknown",
+  "purpose": "Verifiedのframe名称訂正とReportedのOPTIONS path/query提案を区別し、未承認の提案を新規防御仕様としない"
+}

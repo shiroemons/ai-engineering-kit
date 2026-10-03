@@ -1,0 +1,12 @@
+{
+  "id": "prometheus-missing-query-basics-3-15-20261003",
+  "url": "https://prometheus.io/docs/prometheus/3.15/querying/basics/",
+  "repository_url": "https://github.com/prometheus/docs",
+  "commit_sha": "",
+  "version": "Prometheus 3.15 versioned documentation; retrieved 2026-10-03; not implementation-pinned",
+  "retrieved_at": "2026-10-03",
+  "license": "Apache-2.0 (site footer and https://github.com/prometheus/docs/blob/main/LICENSE checked 2026-10-03); original summary only",
+  "trust": "official",
+  "type": "official_docs",
+  "purpose": "staleness・lookback・明示 timestamp・range の境界・range query step を確認"
+}

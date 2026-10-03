@@ -1019,6 +1019,83 @@
       "expected_ids": [
         "postgres-returning-old-concurrent-trigger-boundary"
       ]
+    },
+    {
+      "name": "postgres-temporal-multirow-coverage",
+      "query": "PERIOD 複数 親行 全期間",
+      "expected_ids": [
+        "postgres-temporal-foreign-key-coverage-boundary"
+      ]
+    },
+    {
+      "name": "postgres-temporal-gap-not-envelope",
+      "query": "PERIOD min max 穴",
+      "expected_ids": [
+        "postgres-temporal-foreign-key-coverage-boundary"
+      ]
+    },
+    {
+      "name": "postgres-temporal-null-bypass",
+      "query": "PERIOD MATCH SIMPLE NOT NULL",
+      "expected_ids": [
+        "postgres-temporal-foreign-key-coverage-boundary"
+      ]
+    },
+    {
+      "name": "postgres-temporal-parent-key-deferral",
+      "query": "PERIOD DEFERRABLE 非遅延",
+      "expected_ids": [
+        "postgres-temporal-foreign-key-coverage-boundary"
+      ]
+    },
+    {
+      "name": "postgres-temporal-referential-action",
+      "query": "temporal CASCADE RESTRICT NO ACTION",
+      "expected_ids": [
+        "postgres-temporal-foreign-key-coverage-boundary"
+      ]
+    },
+    {
+      "name": "postgres-temporal-online-index-boundary",
+      "query": "WITHOUT OVERLAPS USING INDEX B-tree",
+      "expected_ids": [
+        "postgres-temporal-foreign-key-coverage-boundary"
+      ]
+    },
+    {
+      "name": "postgres-temporal-empty-unbounded",
+      "query": "WITHOUT OVERLAPS empty 無限",
+      "expected_ids": [
+        "postgres-temporal-foreign-key-coverage-boundary"
+      ]
+    },
+    {
+      "name": "postgres-temporal-date-upper-bound",
+      "query": "daterange 6月30日 7月1日",
+      "expected_ids": [
+        "postgres-temporal-foreign-key-coverage-boundary"
+      ]
+    },
+    {
+      "name": "postgres-temporal-exclusion-not-reference-key",
+      "query": "EXCLUDE 参照先 WITHOUT OVERLAPS",
+      "expected_ids": [
+        "postgres-temporal-foreign-key-coverage-boundary"
+      ]
+    },
+    {
+      "name": "postgres-temporal-multirange-gap",
+      "query": "PERIOD multirange 外包区間",
+      "expected_ids": [
+        "postgres-temporal-foreign-key-coverage-boundary"
+      ]
+    },
+    {
+      "name": "postgres-temporal-initial-version",
+      "query": "PERIOD 18 2025-09-25 導入",
+      "expected_ids": [
+        "postgres-temporal-foreign-key-coverage-boundary"
+      ]
     }
   ]
 }

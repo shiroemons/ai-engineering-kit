@@ -1,0 +1,12 @@
+{
+  "id": "rfc9110-content-length-forwarding-20261003",
+  "url": "https://www.rfc-editor.org/rfc/rfc9110.html",
+  "repository_url": "",
+  "commit_sha": "",
+  "retrieved_at": "2026-10-03",
+  "trust": "official",
+  "type": "official_docs",
+  "version": "RFC 9110 / STD 97, June 2022; section 8.6",
+  "license": "IETF Trust Legal Provisions / BCP 78 (RFC text); extracted Code Components subject to Revised BSD License per Copyright Notice; no code copied",
+  "purpose": "Content-Lengthのoctet単位、数値overflow防止、誤値の転送禁止と同一値リストの拒否/正規化の許容範囲を確認する"
+}

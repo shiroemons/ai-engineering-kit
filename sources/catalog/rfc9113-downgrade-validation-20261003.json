@@ -1,0 +1,12 @@
+{
+  "id": "rfc9113-downgrade-validation-20261003",
+  "url": "https://www.rfc-editor.org/rfc/rfc9113.html",
+  "repository_url": "",
+  "commit_sha": "",
+  "retrieved_at": "2026-10-03",
+  "trust": "official",
+  "type": "official_docs",
+  "version": "RFC 9113, Standards Track, June 2022; sections 8.1.1, 8.2 and 10.3",
+  "license": "IETF Trust Legal Provisions / BCP 78 (RFC text); extracted Code Components subject to Revised BSD License per Copyright Notice; no code copied",
+  "purpose": "HTTP/2 malformed message、Content-Length照合、field validation、HTTP version変換前の検証、stream errorと段階的処理の限界を確認する"
+}
