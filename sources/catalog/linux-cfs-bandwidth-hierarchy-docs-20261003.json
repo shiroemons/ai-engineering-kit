@@ -1,0 +1,12 @@
+{
+  "id": "linux-cfs-bandwidth-hierarchy-docs-20261003",
+  "url": "https://docs.kernel.org/scheduler/sched-bwc.html",
+  "repository_url": "https://github.com/torvalds/linux",
+  "commit_sha": "",
+  "version": "Unversioned live CFS Bandwidth Control documentation retrieved 2026-10-03; SCHED_NORMAL background, management filenames are cgroup v1",
+  "retrieved_at": "2026-10-03",
+  "license": "unknown",
+  "trust": "official",
+  "type": "official_docs",
+  "purpose": "Quota-period enforcement, ancestor quota exhaustion, and v1 throttled_time nanosecond unit. Used for scheduler background, not as the cgroup v2 file-format contract. No publication/update date displayed; separate page license not established; no code copied."
+}

@@ -1,0 +1,12 @@
+{
+  "id": "python-release-3148-recycling-20261003",
+  "url": "https://www.python.org/downloads/release/python-3148/",
+  "repository_url": "",
+  "commit_sha": "",
+  "version": "Python 3.14.8; released 2026-09-30",
+  "retrieved_at": "2026-10-03",
+  "license": "unknown",
+  "trust": "official",
+  "type": "release_notes",
+  "purpose": "採用snapshotの公開日2026-09-30をnative webで確認。https://github.com/python/cpython/releases/tag/v3.14.8 とread-only commit取得でタグを8e6e75d9102e39bed2a2b279203a396741180f12へ解決。サイトのhttps://www.python.org/about/legal/ を確認しunknown扱い、帰属付き要約のみ。"
+}

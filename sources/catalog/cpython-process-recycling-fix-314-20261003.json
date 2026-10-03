@@ -1,0 +1,12 @@
+{
+  "id": "cpython-process-recycling-fix-314-20261003",
+  "url": "https://github.com/python/cpython/commit/42f81fa7a6c523019907dfda733359e0e7602f62",
+  "repository_url": "https://github.com/python/cpython",
+  "commit_sha": "42f81fa7a6c523019907dfda733359e0e7602f62",
+  "version": "CPython 3.14 gh-115634 backport; PR152927 merged 2026-07-03; released in 3.14.7",
+  "retrieved_at": "2026-10-03",
+  "license": "PSF-2.0; LICENSE at the pinned commit verified; no copied code",
+  "trust": "official",
+  "type": "github_repository_analysis",
+  "purpose": "固定commitのdiffとLICENSEをread-only GitHub取得で確認し、https://github.com/python/cpython/pull/152927 をnative webで開いて2026-07-03のmergeを確認。idle semaphoreのstale tokenによるreplacement省略を修正、backlogを残す回帰テストを追加。全過去patch版の影響範囲は実測していない。"
+}

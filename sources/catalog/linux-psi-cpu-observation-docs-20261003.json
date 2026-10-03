@@ -1,0 +1,12 @@
+{
+  "id": "linux-psi-cpu-observation-docs-20261003",
+  "url": "https://docs.kernel.org/accounting/psi.html",
+  "repository_url": "https://github.com/torvalds/linux",
+  "commit_sha": "",
+  "version": "Unversioned live PSI documentation retrieved 2026-10-03; Pressure interface compared with source at e767a4ea70a3992c37ed604157d32f0dfbf9b1e3",
+  "retrieved_at": "2026-10-03",
+  "license": "unknown",
+  "trust": "official",
+  "type": "official_docs",
+  "purpose": "some/full stall-time semantics, system-level CPU full zero since 5.13, avg10/avg60/avg300 and microsecond total, per-cgroup observation. Header Date April 2018 is not a current modification date. Separate page license not established; no example code copied."
+}

@@ -1,0 +1,12 @@
+{
+  "id": "linux-cgroup-v2-cpu-accounting-docs-20261003",
+  "url": "https://docs.kernel.org/admin-guide/cgroup-v2.html",
+  "repository_url": "https://github.com/torvalds/linux",
+  "commit_sha": "",
+  "version": "Unversioned live documentation retrieved 2026-10-03; CPU Interface Files compared with Linux 7.3.0-rc5 source at e767a4ea70a3992c37ed604157d32f0dfbf9b1e3",
+  "retrieved_at": "2026-10-03",
+  "license": "unknown",
+  "trust": "official",
+  "type": "official_docs",
+  "purpose": "CPU usage and bandwidth counters, cpu.stat.local ancestor-throttling scope, cpu.max, and cgroup.pressure. Page header Date October 2015 is not a current modification date. HTML and page-source headers do not establish a separate documentation license; original attributed summary only."
+}

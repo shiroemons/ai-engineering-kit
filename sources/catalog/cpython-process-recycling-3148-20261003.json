@@ -1,0 +1,12 @@
+{
+  "id": "cpython-process-recycling-3148-20261003",
+  "url": "https://github.com/python/cpython/tree/8e6e75d9102e39bed2a2b279203a396741180f12",
+  "repository_url": "https://github.com/python/cpython",
+  "commit_sha": "8e6e75d9102e39bed2a2b279203a396741180f12",
+  "version": "CPython v3.14.8 (released 2026-09-30)",
+  "retrieved_at": "2026-10-03",
+  "license": "PSF-2.0; documentation code additionally 0BSD (https://docs.python.org/3.14/license.html); no copied code",
+  "trust": "official",
+  "type": "github_repository_analysis",
+  "purpose": "read-only GitHub取得でLib/concurrent/futures/process.py、Lib/multiprocessing/context.py、Lib/test/test_concurrent_futures/test_process_pool.py、Misc/NEWS.d/3.14.7.rst、LICENSEを確認。constructorのspawn選択、chunk単位のtask counter、replacementとテストを分析。process.pyヘッダーはPSF Contributor Agreement、context/test冒頭に別ライセンス表示なし。Python実行試験なし。web blobはcache miss、統合changelogは取得サイズ上限のため代替取得。"
+}

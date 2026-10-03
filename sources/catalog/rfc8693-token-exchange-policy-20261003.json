@@ -1,0 +1,12 @@
+{
+  "id": "rfc8693-token-exchange-policy-20261003",
+  "url": "https://www.rfc-editor.org/rfc/rfc8693.html",
+  "repository_url": "",
+  "commit_sha": "",
+  "version": "RFC 8693, Standards Track, January 2020; sections 1, 2.1, 2.1.1, 4.1 and 4.4",
+  "retrieved_at": "2026-10-03",
+  "license": "IETF Trust Legal Provisions / BCP 78 (RFC text); extracted Code Components subject to Simplified BSD License per copyright notice; no code copied",
+  "trust": "official",
+  "type": "official_docs",
+  "purpose": "Token exchange の trust model の範囲、subject/actor 検証、target と scope の直積、入力 token と出力 token の非連動、act と may_act の区別を公式 RFC 本文から確認する"
+}

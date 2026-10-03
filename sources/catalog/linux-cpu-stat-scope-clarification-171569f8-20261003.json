@@ -1,0 +1,12 @@
+{
+  "id": "linux-cpu-stat-scope-clarification-171569f8-20261003",
+  "url": "https://github.com/torvalds/linux/commit/171569f8ee6724a4113a0100fea6ff83d9b70c6a",
+  "repository_url": "https://github.com/torvalds/linux",
+  "commit_sha": "171569f8ee6724a4113a0100fea6ff83d9b70c6a",
+  "version": "Documentation-only clarification committed 2026-06-29T18:53:09Z",
+  "retrieved_at": "2026-10-03",
+  "license": "GPL-2.0 WITH Linux-syscall-note (repository COPYING verified at this commit; documentation header has no separate SPDX override)",
+  "trust": "primary-source",
+  "type": "github_repository_analysis",
+  "purpose": "Read full commit diff: only Documentation/admin-guide/cgroup-v2.rst changes; clarifies descendant CPU usage, non-hierarchical own-limit bandwidth stats, and own-runqueue cpu.stat.local affected by ancestors. Documentation date is not a feature introduction or deployment date; no code copied."
+}

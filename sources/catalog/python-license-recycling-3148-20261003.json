@@ -1,0 +1,12 @@
+{
+  "id": "python-license-recycling-3148-20261003",
+  "url": "https://docs.python.org/3.14/license.html",
+  "repository_url": "",
+  "commit_sha": "",
+  "version": "Python 3.14.8 History and License",
+  "retrieved_at": "2026-10-03",
+  "license": "PSF-2.0; documentation code additionally 0BSD (https://docs.python.org/3.14/license.html); no copied code",
+  "trust": "official",
+  "type": "official_docs",
+  "purpose": "Pythonソフトウェア・文書はPSF-2.0、文書内コードは追加0BSDというライセンス記述をnative webで確認。実装・テスト・例文はコピーせず日本語の独自要約と設計案を作成。"
+}

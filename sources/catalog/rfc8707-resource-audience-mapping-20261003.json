@@ -1,0 +1,12 @@
+{
+  "id": "rfc8707-resource-audience-mapping-20261003",
+  "url": "https://www.rfc-editor.org/rfc/rfc8707.html",
+  "repository_url": "",
+  "commit_sha": "",
+  "version": "RFC 8707, Standards Track, February 2020; sections 1 and 2",
+  "retrieved_at": "2026-10-03",
+  "license": "IETF Trust Legal Provisions / BCP 78 (RFC text); extracted Code Components subject to Simplified BSD License per copyright notice; no code copied",
+  "trust": "official",
+  "type": "official_docs",
+  "purpose": "resource と scope の責務、URI の条件、API base URI の選択、resource から audience への mapping を確認し、exchange の宛先ポリシー設計の補助根拠とする"
+}

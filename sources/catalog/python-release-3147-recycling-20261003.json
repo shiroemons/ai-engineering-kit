@@ -1,0 +1,12 @@
+{
+  "id": "python-release-3147-recycling-20261003",
+  "url": "https://www.python.org/downloads/release/python-3147/",
+  "repository_url": "",
+  "commit_sha": "",
+  "version": "Python 3.14.7; released 2026-08-05",
+  "retrieved_at": "2026-10-03",
+  "license": "unknown",
+  "trust": "official",
+  "type": "release_notes",
+  "purpose": "3.14.7の公開日2026-08-05をnative webで確認。修正範囲は別のAPI/固定NEWSで確認。サイトのhttps://www.python.org/about/legal/ はcopyright/all rights reserved表記のため文書のPSFライセンスをこのWebページへ横展開せず、日付の帰属付き要約のみ。"
+}

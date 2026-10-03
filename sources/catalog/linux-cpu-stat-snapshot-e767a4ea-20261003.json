@@ -1,0 +1,12 @@
+{
+  "id": "linux-cpu-stat-snapshot-e767a4ea-20261003",
+  "url": "https://github.com/torvalds/linux/blob/e767a4ea70a3992c37ed604157d32f0dfbf9b1e3/kernel/sched/core.c",
+  "repository_url": "https://github.com/torvalds/linux",
+  "commit_sha": "e767a4ea70a3992c37ed604157d32f0dfbf9b1e3",
+  "version": "Linux 7.3.0-rc5 development snapshot e767a4ea70a3992c37ed604157d32f0dfbf9b1e3; Makefile verified, commit 2026-10-03T00:34:18Z",
+  "retrieved_at": "2026-10-03",
+  "license": "GPL-2.0-only (kernel/sched/core.c SPDX); repository COPYING: GPL-2.0 WITH Linux-syscall-note",
+  "trust": "primary-source",
+  "type": "github_repository_analysis",
+  "purpose": "Read throttled_time_self, cpu_extra_stat_show and cpu_local_stat_show: per-CPU local-time sum, own cfs_bandwidth counters and nanosecond-to-microsecond conversion under CONFIG_CFS_BANDWIDTH. Also verified matching CPU documentation, PSI definitions, Makefile, COPYING and license-rules at this exact commit. No kernel build, workload experiment or code copy."
+}

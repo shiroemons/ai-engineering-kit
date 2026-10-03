@@ -1119,6 +1119,97 @@
       "expected_ids": [
         "rails-pool-maintenance-checkout-timeout-boundary"
       ]
+    },
+    {
+      "name": "python-process-recycling-implicit-spawn",
+      "query": "max_tasks_per_child mp_context 省略 spawn",
+      "expected_ids": [
+        "python-process-pool-recycling-start-method-boundary"
+      ]
+    },
+    {
+      "name": "python-process-recycling-platform-default",
+      "query": "HAVE_SEND_HANDLE macOS forkserver",
+      "expected_ids": [
+        "python-process-pool-recycling-start-method-boundary"
+      ]
+    },
+    {
+      "name": "python-process-recycling-fork-rejected",
+      "query": "fork constructor ValueError",
+      "expected_ids": [
+        "python-process-pool-recycling-start-method-boundary"
+      ]
+    },
+    {
+      "name": "python-process-recycling-explicit-config",
+      "query": "initargs global 設定",
+      "expected_ids": [
+        "python-process-pool-recycling-start-method-boundary"
+      ]
+    },
+    {
+      "name": "python-process-recycling-repeated-initializer",
+      "query": "initializer 初期化回数",
+      "expected_ids": [
+        "python-process-pool-recycling-start-method-boundary"
+      ]
+    },
+    {
+      "name": "python-process-recycling-context-lock",
+      "query": "context lock caller",
+      "expected_ids": [
+        "python-process-pool-recycling-start-method-boundary"
+      ]
+    },
+    {
+      "name": "python-process-recycling-chunk-count",
+      "query": "chunksize=100 1000回",
+      "expected_ids": [
+        "python-process-pool-recycling-start-method-boundary"
+      ]
+    },
+    {
+      "name": "python-process-recycling-not-time-limit",
+      "query": "wall-clock deadline RSS上限",
+      "expected_ids": [
+        "python-process-pool-recycling-start-method-boundary"
+      ]
+    },
+    {
+      "name": "python-process-recycling-fix-patch",
+      "query": "3.14.7 2026-08-05 gh-115634",
+      "expected_ids": [
+        "python-process-pool-recycling-start-method-boundary"
+      ]
+    },
+    {
+      "name": "python-process-recycling-stale-token",
+      "query": "idle semaphore replacement",
+      "expected_ids": [
+        "python-process-pool-recycling-start-method-boundary"
+      ]
+    },
+    {
+      "name": "python-process-recycling-pending-work-regression",
+      "query": "test_max_tasks_per_child_pending_tasks_gh115634 backlog",
+      "expected_ids": [
+        "python-process-pool-recycling-start-method-boundary"
+      ]
+    },
+    {
+      "name": "python-process-recycling-runtime-not-run",
+      "query": "3.12.14 挙動試験 行っていない",
+      "expected_ids": [
+        "python-process-pool-recycling-start-method-boundary"
+      ]
+    },
+    {
+      "name": "python-process-recycling-frozen-boundary",
+      "query": "POSIX frozen executable",
+      "expected_ids": [
+        "python-process-pool-recycling-start-method-boundary"
+      ]
     }
   ]
 }
