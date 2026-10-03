@@ -621,6 +621,16 @@
     {"name": "alertmanager-inhibition-one-witness", "query": "Alertmanager fingerprint 全候補", "expected_ids": ["observability-alertmanager-inhibition-source-lifecycle-boundary"]},
     {"name": "alertmanager-inhibition-lock-not-ha", "query": "Alertmanager lock HA", "expected_ids": ["observability-alertmanager-inhibition-source-lifecycle-boundary"]},
     {"name": "alertmanager-inhibition-arrival-group-wait", "query": "Alertmanager group_wait 到着前", "expected_ids": ["observability-alertmanager-inhibition-source-lifecycle-boundary"]},
-    {"name": "alertmanager-inhibition-tests-not-executed", "query": "Alertmanager 検索 eval 実機試験", "expected_ids": ["observability-alertmanager-inhibition-source-lifecycle-boundary"]}
+    {"name": "alertmanager-inhibition-tests-not-executed", "query": "Alertmanager 検索 eval 実機試験", "expected_ids": ["observability-alertmanager-inhibition-source-lifecycle-boundary"]},
+    {"name": "prometheus-missing-bool-not-filter", "query": "Prometheus bool 値0 active", "expected_ids": ["observability-prometheus-missing-series-alert-staleness-boundary"]},
+    {"name": "prometheus-missing-lookback-not-delay", "query": "Prometheus staleness lookback 5分", "expected_ids": ["observability-prometheus-missing-series-alert-staleness-boundary"]},
+    {"name": "prometheus-missing-absent-not-inventory", "query": "absent_over_time 10台 9台", "expected_ids": ["observability-prometheus-missing-series-alert-staleness-boundary"]},
+    {"name": "prometheus-missing-target-inventory", "query": "expected_heartbeat_target unless cluster", "expected_ids": ["observability-prometheus-missing-series-alert-staleness-boundary"]},
+    {"name": "prometheus-missing-inventory-failure", "query": "inventory 左辺 生存確認", "expected_ids": ["observability-prometheus-missing-series-alert-staleness-boundary"]},
+    {"name": "prometheus-missing-range-for-delay", "query": "Prometheus 10分 12分 pending", "expected_ids": ["observability-prometheus-missing-series-alert-staleness-boundary"]},
+    {"name": "prometheus-missing-keep-firing-scope", "query": "keep_firing_for 一度も firing", "expected_ids": ["observability-prometheus-missing-series-alert-staleness-boundary"]},
+    {"name": "prometheus-missing-step-resolution", "query": "Prometheus step resolution 評価時刻", "expected_ids": ["observability-prometheus-missing-series-alert-staleness-boundary"]},
+    {"name": "prometheus-missing-fixture-stale", "query": "promtool stale pending inactive", "expected_ids": ["observability-prometheus-missing-series-alert-staleness-boundary"]},
+    {"name": "prometheus-missing-release-stale-marker", "query": "3.15.0 series reference stale marker", "expected_ids": ["observability-prometheus-missing-series-alert-staleness-boundary"]}
   ]
 }

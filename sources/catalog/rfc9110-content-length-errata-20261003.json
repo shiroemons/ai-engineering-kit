@@ -1,0 +1,12 @@
+{
+  "id": "rfc9110-content-length-errata-20261003",
+  "url": "https://errata.rfc-editor.org/search/?rfc_number=9110&presentation=records",
+  "repository_url": "",
+  "commit_sha": "",
+  "retrieved_at": "2026-10-03",
+  "trust": "official",
+  "type": "official_docs",
+  "version": "RFC 9110 errata records checked 2026-10-03; 7870 Rejected 2024-05-14",
+  "license": "unknown",
+  "purpose": "Content-Length転送文言へのerratum 7870のRejected状態を確認し、本文を提案文で上書きしない"
+}

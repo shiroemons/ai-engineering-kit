@@ -1,0 +1,12 @@
+{
+  "id": "postgres-temporal-set-constraints-18-20261003",
+  "url": "https://www.postgresql.org/docs/18/sql-set-constraints.html",
+  "repository_url": "",
+  "commit_sha": "",
+  "version": "PostgreSQL 18 versioned manual; retrieved 2026-10-03 UTC; individual publication/update date not stated",
+  "retrieved_at": "2026-10-03",
+  "license": "PostgreSQL License",
+  "trust": "official",
+  "type": "official_docs",
+  "purpose": "DEFERRABLE の制約検査時点、IMMEDIATEへの切替時の既存未検査変更の検査、NOT NULL/CHECKが遅延しない契約を確認。 ライセンス根拠 https://www.postgresql.org/docs/18/legalnotice.html と https://www.postgresql.org/about/licence/ を確認。原文・実装コードの転載なし。"
+}

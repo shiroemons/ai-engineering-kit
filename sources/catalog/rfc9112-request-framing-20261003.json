@@ -1,0 +1,12 @@
+{
+  "id": "rfc9112-request-framing-20261003",
+  "url": "https://www.rfc-editor.org/rfc/rfc9112.html",
+  "repository_url": "",
+  "commit_sha": "",
+  "retrieved_at": "2026-10-03",
+  "trust": "official",
+  "type": "official_docs",
+  "version": "RFC 9112 / STD 99, June 2022; sections 6.1, 6.2 and 6.3",
+  "license": "IETF Trust Legal Provisions / BCP 78 (RFC text); extracted Code Components subject to Revised BSD License per Copyright Notice; no code copied",
+  "purpose": "HTTP/1.1要求のTransfer-Encoding/Content-Length共存、framing error、接続close、転送前の処理を公式本文で確認する"
+}

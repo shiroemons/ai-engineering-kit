@@ -1,0 +1,12 @@
+{
+  "id": "rfc9112-framing-errata-20261003",
+  "url": "https://errata.rfc-editor.org/search/?rfc_number=9112&presentation=records",
+  "repository_url": "",
+  "commit_sha": "",
+  "retrieved_at": "2026-10-03",
+  "trust": "official",
+  "type": "official_docs",
+  "version": "RFC 9112 errata records checked 2026-10-03; 7744/8284 Verified Editorial; 7633 Rejected 2023-11-07",
+  "license": "unknown",
+  "purpose": "framingに関連するerrataの状態を確認し、Rejectedのbare-LF chunk提案を規範変更として採用しない根拠を残す"
+}

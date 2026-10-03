@@ -1,0 +1,12 @@
+{
+  "id": "prometheus-missing-jobs-instances-20261003",
+  "url": "https://prometheus.io/docs/concepts/jobs_instances/",
+  "repository_url": "https://github.com/prometheus/docs",
+  "commit_sha": "",
+  "version": "Versionless Jobs and instances concept page; retrieved 2026-10-03",
+  "retrieved_at": "2026-10-03",
+  "license": "Apache-2.0 (site footer and https://github.com/prometheus/docs/blob/main/LICENSE checked 2026-10-03); original summary only",
+  "trust": "official",
+  "type": "official_docs",
+  "purpose": "up が個々の scrape 成功・失敗を表す契約を確認。業務正常性や対象一覧の保証とは区別する"
+}

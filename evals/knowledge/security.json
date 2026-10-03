@@ -159,5 +159,12 @@
     {"name": "oauth-cross-device-no-unconditional-fallback", "query": "無条件fallback 保証", "expected_ids": ["oauth-cross-device-consent-phishing-proximity-boundary"]},
     {"name": "oauth-cross-device-stop-polling", "query": "access_denied expired_token polling", "expected_ids": ["oauth-cross-device-consent-phishing-proximity-boundary"]},
     {"name": "oauth-cross-device-protocol-selection", "query": "same-device CIBA PKCE", "expected_ids": ["oauth-cross-device-consent-phishing-proximity-boundary"]},
-    {"name": "oauth-cross-device-errata-unverified", "query": "errata 取得エラー", "expected_ids": ["oauth-cross-device-consent-phishing-proximity-boundary"]}
+    {"name": "oauth-cross-device-errata-unverified", "query": "errata 取得エラー", "expected_ids": ["oauth-cross-device-consent-phishing-proximity-boundary"]},
+    {"name": "http-framing-te-cl-close", "query": "Transfer-Encoding Content-Length 共存", "expected_ids": ["security-http-framing-downgrade-smuggling-boundary"]},
+    {"name": "http-framing-duplicate-cl-policy", "query": "重複Content-Length 厳格ポリシー", "expected_ids": ["security-http-framing-downgrade-smuggling-boundary"]},
+    {"name": "http-framing-h2-downgrade", "query": "HTTP/2 downgrade framing", "expected_ids": ["security-http-framing-downgrade-smuggling-boundary"]},
+    {"name": "http-framing-h2-stream-error", "query": "PROTOCOL_ERROR stream error", "expected_ids": ["security-http-framing-downgrade-smuggling-boundary"]},
+    {"name": "http-framing-buffer-before-forward", "query": "bounded buffering backend", "expected_ids": ["security-http-framing-downgrade-smuggling-boundary"]},
+    {"name": "http-framing-pool-retire", "query": "streaming pool 副作用", "expected_ids": ["security-http-framing-downgrade-smuggling-boundary"]},
+    {"name": "http-framing-errata-rejected", "query": "7633 7870 Rejected", "expected_ids": ["security-http-framing-downgrade-smuggling-boundary"]}
   ]}

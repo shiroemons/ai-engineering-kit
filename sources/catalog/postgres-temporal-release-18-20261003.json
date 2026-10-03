@@ -1,0 +1,12 @@
+{
+  "id": "postgres-temporal-release-18-20261003",
+  "url": "https://www.postgresql.org/docs/18/release-18.html",
+  "repository_url": "",
+  "commit_sha": "",
+  "version": "PostgreSQL 18; release date 2025-09-25",
+  "retrieved_at": "2026-10-03",
+  "license": "PostgreSQL License",
+  "trust": "official",
+  "type": "release_notes",
+  "purpose": "WITHOUT OVERLAPS と PERIOD の導入版・公開日を確認。取得日に新規公開された機能とは扱わない。 ライセンス根拠 https://www.postgresql.org/docs/18/legalnotice.html と https://www.postgresql.org/about/licence/ を確認。原文・実装コードの転載なし。"
+}
