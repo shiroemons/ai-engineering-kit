@@ -255,5 +255,15 @@
     {"name": "attestation-freshness-distinct-from-proof", "query": "use_fresh_attestation jti", "expected_ids": ["oauth-attestation-dpop-combined-nonce-migration-boundary"]},
     {"name": "attestation-atomic-key-generation", "query": "attestation 鍵generation", "expected_ids": ["oauth-attestation-dpop-combined-nonce-migration-boundary"]},
     {"name": "attestation-token-type-policy", "query": "client認証 token_type=Bearer", "expected_ids": ["oauth-attestation-dpop-combined-nonce-migration-boundary"]},
-    {"name": "attestation-draft-status-not-rfc", "query": "In WG Last Call RFC承認済み", "expected_ids": ["oauth-attestation-dpop-combined-nonce-migration-boundary"]}
+    {"name": "attestation-draft-status-not-rfc", "query": "In WG Last Call RFC承認済み", "expected_ids": ["oauth-attestation-dpop-combined-nonce-migration-boundary"]},
+    {"name": "tls-early-upstream-mark", "query": "Early-Data origin handshake", "expected_ids": ["security-tls-early-data-hop-replay-acceptance-boundary"]},
+    {"name": "tls-early-invalid-header", "query": "Early-Data invalid 1", "expected_ids": ["security-tls-early-data-hop-replay-acceptance-boundary"]},
+    {"name": "tls-early-inbound-retry", "query": "425 受信側 handshake", "expected_ids": ["security-tls-early-data-hop-replay-acceptance-boundary"]},
+    {"name": "tls-early-upstream-425", "query": "425 受信した要求 上流", "expected_ids": ["security-tls-early-data-hop-replay-acceptance-boundary"]},
+    {"name": "tls-early-get-operation", "query": "0-RTT GET 単発token", "expected_ids": ["security-tls-early-data-hop-replay-acceptance-boundary"]},
+    {"name": "tls-early-per-instance", "query": "0-RTT instance 合算", "expected_ids": ["security-tls-early-data-hop-replay-acceptance-boundary"]},
+    {"name": "tls-early-rfc9846-version", "query": "RFC 9846 後方互換 TLS 1.4", "expected_ids": ["security-tls-early-data-hop-replay-acceptance-boundary"]},
+    {"name": "tls-early-forward-secrecy", "query": "single-use PSK 全コピー", "expected_ids": ["security-tls-early-data-hop-replay-acceptance-boundary"]},
+    {"name": "tls-early-restart-window", "query": "ClientHello recording 起動時刻", "expected_ids": ["security-tls-early-data-hop-replay-acceptance-boundary"]},
+    {"name": "tls-early-errata-unverified", "query": "9846 8470 errata 未確認", "expected_ids": ["security-tls-early-data-hop-replay-acceptance-boundary"]}
   ]}

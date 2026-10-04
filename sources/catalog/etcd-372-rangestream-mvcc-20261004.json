@@ -1,0 +1,12 @@
+{
+  "id": "etcd-372-rangestream-mvcc-20261004",
+  "url": "https://github.com/etcd-io/etcd/blob/68c065e562994b89e333e77b039ad066f933c586/server/storage/mvcc/kvstore_txn.go",
+  "repository_url": "https://github.com/etcd-io/etcd",
+  "commit_sha": "68c065e562994b89e333e77b039ad066f933c586",
+  "version": "etcd server v3.7.2 MVCC RangeResult",
+  "license": "Apache-2.0",
+  "trust": "maintainer",
+  "type": "github_repository_analysis",
+  "purpose": "rangeKeysは要求revで値を選びRangeResult.RevにはcurRevを返すことを確認。同commitのserver/etcdserver/txn/range.goのassemble経路・IsDefaultOrdering・HasRevisionFiltersと合わせ、明示した過去revisionとresponse header revisionを混同しない根拠にする。LICENSEとheader確認済み。コード転載なし。",
+  "retrieved_at": "2026-10-04"
+}

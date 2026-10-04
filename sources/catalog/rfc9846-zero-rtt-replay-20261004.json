@@ -1,0 +1,12 @@
+{
+  "id": "rfc9846-zero-rtt-replay-20261004",
+  "url": "https://datatracker.ietf.org/doc/rfc9846/",
+  "version": "RFC 9846 (Standards Track / Proposed Standard, July 2026); obsoletes RFC 8446; Datatracker last updated 2026-07-11",
+  "license": "IETF Trust Legal Provisions / BCP 78 (RFC text); extracted Code Components: Revised BSD License per RFC copyright notice; pre-2008-material restriction noted in RFC; https://trustee.ietf.org/license-info/",
+  "purpose": "§1.2、§2.3、§8〜8.3、Appendix F.5を確認。TLS 1.3の後方互換改訂、0-RTTのforward secrecy説明、instance単位anti-replayの下限、client retryとの分離、recording windowとrestartを参照。RFC Editor HTML取得失敗後、IETF Datatracker全文とRFC Editor TXTで確認。errataページは取得できず状態未確認。",
+  "repository_url": "",
+  "commit_sha": "",
+  "retrieved_at": "2026-10-04",
+  "trust": "official",
+  "type": "official_docs"
+}

@@ -1,0 +1,12 @@
+{
+  "id": "etcd-372-rangestream-client-20261004",
+  "url": "https://github.com/etcd-io/etcd/blob/68c065e562994b89e333e77b039ad066f933c586/client/v3/kv.go",
+  "repository_url": "https://github.com/etcd-io/etcd",
+  "commit_sha": "68c065e562994b89e333e77b039ad066f933c586",
+  "version": "etcd Go client v3.7.2",
+  "license": "Apache-2.0",
+  "trust": "maintainer",
+  "type": "github_repository_analysis",
+  "purpose": "GetStream、RangeStreamResponse.Err、GetStreamToGetResponseの固定実装を読む。開始時errorと非EOF terminal error、proto.Mergeによる全件保持、容量1channelへの無条件sendを確認。LICENSEとfile header確認済み。実行試験・コード転載なし。",
+  "retrieved_at": "2026-10-04"
+}

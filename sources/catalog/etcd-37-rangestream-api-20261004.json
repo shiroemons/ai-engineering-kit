@@ -1,0 +1,12 @@
+{
+  "id": "etcd-37-rangestream-api-20261004",
+  "url": "https://etcd.io/docs/v3.7/learning/api/",
+  "repository_url": "https://github.com/etcd-io/website",
+  "commit_sha": "",
+  "version": "etcd v3.7 versioned learning API; page last modified 2026-05-05",
+  "license": "CC-BY-4.0 (documentation); Apache-2.0 (code samples)",
+  "trust": "official",
+  "type": "official_docs",
+  "purpose": "RangeStreamの最終chunkだけのheader/more/count、同一revision、GetStreamToGetResponse、非対応query/proxyと、Rangeのlimit/count・Watchのstart revisionを確認。2026-10-04 UTCにnative webで本文を開いた。website LICENSEをd20f8ae346da60ab6eb6f24f200753b328aa9fccで確認。日本語の独自要約でコード転載なし。",
+  "retrieved_at": "2026-10-04"
+}

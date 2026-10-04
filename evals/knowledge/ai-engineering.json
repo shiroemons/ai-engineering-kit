@@ -1769,6 +1769,104 @@
       "expected_ids": [
         "rag-qdrant-embedding-migration-cutover-consistency"
       ]
+    },
+    {
+      "name": "openai-multi-http-completed-tool-wait",
+      "query": "HTTP active 結果待ち",
+      "expected_ids": [
+        "agents-openai-multi-agent-response-completion-boundary"
+      ]
+    },
+    {
+      "name": "openai-multi-hosted-not-client-execution",
+      "query": "multi_agent_call client executor",
+      "expected_ids": [
+        "agents-openai-multi-agent-response-completion-boundary"
+      ]
+    },
+    {
+      "name": "openai-multi-injection-drain-after-completion",
+      "query": "Response 終了 注入ack",
+      "expected_ids": [
+        "agents-openai-multi-agent-response-completion-boundary"
+      ]
+    },
+    {
+      "name": "openai-multi-completed-injection-no-tool-reexecution",
+      "query": "response_already_completed 既存input 二重",
+      "expected_ids": [
+        "agents-openai-multi-agent-response-completion-boundary"
+      ]
+    },
+    {
+      "name": "openai-multi-injection-not-tool-success",
+      "query": "response.inject.created 業務成功",
+      "expected_ids": [
+        "agents-openai-multi-agent-response-completion-boundary"
+      ]
+    },
+    {
+      "name": "openai-multi-injection-not-found-response-id",
+      "query": "response_not_found response.created",
+      "expected_ids": [
+        "agents-openai-multi-agent-response-completion-boundary"
+      ]
+    },
+    {
+      "name": "openai-multi-injection-unknown-not-tool-failure",
+      "query": "delivery_unknown tool失敗",
+      "expected_ids": [
+        "agents-openai-multi-agent-response-completion-boundary"
+      ]
+    },
+    {
+      "name": "openai-multi-final-root-phase-filter",
+      "query": "agent.agent_name=/root phase=final_answer",
+      "expected_ids": [
+        "agents-openai-multi-agent-response-completion-boundary"
+      ]
+    },
+    {
+      "name": "openai-multi-optional-agent-not-root-fallback",
+      "query": "optional root final 昇格",
+      "expected_ids": [
+        "agents-openai-multi-agent-response-completion-boundary"
+      ]
+    },
+    {
+      "name": "openai-multi-phase-preserved-commentary",
+      "query": "commentary 継続request 保持",
+      "expected_ids": [
+        "agents-openai-multi-agent-response-completion-boundary"
+      ]
+    },
+    {
+      "name": "openai-multi-agent-message-attribution-discrepancy",
+      "query": "agent_message 受信者 共通説明",
+      "expected_ids": [
+        "agents-openai-multi-agent-response-completion-boundary"
+      ]
+    },
+    {
+      "name": "openai-multi-concurrency-not-total-cost",
+      "query": "同時数3 総数3 費用上限",
+      "expected_ids": [
+        "agents-openai-multi-agent-response-completion-boundary"
+      ]
+    },
+    {
+      "name": "openai-multi-unsupported-max-tool-calls",
+      "query": "max_tool_calls 停止保証",
+      "expected_ids": [
+        "agents-openai-multi-agent-response-completion-boundary"
+      ]
+    },
+    {
+      "name": "openai-multi-refusal-not-empty-success",
+      "query": "refusal 空の成功回答",
+      "expected_ids": [
+        "agents-openai-multi-agent-response-completion-boundary"
+      ]
     }
   ]
 }

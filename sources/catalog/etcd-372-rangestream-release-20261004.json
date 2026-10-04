@@ -1,0 +1,12 @@
+{
+  "id": "etcd-372-rangestream-release-20261004",
+  "url": "https://github.com/etcd-io/etcd/releases/tag/v3.7.2",
+  "repository_url": "https://github.com/etcd-io/etcd",
+  "commit_sha": "68c065e562994b89e333e77b039ad066f933c586",
+  "version": "etcd v3.7.2; published 2026-09-22T21:22:39Z",
+  "license": "unknown",
+  "trust": "official",
+  "type": "release_notes",
+  "purpose": "native webでreleaseを開き、GitHub release APIの公開日時とannotated tag cb9b1aa2b1237b59255d65773c34ab0cd9df3679のdereference先68c065e562994b89e333e77b039ad066f933c586を確認。release本文固有のライセンスは未確認。転載・コード導入なし。",
+  "retrieved_at": "2026-10-04"
+}

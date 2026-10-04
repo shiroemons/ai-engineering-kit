@@ -1096,6 +1096,20 @@
       "expected_ids": [
         "api-design-webhook-redelivery-signature-dedup"
       ]
-    }
+    },
+    {"name": "etcd-rangestream-terminal-zero-not-eof", "query": "RangeStream 中間応答 More=false", "expected_ids": ["distributed-systems-etcd-rangestream-snapshot-completion"]},
+    {"name": "etcd-rangestream-success-limit-more", "query": "RangeStream 正常EOF 最終More=true", "expected_ids": ["distributed-systems-etcd-rangestream-snapshot-completion"]},
+    {"name": "etcd-rangestream-historical-header", "query": "過去R 最終Header.Revision 同一視", "expected_ids": ["distributed-systems-etcd-rangestream-snapshot-completion"]},
+    {"name": "etcd-rangestream-historical-watch-gap", "query": "R=40 41〜70 Watch", "expected_ids": ["distributed-systems-etcd-rangestream-snapshot-completion"]},
+    {"name": "etcd-rangestream-midflight-error", "query": "GetStream RangeResponse nil", "expected_ids": ["distributed-systems-etcd-rangestream-snapshot-completion"]},
+    {"name": "etcd-rangestream-cancel-drain", "query": "respCh cancel drain", "expected_ids": ["distributed-systems-etcd-rangestream-snapshot-completion"]},
+    {"name": "etcd-rangestream-merge-memory", "query": "GetStreamToGetResponse client 全件buffer", "expected_ids": ["distributed-systems-etcd-rangestream-snapshot-completion"]},
+    {"name": "etcd-rangestream-chunk-not-byte-cap", "query": "initialStreamChunkLimit 厳密な上限", "expected_ids": ["distributed-systems-etcd-rangestream-snapshot-completion"]},
+    {"name": "etcd-rangestream-filter-vs-revision", "query": "RangeStream revision filters Revision自体", "expected_ids": ["distributed-systems-etcd-rangestream-snapshot-completion"]},
+    {"name": "etcd-rangestream-key-ascending", "query": "IsDefaultOrdering KEY+ASCEND", "expected_ids": ["distributed-systems-etcd-rangestream-snapshot-completion"]},
+    {"name": "etcd-rangestream-proxy-fallback", "query": "RangeStream gRPC proxy fallback", "expected_ids": ["distributed-systems-etcd-rangestream-snapshot-completion"]},
+    {"name": "etcd-rangestream-candidate-not-deletion", "query": "非公開generation 不在key", "expected_ids": ["distributed-systems-etcd-rangestream-snapshot-completion"]},
+    {"name": "etcd-rangestream-compacted-rebuild", "query": "data revision+1 compacted", "expected_ids": ["distributed-systems-etcd-rangestream-snapshot-completion"]},
+    {"name": "etcd-rangestream-upstream-not-run", "query": "TestKVGetStreamCompactedError 今回実行していない", "expected_ids": ["distributed-systems-etcd-rangestream-snapshot-completion"]}
   ]
 }
