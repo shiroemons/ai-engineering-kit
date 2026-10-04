@@ -1644,6 +1644,104 @@
       "expected_ids": [
         "python-zipfile-decompression-output-memory-boundary"
       ]
+    },
+    {
+      "name": "rails-schema-json-stable-not-supported",
+      "query": "8.1.4 JSON分岐がない",
+      "expected_ids": [
+        "rails-json-schema-cache-reconstruction-version-boundary"
+      ]
+    },
+    {
+      "name": "rails-schema-json-main-version",
+      "query": "8.2.0.alpha 2026-09-21",
+      "expected_ids": [
+        "rails-json-schema-cache-reconstruction-version-boundary"
+      ]
+    },
+    {
+      "name": "rails-schema-json-filename-priority",
+      "query": "schema.dump.json Marshal",
+      "expected_ids": [
+        "rails-json-schema-cache-reconstruction-version-boundary"
+      ]
+    },
+    {
+      "name": "rails-schema-json-gzip-dependency",
+      "query": "json gem 2.10.0 .json.gz",
+      "expected_ids": [
+        "rails-json-schema-cache-reconstruction-version-boundary"
+      ]
+    },
+    {
+      "name": "rails-schema-json-initialization-bypass",
+      "query": "allocate init_from_schema_json initialize",
+      "expected_ids": [
+        "rails-json-schema-cache-reconstruction-version-boundary"
+      ]
+    },
+    {
+      "name": "rails-schema-json-registration-not-public",
+      "query": "register 長期互換extension",
+      "expected_ids": [
+        "rails-json-schema-cache-reconstruction-version-boundary"
+      ]
+    },
+    {
+      "name": "rails-schema-json-bounds-before-freeze",
+      "query": "freeze前に派生状態を復元する",
+      "expected_ids": [
+        "rails-json-schema-cache-reconstruction-version-boundary"
+      ]
+    },
+    {
+      "name": "rails-schema-json-signed-int-range",
+      "query": "Integer -2147483648 2147483647 2147483648",
+      "expected_ids": [
+        "rails-json-schema-cache-reconstruction-version-boundary"
+      ]
+    },
+    {
+      "name": "rails-schema-json-deserialize-rescue",
+      "query": "deserialize rescue範囲の外",
+      "expected_ids": [
+        "rails-json-schema-cache-reconstruction-version-boundary"
+      ]
+    },
+    {
+      "name": "rails-schema-json-version-not-checksum",
+      "query": "schema_version checksum",
+      "expected_ids": [
+        "rails-json-schema-cache-reconstruction-version-boundary"
+      ]
+    },
+    {
+      "name": "rails-schema-json-disable-not-verification",
+      "query": "check_schema_cache_dump_version=false 新鮮さ",
+      "expected_ids": [
+        "rails-json-schema-cache-reconstruction-version-boundary"
+      ]
+    },
+    {
+      "name": "rails-schema-json-rollback-format",
+      "query": "rollback 新JSON file",
+      "expected_ids": [
+        "rails-json-schema-cache-reconstruction-version-boundary"
+      ]
+    },
+    {
+      "name": "rails-schema-json-reported-test-scope",
+      "query": "merge diff 6行追加",
+      "expected_ids": [
+        "rails-json-schema-cache-reconstruction-version-boundary"
+      ]
+    },
+    {
+      "name": "rails-schema-json-runtime-not-run",
+      "query": "Rails runtime試験は実行していない",
+      "expected_ids": [
+        "rails-json-schema-cache-reconstruction-version-boundary"
+      ]
     }
   ]
 }

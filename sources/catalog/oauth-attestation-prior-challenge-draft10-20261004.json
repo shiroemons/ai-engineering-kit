@@ -1,0 +1,12 @@
+{
+  "id": "oauth-attestation-prior-challenge-draft10-20261004",
+  "url": "https://datatracker.ietf.org/doc/html/draft-ietf-oauth-attestation-based-client-auth-10",
+  "repository_url": "",
+  "commit_sha": "",
+  "version": "draft-ietf-oauth-attestation-based-client-auth-10; published 2026-07-06; historical comparison, not current adoption target",
+  "retrieved_at": "2026-10-04",
+  "license": "IETF Trust Legal Provisions / BCP 78; copyright notice checked 2026-10-04; no code copied",
+  "trust": "official",
+  "type": "official_docs",
+  "purpose": "Draft 10 §§6.1 and 7.3: compare the previous attestation challenge to DPoP nonce binding against Draft 11; historical text only"
+}

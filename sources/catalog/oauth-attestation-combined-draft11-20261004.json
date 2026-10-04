@@ -1,0 +1,12 @@
+{
+  "id": "oauth-attestation-combined-draft11-20261004",
+  "url": "https://datatracker.ietf.org/doc/html/draft-ietf-oauth-attestation-based-client-auth-11",
+  "repository_url": "",
+  "commit_sha": "",
+  "version": "draft-ietf-oauth-attestation-based-client-auth-11; published 2026-09-03; work in progress; expires 2027-03-07",
+  "retrieved_at": "2026-10-04",
+  "license": "IETF Trust Legal Provisions / BCP 78; copyright notice checked 2026-10-04; no code copied",
+  "trust": "official",
+  "type": "official_docs",
+  "purpose": "Draft 11 §§5.2,6,7,10.6 and Appendix A: combined mode nonce migration, mode dispatch, key equality, freshness errors, and key-rotation limits"
+}

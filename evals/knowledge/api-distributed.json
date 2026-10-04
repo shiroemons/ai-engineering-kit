@@ -986,6 +986,18 @@
     {"name": "nats-cancel-not-message-rollback", "query": "取消 業務message", "expected_ids": ["messaging-nats-jetstream-desired-state-evacuation"]},
     {"name": "nats-downgrade-noop-discard", "query": "no-op desired state 捨て", "expected_ids": ["messaging-nats-jetstream-desired-state-evacuation"]},
     {"name": "nats-evacuate-completion-gates", "query": "保守 replica数 追従状態", "expected_ids": ["messaging-nats-jetstream-desired-state-evacuation"]},
-    {"name": "nats-evacuate-upstream-tests-not-run", "query": "NATS upstream test 実行していない", "expected_ids": ["messaging-nats-jetstream-desired-state-evacuation"]}
+    {"name": "nats-evacuate-upstream-tests-not-run", "query": "NATS upstream test 実行していない", "expected_ids": ["messaging-nats-jetstream-desired-state-evacuation"]},
+    {"name": "http-ratelimit-dictionary-migration", "query": "RateLimit Dictionary draft-07", "expected_ids": ["http-ratelimit-quota-scheduling-cache-boundary"]},
+    {"name": "http-ratelimit-zero-window-types", "query": "RateLimit w=0 t=0", "expected_ids": ["http-ratelimit-quota-scheduling-cache-boundary"]},
+    {"name": "http-ratelimit-quota-units", "query": "RateLimit requests content-bytes concurrent-requests", "expected_ids": ["http-ratelimit-quota-scheduling-cache-boundary"]},
+    {"name": "http-ratelimit-retry-after-precedence", "query": "RateLimit Retry-After precedence", "expected_ids": ["http-ratelimit-quota-scheduling-cache-boundary"]},
+    {"name": "http-ratelimit-positive-cache-age", "query": "RateLimit positive current_age", "expected_ids": ["http-ratelimit-quota-scheduling-cache-boundary"]},
+    {"name": "http-ratelimit-age-zero-not-origin", "query": "RateLimit Age: 0 origin", "expected_ids": ["http-ratelimit-quota-scheduling-cache-boundary"]},
+    {"name": "http-ratelimit-worker-budget-not-additive", "query": "r=24 三つ 72件", "expected_ids": ["http-ratelimit-quota-scheduling-cache-boundary"]},
+    {"name": "http-ratelimit-malformed-whole-field", "query": "RateLimit malformed field全体", "expected_ids": ["http-ratelimit-quota-scheduling-cache-boundary"]},
+    {"name": "http-ratelimit-window-not-refill", "query": "RateLimit 回復時刻", "expected_ids": ["http-ratelimit-quota-scheduling-cache-boundary"]},
+    {"name": "http-ratelimit-missing-not-unlimited", "query": "RateLimit 欠落 無制限", "expected_ids": ["http-ratelimit-quota-scheduling-cache-boundary"]},
+    {"name": "http-ratelimit-deadline-not-early-retry", "query": "Retry-After deadline 短縮", "expected_ids": ["http-ratelimit-quota-scheduling-cache-boundary"]},
+    {"name": "http-ratelimit-429-cache-separation", "query": "RateLimit 429 キャッシュ保存", "expected_ids": ["http-ratelimit-quota-scheduling-cache-boundary"]}
   ]
 }

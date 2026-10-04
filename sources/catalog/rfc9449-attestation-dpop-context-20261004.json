@@ -1,0 +1,12 @@
+{
+  "id": "rfc9449-attestation-dpop-context-20261004",
+  "url": "https://www.rfc-editor.org/rfc/rfc9449.html",
+  "repository_url": "",
+  "commit_sha": "",
+  "version": "RFC 9449, Standards Track, September 2023",
+  "retrieved_at": "2026-10-04",
+  "license": "IETF Trust Legal Provisions / BCP 78; copyright notice checked 2026-10-04; no code copied",
+  "trust": "official",
+  "type": "official_docs",
+  "purpose": "Sections 4.3,5,6,7,8,9,10: DPoP proof context, access-token binding, token_type decision, server-scoped nonces, and dpop_jkt versus actual proof"
+}

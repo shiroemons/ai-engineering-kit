@@ -246,5 +246,14 @@
     {"name": "cosign-legacy-out-of-band-key", "query": "publicKey.hint out-of-band", "expected_ids": ["cosign-legacy-bundle-identity-key-boundary"]},
     {"name": "cosign-legacy-conversion-acceptance", "query": "変換後 artifact 信頼元", "expected_ids": ["cosign-legacy-bundle-identity-key-boundary"]},
     {"name": "cosign-legacy-retrospective-unknown", "query": "Cosign 影響不明", "expected_ids": ["cosign-legacy-bundle-identity-key-boundary"]},
-    {"name": "cosign-legacy-format-json", "query": "protobuf JSON serialization", "expected_ids": ["cosign-legacy-bundle-identity-key-boundary"]}
+    {"name": "cosign-legacy-format-json", "query": "protobuf JSON serialization", "expected_ids": ["cosign-legacy-bundle-identity-key-boundary"]},
+    {"name": "attestation-draft11-nonce-migration", "query": "Draft 11 attestation_challenge DPoP-Nonce", "expected_ids": ["oauth-attestation-dpop-combined-nonce-migration-boundary"]},
+    {"name": "attestation-combined-mode-dispatch", "query": "attest_jwt_client_auth_dpop 専用PoP", "expected_ids": ["oauth-attestation-dpop-combined-nonce-migration-boundary"]},
+    {"name": "attestation-normal-mode-independent-key", "query": "通常mode 両用途 鍵一致", "expected_ids": ["oauth-attestation-dpop-combined-nonce-migration-boundary"]},
+    {"name": "attestation-combined-jwk-identity", "query": "thumbprint optional member", "expected_ids": ["oauth-attestation-dpop-combined-nonce-migration-boundary"]},
+    {"name": "attestation-combined-dpop-jkt-not-proof", "query": "combined dpop_jkt 単独", "expected_ids": ["oauth-attestation-dpop-combined-nonce-migration-boundary"]},
+    {"name": "attestation-freshness-distinct-from-proof", "query": "use_fresh_attestation jti", "expected_ids": ["oauth-attestation-dpop-combined-nonce-migration-boundary"]},
+    {"name": "attestation-atomic-key-generation", "query": "attestation 鍵generation", "expected_ids": ["oauth-attestation-dpop-combined-nonce-migration-boundary"]},
+    {"name": "attestation-token-type-policy", "query": "client認証 token_type=Bearer", "expected_ids": ["oauth-attestation-dpop-combined-nonce-migration-boundary"]},
+    {"name": "attestation-draft-status-not-rfc", "query": "In WG Last Call RFC承認済み", "expected_ids": ["oauth-attestation-dpop-combined-nonce-migration-boundary"]}
   ]}

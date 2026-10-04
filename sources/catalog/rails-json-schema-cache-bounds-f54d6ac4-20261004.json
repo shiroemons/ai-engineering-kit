@@ -1,0 +1,12 @@
+{
+  "id": "rails-json-schema-cache-bounds-f54d6ac4-20261004",
+  "url": "https://github.com/rails/rails/tree/f54d6ac4c70675a0e6a9c3a5ddbb01945d2e828d",
+  "repository_url": "https://github.com/rails/rails",
+  "commit_sha": "f54d6ac4c70675a0e6a9c3a5ddbb01945d2e828d",
+  "version": "Rails main 8.2.0.alpha; integer-bounds fix merged 2026-09-21T13:25:32Z",
+  "retrieved_at": "2026-10-04",
+  "license": "MIT",
+  "trust": "official",
+  "type": "github_repository_analysis",
+  "purpose": "Pinned schema_cache.rb, schema_cache_serializer.rb, ActiveModel integer.rb, hash_config.rb, database_tasks.rb, schema_cache_test.rb, RAILS_VERSION and MIT-LICENSE. Verify json >=2.10.0, allocate/init reconstruction, restored bounds, schema-version check and its rescue boundary. PR #58832 reports regression tests but merged diff contains only six integer.rb lines; runtime not executed."
+}
