@@ -1,0 +1,12 @@
+{
+  "id": "rfc8594-sunset-errata-20261004",
+  "url": "https://errata.rfc-editor.org/search/?rfc_number=8594",
+  "repository_url": "",
+  "commit_sha": "",
+  "version": "RFC 8594 errata search; No matching errata found observed 2026-10-04 UTC",
+  "retrieved_at": "2026-10-04",
+  "license": "unknown (no explicit license found on errata search page; original factual summary only, no code copied)",
+  "trust": "official",
+  "type": "official_docs",
+  "purpose": "info/rfc8594の公式リンク先でerrata検索結果を確認。旧 /errata/rfc8594 は取得失敗し、新ホストで確認できた結果のみを記録"
+}

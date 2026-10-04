@@ -1,0 +1,12 @@
+{
+  "id": "wcag22-aria22-status-20261004",
+  "url": "https://www.w3.org/WAI/WCAG22/Techniques/aria/ARIA22",
+  "repository_url": "https://github.com/w3c/wcag",
+  "commit_sha": "",
+  "version": "WCAG 2.2 Technique ARIA22; page Updated 2026-01-12; informative sufficient technique",
+  "license": "W3C Software and Document License 2023 (https://www.w3.org/copyright/software-license-2023/); WAI material permissions apply",
+  "trust": "official",
+  "type": "official_docs",
+  "purpose": "role=statusのpolite/atomic既定値、環境差に対する明示aria-atomic=true、および通知前から容器を用意するテスト手順を確認。",
+  "retrieved_at": "2026-10-04"
+}

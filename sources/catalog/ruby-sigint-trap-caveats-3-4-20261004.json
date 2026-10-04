@@ -1,0 +1,12 @@
+{
+  "id": "ruby-sigint-trap-caveats-3-4-20261004",
+  "url": "https://docs.ruby-lang.org/en/3.4/signals_rdoc.html",
+  "repository_url": "https://github.com/ruby/ruby",
+  "commit_sha": "",
+  "version": "Ruby 3.4 RDoc; Caveats for implementing Signal.trap callbacks; publication date not displayed",
+  "retrieved_at": "2026-10-04",
+  "license": "unknown",
+  "trust": "official",
+  "type": "official_docs",
+  "purpose": "trap callbackはmain Ruby Threadで遅延実行されるがアプリ不変条件の安全性は保証しないこと、reentrancyとthread-safetyの違い、Mutex/Monitorの禁止とQueue#pushの記載を確認。独自要約のみ"
+}

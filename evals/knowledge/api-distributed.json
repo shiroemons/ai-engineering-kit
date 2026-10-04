@@ -1110,6 +1110,20 @@
     {"name": "etcd-rangestream-proxy-fallback", "query": "RangeStream gRPC proxy fallback", "expected_ids": ["distributed-systems-etcd-rangestream-snapshot-completion"]},
     {"name": "etcd-rangestream-candidate-not-deletion", "query": "非公開generation 不在key", "expected_ids": ["distributed-systems-etcd-rangestream-snapshot-completion"]},
     {"name": "etcd-rangestream-compacted-rebuild", "query": "data revision+1 compacted", "expected_ids": ["distributed-systems-etcd-rangestream-snapshot-completion"]},
-    {"name": "etcd-rangestream-upstream-not-run", "query": "TestKVGetStreamCompactedError 今回実行していない", "expected_ids": ["distributed-systems-etcd-rangestream-snapshot-completion"]}
+    {"name": "etcd-rangestream-upstream-not-run", "query": "TestKVGetStreamCompactedError 今回実行していない", "expected_ids": ["distributed-systems-etcd-rangestream-snapshot-completion"]},
+    {"name": "deprecation-date-not-boolean", "query": "Deprecation ?1 Boolean Date", "expected_ids": ["http-deprecation-sunset-scope-retirement-boundary"]},
+    {"name": "deprecation-epoch-seconds", "query": "Deprecation 1793491200 ミリ秒", "expected_ids": ["http-deprecation-sunset-scope-retirement-boundary"]},
+    {"name": "deprecation-duplicate-item", "query": "Deprecation 二つ 単一Item", "expected_ids": ["http-deprecation-sunset-scope-retirement-boundary"]},
+    {"name": "deprecation-sunset-date-format", "query": "Sunset GMT IMF-fixdate", "expected_ids": ["http-deprecation-sunset-scope-retirement-boundary"]},
+    {"name": "deprecation-legacy-date-parser", "query": "RFC 8941 Date", "expected_ids": ["http-deprecation-sunset-scope-retirement-boundary"]},
+    {"name": "deprecation-not-eternal-behavior", "query": "Deprecation 無期限 同等性保証", "expected_ids": ["http-deprecation-sunset-scope-retirement-boundary"]},
+    {"name": "sunset-not-availability-guarantee", "query": "Sunset 日時まで 保証", "expected_ids": ["http-deprecation-sunset-scope-retirement-boundary"]},
+    {"name": "sunset-date-order-equality", "query": "Sunset 1秒前 同一瞬間", "expected_ids": ["http-deprecation-sunset-scope-retirement-boundary"]},
+    {"name": "deprecation-scope-not-api-wide", "query": "home document API全体scope", "expected_ids": ["http-deprecation-sunset-scope-retirement-boundary"]},
+    {"name": "deprecation-link-anchor-boundary", "query": "anchor policy 全体を無視", "expected_ids": ["http-deprecation-sunset-scope-retirement-boundary"]},
+    {"name": "sunset-expires-not-retirement", "query": "Expires 元resource 消滅", "expected_ids": ["http-deprecation-sunset-scope-retirement-boundary"]},
+    {"name": "deprecation-missing-not-withdrawal", "query": "通知 unknown 予定撤回", "expected_ids": ["http-deprecation-sunset-scope-retirement-boundary"]},
+    {"name": "deprecation-utc-example-not-erratum", "query": "UTC GMT 修正済みerratum", "expected_ids": ["http-deprecation-sunset-scope-retirement-boundary"]},
+    {"name": "sunset-no-delete-switch", "query": "Sunset 削除 切替 再確認", "expected_ids": ["http-deprecation-sunset-scope-retirement-boundary"]}
   ]
 }

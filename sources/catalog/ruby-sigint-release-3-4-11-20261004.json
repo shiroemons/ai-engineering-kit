@@ -1,0 +1,12 @@
+{
+  "id": "ruby-sigint-release-3-4-11-20261004",
+  "url": "https://github.com/ruby/ruby/releases/tag/v3_4_11",
+  "repository_url": "https://github.com/ruby/ruby",
+  "commit_sha": "",
+  "version": "Ruby 3.4.11; published 2026-09-23",
+  "retrieved_at": "2026-10-04",
+  "license": "unknown",
+  "trust": "official",
+  "type": "release_notes",
+  "purpose": "Bug #22133が3.4.11に含まれることを確認。公式ニュース https://www.ruby-lang.org/en/news/2026/09/23/ruby-3-4-11-released/ でも公開日を照合。release一覧は自動生成で漏れ得るため実装も別途固定して確認"
+}

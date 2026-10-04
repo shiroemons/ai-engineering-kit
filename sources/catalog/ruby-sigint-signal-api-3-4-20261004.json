@@ -1,0 +1,12 @@
+{
+  "id": "ruby-sigint-signal-api-3-4-20261004",
+  "url": "https://docs.ruby-lang.org/en/3.4/Signal.html",
+  "repository_url": "https://github.com/ruby/ruby",
+  "commit_sha": "",
+  "version": "Ruby 3.4 RDoc; patch version and publication date not displayed",
+  "retrieved_at": "2026-10-04",
+  "license": "unknown",
+  "trust": "official",
+  "type": "official_docs",
+  "purpose": "Signal.trapのDEFAULT/SIG_DFLとSYSTEM_DEFAULT、IGNORE、custom callbackの違い、platform依存のsignal契約を確認。独自要約のみ"
+}

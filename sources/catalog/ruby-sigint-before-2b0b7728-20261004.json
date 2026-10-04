@@ -1,0 +1,12 @@
+{
+  "id": "ruby-sigint-before-2b0b7728-20261004",
+  "url": "https://github.com/ruby/ruby/blob/2b0b7728dc7f0561c35c3d8c4489945c94b783ad/signal.c",
+  "repository_url": "https://github.com/ruby/ruby",
+  "commit_sha": "2b0b7728dc7f0561c35c3d8c4489945c94b783ad",
+  "version": "CRuby v3_4_10; full tag SHA verified with GitHub commit API",
+  "retrieved_at": "2026-10-04",
+  "license": "Ruby License OR BSD-2-Clause; same-commit COPYING and LEGAL checked; original analysis, no code copied",
+  "trust": "official",
+  "type": "github_repository_analysis",
+  "purpose": "3.4.11の直前tagでdefault SIGINTがrb_interrupt()を直接呼ぶことを比較確認。全旧版の影響範囲は推測しない。COPYING/LEGALを同じcommitで照合"
+}

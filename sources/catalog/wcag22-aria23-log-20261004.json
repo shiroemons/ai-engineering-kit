@@ -1,0 +1,12 @@
+{
+  "id": "wcag22-aria23-log-20261004",
+  "url": "https://www.w3.org/WAI/WCAG22/Techniques/aria/ARIA23",
+  "repository_url": "https://github.com/w3c/wcag",
+  "commit_sha": "",
+  "version": "WCAG 2.2 Technique ARIA23; page Updated 2026-06-01; informative sufficient technique",
+  "license": "W3C Software and Document License 2023 (https://www.w3.org/copyright/software-license-2023/); WAI material permissions apply",
+  "trust": "official",
+  "type": "official_docs",
+  "purpose": "順序のある履歴末尾への追加にrole=logを使う手法、polite/atomic=false、およびAT/browser compatibilityの制限を確認。本文の参照先はARIA 1.3だが本knowledgeの規範比較は固定ARIA 1.2を使用。",
+  "retrieved_at": "2026-10-04"
+}

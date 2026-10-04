@@ -1,0 +1,12 @@
+{
+  "id": "wai-aria12-live-region-contract-20261004",
+  "url": "https://www.w3.org/TR/2023/REC-wai-aria-1.2-20230606/",
+  "repository_url": "https://github.com/w3c/aria",
+  "commit_sha": "",
+  "version": "WAI-ARIA 1.2 W3C Recommendation 2023-06-06; aria-busy, aria-live, aria-atomic, aria-relevant, log and status",
+  "license": "W3C Software and Document License 2015 (https://www.w3.org/copyright/software-license-2015/)",
+  "trust": "official",
+  "type": "official_docs",
+  "purpose": "live regionの規範、MAY/SHOULDと通知の優先度・範囲を固定版で確認。読み上げ完了APIやexactly-once保証として扱わない。",
+  "retrieved_at": "2026-10-04"
+}

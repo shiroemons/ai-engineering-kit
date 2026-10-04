@@ -1,0 +1,12 @@
+{
+  "id": "ruby-sigint-thread-api-3-4-20261004",
+  "url": "https://docs.ruby-lang.org/en/3.4/Thread.html",
+  "repository_url": "https://github.com/ruby/ruby",
+  "commit_sha": "",
+  "version": "Ruby 3.4 RDoc; patch version and publication date not displayed",
+  "retrieved_at": "2026-10-04",
+  "license": "unknown",
+  "trust": "official",
+  "type": "official_docs",
+  "purpose": "Thread.handle_interruptのclass照合・3種類のtiming・延期・nested scope・kill/terminateの例外、pending_interrupt?の観測契約を確認。本文の個別ライセンスは未確定のため独自要約のみ"
+}

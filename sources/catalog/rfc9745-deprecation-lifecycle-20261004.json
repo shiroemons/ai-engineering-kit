@@ -1,0 +1,12 @@
+{
+  "id": "rfc9745-deprecation-lifecycle-20261004",
+  "url": "https://www.rfc-editor.org/rfc/rfc9745.html",
+  "repository_url": "",
+  "commit_sha": "",
+  "version": "RFC 9745, Standards Track, March 2025",
+  "retrieved_at": "2026-10-04",
+  "license": "IETF Trust Legal Provisions / BCP 78 for RFC text; extracted Code Components require Revised BSD License per copyright notice; no RFC code copied",
+  "trust": "official",
+  "type": "official_docs",
+  "purpose": "DeprecationのDate型、過去/未来、resource scope、任意hint、Sunsetとの順序、Section 5と7の動作保証の限界を確認"
+}
