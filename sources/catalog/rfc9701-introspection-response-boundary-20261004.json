@@ -1,0 +1,12 @@
+{
+  "id": "rfc9701-introspection-response-boundary-20261004",
+  "url": "https://datatracker.ietf.org/doc/rfc9701/",
+  "repository_url": "",
+  "commit_sha": "",
+  "version": "RFC 9701 (Standards Track / Proposed Standard, January 2025); Datatracker last updated 2026-05-20",
+  "retrieved_at": "2026-10-04",
+  "license": "IETF Trust Legal Provisions / BCP 78 (RFC text); extracted Code Components: Revised BSD License per RFC Copyright Notice; https://trustee.ietf.org/license-info/",
+  "trust": "official",
+  "type": "official_docs",
+  "purpose": "§3–5、§8.1を確認。RS識別と認可、JWT応答のmedia type/typ、外側iss/aud/iatと内側token_introspectionの分離、外側sub/expのSHOULD NOT、inactive時の内側activeのみ、cross-JWT confusionを参照。RFC Editor HTML初回429後にDatatracker全文とRFC Editor TXTで確認。errataは公式入口の取得エラーにより未確認。"
+}

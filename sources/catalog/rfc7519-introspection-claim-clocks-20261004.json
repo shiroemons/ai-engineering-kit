@@ -1,0 +1,12 @@
+{
+  "id": "rfc7519-introspection-claim-clocks-20261004",
+  "url": "https://www.rfc-editor.org/rfc/rfc7519.html",
+  "repository_url": "",
+  "commit_sha": "",
+  "version": "RFC 7519 (Standards Track, May 2015), §§4.1 and 4.1.3–4.1.6 only",
+  "retrieved_at": "2026-10-04",
+  "license": "IETF Trust Legal Provisions / BCP 78 (RFC text); extracted Code Components: Simplified BSD License per RFC Copyright Notice; https://trustee.ietf.org/license-info/",
+  "trust": "official",
+  "type": "official_docs",
+  "purpose": "個別applicationがclaimsの必須性を決めること、audの対象照合、含まれるexpの受入れ期限、iatを用いたJWT年齢判定を確認。暗号algorithm推奨や後続の全更新を網羅する資料としては使用しない。errata全件照合は未実施。"
+}

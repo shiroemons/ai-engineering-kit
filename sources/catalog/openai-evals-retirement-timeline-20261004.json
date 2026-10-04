@@ -1,0 +1,12 @@
+{
+  "id": "openai-evals-retirement-timeline-20261004",
+  "url": "https://developers.openai.com/api/docs/deprecations",
+  "repository_url": "",
+  "commit_sha": "",
+  "version": "Evals platform deprecation announced 2026-06-03; read-only 2026-10-31; dashboard/API shutdown scheduled 2026-11-30; verified 2026-10-04 UTC",
+  "retrieved_at": "2026-10-04",
+  "license": "unknown",
+  "trust": "official",
+  "type": "release_notes",
+  "purpose": "Evalsの段階的終了日とgraderの対象範囲、公式移行記事への参照を確認。終了時刻・タイムゾーンは記載未確認。 取得ページ上でopen licenseを確認できず、独自要約のみ。コードの複製・moduleへの昇格は行わない。"
+}

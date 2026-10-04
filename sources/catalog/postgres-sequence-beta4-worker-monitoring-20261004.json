@@ -1,0 +1,12 @@
+{
+  "id": "postgres-sequence-beta4-worker-monitoring-20261004",
+  "url": "https://github.com/postgres/postgres/blob/b73d13c32c834a2c8e1c60cb92f79530376cedf1/doc/src/sgml/monitoring.sgml",
+  "repository_url": "https://github.com/postgres/postgres",
+  "commit_sha": "b73d13c32c834a2c8e1c60cb92f79530376cedf1",
+  "version": "PostgreSQL 19beta4 bundled documentation; REL_19_BETA4 at b73d13c32c834a2c8e1c60cb92f79530376cedf1; announced 2026-09-24; no runtime validation",
+  "retrieved_at": "2026-10-04",
+  "license": "PostgreSQL License",
+  "trust": "official",
+  "type": "github_repository_analysis",
+  "purpose": "sequence synchronization workerのrelid/received_lsnがNULL、sync_seq_error_countがsequence件数でない点を確認。 License verified from https://github.com/postgres/postgres/blob/b73d13c32c834a2c8e1c60cb92f79530376cedf1/COPYRIGHT (software and documentation) and https://www.postgresql.org/about/licence/. Original summaries only; no source-code reuse."
+}

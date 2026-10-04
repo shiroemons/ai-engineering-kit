@@ -1,0 +1,12 @@
+{
+  "id": "rfc9068-access-token-type-boundary-20261004",
+  "url": "https://www.rfc-editor.org/rfc/rfc9068.html",
+  "repository_url": "",
+  "commit_sha": "",
+  "version": "RFC 9068 (Standards Track, October 2021), §§2 and 4",
+  "retrieved_at": "2026-10-04",
+  "license": "IETF Trust Legal Provisions / BCP 78 (RFC text); extracted Code Components: Simplified BSD License per RFC Copyright Notice; https://trustee.ietf.org/license-info/",
+  "trust": "official",
+  "type": "official_docs",
+  "purpose": "JWT access token固有profileの必須claims、at+jwt/application/at+jwtのtype検証、issuer/audience/署名/期限の検査、contextを含む操作認可を参照。RFC 9701応答へのschema流用を避ける比較用であり、全opaque tokenへの適用は主張しない。"
+}

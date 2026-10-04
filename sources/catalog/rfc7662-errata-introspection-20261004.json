@@ -1,0 +1,12 @@
+{
+  "id": "rfc7662-errata-introspection-20261004",
+  "url": "https://www.rfc-editor.org/errata/rfc7662",
+  "repository_url": "",
+  "commit_sha": "",
+  "version": "RFC Editor errata records for RFC 7662, observed 2026-10-04 UTC: 4764 Verified; 7607 Reported",
+  "retrieved_at": "2026-10-04",
+  "license": "unknown",
+  "trust": "official",
+  "type": "official_docs",
+  "purpose": "公式errata一覧の実ページを取得。4764はEditorial、2016-08-04報告/2024-01-17検証、§3.1の登録対象表記。7607はTechnical、2023-08-17報告、§2.2の失効主体に関する未検証提案。Reportedを承認済みの訂正として使わない。redirect先への直接取得は失敗したが元URLのweb表示で全記録を確認。"
+}

@@ -1,0 +1,12 @@
+{
+  "id": "rfc7662-introspection-cache-expiry-20261004",
+  "url": "https://www.rfc-editor.org/rfc/rfc7662.html",
+  "repository_url": "",
+  "commit_sha": "",
+  "version": "RFC 7662 (Standards Track, October 2015), §§2.2–2.3 and 4",
+  "retrieved_at": "2026-10-04",
+  "license": "IETF Trust Legal Provisions / BCP 78 (RFC text); extracted Code Components: Simplified BSD License per RFC Copyright Notice; https://trustee.ietf.org/license-info/",
+  "trust": "official",
+  "type": "official_docs",
+  "purpose": "activeのboolean、optionalなtoken iat/exp、inactiveと照会エラーの区別、ASの適用状態検査、cacheによる失効反映窓、expを越えるcache禁止を確認。errata状態は別の新規catalog recordに記録。"
+}

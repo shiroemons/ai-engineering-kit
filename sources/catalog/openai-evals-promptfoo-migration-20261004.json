@@ -1,0 +1,12 @@
+{
+  "id": "openai-evals-promptfoo-migration-20261004",
+  "url": "https://developers.openai.com/cookbook/examples/evaluation/moving-from-openai-evals-to-promptfoo",
+  "repository_url": "",
+  "commit_sha": "",
+  "version": "OpenAI Cookbook article by Konstantine Kahadze, published 2026-06-03; retrieved 2026-10-04 UTC; Promptfoo exact version unspecified",
+  "retrieved_at": "2026-10-04",
+  "license": "unknown",
+  "trust": "maintainer",
+  "type": "maintainer_article",
+  "purpose": "手動再構築を扱う移行記事であり、export機能や過去runのimportを前提としないこと、新runが旧runと別物でgrader較正を必要とすることを確認。 取得ページ上でopen licenseを確認できず、独自要約のみ。コードの複製・moduleへの昇格は行わない。"
+}

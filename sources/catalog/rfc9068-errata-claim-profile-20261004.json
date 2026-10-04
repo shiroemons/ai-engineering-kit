@@ -1,0 +1,12 @@
+{
+  "id": "rfc9068-errata-claim-profile-20261004",
+  "url": "https://www.rfc-editor.org/errata/rfc9068",
+  "repository_url": "",
+  "commit_sha": "",
+  "version": "RFC Editor errata records for RFC 9068, observed 2026-10-04 UTC: 8802 Reported",
+  "retrieved_at": "2026-10-04",
+  "license": "unknown",
+  "trust": "official",
+  "type": "official_docs",
+  "purpose": "公式errata一覧の実ページを取得。8802はTechnical、2026-03-04報告、§2.2のissをREQUIREDからOPTIONALへ変える提案で、状態はReported。個別profileの必須性を弱める根拠として採用しない。redirect先への直接取得は失敗したが元URLのweb表示で記録を確認。"
+}

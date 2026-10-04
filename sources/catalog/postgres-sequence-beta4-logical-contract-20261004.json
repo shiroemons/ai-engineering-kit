@@ -1,0 +1,12 @@
+{
+  "id": "postgres-sequence-beta4-logical-contract-20261004",
+  "url": "https://github.com/postgres/postgres/blob/b73d13c32c834a2c8e1c60cb92f79530376cedf1/doc/src/sgml/logical-replication.sgml",
+  "repository_url": "https://github.com/postgres/postgres",
+  "commit_sha": "b73d13c32c834a2c8e1c60cb92f79530376cedf1",
+  "version": "PostgreSQL 19beta4 bundled documentation; REL_19_BETA4 at b73d13c32c834a2c8e1c60cb92f79530376cedf1; announced 2026-09-24; no runtime validation",
+  "retrieved_at": "2026-10-04",
+  "license": "PostgreSQL License",
+  "trust": "official",
+  "type": "github_repository_analysis",
+  "purpose": "19beta4同梱文書のsequence同期、継続変更非複製、worker、定義不一致、LSN比較の盲点、切替時の制約を確認。 License verified from https://github.com/postgres/postgres/blob/b73d13c32c834a2c8e1c60cb92f79530376cedf1/COPYRIGHT (software and documentation) and https://www.postgresql.org/about/licence/. Original summaries only; no source-code reuse."
+}

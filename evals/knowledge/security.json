@@ -265,5 +265,17 @@
     {"name": "tls-early-rfc9846-version", "query": "RFC 9846 後方互換 TLS 1.4", "expected_ids": ["security-tls-early-data-hop-replay-acceptance-boundary"]},
     {"name": "tls-early-forward-secrecy", "query": "single-use PSK 全コピー", "expected_ids": ["security-tls-early-data-hop-replay-acceptance-boundary"]},
     {"name": "tls-early-restart-window", "query": "ClientHello recording 起動時刻", "expected_ids": ["security-tls-early-data-hop-replay-acceptance-boundary"]},
-    {"name": "tls-early-errata-unverified", "query": "9846 8470 errata 未確認", "expected_ids": ["security-tls-early-data-hop-replay-acceptance-boundary"]}
+    {"name": "tls-early-errata-unverified", "query": "9846 8470 errata 未確認", "expected_ids": ["security-tls-early-data-hop-replay-acceptance-boundary"]},
+    {"name": "introspection-jwt-outer-exp-optional", "query": "introspection 外側exp SHOULD NOT", "expected_ids": ["oauth-introspection-jwt-active-freshness-cache-boundary"]},
+    {"name": "introspection-jwt-iat-separation", "query": "introspection 回答作成時刻 token発行時刻", "expected_ids": ["oauth-introspection-jwt-active-freshness-cache-boundary"]},
+    {"name": "introspection-jwt-inactive-wrapper", "query": "active=false 外側 必須claims", "expected_ids": ["oauth-introspection-jwt-active-freshness-cache-boundary"]},
+    {"name": "introspection-jwt-cross-token-type", "query": "token-introspection+jwt at+jwt", "expected_ids": ["oauth-introspection-jwt-active-freshness-cache-boundary"]},
+    {"name": "introspection-jwt-cache-inner-exp", "query": "introspection 内側exp cache上限", "expected_ids": ["oauth-introspection-jwt-active-freshness-cache-boundary"]},
+    {"name": "introspection-jwt-no-sliding-ttl", "query": "introspection sliding TTL", "expected_ids": ["oauth-introspection-jwt-active-freshness-cache-boundary"]},
+    {"name": "introspection-jwt-context-key", "query": "introspection fingerprint policy世代", "expected_ids": ["oauth-introspection-jwt-active-freshness-cache-boundary"]},
+    {"name": "introspection-jwt-request-correlation", "query": "introspection hash echo", "expected_ids": ["oauth-introspection-jwt-active-freshness-cache-boundary"]},
+    {"name": "introspection-jwt-unknown-not-active", "query": "introspection last-known-active", "expected_ids": ["oauth-introspection-jwt-active-freshness-cache-boundary"]},
+    {"name": "introspection-jwt-inflight-generation", "query": "introspection in-flight generation", "expected_ids": ["oauth-introspection-jwt-active-freshness-cache-boundary"]},
+    {"name": "introspection-jwt-profile-errata", "query": "8802 Reported REQUIRED", "expected_ids": ["oauth-introspection-jwt-active-freshness-cache-boundary"]},
+    {"name": "introspection-jwt-revocation-window", "query": "introspection 失効反映窓 即時失効", "expected_ids": ["oauth-introspection-jwt-active-freshness-cache-boundary"]}
   ]}
