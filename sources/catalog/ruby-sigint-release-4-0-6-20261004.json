@@ -1,0 +1,12 @@
+{
+  "id": "ruby-sigint-release-4-0-6-20261004",
+  "url": "https://github.com/ruby/ruby/releases/tag/v4.0.6",
+  "repository_url": "https://github.com/ruby/ruby",
+  "commit_sha": "",
+  "version": "Ruby 4.0.6; published 2026-07-14",
+  "retrieved_at": "2026-10-04",
+  "license": "unknown",
+  "trust": "official",
+  "type": "release_notes",
+  "purpose": "4.0系ではBug #22133が4.0.6に既に掲載されることを確認。公式ニュース https://www.ruby-lang.org/en/news/2026/07/14/ruby-4-0-6-released/ でも公開日を照合。4.0.7の新規修正とは扱わない"
+}

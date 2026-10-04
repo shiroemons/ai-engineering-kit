@@ -1,0 +1,12 @@
+{
+  "id": "ruby-sigint-report-22133-20261004",
+  "url": "https://bugs.ruby-lang.org/issues/22133",
+  "repository_url": "https://github.com/ruby/ruby",
+  "commit_sha": "",
+  "version": "Bug #22133; Closed; backport status 3.3 REQUIRED / 3.4 DONE / 4.0 DONE as retrieved",
+  "retrieved_at": "2026-10-04",
+  "license": "unknown",
+  "trust": "primary-source",
+  "type": "incident_report",
+  "purpose": "Async/Async::Containerで発見されたdefault SIGINTのmask迂回、Queue#pop中の例外、3.4/4.0へのbackport記録と他Ruby実装の差を確認。初回日付の相対表示を絶対日へ推測変換しない。運用報告とAPI契約を区別"
+}

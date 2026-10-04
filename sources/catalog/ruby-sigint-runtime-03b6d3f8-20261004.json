@@ -1,0 +1,12 @@
+{
+  "id": "ruby-sigint-runtime-03b6d3f8-20261004",
+  "url": "https://github.com/ruby/ruby/blob/03b6d3f8898a28604fe6cb00eae3226b821168f4/signal.c",
+  "repository_url": "https://github.com/ruby/ruby",
+  "commit_sha": "03b6d3f8898a28604fe6cb00eae3226b821168f4",
+  "version": "CRuby v4.0.6; full tag SHA verified with GitHub commit API",
+  "retrieved_at": "2026-10-04",
+  "license": "Ruby License OR BSD-2-Clause; same-commit COPYING and LEGAL checked; original analysis, no code copied",
+  "trust": "official",
+  "type": "github_repository_analysis",
+  "purpose": "4.0.6のdefault SIGINTがrb_threadptr_interrupt_raiseへ変更済みであることを固定sourceで確認。3.4.11の全実装と同一とは仮定しない。COPYING/LEGALも同じcommitで照合"
+}

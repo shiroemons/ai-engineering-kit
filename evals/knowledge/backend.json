@@ -1854,6 +1854,104 @@
       "expected_ids": [
         "go-goroutineleak-capture-reachability-boundary"
       ]
+    },
+    {
+      "name": "ruby-sigint-release-branch-boundary",
+      "query": "3.4.11 4.0.6 4.0.7の新機能",
+      "expected_ids": [
+        "ruby-sigint-interrupt-mask-cleanup-boundary"
+      ]
+    },
+    {
+      "name": "ruby-sigint-before-after-route",
+      "query": "rb_interrupt() rb_threadptr_interrupt_raise",
+      "expected_ids": [
+        "ruby-sigint-interrupt-mask-cleanup-boundary"
+      ]
+    },
+    {
+      "name": "ruby-sigint-mask-class-standarderror",
+      "query": "StandardError SIGINT 保護しない",
+      "expected_ids": [
+        "ruby-sigint-interrupt-mask-cleanup-boundary"
+      ]
+    },
+    {
+      "name": "ruby-sigint-current-thread-not-global",
+      "query": "現在thread main thread global",
+      "expected_ids": [
+        "ruby-sigint-interrupt-mask-cleanup-boundary"
+      ]
+    },
+    {
+      "name": "ruby-sigint-never-defer-not-discard",
+      "query": "延期 破棄 外側",
+      "expected_ids": [
+        "ruby-sigint-interrupt-mask-cleanup-boundary"
+      ]
+    },
+    {
+      "name": "ruby-sigint-blocking-not-timeout",
+      "query": "on_blocking GVL wall-clock",
+      "expected_ids": [
+        "ruby-sigint-interrupt-mask-cleanup-boundary"
+      ]
+    },
+    {
+      "name": "ruby-sigint-kill-exception-not-all",
+      "query": "Object kill/terminate SIGKILL",
+      "expected_ids": [
+        "ruby-sigint-interrupt-mask-cleanup-boundary"
+      ]
+    },
+    {
+      "name": "ruby-sigint-pending-observation-not-drain",
+      "query": "pending_interrupt? queueを消費しない",
+      "expected_ids": [
+        "ruby-sigint-interrupt-mask-cleanup-boundary"
+      ]
+    },
+    {
+      "name": "ruby-sigint-default-system-default",
+      "query": "SYSTEM_DEFAULT OS 既定handler",
+      "expected_ids": [
+        "ruby-sigint-interrupt-mask-cleanup-boundary"
+      ]
+    },
+    {
+      "name": "ruby-sigint-custom-raise-not-equivalent",
+      "query": "custom callback EC_JUMP_TAG",
+      "expected_ids": [
+        "ruby-sigint-interrupt-mask-cleanup-boundary"
+      ]
+    },
+    {
+      "name": "ruby-sigint-trap-reentrancy-not-thread-safety",
+      "query": "reentrant Monitor Queue#push",
+      "expected_ids": [
+        "ruby-sigint-interrupt-mask-cleanup-boundary"
+      ]
+    },
+    {
+      "name": "ruby-sigint-cleanup-scope-deadline",
+      "query": "ensure maskの外 停止期限",
+      "expected_ids": [
+        "ruby-sigint-interrupt-mask-cleanup-boundary"
+      ]
+    },
+    {
+      "name": "ruby-sigint-upstream-test-windows",
+      "query": "outer false mswin mingw",
+      "expected_ids": [
+        "ruby-sigint-interrupt-mask-cleanup-boundary"
+      ]
+    },
+    {
+      "name": "ruby-sigint-source-not-runtime-proof",
+      "query": "runtime試験 未実行",
+      "expected_ids": [
+        "ruby-sigint-interrupt-mask-cleanup-boundary"
+      ]
     }
   ]
 }

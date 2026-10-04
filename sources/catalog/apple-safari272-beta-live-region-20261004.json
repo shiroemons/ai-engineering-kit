@@ -1,0 +1,12 @@
+{
+  "id": "apple-safari272-beta-live-region-20261004",
+  "url": "https://developer.apple.com/documentation/safari-release-notes/safari-27_2-release-notes",
+  "repository_url": "",
+  "commit_sha": "",
+  "version": "Safari 27.2 beta (20625.2.4), released 2026-09-16; Accessibility issue 186766347; beta label verified 2026-10-04",
+  "license": "unknown",
+  "trust": "official",
+  "type": "release_notes",
+  "purpose": "VoiceOverがstreaming中のaria-live再描画で既読テキストを繰り返す不具合のbeta修正告知を確認。native web openはJavaScript shell、公式Markdown取得は失敗したためcloud browserで実際の本文・build・日付を確認。Apple footerはAll rights reserved。独自要約のみでコード・本文は転載しない。",
+  "retrieved_at": "2026-10-04"
+}

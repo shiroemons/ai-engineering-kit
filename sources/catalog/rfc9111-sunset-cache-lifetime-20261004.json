@@ -1,0 +1,12 @@
+{
+  "id": "rfc9111-sunset-cache-lifetime-20261004",
+  "url": "https://www.rfc-editor.org/rfc/rfc9111.html",
+  "repository_url": "",
+  "commit_sha": "",
+  "version": "RFC 9111, STD 98, June 2022",
+  "retrieved_at": "2026-10-04",
+  "license": "IETF Trust Legal Provisions / BCP 78 for RFC text; extracted Code Components require Revised BSD License per copyright notice; no RFC code copied",
+  "trust": "official",
+  "type": "official_docs",
+  "purpose": "Section 5.3のExpiresがresponseのstale時刻でありresourceの変更・消滅を示さない契約を確認"
+}

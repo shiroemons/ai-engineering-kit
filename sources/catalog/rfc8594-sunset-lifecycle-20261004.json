@@ -1,0 +1,12 @@
+{
+  "id": "rfc8594-sunset-lifecycle-20261004",
+  "url": "https://www.rfc-editor.org/rfc/rfc8594.html",
+  "repository_url": "",
+  "commit_sha": "",
+  "version": "RFC 8594, Informational, May 2019",
+  "retrieved_at": "2026-10-04",
+  "license": "IETF Trust Legal Provisions / BCP 78 for RFC text; extracted Code Components require Simplified BSD License per copyright notice; no RFC code copied",
+  "trust": "official",
+  "type": "official_docs",
+  "purpose": "SunsetのHTTP-date、終了前後の非保証、scope、cacheとの独立、移行policyの真正性と適用範囲を確認"
+}

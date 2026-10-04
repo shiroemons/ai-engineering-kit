@@ -1,0 +1,12 @@
+{
+  "id": "rfc9651-deprecation-date-20261004",
+  "url": "https://www.rfc-editor.org/rfc/rfc9651.html",
+  "repository_url": "",
+  "commit_sha": "",
+  "version": "RFC 9651, Standards Track, September 2024; obsoletes RFC 8941",
+  "retrieved_at": "2026-10-04",
+  "license": "IETF Trust Legal Provisions / BCP 78 for RFC text; extracted Code Components require Revised BSD License per copyright notice; no RFC code copied",
+  "trust": "official",
+  "type": "official_docs",
+  "purpose": "Structured Fields Dateのepoch秒、Itemと型制約の分離、複数field lineの結合、parse失敗時の全体処理、旧RFC8941とのDate互換性を確認"
+}

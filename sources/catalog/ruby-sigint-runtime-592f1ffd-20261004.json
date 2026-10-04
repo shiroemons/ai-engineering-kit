@@ -1,0 +1,12 @@
+{
+  "id": "ruby-sigint-runtime-592f1ffd-20261004",
+  "url": "https://github.com/ruby/ruby/tree/592f1ffdb36153e8be83603ade3c2e9ab6138a77",
+  "repository_url": "https://github.com/ruby/ruby",
+  "commit_sha": "592f1ffdb36153e8be83603ade3c2e9ab6138a77",
+  "version": "CRuby v3_4_11; full tag SHA verified with GitHub commit API",
+  "retrieved_at": "2026-10-04",
+  "license": "Ruby License OR BSD-2-Clause; same-commit COPYING and LEGAL checked; original analysis, no code copied",
+  "trust": "official",
+  "type": "github_repository_analysis",
+  "purpose": "signal.cのdefault/custom経路、thread.cのpending_interruptと現在threadへのmask、error.cの例外階層、test/ruby/test_thread.rbのSIGINT回帰testを固定読解。COPYING/LEGALも照合。runtime試験は未実行"
+}

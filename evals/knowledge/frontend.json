@@ -1205,6 +1205,18 @@
     {"name": "erm-close-once-shared-promise", "query": "closing 拒否", "expected_ids": ["javascript-explicit-resource-lifetime-async-disposal-boundary"]},
     {"name": "erm-runtime-transpile-boundary", "query": "native ESM polyfill", "expected_ids": ["javascript-explicit-resource-lifetime-async-disposal-boundary"]},
     {"name": "erm-registered-method-snapshot", "query": "登録後 差し替え", "expected_ids": ["javascript-explicit-resource-lifetime-async-disposal-boundary"]},
-    {"name": "erm-typecheck-runtime-separation", "query": "TypeScript polyfill parse", "expected_ids": ["javascript-explicit-resource-lifetime-async-disposal-boundary"]}
+    {"name": "erm-typecheck-runtime-separation", "query": "TypeScript polyfill parse", "expected_ids": ["javascript-explicit-resource-lifetime-async-disposal-boundary"]},
+    {"name": "live-region-safari-beta-rerender", "query": "186766347 20625.2.4 beta", "expected_ids": ["accessibility-streaming-live-region-announcement-boundary"]},
+    {"name": "live-region-busy-no-playback-ack", "query": "aria-busy playback ack", "expected_ids": ["accessibility-streaming-live-region-announcement-boundary"]},
+    {"name": "live-region-atomic-not-string-diff", "query": "aria-atomic 未読suffix", "expected_ids": ["accessibility-streaming-live-region-announcement-boundary"]},
+    {"name": "live-region-polite-interruption", "query": "polite assertive 発話", "expected_ids": ["accessibility-streaming-live-region-announcement-boundary"]},
+    {"name": "live-region-role-status-before-update", "query": "ARIA22 通知発生前", "expected_ids": ["accessibility-streaming-live-region-announcement-boundary"]},
+    {"name": "live-region-log-stable-message-id", "query": "role=\"log\" revision", "expected_ids": ["accessibility-streaming-live-region-announcement-boundary"]},
+    {"name": "live-region-additions-correction", "query": "aria-relevant additions 訂正", "expected_ids": ["accessibility-streaming-live-region-announcement-boundary"]},
+    {"name": "live-region-cancel-late-completion", "query": "cancelled completed request", "expected_ids": ["accessibility-streaming-live-region-announcement-boundary"]},
+    {"name": "live-region-status-focus-transition", "query": "status focus context", "expected_ids": ["accessibility-streaming-live-region-announcement-boundary"]},
+    {"name": "live-region-dom-not-speech-evidence", "query": "accessibility tree snapshot 点字", "expected_ids": ["accessibility-streaming-live-region-announcement-boundary"]},
+    {"name": "live-region-off-focused-not-silence", "query": "aria-live=\"off\" 無音化", "expected_ids": ["accessibility-streaming-live-region-announcement-boundary"]},
+    {"name": "live-region-history-remount", "query": "仮想化 prepend 再挿入", "expected_ids": ["accessibility-streaming-live-region-announcement-boundary"]}
   ]
 }

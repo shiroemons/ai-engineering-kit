@@ -1,0 +1,12 @@
+{
+  "id": "rfc9110-sunset-http-date-20261004",
+  "url": "https://www.rfc-editor.org/rfc/rfc9110.html",
+  "repository_url": "",
+  "commit_sha": "",
+  "version": "RFC 9110, STD 97, June 2022",
+  "retrieved_at": "2026-10-04",
+  "license": "IETF Trust Legal Provisions / BCP 78 for RFC text; extracted Code Components require Revised BSD License per copyright notice; no RFC code copied",
+  "trust": "official",
+  "type": "official_docs",
+  "purpose": "Section 5.6.7のHTTP-date送信形式IMF-fixdate/GMTと受信3形式を確認し、RFC9745のUTC例をそのまま生成仕様にしない"
+}
