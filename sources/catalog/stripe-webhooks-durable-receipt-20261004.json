@@ -1,0 +1,12 @@
+{
+  "id": "stripe-webhooks-durable-receipt-20261004",
+  "url": "https://docs.stripe.com/webhooks",
+  "repository_url": "",
+  "commit_sha": "",
+  "version": "Stripe Docs rolling webhook page; event destination example Stripe-Version 2026-09-30.preview; no independent publication date verified",
+  "retrieved_at": "2026-10-04",
+  "license": "unknown",
+  "trust": "official",
+  "type": "official_docs",
+  "purpose": "署名対象がtimestamp文字列 + ピリオド + raw bodyであること、再送・順不同・重複・速やかな2xxと非同期処理・snapshot時点と現行objectの区別を再確認。旧recordのt=を署名対象へ含める記述は今回の根拠に使わない。durable保存-before-ackは本書独自の障害安全設計。 確認したページからopen licenseを特定できず、独自の日本語要約のみ。"
+}

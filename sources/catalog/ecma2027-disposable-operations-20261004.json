@@ -1,0 +1,12 @@
+{
+  "id": "ecma2027-disposable-operations-20261004",
+  "url": "https://tc39.es/ecma262/multipage/abstract-operations.html#sec-disposeresources",
+  "repository_url": "https://github.com/tc39/ecma262",
+  "commit_sha": "",
+  "retrieved_at": "2026-10-04",
+  "license": "Ecma alternative copyright notice and copyright license (text); BSD-3-Clause (software); https://tc39.es/ecma262/multipage/copyright-and-software-license.html verified 2026-10-04; original summary only",
+  "trust": "official",
+  "type": "official_docs",
+  "version": "Draft ECMA-262 / October 3, 2026, ECMAScript 2027; 7.5 AddDisposableResource, CreateDisposableResource, GetDisposeMethod, DisposeResources; live draft, not a published 2027 edition",
+  "purpose": "登録時の解放関数取得、sync fallbackのPromise破棄、LIFO、解放失敗継続とSuppressedErrorの入れ子。"
+}

@@ -1,0 +1,12 @@
+{
+  "id": "go127-goroutineleak-http-source-20261004",
+  "url": "https://github.com/golang/go/blob/862c888e612ac346c7c4d99c9392bdfd265f33b0/src/net/http/pprof/pprof.go",
+  "repository_url": "https://github.com/golang/go",
+  "commit_sha": "862c888e612ac346c7c4d99c9392bdfd265f33b0",
+  "version": "Go 1.27.1",
+  "retrieved_at": "2026-10-04",
+  "license": "BSD-3-Clause",
+  "trust": "official",
+  "type": "github_repository_analysis",
+  "purpose": "goroutineleakのdelta許可、2回のcollectProfile、Scale(-1)とMerge、seconds/debug非互換、indexのCount取得を確認。固定LICENSEとファイル冒頭を確認。"
+}

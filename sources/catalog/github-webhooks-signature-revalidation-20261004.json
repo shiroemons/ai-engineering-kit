@@ -1,0 +1,12 @@
+{
+  "id": "github-webhooks-signature-revalidation-20261004",
+  "url": "https://docs.github.com/en/webhooks/using-webhooks/validating-webhook-deliveries",
+  "repository_url": "",
+  "commit_sha": "",
+  "version": "GitHub Docs rolling webhook page; no fixed revision or publication date displayed; verified 2026-10-04 UTC",
+  "retrieved_at": "2026-10-04",
+  "license": "unknown",
+  "trust": "official",
+  "type": "official_docs",
+  "purpose": "X-Hub-Signature-256とHMAC-SHA256、raw payloadとUTF-8、constant-time比較、secret未設定時のheader欠落、公式検証vectorを再確認。コードは転載しない。 確認したページからopen licenseを特定できず、独自の日本語要約のみ。"
+}

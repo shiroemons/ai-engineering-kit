@@ -1,0 +1,12 @@
+{
+  "id": "typescript52-resource-management-introduction-20261004",
+  "url": "https://www.typescriptlang.org/docs/handbook/release-notes/typescript-5-2.html#using-declarations-and-explicit-resource-management",
+  "repository_url": "https://github.com/microsoft/TypeScript-Website",
+  "commit_sha": "",
+  "version": "TypeScript 5.2 release notes, using declarations and explicit resource management; page displays Last updated Sep 28, 2026, not a feature-introduction date; verified 2026-10-04",
+  "retrieved_at": "2026-10-04",
+  "license": "CC-BY-4.0 (documentation); https://github.com/microsoft/TypeScript-Website/blob/v2/LICENSE verified 2026-10-04; no source code copied",
+  "trust": "official",
+  "type": "release_notes",
+  "purpose": "using/await using導入、取得後の即時cleanup登録、型定義・target/lib・runtime polyfillを分ける移行判断。過去の対応状況を現在へ一般化しない。"
+}

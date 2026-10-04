@@ -1,0 +1,12 @@
+{
+  "id": "go127-goroutineleak-http-api-20261004",
+  "url": "https://pkg.go.dev/net/http/pprof@go1.27.1",
+  "repository_url": "https://github.com/golang/go",
+  "commit_sha": "",
+  "version": "Go 1.27.1; published 2026-09-01",
+  "retrieved_at": "2026-10-04",
+  "license": "BSD-3-Clause",
+  "trust": "official",
+  "type": "official_docs",
+  "purpose": "GET、DefaultServeMuxへの登録、独自muxでの明示登録、debug/gc/secondsの説明を確認。Parameters一覧にgoroutineleakのdelta記載がない点は固定sourceと区別。"
+}

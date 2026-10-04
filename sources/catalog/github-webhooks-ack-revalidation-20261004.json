@@ -1,0 +1,12 @@
+{
+  "id": "github-webhooks-ack-revalidation-20261004",
+  "url": "https://docs.github.com/en/webhooks/using-webhooks/best-practices-for-using-webhooks",
+  "repository_url": "",
+  "commit_sha": "",
+  "version": "GitHub Docs rolling webhook page; no fixed revision or publication date displayed; verified 2026-10-04 UTC",
+  "retrieved_at": "2026-10-04",
+  "license": "unknown",
+  "trust": "official",
+  "type": "official_docs",
+  "purpose": "10秒以内2xx、非同期queue、event/action分岐、再送時も同じX-GitHub-Delivery、HTTPS検証とIP一覧更新を再確認。queue永続化とackの原子性は公式保証と解釈しない。 確認したページからopen licenseを特定できず、独自の日本語要約のみ。"
+}

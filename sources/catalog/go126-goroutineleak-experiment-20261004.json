@@ -1,0 +1,12 @@
+{
+  "id": "go126-goroutineleak-experiment-20261004",
+  "url": "https://go.dev/doc/go1.26",
+  "repository_url": "https://github.com/golang/website",
+  "commit_sha": "",
+  "version": "Go 1.26.0; released 2026-02-10",
+  "retrieved_at": "2026-10-04",
+  "license": "CC-BY-4.0 (site text); BSD-3-Clause (code)",
+  "trust": "official",
+  "type": "release_notes",
+  "purpose": "実験機能の有効化、早期returnによるchannel送信待ち、global/runnableから到達できるprimitiveの未検出可能性を確認。コード転載なし。"
+}
