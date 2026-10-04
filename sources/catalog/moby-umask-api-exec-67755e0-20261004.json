@@ -1,0 +1,12 @@
+{
+  "id": "moby-umask-api-exec-67755e0-20261004",
+  "url": "https://github.com/moby/moby/commit/67755e065510390fb3839cd389200511733ba9ba",
+  "repository_url": "https://github.com/moby/moby",
+  "commit_sha": "67755e065510390fb3839cd389200511733ba9ba",
+  "version": "Moby merge commit 67755e065510390fb3839cd389200511733ba9ba, PR #53463 merged 2026-09-03; feature shipped in Engine 29.8.0 per release notes",
+  "license": "Apache-2.0; repository LICENSE at 67755e065510390fb3839cd389200511733ba9ba read via GitHub API; source code not copied",
+  "trust": "official",
+  "type": "github_repository_analysis",
+  "purpose": "固定commitのAPI schema、nullable uint32、JSON decimal、旧API create/inspectでのUmask除外、WithUmask、execの保存済みOCI Process読取とuser解決時Umask保持、Windows拒否、run/exec/health integration testを確認。native PR本文を実読、SHA固定webはcache missのため同SHAをGitHub connectorで取得。testは読んだだけで実行していない",
+  "retrieved_at": "2026-10-04"
+}

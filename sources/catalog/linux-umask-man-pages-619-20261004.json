@@ -1,0 +1,12 @@
+{
+  "id": "linux-umask-man-pages-619-20261004",
+  "url": "https://man7.org/linux/man-pages/man2/umask.2.html",
+  "repository_url": "https://git.kernel.org/pub/scm/docs/man-pages/man-pages.git",
+  "commit_sha": "",
+  "version": "Linux man-pages 6.19, umask(2) page date 2026-02-08; HTML rendered 2026-09-09; retrieved 2026-10-04 UTC",
+  "license": "unknown",
+  "trust": "official",
+  "type": "official_docs",
+  "purpose": "Linux man-pages projectの公開manualをnative webで実読。生成modeからmask bitを落とす計算、default ACL優先、fork/execve継承、/proc/pid/status Umask読取を確認。HTML単体のライセンス未確定、原文やサンプルコードの転載なし",
+  "retrieved_at": "2026-10-04"
+}

@@ -1208,6 +1208,25 @@
     {"name": "search-pagination-expiry-read-start", "query": "各cursor read開始時 active expiration", "expected_ids": ["search-redis-limit-cursor-completeness-boundary"]},
     {"name": "search-pagination-count-not-snapshot", "query": "WITHCOUNT WITHOUTCOUNT 固定", "expected_ids": ["search-redis-limit-cursor-completeness-boundary"]},
     {"name": "search-pagination-rc1-versus-ga", "query": "RC1 2026-07-29 GA", "expected_ids": ["search-redis-limit-cursor-completeness-boundary"]},
-    {"name": "search-pagination-frozen-id-not-value", "query": "固定ID TTL 固定", "expected_ids": ["search-redis-limit-cursor-completeness-boundary"]}
+    {"name": "search-pagination-frozen-id-not-value", "query": "固定ID TTL 固定", "expected_ids": ["search-redis-limit-cursor-completeness-boundary"]},
+    {"name": "redis-lmovem-released-version", "query": "8.10.0 2026-07-29 8.10.2", "expected_ids": ["redis-lmovem-batch-order-admission-boundary"]},
+    {"name": "redis-lmovem-pair-required", "query": "3token orderingの省略", "expected_ids": ["redis-lmovem-batch-order-admission-boundary"]},
+    {"name": "redis-blmovem-count-not-batch-timer", "query": "COUNT 100 batch形成timer", "expected_ids": ["redis-lmovem-batch-order-admission-boundary"]},
+    {"name": "redis-lmovem-reply-destination-order", "query": "reply destination上の左から右", "expected_ids": ["redis-lmovem-batch-order-admission-boundary"]},
+    {"name": "redis-lmovem-pop-before-push", "query": "全件pop LMOVE loop", "expected_ids": ["redis-lmovem-batch-order-admission-boundary"]},
+    {"name": "redis-lmovem-samekey-obo-not-loop", "query": "LEFT LEFT COUNT 2 OBO [b,a,c,d]", "expected_ids": ["redis-lmovem-batch-order-admission-boundary"]},
+    {"name": "redis-lmovem-samekey-bulk-rotation", "query": "LEFT RIGHT COUNT 2 BULK [c,d,a,b]", "expected_ids": ["redis-lmovem-batch-order-admission-boundary"]},
+    {"name": "redis-lmovem-upstream-rotation-expectation", "query": "3 4 $large 1 2", "expected_ids": ["redis-lmovem-batch-order-admission-boundary"]},
+    {"name": "redis-lmovem-order-noop-not-notification", "query": "要素順が不変 dirty", "expected_ids": ["redis-lmovem-batch-order-admission-boundary"]},
+    {"name": "redis-lmovem-count-null-wire", "query": "tomove RESP2 null array RESP3", "expected_ids": ["redis-lmovem-batch-order-admission-boundary"]},
+    {"name": "redis-lmovem-tcl-empty-not-wire", "query": "Tcl表現 wire上の空array", "expected_ids": ["redis-lmovem-batch-order-admission-boundary"]},
+    {"name": "redis-blmovem-exactly-no-reservation", "query": "EXACTLY 予約 部分的", "expected_ids": ["redis-lmovem-batch-order-admission-boundary"]},
+    {"name": "redis-blmovem-growth-wakeup", "query": "BLOCKED_LIST_NONEMPTY SORT STORE", "expected_ids": ["redis-lmovem-batch-order-admission-boundary"]},
+    {"name": "redis-blmovem-fifo-not-completion", "query": "待機開始順と完了順は別", "expected_ids": ["redis-lmovem-batch-order-admission-boundary"]},
+    {"name": "redis-blmovem-multi-null-not-timeout", "query": "CLIENT_DENY_BLOCKING timeout秒数", "expected_ids": ["redis-lmovem-batch-order-admission-boundary"]},
+    {"name": "redis-lmovem-destination-check-after-count", "query": "不足時 destination型検査より前", "expected_ids": ["redis-lmovem-batch-order-admission-boundary"]},
+    {"name": "redis-blmovem-replication-not-dedup", "query": "EXACTLY 重複排除 決定的", "expected_ids": ["redis-lmovem-batch-order-admission-boundary"]},
+    {"name": "redis-lmovem-count-not-byte-budget", "query": "COUNT/EXACTLY reply bytes上限", "expected_ids": ["redis-lmovem-batch-order-admission-boundary"]},
+    {"name": "redis-lmovem-runtime-unverified", "query": "Redis runtimeは実行していない", "expected_ids": ["redis-lmovem-batch-order-admission-boundary"]}
   ]
 }

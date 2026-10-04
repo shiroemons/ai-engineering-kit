@@ -1,0 +1,12 @@
+{
+  "id": "redis-lmovem-contract-20261004",
+  "url": "https://redis.io/docs/latest/commands/lmovem/",
+  "repository_url": "https://github.com/redis/docs",
+  "commit_sha": "",
+  "version": "Redis Open Source 8.10.0導入; rolling command reference retrieved 2026-10-04",
+  "retrieved_at": "2026-10-04",
+  "license": "CC-BY-NC-SA-4.0（https://github.com/redis/docs/blob/main/LICENSE を2026-10-04確認）; 旧redis-doc由来部分にはCC-BY-SA-4.0例外があるが個別箇所は未特定。独自要約のみ。",
+  "trust": "official",
+  "type": "official_docs",
+  "purpose": "COUNT/EXACTLY・OBO/BULK・array replyの契約を確認。Moving multiple elementsの空array説明、Element orderingの同一key BULK no-op一般化は8.10.2固定source/testと相違し、本文で適用条件を限定。ページ固有公開日なし。"
+}

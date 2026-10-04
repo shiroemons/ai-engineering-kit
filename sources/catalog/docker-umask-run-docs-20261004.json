@@ -1,0 +1,12 @@
+{
+  "id": "docker-umask-run-docs-20261004",
+  "url": "https://docs.docker.com/reference/cli/docker/container/run/",
+  "repository_url": "https://github.com/docker/cli",
+  "commit_sha": "",
+  "version": "Current Docker CLI reference, --umask requires API 1.56+; retrieved 2026-10-04 UTC; page publication/update date not stated",
+  "license": "unknown",
+  "trust": "official",
+  "type": "official_docs",
+  "purpose": "Native webでSet umask節を実読。CLIは8進数、初期process/exec/healthcheckのOCI設定、未指定はruntime依存、runcでの明示値適用を確認。HTML単体のライセンス未確定。独自要約のみ、コード転載なし",
+  "retrieved_at": "2026-10-04"
+}

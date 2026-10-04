@@ -1,0 +1,12 @@
+{
+  "id": "otel-partition-telemetry-0162-20261004",
+  "url": "https://github.com/open-telemetry/opentelemetry-collector/blob/62cdad2ea133239380b44d20d84eb26e114779b6/exporter/exporterhelper/metadata.yaml",
+  "repository_url": "https://github.com/open-telemetry/opentelemetry-collector",
+  "commit_sha": "62cdad2ea133239380b44d20d84eb26e114779b6",
+  "version": "Collector v0.162.0",
+  "retrieved_at": "2026-10-04",
+  "license": "Apache-2.0",
+  "trust": "official",
+  "type": "github_repository_analysis",
+  "purpose": "Partition cache size/capacity are asynchronous integer gauges, development stability and partition units, only recorded with partitioning; not eviction or loss counters. Repository LICENSE and relevant Go SPDX headers checked; original summary only, no source code copied."
+}

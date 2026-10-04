@@ -1,0 +1,12 @@
+{
+  "id": "otel-partition-partition-tests-0162-20261004",
+  "url": "https://github.com/open-telemetry/opentelemetry-collector/blob/62cdad2ea133239380b44d20d84eb26e114779b6/exporter/exporterhelper/internal/queuebatch/partition_batcher_test.go",
+  "repository_url": "https://github.com/open-telemetry/opentelemetry-collector",
+  "commit_sha": "62cdad2ea133239380b44d20d84eb26e114779b6",
+  "version": "Collector v0.162.0",
+  "retrieved_at": "2026-10-04",
+  "license": "Apache-2.0",
+  "trust": "official",
+  "type": "github_repository_analysis",
+  "purpose": "Read standalone shutdown pending-item/Done assertions and idle callback tests; distinguishes these tests from combined LRU pressure, exporter failure and runtime acceptance. Repository LICENSE and relevant Go SPDX headers checked; original summary only, no source code copied."
+}

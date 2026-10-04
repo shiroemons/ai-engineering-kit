@@ -1,0 +1,12 @@
+{
+  "id": "otel-partition-release-0162-20261004",
+  "url": "https://github.com/open-telemetry/opentelemetry-collector/releases/tag/v0.162.0",
+  "repository_url": "https://github.com/open-telemetry/opentelemetry-collector",
+  "commit_sha": "62cdad2ea133239380b44d20d84eb26e114779b6",
+  "version": "Collector v0.162.0 / v1.68.0, published 2026-09-28T14:09:31Z",
+  "retrieved_at": "2026-10-04",
+  "license": "unknown",
+  "trust": "official",
+  "type": "release_notes",
+  "purpose": "Release entry for configurable partition cache_size, idle_timeout default90s, cache gauges and NewDefaultBatchConfig; opened with native web; tag independently resolved to pinned commit. The license of GitHub release prose is not separately established. Carefully attributed original summary only; no prose or code copied."
+}
