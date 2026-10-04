@@ -1,0 +1,12 @@
+{
+  "id": "react-form-state-dom-contract-20261004",
+  "url": "https://react.dev/reference/react-dom/components/form",
+  "repository_url": "https://github.com/reactjs/react.dev",
+  "commit_sha": "",
+  "version": "React documentation v19.3 header; retrieved 2026-10-04; page publication date not shown",
+  "retrieved_at": "2026-10-04",
+  "license": "CC-BY-4.0 documentation; reactjs/react.dev LICENSE-DOCS.md verified; no copied code",
+  "trust": "official",
+  "type": "official_docs",
+  "purpose": "controlled input は state を読むという React の設計推奨と、HTML FormData の DOM serialization eligibility を区別する。React 関数 action の Transition・reset を native submit handler へ一般化しない。"
+}

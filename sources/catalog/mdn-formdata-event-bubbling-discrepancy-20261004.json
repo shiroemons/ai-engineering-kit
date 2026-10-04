@@ -1,0 +1,12 @@
+{
+  "id": "mdn-formdata-event-bubbling-discrepancy-20261004",
+  "url": "https://developer.mozilla.org/en-US/docs/Web/API/HTMLFormElement/formdata_event",
+  "repository_url": "https://github.com/mdn/content",
+  "commit_sha": "",
+  "version": "MDN HTMLFormElement formdata event; last modified 2026-07-28",
+  "retrieved_at": "2026-10-04",
+  "license": "CC-BY-SA-2.5-or-later; Mozilla Contributors; original summary, no sample-code reuse",
+  "trust": "official",
+  "type": "official_docs",
+  "purpose": "constructor でも発生し non-cancelable という説明を確認。does not bubble の記載は pinned HTML の bubbles=true と不一致として記録し、規範算法を優先する。"
+}

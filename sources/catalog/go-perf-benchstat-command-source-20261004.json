@@ -1,0 +1,12 @@
+{
+  "id": "go-perf-benchstat-command-source-20261004",
+  "url": "https://github.com/golang/perf/blob/22c9c6c9d4da6248aedbc79f02ecedcd59f8f5f2/cmd/benchstat/main.go",
+  "repository_url": "https://github.com/golang/perf",
+  "commit_sha": "22c9c6c9d4da6248aedbc79f02ecedcd59f8f5f2",
+  "version": "v0.0.0-20260908200009-22c9c6c9d4da; commit time 2026-09-08T20:00:09Z",
+  "retrieved_at": "2026-10-04",
+  "license": "BSD-3-Clause",
+  "trust": "primary-source",
+  "type": "github_repository_analysis",
+  "purpose": "固定main.goのmain、benchstat、SyntaxError処理、table生成とformat結果を確認。比較差分によるregression exit-code gateではないことと一部parse失敗の警告継続を区別。GitHub APIで完全commitと時刻を確認しraw本文を取得、同commit LICENSEおよびheaderを確認。コード転載・module化なし。"
+}

@@ -1,0 +1,12 @@
+{
+  "id": "grpc-go184-retry-implementation-20261004",
+  "url": "https://github.com/grpc/grpc-go/tree/e84aa5ab15d1d2b29d54f838312ad490cb7551a8",
+  "repository_url": "https://github.com/grpc/grpc-go",
+  "commit_sha": "e84aa5ab15d1d2b29d54f838312ad490cb7551a8",
+  "version": "grpc-go v1.84.0; version.go tag commit 2026-09-17T20:03:25Z; source review only",
+  "retrieved_at": "2026-10-04",
+  "license": "Apache-2.0",
+  "trust": "maintainer",
+  "type": "github_repository_analysis",
+  "purpose": "固定commitのstream.go (shouldRetry, commitAttemptLocked, Context, bufferForRetryLocked, SendMsg)、dialoptions.go (WithDisableRetry, WithMaxCallAttempts)、rpc_util.go (defaultCallInfo, MaxRetryRPCBufferSize)、test/retry_test.go (TestRetryStreaming, TestMaxCallAttempts, TestNoRetry)を確認。LICENSEとfile headersはApache-2.0。native webでrelease/tagを照合し、固定fileのweb取得失敗後はread-only GitHub connectorで本文を取得。upstream試験実行・コード転載なし。"
+}

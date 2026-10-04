@@ -1,0 +1,12 @@
+{
+  "id": "go127-bloop-testing-api-20261004",
+  "url": "https://pkg.go.dev/testing@go1.27.1",
+  "repository_url": "https://github.com/golang/go",
+  "commit_sha": "",
+  "version": "Go 1.27.1 testing.B.Loop / ResetTimer / ReportMetric / RunParallel",
+  "retrieved_at": "2026-10-04",
+  "license": "BSD-3-Clause",
+  "trust": "official",
+  "type": "official_docs",
+  "purpose": "B.Loopの構文限定、生存保持、測定前後のtimer、b.N、ResetTimerによるcustom metric消去、RunParallelのwall timeを確認。package表示版と同版LICENSEを照合。"
+}

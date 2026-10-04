@@ -1,0 +1,12 @@
+{
+  "id": "mdn-formdata-constructor-intent-20261004",
+  "url": "https://developer.mozilla.org/en-US/docs/Web/API/FormData/FormData",
+  "repository_url": "https://github.com/mdn/content",
+  "commit_sha": "",
+  "version": "MDN FormData constructor; last modified 2026-08-12",
+  "retrieved_at": "2026-10-04",
+  "license": "CC-BY-SA-2.5-or-later; Mozilla Contributors; original summary, no sample-code reuse",
+  "trust": "official",
+  "type": "official_docs",
+  "purpose": "現在の DOM 値、submitter、successful controls を補助確認。2015 の constructor 全体の Baseline と後発 overload の対応を区別する。"
+}

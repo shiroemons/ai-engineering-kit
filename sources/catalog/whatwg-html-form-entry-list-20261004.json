@@ -1,0 +1,12 @@
+{
+  "id": "whatwg-html-form-entry-list-20261004",
+  "url": "https://html.spec.whatwg.org/multipage/form-control-infrastructure.html#form-submission-algorithm",
+  "repository_url": "https://github.com/whatwg/html",
+  "commit_sha": "",
+  "version": "HTML Living Standard; page updated 2026-10-04",
+  "retrieved_at": "2026-10-04",
+  "license": "CC-BY-4.0; portions incorporated into source code: BSD-3-Clause",
+  "trust": "official",
+  "type": "official_docs",
+  "purpose": "constraint validation、submit、entry list、formdata の順序、disabled 除外、再入ガード、dispatch 後の clone を確認。"
+}

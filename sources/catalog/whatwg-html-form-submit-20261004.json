@@ -1,0 +1,12 @@
+{
+  "id": "whatwg-html-form-submit-20261004",
+  "url": "https://html.spec.whatwg.org/multipage/forms.html#dom-form-requestsubmit",
+  "repository_url": "https://github.com/whatwg/html",
+  "commit_sha": "",
+  "version": "HTML Living Standard; page updated 2026-10-04",
+  "retrieved_at": "2026-10-04",
+  "license": "CC-BY-4.0; portions incorporated into source code: BSD-3-Clause",
+  "trust": "official",
+  "type": "official_docs",
+  "purpose": "requestSubmit と submit の開始経路、submitter の型・form owner・省略時の扱いを確認。現行表示と固定 source を照合。"
+}

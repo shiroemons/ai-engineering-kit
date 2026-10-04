@@ -1228,6 +1228,20 @@
     {"name": "highlight-stale-query-revision", "query": "query generation document revision", "expected_ids": ["css-custom-highlight-registry-range-validity-boundary"]},
     {"name": "highlight-owner-cleanup", "query": "identity guard cleanup", "expected_ids": ["css-custom-highlight-registry-range-validity-boundary"]},
     {"name": "highlight-same-range-sharing", "query": "同じ Range 共有 境界", "expected_ids": ["css-custom-highlight-registry-range-validity-boundary"]},
-    {"name": "highlight-runtime-not-executed", "query": "Chromium 154.0.8037.57 未実行", "expected_ids": ["css-custom-highlight-registry-range-validity-boundary"]}
+    {"name": "highlight-runtime-not-executed", "query": "Chromium 154.0.8037.57 未実行", "expected_ids": ["css-custom-highlight-registry-range-validity-boundary"]},
+    {"name": "html-form-requestsubmit-default", "query": "requestSubmit default button null", "expected_ids": ["html-form-submitter-payload-async-boundary"]},
+    {"name": "html-form-disabled-submitter", "query": "disabled submitter 欠落", "expected_ids": ["html-form-submitter-payload-async-boundary"]},
+    {"name": "html-form-snapshot-before-disable", "query": "payload 無効化 採取", "expected_ids": ["html-form-submitter-payload-async-boundary"]},
+    {"name": "html-form-constructor-validation", "query": "FormData constructor required", "expected_ids": ["html-form-submitter-payload-async-boundary"]},
+    {"name": "html-form-event-clone-async", "query": "formdata clone 非同期", "expected_ids": ["html-form-submitter-payload-async-boundary"]},
+    {"name": "html-form-nested-formdata", "query": "InvalidStateError 構築中", "expected_ids": ["html-form-submitter-payload-async-boundary"]},
+    {"name": "html-form-mdn-bubbling-discrepancy", "query": "formdata bubbles=true 不一致", "expected_ids": ["html-form-submitter-payload-async-boundary"]},
+    {"name": "html-form-native-resubmit-guard", "query": "firing submission events guard", "expected_ids": ["html-form-submitter-payload-async-boundary"]},
+    {"name": "html-form-react-controlled-distinction", "query": "controlled 除外条件", "expected_ids": ["html-form-submitter-payload-async-boundary"]},
+    {"name": "html-form-external-owner", "query": "NotFoundError owner 外部", "expected_ids": ["html-form-submitter-payload-async-boundary"]},
+    {"name": "html-form-async-intent-revision", "query": "submitter revision identity", "expected_ids": ["html-form-submitter-payload-async-boundary"]},
+    {"name": "html-form-formdata-not-transport", "query": "FormData formaction formmethod 代行", "expected_ids": ["html-form-submitter-payload-async-boundary"]},
+    {"name": "html-form-approval-permit-clear", "query": "validation failure 通過フラグ", "expected_ids": ["html-form-submitter-payload-async-boundary"]},
+    {"name": "html-form-browser-unverified", "query": "Chromium 154.0.8037.57 socket", "expected_ids": ["html-form-submitter-payload-async-boundary"]}
   ]
 }

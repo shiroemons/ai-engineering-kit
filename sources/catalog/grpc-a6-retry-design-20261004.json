@@ -1,0 +1,12 @@
+{
+  "id": "grpc-a6-retry-design-20261004",
+  "url": "https://github.com/grpc/proposal/blob/dc9fd4fe5b94b90b82fe2833ad1d80938e6a49c1/A6-client-retries.md",
+  "repository_url": "https://github.com/grpc/proposal",
+  "commit_sha": "dc9fd4fe5b94b90b82fe2833ad1d80938e6a49c1",
+  "version": "gRFC A6; Status Implemented; document last updated 2024-08-23; file-history commit 2024-08-29",
+  "retrieved_at": "2026-10-04",
+  "license": "Apache-2.0",
+  "trust": "official",
+  "type": "official_docs",
+  "purpose": "A6のretry commit、Trailers-Only、buffer、transparent retry、maxAttempts、deadline、pushbackを固定版で確認。Backgroundの歴史的説明と現在のImplemented状態を区別。固定commitのLICENSE確認済み。独自要約のみ。"
+}

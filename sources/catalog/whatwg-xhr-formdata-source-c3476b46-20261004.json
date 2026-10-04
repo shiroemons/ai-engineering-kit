@@ -1,0 +1,12 @@
+{
+  "id": "whatwg-xhr-formdata-source-c3476b46-20261004",
+  "url": "https://github.com/whatwg/xhr/blob/c3476b46f024cfc988f47d8d82118f3bcba562e9/xhr.bs",
+  "repository_url": "https://github.com/whatwg/xhr",
+  "commit_sha": "c3476b46f024cfc988f47d8d82118f3bcba562e9",
+  "version": "XMLHttpRequest source commit c3476b46f024cfc988f47d8d82118f3bcba562e9; committed 2026-08-18T11:14:44Z",
+  "retrieved_at": "2026-10-04",
+  "license": "CC-BY-4.0; portions incorporated into source code: BSD-3-Clause; LICENSE verified at pinned commit",
+  "trust": "primary-source",
+  "type": "github_repository_analysis",
+  "purpose": "xhr.bs の new FormData(form, submitter) constructor と entry list 所有を固定。ファイル blob e57f5f8814b203a5df1f3b5bdce2ccd09f328ae6。独自 fixture の根拠でありコード転載・module 昇格なし。"
+}

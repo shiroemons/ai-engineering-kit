@@ -1,0 +1,12 @@
+{
+  "id": "whatwg-xhr-formdata-constructor-20261004",
+  "url": "https://xhr.spec.whatwg.org/#dom-formdata",
+  "repository_url": "https://github.com/whatwg/xhr",
+  "commit_sha": "",
+  "version": "XMLHttpRequest Living Standard; page updated 2026-08-18",
+  "retrieved_at": "2026-10-04",
+  "license": "CC-BY-4.0; portions incorporated into source code: BSD-3-Clause",
+  "trust": "official",
+  "type": "official_docs",
+  "purpose": "FormData(form, submitter) の型・owner 検査、entry list 構築失敗時 InvalidStateError、getAll の複数値保持を確認。"
+}
