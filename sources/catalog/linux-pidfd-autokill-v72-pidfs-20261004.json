@@ -1,0 +1,12 @@
+{
+  "id": "linux-pidfd-autokill-v72-pidfs-20261004",
+  "url": "https://github.com/torvalds/linux/blob/8d3ae59288f1e7d58d76558a6ee96d533bc5019f/fs/pidfs.c",
+  "repository_url": "https://github.com/torvalds/linux",
+  "commit_sha": "8d3ae59288f1e7d58d76558a6ee96d533bc5019f",
+  "version": "Linux v7.2, release commit 2026-08-16T21:32:26Z",
+  "retrieved_at": "2026-10-04",
+  "license": "GPL-2.0 (fs/pidfs.c SPDX; version 2 only per repository COPYING)",
+  "trust": "primary-source",
+  "type": "github_repository_analysis",
+  "purpose": "Read pidfs_file_release, pidfd_poll, pidfd_info and pidfs_exit: SIGKILL to PIDTYPE_TGID, no exit wait in release, reaped-task poll readiness, requested/returned PIDFD_INFO_EXIT mask, wait-format exit_code and EREMOTE namespace check. Verified COPYING and matching UAPI header. Native web blob view failed with cache miss; pinned raw page and connector succeeded. No code copied."
+}

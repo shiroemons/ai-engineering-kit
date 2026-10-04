@@ -1,0 +1,12 @@
+{
+  "id": "linux-clone-pidfd-man619-20261004",
+  "url": "https://man7.org/linux/man-pages/man2/clone.2.html",
+  "repository_url": "https://git.kernel.org/pub/scm/docs/man-pages/man-pages.git/",
+  "commit_sha": "",
+  "version": "Linux man-pages 6.19; page date 2026-06-06; HTML rendered 2026-09-09",
+  "retrieved_at": "2026-10-04",
+  "license": "unknown",
+  "trust": "official",
+  "type": "official_docs",
+  "purpose": "Opened actual manual page with native web. Verified CLONE_PIDFD return location and close-on-exec. Page does not document CLONE_AUTOREAP, CLONE_NNP or CLONE_PIDFD_AUTOKILL; those claims are sourced to pinned kernel implementation and selftests. Exact page license not established; original summary only."
+}

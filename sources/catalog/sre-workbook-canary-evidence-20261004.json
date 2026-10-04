@@ -1,0 +1,12 @@
+{
+  "id": "sre-workbook-canary-evidence-20261004",
+  "url": "https://sre.google/workbook/canarying-releases/",
+  "repository_url": "",
+  "commit_sha": "",
+  "version": "The Site Reliability Workbook (2018), Chapter 16 Canarying Releases; exact chapter publication/update date not displayed; verified 2026-10-04 UTC",
+  "retrieved_at": "2026-10-04",
+  "license": "CC-BY-NC-ND-4.0",
+  "trust": "official",
+  "type": "official_docs",
+  "purpose": "Alec Warner / Štěpán Davidovičらの2018年版第16章を実際に開き、canary/controlの指標分離、代表性と観測期間、変更前sampleを含む窓、共有依存による両群の汚染と絶対SLO、非同期work unitの処理期間を確認。頁末の2018 copyrightとCC-BY-NC-ND-4.0を確認。短い独自要約のみで図・コード・原文の翻訳転載なし。"
+}

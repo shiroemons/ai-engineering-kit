@@ -673,6 +673,18 @@
     {"name": "otel-partition-merge-selected", "query": "NewMetadataKeysMergeCtx other header", "expected_ids": ["opentelemetry-collector-partition-cache-eviction-boundary"]},
     {"name": "otel-partition-gauge-no-churn-count", "query": "cache_capacity gauge churn", "expected_ids": ["opentelemetry-collector-partition-cache-eviction-boundary"]},
     {"name": "otel-partition-cache-test-scope", "query": "TestMultiBatcher_CacheSizeEviction 到着ID assertion", "expected_ids": ["opentelemetry-collector-partition-cache-eviction-boundary"]},
-    {"name": "otel-partition-runtime-unverified", "query": "partition runtime 合格 検索 eval", "expected_ids": ["opentelemetry-collector-partition-cache-eviction-boundary"]}
+    {"name": "otel-partition-runtime-unverified", "query": "partition runtime 合格 検索 eval", "expected_ids": ["opentelemetry-collector-partition-cache-eviction-boundary"]},
+    {"name": "canary-evidence-aggregate-dilution", "query": "canary 800 96 0.12%", "expected_ids": ["sre-canary-promotion-evidence-population-boundary"]},
+    {"name": "canary-evidence-no-traffic-pass", "query": "canary 0/0 inconclusive", "expected_ids": ["sre-canary-promotion-evidence-population-boundary"]},
+    {"name": "canary-evidence-bake-and-count", "query": "canary 最低件数 bake time 片方", "expected_ids": ["sre-canary-promotion-evidence-population-boundary"]},
+    {"name": "canary-evidence-rare-path", "query": "canary 10,000件 更新", "expected_ids": ["sre-canary-promotion-evidence-population-boundary"]},
+    {"name": "canary-evidence-control-contamination", "query": "canary control 4% 0ポイント", "expected_ids": ["sre-canary-promotion-evidence-population-boundary"]},
+    {"name": "canary-evidence-sample-not-proof", "query": "canary 0.99^100 36.6%", "expected_ids": ["sre-canary-promotion-evidence-population-boundary"]},
+    {"name": "canary-evidence-query-delay", "query": "canary 12:30 12:20", "expected_ids": ["sre-canary-promotion-evidence-population-boundary"]},
+    {"name": "canary-evidence-window-before-release", "query": "canary 開始前 前release", "expected_ids": ["sre-canary-promotion-evidence-population-boundary"]},
+    {"name": "canary-evidence-early-stop", "query": "canary 早期到達 復旧手順", "expected_ids": ["sre-canary-promotion-evidence-population-boundary"]},
+    {"name": "canary-evidence-async-work-unit", "query": "canary work unit 長時間job", "expected_ids": ["sre-canary-promotion-evidence-population-boundary"]},
+    {"name": "canary-evidence-rollback-side-effects", "query": "canary rollback 副作用", "expected_ids": ["sre-canary-promotion-evidence-population-boundary"]},
+    {"name": "canary-evidence-historical-not-new", "query": "canary 2018 2020 copyright年", "expected_ids": ["sre-canary-promotion-evidence-population-boundary"]}
   ]
 }

@@ -1,0 +1,12 @@
+{
+  "id": "aws-builders-canary-bake-evidence-20261004",
+  "url": "https://d1.awsstatic.com/builderslibrary/pdfs/automating-safe-hands-off-deployments-clareliguori.pdf",
+  "repository_url": "",
+  "commit_sha": "",
+  "version": "Clare Liguori, Automating safe, hands-off deployments; official 14-page PDF, copyright 2020; exact publication/update date unverified; verified 2026-10-04 UTC",
+  "retrieved_at": "2026-10-04",
+  "license": "unknown",
+  "trust": "maintainer",
+  "type": "maintainer_article",
+  "purpose": "AWS運用当事者Clare Liguoriの公式PDF本文5〜6頁の混在・データ形式互換、10〜11頁のone-box専用監視、要求数ゼロの異常、bake timeと必要データ点数、重大アラーム時のrollbackを確認。100要求は運用例で万能閾値ではない。表紙はCopyright © 2020 Amazon Web Services, all rights reserved; open license未確認。HTMLはBuilder Center転送後本文取得不能のためPDF本文を根拠とし、短い独自要約のみで例・図・コードを転載しない。"
+}

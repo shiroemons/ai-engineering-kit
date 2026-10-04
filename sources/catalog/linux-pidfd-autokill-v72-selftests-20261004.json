@@ -1,0 +1,12 @@
+{
+  "id": "linux-pidfd-autokill-v72-selftests-20261004",
+  "url": "https://github.com/torvalds/linux/blob/8d3ae59288f1e7d58d76558a6ee96d533bc5019f/tools/testing/selftests/pidfd/pidfd_autoreap_test.c",
+  "repository_url": "https://github.com/torvalds/linux",
+  "commit_sha": "8d3ae59288f1e7d58d76558a6ee96d533bc5019f",
+  "version": "Linux v7.2 selftests, same file content verified at v7.1; AUTOKILL tests introduced by ec26879e6d89983b31fdb27d149854f42ee8d689",
+  "retrieved_at": "2026-10-04",
+  "license": "GPL-2.0 (file SPDX; version 2 only per repository COPYING)",
+  "trust": "primary-source",
+  "type": "github_repository_analysis",
+  "purpose": "Connector read the full fixed file; native web opened test introduction commit after fixed blob/raw views failed. Inspected autoreap_basic, autoreap_signaled, autoreap_no_inherit, autokill_basic, autokill_pidfd_open_no_effect and invalid-flag/capability cases. Tests are upstream assertions, not locally executed evidence. Did not treat multithreaded test comments or fixed sleeps as general timing guarantees."
+}

@@ -1,0 +1,12 @@
+{
+  "id": "linux-pidfd-autokill-v71-inclusion-20261004",
+  "url": "https://github.com/torvalds/linux/blob/8cd9520d35a6c38db6567e97dd93b1f11f185dc6/include/uapi/linux/sched.h",
+  "repository_url": "https://github.com/torvalds/linux",
+  "commit_sha": "8cd9520d35a6c38db6567e97dd93b1f11f185dc6",
+  "version": "Linux v7.1; release commit 2026-06-14T14:58:38Z; compared with v7.0 028ef9c96e96197026887c0f092424679298aae8 (2026-04-12)",
+  "retrieved_at": "2026-10-04",
+  "license": "GPL-2.0 WITH Linux-syscall-note (UAPI header SPDX); kernel/fork.c GPL-2.0-only",
+  "trust": "primary-source",
+  "type": "github_repository_analysis",
+  "purpose": "Verified release Makefile and new flags in v7.1 UAPI header plus copy_process implementation, compared with absence in v7.0 header. Combined with the v7.1-rc1 upstream merge record this establishes release introduction, not vendor backport availability. Native web opened v7.1 release commit; connector read fixed files."
+}
