@@ -1,0 +1,12 @@
+{
+  "id": "redis-lmovem-release-8-10-2-20261004",
+  "url": "https://github.com/redis/redis/releases/tag/8.10.2",
+  "repository_url": "https://github.com/redis/redis",
+  "commit_sha": "",
+  "version": "Redis 8.10.2; published 2026-09-17T15:06:56Z",
+  "retrieved_at": "2026-10-04",
+  "license": "unknown（GitHub release本文の個別適用範囲未確認。独自要約のみ）",
+  "trust": "official",
+  "type": "release_notes",
+  "purpose": "分析対象patch版の公開日とtag→完全commit SHAをGitHub APIで確認。native Webでもreleaseを開いた。8.10.2でこの2commandの新仕様を追加したという意味ではない。"
+}

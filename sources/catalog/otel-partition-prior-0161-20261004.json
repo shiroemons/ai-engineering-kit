@@ -1,0 +1,12 @@
+{
+  "id": "otel-partition-prior-0161-20261004",
+  "url": "https://github.com/open-telemetry/opentelemetry-collector/tree/0bf928af5487d3c4e0b4174eabb7ba075c322517/exporter/exporterhelper/internal/queuebatch",
+  "repository_url": "https://github.com/open-telemetry/opentelemetry-collector",
+  "commit_sha": "0bf928af5487d3c4e0b4174eabb7ba075c322517",
+  "version": "Collector v0.161.0",
+  "retrieved_at": "2026-10-04",
+  "license": "Apache-2.0",
+  "trust": "official",
+  "type": "github_repository_analysis",
+  "purpose": "Pinned prior multi_batcher.go already has hard-coded10000 LRU and eviction callback; prior partition_batcher.go uses ten flush cycles for idle detection. Does not infer behavior of all older releases. Repository LICENSE and relevant Go SPDX headers checked; original summary only, no source code copied."
+}

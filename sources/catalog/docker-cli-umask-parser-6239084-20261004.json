@@ -1,0 +1,12 @@
+{
+  "id": "docker-cli-umask-parser-6239084-20261004",
+  "url": "https://github.com/docker/cli/commit/6239084af1a2550e01f887257def584779e7ddf7",
+  "repository_url": "https://github.com/docker/cli",
+  "commit_sha": "6239084af1a2550e01f887257def584779e7ddf7",
+  "version": "Docker CLI merge commit 6239084af1a2550e01f887257def584779e7ddf7, PR #7108 merged 2026-09-03; --umask annotation API 1.56/Linux",
+  "license": "Apache-2.0; repository LICENSE at 6239084af1a2550e01f887257def584779e7ddf7 read via GitHub API; source code not copied",
+  "trust": "official",
+  "type": "github_repository_analysis",
+  "purpose": "固定commitのUmaskOpt、8進32bit parse、nilと明示zeroの区別、0o prefix拒否と077777受理のunit test、Linux/API annotationを確認。該当snapshotのCLI e2e testはSkipあり。native PR本文確認、短縮SHA取得失敗後にPR metadataの完全SHAで取得成功",
+  "retrieved_at": "2026-10-04"
+}

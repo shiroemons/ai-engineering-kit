@@ -1577,6 +1577,76 @@
       "expected_ids": [
         "terraform-action-failure-taint-destroy-retry-boundary"
       ]
+    },
+    {
+      "name": "docker-umask-api-version-discard",
+      "query": "umask 1.56 nil",
+      "expected_ids": [
+        "docker-umask-api-exec-initial-permission-boundary"
+      ]
+    },
+    {
+      "name": "docker-umask-octal-json-decimal",
+      "query": "umask 8進 10進",
+      "expected_ids": [
+        "docker-umask-api-exec-initial-permission-boundary"
+      ]
+    },
+    {
+      "name": "docker-umask-explicit-zero-vs-omitted",
+      "query": "umask 未指定 zero",
+      "expected_ids": [
+        "docker-umask-api-exec-initial-permission-boundary"
+      ]
+    },
+    {
+      "name": "docker-umask-exec-stored-spec",
+      "query": "umask 保存済み OCI",
+      "expected_ids": [
+        "docker-umask-api-exec-initial-permission-boundary"
+      ]
+    },
+    {
+      "name": "docker-umask-exec-user-healthcheck",
+      "query": "umask exec healthcheck user",
+      "expected_ids": [
+        "docker-umask-api-exec-initial-permission-boundary"
+      ]
+    },
+    {
+      "name": "docker-umask-default-acl-mode",
+      "query": "umask default ACL 要求",
+      "expected_ids": [
+        "docker-umask-api-exec-initial-permission-boundary"
+      ]
+    },
+    {
+      "name": "docker-umask-parser-not-policy-range",
+      "query": "umask parser 077777",
+      "expected_ids": [
+        "docker-umask-api-exec-initial-permission-boundary"
+      ]
+    },
+    {
+      "name": "docker-umask-upstream-e2e-skip",
+      "query": "umask e2e Skip",
+      "expected_ids": [
+        "docker-umask-api-exec-initial-permission-boundary"
+      ]
+    },
+    {
+      "name": "docker-umask-api-decimal-confusion",
+      "query": "umask 63 0115",
+      "expected_ids": [
+        "docker-umask-api-exec-initial-permission-boundary"
+      ]
+    },
+    {
+      "name": "docker-umask-observe-process-not-probe",
+      "query": "umask /proc/<pid>/status",
+      "expected_ids": [
+        "docker-umask-api-exec-initial-permission-boundary"
+      ]
     }
   ]
 }

@@ -1,0 +1,12 @@
+{
+  "id": "docker-umask-engine-2980-release-20261004",
+  "url": "https://docs.docker.com/engine/release-notes/29/",
+  "repository_url": "https://github.com/moby/moby",
+  "commit_sha": "",
+  "version": "Docker Engine 29.8.0 released 2026-09-03; page also lists 29.8.2 dated 2026-09-30; retrieved 2026-10-04 UTC",
+  "license": "unknown",
+  "trust": "official",
+  "type": "release_notes",
+  "purpose": "Native webで29.8.0のHostConfig.Umaskとdocker create/run --umask導入、およびmain process/exec/healthcheckへの適用を確認。29.8.2の全変更検証や最新版保証は目的外。出典付き独自要約のみ",
+  "retrieved_at": "2026-10-04"
+}

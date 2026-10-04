@@ -661,6 +661,18 @@
     {"name": "coverage-combine-mode-conflict", "query": "line coverage branch coverage 衝突", "expected_ids": ["testing-coverage-cross-platform-combine-evidence-boundary"]},
     {"name": "coverage-combine-shard-total", "query": "fail_under=90 Windows 未到着", "expected_ids": ["testing-coverage-cross-platform-combine-evidence-boundary"]},
     {"name": "coverage-combine-runner-base", "query": "COVERAGE_FILE parallel mode 排他", "expected_ids": ["testing-coverage-cross-platform-combine-evidence-boundary"]},
-    {"name": "coverage-combine-retain-not-runtime", "query": "coverage.py --keep-combined runtime 検索eval", "expected_ids": ["testing-coverage-cross-platform-combine-evidence-boundary"]}
+    {"name": "coverage-combine-retain-not-runtime", "query": "coverage.py --keep-combined runtime 検索eval", "expected_ids": ["testing-coverage-cross-platform-combine-evidence-boundary"]},
+    {"name": "otel-partition-prior-bound", "query": "v0.161.0 LRU 10000 初めて", "expected_ids": ["opentelemetry-collector-partition-cache-eviction-boundary"]},
+    {"name": "otel-partition-default-zero", "query": "partition cache_size idle_timeout ゼロ値", "expected_ids": ["opentelemetry-collector-partition-cache-eviction-boundary"]},
+    {"name": "otel-partition-eviction-admission", "query": "cache_size eviction admission control", "expected_ids": ["opentelemetry-collector-partition-cache-eviction-boundary"]},
+    {"name": "otel-partition-flush-not-delivery", "query": "LRU backend 保存済み", "expected_ids": ["opentelemetry-collector-partition-cache-eviction-boundary"]},
+    {"name": "otel-partition-worker-nested", "query": "num_consumers=1 pending token", "expected_ids": ["opentelemetry-collector-partition-cache-eviction-boundary"]},
+    {"name": "otel-partition-two-workers-not-proof", "query": "partition 2 worker 保証", "expected_ids": ["opentelemetry-collector-partition-cache-eviction-boundary"]},
+    {"name": "otel-partition-idle-not-delivery-time", "query": "idle_timeout 90秒 送信", "expected_ids": ["opentelemetry-collector-partition-cache-eviction-boundary"]},
+    {"name": "otel-partition-empty-metadata", "query": "metadata 空文字 空リスト", "expected_ids": ["opentelemetry-collector-partition-cache-eviction-boundary"]},
+    {"name": "otel-partition-merge-selected", "query": "NewMetadataKeysMergeCtx other header", "expected_ids": ["opentelemetry-collector-partition-cache-eviction-boundary"]},
+    {"name": "otel-partition-gauge-no-churn-count", "query": "cache_capacity gauge churn", "expected_ids": ["opentelemetry-collector-partition-cache-eviction-boundary"]},
+    {"name": "otel-partition-cache-test-scope", "query": "TestMultiBatcher_CacheSizeEviction 到着ID assertion", "expected_ids": ["opentelemetry-collector-partition-cache-eviction-boundary"]},
+    {"name": "otel-partition-runtime-unverified", "query": "partition runtime 合格 検索 eval", "expected_ids": ["opentelemetry-collector-partition-cache-eviction-boundary"]}
   ]
 }

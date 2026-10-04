@@ -1,0 +1,12 @@
+{
+  "id": "redis-lmovem-implementation-20261004",
+  "url": "https://github.com/redis/redis/blob/498ecd0d6d007db11ddb3aea9428552598a78622/src/t_list.c",
+  "repository_url": "https://github.com/redis/redis",
+  "commit_sha": "498ecd0d6d007db11ddb3aea9428552598a78622",
+  "version": "Redis 8.10.2 at 498ecd0d6d007db11ddb3aea9428552598a78622",
+  "retrieved_at": "2026-10-04",
+  "license": "Redis 8: RSALv2 OR SSPLv1 OR AGPLv3; LICENSE.txt at 498ecd0d6d007db11ddb3aea9428552598a78622 を2026-10-04確認。t_list.c・networking.cは同じ選択制、blocked.cとnetworking.cにはBSD3部分の注意書きもある。list-4.tclには個別headerなし。コード転載・移植なし。",
+  "trust": "primary-source",
+  "type": "github_repository_analysis",
+  "purpose": "lmovemParseOptions (1500-1539)、lmovemMoveAndReply (1549-1646)、lmovemGenericCommand (1649-1696)、blmovemGenericCommand (1708-1742)を静的読解。全件pop後に並べ替え/push、null分岐、destination型検査、同一key通知、EXACTLY伝播を確認。"
+}

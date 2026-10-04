@@ -1,0 +1,12 @@
+{
+  "id": "docker-umask-api-history-20261004",
+  "url": "https://docs.docker.com/reference/api/engine/version-history/",
+  "repository_url": "https://github.com/moby/moby",
+  "commit_sha": "",
+  "version": "Docker Engine API v1.56 change history; retrieved 2026-10-04 UTC; page publication/update date not stated",
+  "license": "unknown",
+  "trust": "official",
+  "type": "official_docs",
+  "purpose": "Native webでv1.56 POST /containers/createのHostConfig.Umask、Unix containerの初期値、未指定時runtime既定動作を確認。interactive API v1.56ページは本文を返さず、Markdown取得も失敗したためschema根拠は固定Moby sourceで確認",
+  "retrieved_at": "2026-10-04"
+}
