@@ -1,0 +1,12 @@
+{
+  "id": "openai-multi-agent-model-sol61-20261004",
+  "url": "https://developers.openai.com/api/docs/models/gpt-6.1-sol",
+  "repository_url": "",
+  "commit_sha": "",
+  "version": "gpt-6.1-sol model page, retrieved 2026-10-04 UTC; model ID/snapshot gpt-6.1-sol",
+  "retrieved_at": "2026-10-04",
+  "license": "unknown",
+  "trust": "official",
+  "type": "official_docs",
+  "purpose": "調査で使用を想定するmodel IDを固定し、GPT-6.1 Solのtool callingはResponses APIを使うという対応境界を確認。"
+}

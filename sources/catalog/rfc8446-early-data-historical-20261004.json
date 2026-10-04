@@ -1,0 +1,12 @@
+{
+  "id": "rfc8446-early-data-historical-20261004",
+  "url": "https://www.rfc-editor.org/rfc/rfc8446.html",
+  "version": "RFC 8446 (Standards Track, August 2018), historical comparison; obsoleted by RFC 9846",
+  "license": "IETF Trust Legal Provisions / BCP 78 (RFC text); extracted Code Components: Simplified BSD License per RFC copyright notice; pre-2008-material restriction noted in RFC; https://trustee.ietf.org/license-info/",
+  "purpose": "歴史的比較として§2.3と§8を確認。forward secrecyの旧説明と、接続間replayへの警告がRFC9846より前から存在したことを確認。旧版を現行仕様として推奨しない。",
+  "repository_url": "",
+  "commit_sha": "",
+  "retrieved_at": "2026-10-04",
+  "trust": "official",
+  "type": "official_docs"
+}

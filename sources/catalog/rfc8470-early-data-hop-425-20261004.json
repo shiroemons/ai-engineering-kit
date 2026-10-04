@@ -1,0 +1,12 @@
+{
+  "id": "rfc8470-early-data-hop-425-20261004",
+  "url": "https://www.rfc-editor.org/rfc/rfc8470.html",
+  "version": "RFC 8470 (Standards Track, September 2018); §2〜6 checked 2026-10-04 UTC",
+  "license": "IETF Trust Legal Provisions / BCP 78 (RFC text); extracted Code Components: Simplified BSD License per RFC copyright notice; https://trustee.ietf.org/license-info/",
+  "purpose": "§2〜6のHTTP early data契約を確認。Early-Dataのhop間伝播、invalid値の扱い、425と再試行の条件、resourceごとの安全性、origin capability、全instanceでの一貫性を参照。errataページは取得できず状態未確認。",
+  "repository_url": "",
+  "commit_sha": "",
+  "retrieved_at": "2026-10-04",
+  "trust": "official",
+  "type": "official_docs"
+}

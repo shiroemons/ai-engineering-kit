@@ -1,0 +1,12 @@
+{
+  "id": "etcd-37-rangestream-announcement-20261004",
+  "url": "https://etcd.io/blog/2026/announcing-etcd-3.7/",
+  "repository_url": "https://github.com/etcd-io/website",
+  "commit_sha": "",
+  "version": "Announcing etcd v3.7.0; published 2026-07-08",
+  "license": "CC-BY-4.0 (documentation); Apache-2.0 (code samples)",
+  "trust": "official",
+  "type": "release_notes",
+  "purpose": "SIG-Etcd Leadsの2026-07-08発表をnative webで読み、RangeStreamがv3.7新機能であることを確認。3.6以前との全応答bufferingの比較は発表の説明として扱い、性能数値を一般化しない。website LICENSEをd20f8ae346da60ab6eb6f24f200753b328aa9fccで確認。",
+  "retrieved_at": "2026-10-04"
+}

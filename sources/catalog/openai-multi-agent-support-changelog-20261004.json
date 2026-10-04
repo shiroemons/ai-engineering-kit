@@ -1,0 +1,12 @@
+{
+  "id": "openai-multi-agent-support-changelog-20261004",
+  "url": "https://developers.openai.com/api/docs/changelog",
+  "repository_url": "",
+  "commit_sha": "",
+  "version": "OpenAI API changelog, 2026-09-29 GPT-6.1 Sol entry; retrieved 2026-10-04 UTC",
+  "retrieved_at": "2026-10-04",
+  "license": "unknown",
+  "trust": "official",
+  "type": "release_notes",
+  "purpose": "GPT-6.1 Solの公開日とResponses Multi-agent beta対応の告知を確認。機能全体の初出日とは扱わない。"
+}

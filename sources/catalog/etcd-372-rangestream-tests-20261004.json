@@ -1,0 +1,12 @@
+{
+  "id": "etcd-372-rangestream-tests-20261004",
+  "url": "https://github.com/etcd-io/etcd/blob/68c065e562994b89e333e77b039ad066f933c586/tests/common/kv_test.go",
+  "repository_url": "https://github.com/etcd-io/etcd",
+  "commit_sha": "68c065e562994b89e333e77b039ad066f933c586",
+  "version": "etcd v3.7.2 upstream test source",
+  "license": "Apache-2.0",
+  "trust": "maintainer",
+  "type": "github_repository_analysis",
+  "purpose": "TestKVGetStream、clusterSupportsGetStream、rangeStreamSupportsを読み、全memberの機能probeと非対応option除外を確認。同commitのtests/integration/clientv3/kv_test.goのTestKVGetStreamCompactedErrorも読み、開始時nil errorでもstream消費時ErrCompactedになる試験を照合。upstream testはこの環境で未実行。LICENSEとfile header確認済み。",
+  "retrieved_at": "2026-10-04"
+}

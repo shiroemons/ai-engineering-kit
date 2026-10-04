@@ -1,0 +1,12 @@
+{
+  "id": "openai-multi-agent-beta-create-schema-20261004",
+  "url": "https://developers.openai.com/api/reference/resources/beta/subresources/responses/methods/create",
+  "repository_url": "",
+  "commit_sha": "",
+  "version": "POST /v1/responses beta responses_multi_agent=v1; rendered reference retrieved 2026-10-04 UTC; no fixed schema revision displayed",
+  "retrieved_at": "2026-10-04",
+  "license": "unknown",
+  "trust": "official",
+  "type": "official_docs",
+  "purpose": "multi_agentの同時実行上限、Response status、message phase、hosted call item、agent_messageのauthor/recipientとagent共通説明を確認。HTMLをread-only取得しguideとの文言差を記録。"
+}

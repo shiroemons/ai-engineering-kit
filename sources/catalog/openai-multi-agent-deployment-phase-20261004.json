@@ -1,0 +1,12 @@
+{
+  "id": "openai-multi-agent-deployment-phase-20261004",
+  "url": "https://developers.openai.com/api/docs/guides/deployment-checklist",
+  "repository_url": "",
+  "commit_sha": "",
+  "version": "API deployment checklist, phase and Multi-agent sections; rolling docs retrieved 2026-10-04 UTC; no separate publication date displayed",
+  "retrieved_at": "2026-10-04",
+  "license": "unknown",
+  "trust": "official",
+  "type": "official_docs",
+  "purpose": "assistant phaseの継続時保持、Multi-agentにおけるmax_tool_calls等の非対応、server側context compactionと導入評価の注意点を確認。"
+}

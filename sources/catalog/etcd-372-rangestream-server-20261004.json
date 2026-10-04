@@ -1,0 +1,12 @@
+{
+  "id": "etcd-372-rangestream-server-20261004",
+  "url": "https://github.com/etcd-io/etcd/blob/68c065e562994b89e333e77b039ad066f933c586/server/etcdserver/v3_server.go",
+  "repository_url": "https://github.com/etcd-io/etcd",
+  "commit_sha": "68c065e562994b89e333e77b039ad066f933c586",
+  "version": "etcd server v3.7.2",
+  "license": "Apache-2.0",
+  "trust": "maintainer",
+  "type": "github_repository_analysis",
+  "purpose": "RangeStream/rangeStream/adjustChunkLimitのread経路・revision固定・最終header/more/count・limit・chunk調整を確認。同commitのserver/etcdserver/api/v3rpc/key.go、server/proxy/grpcproxy/kv.go、api/etcdserverpb/rpc.protoも取得してvalidation、proxyのUnimplemented、wire定義を照合。LICENSEとfile header確認済み。実行・転載なし。",
+  "retrieved_at": "2026-10-04"
+}
