@@ -1,0 +1,12 @@
+{
+  "id": "mdn-submit-event-default-button-20261004",
+  "url": "https://developer.mozilla.org/en-US/docs/Web/API/HTMLFormElement/submit_event",
+  "repository_url": "https://github.com/mdn/content",
+  "commit_sha": "",
+  "version": "MDN HTMLFormElement submit event; last modified 2026-09-02",
+  "retrieved_at": "2026-10-04",
+  "license": "CC-BY-SA-2.5-or-later; Mozilla Contributors; original summary, no sample-code reuse",
+  "trust": "official",
+  "type": "official_docs",
+  "purpose": "implicit submission の default button、disabled、invalid 時 submit がないことを確認。Enter の具体的 gesture は device convention に依存。"
+}

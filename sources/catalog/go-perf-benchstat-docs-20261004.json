@@ -1,0 +1,12 @@
+{
+  "id": "go-perf-benchstat-docs-20261004",
+  "url": "https://pkg.go.dev/golang.org/x/perf@v0.0.0-20260908200009-22c9c6c9d4da/cmd/benchstat",
+  "repository_url": "https://github.com/golang/perf",
+  "commit_sha": "",
+  "version": "golang.org/x/perf v0.0.0-20260908200009-22c9c6c9d4da (published 2026-09-08)",
+  "retrieved_at": "2026-10-04",
+  "license": "BSD-3-Clause",
+  "trust": "official",
+  "type": "official_docs",
+  "purpose": "benchstat commandのmedian、Mann-Whitney U-test、assume=exact、sample件数、交互実行、multiple testingとgroupingを確認。このsnapshotを最新版とは主張しない。package表示licenseと固定commit LICENSEを照合。"
+}

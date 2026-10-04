@@ -1,0 +1,12 @@
+{
+  "id": "grpc-cancellation-handler-20261004",
+  "url": "https://grpc.io/docs/guides/cancellation/",
+  "repository_url": "https://github.com/grpc/grpc.io",
+  "commit_sha": "",
+  "version": "Unversioned Cancellation guide; displayed last modified 2024-02-29",
+  "retrieved_at": "2026-10-04",
+  "license": "CC-BY-4.0 (documentation); Apache-2.0 (code samples)",
+  "trust": "official",
+  "type": "official_docs",
+  "purpose": "ライブラリが任意のapplication handlerを一般に強制中断できず、handlerが取消を確認して停止する責務を確認。grpc/grpc.io LICENSE確認済み。"
+}

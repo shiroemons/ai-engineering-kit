@@ -1,0 +1,12 @@
+{
+  "id": "grpc-core-cancel-outcome-20261004",
+  "url": "https://grpc.io/docs/what-is-grpc/core-concepts/",
+  "repository_url": "https://github.com/grpc/grpc.io",
+  "commit_sha": "",
+  "version": "Unversioned Core concepts guide; displayed last modified 2026-05-11",
+  "retrieved_at": "2026-10-04",
+  "license": "CC-BY-4.0 (documentation); Apache-2.0 (code samples)",
+  "trust": "official",
+  "type": "official_docs",
+  "purpose": "RPC terminationのclient/server判定不一致、cancellation以前の変更はrollbackされないことを確認。更新日の変更をretry新機能の導入日とは扱わない。grpc/grpc.io LICENSE確認済み。"
+}

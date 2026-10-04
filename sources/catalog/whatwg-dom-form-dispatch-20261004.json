@@ -1,0 +1,12 @@
+{
+  "id": "whatwg-dom-form-dispatch-20261004",
+  "url": "https://dom.spec.whatwg.org/#concept-event-dispatch",
+  "repository_url": "https://github.com/whatwg/dom",
+  "commit_sha": "",
+  "version": "DOM Living Standard; page updated 2026-10-04",
+  "retrieved_at": "2026-10-04",
+  "license": "CC-BY-4.0; portions incorporated into source code: BSD-3-Clause",
+  "trust": "official",
+  "type": "official_docs",
+  "purpose": "event dispatch、listener callback 呼出し、cancel flag と dispatch 結果の同期的な判定を確認。非同期承認を submit dispatch が待つという契約はない。"
+}

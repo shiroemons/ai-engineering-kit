@@ -1,0 +1,12 @@
+{
+  "id": "grpc-retry-guide-commit-20261004",
+  "url": "https://grpc.io/docs/guides/retry/",
+  "repository_url": "https://github.com/grpc/grpc.io",
+  "commit_sha": "",
+  "version": "Unversioned Retry guide; displayed last modified 2025-11-26",
+  "retrieved_at": "2026-10-04",
+  "license": "CC-BY-4.0 (documentation); Apache-2.0 (code samples)",
+  "trust": "official",
+  "type": "official_docs",
+  "purpose": "RetryのResponse-Headers commit・transparent retry・method policy・attempt/call metricsを確認。disable retriesの総論はgrpc-go v1.84.0のAPI契約とは異なるため全実装へ一般化しない。grpc/grpc.io LICENSEを確認、原文・コード転載なし。"
+}

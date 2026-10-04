@@ -1,0 +1,12 @@
+{
+  "id": "go-benchmark-release-history-20261004",
+  "url": "https://go.dev/doc/devel/release",
+  "repository_url": "https://github.com/golang/website",
+  "commit_sha": "",
+  "version": "Go 1.24.0 (2025-02-11), 1.26.0 (2026-02-10), 1.27.0 (2026-08-19), 1.27.1 (2026-09-01)",
+  "retrieved_at": "2026-10-04",
+  "license": "CC-BY-4.0 (site text); BSD-3-Clause (code)",
+  "trust": "official",
+  "type": "release_notes",
+  "purpose": "B.Loop導入・inlining変更・確認したtoolchainの公開日を区別。2026-10-04 UTCに本文を再取得し、https://go.dev/copyright のlicenseを確認。"
+}

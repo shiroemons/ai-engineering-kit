@@ -1142,6 +1142,22 @@
     {"name": "kafka-two-phase-timeout-exclusion", "query": "transaction.two.phase.commit.enable 期限切れ", "expected_ids": ["messaging-kafka-transaction-timeout-lso-recovery-boundary"]},
     {"name": "kafka-protocol-upgrade-next-transaction", "query": "transaction.version=2 途中のtransaction", "expected_ids": ["messaging-kafka-transaction-timeout-lso-recovery-boundary"]},
     {"name": "kafka-external-effect-not-abort", "query": "Kafka 外部HTTP 料金請求", "expected_ids": ["messaging-kafka-transaction-timeout-lso-recovery-boundary"]},
-    {"name": "kafka-fault-tests-not-executed", "query": "Kafka ネットワークfault 実際に起動", "expected_ids": ["messaging-kafka-transaction-timeout-lso-recovery-boundary"]}
+    {"name": "kafka-fault-tests-not-executed", "query": "Kafka ネットワークfault 実際に起動", "expected_ids": ["messaging-kafka-transaction-timeout-lso-recovery-boundary"]},
+    {"name": "grpc-response-headers-before-message", "query": "Response-Headers 最初の response message", "expected_ids": ["architecture-grpc-retry-commit-replay-boundary"]},
+    {"name": "grpc-trailers-only-not-headers", "query": "Trailers-Only 先に Response-Headers", "expected_ids": ["architecture-grpc-retry-commit-replay-boundary"]},
+    {"name": "grpc-replay-overflow-not-reject", "query": "buffer overflow 業務拒否", "expected_ids": ["architecture-grpc-retry-commit-replay-boundary"]},
+    {"name": "grpc-transparent-attempt-count", "query": "transparent maxAttempts=4 transport", "expected_ids": ["architecture-grpc-retry-commit-replay-boundary"]},
+    {"name": "grpc-disable-retry-transparent-exception", "query": "WithDisableRetry transparent 影響しない", "expected_ids": ["architecture-grpc-retry-commit-replay-boundary"]},
+    {"name": "grpc-client-context-commits", "query": "ClientStream.Context() commitAttempt", "expected_ids": ["architecture-grpc-retry-commit-replay-boundary"]},
+    {"name": "grpc-header-call-can-retry", "query": "Header() 待機中 Trailers-Only", "expected_ids": ["architecture-grpc-retry-commit-replay-boundary"]},
+    {"name": "grpc-buffer-not-message-limit", "query": "256 MaxRetryRPCBufferSize Experimental", "expected_ids": ["architecture-grpc-retry-commit-replay-boundary"]},
+    {"name": "grpc-buffer-wire-cumulative", "query": "累積 wire payload", "expected_ids": ["architecture-grpc-retry-commit-replay-boundary"]},
+    {"name": "grpc-positive-pushback-not-deadline-extension", "query": "200ms 1000ms pushback", "expected_ids": ["architecture-grpc-retry-commit-replay-boundary"]},
+    {"name": "grpc-pushback-multiple-stop", "query": "pushback 複数値 停止", "expected_ids": ["architecture-grpc-retry-commit-replay-boundary"]},
+    {"name": "grpc-one-attempt-setting-not-disable", "query": "WithMaxCallAttempts 既定5 無効化", "expected_ids": ["architecture-grpc-retry-commit-replay-boundary"]},
+    {"name": "grpc-deadline-not-rollback", "query": "DEADLINE_EXCEEDED rollback", "expected_ids": ["architecture-grpc-retry-commit-replay-boundary"]},
+    {"name": "grpc-status-retry-scope", "query": "ABORTED FAILED_PRECONDITION read-modify-write", "expected_ids": ["architecture-grpc-retry-commit-replay-boundary"]},
+    {"name": "grpc-stream-restart-cursor", "query": "server-streaming continuation cursor", "expected_ids": ["architecture-grpc-retry-commit-replay-boundary"]},
+    {"name": "grpc-upstream-source-not-runtime", "query": "TestRetryStreaming upstream試験は今回実行していない", "expected_ids": ["architecture-grpc-retry-commit-replay-boundary"]}
   ]
 }

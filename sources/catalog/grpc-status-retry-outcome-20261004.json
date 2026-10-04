@@ -1,0 +1,12 @@
+{
+  "id": "grpc-status-retry-outcome-20261004",
+  "url": "https://grpc.io/docs/guides/status-codes/",
+  "repository_url": "https://github.com/grpc/grpc.io",
+  "commit_sha": "",
+  "version": "Unversioned Status Codes guide; displayed last modified 2024-08-21",
+  "retrieved_at": "2026-10-04",
+  "license": "CC-BY-4.0 (documentation); Apache-2.0 (code samples)",
+  "trust": "official",
+  "type": "official_docs",
+  "purpose": "DEADLINE_EXCEEDEDでも更新成功済みがありうること、UNAVAILABLEの非冪等操作注意、ABORTED/FAILED_PRECONDITIONのretry粒度を確認。grpc/grpc.io LICENSE確認済み。"
+}

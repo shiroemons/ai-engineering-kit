@@ -1,0 +1,12 @@
+{
+  "id": "go127-bloop-timer-source-20261004",
+  "url": "https://github.com/golang/go/blob/862c888e612ac346c7c4d99c9392bdfd265f33b0/src/testing/benchmark.go",
+  "repository_url": "https://github.com/golang/go",
+  "commit_sha": "862c888e612ac346c7c4d99c9392bdfd265f33b0",
+  "version": "go1.27.1 tag (2026-09-01)",
+  "retrieved_at": "2026-10-04",
+  "license": "BSD-3-Clause",
+  "trust": "primary-source",
+  "type": "github_repository_analysis",
+  "purpose": "固定版benchmark.goのrunN、loopSlowPath、Loop、ResetTimerを確認。timer停止中のLoopと早期breakの失敗、および初回custom metric消去を分析。GitHub APIでtag→40桁commitを照合し、raw URLで取得。同commitのLICENSEおよびファイルheaderを確認。取得したbenchmark.goはlocked Go 1.27.1の同ファイルとbyte一致。コード転載・module化なし。"
+}

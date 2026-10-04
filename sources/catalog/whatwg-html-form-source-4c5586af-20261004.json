@@ -1,0 +1,12 @@
+{
+  "id": "whatwg-html-form-source-4c5586af-20261004",
+  "url": "https://github.com/whatwg/html/blob/4c5586afa4fc6f2feeebcd25be1dca017cb51298/source",
+  "repository_url": "https://github.com/whatwg/html",
+  "commit_sha": "4c5586afa4fc6f2feeebcd25be1dca017cb51298",
+  "version": "HTML source commit 4c5586afa4fc6f2feeebcd25be1dca017cb51298; committed 2026-10-04T12:38:28Z",
+  "retrieved_at": "2026-10-04",
+  "license": "CC-BY-4.0; portions incorporated into source code: BSD-3-Clause; LICENSE verified at pinned commit",
+  "trust": "primary-source",
+  "type": "github_repository_analysis",
+  "purpose": "source lines 49265–49298, 64492–64649, 65018–65206 を照合。formdata bubbles=true、disabled submitter の取扱い、entry list clone の導出を固定。Git blob 1286cf2f87000e82ec573794caa8081de5c68917 を取得。実装コードの転載なし。"
+}

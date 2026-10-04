@@ -1,0 +1,12 @@
+{
+  "id": "grpc-deadlines-retry-budget-20261004",
+  "url": "https://grpc.io/docs/guides/deadlines/",
+  "repository_url": "https://github.com/grpc/grpc.io",
+  "commit_sha": "",
+  "version": "Unversioned Deadlines guide; displayed last modified 2025-07-07",
+  "retrieved_at": "2026-10-04",
+  "license": "CC-BY-4.0 (documentation); Apache-2.0 (code samples)",
+  "trust": "official",
+  "type": "official_docs",
+  "purpose": "deadline既定なし・DEADLINE_EXCEEDED・server側の協調停止責任・下流への残余時間伝播を確認。grpc/grpc.io LICENSE確認済み。"
+}

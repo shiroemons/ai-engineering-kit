@@ -685,6 +685,20 @@
     {"name": "canary-evidence-early-stop", "query": "canary 早期到達 復旧手順", "expected_ids": ["sre-canary-promotion-evidence-population-boundary"]},
     {"name": "canary-evidence-async-work-unit", "query": "canary work unit 長時間job", "expected_ids": ["sre-canary-promotion-evidence-population-boundary"]},
     {"name": "canary-evidence-rollback-side-effects", "query": "canary rollback 副作用", "expected_ids": ["sre-canary-promotion-evidence-population-boundary"]},
-    {"name": "canary-evidence-historical-not-new", "query": "canary 2018 2020 copyright年", "expected_ids": ["sre-canary-promotion-evidence-population-boundary"]}
+    {"name": "canary-evidence-historical-not-new", "query": "canary 2018 2020 copyright年", "expected_ids": ["sre-canary-promotion-evidence-population-boundary"]},
+    {"name": "go-benchmark-inlining-release", "query": "B.Loop 1.26 inlining 2026-02-10", "expected_ids": ["performance-go-benchmark-harness-comparison-boundary"]},
+    {"name": "go-benchmark-syntax-keepalive", "query": "B.Loop ready wrapper KeepAlive", "expected_ids": ["performance-go-benchmark-harness-comparison-boundary"]},
+    {"name": "go-benchmark-mixed-change", "query": "B.Loop compiler harness 4条件", "expected_ids": ["performance-go-benchmark-harness-comparison-boundary"]},
+    {"name": "go-benchmark-input-state", "query": "B.Loop sort 整列済み", "expected_ids": ["performance-go-benchmark-harness-comparison-boundary"]},
+    {"name": "go-benchmark-preloop-metric", "query": "B.Loop before/op after/op ResetTimer", "expected_ids": ["performance-go-benchmark-harness-comparison-boundary"]},
+    {"name": "go-benchmark-timer-restart", "query": "B.Loop StopTimer StartTimer 停止中", "expected_ids": ["performance-go-benchmark-harness-comparison-boundary"]},
+    {"name": "go-benchmark-break-incomplete", "query": "B.Loop break 未完了loop", "expected_ids": ["performance-go-benchmark-harness-comparison-boundary"]},
+    {"name": "go-benchmark-significance-equivalence", "query": "benchstat ~ 同等性", "expected_ids": ["performance-go-benchmark-harness-comparison-boundary"]},
+    {"name": "go-benchmark-exit-not-gate", "query": "benchstat exit status 0 SyntaxError", "expected_ids": ["performance-go-benchmark-harness-comparison-boundary"]},
+    {"name": "go-benchmark-multiple-testing", "query": "benchstat multiple testing 0.05", "expected_ids": ["performance-go-benchmark-harness-comparison-boundary"]},
+    {"name": "go-benchmark-sample-inventory", "query": "benchstat 必須 sample件数 片側", "expected_ids": ["performance-go-benchmark-harness-comparison-boundary"]},
+    {"name": "go-benchmark-exact-not-time", "query": "benchstat assume=exact 時間測定", "expected_ids": ["performance-go-benchmark-harness-comparison-boundary"]},
+    {"name": "go-benchmark-parallel-not-p99", "query": "RunParallel ns/op p99 wall", "expected_ids": ["performance-go-benchmark-harness-comparison-boundary"]},
+    {"name": "go-benchmark-runtime-proof-scope", "query": "B.Loop 3反復 局所 検索eval", "expected_ids": ["performance-go-benchmark-harness-comparison-boundary"]}
   ]
 }
