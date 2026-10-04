@@ -1,0 +1,12 @@
+{
+  "id": "qdrant-vector-schema-alias-docs-20261003",
+  "url": "https://qdrant.tech/documentation/manage-data/collections/",
+  "repository_url": "",
+  "commit_sha": "",
+  "version": "Rolling Collections docs retrieved 2026-10-03 UTC; Update Vector Schema available as of v1.18.0; publication date not displayed",
+  "retrieved_at": "2026-10-03",
+  "license": "unknown",
+  "trust": "official",
+  "type": "official_docs",
+  "purpose": "named vector schema追加と値投入の区別、collection countsの近似性、単一要求に複数alias actionを含める原子的切替を確認。アプリ側encoder変更まで原子的とは解釈しない。コード転載なし"
+}

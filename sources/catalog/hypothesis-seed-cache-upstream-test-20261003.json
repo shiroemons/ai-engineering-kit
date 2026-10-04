@@ -1,0 +1,12 @@
+{
+  "id": "hypothesis-seed-cache-upstream-test-20261003",
+  "url": "https://github.com/HypothesisWorks/hypothesis/blob/ff7e800971bacfabe4f498bc883c3fafc16c797f/hypothesis/tests/cover/test_constants_ast.py",
+  "repository_url": "https://github.com/HypothesisWorks/hypothesis",
+  "commit_sha": "ff7e800971bacfabe4f498bc883c3fafc16c797f",
+  "version": "PR #4886 fix merge (2026-09-27), test_cache_file_is_written_via_a_temporary_file",
+  "retrieved_at": "2026-10-03",
+  "license": "MPL-2.0; verified file header and https://github.com/HypothesisWorks/hypothesis/blob/ff7e800971bacfabe4f498bc883c3fafc16c797f/LICENSE.txt; no code copied",
+  "trust": "primary-source",
+  "type": "github_repository_analysis",
+  "purpose": "新規testがtemp-file作成・round-trip・成功後のtemp消失を検査することを確認。race実機試験や例外時cleanupの保証へ拡張しない。"
+}

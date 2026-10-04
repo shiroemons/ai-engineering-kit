@@ -1,0 +1,12 @@
+{
+  "id": "wcag22-target-spacing-c42-20261003",
+  "url": "https://www.w3.org/WAI/WCAG22/Techniques/css/C42.html",
+  "repository_url": "",
+  "commit_sha": "",
+  "version": "WCAG 2.2 Technique C42; displayed Updated 02 December 2025; retrieved 2026-10-03 UTC",
+  "retrieved_at": "2026-10-03",
+  "license": "W3C Software and Document License 2023; https://www.w3.org/copyright/software-license-2023/",
+  "trust": "official",
+  "type": "official_docs",
+  "purpose": "24px container内への中心配置はtarget拡大ではなくspacing達成手法であること、他targetと他undersized targetの円の双方への非交差を確認する"
+}

@@ -1713,6 +1713,62 @@
       "expected_ids": [
         "rag-citation-evidence-coordinate-evaluation"
       ]
+    },
+    {
+      "name": "qdrant-migration-schema-not-coverage",
+      "query": "schema追加 vector被覆",
+      "expected_ids": [
+        "rag-qdrant-embedding-migration-cutover-consistency"
+      ]
+    },
+    {
+      "name": "qdrant-migration-upsert-drops-omitted",
+      "query": "upsert 省略 null",
+      "expected_ids": [
+        "rag-qdrant-embedding-migration-cutover-consistency"
+      ]
+    },
+    {
+      "name": "qdrant-migration-stale-backfill",
+      "query": "revision10 revision11 update_vectors",
+      "expected_ids": [
+        "rag-qdrant-embedding-migration-cutover-consistency"
+      ]
+    },
+    {
+      "name": "qdrant-migration-delete-insert-only",
+      "query": "insert_only 削除履歴",
+      "expected_ids": [
+        "rag-qdrant-embedding-migration-cutover-consistency"
+      ]
+    },
+    {
+      "name": "qdrant-migration-alias-encoder-pair",
+      "query": "alias query encoder transaction",
+      "expected_ids": [
+        "rag-qdrant-embedding-migration-cutover-consistency"
+      ]
+    },
+    {
+      "name": "qdrant-migration-has-vector-not-revision",
+      "query": "has_vector 内容整合",
+      "expected_ids": [
+        "rag-qdrant-embedding-migration-cutover-consistency"
+      ]
+    },
+    {
+      "name": "qdrant-migration-rollback-writer",
+      "query": "旧系更新停止 rollback",
+      "expected_ids": [
+        "rag-qdrant-embedding-migration-cutover-consistency"
+      ]
+    },
+    {
+      "name": "qdrant-migration-min-version-discrepancy",
+      "query": "insert_only 1.16 1.17 不一致",
+      "expected_ids": [
+        "rag-qdrant-embedding-migration-cutover-consistency"
+      ]
     }
   ]
 }

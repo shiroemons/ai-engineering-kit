@@ -1,0 +1,12 @@
+{
+  "id": "qdrant-v119-openapi-74f3e85-20261003",
+  "url": "https://raw.githubusercontent.com/qdrant/qdrant/74f3e85b9473c62560006c043e13737ce6b48412/docs/redoc/v1.19.x/openapi.json",
+  "repository_url": "https://github.com/qdrant/qdrant",
+  "commit_sha": "74f3e85b9473c62560006c043e13737ce6b48412",
+  "version": "Qdrant v1.19.0 tag commit 74f3e85b9473c62560006c043e13737ce6b48412; docs/redoc/v1.19.x/openapi.json",
+  "retrieved_at": "2026-10-03",
+  "license": "Apache-2.0",
+  "trust": "official",
+  "type": "github_repository_analysis",
+  "purpose": "固定OpenAPIのcreate_vector_name/update_vectors、UpdateMode、HasVectorConditionを読解。release tagのcommit linkと同SHAのLICENSEをnative webで確認。API形状の照合でありstorage実装・並行実行を実測した主張ではない。コード転載なし"
+}
