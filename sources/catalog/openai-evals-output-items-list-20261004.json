@@ -1,0 +1,12 @@
+{
+  "id": "openai-evals-output-items-list-20261004",
+  "url": "https://developers.openai.com/api/reference/resources/evals/subresources/runs/subresources/output_items/methods/list",
+  "repository_url": "",
+  "commit_sha": "",
+  "version": "GET /v1/evals/{eval_id}/runs/{run_id}/output_items rolling API reference, retrieved 2026-10-04 UTC; status enum fail/pass vs prose failed discrepancy",
+  "retrieved_at": "2026-10-04",
+  "license": "unknown",
+  "trust": "official",
+  "type": "official_docs",
+  "purpose": "output itemのID、入力行、sample、個別grader結果、paginationを確認。status queryの型と説明文の不一致を記録し実動作は未検証。 取得ページ上でopen licenseを確認できず、独自要約のみ。コードの複製・moduleへの昇格は行わない。"
+}

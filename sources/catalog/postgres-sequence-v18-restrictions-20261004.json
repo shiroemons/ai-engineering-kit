@@ -1,0 +1,12 @@
+{
+  "id": "postgres-sequence-v18-restrictions-20261004",
+  "url": "https://www.postgresql.org/docs/18/logical-replication-restrictions.html",
+  "repository_url": "",
+  "commit_sha": "",
+  "version": "PostgreSQL 18 manual observed 2026-10-04 UTC; individual publication date absent",
+  "retrieved_at": "2026-10-04",
+  "license": "PostgreSQL License",
+  "trust": "official",
+  "type": "official_docs",
+  "purpose": "18のlogical replicationではsequence自体が複製されず、serial/identity列値の複製とは別である旧版との差を確認。 License verified from https://github.com/postgres/postgres/blob/b73d13c32c834a2c8e1c60cb92f79530376cedf1/COPYRIGHT (software and documentation) and https://www.postgresql.org/about/licence/. Original summaries only; no source-code reuse."
+}

@@ -1227,6 +1227,90 @@
     {"name": "redis-lmovem-destination-check-after-count", "query": "不足時 destination型検査より前", "expected_ids": ["redis-lmovem-batch-order-admission-boundary"]},
     {"name": "redis-blmovem-replication-not-dedup", "query": "EXACTLY 重複排除 決定的", "expected_ids": ["redis-lmovem-batch-order-admission-boundary"]},
     {"name": "redis-lmovem-count-not-byte-budget", "query": "COUNT/EXACTLY reply bytes上限", "expected_ids": ["redis-lmovem-batch-order-admission-boundary"]},
-    {"name": "redis-lmovem-runtime-unverified", "query": "Redis runtimeは実行していない", "expected_ids": ["redis-lmovem-batch-order-admission-boundary"]}
+    {"name": "redis-lmovem-runtime-unverified", "query": "Redis runtimeは実行していない", "expected_ids": ["redis-lmovem-batch-order-admission-boundary"]},
+    {
+      "name": "postgres-sequence-refresh-continuous-boundary",
+      "query": "sequence incremental 継続",
+      "expected_ids": [
+        "postgres-sequence-refresh-switchover-boundary"
+      ]
+    },
+    {
+      "name": "postgres-sequence-refresh-publication-membership",
+      "query": "REFRESH PUBLICATION 対象集合",
+      "expected_ids": [
+        "postgres-sequence-refresh-switchover-boundary"
+      ]
+    },
+    {
+      "name": "postgres-sequence-refresh-known-values",
+      "query": "REFRESH SEQUENCES 既知",
+      "expected_ids": [
+        "postgres-sequence-refresh-switchover-boundary"
+      ]
+    },
+    {
+      "name": "postgres-sequence-refresh-copydata-false",
+      "query": "sequence copy_data=false",
+      "expected_ids": [
+        "postgres-sequence-refresh-switchover-boundary"
+      ]
+    },
+    {
+      "name": "postgres-sequence-refresh-worker-completion",
+      "query": "sequence worker 受付",
+      "expected_ids": [
+        "postgres-sequence-refresh-switchover-boundary"
+      ]
+    },
+    {
+      "name": "postgres-sequence-refresh-definition-retry",
+      "query": "sequence 定義不一致 再起動",
+      "expected_ids": [
+        "postgres-sequence-refresh-switchover-boundary"
+      ]
+    },
+    {
+      "name": "postgres-sequence-refresh-page-lsn-blindspot",
+      "query": "sequence page_lsn LSN一致",
+      "expected_ids": [
+        "postgres-sequence-refresh-switchover-boundary"
+      ]
+    },
+    {
+      "name": "postgres-sequence-refresh-catalog-state",
+      "query": "sequence srsubstate srsublsn",
+      "expected_ids": [
+        "postgres-sequence-refresh-switchover-boundary"
+      ]
+    },
+    {
+      "name": "postgres-sequence-refresh-null-observation",
+      "query": "pg_get_sequence_data NULL 権限",
+      "expected_ids": [
+        "postgres-sequence-refresh-switchover-boundary"
+      ]
+    },
+    {
+      "name": "postgres-sequence-refresh-error-accounting",
+      "query": "sequence sync_seq_error_count 件数",
+      "expected_ids": [
+        "postgres-sequence-refresh-switchover-boundary"
+      ]
+    },
+    {
+      "name": "postgres-sequence-refresh-publisher-version",
+      "query": "sequence publisher 18→19",
+      "expected_ids": [
+        "postgres-sequence-refresh-switchover-boundary"
+      ]
+    },
+    {
+      "name": "postgres-sequence-refresh-switchover-writer",
+      "query": "sequence switchover 旧writer",
+      "expected_ids": [
+        "postgres-sequence-refresh-switchover-boundary"
+      ]
+    }
   ]
 }

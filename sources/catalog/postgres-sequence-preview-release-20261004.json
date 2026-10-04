@@ -1,0 +1,12 @@
+{
+  "id": "postgres-sequence-preview-release-20261004",
+  "url": "https://www.postgresql.org/about/news/postgresql-19-beta-4-released-3386/",
+  "repository_url": "",
+  "commit_sha": "",
+  "version": "PostgreSQL 19 Beta 4 release announcement published 2026-09-24",
+  "retrieved_at": "2026-10-04",
+  "license": "unknown",
+  "trust": "official",
+  "type": "release_notes",
+  "purpose": "19beta4の公開日とpreview・beta期間の仕様変更可能性を確認。ニュース本文固有のlicenseは未確認。原文転載なし。"
+}

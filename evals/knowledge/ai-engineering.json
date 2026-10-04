@@ -1867,6 +1867,104 @@
       "expected_ids": [
         "agents-openai-multi-agent-response-completion-boundary"
       ]
+    },
+    {
+      "name": "openai-evals-archive-not-history-import",
+      "query": "Promptfoo 手動再構築 旧run",
+      "expected_ids": [
+        "evals-openai-retirement-evidence-preservation-parity"
+      ]
+    },
+    {
+      "name": "openai-evals-retirement-readonly-not-deletion",
+      "query": "read-only化 データ削除",
+      "expected_ids": [
+        "evals-openai-retirement-evidence-preservation-parity"
+      ]
+    },
+    {
+      "name": "openai-evals-three-level-pagination",
+      "query": "三階層 after has_more",
+      "expected_ids": [
+        "evals-openai-retirement-evidence-preservation-parity"
+      ]
+    },
+    {
+      "name": "openai-evals-status-filter-discrepancy",
+      "query": "status fail failed 不一致",
+      "expected_ids": [
+        "evals-openai-retirement-evidence-preservation-parity"
+      ]
+    },
+    {
+      "name": "openai-evals-checkpoint-after-save",
+      "query": "保存の完了後 checkpoint",
+      "expected_ids": [
+        "evals-openai-retirement-evidence-preservation-parity"
+      ]
+    },
+    {
+      "name": "openai-evals-no-progress-pagination-stop",
+      "query": "has_more=true 空ページ 無限loop",
+      "expected_ids": [
+        "evals-openai-retirement-evidence-preservation-parity"
+      ]
+    },
+    {
+      "name": "openai-evals-datasource-id-not-line",
+      "query": "datasource_item_id 行番号",
+      "expected_ids": [
+        "evals-openai-retirement-evidence-preservation-parity"
+      ]
+    },
+    {
+      "name": "openai-evals-executed-count-not-planned",
+      "query": "履歴110/110 予定入力120/120",
+      "expected_ids": [
+        "evals-openai-retirement-evidence-preservation-parity"
+      ]
+    },
+    {
+      "name": "openai-evals-reference-not-bytes",
+      "query": "file_id 実体 archive完了",
+      "expected_ids": [
+        "evals-openai-retirement-evidence-preservation-parity"
+      ]
+    },
+    {
+      "name": "openai-evals-dynamic-source-not-snapshot",
+      "query": "検索条件 過去 集合",
+      "expected_ids": [
+        "evals-openai-retirement-evidence-preservation-parity"
+      ]
+    },
+    {
+      "name": "openai-evals-fixed-output-before-generation",
+      "query": "固定出力 採点 生成の変化",
+      "expected_ids": [
+        "evals-openai-retirement-evidence-preservation-parity"
+      ]
+    },
+    {
+      "name": "openai-evals-no-average-only-parity",
+      "query": "全体平均 移行合格",
+      "expected_ids": [
+        "evals-openai-retirement-evidence-preservation-parity"
+      ]
+    },
+    {
+      "name": "openai-evals-model-alias-not-snapshot",
+      "query": "model alias 過去snapshot",
+      "expected_ids": [
+        "evals-openai-retirement-evidence-preservation-parity"
+      ]
+    },
+    {
+      "name": "openai-evals-unknown-status-not-pass",
+      "query": "未知status field省略 pass",
+      "expected_ids": [
+        "evals-openai-retirement-evidence-preservation-parity"
+      ]
     }
   ]
 }

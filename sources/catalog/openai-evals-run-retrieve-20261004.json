@@ -1,0 +1,12 @@
+{
+  "id": "openai-evals-run-retrieve-20261004",
+  "url": "https://developers.openai.com/api/reference/resources/evals/subresources/runs/methods/retrieve",
+  "repository_url": "",
+  "commit_sha": "",
+  "version": "GET /v1/evals/{eval_id}/runs/{run_id} rolling API reference, retrieved 2026-10-04 UTC; page publication/version not stated",
+  "retrieved_at": "2026-10-04",
+  "license": "unknown",
+  "trust": "official",
+  "type": "official_docs",
+  "purpose": "runのdata_source・model・report_url・error・集計結果、result_counts.totalがexecuted output itemsであること、file_content/file_id/検索条件の参照形式を確認。 取得ページ上でopen licenseを確認できず、独自要約のみ。コードの複製・moduleへの昇格は行わない。"
+}

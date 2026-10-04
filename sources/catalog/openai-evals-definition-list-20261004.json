@@ -1,0 +1,12 @@
+{
+  "id": "openai-evals-definition-list-20261004",
+  "url": "https://developers.openai.com/api/reference/resources/evals/methods/list",
+  "repository_url": "",
+  "commit_sha": "",
+  "version": "GET /v1/evals rolling API reference, retrieved 2026-10-04 UTC; page publication/version not stated",
+  "retrieved_at": "2026-10-04",
+  "license": "unknown",
+  "trust": "official",
+  "type": "official_docs",
+  "purpose": "project単位のeval列挙、after/has_more/last_id、data_source_config、testing_criteriaを確認。 取得ページ上でopen licenseを確認できず、独自要約のみ。コードの複製・moduleへの昇格は行わない。"
+}

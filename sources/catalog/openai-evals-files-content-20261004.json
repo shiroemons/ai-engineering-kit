@@ -1,0 +1,12 @@
+{
+  "id": "openai-evals-files-content-20261004",
+  "url": "https://developers.openai.com/api/reference/resources/files/methods/content",
+  "repository_url": "",
+  "commit_sha": "",
+  "version": "GET /v1/files/{file_id}/content rolling API reference, retrieved 2026-10-04 UTC; page publication/version not stated",
+  "retrieved_at": "2026-10-04",
+  "license": "unknown",
+  "trust": "official",
+  "type": "official_docs",
+  "purpose": "file_id参照と実データ保存を区別するため、指定fileの内容を取得するread-only endpointを確認。 取得ページ上でopen licenseを確認できず、独自要約のみ。コードの複製・moduleへの昇格は行わない。"
+}
