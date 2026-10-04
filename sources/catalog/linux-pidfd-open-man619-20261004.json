@@ -1,0 +1,12 @@
+{
+  "id": "linux-pidfd-open-man619-20261004",
+  "url": "https://man7.org/linux/man-pages/man2/pidfd_open.2.html",
+  "repository_url": "https://git.kernel.org/pub/scm/docs/man-pages/man-pages.git/",
+  "commit_sha": "",
+  "version": "Linux man-pages 6.19; page date 2026-02-08; HTML rendered 2026-09-09",
+  "retrieved_at": "2026-10-04",
+  "license": "unknown",
+  "trust": "official",
+  "type": "official_docs",
+  "purpose": "Opened actual manual page with native web. Verified fork-plus-pidfd_open zombie/PID-reuse preconditions, poll readiness and EINVAL on read. Used for existing pidfd behavior only, not as documentation of Linux 7.1 AUTOKILL/AUTOREAP. Exact page license not established; no example code copied."
+}

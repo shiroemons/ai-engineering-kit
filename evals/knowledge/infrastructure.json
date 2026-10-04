@@ -1647,6 +1647,90 @@
       "expected_ids": [
         "docker-umask-api-exec-initial-permission-boundary"
       ]
+    },
+    {
+      "name": "linux-pidfd-autokill-final-reference",
+      "query": "CLONE_PIDFD_AUTOKILL 最終参照",
+      "expected_ids": [
+        "linux-pidfd-autokill-reference-exit-boundary"
+      ]
+    },
+    {
+      "name": "linux-pidfd-autokill-dup-observer",
+      "query": "pidfd dup 観測",
+      "expected_ids": [
+        "linux-pidfd-autokill-reference-exit-boundary"
+      ]
+    },
+    {
+      "name": "linux-pidfd-autokill-independent-open",
+      "query": "pidfd_open struct file",
+      "expected_ids": [
+        "linux-pidfd-autokill-reference-exit-boundary"
+      ]
+    },
+    {
+      "name": "linux-pidfd-autoreap-wait-status",
+      "query": "CLONE_AUTOREAP ECHILD",
+      "expected_ids": [
+        "linux-pidfd-autokill-reference-exit-boundary"
+      ]
+    },
+    {
+      "name": "linux-pidfd-autokill-nnp-capability",
+      "query": "CLONE_NNP CAP_SYS_ADMIN EPERM",
+      "expected_ids": [
+        "linux-pidfd-autokill-reference-exit-boundary"
+      ]
+    },
+    {
+      "name": "linux-pidfd-autoreap-exit-signal",
+      "query": "CLONE_AUTOREAP exit_signal EINVAL",
+      "expected_ids": [
+        "linux-pidfd-autokill-reference-exit-boundary"
+      ]
+    },
+    {
+      "name": "linux-pidfd-autokill-close-on-exec",
+      "query": "pidfd close-on-exec 管理",
+      "expected_ids": [
+        "linux-pidfd-autokill-reference-exit-boundary"
+      ]
+    },
+    {
+      "name": "linux-pidfd-autoreap-mask-result",
+      "query": "PIDFD_GET_INFO PIDFD_INFO_EXIT mask",
+      "expected_ids": [
+        "linux-pidfd-autokill-reference-exit-boundary"
+      ]
+    },
+    {
+      "name": "linux-pidfd-autoreap-pid-reuse",
+      "query": "pidfd_open PID 再利用",
+      "expected_ids": [
+        "linux-pidfd-autokill-reference-exit-boundary"
+      ]
+    },
+    {
+      "name": "linux-pidfd-autokill-signal-not-completion",
+      "query": "pidfs_file_release SIGKILL 完了",
+      "expected_ids": [
+        "linux-pidfd-autokill-reference-exit-boundary"
+      ]
+    },
+    {
+      "name": "linux-pidfd-autoreap-grandchild",
+      "query": "CLONE_AUTOREAP 孫",
+      "expected_ids": [
+        "linux-pidfd-autokill-reference-exit-boundary"
+      ]
+    },
+    {
+      "name": "linux-pidfd-autokill-upstream-version",
+      "query": "CLONE_PIDFD_AUTOKILL v7.1 v7.2",
+      "expected_ids": [
+        "linux-pidfd-autokill-reference-exit-boundary"
+      ]
     }
   ]
 }

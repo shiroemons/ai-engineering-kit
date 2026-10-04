@@ -1,0 +1,12 @@
+{
+  "id": "linux-pidfd-autokill-introduction-c8134b5f-20261004",
+  "url": "https://github.com/torvalds/linux/commit/c8134b5f13ae959de2b3c8cc278e2602b0857345",
+  "repository_url": "https://github.com/torvalds/linux",
+  "commit_sha": "c8134b5f13ae959de2b3c8cc278e2602b0857345",
+  "version": "CLONE_PIDFD_AUTOKILL introduction; commit 2026-03-11T22:15:40Z, merged via 07c3ef58223e2c75ea209d8c416b976ec30d9413 on 2026-04-13T20:27:11Z for Linux 7.1",
+  "retrieved_at": "2026-10-04",
+  "license": "GPL-2.0 / GPL-2.0-only for kernel implementation; GPL-2.0 WITH Linux-syscall-note for UAPI headers",
+  "trust": "primary-source",
+  "type": "github_repository_analysis",
+  "purpose": "Opened introduction and upstream merge commit pages with native web. Verified creation-file final-reference semantics, independent pidfd_open versus dup/fork, required flags and CLONE_NNP privilege model. Original analysis only, no implementation copied."
+}

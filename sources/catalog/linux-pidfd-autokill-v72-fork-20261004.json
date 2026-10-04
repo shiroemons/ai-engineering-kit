@@ -1,0 +1,12 @@
+{
+  "id": "linux-pidfd-autokill-v72-fork-20261004",
+  "url": "https://github.com/torvalds/linux/blob/8d3ae59288f1e7d58d76558a6ee96d533bc5019f/kernel/fork.c",
+  "repository_url": "https://github.com/torvalds/linux",
+  "commit_sha": "8d3ae59288f1e7d58d76558a6ee96d533bc5019f",
+  "version": "Linux v7.2, release commit 2026-08-16T21:32:26Z",
+  "retrieved_at": "2026-10-04",
+  "license": "GPL-2.0-only (kernel/fork.c and kernel/signal.c SPDX); UAPI headers GPL-2.0 WITH Linux-syscall-note",
+  "trust": "primary-source",
+  "type": "github_repository_analysis",
+  "purpose": "Read copy_process, clone3_args_valid, pidfd_prepare, child autoreap/no_new_privs initialization, O_CLOEXEC, and matching kernel/signal.c and UAPI headers. Verified required-flag EINVAL and capability EPERM paths. Native web opened pinned raw fork.c; no kernel build or process experiment."
+}
