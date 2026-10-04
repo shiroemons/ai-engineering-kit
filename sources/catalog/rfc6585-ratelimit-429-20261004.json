@@ -1,0 +1,12 @@
+{
+  "id": "rfc6585-ratelimit-429-20261004",
+  "url": "https://www.rfc-editor.org/rfc/rfc6585.html",
+  "repository_url": "",
+  "commit_sha": "",
+  "version": "RFC 6585; April 2012; Additional HTTP Status Codes",
+  "retrieved_at": "2026-10-04",
+  "license": "BCP 78 / IETF Trust Legal Provisions; Code Components: Simplified BSD License (as stated in the April 2012 notice)",
+  "trust": "official",
+  "type": "official_docs",
+  "purpose": "§4の429、Retry-After付与MAY、user識別とカウント方法の未規定、429のcache保存禁止を再確認。RateLimitの有無との区別に使用。コード転載なし。"
+}

@@ -1,0 +1,12 @@
+{
+  "id": "http-ratelimit07-dictionary-history-20261004",
+  "url": "https://datatracker.ietf.org/doc/html/draft-ietf-httpapi-ratelimit-headers-07",
+  "repository_url": "",
+  "commit_sha": "",
+  "version": "draft-ietf-httpapi-ratelimit-headers-07; published 2023-06-24; expired 2023-12-26; historical comparison only",
+  "retrieved_at": "2026-10-04",
+  "license": "BCP 78 / IETF Trust Legal Provisions; Code Components: Revised BSD License",
+  "trust": "official",
+  "type": "official_docs",
+  "purpose": "旧草案§3.1のDictionaryとlimit/remaining/resetを確認。現在のListとの移行比較に限り使用し、失効済み旧版を現行仕様として扱わない。コード転載なし。"
+}

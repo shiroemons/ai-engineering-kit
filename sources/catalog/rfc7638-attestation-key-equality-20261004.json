@@ -1,0 +1,12 @@
+{
+  "id": "rfc7638-attestation-key-equality-20261004",
+  "url": "https://www.rfc-editor.org/rfc/rfc7638.html",
+  "repository_url": "",
+  "commit_sha": "",
+  "version": "RFC 7638, Standards Track, September 2015",
+  "retrieved_at": "2026-10-04",
+  "license": "IETF Trust Legal Provisions / BCP 78; copyright notice checked 2026-10-04; no code copied",
+  "trust": "official",
+  "type": "official_docs",
+  "purpose": "Sections 3 and 3.2: thumbprints include required key members, exclude optional members, and are distinct from hashing complete JWK JSON"
+}

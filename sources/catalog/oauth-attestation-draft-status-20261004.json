@@ -1,0 +1,12 @@
+{
+  "id": "oauth-attestation-draft-status-20261004",
+  "url": "https://datatracker.ietf.org/doc/draft-ietf-oauth-attestation-based-client-auth/",
+  "repository_url": "",
+  "commit_sha": "",
+  "version": "Datatracker live state retrieved 2026-10-04 UTC: revision 11, Active Internet-Draft, In WG Last Call, I-D Exists",
+  "retrieved_at": "2026-10-04",
+  "license": "unknown",
+  "trust": "official",
+  "type": "official_docs",
+  "purpose": "Confirm revision and standards status without treating WG Last Call as RFC approval; page-specific reuse license not verified, original status summary only"
+}

@@ -1,0 +1,12 @@
+{
+  "id": "http-ratelimit11-quota-scheduling-20261004",
+  "url": "https://datatracker.ietf.org/doc/html/draft-ietf-httpapi-ratelimit-headers-11",
+  "repository_url": "",
+  "commit_sha": "",
+  "version": "draft-ietf-httpapi-ratelimit-headers-11; published 2026-05-23; expires 2026-11-24; active work in progress verified 2026-10-04 UTC",
+  "retrieved_at": "2026-10-04",
+  "license": "BCP 78 / IETF Trust Legal Provisions; Code Components: Revised BSD License",
+  "trust": "official",
+  "type": "official_docs",
+  "purpose": "草案11 §3–4のList・quota単位・r/t/pk、§6–8のserver/client/cache契約と旧版からの変更記録を確認。現行datatrackerも開いてdraft-11を確認。独自要約・送信管理の設計案のみ、コード転載なし。"
+}

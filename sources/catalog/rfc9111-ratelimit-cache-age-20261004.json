@@ -1,0 +1,12 @@
+{
+  "id": "rfc9111-ratelimit-cache-age-20261004",
+  "url": "https://www.rfc-editor.org/rfc/rfc9111.html",
+  "repository_url": "",
+  "commit_sha": "",
+  "version": "RFC 9111 / STD 98; June 2022; HTTP Caching",
+  "retrieved_at": "2026-10-04",
+  "license": "BCP 78 / IETF Trust Legal Provisions; Code Components: Revised BSD License; additional pre-2008-11-10 material restriction notice",
+  "trust": "official",
+  "type": "official_docs",
+  "purpose": "§4.2.3のcurrent_age計算、Age欠落時のage_value=0とDate・delay・resident_timeの区別を確認。cache本文の再利用とquota情報採用を分離する根拠。コード転載なし。"
+}

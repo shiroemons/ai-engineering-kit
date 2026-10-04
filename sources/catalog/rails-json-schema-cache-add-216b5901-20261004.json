@@ -1,0 +1,12 @@
+{
+  "id": "rails-json-schema-cache-add-216b5901-20261004",
+  "url": "https://github.com/rails/rails/commit/216b59017fd12fa3ffd3ecd632dc47203a58f353",
+  "repository_url": "https://github.com/rails/rails",
+  "commit_sha": "216b59017fd12fa3ffd3ecd632dc47203a58f353",
+  "version": "Rails main 8.2.0.alpha; JSON schema cache merge 2026-09-16T07:05:22Z",
+  "retrieved_at": "2026-10-04",
+  "license": "MIT",
+  "trust": "official",
+  "type": "github_repository_analysis",
+  "purpose": "PR #58769 and merge snapshot: JSON schema cache addition, extension selection, serializer registry and object reconstruction. Root MIT-LICENSE verified in same project; original Japanese analysis only, no source code copied."
+}

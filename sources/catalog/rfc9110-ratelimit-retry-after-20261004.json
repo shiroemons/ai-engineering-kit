@@ -1,0 +1,12 @@
+{
+  "id": "rfc9110-ratelimit-retry-after-20261004",
+  "url": "https://www.rfc-editor.org/rfc/rfc9110.html",
+  "repository_url": "",
+  "commit_sha": "",
+  "version": "RFC 9110 / STD 97; June 2022; HTTP Semantics",
+  "retrieved_at": "2026-10-04",
+  "license": "BCP 78 / IETF Trust Legal Provisions; Code Components: Revised BSD License; additional pre-2008-11-10 material restriction notice",
+  "trust": "official",
+  "type": "official_docs",
+  "purpose": "§10.2.3のRetry-After HTTP-date/delay-secondsと意味を再確認。草案RateLimitのtと別parser・待機判断にする根拠。コード転載なし。"
+}

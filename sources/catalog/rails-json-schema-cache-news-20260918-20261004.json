@@ -1,0 +1,12 @@
+{
+  "id": "rails-json-schema-cache-news-20260918-20261004",
+  "url": "https://rubyonrails.org/2026/9/18/this-week-in-rails",
+  "repository_url": "https://github.com/rails/rails",
+  "commit_sha": "",
+  "version": "This Week in Rails, 2026-09-18; describes main-branch changes, not a stable release guarantee",
+  "retrieved_at": "2026-10-04",
+  "license": "unknown",
+  "trust": "maintainer",
+  "type": "maintainer_article",
+  "purpose": "Maintainer announcement of JSON schema-cache opt-in and a 944-table app benchmark. Used for discovery and reported motivation, not universal boot-speed or stable-version support. Individual article reuse license not established; original attributed summary only."
+}
