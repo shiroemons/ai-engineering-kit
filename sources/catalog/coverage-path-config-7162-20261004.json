@@ -1,0 +1,12 @@
+{
+  "id": "coverage-path-config-7162-20261004",
+  "url": "https://coverage.readthedocs.io/en/7.16.2/config.html",
+  "repository_url": "https://github.com/coveragepy/coveragepy",
+  "commit_sha": "",
+  "version": "coverage.py 7.16.2 configuration reference",
+  "retrieved_at": "2026-10-04",
+  "license": "Apache-2.0; LICENSE.txt, NOTICE.txt and Python/RST headers verified at 5643ae7c682bbd56ee1ac2b11556145ab8c2cab0; original summary, no copied implementation",
+  "trust": "official",
+  "type": "official_docs",
+  "purpose": "relative_filesとsourceの設定場所、[paths]の存在確認・優先順、fail_under/precisionの契約を確認する"
+}

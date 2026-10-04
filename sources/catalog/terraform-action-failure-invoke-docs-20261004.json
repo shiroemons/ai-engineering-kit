@@ -1,0 +1,12 @@
+{
+  "id": "terraform-action-failure-invoke-docs-20261004",
+  "url": "https://developer.hashicorp.com/terraform/language/invoke-actions",
+  "repository_url": "https://github.com/hashicorp/terraform",
+  "commit_sha": "",
+  "version": "Terraform Docs v1.16.x; retrieved 2026-10-04 UTC",
+  "retrieved_at": "2026-10-04",
+  "license": "unknown",
+  "trust": "official",
+  "type": "official_docs",
+  "purpose": "provider-defined action、halt既定値・continue警告・taintの概説、workspaceでの-invokeとStacks制約をnative web原文で確認。taintおよびdestroy例外は固定実装で追加検証。原文コードの転載なし。"
+}

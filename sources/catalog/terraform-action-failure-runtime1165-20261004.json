@@ -1,0 +1,12 @@
+{
+  "id": "terraform-action-failure-runtime1165-20261004",
+  "url": "https://github.com/hashicorp/terraform/tree/ef47237fd0e03d6e93bdc510b526287f06e94c03",
+  "repository_url": "https://github.com/hashicorp/terraform",
+  "commit_sha": "ef47237fd0e03d6e93bdc510b526287f06e94c03",
+  "version": "Terraform v1.16.5 @ ef47237fd0e03d6e93bdc510b526287f06e94c03",
+  "retrieved_at": "2026-10-04",
+  "license": "BUSL-1.1 (pinned root LICENSE and source SPDX headers verified; no code copied)",
+  "trust": "primary-source",
+  "type": "github_repository_analysis",
+  "purpose": "read-only GitHub connectorで同SHAのinternal/configs/action.go、internal/terraform/node_resource_abstract_instance.go、node_resource_apply_instance.go、node_resource_destroy.go、node_resource_destroy_deposed.go、node_resource_plan_orphan.go、node_resource_validate.go、context_apply.go、action_trigger_instance_apply.go、node_action_invoke.goを確認。after_create限定taint、conditionエラー、DestroyMode継続、destroy入力制約、NoOp経路を独自分析。native webの固定ファイル取得はcache miss。実行していない。"
+}

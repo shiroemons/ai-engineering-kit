@@ -1,0 +1,12 @@
+{
+  "id": "coverage-combine-tests-7162-20261004",
+  "url": "https://github.com/coveragepy/coveragepy/blob/5643ae7c682bbd56ee1ac2b11556145ab8c2cab0/tests/test_data.py",
+  "repository_url": "https://github.com/coveragepy/coveragepy",
+  "commit_sha": "5643ae7c682bbd56ee1ac2b11556145ab8c2cab0",
+  "version": "coverage.py 7.16.2; 5643ae7c682bbd56ee1ac2b11556145ab8c2cab0",
+  "retrieved_at": "2026-10-04",
+  "license": "Apache-2.0; LICENSE.txt, NOTICE.txt and Python/RST headers verified at 5643ae7c682bbd56ee1ac2b11556145ab8c2cab0; original summary, no copied implementation",
+  "trust": "official",
+  "type": "github_repository_analysis",
+  "purpose": "test_combining_autofixes_slashes、aliases、明示file/directory、重複データのupstream fixtureを読む。ローカル実行結果ではない"
+}

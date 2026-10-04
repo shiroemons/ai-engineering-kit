@@ -1,0 +1,12 @@
+{
+  "id": "terraform-action-failure-release1165-20261004",
+  "url": "https://github.com/hashicorp/terraform/releases/tag/v1.16.5",
+  "repository_url": "https://github.com/hashicorp/terraform",
+  "commit_sha": "",
+  "version": "Terraform v1.16.5; heading 2026-09-30; GitHub published_at 2026-10-02T13:04:00Z",
+  "retrieved_at": "2026-10-04",
+  "license": "unknown",
+  "trust": "official",
+  "type": "release_notes",
+  "purpose": "1.16.5のtainted instance status crash修正をnative webで確認。日付はrelease本文見出しとGitHub API公開時刻を区別。詳細挙動は固定SHAの実装・テストに限定し、このreleaseをon_failure導入日としない。"
+}

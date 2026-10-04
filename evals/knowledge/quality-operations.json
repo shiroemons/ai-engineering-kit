@@ -649,6 +649,18 @@
     {"name": "hypothesis-seed-external-state", "query": "Hypothesis seed draw 外部状態", "expected_ids": ["testing-hypothesis-seed-cache-replay-boundary"]},
     {"name": "hypothesis-replay-blob-not-regression", "query": "Hypothesis 再現blob 恒久fixture", "expected_ids": ["testing-hypothesis-seed-cache-replay-boundary"]},
     {"name": "hypothesis-explicit-phase-coverage", "query": "Hypothesis Phase.explicit 除外", "expected_ids": ["testing-hypothesis-seed-cache-replay-boundary"]},
-    {"name": "hypothesis-xdist-sort-not-values", "query": "Hypothesis 値集合 sort", "expected_ids": ["testing-hypothesis-seed-cache-replay-boundary"]}
+    {"name": "hypothesis-xdist-sort-not-values", "query": "Hypothesis 値集合 sort", "expected_ids": ["testing-hypothesis-seed-cache-replay-boundary"]},
+    {"name": "coverage-combine-release-7160", "query": "coverage.py 7.16.0 separator 2026-08-28", "expected_ids": ["testing-coverage-cross-platform-combine-evidence-boundary"]},
+    {"name": "coverage-report-keep-version", "query": "coverage.py 7.15.0 --keep-combined", "expected_ids": ["testing-coverage-cross-platform-combine-evidence-boundary"]},
+    {"name": "coverage-combine-source-not-hash", "query": "coverage.py hash source revision", "expected_ids": ["testing-coverage-cross-platform-combine-evidence-boundary"]},
+    {"name": "coverage-combine-root-not-separator", "query": "coverage.py Windows drive checkout root", "expected_ids": ["testing-coverage-cross-platform-combine-evidence-boundary"]},
+    {"name": "coverage-relative-source-config", "query": "relative_files source 設定ファイル", "expected_ids": ["testing-coverage-cross-platform-combine-evidence-boundary"]},
+    {"name": "coverage-report-load-old-data", "query": "coverage report strict=False 古い", "expected_ids": ["testing-coverage-cross-platform-combine-evidence-boundary"]},
+    {"name": "coverage-combine-append-strict", "query": "coverage combine --append strict=True", "expected_ids": ["testing-coverage-cross-platform-combine-evidence-boundary"]},
+    {"name": "coverage-combine-partial-read", "query": "combine CoverageException 少なくとも1件", "expected_ids": ["testing-coverage-cross-platform-combine-evidence-boundary"]},
+    {"name": "coverage-combine-mode-conflict", "query": "line coverage branch coverage 衝突", "expected_ids": ["testing-coverage-cross-platform-combine-evidence-boundary"]},
+    {"name": "coverage-combine-shard-total", "query": "fail_under=90 Windows 未到着", "expected_ids": ["testing-coverage-cross-platform-combine-evidence-boundary"]},
+    {"name": "coverage-combine-runner-base", "query": "COVERAGE_FILE parallel mode 排他", "expected_ids": ["testing-coverage-cross-platform-combine-evidence-boundary"]},
+    {"name": "coverage-combine-retain-not-runtime", "query": "coverage.py --keep-combined runtime 検索eval", "expected_ids": ["testing-coverage-cross-platform-combine-evidence-boundary"]}
   ]
 }

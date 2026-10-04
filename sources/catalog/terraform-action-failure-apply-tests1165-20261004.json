@@ -1,0 +1,12 @@
+{
+  "id": "terraform-action-failure-apply-tests1165-20261004",
+  "url": "https://github.com/hashicorp/terraform/blob/ef47237fd0e03d6e93bdc510b526287f06e94c03/internal/terraform/context_apply_action_test.go",
+  "repository_url": "https://github.com/hashicorp/terraform",
+  "commit_sha": "ef47237fd0e03d6e93bdc510b526287f06e94c03",
+  "version": "Terraform v1.16.5 @ ef47237fd0e03d6e93bdc510b526287f06e94c03; TestContextApply_actions",
+  "retrieved_at": "2026-10-04",
+  "license": "BUSL-1.1 (pinned root LICENSE and source SPDX header verified; no code copied)",
+  "trust": "primary-source",
+  "type": "github_repository_analysis",
+  "purpose": "on_failure modesでのafter_create失敗、ObjectTainted/ObjectReady、依存先の有無、2 errors/1 warningのassertion、および旧callerを参照するafter destroy fixtureでの呼出し有無をread-only connectorで確認（同fixtureは値そのものの個別assertionではない）。旧値を選ぶ根拠は固定版planActionTriggerの静的読解。上流testは実行していない。"
+}

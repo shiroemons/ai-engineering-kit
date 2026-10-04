@@ -1194,6 +1194,20 @@
     {"name": "xread-budget-unblocked-test", "query": "MAXCOUNT blocking解除後", "expected_ids": ["redis-xread-reply-budget-pel-fairness-boundary"]},
     {"name": "xread-budget-not-whole-consumer", "query": "MAXCOUNT in-flight", "expected_ids": ["redis-xread-reply-budget-pel-fairness-boundary"]},
     {"name": "xread-budget-introduction", "query": "MAXCOUNT 8.10.0 2026-07-29", "expected_ids": ["redis-xread-reply-budget-pel-fairness-boundary"]},
-    {"name": "xread-budget-upstream-not-byte-assert", "query": "MAXSIZE wire bytes assert", "expected_ids": ["redis-xread-reply-budget-pel-fairness-boundary"]}
+    {"name": "xread-budget-upstream-not-byte-assert", "query": "MAXSIZE wire bytes assert", "expected_ids": ["redis-xread-reply-budget-pel-fairness-boundary"]},
+    {"name": "search-pagination-resp3-offset", "query": "MOD-16767 RESP3 offset", "expected_ids": ["search-redis-limit-cursor-completeness-boundary"]},
+    {"name": "search-pagination-knn-resp2-window", "query": "KNN RESP2 最終reply", "expected_ids": ["search-redis-limit-cursor-completeness-boundary"]},
+    {"name": "search-pagination-internal-candidate-count", "query": "requestedResultsCount 候補収集", "expected_ids": ["search-redis-limit-cursor-completeness-boundary"]},
+    {"name": "search-pagination-knn-page-different", "query": "KNN 20 LIMIT 0 10", "expected_ids": ["search-redis-limit-cursor-completeness-boundary"]},
+    {"name": "search-pagination-upstream-cluster-only", "query": "test_search_knn_limit_offset_resp2 cluster", "expected_ids": ["search-redis-limit-cursor-completeness-boundary"]},
+    {"name": "search-pagination-unique-order-not-snapshot", "query": "unique snapshot Cは訪れない", "expected_ids": ["search-redis-limit-cursor-completeness-boundary"]},
+    {"name": "search-pagination-final-batch-zero", "query": "最終batch cursor ID 0", "expected_ids": ["search-redis-limit-cursor-completeness-boundary"]},
+    {"name": "search-pagination-idle-not-total", "query": "MAXIDLE 300000ms scan全体", "expected_ids": ["search-redis-limit-cursor-completeness-boundary"]},
+    {"name": "search-pagination-cursor-not-found-error", "query": "cursor not found EOF", "expected_ids": ["search-redis-limit-cursor-completeness-boundary"]},
+    {"name": "search-pagination-rebalance-missing", "query": "Atomic Slot Migration 欠ける", "expected_ids": ["search-redis-limit-cursor-completeness-boundary"]},
+    {"name": "search-pagination-expiry-read-start", "query": "各cursor read開始時 active expiration", "expected_ids": ["search-redis-limit-cursor-completeness-boundary"]},
+    {"name": "search-pagination-count-not-snapshot", "query": "WITHCOUNT WITHOUTCOUNT 固定", "expected_ids": ["search-redis-limit-cursor-completeness-boundary"]},
+    {"name": "search-pagination-rc1-versus-ga", "query": "RC1 2026-07-29 GA", "expected_ids": ["search-redis-limit-cursor-completeness-boundary"]},
+    {"name": "search-pagination-frozen-id-not-value", "query": "固定ID TTL 固定", "expected_ids": ["search-redis-limit-cursor-completeness-boundary"]}
   ]
 }

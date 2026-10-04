@@ -1465,6 +1465,118 @@
       "expected_ids": [
         "kubernetes-pvc-unused-condition-cleanup-boundary"
       ]
+    },
+    {
+      "name": "terraform-action-failure-introduction-version",
+      "query": "on_failure v1.16.0 2026-08-26",
+      "expected_ids": [
+        "terraform-action-failure-taint-destroy-retry-boundary"
+      ]
+    },
+    {
+      "name": "terraform-action-failure-release-date-distinction",
+      "query": "v1.16.5 2026-09-30 2026-10-02",
+      "expected_ids": [
+        "terraform-action-failure-taint-destroy-retry-boundary"
+      ]
+    },
+    {
+      "name": "terraform-action-failure-taint-create-only",
+      "query": "after_update taint AfterCreate",
+      "expected_ids": [
+        "terraform-action-failure-taint-destroy-retry-boundary"
+      ]
+    },
+    {
+      "name": "terraform-action-failure-continue-condition-hard-error",
+      "query": "continue condition hard error",
+      "expected_ids": [
+        "terraform-action-failure-taint-destroy-retry-boundary"
+      ]
+    },
+    {
+      "name": "terraform-action-failure-continue-plan-error",
+      "query": "continue PlanAction 通常plan",
+      "expected_ids": [
+        "terraform-action-failure-taint-destroy-retry-boundary"
+      ]
+    },
+    {
+      "name": "terraform-action-failure-destroy-halt-warning",
+      "query": "walkDestroy halt 警告",
+      "expected_ids": [
+        "terraform-action-failure-taint-destroy-retry-boundary"
+      ]
+    },
+    {
+      "name": "terraform-action-failure-normal-destroy-before-stop",
+      "query": "before_destroy 通常apply 削除呼出し",
+      "expected_ids": [
+        "terraform-action-failure-taint-destroy-retry-boundary"
+      ]
+    },
+    {
+      "name": "terraform-action-failure-provider-delete-not-suppressed",
+      "query": "provider自身の削除エラー",
+      "expected_ids": [
+        "terraform-action-failure-taint-destroy-retry-boundary"
+      ]
+    },
+    {
+      "name": "terraform-action-failure-after-destroy-not-success",
+      "query": "after_destroy 削除成功",
+      "expected_ids": [
+        "terraform-action-failure-taint-destroy-retry-boundary"
+      ]
+    },
+    {
+      "name": "terraform-action-failure-destroy-condition-forbidden",
+      "query": "destroy condition 拒否",
+      "expected_ids": [
+        "terraform-action-failure-taint-destroy-retry-boundary"
+      ]
+    },
+    {
+      "name": "terraform-action-failure-destroy-ephemeral-known",
+      "query": "destroy ephemeral 既知",
+      "expected_ids": [
+        "terraform-action-failure-taint-destroy-retry-boundary"
+      ]
+    },
+    {
+      "name": "terraform-action-failure-orphan-plan-warning",
+      "query": "orphaned 計画できなかったaction",
+      "expected_ids": [
+        "terraform-action-failure-taint-destroy-retry-boundary"
+      ]
+    },
+    {
+      "name": "terraform-action-failure-noop-no-replay",
+      "query": "NoOp after_create 再発火",
+      "expected_ids": [
+        "terraform-action-failure-taint-destroy-retry-boundary"
+      ]
+    },
+    {
+      "name": "terraform-action-failure-upstream-modes-assertions",
+      "query": "ObjectTainted ObjectReady 2 errors",
+      "expected_ids": [
+        "terraform-action-failure-taint-destroy-retry-boundary"
+      ]
+    },
+    {
+      "name": "terraform-action-failure-tests-not-run",
+      "query": "上流testを実行して合格させたわけではない",
+      "expected_ids": [
+        "terraform-action-failure-taint-destroy-retry-boundary"
+      ]
+    },
+    {
+      "name": "terraform-action-failure-backup-gate-proposal",
+      "query": "必須バックアップ 別工程",
+      "expected_ids": [
+        "terraform-action-failure-taint-destroy-retry-boundary"
+      ]
     }
   ]
 }

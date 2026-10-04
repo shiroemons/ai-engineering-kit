@@ -1,0 +1,12 @@
+{
+  "id": "terraform-action-failure-lifecycle-docs-20261004",
+  "url": "https://developer.hashicorp.com/terraform/language/meta-arguments/lifecycle",
+  "repository_url": "https://github.com/hashicorp/terraform",
+  "commit_sha": "",
+  "version": "Terraform Docs v1.16.x; retrieved 2026-10-04 UTC",
+  "retrieved_at": "2026-10-04",
+  "license": "unknown",
+  "trust": "official",
+  "type": "official_docs",
+  "purpose": "action_trigger events/actions/condition/on_failureの公開説明とlifecycle設定のstate保存範囲をnative webで確認。独自の運用案とは区別。コード転載なし。"
+}

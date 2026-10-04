@@ -1,0 +1,12 @@
+{
+  "id": "coverage-combine-release-7162-20261004",
+  "url": "https://coverage.readthedocs.io/en/7.16.2/changes.html",
+  "repository_url": "https://github.com/coveragepy/coveragepy",
+  "commit_sha": "",
+  "version": "coverage.py 7.16.2 (2026-09-27); relevant changes in 7.14.0 (2026-05-10), 7.15.0 (2026-07-02), 7.16.0 (2026-08-28)",
+  "retrieved_at": "2026-10-04",
+  "license": "Apache-2.0; LICENSE.txt, NOTICE.txt and Python/RST headers verified at 5643ae7c682bbd56ee1ac2b11556145ab8c2cab0; original summary, no copied implementation",
+  "trust": "official",
+  "type": "release_notes",
+  "purpose": "report時の自動combine、--keep-combined、path separator正規化、先頭path置換の導入版と公開日を確認する"
+}

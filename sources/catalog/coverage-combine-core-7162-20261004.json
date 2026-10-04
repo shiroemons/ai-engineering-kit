@@ -1,0 +1,12 @@
+{
+  "id": "coverage-combine-core-7162-20261004",
+  "url": "https://github.com/coveragepy/coveragepy/tree/5643ae7c682bbd56ee1ac2b11556145ab8c2cab0/coverage",
+  "repository_url": "https://github.com/coveragepy/coveragepy",
+  "commit_sha": "5643ae7c682bbd56ee1ac2b11556145ab8c2cab0",
+  "version": "coverage.py 7.16.2; 5643ae7c682bbd56ee1ac2b11556145ab8c2cab0",
+  "retrieved_at": "2026-10-04",
+  "license": "Apache-2.0; LICENSE.txt, NOTICE.txt and Python/RST headers verified at 5643ae7c682bbd56ee1ac2b11556145ab8c2cab0; original summary, no copied implementation",
+  "trust": "official",
+  "type": "github_repository_analysis",
+  "purpose": "cmdline.pyのload/strict分岐、data.pyのread警告・重複skip・入力削除、sqldata.pyのpath/line/arc union、files.pyのpath置換を固定実装で分析する"
+}
