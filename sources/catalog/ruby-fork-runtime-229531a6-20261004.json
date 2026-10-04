@@ -1,0 +1,12 @@
+{
+  "id": "ruby-fork-runtime-229531a6-20261004",
+  "url": "https://github.com/ruby/ruby/tree/229531a6cfbf07e3caef30dbac24a2a3f3fed482",
+  "repository_url": "https://github.com/ruby/ruby",
+  "commit_sha": "229531a6cfbf07e3caef30dbac24a2a3f3fed482",
+  "version": "CRuby v4.0.7; full commit resolved from official tag; 2026-09-15 release",
+  "retrieved_at": "2026-10-04",
+  "license": "Ruby License OR BSD-2-Clause; same-commit COPYING and LEGAL checked; original analysis, no code copied",
+  "trust": "official",
+  "type": "github_repository_analysis",
+  "purpose": "process.cのrb_call_proc__fork / call_proc__fork_protected / rb_f_fork、io.cのpopen経路、eval.cのruby_stop / ruby_cleanup / teardown、およびtest/ruby/test_process.rbを読解。PID区別、NUM2PIDTの保護、blocklessへの範囲、終了と回収の境界を固定。runtime試験ではない"
+}

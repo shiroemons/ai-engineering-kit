@@ -1,0 +1,12 @@
+{
+  "id": "ruby-fork-process-api-4-0-20261004",
+  "url": "https://docs.ruby-lang.org/en/4.0/Process.html",
+  "repository_url": "https://github.com/ruby/ruby",
+  "commit_sha": "",
+  "version": "Ruby 4.0 RDoc; patch version and individual publication date not displayed; retrieved 2026-10-04 UTC",
+  "retrieved_at": "2026-10-04",
+  "license": "unknown; original attributed summary only, no source code copied",
+  "trust": "official",
+  "type": "official_docs",
+  "purpose": "Process._forkのinternal hook契約、public forkの親PID/子nil、block終了、waitpid2、detach、platformとthreadの制約を確認。patch修正の根拠は固定sourceへ分離"
+}

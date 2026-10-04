@@ -1,0 +1,12 @@
+{
+  "id": "ruby-fork-before-03b6d3f8-20261004",
+  "url": "https://github.com/ruby/ruby/tree/03b6d3f8898a28604fe6cb00eae3226b821168f4",
+  "repository_url": "https://github.com/ruby/ruby",
+  "commit_sha": "03b6d3f8898a28604fe6cb00eae3226b821168f4",
+  "version": "CRuby v4.0.6; full commit resolved from official tag; 2026-07-14 release",
+  "retrieved_at": "2026-10-04",
+  "license": "Ruby License OR BSD-2-Clause; same-commit COPYING and LEGAL checked; original analysis, no code copied",
+  "trust": "official",
+  "type": "github_repository_analysis",
+  "purpose": "比較直前版process.cはoverrideした_forkとNUM2PIDTを保護せず呼ぶこと、test_process.rbに追加回帰testがないことを確認。公開日は公式news https://www.ruby-lang.org/en/news/2026/07/14/ruby-4-0-6-released/ と照合"
+}

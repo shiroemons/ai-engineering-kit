@@ -1,0 +1,12 @@
+{
+  "id": "redis-set-cas-option-fix-20261004",
+  "url": "https://github.com/redis/redis/commit/2c9c04c1f87254976cb573b70c74f6724fc098b2",
+  "repository_url": "https://github.com/redis/redis",
+  "commit_sha": "2c9c04c1f87254976cb573b70c74f6724fc098b2",
+  "version": "PR #15291 merge commit 2c9c04c1f87254976cb573b70c74f6724fc098b2; merged 2026-07-02T01:21:35Z",
+  "retrieved_at": "2026-10-04",
+  "license": "Redis 8: RSALv2 OR SSPLv1 OR AGPLv3。LICENSE.txtとsrc/t_string.c headerを同じ修正commit 2c9c04c1f87254976cb573b70c74f6724fc098b2 で2026-10-04確認（https://github.com/redis/redis/blob/2c9c04c1f87254976cb573b70c74f6724fc098b2/LICENSE.txt）。コード転載・移植なし",
+  "trust": "primary-source",
+  "type": "github_repository_analysis",
+  "purpose": "NX/XX枝がIF*フラグを見なかったため引数順で拒否結果が変わる修正diffと回帰testを確認。マイナー系列別のbackportは未追跡。"
+}

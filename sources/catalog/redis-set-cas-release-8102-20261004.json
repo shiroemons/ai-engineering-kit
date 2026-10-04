@@ -1,0 +1,12 @@
+{
+  "id": "redis-set-cas-release-8102-20261004",
+  "url": "https://raw.githubusercontent.com/redis/redis/498ecd0d6d007db11ddb3aea9428552598a78622/00-RELEASENOTES",
+  "repository_url": "https://github.com/redis/redis",
+  "commit_sha": "498ecd0d6d007db11ddb3aea9428552598a78622",
+  "version": "Redis 8.10.2 (2026-09-17); 8.10 GA (2026-07-29); 8.10-RC1 (2026-07-20)",
+  "retrieved_at": "2026-10-04",
+  "license": "Redis 8: RSALv2 OR SSPLv1 OR AGPLv3。LICENSE.txt at 498ecd0d6d007db11ddb3aea9428552598a78622 を2026-10-04確認。t_string.c headerも同じ選択制; string.tcl個別headerなし。コード転載・移植なし",
+  "trust": "official",
+  "type": "release_notes",
+  "purpose": "8.10-RC1欄の#15291によるSET NX/XXとIF*相互排他修正、GA日と読解patch日を確認。タグURLはnative webで開き、完全commitはGitHub connectorで確認。全系列の最初の修正版は特定しない。"
+}

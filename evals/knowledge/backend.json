@@ -2050,6 +2050,111 @@
       "expected_ids": [
         "rails-except-on-validation-error-matching-boundary"
       ]
+    },
+    {
+      "name": "ruby-fork-release-patch-boundary",
+      "query": "4.0.7 4.0.6 #22243",
+      "expected_ids": [
+        "ruby-fork-hook-failure-process-boundary"
+      ]
+    },
+    {
+      "name": "ruby-fork-internal-zero-public-nil",
+      "query": "internal 子では整数0 public 子ではnil",
+      "expected_ids": [
+        "ruby-fork-hook-failure-process-boundary"
+      ]
+    },
+    {
+      "name": "ruby-fork-zero-truthy-hook",
+      "query": "0はRubyでtruthy nil判定",
+      "expected_ids": [
+        "ruby-fork-hook-failure-process-boundary"
+      ]
+    },
+    {
+      "name": "ruby-fork-hook-before-block-protection",
+      "query": "block開始前 rb_protect(rb_yield",
+      "expected_ids": [
+        "ruby-fork-hook-failure-process-boundary"
+      ]
+    },
+    {
+      "name": "ruby-fork-pid-detection-not-return",
+      "query": "実PID NUM2PIDT 戻り値変換",
+      "expected_ids": [
+        "ruby-fork-hook-failure-process-boundary"
+      ]
+    },
+    {
+      "name": "ruby-fork-parent-exception-after-create",
+      "query": "親側hook 例外 子は存在しない",
+      "expected_ids": [
+        "ruby-fork-hook-failure-process-boundary"
+      ]
+    },
+    {
+      "name": "ruby-fork-blockless-common-wrapper",
+      "query": "blockなしfork 共通関数",
+      "expected_ids": [
+        "ruby-fork-hook-failure-process-boundary"
+      ]
+    },
+    {
+      "name": "ruby-fork-popen-hook-before-redirect",
+      "query": "IO.popen pipe redirectより前",
+      "expected_ids": [
+        "ruby-fork-hook-failure-process-boundary"
+      ]
+    },
+    {
+      "name": "ruby-fork-direct-internal-not-covered",
+      "query": "Process._fork 直接呼ぶ 共通wrapper",
+      "expected_ids": [
+        "ruby-fork-hook-failure-process-boundary"
+      ]
+    },
+    {
+      "name": "ruby-fork-normal-cleanup-not-exit-bang",
+      "query": "ruby_stop exit! 終了期限",
+      "expected_ids": [
+        "ruby-fork-hook-failure-process-boundary"
+      ]
+    },
+    {
+      "name": "ruby-fork-hook-hang-not-stop",
+      "query": "無限待機 失敗として戻らない",
+      "expected_ids": [
+        "ruby-fork-hook-failure-process-boundary"
+      ]
+    },
+    {
+      "name": "ruby-fork-readiness-not-pid",
+      "query": "readiness 子PIDの取得",
+      "expected_ids": [
+        "ruby-fork-hook-failure-process-boundary"
+      ]
+    },
+    {
+      "name": "ruby-fork-reaping-not-automatic",
+      "query": "waitpid2 自動回収",
+      "expected_ids": [
+        "ruby-fork-hook-failure-process-boundary"
+      ]
+    },
+    {
+      "name": "ruby-fork-regression-observation-scope",
+      "query": "test__fork_raisig_after_fork stderr 最大停止時間",
+      "expected_ids": [
+        "ruby-fork-hook-failure-process-boundary"
+      ]
+    },
+    {
+      "name": "ruby-fork-runtime-unverified",
+      "query": "Ruby runtime試験は実行していない",
+      "expected_ids": [
+        "ruby-fork-hook-failure-process-boundary"
+      ]
     }
   ]
 }
