@@ -277,5 +277,15 @@
     {"name": "introspection-jwt-unknown-not-active", "query": "introspection last-known-active", "expected_ids": ["oauth-introspection-jwt-active-freshness-cache-boundary"]},
     {"name": "introspection-jwt-inflight-generation", "query": "introspection in-flight generation", "expected_ids": ["oauth-introspection-jwt-active-freshness-cache-boundary"]},
     {"name": "introspection-jwt-profile-errata", "query": "8802 Reported REQUIRED", "expected_ids": ["oauth-introspection-jwt-active-freshness-cache-boundary"]},
-    {"name": "introspection-jwt-revocation-window", "query": "introspection 失効反映窓 即時失効", "expected_ids": ["oauth-introspection-jwt-active-freshness-cache-boundary"]}
+    {"name": "introspection-jwt-revocation-window", "query": "introspection 失効反映窓 即時失効", "expected_ids": ["oauth-introspection-jwt-active-freshness-cache-boundary"]},
+    {"name": "coep-report-only-not-credential-test", "query": "Report-Only credentialless cookie", "expected_ids": ["security-coop-coep-credentialless-deployment-boundary"]},
+    {"name": "coep-explicit-corp-remains", "query": "credentialless 明示CORP same-origin", "expected_ids": ["security-coop-coep-credentialless-deployment-boundary"]},
+    {"name": "coep-cors-include-independent", "query": "credentialless cors credentials: include", "expected_ids": ["security-coop-coep-credentialless-deployment-boundary"]},
+    {"name": "coep-duplicate-header-fail-open", "query": "COEP require-corp, unsafe-none", "expected_ids": ["security-coop-coep-credentialless-deployment-boundary"]},
+    {"name": "coop-popup-capability-distinct", "query": "same-origin-allow-popups 隔離capability", "expected_ids": ["security-coop-coep-credentialless-deployment-boundary"]},
+    {"name": "coep-iframe-header-distinct", "query": "credentialless header 一時storage", "expected_ids": ["security-coop-coep-credentialless-deployment-boundary"]},
+    {"name": "coep-observe-effective-capability", "query": "self.crossOriginIsolated 実効", "expected_ids": ["security-coop-coep-credentialless-deployment-boundary"]},
+    {"name": "coep-popup-business-completion", "query": "COOP popup 完了通知", "expected_ids": ["security-coop-coep-credentialless-deployment-boundary"]},
+    {"name": "coep-redirect-taint-observation", "query": "COEP redirect-taint", "expected_ids": ["security-coop-coep-credentialless-deployment-boundary"]},
+    {"name": "coep-rollout-content-semantics", "query": "COEP 匿名版 認証状態", "expected_ids": ["security-coop-coep-credentialless-deployment-boundary"]}
   ]}

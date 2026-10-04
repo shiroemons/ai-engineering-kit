@@ -1,0 +1,12 @@
+{
+  "id": "whatwg-html-isolated-capability-20261004",
+  "url": "https://html.spec.whatwg.org/multipage/webappapis.html",
+  "repository_url": "",
+  "commit_sha": "",
+  "version": "WHATWG HTML Living Standard; Last Updated 2026-10-04; sections 8.1.3.2 and 8.2",
+  "retrieved_at": "2026-10-04",
+  "license": "CC-BY-4.0 (WHATWG standard prose); BSD-3-Clause for portions incorporated into source code; verified via https://whatwg.org/ipr-policy section 7.1.1 on 2026-10-04; no code copied",
+  "trust": "official",
+  "type": "official_docs",
+  "purpose": "Cross-origin isolated capability and self.crossOriginIsolated getter; dependency on effective policies and cross-origin-isolated feature"
+}

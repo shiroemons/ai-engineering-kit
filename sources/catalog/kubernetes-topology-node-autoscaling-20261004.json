@@ -1,0 +1,12 @@
+{
+  "id": "kubernetes-topology-node-autoscaling-20261004",
+  "url": "https://kubernetes.io/docs/concepts/cluster-administration/node-autoscaling/",
+  "repository_url": "https://github.com/kubernetes/website",
+  "commit_sha": "",
+  "version": "Kubernetes rolling docs (selector v1.37); page last modified 2026-06-14; Node provisioning and autoscaler constraints",
+  "retrieved_at": "2026-10-04",
+  "license": "CC-BY-4.0 (https://github.com/kubernetes/website/blob/main/LICENSE; checked 2026-10-04)",
+  "trust": "official",
+  "type": "official_docs",
+  "purpose": "node増設はPod制約とautoscaler設定の両方に依存し、provider容量・上限・統合によって失敗し得る境界を確認"
+}

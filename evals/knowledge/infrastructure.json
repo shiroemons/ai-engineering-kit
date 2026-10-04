@@ -1731,6 +1731,69 @@
       "expected_ids": [
         "linux-pidfd-autokill-reference-exit-boundary"
       ]
+    },
+    {
+      "name": "kubernetes-topology-spread-candidate-skew",
+      "query": "maxSkew global minimum",
+      "expected_ids": [
+        "kubernetes-topology-spread-eligible-domain-boundary"
+      ]
+    },
+    {
+      "name": "kubernetes-topology-spread-missing-domains",
+      "query": "minDomains 0 Pending",
+      "expected_ids": [
+        "kubernetes-topology-spread-eligible-domain-boundary"
+      ]
+    },
+    {
+      "name": "kubernetes-topology-spread-taints-counting",
+      "query": "nodeTaintsPolicy Ignore Honor",
+      "expected_ids": [
+        "kubernetes-topology-spread-eligible-domain-boundary"
+      ]
+    },
+    {
+      "name": "kubernetes-topology-spread-affinity-counting",
+      "query": "nodeAffinityPolicy 計数",
+      "expected_ids": [
+        "kubernetes-topology-spread-eligible-domain-boundary"
+      ]
+    },
+    {
+      "name": "kubernetes-topology-spread-revision-selector",
+      "query": "matchLabelKeys pod-template-hash",
+      "expected_ids": [
+        "kubernetes-topology-spread-eligible-domain-boundary"
+      ]
+    },
+    {
+      "name": "kubernetes-topology-spread-selector-merge",
+      "query": "MatchLabelKeysInPodTopologySpreadSelectorMerge 作成時",
+      "expected_ids": [
+        "kubernetes-topology-spread-eligible-domain-boundary"
+      ]
+    },
+    {
+      "name": "kubernetes-topology-spread-zero-node-zone",
+      "query": "autoscaler ゼロ label",
+      "expected_ids": [
+        "kubernetes-topology-spread-eligible-domain-boundary"
+      ]
+    },
+    {
+      "name": "kubernetes-topology-spread-constraints-intersection",
+      "query": "topologySpreadConstraints AND",
+      "expected_ids": [
+        "kubernetes-topology-spread-eligible-domain-boundary"
+      ]
+    },
+    {
+      "name": "kubernetes-topology-spread-no-rebalancing",
+      "query": "maxSkew scale-down",
+      "expected_ids": [
+        "kubernetes-topology-spread-eligible-domain-boundary"
+      ]
     }
   ]
 }

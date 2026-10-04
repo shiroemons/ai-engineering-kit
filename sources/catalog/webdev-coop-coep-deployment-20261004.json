@@ -1,0 +1,12 @@
+{
+  "id": "webdev-coop-coep-deployment-20261004",
+  "url": "https://web.dev/articles/coop-coep",
+  "repository_url": "",
+  "commit_sha": "",
+  "version": "Eiji Kitamura; Published 2020-04-13; inline update/history 2022-06-21, footer 2020-04-13; rechecked 2026-10-04",
+  "retrieved_at": "2026-10-04",
+  "license": "CC-BY-4.0 for article; Apache-2.0 for code samples, as stated in page footer checked 2026-10-04; no code or images copied",
+  "trust": "maintainer",
+  "type": "maintainer_article",
+  "purpose": "Staged Report-Only/enforce deployment, opener interaction and runtime isolation observation; historical browser compatibility is not treated as current"
+}
