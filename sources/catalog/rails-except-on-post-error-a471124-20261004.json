@@ -1,0 +1,12 @@
+{
+  "id": "rails-except-on-post-error-a471124-20261004",
+  "url": "https://github.com/rails/rails/blob/a471124b39b3b5c3ccfbb56f7f52d66eac34147f/activemodel/lib/active_model/error.rb",
+  "repository_url": "https://github.com/rails/rails",
+  "commit_sha": "a471124b39b3b5c3ccfbb56f7f52d66eac34147f",
+  "version": "Rails release後snapshot、2026-09-27 commit、RAILS_VERSION表示8.1.4",
+  "retrieved_at": "2026-10-04",
+  "license": "MIT（確認した同commitのactivemodel/MIT-LICENSE、著作権者 David Heinemeier Hansson）",
+  "trust": "official",
+  "type": "github_repository_analysis",
+  "purpose": "except_on追加を含む後続snapshotでもquery側filterは未変更と確認。同commitのRAILS_VERSION=8.1.4を確認し、version文字列と公開tagを分ける"
+}

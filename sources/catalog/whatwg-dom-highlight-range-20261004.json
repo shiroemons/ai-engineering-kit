@@ -1,0 +1,12 @@
+{
+  "id": "whatwg-dom-highlight-range-20261004",
+  "url": "https://dom.spec.whatwg.org/",
+  "repository_url": "",
+  "commit_sha": "",
+  "version": "DOM Living Standard; Last Updated 2026-10-04; sections 4.10 and 5.1–5.5; retrieved 2026-10-04 UTC",
+  "retrieved_at": "2026-10-04",
+  "license": "CC-BY-4.0 (document); BSD-3-Clause for portions incorporated into source code",
+  "trust": "official",
+  "type": "official_docs",
+  "purpose": "live Range と StaticRange の更新差、StaticRange の構造的 validity 条件、CharacterData.data setter と replace data の boundary point 更新を確認。本文一致を検証する独自の反例を導く。"
+}

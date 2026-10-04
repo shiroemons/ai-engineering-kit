@@ -1,0 +1,12 @@
+{
+  "id": "rails-except-on-main-error-c9e85db-20261004",
+  "url": "https://github.com/rails/rails/blob/c9e85dbe297e248dd2f217d04f84a94881ac046a/activemodel/lib/active_model/error.rb",
+  "repository_url": "https://github.com/rails/rails",
+  "commit_sha": "c9e85dbe297e248dd2f217d04f84a94881ac046a",
+  "version": "Rails main 8.2.0.alpha、2026-09-27 merge #58876",
+  "retrieved_at": "2026-10-04",
+  "license": "MIT（確認した同commitのactivemodel/MIT-LICENSE、著作権者 David Heinemeier Hansson）",
+  "trust": "official",
+  "type": "github_repository_analysis",
+  "purpose": "CALLBACKS_OPTIONSへのexcept_on追加、details・match?・strict_match?・options保持を読解。同commitのRAILS_VERSIONとmerge diffも確認し、query側filterは本PRの新変更ではないと区別する"
+}

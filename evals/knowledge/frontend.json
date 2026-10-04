@@ -1217,6 +1217,17 @@
     {"name": "live-region-status-focus-transition", "query": "status focus context", "expected_ids": ["accessibility-streaming-live-region-announcement-boundary"]},
     {"name": "live-region-dom-not-speech-evidence", "query": "accessibility tree snapshot 点字", "expected_ids": ["accessibility-streaming-live-region-announcement-boundary"]},
     {"name": "live-region-off-focused-not-silence", "query": "aria-live=\"off\" 無音化", "expected_ids": ["accessibility-streaming-live-region-announcement-boundary"]},
-    {"name": "live-region-history-remount", "query": "仮想化 prepend 再挿入", "expected_ids": ["accessibility-streaming-live-region-announcement-boundary"]}
+    {"name": "live-region-history-remount", "query": "仮想化 prepend 再挿入", "expected_ids": ["accessibility-streaming-live-region-announcement-boundary"]},
+    {"name": "highlight-tp253-not-stable", "query": "TP253 185173794 stable", "expected_ids": ["css-custom-highlight-registry-range-validity-boundary"]},
+    {"name": "highlight-registry-gc-order", "query": "185754041 GC hash", "expected_ids": ["css-custom-highlight-registry-range-validity-boundary"]},
+    {"name": "highlight-set-overwrite-order", "query": "上書き set delete→set", "expected_ids": ["css-custom-highlight-registry-range-validity-boundary"]},
+    {"name": "highlight-static-range-stale-text", "query": "StaticRange cat owl valid", "expected_ids": ["css-custom-highlight-registry-range-validity-boundary"]},
+    {"name": "highlight-live-range-replacement", "query": "live Range 全文置換 collapsed", "expected_ids": ["css-custom-highlight-registry-range-validity-boundary"]},
+    {"name": "highlight-type-at-boundary", "query": "Highlight type accessibility", "expected_ids": ["css-custom-highlight-registry-range-validity-boundary"]},
+    {"name": "highlight-explicit-priority", "query": "priority=10 priority=20", "expected_ids": ["css-custom-highlight-registry-range-validity-boundary"]},
+    {"name": "highlight-stale-query-revision", "query": "query generation document revision", "expected_ids": ["css-custom-highlight-registry-range-validity-boundary"]},
+    {"name": "highlight-owner-cleanup", "query": "identity guard cleanup", "expected_ids": ["css-custom-highlight-registry-range-validity-boundary"]},
+    {"name": "highlight-same-range-sharing", "query": "同じ Range 共有 境界", "expected_ids": ["css-custom-highlight-registry-range-validity-boundary"]},
+    {"name": "highlight-runtime-not-executed", "query": "Chromium 154.0.8037.57 未実行", "expected_ids": ["css-custom-highlight-registry-range-validity-boundary"]}
   ]
 }

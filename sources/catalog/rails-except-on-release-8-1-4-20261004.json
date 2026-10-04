@@ -1,0 +1,12 @@
+{
+  "id": "rails-except-on-release-8-1-4-20261004",
+  "url": "https://rubyonrails.org/2026/9/24/Rails-Version-8-1-4-has-been-released",
+  "repository_url": "https://github.com/rails/rails",
+  "commit_sha": "",
+  "version": "Rails 8.1.4、2026-09-24公開",
+  "retrieved_at": "2026-10-04",
+  "license": "unknown（release告知の個別ライセンスを確定せず、原文転載なしの独自要約のみ）",
+  "trust": "official",
+  "type": "release_notes",
+  "purpose": "8.1.4の公式公開日と公開gemのSHA-256提示を確認。gemをダウンロードして検証したとは主張しない"
+}

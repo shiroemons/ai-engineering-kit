@@ -1,0 +1,12 @@
+{
+  "id": "rails-except-on-validations-class-api-8-1-4-20261004",
+  "url": "https://api.rubyonrails.org/classes/ActiveModel/Validations/ClassMethods.html",
+  "repository_url": "https://github.com/rails/rails",
+  "commit_sha": "",
+  "version": "Rails 8.1.4 API、2026-10-04取得",
+  "retrieved_at": "2026-10-04",
+  "license": "MIT（Active Model source由来のAPI文書。c3466ea0のactivemodel/MIT-LICENSE確認）",
+  "trust": "official",
+  "type": "official_docs",
+  "purpose": "on/except_onのvalidation context選択、配列の交差、if/unlessとstrictオプションの契約を確認"
+}

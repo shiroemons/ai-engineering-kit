@@ -1,0 +1,12 @@
+{
+  "id": "rails-except-on-error-tests-c9e85db-20261004",
+  "url": "https://github.com/rails/rails/blob/c9e85dbe297e248dd2f217d04f84a94881ac046a/activemodel/test/cases/error_test.rb",
+  "repository_url": "https://github.com/rails/rails",
+  "commit_sha": "c9e85dbe297e248dd2f217d04f84a94881ac046a",
+  "version": "Rails main 8.2.0.alpha、#58876適用後",
+  "retrieved_at": "2026-10-04",
+  "license": "MIT（確認した同commitのactivemodel/MIT-LICENSE、著作権者 David Heinemeier Hansson）",
+  "trust": "official",
+  "type": "github_repository_analysis",
+  "purpose": "strict_match?とdetailsの既存試験へexcept_onが追加された箇所を読解。countと独自foo optionの保持を確認。試験実行はしていない"
+}

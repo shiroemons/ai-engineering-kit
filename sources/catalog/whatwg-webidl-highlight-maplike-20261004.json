@@ -1,0 +1,12 @@
+{
+  "id": "whatwg-webidl-highlight-maplike-20261004",
+  "url": "https://webidl.spec.whatwg.org/",
+  "repository_url": "",
+  "commit_sha": "",
+  "version": "Web IDL Living Standard; Last Updated 2026-10-02; section 3.7.11 maplike declarations; retrieved 2026-10-04 UTC",
+  "retrieved_at": "2026-10-04",
+  "license": "CC-BY-4.0 (document); BSD-3-Clause for portions incorporated into source code",
+  "trust": "official",
+  "type": "official_docs",
+  "purpose": "HighlightRegistry が参照する maplike set/delete/clear の標準処理を確認。set は Infra ordered map の値設定へ委譲し、既存 key の上書きを再挿入とはしない。"
+}

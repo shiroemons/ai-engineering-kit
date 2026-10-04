@@ -1,0 +1,12 @@
+{
+  "id": "rails-except-on-post-changelog-a471124-20261004",
+  "url": "https://github.com/rails/rails/blob/a471124b39b3b5c3ccfbb56f7f52d66eac34147f/activemodel/CHANGELOG.md",
+  "repository_url": "https://github.com/rails/rails",
+  "commit_sha": "a471124b39b3b5c3ccfbb56f7f52d66eac34147f",
+  "version": "Rails release後CHANGELOG、2026-09-27 commit",
+  "retrieved_at": "2026-10-04",
+  "license": "MIT（確認した同commitのactivemodel/MIT-LICENSE、著作権者 David Heinemeier Hansson）",
+  "trust": "official",
+  "type": "release_notes",
+  "purpose": "except_onの修正項目が8.1.4 (September 24, 2026)見出しより上に存在することを確認。公開8.1.4に含まれる修正とは扱わない"
+}

@@ -1124,6 +1124,24 @@
     {"name": "sunset-expires-not-retirement", "query": "Expires 元resource 消滅", "expected_ids": ["http-deprecation-sunset-scope-retirement-boundary"]},
     {"name": "deprecation-missing-not-withdrawal", "query": "通知 unknown 予定撤回", "expected_ids": ["http-deprecation-sunset-scope-retirement-boundary"]},
     {"name": "deprecation-utc-example-not-erratum", "query": "UTC GMT 修正済みerratum", "expected_ids": ["http-deprecation-sunset-scope-retirement-boundary"]},
-    {"name": "sunset-no-delete-switch", "query": "Sunset 削除 切替 再確認", "expected_ids": ["http-deprecation-sunset-scope-retirement-boundary"]}
+    {"name": "sunset-no-delete-switch", "query": "Sunset 削除 切替 再確認", "expected_ids": ["http-deprecation-sunset-scope-retirement-boundary"]},
+    {"name": "kafka-commit-timeout-no-abort", "query": "commitTransaction TimeoutException abortTransaction", "expected_ids": ["messaging-kafka-transaction-timeout-lso-recovery-boundary"]},
+    {"name": "kafka-abort-timeout-no-commit", "query": "abortTransaction timeout 反転", "expected_ids": ["messaging-kafka-transaction-timeout-lso-recovery-boundary"]},
+    {"name": "kafka-close-not-rollback-proof", "query": "close rollback証明", "expected_ids": ["messaging-kafka-transaction-timeout-lso-recovery-boundary"]},
+    {"name": "kafka-offset-ack-not-commit", "query": "sendOffsetsToTransaction 受領 offset確定", "expected_ids": ["messaging-kafka-transaction-timeout-lso-recovery-boundary"]},
+    {"name": "kafka-next-offsets-partial-batch", "query": "nextOffsets 一部 worker", "expected_ids": ["messaging-kafka-transaction-timeout-lso-recovery-boundary"]},
+    {"name": "kafka-restart-completing-not-always-abort", "query": "initTransactions 完了を待つ", "expected_ids": ["messaging-kafka-transaction-timeout-lso-recovery-boundary"]},
+    {"name": "kafka-abort-not-consumer-seek", "query": "abort consumer seek 代用品", "expected_ids": ["messaging-kafka-transaction-timeout-lso-recovery-boundary"]},
+    {"name": "kafka-fenced-old-instance-close", "query": "ProducerFencedException 旧producer close", "expected_ids": ["messaging-kafka-transaction-timeout-lso-recovery-boundary"]},
+    {"name": "kafka-lso-blocks-nontransactional", "query": "LSO 104 106", "expected_ids": ["messaging-kafka-transaction-timeout-lso-recovery-boundary"]},
+    {"name": "kafka-lso-exclusive-not-minus-one", "query": "endOffsets=100 99", "expected_ids": ["messaging-kafka-transaction-timeout-lso-recovery-boundary"]},
+    {"name": "kafka-lag-zero-not-business-done", "query": "fetch lag=0 業務確定済みoffset", "expected_ids": ["messaging-kafka-transaction-timeout-lso-recovery-boundary"]},
+    {"name": "kafka-current-lag-empty-not-zero", "query": "currentLag 空値 不明", "expected_ids": ["messaging-kafka-transaction-timeout-lso-recovery-boundary"]},
+    {"name": "kafka-three-time-budgets", "query": "max.block.ms transaction.timeout.ms max.poll.interval.ms", "expected_ids": ["messaging-kafka-transaction-timeout-lso-recovery-boundary"]},
+    {"name": "kafka-transaction-timeout-first-partition", "query": "transaction.timeout.ms 最初のpartition", "expected_ids": ["messaging-kafka-transaction-timeout-lso-recovery-boundary"]},
+    {"name": "kafka-two-phase-timeout-exclusion", "query": "transaction.two.phase.commit.enable 期限切れ", "expected_ids": ["messaging-kafka-transaction-timeout-lso-recovery-boundary"]},
+    {"name": "kafka-protocol-upgrade-next-transaction", "query": "transaction.version=2 途中のtransaction", "expected_ids": ["messaging-kafka-transaction-timeout-lso-recovery-boundary"]},
+    {"name": "kafka-external-effect-not-abort", "query": "Kafka 外部HTTP 料金請求", "expected_ids": ["messaging-kafka-transaction-timeout-lso-recovery-boundary"]},
+    {"name": "kafka-fault-tests-not-executed", "query": "Kafka ネットワークfault 実際に起動", "expected_ids": ["messaging-kafka-transaction-timeout-lso-recovery-boundary"]}
   ]
 }

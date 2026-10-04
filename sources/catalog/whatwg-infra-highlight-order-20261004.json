@@ -1,0 +1,12 @@
+{
+  "id": "whatwg-infra-highlight-order-20261004",
+  "url": "https://infra.spec.whatwg.org/",
+  "repository_url": "",
+  "commit_sha": "",
+  "version": "Infra Living Standard; Last Updated 2026-07-17; section 5.2 Maps; retrieved 2026-10-04 UTC",
+  "retrieved_at": "2026-10-04",
+  "license": "CC-BY-4.0 (document); BSD-3-Clause for portions incorporated into source code",
+  "trust": "official",
+  "type": "official_docs",
+  "purpose": "ordered map の既存 entry の値更新と、新規 entry の末尾追加、remove/clear の差を確認。registry の上書き set と delete→set の順序差の根拠。"
+}

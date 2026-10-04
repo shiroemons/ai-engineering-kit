@@ -1,0 +1,12 @@
+{
+  "id": "kafka43-transaction-protocol-20261004",
+  "url": "https://kafka.apache.org/43/operations/transaction-protocol/",
+  "repository_url": "",
+  "commit_sha": "",
+  "version": "Apache Kafka 4.3 operations guide; new transaction protocol introduced in 4.0; page last modified 2026-05-22",
+  "retrieved_at": "2026-10-04",
+  "license": "Apache-2.0 (verified Kafka 4.3.1 LICENSE: https://raw.githubusercontent.com/apache/kafka/4.3.1/LICENSE; website LICENSE: https://raw.githubusercontent.com/apache/kafka-site/markdown/LICENSE); original attributed summary, no copied code",
+  "trust": "official",
+  "type": "official_docs",
+  "purpose": "transaction.version=2と4.0以上clientの組合せ、epoch更新、transaction途中では切り替えないupgrade契約を確認。"
+}
