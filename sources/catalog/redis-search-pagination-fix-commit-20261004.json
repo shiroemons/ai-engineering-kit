@@ -1,0 +1,12 @@
+{
+  "id": "redis-search-pagination-fix-commit-20261004",
+  "url": "https://github.com/RediSearch/RediSearch/commit/f76a1bd4c3b5ef43cd96299184b2a18309068538",
+  "repository_url": "https://github.com/RediSearch/RediSearch",
+  "commit_sha": "f76a1bd4c3b5ef43cd96299184b2a18309068538",
+  "version": "RediSearch 8.10 backport #10408, merged 2026-07-09; commit f76a1bd4c3b5ef43cd96299184b2a18309068538",
+  "retrieved_at": "2026-10-04",
+  "license": "RSALv2 OR SSPLv1 OR AGPLv3（当該commitのLICENSE.txtでRedis 8以降の選択ライセンスを確認。module.cのヘッダーも同じ選択肢。テストファイルに個別ヘッダーなし）。静的分析と独自要約のみ、コード転載・module昇格なし。",
+  "trust": "official",
+  "type": "github_repository_analysis",
+  "purpose": "MOD-16767の差分を確認。RESP3のoffset適用と最終reply上限をoffset+limitへ分離。KNNについてRESP2/RESP3双方のregression testsを含む。GitHub API compareでfixがv8.10.0の祖先（ahead=11/behind=0、merge_base=fix）と確認。"
+}

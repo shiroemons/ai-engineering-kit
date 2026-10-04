@@ -1,0 +1,12 @@
+{
+  "id": "terraform-action-failure-plan-tests1165-20261004",
+  "url": "https://github.com/hashicorp/terraform/blob/ef47237fd0e03d6e93bdc510b526287f06e94c03/internal/terraform/context_plan_actions_test.go",
+  "repository_url": "https://github.com/hashicorp/terraform",
+  "commit_sha": "ef47237fd0e03d6e93bdc510b526287f06e94c03",
+  "version": "Terraform v1.16.5 @ ef47237fd0e03d6e93bdc510b526287f06e94c03; action plan validation cases",
+  "retrieved_at": "2026-10-04",
+  "license": "BUSL-1.1 (pinned root LICENSE and source SPDX header verified; no code copied)",
+  "trust": "primary-source",
+  "type": "github_repository_analysis",
+  "purpose": "destroy cannot use condition、no ephemeral in destroy、destroy action must be known、complex orphaned module instancesの入力と期待diagnosticをread-only connectorで確認。上流testは実行していない。"
+}

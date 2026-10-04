@@ -1,0 +1,12 @@
+{
+  "id": "coverage-combine-command-7162-20261004",
+  "url": "https://github.com/coveragepy/coveragepy/blob/5643ae7c682bbd56ee1ac2b11556145ab8c2cab0/doc/commands/cmd_combine.rst",
+  "repository_url": "https://github.com/coveragepy/coveragepy",
+  "commit_sha": "5643ae7c682bbd56ee1ac2b11556145ab8c2cab0",
+  "version": "coverage.py 7.16.2 documentation at release commit",
+  "retrieved_at": "2026-10-04",
+  "license": "Apache-2.0; LICENSE.txt, NOTICE.txt and Python/RST headers verified at 5643ae7c682bbd56ee1ac2b11556145ab8c2cab0; original summary, no copied implementation",
+  "trust": "official",
+  "type": "official_docs",
+  "purpose": "filenameによるunion、明示入力、既存combined data、--append/--keep、runner別base nameの契約を確認する"
+}

@@ -1,0 +1,12 @@
+{
+  "id": "coverage-report-command-7162-20261004",
+  "url": "https://github.com/coveragepy/coveragepy/blob/5643ae7c682bbd56ee1ac2b11556145ab8c2cab0/doc/commands/cmd_reporting.rst",
+  "repository_url": "https://github.com/coveragepy/coveragepy",
+  "commit_sha": "5643ae7c682bbd56ee1ac2b11556145ab8c2cab0",
+  "version": "coverage.py 7.16.2 documentation at release commit",
+  "retrieved_at": "2026-10-04",
+  "license": "Apache-2.0; LICENSE.txt, NOTICE.txt and Python/RST headers verified at 5643ae7c682bbd56ee1ac2b11556145ab8c2cab0; original summary, no copied implementation",
+  "trust": "official",
+  "type": "official_docs",
+  "purpose": "report/html/json等の自動combine、入力削除、--keep-combined、fail-underの総合割合判定を確認する"
+}

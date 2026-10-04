@@ -1,0 +1,12 @@
+{
+  "id": "redis-search-pagination-upstream-tests-20261004",
+  "url": "https://github.com/RediSearch/RediSearch/blob/294c88bca92b3e686d336dc165bcf68512d91ac5/tests/pytests/test_resp3.py",
+  "repository_url": "https://github.com/RediSearch/RediSearch",
+  "commit_sha": "294c88bca92b3e686d336dc165bcf68512d91ac5",
+  "version": "RediSearch tag v8.10.0 at 294c88bca92b3e686d336dc165bcf68512d91ac5; retrieved 2026-10-04",
+  "retrieved_at": "2026-10-04",
+  "license": "RSALv2 OR SSPLv1 OR AGPLv3（当該commitのLICENSE.txtでRedis 8以降の選択ライセンスを確認。module.cのヘッダーも同じ選択肢。テストファイルに個別ヘッダーなし）。静的分析と独自要約のみ、コード転載・module昇格なし。",
+  "trust": "official",
+  "type": "github_repository_analysis",
+  "purpose": "cluster限定のtest_search_sortby_limit_offsetとtest_search_knn_limit_offset_resp2/resp3を読み、件数だけでなく返却ID列の期待値を確認。上流testを読んだ証拠であり、本調査での実行成功を意味しない。"
+}

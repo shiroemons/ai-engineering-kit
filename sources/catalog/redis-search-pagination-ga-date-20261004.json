@@ -1,0 +1,12 @@
+{
+  "id": "redis-search-pagination-ga-date-20261004",
+  "url": "https://github.com/redis/redis/releases/tag/8.10.0",
+  "repository_url": "https://github.com/redis/redis",
+  "commit_sha": "",
+  "version": "Redis Open Source 8.10.0 GA; published_at 2026-07-29T17:20:06Z",
+  "retrieved_at": "2026-10-04",
+  "license": "unknown（GitHub release本文へのコードライセンス適用は未確定。公開日とGA区分の事実のみ独自要約、転載なし）",
+  "trust": "official",
+  "type": "release_notes",
+  "purpose": "GAの日付と非prereleaseをGitHub release APIと公開releaseページで照合。LIMIT修正詳細は別sourceの8.10系列release notesと固定commitで確認。"
+}

@@ -1,0 +1,12 @@
+{
+  "id": "terraform-action-failure-release1160-20261004",
+  "url": "https://github.com/hashicorp/terraform/releases/tag/v1.16.0",
+  "repository_url": "https://github.com/hashicorp/terraform",
+  "commit_sha": "",
+  "version": "Terraform v1.16.0; release heading 2026-08-26",
+  "retrieved_at": "2026-10-04",
+  "license": "unknown",
+  "trust": "official",
+  "type": "release_notes",
+  "purpose": "1.16.0でのon_failure halt/taint/continue、before_destroy/after_destroy、Stacksのcaller対応、-invoke/-targetの導入範囲をnative webで確認。コード・説明文の転載なし。"
+}
