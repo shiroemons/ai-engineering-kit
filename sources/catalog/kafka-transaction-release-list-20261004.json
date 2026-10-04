@@ -1,0 +1,12 @@
+{
+  "id": "kafka-transaction-release-list-20261004",
+  "url": "https://kafka.apache.org/community/downloads/",
+  "repository_url": "",
+  "commit_sha": "",
+  "version": "Apache Kafka downloads; 4.3.1 released 2026-06-25; 4.2.2 released 2026-09-29; retrieved 2026-10-04",
+  "retrieved_at": "2026-10-04",
+  "license": "Apache-2.0 (verified Kafka 4.3.1 LICENSE: https://raw.githubusercontent.com/apache/kafka/4.3.1/LICENSE; website LICENSE: https://raw.githubusercontent.com/apache/kafka-site/markdown/LICENSE); original attributed summary, no copied code",
+  "trust": "official",
+  "type": "release_notes",
+  "purpose": "確認対象4.3.1の公開日と、別系列4.2.2の直近公開を確認。commit timeout契約の4.3新規導入や全系列latestは主張しない。"
+}

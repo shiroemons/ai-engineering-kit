@@ -1,0 +1,12 @@
+{
+  "id": "csswg-custom-highlight-contract-20261004",
+  "url": "https://drafts.csswg.org/css-highlight-api-1/",
+  "repository_url": "",
+  "commit_sha": "",
+  "version": "CSS Custom Highlight API Module Level 1, Editor’s Draft 2026-09-10; retrieved 2026-10-04 UTC",
+  "retrieved_at": "2026-10-04",
+  "license": "W3C-202301 (W3C Software and Document License 2023)",
+  "trust": "official",
+  "type": "official_docs",
+  "purpose": "Highlight/HighlightRegistry、同一範囲の共有、重なりの priority と登録順、非同期 repaint、無効な StaticRange の除外、type の accessibility 意味を確認。進行中の Editor’s Draft であり全機能の実装を保証しない。"
+}

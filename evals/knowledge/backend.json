@@ -1952,6 +1952,104 @@
       "expected_ids": [
         "ruby-sigint-interrupt-mask-cleanup-boundary"
       ]
+    },
+    {
+      "name": "rails-except-on-release-main-split",
+      "query": "8.1.4 8.2.0.alpha 2026-09-27",
+      "expected_ids": [
+        "rails-except-on-validation-error-matching-boundary"
+      ]
+    },
+    {
+      "name": "rails-except-on-version-string-not-tag",
+      "query": "8.1.4のまま release後snapshot",
+      "expected_ids": [
+        "rails-except-on-validation-error-matching-boundary"
+      ]
+    },
+    {
+      "name": "rails-except-on-validation-not-missing",
+      "query": "presence検証 実行されなかった",
+      "expected_ids": [
+        "rails-except-on-validation-error-matching-boundary"
+      ]
+    },
+    {
+      "name": "rails-except-on-stored-options-mismatch",
+      "query": "保存側 検索側 option不一致",
+      "expected_ids": [
+        "rails-except-on-validation-error-matching-boundary"
+      ]
+    },
+    {
+      "name": "rails-except-on-query-filter-separate-change",
+      "query": "query側filter 一行修正",
+      "expected_ids": [
+        "rails-except-on-validation-error-matching-boundary"
+      ]
+    },
+    {
+      "name": "rails-except-on-count-still-required",
+      "query": "count省略 of_kind?",
+      "expected_ids": [
+        "rails-except-on-validation-error-matching-boundary"
+      ]
+    },
+    {
+      "name": "rails-except-on-where-partial-match",
+      "query": "where match? 正規化",
+      "expected_ids": [
+        "rails-except-on-validation-error-matching-boundary"
+      ]
+    },
+    {
+      "name": "rails-except-on-options-not-erased",
+      "query": "options 消去",
+      "expected_ids": [
+        "rails-except-on-validation-error-matching-boundary"
+      ]
+    },
+    {
+      "name": "rails-except-on-details-custom-option",
+      "query": "foo: :bar details",
+      "expected_ids": [
+        "rails-except-on-validation-error-matching-boundary"
+      ]
+    },
+    {
+      "name": "rails-except-on-as-json-message",
+      "query": "as_json 通常message",
+      "expected_ids": [
+        "rails-except-on-validation-error-matching-boundary"
+      ]
+    },
+    {
+      "name": "rails-except-on-context-revalidation",
+      "query": "errors.clear 履歴",
+      "expected_ids": [
+        "rails-except-on-validation-error-matching-boundary"
+      ]
+    },
+    {
+      "name": "rails-except-on-other-validator-remains",
+      "query": "presenceだけ length検証",
+      "expected_ids": [
+        "rails-except-on-validation-error-matching-boundary"
+      ]
+    },
+    {
+      "name": "rails-except-on-no-release-number-guess",
+      "query": "最初の修正版release番号 推測しない",
+      "expected_ids": [
+        "rails-except-on-validation-error-matching-boundary"
+      ]
+    },
+    {
+      "name": "rails-except-on-runtime-not-tested",
+      "query": "Ruby / Rails runtime試験は実行していない",
+      "expected_ids": [
+        "rails-except-on-validation-error-matching-boundary"
+      ]
     }
   ]
 }

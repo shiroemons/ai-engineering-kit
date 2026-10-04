@@ -1,0 +1,12 @@
+{
+  "id": "rails-except-on-weekly-20261004",
+  "url": "https://rubyonrails.org/2026/10/2/this-week-in-rails",
+  "repository_url": "https://github.com/rails/rails",
+  "commit_sha": "",
+  "version": "Rails This Week in Rails、2026-10-02公開",
+  "retrieved_at": "2026-10-04",
+  "license": "unknown（記事の個別ライセンスを確定せず、原文転載なしの独自要約のみ）",
+  "trust": "maintainer",
+  "type": "maintainer_article",
+  "purpose": "except_on error matching修正の紹介とPR #58876への一次リンク。公開日と取得日を区別する"
+}

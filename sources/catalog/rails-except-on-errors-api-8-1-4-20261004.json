@@ -1,0 +1,12 @@
+{
+  "id": "rails-except-on-errors-api-8-1-4-20261004",
+  "url": "https://api.rubyonrails.org/classes/ActiveModel/Errors.html",
+  "repository_url": "https://github.com/rails/rails",
+  "commit_sha": "",
+  "version": "Rails 8.1.4 API、2026-10-04取得",
+  "retrieved_at": "2026-10-04",
+  "license": "MIT（Active Model source由来のAPI文書。c3466ea0のactivemodel/MIT-LICENSE確認）",
+  "trust": "official",
+  "type": "official_docs",
+  "purpose": "added?のSymbolと文字列の分岐、of_kind?・whereの部分照合、detailsとas_jsonの違いを確認"
+}

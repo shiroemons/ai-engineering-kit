@@ -1,0 +1,12 @@
+{
+  "id": "kafka43-transaction-consumer-config-20261004",
+  "url": "https://kafka.apache.org/43/configuration/consumer-configs/",
+  "repository_url": "",
+  "commit_sha": "",
+  "version": "Apache Kafka 4.3 versioned Consumer and Share Consumer Configs; individual config publication dates not displayed",
+  "retrieved_at": "2026-10-04",
+  "license": "Apache-2.0 (verified Kafka 4.3.1 LICENSE: https://raw.githubusercontent.com/apache/kafka/4.3.1/LICENSE; website LICENSE: https://raw.githubusercontent.com/apache/kafka-site/markdown/LICENSE); original attributed summary, no copied code",
+  "trust": "official",
+  "type": "official_docs",
+  "purpose": "read_uncommitted既定、open transaction後続の保留とmax.poll.interval.msの独立した時間予算を確認。LSO説明のone-less表現はendOffsets Javadocと区別。"
+}

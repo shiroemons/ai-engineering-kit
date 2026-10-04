@@ -1,0 +1,12 @@
+{
+  "id": "webkit-tp253-highlight-fixes-20261004",
+  "url": "https://webkit.org/blog/18357/release-notes-for-safari-technology-preview-253/",
+  "repository_url": "",
+  "commit_sha": "",
+  "version": "Safari Technology Preview 253; published 2026-09-23; release notes retrieved 2026-10-04 UTC",
+  "retrieved_at": "2026-10-04",
+  "license": "unknown",
+  "trust": "official",
+  "type": "release_notes",
+  "purpose": "TP253 の同一 Range を共有する第二 highlight の未描画修正 (185173794) と、wrapper GC 後の CSS.highlights 列挙順修正 (185754041) を確認。stable Safari への出荷や全旧版の影響は未確認。"
+}

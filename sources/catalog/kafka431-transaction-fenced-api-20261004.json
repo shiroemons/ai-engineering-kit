@@ -1,0 +1,12 @@
+{
+  "id": "kafka431-transaction-fenced-api-20261004",
+  "url": "https://kafka.apache.org/43/javadoc/org/apache/kafka/common/errors/ProducerFencedException.html",
+  "repository_url": "",
+  "commit_sha": "",
+  "version": "Apache Kafka Java API 4.3.1; page publication date not displayed",
+  "retrieved_at": "2026-10-04",
+  "license": "Apache-2.0 (verified Kafka 4.3.1 LICENSE: https://raw.githubusercontent.com/apache/kafka/4.3.1/LICENSE; website LICENSE: https://raw.githubusercontent.com/apache/kafka-site/markdown/LICENSE); original attributed summary, no copied code",
+  "trust": "official",
+  "type": "official_docs",
+  "purpose": "同一transactional.idの新producerによる旧producerのfencingとclose必須の契約を確認。"
+}
