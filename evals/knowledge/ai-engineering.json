@@ -1965,6 +1965,118 @@
       "expected_ids": [
         "evals-openai-retirement-evidence-preservation-parity"
       ]
+    },
+    {
+      "name": "antigravity-managed-api-not-ide",
+      "query": "Gemini /v1beta/interactions IDEそのもの",
+      "expected_ids": [
+        "agents-gemini-antigravity-tool-migration-hook-boundary"
+      ]
+    },
+    {
+      "name": "antigravity-shutdown-not-observed",
+      "query": "10月5日 earliest possible 実停止",
+      "expected_ids": [
+        "agents-gemini-antigravity-tool-migration-hook-boundary"
+      ]
+    },
+    {
+      "name": "antigravity-remote-output-only-boundary",
+      "query": "remote output-only consumer",
+      "expected_ids": [
+        "agents-gemini-antigravity-tool-migration-hook-boundary"
+      ]
+    },
+    {
+      "name": "antigravity-replacement-not-full-file",
+      "query": "ReplacementContent 対象外 全体",
+      "expected_ids": [
+        "agents-gemini-antigravity-tool-migration-hook-boundary"
+      ]
+    },
+    {
+      "name": "antigravity-byte-not-line",
+      "query": "byte offset StartLine 代入",
+      "expected_ids": [
+        "agents-gemini-antigravity-tool-migration-hook-boundary"
+      ]
+    },
+    {
+      "name": "antigravity-no-universal-pascalcase",
+      "query": "PascalCase code_execution 一律key変換",
+      "expected_ids": [
+        "agents-gemini-antigravity-tool-migration-hook-boundary"
+      ]
+    },
+    {
+      "name": "antigravity-remote-completed-no-reexecute",
+      "query": "function_result.call_id 二重実行",
+      "expected_ids": [
+        "agents-gemini-antigravity-tool-migration-hook-boundary"
+      ]
+    },
+    {
+      "name": "antigravity-agent-stateful-scope",
+      "query": "stateful stateless agent固有",
+      "expected_ids": [
+        "agents-gemini-antigravity-tool-migration-hook-boundary"
+      ]
+    },
+    {
+      "name": "antigravity-history-not-config",
+      "query": "previous_interaction_id request単位 tools",
+      "expected_ids": [
+        "agents-gemini-antigravity-tool-migration-hook-boundary"
+      ]
+    },
+    {
+      "name": "antigravity-hook-wildcard-gap",
+      "query": ".*_file replace_file_content 含まない",
+      "expected_ids": [
+        "agents-gemini-antigravity-tool-migration-hook-boundary"
+      ]
+    },
+    {
+      "name": "antigravity-hook-failure-open",
+      "query": "timeout fail-open 独立",
+      "expected_ids": [
+        "agents-gemini-antigravity-tool-migration-hook-boundary"
+      ]
+    },
+    {
+      "name": "antigravity-hook-post-not-undo",
+      "query": "post 完了 取り消せない",
+      "expected_ids": [
+        "agents-gemini-antigravity-tool-migration-hook-boundary"
+      ]
+    },
+    {
+      "name": "antigravity-hook-language-example-mismatch",
+      "query": "Java/Go read_file|write_file 残って",
+      "expected_ids": [
+        "agents-gemini-antigravity-tool-migration-hook-boundary"
+      ]
+    },
+    {
+      "name": "antigravity-content-not-cas",
+      "query": "TargetContent CAS 未確認",
+      "expected_ids": [
+        "agents-gemini-antigravity-tool-migration-hook-boundary"
+      ]
+    },
+    {
+      "name": "antigravity-delivery-not-reexecute",
+      "query": "delivery_unknown 無条件再実行",
+      "expected_ids": [
+        "agents-gemini-antigravity-tool-migration-hook-boundary"
+      ]
+    },
+    {
+      "name": "antigravity-local-schema-not-invent",
+      "query": "ContentOffset 基数 local_environment",
+      "expected_ids": [
+        "agents-gemini-antigravity-tool-migration-hook-boundary"
+      ]
     }
   ]
 }

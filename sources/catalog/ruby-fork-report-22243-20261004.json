@@ -1,0 +1,12 @@
+{
+  "id": "ruby-fork-report-22243-20261004",
+  "url": "https://bugs.ruby-lang.org/issues/22243",
+  "repository_url": "https://github.com/ruby/ruby",
+  "commit_sha": "",
+  "version": "Ruby Bug #22243; closed; 4.0 backport DONE as retrieved 2026-10-04; initial calendar date not inferred from relative display",
+  "retrieved_at": "2026-10-04",
+  "license": "unknown; original attributed summary only, reproducer not copied",
+  "trust": "primary-source",
+  "type": "incident_report",
+  "purpose": "子の_fork hook例外がblock開始前に外側rescueへ漏れ、親向けloopへ戻る報告と修正目的を確認。記載されたgemやworkloadを全版実証済みとは扱わない"
+}

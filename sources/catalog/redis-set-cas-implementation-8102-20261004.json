@@ -1,0 +1,12 @@
+{
+  "id": "redis-set-cas-implementation-8102-20261004",
+  "url": "https://github.com/redis/redis/blob/498ecd0d6d007db11ddb3aea9428552598a78622/src/t_string.c",
+  "repository_url": "https://github.com/redis/redis",
+  "commit_sha": "498ecd0d6d007db11ddb3aea9428552598a78622",
+  "version": "Redis 8.10.2 at 498ecd0d6d007db11ddb3aea9428552598a78622 (2026-09-17)",
+  "retrieved_at": "2026-10-04",
+  "license": "Redis 8: RSALv2 OR SSPLv1 OR AGPLv3。LICENSE.txt at 498ecd0d6d007db11ddb3aea9428552598a78622 を2026-10-04確認。t_string.c headerも同じ選択制; string.tcl個別headerなし。コード転載・移植なし",
+  "trust": "primary-source",
+  "type": "github_repository_analysis",
+  "purpose": "setGenericCommand/parseExtendedStringArgumentsOrReply/stringDigest/validateHexDigestを静的読解。GET先行、条件未成立時TTL不更新、期限経過時削除、bytes比較、XXH3_64bits、長さだけのdigest検査と欠落分岐を確認。runtime未実行。"
+}

@@ -1,0 +1,12 @@
+{
+  "id": "google-antigravity0926-release-20261004",
+  "url": "https://ai.google.dev/gemini-api/docs/changelog",
+  "repository_url": "",
+  "commit_sha": "",
+  "version": "Antigravity Agent 09-2026 release entry 2026-09-17; page last updated 2026-10-01 UTC",
+  "retrieved_at": "2026-10-04",
+  "license": "CC-BY-4.0 (documentation); Apache-2.0 (code samples)",
+  "trust": "official",
+  "type": "release_notes",
+  "purpose": "05-2026から09-2026へのremote output-only/local executorの適用区分、PascalCaseとfile operation変更、2026-10-05 shutdown告知を確認。 Google公式文書をnative webで開いて確認。各ページfooterのライセンス表示を確認し、独自要約のみを記載。コードの複製・module昇格は行わない。"
+}

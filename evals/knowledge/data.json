@@ -1311,6 +1311,21 @@
       "expected_ids": [
         "postgres-sequence-refresh-switchover-boundary"
       ]
-    }
+    },
+    {"name": "redis-set-cas-introduced-version", "query": "IFEQ 8.4.0 8.10.2", "expected_ids": ["redis-set-cas-reply-ttl-history-boundary"]},
+    {"name": "redis-set-cas-option-order-fix", "query": "IFEQ #15291 引数順", "expected_ids": ["redis-set-cas-reply-ttl-history-boundary"]},
+    {"name": "redis-set-cas-missing-inequality-create", "query": "IFNE 欠落key 作成する", "expected_ids": ["redis-set-cas-reply-ttl-history-boundary"]},
+    {"name": "redis-set-cas-get-not-success", "query": "IFEQ GET boolean", "expected_ids": ["redis-set-cas-reply-ttl-history-boundary"]},
+    {"name": "redis-set-cas-empty-null-decoder", "query": "IFEQ 空文字 RESP3", "expected_ids": ["redis-set-cas-reply-ttl-history-boundary"]},
+    {"name": "redis-set-cas-keepttl-not-comparison", "query": "IFEQ KEEPTTL TTLとの一致", "expected_ids": ["redis-set-cas-reply-ttl-history-boundary"]},
+    {"name": "redis-set-cas-past-expiry-ok", "query": "PXAT OK 削除", "expected_ids": ["redis-set-cas-reply-ttl-history-boundary"]},
+    {"name": "redis-set-cas-digest-linear-work", "query": "IFDEQ O(N) XXH3_64bits", "expected_ids": ["redis-set-cas-reply-ttl-history-boundary"]},
+    {"name": "redis-set-cas-digest-format-not-validation", "query": "IFDNE 長さだけ 非hex", "expected_ids": ["redis-set-cas-reply-ttl-history-boundary"]},
+    {"name": "redis-set-cas-digest-missing-bypass", "query": "IFDNE 早期分岐 短いdigest", "expected_ids": ["redis-set-cas-reply-ttl-history-boundary"]},
+    {"name": "redis-set-cas-aba-not-history", "query": "IFEQ ABA 変更履歴", "expected_ids": ["redis-set-cas-reply-ttl-history-boundary"]},
+    {"name": "redis-set-cas-split-get-digest-race", "query": "GET DIGEST lost update", "expected_ids": ["redis-set-cas-reply-ttl-history-boundary"]},
+    {"name": "redis-set-cas-multi-no-short-circuit", "query": "MULTI IFEQ 後続command", "expected_ids": ["redis-set-cas-reply-ttl-history-boundary"]},
+    {"name": "redis-set-cas-reply-loss-not-proof", "query": "CAS 通信断 初回", "expected_ids": ["redis-set-cas-reply-ttl-history-boundary"]},
+    {"name": "redis-set-cas-runtime-unverified", "query": "CAS runtime試験案 実行試験はしていない", "expected_ids": ["redis-set-cas-reply-ttl-history-boundary"]}
   ]
 }

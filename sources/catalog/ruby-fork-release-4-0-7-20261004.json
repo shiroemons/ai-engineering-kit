@@ -1,0 +1,12 @@
+{
+  "id": "ruby-fork-release-4-0-7-20261004",
+  "url": "https://github.com/ruby/ruby/releases/tag/v4.0.7",
+  "repository_url": "https://github.com/ruby/ruby",
+  "commit_sha": "",
+  "version": "CRuby 4.0.7, released 2026-09-15; Bug #22243 listed; tag resolved to 229531a6cfbf07e3caef30dbac24a2a3f3fed482",
+  "retrieved_at": "2026-10-04",
+  "license": "unknown; original attributed summary only, no source code copied",
+  "trust": "official",
+  "type": "release_notes",
+  "purpose": "4.0.7 release notesにBug #22243が含まれることを確認。公開日は公式news https://www.ruby-lang.org/en/news/2026/09/15/ruby-4-0-7-released/ と照合。release一覧は自動生成で網羅性を保証しない"
+}
