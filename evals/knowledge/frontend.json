@@ -1195,6 +1195,16 @@
     {"name": "target-size-inline-exception", "query": "Inline line-height 非target", "expected_ids": ["accessibility-target-size-spacing-hit-area-boundary"]},
     {"name": "target-size-equivalent-control", "query": "Equivalent キーボード 同一ページ", "expected_ids": ["accessibility-target-size-spacing-hit-area-boundary"]},
     {"name": "target-size-aa-aaa-spacing", "query": "2.5.5 AAA spacing例外", "expected_ids": ["accessibility-target-size-spacing-hit-area-boundary"]},
-    {"name": "target-size-geometry-runtime-limit", "query": "幾何fixture ブラウザー 未検証", "expected_ids": ["accessibility-target-size-spacing-hit-area-boundary"]}
+    {"name": "target-size-geometry-runtime-limit", "query": "幾何fixture ブラウザー 未検証", "expected_ids": ["accessibility-target-size-spacing-hit-area-boundary"]},
+    {"name": "erm-awaitusing-sync-fallback", "query": "await using fallback Promise", "expected_ids": ["javascript-explicit-resource-lifetime-async-disposal-boundary"]},
+    {"name": "erm-initializer-await", "query": "acquire 初期化 Promise", "expected_ids": ["javascript-explicit-resource-lifetime-async-disposal-boundary"]},
+    {"name": "erm-return-await-lifetime", "query": "return await 利用期間", "expected_ids": ["javascript-explicit-resource-lifetime-async-disposal-boundary"]},
+    {"name": "erm-suppressed-error-chain", "query": "SuppressedError bodyError non-enumerable", "expected_ids": ["javascript-explicit-resource-lifetime-async-disposal-boundary"]},
+    {"name": "erm-stack-move-ownership", "query": "move 別名参照", "expected_ids": ["javascript-explicit-resource-lifetime-async-disposal-boundary"]},
+    {"name": "erm-repeat-disposeasync-no-join", "query": "disposeAsync join", "expected_ids": ["javascript-explicit-resource-lifetime-async-disposal-boundary"]},
+    {"name": "erm-close-once-shared-promise", "query": "closing 拒否", "expected_ids": ["javascript-explicit-resource-lifetime-async-disposal-boundary"]},
+    {"name": "erm-runtime-transpile-boundary", "query": "native ESM polyfill", "expected_ids": ["javascript-explicit-resource-lifetime-async-disposal-boundary"]},
+    {"name": "erm-registered-method-snapshot", "query": "登録後 差し替え", "expected_ids": ["javascript-explicit-resource-lifetime-async-disposal-boundary"]},
+    {"name": "erm-typecheck-runtime-separation", "query": "TypeScript polyfill parse", "expected_ids": ["javascript-explicit-resource-lifetime-async-disposal-boundary"]}
   ]
 }

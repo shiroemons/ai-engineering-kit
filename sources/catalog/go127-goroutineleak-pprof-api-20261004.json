@@ -1,0 +1,12 @@
+{
+  "id": "go127-goroutineleak-pprof-api-20261004",
+  "url": "https://pkg.go.dev/runtime/pprof@go1.27.1",
+  "repository_url": "https://github.com/golang/go",
+  "commit_sha": "",
+  "version": "Go 1.27.1; published 2026-09-01",
+  "retrieved_at": "2026-10-04",
+  "license": "BSD-3-Clause",
+  "trust": "official",
+  "type": "official_docs",
+  "purpose": "Profile、Lookup、Count、WriteToの公開契約と既存profileの用途を確認。表示版とライセンスも確認。"
+}

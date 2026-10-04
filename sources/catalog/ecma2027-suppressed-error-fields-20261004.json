@@ -1,0 +1,12 @@
+{
+  "id": "ecma2027-suppressed-error-fields-20261004",
+  "url": "https://tc39.es/ecma262/multipage/fundamental-objects.html#sec-suppressederror",
+  "repository_url": "https://github.com/tc39/ecma262",
+  "commit_sha": "",
+  "retrieved_at": "2026-10-04",
+  "license": "Ecma alternative copyright notice and copyright license (text); BSD-3-Clause (software); https://tc39.es/ecma262/multipage/copyright-and-software-license.html verified 2026-10-04; original summary only",
+  "trust": "official",
+  "type": "official_docs",
+  "version": "Draft ECMA-262 / October 3, 2026, ECMAScript 2027; 20.5.8 SuppressedError constructor and instances; live draft, not a published 2027 edition",
+  "purpose": "errorとsuppressedのnon-enumerable属性、元の失敗と解放失敗を別々に記録する根拠。"
+}

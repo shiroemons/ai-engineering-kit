@@ -1,0 +1,12 @@
+{
+  "id": "ecma2027-using-scope-20261004",
+  "url": "https://tc39.es/ecma262/multipage/ecmascript-language-statements-and-declarations.html#sec-block-runtime-semantics-evaluation",
+  "repository_url": "https://github.com/tc39/ecma262",
+  "commit_sha": "",
+  "retrieved_at": "2026-10-04",
+  "license": "Ecma alternative copyright notice and copyright license (text); BSD-3-Clause (software); https://tc39.es/ecma262/multipage/copyright-and-software-license.html verified 2026-10-04; original summary only",
+  "trust": "official",
+  "type": "official_docs",
+  "version": "Draft ECMA-262 / October 3, 2026, ECMAScript 2027; 14.2 Block evaluation and 14.3.1 declarations; live draft, not a published 2027 edition",
+  "purpose": "using/await usingの解放kind、ブロック終了時のDisposeResources、未awaitの処理に寿命を延長しない根拠。"
+}

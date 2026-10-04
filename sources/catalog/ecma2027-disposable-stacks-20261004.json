@@ -1,0 +1,12 @@
+{
+  "id": "ecma2027-disposable-stacks-20261004",
+  "url": "https://tc39.es/ecma262/multipage/control-abstraction-objects.html#sec-disposablestack-objects",
+  "repository_url": "https://github.com/tc39/ecma262",
+  "commit_sha": "",
+  "retrieved_at": "2026-10-04",
+  "license": "Ecma alternative copyright notice and copyright license (text); BSD-3-Clause (software); https://tc39.es/ecma262/multipage/copyright-and-software-license.html verified 2026-10-04; original summary only",
+  "trust": "official",
+  "type": "official_docs",
+  "version": "Draft ECMA-262 / October 3, 2026, ECMAScript 2027; 27.3 DisposableStack and 27.4 AsyncDisposableStack; live draft, not a published 2027 edition",
+  "purpose": "use/adopt/defer、moveによる登録リスト移譲、disposedの設定時期とdisposeAsync再呼出しがjoinにならない境界。"
+}

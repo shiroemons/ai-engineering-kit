@@ -1,0 +1,12 @@
+{
+  "id": "github-webhooks-redelivery-revalidation-20261004",
+  "url": "https://docs.github.com/en/webhooks/testing-and-troubleshooting-webhooks/redelivering-webhooks",
+  "repository_url": "",
+  "commit_sha": "",
+  "version": "GitHub Docs rolling webhook page; no fixed revision or publication date displayed; verified 2026-10-04 UTC",
+  "retrieved_at": "2026-10-04",
+  "license": "unknown",
+  "trust": "official",
+  "type": "official_docs",
+  "purpose": "GitHub自身は失敗配信を自動再送しないこと、過去3日分の再配送、対象種類とWebUI/RESTの区別を再確認。REST利用まで人手操作だけに限定しない。 確認したページからopen licenseを特定できず、独自の日本語要約のみ。"
+}

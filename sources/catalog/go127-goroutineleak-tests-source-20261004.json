@@ -1,0 +1,12 @@
+{
+  "id": "go127-goroutineleak-tests-source-20261004",
+  "url": "https://github.com/golang/go/blob/862c888e612ac346c7c4d99c9392bdfd265f33b0/src/runtime/pprof/pprof_test.go",
+  "repository_url": "https://github.com/golang/go",
+  "commit_sha": "862c888e612ac346c7c4d99c9392bdfd265f33b0",
+  "version": "Go 1.27.1",
+  "retrieved_at": "2026-10-04",
+  "license": "BSD-3-Clause",
+  "trust": "official",
+  "type": "github_repository_analysis",
+  "purpose": "TestGoroutineLeakProfileConcurrencyの検出待ち、連続・並行capture、totalLeaked-1許容と未解決調査コメントを読解。上流test自体は実行していない。固定LICENSEとファイル冒頭を確認。"
+}

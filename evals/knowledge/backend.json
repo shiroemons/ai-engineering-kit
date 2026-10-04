@@ -1742,6 +1742,118 @@
       "expected_ids": [
         "rails-json-schema-cache-reconstruction-version-boundary"
       ]
+    },
+    {
+      "name": "go-goroutineleak-ga-flag-removal",
+      "query": "1.27 goroutineleakprofile 削除",
+      "expected_ids": [
+        "go-goroutineleak-capture-reachability-boundary"
+      ]
+    },
+    {
+      "name": "go-goroutineleak-reachability-not-time",
+      "query": "到達可能性 30秒 閾値",
+      "expected_ids": [
+        "go-goroutineleak-capture-reachability-boundary"
+      ]
+    },
+    {
+      "name": "go-goroutineleak-global-false-negative",
+      "query": "global runnable 見逃す",
+      "expected_ids": [
+        "go-goroutineleak-capture-reachability-boundary"
+      ]
+    },
+    {
+      "name": "go-goroutineleak-count-not-refresh",
+      "query": "Count 検出を更新しない",
+      "expected_ids": [
+        "go-goroutineleak-capture-reachability-boundary"
+      ]
+    },
+    {
+      "name": "go-goroutineleak-index-count-not-capture",
+      "query": "一覧 0 新しく検出",
+      "expected_ids": [
+        "go-goroutineleak-capture-reachability-boundary"
+      ]
+    },
+    {
+      "name": "go-goroutineleak-debug2-all-stacks",
+      "query": "debug=2 非leak 全goroutine",
+      "expected_ids": [
+        "go-goroutineleak-capture-reachability-boundary"
+      ]
+    },
+    {
+      "name": "go-goroutineleak-delta-doc-implementation",
+      "query": "Parameters profileSupportsDelta",
+      "expected_ids": [
+        "go-goroutineleak-capture-reachability-boundary"
+      ]
+    },
+    {
+      "name": "go-goroutineleak-delta-zero-existing",
+      "query": "delta 既存leak 差分は0",
+      "expected_ids": [
+        "go-goroutineleak-capture-reachability-boundary"
+      ]
+    },
+    {
+      "name": "go-goroutineleak-delta-two-captures",
+      "query": "二度 検出GC wall-clock",
+      "expected_ids": [
+        "go-goroutineleak-capture-reachability-boundary"
+      ]
+    },
+    {
+      "name": "go-goroutineleak-delta-debug-error",
+      "query": "seconds=1&debug=1 400",
+      "expected_ids": [
+        "go-goroutineleak-capture-reachability-boundary"
+      ]
+    },
+    {
+      "name": "go-goroutineleak-capture-lock-cost",
+      "query": "出力完了 lock 無料",
+      "expected_ids": [
+        "go-goroutineleak-capture-reachability-boundary"
+      ]
+    },
+    {
+      "name": "go-goroutineleak-mux-registration",
+      "query": "DefaultServeMux 独自mux 明示登録",
+      "expected_ids": [
+        "go-goroutineleak-capture-reachability-boundary"
+      ]
+    },
+    {
+      "name": "go-goroutineleak-runtime-probe-scope",
+      "query": "Linux/amd64 合計差分0",
+      "expected_ids": [
+        "go-goroutineleak-capture-reachability-boundary"
+      ]
+    },
+    {
+      "name": "go-goroutineleak-global-probe-not-leak",
+      "query": "本物のleak 再現試験ではない",
+      "expected_ids": [
+        "go-goroutineleak-capture-reachability-boundary"
+      ]
+    },
+    {
+      "name": "go-goroutineleak-upstream-test-caveat",
+      "query": "totalLeaked-1 #79452",
+      "expected_ids": [
+        "go-goroutineleak-capture-reachability-boundary"
+      ]
+    },
+    {
+      "name": "go-goroutineleak-runtime-unverified",
+      "query": "race build 遅いwriter",
+      "expected_ids": [
+        "go-goroutineleak-capture-reachability-boundary"
+      ]
     }
   ]
 }

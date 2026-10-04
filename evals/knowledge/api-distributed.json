@@ -998,6 +998,104 @@
     {"name": "http-ratelimit-window-not-refill", "query": "RateLimit 回復時刻", "expected_ids": ["http-ratelimit-quota-scheduling-cache-boundary"]},
     {"name": "http-ratelimit-missing-not-unlimited", "query": "RateLimit 欠落 無制限", "expected_ids": ["http-ratelimit-quota-scheduling-cache-boundary"]},
     {"name": "http-ratelimit-deadline-not-early-retry", "query": "Retry-After deadline 短縮", "expected_ids": ["http-ratelimit-quota-scheduling-cache-boundary"]},
-    {"name": "http-ratelimit-429-cache-separation", "query": "RateLimit 429 キャッシュ保存", "expected_ids": ["http-ratelimit-quota-scheduling-cache-boundary"]}
+    {"name": "http-ratelimit-429-cache-separation", "query": "RateLimit 429 キャッシュ保存", "expected_ids": ["http-ratelimit-quota-scheduling-cache-boundary"]},
+    {
+      "name": "webhook-durable-before-ack",
+      "query": "durable inbox 保存 2xx",
+      "expected_ids": [
+        "api-design-webhook-redelivery-signature-dedup"
+      ]
+    },
+    {
+      "name": "webhook-crash-before-persist",
+      "query": "inbox commit前 成功ack",
+      "expected_ids": [
+        "api-design-webhook-redelivery-signature-dedup"
+      ]
+    },
+    {
+      "name": "webhook-ack-loss-preserves-work",
+      "query": "commit後 ack喪失 未処理",
+      "expected_ids": [
+        "api-design-webhook-redelivery-signature-dedup"
+      ]
+    },
+    {
+      "name": "webhook-received-not-processed",
+      "query": "received processing processed",
+      "expected_ids": [
+        "api-design-webhook-redelivery-signature-dedup"
+      ]
+    },
+    {
+      "name": "webhook-post-ack-worker-recovery",
+      "query": "ack後 provider 自動retry",
+      "expected_ids": [
+        "api-design-webhook-redelivery-signature-dedup"
+      ]
+    },
+    {
+      "name": "webhook-local-external-effect-boundary",
+      "query": "external effect local transaction",
+      "expected_ids": [
+        "api-design-webhook-redelivery-signature-dedup"
+      ]
+    },
+    {
+      "name": "webhook-outbox-not-exactly-once",
+      "query": "outbox 返信喪失 重複",
+      "expected_ids": [
+        "api-design-webhook-redelivery-signature-dedup"
+      ]
+    },
+    {
+      "name": "webhook-object-type-legitimate-update",
+      "query": "object ID event.type 正当な別更新",
+      "expected_ids": [
+        "api-design-webhook-redelivery-signature-dedup"
+      ]
+    },
+    {
+      "name": "webhook-snapshot-not-current-state",
+      "query": "最新object 履歴snapshot 代用品",
+      "expected_ids": [
+        "api-design-webhook-redelivery-signature-dedup"
+      ]
+    },
+    {
+      "name": "webhook-stripe-signed-prefix",
+      "query": "timestamp文字列 raw body prefix",
+      "expected_ids": [
+        "api-design-webhook-redelivery-signature-dedup"
+      ]
+    },
+    {
+      "name": "webhook-github-retry-not-manual-only",
+      "query": "GitHub 自社 回復job REST",
+      "expected_ids": [
+        "api-design-webhook-redelivery-signature-dedup"
+      ]
+    },
+    {
+      "name": "webhook-timestamp-not-provider-ban",
+      "query": "created timestamp 禁止した",
+      "expected_ids": [
+        "api-design-webhook-redelivery-signature-dedup"
+      ]
+    },
+    {
+      "name": "webhook-silence-not-missing-event",
+      "query": "event自体 配送を失った",
+      "expected_ids": [
+        "api-design-webhook-redelivery-signature-dedup"
+      ]
+    },
+    {
+      "name": "webhook-tutorial-not-wire-ack",
+      "query": "status wire送信完了時刻 durable",
+      "expected_ids": [
+        "api-design-webhook-redelivery-signature-dedup"
+      ]
+    }
   ]
 }
