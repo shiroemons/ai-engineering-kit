@@ -1342,6 +1342,76 @@
     {"name": "postgres-advisory-key-spaces-database", "query": "bigint objsubid=2 databaseローカル", "expected_ids": ["postgres-advisory-lock-session-pool-lifetime-boundary"]},
     {"name": "postgres-advisory-limit-not-acquisition-bound", "query": "advisory LIMIT 返却されない", "expected_ids": ["postgres-advisory-lock-session-pool-lifetime-boundary"]},
     {"name": "postgres-advisory-view-not-reentry-counter", "query": "pg_locks 行数 再入取得回数", "expected_ids": ["postgres-advisory-lock-session-pool-lifetime-boundary"]},
-    {"name": "postgres-advisory-no-runtime-claim", "query": "advisory 未実行のruntime試験案", "expected_ids": ["postgres-advisory-lock-session-pool-lifetime-boundary"]}
+    {"name": "postgres-advisory-no-runtime-claim", "query": "advisory 未実行のruntime試験案", "expected_ids": ["postgres-advisory-lock-session-pool-lifetime-boundary"]},
+    {
+      "name": "postgres-queue-claim-atomic",
+      "query": "SKIP LOCKED claim 原子的",
+      "expected_ids": [
+        "postgres-skip-locked-claim-recovery-boundary"
+      ]
+    },
+    {
+      "name": "postgres-queue-empty-not-drained",
+      "query": "SKIP LOCKED 空の取得 全件完了",
+      "expected_ids": [
+        "postgres-skip-locked-claim-recovery-boundary"
+      ]
+    },
+    {
+      "name": "postgres-queue-cte-lock-scope",
+      "query": "SKIP LOCKED CTE locking",
+      "expected_ids": [
+        "postgres-skip-locked-claim-recovery-boundary"
+      ]
+    },
+    {
+      "name": "postgres-queue-generation-recovery",
+      "query": "PostgreSQL recovery 世代",
+      "expected_ids": [
+        "postgres-skip-locked-claim-recovery-boundary"
+      ]
+    },
+    {
+      "name": "postgres-queue-expired-worker",
+      "query": "SKIP LOCKED 旧worker completion",
+      "expected_ids": [
+        "postgres-skip-locked-claim-recovery-boundary"
+      ]
+    },
+    {
+      "name": "postgres-queue-lease-clock",
+      "query": "lease statement_timestamp clock_timestamp",
+      "expected_ids": [
+        "postgres-skip-locked-claim-recovery-boundary"
+      ]
+    },
+    {
+      "name": "postgres-queue-null-limit",
+      "query": "SKIP LOCKED LIMIT NULL",
+      "expected_ids": [
+        "postgres-skip-locked-claim-recovery-boundary"
+      ]
+    },
+    {
+      "name": "postgres-queue-fifo-starvation",
+      "query": "SKIP LOCKED FIFO starvation",
+      "expected_ids": [
+        "postgres-skip-locked-claim-recovery-boundary"
+      ]
+    },
+    {
+      "name": "postgres-queue-table-lock-timeout",
+      "query": "SKIP LOCKED table lock_timeout",
+      "expected_ids": [
+        "postgres-skip-locked-claim-recovery-boundary"
+      ]
+    },
+    {
+      "name": "postgres-queue-effect-idempotency",
+      "query": "queue idempotency exactly-once",
+      "expected_ids": [
+        "postgres-skip-locked-claim-recovery-boundary"
+      ]
+    }
   ]
 }

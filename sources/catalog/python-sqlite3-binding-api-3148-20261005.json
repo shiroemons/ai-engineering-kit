@@ -1,0 +1,12 @@
+{
+  "id": "python-sqlite3-binding-api-3148-20261005",
+  "url": "https://docs.python.org/3.14/library/sqlite3.html",
+  "repository_url": "",
+  "commit_sha": "",
+  "version": "Python 3.14.8 documentation; retrieved 2026-10-05 UTC",
+  "retrieved_at": "2026-10-05",
+  "license": "PSF-2.0; documentation code additionally 0BSD; https://docs.python.org/3.14/license.html",
+  "trust": "official",
+  "type": "official_docs",
+  "purpose": "公式APIをnative webで開いて、named/qmark binding、executemanyの反復実行とRETURNING結果破棄、lastrowid/rowcount、autocommit三方式、with con、executescriptのlegacy事前commitを確認。公開本文の日付表示はなく表示版を記録。独自日本語要約、コード転載なし。"
+}

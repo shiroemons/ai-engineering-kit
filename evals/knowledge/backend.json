@@ -2253,6 +2253,90 @@
       "expected_ids": [
         "go-uuid-parse-v7-order-migration-boundary"
       ]
+    },
+    {
+      "name": "python-sqlite3-named-sequence-migration",
+      "query": "sqlite3 named sequence ProgrammingError",
+      "expected_ids": [
+        "python-sqlite3-binding-batch-commit-boundary"
+      ]
+    },
+    {
+      "name": "python-sqlite3-extra-dict-keys",
+      "query": "sqlite3 dict 余分なキー",
+      "expected_ids": [
+        "python-sqlite3-binding-batch-commit-boundary"
+      ]
+    },
+    {
+      "name": "python-sqlite3-numeric-vs-indexed-placeholder",
+      "query": "sqlite3 :1 ?1 numeric",
+      "expected_ids": [
+        "python-sqlite3-binding-batch-commit-boundary"
+      ]
+    },
+    {
+      "name": "python-sqlite3-batch-prefix-failure",
+      "query": "executemany 必須キー prefix",
+      "expected_ids": [
+        "python-sqlite3-binding-batch-commit-boundary"
+      ]
+    },
+    {
+      "name": "python-sqlite3-failure-rowcount-not-progress",
+      "query": "sqlite3 rowcount 再送",
+      "expected_ids": [
+        "python-sqlite3-binding-batch-commit-boundary"
+      ]
+    },
+    {
+      "name": "python-sqlite3-explicit-autocommit-modes",
+      "query": "sqlite3 LEGACY_TRANSACTION_CONTROL isolation_level",
+      "expected_ids": [
+        "python-sqlite3-binding-batch-commit-boundary"
+      ]
+    },
+    {
+      "name": "python-sqlite3-caught-inside-with",
+      "query": "sqlite3 with 内側 commit",
+      "expected_ids": [
+        "python-sqlite3-binding-batch-commit-boundary"
+      ]
+    },
+    {
+      "name": "python-sqlite3-nested-with-not-savepoint",
+      "query": "sqlite3 __enter__ savepoint",
+      "expected_ids": [
+        "python-sqlite3-binding-batch-commit-boundary"
+      ]
+    },
+    {
+      "name": "python-sqlite3-returning-result-identity",
+      "query": "executemany RETURNING 業務キー",
+      "expected_ids": [
+        "python-sqlite3-binding-batch-commit-boundary"
+      ]
+    },
+    {
+      "name": "python-sqlite3-lastrowid-not-batch-id",
+      "query": "sqlite3 lastrowid 更新されない",
+      "expected_ids": [
+        "python-sqlite3-binding-batch-commit-boundary"
+      ]
+    },
+    {
+      "name": "python-sqlite3-script-precommit",
+      "query": "executescript pending COMMIT",
+      "expected_ids": [
+        "python-sqlite3-binding-batch-commit-boundary"
+      ]
+    },
+    {
+      "name": "python-sqlite3-commit-reopens-transaction",
+      "query": "sqlite3 in_transaction 前回commit",
+      "expected_ids": [
+        "python-sqlite3-binding-batch-commit-boundary"
+      ]
     }
   ]
 }

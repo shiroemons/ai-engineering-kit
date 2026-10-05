@@ -1,0 +1,12 @@
+{
+  "id": "w3c-webauthn3-related-origin-verification-20261005",
+  "url": "https://www.w3.org/TR/2026/REC-webauthn-3-20260825/",
+  "repository_url": "",
+  "commit_sha": "",
+  "version": "Web Authentication Level 3; W3C Recommendation 2026-08-25; sections 5.1.3, 5.1.4.1, 5.8.1, 5.9-5.11, 6.1, 7.1-7.2, 13.4.8-13.4.9 and 18.1.1",
+  "retrieved_at": "2026-10-05",
+  "license": "W3C Software and Document License 2023; specification copyright link resolves to https://www.w3.org/copyright/software-license-2023/; original factual summary only, no copied code or test vectors",
+  "trust": "official",
+  "type": "official_docs",
+  "purpose": "現行TRと固定版の2026-08-25 Recommendation表示を照合。共通RP ID、related origins取得・label上限・same-origin照合、originとtopOriginのRP側検証、RP ID不変、旧版差分を確認。well-known削除だけをサーバー側の失効にしない設計判断の根拠。"
+}

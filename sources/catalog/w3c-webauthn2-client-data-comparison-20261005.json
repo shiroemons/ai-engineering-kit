@@ -1,0 +1,12 @@
+{
+  "id": "w3c-webauthn2-client-data-comparison-20261005",
+  "url": "https://www.w3.org/TR/2021/REC-webauthn-2-20210408/",
+  "repository_url": "",
+  "commit_sha": "",
+  "version": "Web Authentication Level 2; W3C Recommendation 2021-04-08; CollectedClientData comparison with Level 3",
+  "retrieved_at": "2026-10-05",
+  "license": "W3C Document License; document-use link redirects to https://www.w3.org/copyright/document-license-2023/; original summary only",
+  "trust": "official",
+  "type": "official_docs",
+  "purpose": "旧Level 2の公開日とCollectedClientDataにtopOriginがないことを確認し、Level 3のtopOrigin必須化を独自の配備方針として区別する。旧版を現行仕様やブラウザ実装の保証に使わない。"
+}

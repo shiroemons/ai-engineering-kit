@@ -1,0 +1,12 @@
+{
+  "id": "postgres-queue-row-locks-18-20261005",
+  "url": "https://www.postgresql.org/docs/18/explicit-locking.html",
+  "repository_url": "",
+  "commit_sha": "",
+  "version": "PostgreSQL 18 versioned manual, verified 2026-10-05 UTC; individual publication/update date and patch version not stated on these pages",
+  "retrieved_at": "2026-10-05",
+  "license": "PostgreSQL License",
+  "trust": "official",
+  "type": "official_docs",
+  "purpose": "Row locks last until transaction end or savepoint rollback; conflicting row locks exclude concurrent owners, and FOR UPDATE differs from FOR NO KEY UPDATE. Table locks and deadlock limitations. License verified in the versioned Legal Notice and official about/licence page."
+}

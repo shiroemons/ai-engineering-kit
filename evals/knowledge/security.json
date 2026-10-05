@@ -298,5 +298,89 @@
     {"name": "par-ttl-deletion-not-expiry", "query": "PAR TTL削除遅延", "expected_ids": ["oauth-par-jar-request-uri-redemption-boundary"]},
     {"name": "par-csrf-state-conditional", "query": "PAR PKCE state 常に仕様上必須", "expected_ids": ["oauth-par-jar-request-uri-redemption-boundary"]},
     {"name": "par-fapi-lifetime-strict-boundary", "query": "FAPI 600秒未満 一律上限", "expected_ids": ["oauth-par-jar-request-uri-redemption-boundary"]},
-    {"name": "par-errata-unverified", "query": "9126 errata cache miss", "expected_ids": ["oauth-par-jar-request-uri-redemption-boundary"]}
+    {"name": "par-errata-unverified", "query": "9126 errata cache miss", "expected_ids": ["oauth-par-jar-request-uri-redemption-boundary"]},
+    {
+      "name": "webauthn-ror-server-origin-separation",
+      "query": "ROR rpIdHash origin",
+      "expected_ids": [
+        "security-webauthn-related-origin-rpid-verification-boundary"
+      ]
+    },
+    {
+      "name": "webauthn-ror-suffix-revocation",
+      "query": "well-known suffix 撤回",
+      "expected_ids": [
+        "security-webauthn-related-origin-rpid-verification-boundary"
+      ]
+    },
+    {
+      "name": "webauthn-ror-label-limit",
+      "query": "maxLabels 既出label",
+      "expected_ids": [
+        "security-webauthn-related-origin-rpid-verification-boundary"
+      ]
+    },
+    {
+      "name": "webauthn-ror-fetch-contract",
+      "query": "webauthn application/json SecurityError",
+      "expected_ids": [
+        "security-webauthn-related-origin-rpid-verification-boundary"
+      ]
+    },
+    {
+      "name": "webauthn-ror-top-level-crossorigin",
+      "query": "top-level ROR crossOrigin",
+      "expected_ids": [
+        "security-webauthn-related-origin-rpid-verification-boundary"
+      ]
+    },
+    {
+      "name": "webauthn-ror-toporigin-missing-policy",
+      "query": "topOrigin 欠落 独自方針",
+      "expected_ids": [
+        "security-webauthn-related-origin-rpid-verification-boundary"
+      ]
+    },
+    {
+      "name": "webauthn-ror-permissions-separation",
+      "query": "publickey-credentials-create publickey-credentials-get",
+      "expected_ids": [
+        "security-webauthn-related-origin-rpid-verification-boundary"
+      ]
+    },
+    {
+      "name": "webauthn-ror-existing-rpid-migration",
+      "query": "旧RP ID identifier-first",
+      "expected_ids": [
+        "security-webauthn-related-origin-rpid-verification-boundary"
+      ]
+    },
+    {
+      "name": "webauthn-ror-credential-userhandle",
+      "query": "ROR userHandle アカウント",
+      "expected_ids": [
+        "security-webauthn-related-origin-rpid-verification-boundary"
+      ]
+    },
+    {
+      "name": "webauthn-ror-original-clientdata-bytes",
+      "query": "clientDataJSON 再serialize bytes",
+      "expected_ids": [
+        "security-webauthn-related-origin-rpid-verification-boundary"
+      ]
+    },
+    {
+      "name": "webauthn-ror-level3-version",
+      "query": "related origins 2026-08-25 Recommendation",
+      "expected_ids": [
+        "security-webauthn-related-origin-rpid-verification-boundary"
+      ]
+    },
+    {
+      "name": "webauthn-ror-inflight-withdrawal",
+      "query": "撤回 最終受理 replica",
+      "expected_ids": [
+        "security-webauthn-related-origin-rpid-verification-boundary"
+      ]
+    }
   ]}

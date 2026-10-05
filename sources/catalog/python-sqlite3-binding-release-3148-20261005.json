@@ -1,0 +1,12 @@
+{
+  "id": "python-sqlite3-binding-release-3148-20261005",
+  "url": "https://www.python.org/downloads/release/python-3148/",
+  "repository_url": "",
+  "commit_sha": "",
+  "version": "Python 3.14.8 released 2026-09-30",
+  "retrieved_at": "2026-10-05",
+  "license": "unknown; original factual summary only, no copied prose or code",
+  "trust": "official",
+  "type": "release_notes",
+  "purpose": "native webで3.14.8の公開日2026-09-30を確認。releaseページ自体の個別再利用ライセンスは特定できずunknown。今回のAPI確認版の来歴に使用し、新規binding変更の公開日とは扱わない。"
+}

@@ -1,0 +1,12 @@
+{
+  "id": "cpython-sqlite3-binding-3148-8e6e75d9-20261005",
+  "url": "https://github.com/python/cpython/tree/8e6e75d9102e39bed2a2b279203a396741180f12",
+  "repository_url": "https://github.com/python/cpython",
+  "commit_sha": "8e6e75d9102e39bed2a2b279203a396741180f12",
+  "version": "CPython v3.14.8; peeled annotated tag verified via GitHub API; released 2026-09-30",
+  "retrieved_at": "2026-10-05",
+  "license": "Zlib (pysqlite headers in Modules/_sqlite/cursor.c, connection.c and Lib/test/test_sqlite3/test_dbapi.py, test_transactions.py); PSF-2.0 and historical notices (root LICENSE); no copied code",
+  "trust": "official",
+  "type": "github_repository_analysis",
+  "purpose": "GitHub read-only connectorで固定commitのcursor.c、connection.c、test_dbapi.py、test_transactions.py、LICENSEを取得して読解。bindは各itemごと、error時rowcount=-1、:name/sequence拒否と?1例外、__enter__/__exit__、autocommit分岐、executescriptの条件付きCOMMITを確認。native webの固定blob表示はInternal Errorだったため代替取得。upstream試験は読解のみで実行しない。"
+}

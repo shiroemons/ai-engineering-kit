@@ -1,0 +1,12 @@
+{
+  "id": "pep249-batch-results-20261005",
+  "url": "https://peps.python.org/pep-0249/",
+  "repository_url": "https://github.com/python/peps",
+  "commit_sha": "",
+  "version": "PEP 249 Final / DB-API 2.0; created 1999-04-12; page last modified 2025-02-01",
+  "retrieved_at": "2026-10-05",
+  "license": "Public Domain (Copyright section)",
+  "trust": "official",
+  "type": "official_docs",
+  "purpose": "native webでDB-API paramstyle numericの:1、executemanyの反復または配列実装を許す契約、result-set生成時のundefined behavior、CopyrightのPublic Domainを確認。Python sqlite3固有仕様と他driverへの一般化を分離する。"
+}
