@@ -1,0 +1,12 @@
+{
+  "id": "mdn-idbtransaction-commit-return-20261005",
+  "url": "https://developer.mozilla.org/en-US/docs/Web/API/IDBTransaction/commit",
+  "repository_url": "",
+  "commit_sha": "",
+  "version": "MDN IDBTransaction.commit(); last modified 2024-07-19; verified 2026-10-05 UTC",
+  "retrieved_at": "2026-10-05",
+  "license": "CC-BY-SA-2.5 or later; code samples added on/after 2010-08-20 CC0-1.0, earlier MIT (https://developer.mozilla.org/en-US/docs/MDN/Writing_guidelines/Attrib_copyright_license); no code copied",
+  "trust": "official",
+  "type": "official_docs",
+  "purpose": "commit()の戻り値undefined、active要件、暗黙commitとの違いを確認。例示コメントのtransaction.onsuccessを仕様のcompleteと照合して採用しない。"
+}

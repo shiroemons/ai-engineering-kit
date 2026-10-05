@@ -1892,6 +1892,62 @@
       "expected_ids": [
         "kubernetes-indexed-job-success-retry-terminal-boundary"
       ]
+    },
+    {
+      "name": "kubernetes-resize-allocated-vs-actual",
+      "query": "allocatedResources observedGeneration",
+      "expected_ids": [
+        "kubernetes-resize-generation-actuation-preemption-boundary"
+      ]
+    },
+    {
+      "name": "kubernetes-resize-pending-reason",
+      "query": "PodResizePending Deferred Infeasible",
+      "expected_ids": [
+        "kubernetes-resize-generation-actuation-preemption-boundary"
+      ]
+    },
+    {
+      "name": "kubernetes-resize-generation",
+      "query": "resize 世代 UID",
+      "expected_ids": [
+        "kubernetes-resize-generation-actuation-preemption-boundary"
+      ]
+    },
+    {
+      "name": "kubernetes-resize-same-node-preemption",
+      "query": "resize preemption nominatedNodeName",
+      "expected_ids": [
+        "kubernetes-resize-generation-actuation-preemption-boundary"
+      ]
+    },
+    {
+      "name": "kubernetes-resize-node-optout",
+      "query": "disableResizePreemption owner",
+      "expected_ids": [
+        "kubernetes-resize-generation-actuation-preemption-boundary"
+      ]
+    },
+    {
+      "name": "kubernetes-resize-memory-shrink",
+      "query": "resize memory InProgress",
+      "expected_ids": [
+        "kubernetes-resize-generation-actuation-preemption-boundary"
+      ]
+    },
+    {
+      "name": "kubernetes-resize-gate-maturity",
+      "query": "InPlacePodVerticalScalingSchedulerPreemption alpha",
+      "expected_ids": [
+        "kubernetes-resize-generation-actuation-preemption-boundary"
+      ]
+    },
+    {
+      "name": "kubernetes-resize-old-status",
+      "query": "resizeStatus deprecated condition",
+      "expected_ids": [
+        "kubernetes-resize-generation-actuation-preemption-boundary"
+      ]
     }
   ]
 }

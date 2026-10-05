@@ -1,0 +1,12 @@
+{
+  "id": "kubernetes-resize-gates-v137-20261005",
+  "url": "https://kubernetes.io/docs/reference/command-line-tools-reference/feature-gates/",
+  "repository_url": "https://github.com/kubernetes/website",
+  "commit_sha": "",
+  "version": "Kubernetes rolling docs v1.37; resize preemption alpha/default false; page footer modified 2026-01-27",
+  "retrieved_at": "2026-10-05",
+  "license": "CC-BY-4.0 (https://raw.githubusercontent.com/kubernetes/website/main/LICENSE; checked 2026-10-05)",
+  "trust": "official",
+  "type": "official_docs",
+  "purpose": "scheduler preemptionのv1.37 alpha既定false、ExclusiveCPUs/ExclusiveMemoryの別alpha拡張を確認"
+}

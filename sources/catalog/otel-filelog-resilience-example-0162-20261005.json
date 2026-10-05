@@ -1,0 +1,12 @@
+{
+  "id": "otel-filelog-resilience-example-0162-20261005",
+  "url": "https://github.com/open-telemetry/opentelemetry-collector-contrib/blob/ae8c507510f48f433ab47dd1c6b01a59d6c388b5/examples/fault-tolerant-logs-collection/README.md",
+  "repository_url": "https://github.com/open-telemetry/opentelemetry-collector-contrib",
+  "commit_sha": "ae8c507510f48f433ab47dd1c6b01a59d6c388b5",
+  "version": "Collector Contrib v0.162.0 / fault-tolerant-logs-collection example",
+  "retrieved_at": "2026-10-05",
+  "license": "Apache-2.0",
+  "trust": "official",
+  "type": "official_docs",
+  "purpose": "README.mdと隣接otel-col-config.yamlを固定SHAで確認。receiver offset storageとexporter persistent queueの二層、service.extensionsへの登録を照合。設定の転載・実行は行っていない。固定版LICENSEはApache-2.0。"
+}

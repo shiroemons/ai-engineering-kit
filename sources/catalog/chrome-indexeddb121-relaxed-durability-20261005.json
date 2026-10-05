@@ -1,0 +1,12 @@
+{
+  "id": "chrome-indexeddb121-relaxed-durability-20261005",
+  "url": "https://developer.chrome.com/blog/indexeddb-durability-mode-now-defaults-to-relaxed",
+  "repository_url": "",
+  "commit_sha": "",
+  "version": "Chrome 121 default-durability change; article last updated 2023-11-03 UTC; verified 2026-10-05 UTC",
+  "retrieved_at": "2026-10-05",
+  "license": "CC-BY-4.0 text; Apache-2.0 code samples (page footer); no code copied",
+  "trust": "maintainer",
+  "type": "maintainer_article",
+  "purpose": "strict/relaxedの完了通知とOS flush、Chrome 121のdefault変更、移行時の旧データ削除判断を確認。2026年の新変更や最新全実装の挙動とは主張しない。"
+}

@@ -1,0 +1,12 @@
+{
+  "id": "otel-filelog-storage-0162-20261005",
+  "url": "https://github.com/open-telemetry/opentelemetry-collector-contrib/tree/ae8c507510f48f433ab47dd1c6b01a59d6c388b5/extension/storage/filestorage",
+  "repository_url": "https://github.com/open-telemetry/opentelemetry-collector-contrib",
+  "commit_sha": "ae8c507510f48f433ab47dd1c6b01a59d6c388b5",
+  "version": "Collector Contrib v0.162.0 / file_storage extension beta",
+  "retrieved_at": "2026-10-05",
+  "license": "Apache-2.0",
+  "trust": "primary-source",
+  "type": "github_repository_analysis",
+  "purpose": "README.md、factory.goを照合し、fsync既定false、component名由来の保存file、recreateのfresh DBと状態喪失リスクを確認。README tag版をnative webで開いた。LICENSEとfactory.go SPDXはApache-2.0。実disk試験は行っていない。"
+}

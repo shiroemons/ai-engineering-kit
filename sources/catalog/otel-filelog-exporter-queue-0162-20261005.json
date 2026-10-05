@@ -1,0 +1,12 @@
+{
+  "id": "otel-filelog-exporter-queue-0162-20261005",
+  "url": "https://github.com/open-telemetry/opentelemetry-collector/blob/62cdad2ea133239380b44d20d84eb26e114779b6/exporter/exporterhelper/README.md",
+  "repository_url": "https://github.com/open-telemetry/opentelemetry-collector",
+  "commit_sha": "62cdad2ea133239380b44d20d84eb26e114779b6",
+  "version": "Collector core v0.162.0 / v1.68.0",
+  "retrieved_at": "2026-10-05",
+  "license": "Apache-2.0",
+  "trust": "official",
+  "type": "official_docs",
+  "purpose": "native webのtag版とconnectorの固定SHAで、persistent queue、wait_for_result、enqueue失敗とretry処理の境界を確認。core tagもcommitまで解決し固定版LICENSEのApache-2.0を確認。queueのruntime試験は行っていない。"
+}

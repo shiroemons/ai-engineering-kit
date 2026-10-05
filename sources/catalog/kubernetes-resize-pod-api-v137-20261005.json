@@ -1,0 +1,12 @@
+{
+  "id": "kubernetes-resize-pod-api-v137-20261005",
+  "url": "https://kubernetes.io/docs/reference/kubernetes-api/core/pod-v1/",
+  "repository_url": "https://github.com/kubernetes/website",
+  "commit_sha": "",
+  "version": "Pod v1 API reference generated for Kubernetes v1.37; page modified 2026-08-26",
+  "retrieved_at": "2026-10-05",
+  "license": "CC-BY-4.0 (https://raw.githubusercontent.com/kubernetes/website/main/LICENSE; checked 2026-10-05)",
+  "trust": "official",
+  "type": "official_docs",
+  "purpose": "PodStatusの遅延、observedGeneration、PodCondition、旧status.resizeのdeprecatedと二つのconditionを確認"
+}
