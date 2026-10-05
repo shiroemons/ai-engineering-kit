@@ -1158,6 +1158,24 @@
     {"name": "grpc-deadline-not-rollback", "query": "DEADLINE_EXCEEDED rollback", "expected_ids": ["architecture-grpc-retry-commit-replay-boundary"]},
     {"name": "grpc-status-retry-scope", "query": "ABORTED FAILED_PRECONDITION read-modify-write", "expected_ids": ["architecture-grpc-retry-commit-replay-boundary"]},
     {"name": "grpc-stream-restart-cursor", "query": "server-streaming continuation cursor", "expected_ids": ["architecture-grpc-retry-commit-replay-boundary"]},
-    {"name": "grpc-upstream-source-not-runtime", "query": "TestRetryStreaming upstream試験は今回実行していない", "expected_ids": ["architecture-grpc-retry-commit-replay-boundary"]}
+    {"name": "grpc-upstream-source-not-runtime", "query": "TestRetryStreaming upstream試験は今回実行していない", "expected_ids": ["architecture-grpc-retry-commit-replay-boundary"]},
+    {"name": "nats-fast-start-zero-not-stored", "query": "fast-ingest seq=0 第1message", "expected_ids": ["messaging-nats-fast-ingest-gap-count-completion-boundary"]},
+    {"name": "nats-fast-control-sequence-kinds", "query": "BatchFlowGap last_seq 最後の保存済み位置", "expected_ids": ["messaging-nats-fast-ingest-gap-count-completion-boundary"]},
+    {"name": "nats-fast-gap-not-watermark", "query": "gap.seq 保存済みwatermark", "expected_ids": ["messaging-nats-fast-ingest-gap-count-completion-boundary"]},
+    {"name": "nats-fast-count-gap-counterexample", "query": "gap:ok seq=2, count=3", "expected_ids": ["messaging-nats-fast-ingest-gap-count-completion-boundary"]},
+    {"name": "nats-fast-prefix-errorless-final", "query": "prefix Error=nil 失敗通知", "expected_ids": ["messaging-nats-fast-ingest-gap-count-completion-boundary"]},
+    {"name": "nats-fast-dedup-count-not-new-messages", "query": "Nats-Msg-Id countが2 新規2件", "expected_ids": ["messaging-nats-fast-ingest-gap-count-completion-boundary"]},
+    {"name": "nats-fast-eob-not-stored-message", "query": "EOB自身 成功入力件数", "expected_ids": ["messaging-nats-fast-ingest-gap-count-completion-boundary"]},
+    {"name": "nats-fast-final-message-error-prefix", "query": "HeaderCheckErrorOnCommit 最後のcommit", "expected_ids": ["messaging-nats-fast-ingest-gap-count-completion-boundary"]},
+    {"name": "nats-fast-backward-released-no-gap", "query": "v2.15.0 backward-gap通知 直接PubAck", "expected_ids": ["messaging-nats-fast-ingest-gap-count-completion-boundary"]},
+    {"name": "nats-fast-backward-source-fix-not-release", "query": "b43b0d37 正式releaseは未確認", "expected_ids": ["messaging-nats-fast-ingest-gap-count-completion-boundary"]},
+    {"name": "nats-fast-backward-gap-underflow", "query": "last_seq=6, seq=3 unsigned", "expected_ids": ["messaging-nats-fast-ingest-gap-count-completion-boundary"]},
+    {"name": "nats-fast-repeated-sequence-not-dedup", "query": "batch sequence重複 重複排除", "expected_ids": ["messaging-nats-fast-ingest-gap-count-completion-boundary"]},
+    {"name": "nats-fast-ok-count-not-complete-set", "query": "count 完全な受理集合", "expected_ids": ["messaging-nats-fast-ingest-gap-count-completion-boundary"]},
+    {"name": "nats-fast-lost-final-unknown", "query": "fast-ingest 応答喪失 結果不明", "expected_ids": ["messaging-nats-fast-ingest-gap-count-completion-boundary"]},
+    {"name": "nats-fast-flow-ack-cumulative", "query": "fast-ingest ack 30 ack 40", "expected_ids": ["messaging-nats-fast-ingest-gap-count-completion-boundary"]},
+    {"name": "nats-fast-ping-no-sequence-increment", "query": "ping用にsequenceを増やさない", "expected_ids": ["messaging-nats-fast-ingest-gap-count-completion-boundary"]},
+    {"name": "nats-fast-async-not-fsync", "query": "PersistMode: async fsync完了", "expected_ids": ["messaging-nats-fast-ingest-gap-count-completion-boundary"]},
+    {"name": "nats-fast-upstream-not-runtime", "query": "NATS fault testは実行していない", "expected_ids": ["messaging-nats-fast-ingest-gap-count-completion-boundary"]}
   ]
 }

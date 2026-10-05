@@ -2155,6 +2155,104 @@
       "expected_ids": [
         "ruby-fork-hook-failure-process-boundary"
       ]
+    },
+    {
+      "name": "go-uuid-standard-release-version",
+      "query": "uuid 1.27.0 2026-08-19",
+      "expected_ids": [
+        "go-uuid-parse-v7-order-migration-boundary"
+      ]
+    },
+    {
+      "name": "go-uuid-new-current-algorithm",
+      "query": "NewV4 New 特定algorithm",
+      "expected_ids": [
+        "go-uuid-parse-v7-order-migration-boundary"
+      ]
+    },
+    {
+      "name": "go-uuid-parse-not-semantic-validation",
+      "query": "Parse version/variant 許可リスト",
+      "expected_ids": [
+        "go-uuid-parse-v7-order-migration-boundary"
+      ]
+    },
+    {
+      "name": "go-uuid-canonical-policy-not-standard",
+      "query": "小文字 V7 標準規則",
+      "expected_ids": [
+        "go-uuid-parse-v7-order-migration-boundary"
+      ]
+    },
+    {
+      "name": "go-uuid-text-alias-dedup",
+      "query": "URN 生文字列 重複排除key",
+      "expected_ids": [
+        "go-uuid-parse-v7-order-migration-boundary"
+      ]
+    },
+    {
+      "name": "go-uuid-format-composition-rejection",
+      "query": "hyphenなし 波括弧 組み合わせ",
+      "expected_ids": [
+        "go-uuid-parse-v7-order-migration-boundary"
+      ]
+    },
+    {
+      "name": "go-uuid-unmarshal-preserves-receiver",
+      "query": "解析失敗 既存receiver ゼロ化",
+      "expected_ids": [
+        "go-uuid-parse-v7-order-migration-boundary"
+      ]
+    },
+    {
+      "name": "go-uuid-clock-rollback-seconds",
+      "query": "v7lastSecs Unix秒 後退",
+      "expected_ids": [
+        "go-uuid-parse-v7-order-migration-boundary"
+      ]
+    },
+    {
+      "name": "go-uuid-frozen-clock-logical-advance",
+      "query": "4097個 埋込millisecond 1増加",
+      "expected_ids": [
+        "go-uuid-parse-v7-order-migration-boundary"
+      ]
+    },
+    {
+      "name": "go-uuid-order-not-delivery-commit",
+      "query": "UUID mutex return順 commit",
+      "expected_ids": [
+        "go-uuid-parse-v7-order-migration-boundary"
+      ]
+    },
+    {
+      "name": "go-uuid-no-sql-adapter",
+      "query": "uuid.UUID sql.Scanner driver.Valuer",
+      "expected_ids": [
+        "go-uuid-parse-v7-order-migration-boundary"
+      ]
+    },
+    {
+      "name": "go-uuid-not-access-capability",
+      "query": "UUID security capability 認可",
+      "expected_ids": [
+        "go-uuid-parse-v7-order-migration-boundary"
+      ]
+    },
+    {
+      "name": "go-uuid-concurrency-probe-limit",
+      "query": "16 goroutine 4096個 衝突確率",
+      "expected_ids": [
+        "go-uuid-parse-v7-order-migration-boundary"
+      ]
+    },
+    {
+      "name": "go-uuid-runtime-test-scope",
+      "query": "uuid Linux/amd64 実clock rollback",
+      "expected_ids": [
+        "go-uuid-parse-v7-order-migration-boundary"
+      ]
     }
   ]
 }

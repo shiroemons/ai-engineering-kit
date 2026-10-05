@@ -1,0 +1,12 @@
+{
+  "id": "nats-fast-server-progress-2150-20261005",
+  "url": "https://github.com/nats-io/nats-server/blob/eb763679aa3c24a40dcd3012aa046ad1996d851c/server/jetstream_batching.go",
+  "repository_url": "https://github.com/nats-io/nats-server",
+  "commit_sha": "eb763679aa3c24a40dcd3012aa046ad1996d851c",
+  "version": "NATS Server v2.15.0; batching helpers at released commit",
+  "license": "Apache-2.0",
+  "trust": "maintainer",
+  "type": "github_repository_analysis",
+  "purpose": "Read fastBatchRegisterSequences, checkFlowControl, fastBatchCommit and cleanup at pinned raw URL. count is built from lseq, stream seq from sseq; dedup can advance batch progress without a new stored message. Apache-2.0 LICENSE and source header checked. Native web source URL cache miss; fixed-commit UTF-8 retrieved separately; static analysis only.",
+  "retrieved_at": "2026-10-05"
+}

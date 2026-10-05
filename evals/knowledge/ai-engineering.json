@@ -2182,6 +2182,76 @@
       "expected_ids": [
         "llm-openai-background-retention-recovery-boundary"
       ]
+    },
+    {
+      "name": "cohere-rerank-context-not-api-budget",
+      "query": "rerank-v4.0-pro max_tokens_per_doc 4096",
+      "expected_ids": [
+        "rag-cohere-rerank-truncation-result-index-boundary"
+      ]
+    },
+    {
+      "name": "cohere-rerank-v1-chunk-default-discrepancy",
+      "query": "max_chunks_per_doc 既定 不一致",
+      "expected_ids": [
+        "rag-cohere-rerank-truncation-result-index-boundary"
+      ]
+    },
+    {
+      "name": "cohere-rerank-10000-boundary-unresolved",
+      "query": "10000 未確認 境界",
+      "expected_ids": [
+        "rag-cohere-rerank-truncation-result-index-boundary"
+      ]
+    },
+    {
+      "name": "cohere-rerank-topn-return-limit",
+      "query": "top_n 返す結果数",
+      "expected_ids": [
+        "rag-cohere-rerank-truncation-result-index-boundary"
+      ]
+    },
+    {
+      "name": "cohere-rerank-request-local-index",
+      "query": "rerank index 0始まり",
+      "expected_ids": [
+        "rag-cohere-rerank-truncation-result-index-boundary"
+      ]
+    },
+    {
+      "name": "cohere-rerank-serialized-field-coverage",
+      "query": "rerank YAML key順",
+      "expected_ids": [
+        "rag-cohere-rerank-truncation-result-index-boundary"
+      ]
+    },
+    {
+      "name": "cohere-rerank-best-chunk-not-parent-prefix",
+      "query": "rerank 最高点 親文書 後半",
+      "expected_ids": [
+        "rag-cohere-rerank-truncation-result-index-boundary"
+      ]
+    },
+    {
+      "name": "cohere-rerank-v1-v2-not-token-conversion",
+      "query": "max_chunks_per_doc 4096 等価",
+      "expected_ids": [
+        "rag-cohere-rerank-truncation-result-index-boundary"
+      ]
+    },
+    {
+      "name": "cohere-rerank-response-index-fixture",
+      "query": "rerank 返却index filter後",
+      "expected_ids": [
+        "rag-cohere-rerank-truncation-result-index-boundary"
+      ]
+    },
+    {
+      "name": "cohere-rerank-query-dependent-score",
+      "query": "relevance_score query依存",
+      "expected_ids": [
+        "rag-cohere-rerank-truncation-result-index-boundary"
+      ]
     }
   ]
 }

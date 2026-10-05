@@ -1,0 +1,12 @@
+{
+  "id": "nats-fast-adr50-7e6e7d70-20261005",
+  "url": "https://github.com/nats-io/nats-architecture-and-design/blob/7e6e7d70ed9db187083f63437d49bcf02146957c/adr/ADR-50.md",
+  "repository_url": "https://github.com/nats-io/nats-architecture-and-design",
+  "commit_sha": "7e6e7d70ed9db187083f63437d49bcf02146957c",
+  "version": "ADR-50 Approved; revision table 11 dated 2026-09-30; snapshot commit 2026-10-02T14:24:23Z",
+  "license": "Apache-2.0",
+  "trust": "maintainer",
+  "type": "github_repository_analysis",
+  "purpose": "Read complete ADR and same-commit LICENSE. Native web opened main ADR; pinned web URL was cache miss, exact pinned raw bytes retrieved separately. Checked 246b2f17f0ad35f3c2683148831bd9ff40632e2b and 7e6e7d70ed9db187083f63437d49bcf02146957c diffs: backward-gap notification and BatchFlowErr clarification. Protocol design is not evidence of a released fix; original summary, no code copied.",
+  "retrieved_at": "2026-10-05"
+}

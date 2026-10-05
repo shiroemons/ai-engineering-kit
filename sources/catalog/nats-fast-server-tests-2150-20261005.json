@@ -1,0 +1,12 @@
+{
+  "id": "nats-fast-server-tests-2150-20261005",
+  "url": "https://github.com/nats-io/nats-server/blob/eb763679aa3c24a40dcd3012aa046ad1996d851c/server/jetstream_batching_test.go",
+  "repository_url": "https://github.com/nats-io/nats-server",
+  "commit_sha": "eb763679aa3c24a40dcd3012aa046ad1996d851c",
+  "version": "NATS Server v2.15.0 upstream test expectations; tests not executed in this research",
+  "license": "Apache-2.0",
+  "trust": "maintainer",
+  "type": "github_repository_analysis",
+  "purpose": "Read GapDetection, DuplicatesEobCommit, HeaderCheckError, HeaderCheckErrorOnCommit, Ping and GapOkBackwardSeq tests. Record exact seq/count counterexamples and no backward gap in released test. LICENSE/source header checked. Native web cache miss; complete pinned raw file read separately. Upstream assertions are source evidence, not a local runtime pass.",
+  "retrieved_at": "2026-10-05"
+}

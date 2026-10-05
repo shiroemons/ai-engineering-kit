@@ -1,0 +1,12 @@
+{
+  "id": "go1271-uuid-api-20261005",
+  "url": "https://pkg.go.dev/uuid@go1.27.1",
+  "repository_url": "https://github.com/golang/go",
+  "commit_sha": "",
+  "version": "Go 1.27.1; API page Published Sep 1, 2026",
+  "license": "BSD-3-Clause",
+  "trust": "official",
+  "type": "official_docs",
+  "purpose": "NewとNewV4/NewV7、Parseの受理形式、String、Compare、Text系interfaceの公開契約を確認。ページのLicenseと固定Go LICENSEを照合。",
+  "retrieved_at": "2026-10-05"
+}

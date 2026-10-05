@@ -1,0 +1,12 @@
+{
+  "id": "go127-uuid-release-20261005",
+  "url": "https://go.dev/doc/go1.27",
+  "repository_url": "https://github.com/golang/website",
+  "commit_sha": "",
+  "version": "Go 1.27.0 (2026-08-19); uuid standard-library introduction",
+  "license": "CC-BY-4.0 (site text); BSD-3-Clause (code)",
+  "trust": "official",
+  "type": "release_notes",
+  "purpose": "Go 1.27で標準uuid packageが追加されたことを確認。公開日は公式release historyと照合。https://go.dev/copyright を確認し、release説明を独自に要約。",
+  "retrieved_at": "2026-10-05"
+}

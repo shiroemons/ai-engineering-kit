@@ -1,0 +1,12 @@
+{
+  "id": "cohere-rerank-model-context-docs-20261005",
+  "url": "https://docs.cohere.com/docs/rerank",
+  "repository_url": "",
+  "commit_sha": "",
+  "version": "Cohere rerank-v4.0-pro / rerank-v4.0-fast and rerank-v3.5 model documentation retrieved 2026-10-05 UTC; publication/revision date not displayed",
+  "retrieved_at": "2026-10-05",
+  "license": "unknown",
+  "trust": "official",
+  "type": "official_docs",
+  "purpose": "Rerankが既存検索結果を順位付けするモデルであること、queryとdocumentのtoken合計が文書単位context limitへ算入されること、超過時の内部chunkingというモデル説明を確認。APIのmax_tokens_per_doc契約と区別。コード転載なし"
+}

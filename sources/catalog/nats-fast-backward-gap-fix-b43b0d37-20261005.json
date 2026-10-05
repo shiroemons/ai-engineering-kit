@@ -1,0 +1,12 @@
+{
+  "id": "nats-fast-backward-gap-fix-b43b0d37-20261005",
+  "url": "https://github.com/nats-io/nats-server/commit/b43b0d37a57113a98600225a5674a2ce97a6ebc4",
+  "repository_url": "https://github.com/nats-io/nats-server",
+  "commit_sha": "b43b0d37a57113a98600225a5674a2ce97a6ebc4",
+  "version": "Source fix committed 2026-10-02T10:28:38Z; containing released version not established",
+  "license": "Apache-2.0",
+  "trust": "maintainer",
+  "type": "github_repository_analysis",
+  "purpose": "Read full commit diff for backward/repeated-sequence gap notification and added R1/R3 fail/ok tests, and same-commit stream.go and LICENSE. Referenced by ADR change 246b2f17f0ad35f3c2683148831bd9ff40632e2b. Native web commit URL cache miss; GitHub REST/source read succeeded. Do not present this commit as part of v2.15.0 or as a tested deployment.",
+  "retrieved_at": "2026-10-05"
+}

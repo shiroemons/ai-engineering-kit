@@ -1,0 +1,12 @@
+{
+  "id": "rfc9562-go-uuid-acceptance-order-20261005",
+  "url": "https://www.rfc-editor.org/rfc/rfc9562.html",
+  "repository_url": "",
+  "commit_sha": "",
+  "version": "RFC 9562, Standards Track, published May 2024; sections 4.1, 4.2, 5.7, 6.11, 8",
+  "license": "IETF Trust Legal Provisions / BCP 78; Code Components: Revised BSD License",
+  "trust": "official",
+  "type": "official_docs",
+  "purpose": "version/variantのbit位置、UUIDv7 layout、big-endian整列、UUIDをsecurity capabilityとしない制約を確認。冒頭Copyright Noticeの利用条件を確認。コード・図の転載なし。",
+  "retrieved_at": "2026-10-05"
+}

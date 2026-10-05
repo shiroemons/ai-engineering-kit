@@ -1,0 +1,12 @@
+{
+  "id": "go127-uuid-release-history-20261005",
+  "url": "https://go.dev/doc/devel/release",
+  "repository_url": "https://github.com/golang/website",
+  "commit_sha": "",
+  "version": "Go 1.27.0 released 2026-08-19; Go 1.27.1 released 2026-09-01; retrieved 2026-10-05",
+  "license": "CC-BY-4.0 (site text); BSD-3-Clause (code)",
+  "trust": "official",
+  "type": "release_notes",
+  "purpose": "uuid導入版とsource分析・実測版の公開日を確認。取得日と公開日を区別し、最新版とは断定しない。https://go.dev/copyright で利用条件を確認。",
+  "retrieved_at": "2026-10-05"
+}
