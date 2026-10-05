@@ -759,6 +759,62 @@
       "name": "prometheus-rule-runtime-evidence-limit",
       "query": "Prometheus 検索eval runtime",
       "expected_ids": ["observability-prometheus-rule-evaluation-freshness-boundary"]
+    },
+    {
+      "name": "otel-filelog-checkpoint-backend",
+      "query": "filelog checkpoint backend",
+      "expected_ids": [
+        "opentelemetry-filelog-checkpoint-delivery-boundary"
+      ]
+    },
+    {
+      "name": "otel-filelog-start-at-restore",
+      "query": "filelog start_at FromBeginning",
+      "expected_ids": [
+        "opentelemetry-filelog-checkpoint-delivery-boundary"
+      ]
+    },
+    {
+      "name": "otel-filelog-stop-save-error",
+      "query": "filelog save offsets Stop",
+      "expected_ids": [
+        "opentelemetry-filelog-checkpoint-delivery-boundary"
+      ]
+    },
+    {
+      "name": "otel-filelog-receiver-enqueue-retry",
+      "query": "filelog retry_on_failure enqueue",
+      "expected_ids": [
+        "opentelemetry-filelog-checkpoint-delivery-boundary"
+      ]
+    },
+    {
+      "name": "otel-filelog-copytruncate-read-new",
+      "query": "filelog copytruncate read_new",
+      "expected_ids": [
+        "opentelemetry-filelog-checkpoint-delivery-boundary"
+      ]
+    },
+    {
+      "name": "otel-filelog-fingerprint-reingestion",
+      "query": "filelog fingerprint_size 再取り込み",
+      "expected_ids": [
+        "opentelemetry-filelog-checkpoint-delivery-boundary"
+      ]
+    },
+    {
+      "name": "otel-filelog-storage-recreate-fsync",
+      "query": "filelog recreate fsync",
+      "expected_ids": [
+        "opentelemetry-filelog-checkpoint-delivery-boundary"
+      ]
+    },
+    {
+      "name": "otel-filelog-checkpoint-format-downgrade",
+      "query": "filelog protobufCheckpointEncoding downgrade",
+      "expected_ids": [
+        "opentelemetry-filelog-checkpoint-delivery-boundary"
+      ]
     }
   ]
 }

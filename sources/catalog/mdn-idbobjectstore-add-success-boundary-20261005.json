@@ -1,0 +1,12 @@
+{
+  "id": "mdn-idbobjectstore-add-success-boundary-20261005",
+  "url": "https://developer.mozilla.org/en-US/docs/Web/API/IDBObjectStore/add",
+  "repository_url": "",
+  "commit_sha": "",
+  "version": "MDN IDBObjectStore.add(); last modified 2024-07-19; verified 2026-10-05 UTC",
+  "retrieved_at": "2026-10-05",
+  "license": "CC-BY-SA-2.5 or later; code samples added on/after 2010-08-20 CC0-1.0, earlier MIT (https://developer.mozilla.org/en-US/docs/MDN/Writing_guidelines/Attrib_copyright_license); no code copied",
+  "trust": "official",
+  "type": "official_docs",
+  "purpose": "request success後にもtransactionが失敗し得ること、IDBRequest戻り値、ConstraintErrorと同期例外を確認。"
+}

@@ -1375,6 +1375,118 @@
       "expected_ids": [
         "javascript-resizeobserver-box-delivery-convergence-boundary"
       ]
+    },
+    {
+      "name": "indexeddb-draft-not-recent",
+      "query": "IndexedDB 2025-08-13 最終勧告",
+      "expected_ids": [
+        "javascript-indexeddb-transaction-completion-durability-boundary"
+      ]
+    },
+    {
+      "name": "indexeddb-request-success-rollback",
+      "query": "success 先行書込み 残らない",
+      "expected_ids": [
+        "javascript-indexeddb-transaction-completion-durability-boundary"
+      ]
+    },
+    {
+      "name": "indexeddb-native-request-not-promise",
+      "query": "native IDBRequest 完了待ち",
+      "expected_ids": [
+        "javascript-indexeddb-transaction-completion-durability-boundary"
+      ]
+    },
+    {
+      "name": "indexeddb-outside-await-lifetime",
+      "query": "await fetch 延命",
+      "expected_ids": [
+        "javascript-indexeddb-transaction-completion-durability-boundary"
+      ]
+    },
+    {
+      "name": "indexeddb-pending-not-active",
+      "query": "未処理要求 任意のcallback",
+      "expected_ids": [
+        "javascript-indexeddb-transaction-completion-durability-boundary"
+      ]
+    },
+    {
+      "name": "indexeddb-stoppropagation-not-recovery",
+      "query": "stopPropagation default abort",
+      "expected_ids": [
+        "javascript-indexeddb-transaction-completion-durability-boundary"
+      ]
+    },
+    {
+      "name": "indexeddb-recovered-bubbled-done",
+      "query": "tx.done native terminal",
+      "expected_ids": [
+        "javascript-indexeddb-transaction-completion-durability-boundary"
+      ]
+    },
+    {
+      "name": "indexeddb-enqueue-sync-abort",
+      "query": "enqueueFailed DataCloneError",
+      "expected_ids": [
+        "javascript-indexeddb-transaction-completion-durability-boundary"
+      ]
+    },
+    {
+      "name": "indexeddb-null-error-fallback",
+      "query": "tx.error null fallback",
+      "expected_ids": [
+        "javascript-indexeddb-transaction-completion-durability-boundary"
+      ]
+    },
+    {
+      "name": "indexeddb-commit-undefined",
+      "query": "commit undefined Promise",
+      "expected_ids": [
+        "javascript-indexeddb-transaction-completion-durability-boundary"
+      ]
+    },
+    {
+      "name": "indexeddb-commit-closes-admission",
+      "query": "commit pending 追加write",
+      "expected_ids": [
+        "javascript-indexeddb-transaction-completion-durability-boundary"
+      ]
+    },
+    {
+      "name": "indexeddb-mdn-onsuccess-discrepancy",
+      "query": "transaction.onsuccess complete コメント",
+      "expected_ids": [
+        "javascript-indexeddb-transaction-completion-durability-boundary"
+      ]
+    },
+    {
+      "name": "indexeddb-chrome121-default-history",
+      "query": "Chrome 121 2023-11-03",
+      "expected_ids": [
+        "javascript-indexeddb-transaction-completion-durability-boundary"
+      ]
+    },
+    {
+      "name": "indexeddb-strict-not-immediate",
+      "query": "strict put() 直後",
+      "expected_ids": [
+        "javascript-indexeddb-transaction-completion-durability-boundary"
+      ]
+    },
+    {
+      "name": "indexeddb-stale-revision-write",
+      "query": "revision 旧計算結果",
+      "expected_ids": [
+        "javascript-indexeddb-transaction-completion-durability-boundary"
+      ]
+    },
+    {
+      "name": "indexeddb-browser-probe-unexecuted",
+      "query": "IndexedDB socket() runtime",
+      "expected_ids": [
+        "javascript-indexeddb-transaction-completion-durability-boundary"
+      ]
     }
   ]
 }

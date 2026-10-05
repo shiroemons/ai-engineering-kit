@@ -1,0 +1,12 @@
+{
+  "id": "otel-filelog-contract-0162-20261005",
+  "url": "https://github.com/open-telemetry/opentelemetry-collector-contrib/blob/ae8c507510f48f433ab47dd1c6b01a59d6c388b5/receiver/filelogreceiver/README.md",
+  "repository_url": "https://github.com/open-telemetry/opentelemetry-collector-contrib",
+  "commit_sha": "ae8c507510f48f433ab47dd1c6b01a59d6c388b5",
+  "version": "Collector Contrib v0.162.0 / filelog receiver beta",
+  "retrieved_at": "2026-10-05",
+  "license": "Apache-2.0",
+  "trust": "official",
+  "type": "official_docs",
+  "purpose": "receiver storage、retry期限、fingerprint、on_truncate、計装、checkpoint encodingの公式契約。tag版をnative webで開き、固定SHA本文をconnectorで再取得。LICENSEは同commitのApache-2.0。コードや設定例は転載しない。"
+}

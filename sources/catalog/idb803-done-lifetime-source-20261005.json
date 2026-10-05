@@ -1,0 +1,12 @@
+{
+  "id": "idb803-done-lifetime-source-20261005",
+  "url": "https://github.com/jakearchibald/idb/blob/77dd8bebf3669bbce9628e470a021ff63eb4acaf/README.md",
+  "repository_url": "https://github.com/jakearchibald/idb",
+  "commit_sha": "77dd8bebf3669bbce9628e470a021ff63eb4acaf",
+  "version": "idb 8.0.3 at commit 77dd8bebf3669bbce9628e470a021ff63eb4acaf, commit date 2025-05-07; package.json/README/src/wrap-idb-value.ts/LICENSE verified 2026-10-05 UTC",
+  "retrieved_at": "2026-10-05",
+  "license": "ISC; https://github.com/jakearchibald/idb/blob/77dd8bebf3669bbce9628e470a021ff63eb4acaf/LICENSE; analysis only, no code copied",
+  "trust": "maintainer",
+  "type": "github_repository_analysis",
+  "purpose": "READMEの外部awaitとIDB request Promiseの区別、tx.done契約、cacheDonePromiseForTransactionのcomplete/error/abort listenerを固定commitで確認。回復済みbubbled errorでdoneがrejectし得る点は静的読解でありブラウザー未実測。"
+}

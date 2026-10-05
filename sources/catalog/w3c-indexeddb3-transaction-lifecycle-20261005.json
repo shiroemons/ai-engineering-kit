@@ -1,0 +1,12 @@
+{
+  "id": "w3c-indexeddb3-transaction-lifecycle-20261005",
+  "url": "https://www.w3.org/TR/2025/WD-IndexedDB-3-20250813/",
+  "repository_url": "",
+  "commit_sha": "",
+  "version": "Indexed Database API 3.0, W3C Working Draft 2025-08-13; verified 2026-10-05 UTC",
+  "retrieved_at": "2026-10-05",
+  "license": "W3C Software and Document License 2023 (https://www.w3.org/copyright/software-license-2023/); no source code copied",
+  "trust": "official",
+  "type": "official_docs",
+  "purpose": "§2.7 lifetime/durability、§4.10 commit/abort、§5.4 commit完了、§5.9–5.10 success/error配送を照合。最終勧告や全ブラウザーの実装保証とは扱わない。"
+}

@@ -1,0 +1,12 @@
+{
+  "id": "kubernetes-resize-preemption-blog-20261005",
+  "url": "https://kubernetes.io/blog/2026/09/10/kubernetes-v1-37-scheduler-preemption-for-in-place-pod-resize-alpha/",
+  "repository_url": "https://github.com/kubernetes/website",
+  "commit_sha": "",
+  "version": "Kubernetes v1.37 maintainer article by Natasha Sarkar (Google), published 2026-09-10; modified 2026-09-03",
+  "retrieved_at": "2026-10-05",
+  "license": "CC-BY-4.0 (https://raw.githubusercontent.com/kubernetes/website/main/LICENSE; checked 2026-10-05)",
+  "trust": "maintainer",
+  "type": "maintainer_article",
+  "purpose": "新機能の動機・公開日・各componentのgate前提を確認。allocatedResourcesだけの完了判定やresizeStatusのfield表現はAPI/taskと照合し、単独根拠にしない"
+}

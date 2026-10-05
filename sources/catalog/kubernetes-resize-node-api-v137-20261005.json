@@ -1,0 +1,12 @@
+{
+  "id": "kubernetes-resize-node-api-v137-20261005",
+  "url": "https://kubernetes.io/docs/reference/kubernetes-api/core/node-v1/",
+  "repository_url": "https://github.com/kubernetes/website",
+  "commit_sha": "",
+  "version": "Node v1 API reference generated for Kubernetes v1.37; page modified 2026-08-26",
+  "retrieved_at": "2026-10-05",
+  "license": "CC-BY-4.0 (https://raw.githubusercontent.com/kubernetes/website/main/LICENSE; checked 2026-10-05)",
+  "trust": "official",
+  "type": "official_docs",
+  "purpose": "NodePodPreemptionPolicy.disableResizePreemptionのowner配列と非空時の抑止、alpha gate依存を確認"
+}
