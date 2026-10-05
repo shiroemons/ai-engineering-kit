@@ -1,0 +1,12 @@
+{
+  "repository_url": "https://github.com/kubernetes/website",
+  "commit_sha": "",
+  "retrieved_at": "2026-10-05",
+  "license": "CC-BY-4.0 (https://github.com/kubernetes/website/blob/main/LICENSE; checked 2026-10-05)",
+  "trust": "maintainer",
+  "id": "kubernetes-job-replacement-policy-ga-20261005",
+  "url": "https://kubernetes.io/blog/2025/09/05/kubernetes-v1-34-pod-replacement-policy-for-jobs-goes-ga/",
+  "type": "maintainer_article",
+  "version": "Job podReplacementPolicy GA in Kubernetes v1.34; published 2025-09-05; footer last modified 2026-01-03",
+  "purpose": "TerminatingOrFailedとFailedのreplacement時期、podFailurePolicy併用時のFailed限定、終了中Podによる重複資源使用の注意を確認"
+}

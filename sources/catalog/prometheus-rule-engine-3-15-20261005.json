@@ -1,0 +1,12 @@
+{
+  "id": "prometheus-rule-engine-3-15-20261005",
+  "url": "https://github.com/prometheus/prometheus/tree/5241a27fe3c6983549fccc32f6e65917408c63cd/rules",
+  "repository_url": "https://github.com/prometheus/prometheus",
+  "commit_sha": "5241a27fe3c6983549fccc32f6e65917408c63cd",
+  "version": "Prometheus v3.15.0 at 5241a27fe3c6983549fccc32f6e65917408c63cd; fixed files retrieved 2026-10-05 UTC via GitHub API",
+  "retrieved_at": "2026-10-05",
+  "license": "Apache-2.0 (fixed-commit LICENSE and per-file headers verified 2026-10-05 UTC); original analysis, no code copied",
+  "trust": "primary-source",
+  "type": "github_repository_analysis",
+  "purpose": "group.go、manager.go、recording.go、alerting.goと関連testを確認。rule失敗後の後続継続・alert limit消去・最終評価時刻・metrics・offset継承を分析。testは未実行"
+}

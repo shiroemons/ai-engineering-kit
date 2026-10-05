@@ -1,0 +1,12 @@
+{
+  "id": "webdev-resize-observer-delivery-performance-20261005",
+  "url": "https://web.dev/articles/resize-observer",
+  "repository_url": "",
+  "commit_sha": "",
+  "version": "Google web.dev article, Last updated 2023-12-12 UTC; retrieved 2026-10-05",
+  "retrieved_at": "2026-10-05",
+  "license": "CC-BY-4.0; code examples Apache-2.0",
+  "trust": "maintainer",
+  "type": "maintainer_article",
+  "purpose": "browser開発元の記事として配送延期・layout/paint間の処理・INPへの影響とforced reflow回避を確認。古いbox説明や対応表は現行API契約に使わない。"
+}

@@ -699,6 +699,66 @@
     {"name": "go-benchmark-sample-inventory", "query": "benchstat 必須 sample件数 片側", "expected_ids": ["performance-go-benchmark-harness-comparison-boundary"]},
     {"name": "go-benchmark-exact-not-time", "query": "benchstat assume=exact 時間測定", "expected_ids": ["performance-go-benchmark-harness-comparison-boundary"]},
     {"name": "go-benchmark-parallel-not-p99", "query": "RunParallel ns/op p99 wall", "expected_ids": ["performance-go-benchmark-harness-comparison-boundary"]},
-    {"name": "go-benchmark-runtime-proof-scope", "query": "B.Loop 3反復 局所 検索eval", "expected_ids": ["performance-go-benchmark-harness-comparison-boundary"]}
+    {"name": "go-benchmark-runtime-proof-scope", "query": "B.Loop 3反復 局所 検索eval", "expected_ids": ["performance-go-benchmark-harness-comparison-boundary"]},
+    {
+      "name": "prometheus-rule-per-rule-limit-output",
+      "query": "Prometheus limit 101 全体",
+      "expected_ids": ["observability-prometheus-rule-evaluation-freshness-boundary"]
+    },
+    {
+      "name": "prometheus-rule-limit-not-group-sum",
+      "query": "Prometheus limit 80 160",
+      "expected_ids": ["observability-prometheus-rule-evaluation-freshness-boundary"]
+    },
+    {
+      "name": "prometheus-rule-upstream-failure-old-input",
+      "query": "Prometheus A 12:01 lookback",
+      "expected_ids": ["observability-prometheus-rule-evaluation-freshness-boundary"]
+    },
+    {
+      "name": "prometheus-rule-limit-alert-state-reset",
+      "query": "Prometheus keep_firing_for 上限超過 pending",
+      "expected_ids": ["observability-prometheus-rule-evaluation-freshness-boundary"]
+    },
+    {
+      "name": "prometheus-rule-attempt-not-last-success",
+      "query": "Prometheus lastEvaluation 成功時刻",
+      "expected_ids": ["observability-prometheus-rule-evaluation-freshness-boundary"]
+    },
+    {
+      "name": "prometheus-rule-query-error-distinct-limit",
+      "query": "Prometheus query error active map",
+      "expected_ids": ["observability-prometheus-rule-evaluation-freshness-boundary"]
+    },
+    {
+      "name": "prometheus-rule-missed-not-queued",
+      "query": "Prometheus missed キュー",
+      "expected_ids": ["observability-prometheus-rule-evaluation-freshness-boundary"]
+    },
+    {
+      "name": "prometheus-rule-query-offset-time-window",
+      "query": "query_offset 12:00 11:58",
+      "expected_ids": ["observability-prometheus-rule-evaluation-freshness-boundary"]
+    },
+    {
+      "name": "prometheus-rule-explicit-zero-offset",
+      "query": "query_offset 0s 継承",
+      "expected_ids": ["observability-prometheus-rule-evaluation-freshness-boundary"]
+    },
+    {
+      "name": "prometheus-rule-test-order-not-production",
+      "query": "group_eval_order 本番",
+      "expected_ids": ["observability-prometheus-rule-evaluation-freshness-boundary"]
+    },
+    {
+      "name": "prometheus-rule-rules-inventory-pagination",
+      "query": "Prometheus group_limit pagination",
+      "expected_ids": ["observability-prometheus-rule-evaluation-freshness-boundary"]
+    },
+    {
+      "name": "prometheus-rule-runtime-evidence-limit",
+      "query": "Prometheus 検索eval runtime",
+      "expected_ids": ["observability-prometheus-rule-evaluation-freshness-boundary"]
+    }
   ]
 }

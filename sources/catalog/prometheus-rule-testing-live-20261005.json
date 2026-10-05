@@ -1,0 +1,12 @@
+{
+  "id": "prometheus-rule-testing-live-20261005",
+  "url": "https://prometheus.io/docs/prometheus/latest/configuration/unit_testing_rules/",
+  "repository_url": "https://github.com/prometheus/docs",
+  "commit_sha": "",
+  "version": "Live latest rule-testing docs retrieved 2026-10-05 UTC; versioned 3.15 URL failed native-web retrieval; page publication date unverified",
+  "retrieved_at": "2026-10-05",
+  "license": "Apache-2.0 (site footer and https://github.com/prometheus/docs/blob/main/LICENSE verified 2026-10-05 UTC); original summary only",
+  "trust": "official",
+  "type": "official_docs",
+  "purpose": "promql_expr_test・alert_rule_testとgroup_eval_orderの試験内契約を確認。本番schedulerや過去版との同一性は主張しない"
+}

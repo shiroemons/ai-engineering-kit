@@ -1,0 +1,12 @@
+{
+  "id": "prometheus-rule-recording-docs-3-15-20261005",
+  "url": "https://prometheus.io/docs/prometheus/3.15/configuration/recording_rules/",
+  "repository_url": "https://github.com/prometheus/docs",
+  "commit_sha": "",
+  "version": "Prometheus 3.15 versioned documentation; page publication date unverified; retrieved 2026-10-05 UTC; not an immutable implementation snapshot",
+  "retrieved_at": "2026-10-05",
+  "license": "Apache-2.0 (site footer and https://github.com/prometheus/docs/blob/main/LICENSE verified 2026-10-05 UTC); original summary only",
+  "trust": "official",
+  "type": "official_docs",
+  "purpose": "各ruleのlimit超過時の全出力破棄・alert状態消去・stale markerなし、groupの順序と遅い評価のスキップを確認"
+}

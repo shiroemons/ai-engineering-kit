@@ -1794,6 +1794,104 @@
       "expected_ids": [
         "kubernetes-topology-spread-eligible-domain-boundary"
       ]
+    },
+    {
+      "name": "kubernetes-indexed-job-retry-required-fields",
+      "query": "backoffLimitPerIndex Indexed Never immutable",
+      "expected_ids": [
+        "kubernetes-indexed-job-success-retry-terminal-boundary"
+      ]
+    },
+    {
+      "name": "kubernetes-indexed-job-global-default-change",
+      "query": "backoffLimitPerIndex 2147483647",
+      "expected_ids": [
+        "kubernetes-indexed-job-success-retry-terminal-boundary"
+      ]
+    },
+    {
+      "name": "kubernetes-indexed-job-retry-one-two-failures",
+      "query": "backoffLimitPerIndex 初回失敗 2回",
+      "expected_ids": [
+        "kubernetes-indexed-job-success-retry-terminal-boundary"
+      ]
+    },
+    {
+      "name": "kubernetes-indexed-job-max-failed-not-acceptance",
+      "query": "maxFailedIndexes 等しい 打切り",
+      "expected_ids": [
+        "kubernetes-indexed-job-success-retry-terminal-boundary"
+      ]
+    },
+    {
+      "name": "kubernetes-indexed-job-omitted-limit-doc-conflict",
+      "query": "maxFailedIndexes 未指定 Complete Failed",
+      "expected_ids": [
+        "kubernetes-indexed-job-success-retry-terminal-boundary"
+      ]
+    },
+    {
+      "name": "kubernetes-indexed-job-ignore-both-budgets",
+      "query": "Ignore backoffLimitPerIndex count",
+      "expected_ids": [
+        "kubernetes-indexed-job-success-retry-terminal-boundary"
+      ]
+    },
+    {
+      "name": "kubernetes-indexed-job-first-failure-rule",
+      "query": "podFailurePolicy 最初 順番",
+      "expected_ids": [
+        "kubernetes-indexed-job-success-retry-terminal-boundary"
+      ]
+    },
+    {
+      "name": "kubernetes-indexed-job-success-subset-count",
+      "query": "succeededIndexes succeededCount subset",
+      "expected_ids": [
+        "kubernetes-indexed-job-success-retry-terminal-boundary"
+      ]
+    },
+    {
+      "name": "kubernetes-indexed-job-first-reconcile-failure-priority",
+      "query": "successPolicy 同じreconcile 失敗条件",
+      "expected_ids": [
+        "kubernetes-indexed-job-success-retry-terminal-boundary"
+      ]
+    },
+    {
+      "name": "kubernetes-indexed-job-recorded-success-sticky",
+      "query": "SuccessCriteriaMet=True 上書き",
+      "expected_ids": [
+        "kubernetes-indexed-job-success-retry-terminal-boundary"
+      ]
+    },
+    {
+      "name": "kubernetes-indexed-job-active-not-terminal",
+      "query": "active: 0 terminating",
+      "expected_ids": [
+        "kubernetes-indexed-job-success-retry-terminal-boundary"
+      ]
+    },
+    {
+      "name": "kubernetes-indexed-job-replacement-policy-required-failed",
+      "query": "podFailurePolicy Failed 唯一",
+      "expected_ids": [
+        "kubernetes-indexed-job-success-retry-terminal-boundary"
+      ]
+    },
+    {
+      "name": "kubernetes-indexed-job-replacement-not-once",
+      "query": "podReplacementPolicy exactly-once",
+      "expected_ids": [
+        "kubernetes-indexed-job-success-retry-terminal-boundary"
+      ]
+    },
+    {
+      "name": "kubernetes-indexed-job-terminal-version-change",
+      "query": "v1.31 v1.30 terminal condition",
+      "expected_ids": [
+        "kubernetes-indexed-job-success-retry-terminal-boundary"
+      ]
     }
   ]
 }

@@ -1,0 +1,12 @@
+{
+  "repository_url": "https://github.com/kubernetes/website",
+  "commit_sha": "",
+  "retrieved_at": "2026-10-05",
+  "license": "CC-BY-4.0 (https://github.com/kubernetes/website/blob/main/LICENSE; checked 2026-10-05)",
+  "trust": "official",
+  "id": "kubernetes-job-policy-api-20261005",
+  "url": "https://kubernetes.io/docs/reference/kubernetes-api/batch/job-v1/",
+  "type": "official_docs",
+  "version": "Kubernetes v1.37 generated batch/v1 Job API; footer last modified 2026-08-26",
+  "purpose": "JobSpecの適用条件・immutable field・既定値、SuccessPolicyのsubset count、JobStatusのactive/terminating/conditionsを確認。maxFailedIndexes未指定のComplete表記はcontrollerと不一致のため採用しない"
+}
