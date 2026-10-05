@@ -1,0 +1,12 @@
+{
+  "id": "postgres-queue-partial-index-18-20261005",
+  "url": "https://www.postgresql.org/docs/18/indexes-partial.html",
+  "repository_url": "",
+  "commit_sha": "",
+  "version": "PostgreSQL 18 versioned manual, verified 2026-10-05 UTC; individual publication/update date and patch version not stated on these pages",
+  "retrieved_at": "2026-10-05",
+  "license": "PostgreSQL License",
+  "trust": "official",
+  "type": "official_docs",
+  "purpose": "Partial-index predicate must be implied by query at planning time; supports ready/running queue index candidates, not a universal performance guarantee. License verified in the versioned Legal Notice and official about/licence page."
+}

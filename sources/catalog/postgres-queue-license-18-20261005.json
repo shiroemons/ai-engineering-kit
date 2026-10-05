@@ -1,0 +1,12 @@
+{
+  "id": "postgres-queue-license-18-20261005",
+  "url": "https://www.postgresql.org/docs/18/legalnotice.html",
+  "repository_url": "",
+  "commit_sha": "",
+  "version": "PostgreSQL 18 versioned manual, verified 2026-10-05 UTC; individual publication/update date and patch version not stated on these pages",
+  "retrieved_at": "2026-10-05",
+  "license": "PostgreSQL License",
+  "trust": "official",
+  "type": "official_docs",
+  "purpose": "Version-18 documentation Legal Notice covers software and documentation under PostgreSQL License; also verified https://www.postgresql.org/about/licence/. No upstream code copied or module promotion. License verified in the versioned Legal Notice and official about/licence page."
+}

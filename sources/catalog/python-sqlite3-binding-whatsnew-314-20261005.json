@@ -1,0 +1,12 @@
+{
+  "id": "python-sqlite3-binding-whatsnew-314-20261005",
+  "url": "https://docs.python.org/3.14/whatsnew/3.14.html",
+  "repository_url": "",
+  "commit_sha": "",
+  "version": "What is new in Python 3.14; series released 2025-10-07; page displays 3.14.8",
+  "retrieved_at": "2026-10-05",
+  "license": "PSF-2.0; documentation code additionally 0BSD; https://docs.python.org/3.14/license.html",
+  "trust": "official",
+  "type": "release_notes",
+  "purpose": "native webで3.14公開日、named placeholderとsequenceのProgrammingError化、sqlite3.version/version_info削除とsqlite_versionの区別を確認。3.14.8で新導入された機能とは記述しない。"
+}

@@ -1,0 +1,12 @@
+{
+  "id": "webdev-related-origin-rpid-server-origin-20261005",
+  "url": "https://web.dev/articles/webauthn-related-origin-requests",
+  "repository_url": "",
+  "commit_sha": "",
+  "version": "Maud Nalpas; article footer Last updated 2024-08-22 UTC; live text verified 2026-10-05; browser compatibility dates not treated as current",
+  "retrieved_at": "2026-10-05",
+  "license": "CC-BY-4.0 for article; Apache-2.0 for code samples as stated in footer; no code, diagrams or sample configuration copied",
+  "trust": "maintainer",
+  "type": "maintainer_article",
+  "purpose": "Googleの実装者向け解説で共有アカウント基盤、作成・認証のRP ID指定とserver側期待originが別物であることを照合。記事の日付と停止済みdemoの注記を確認し、実機検証・最新対応表として扱わない。"
+}

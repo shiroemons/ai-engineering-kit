@@ -1,0 +1,12 @@
+{
+  "id": "passkeysdev-related-origin-existing-migration-20261005",
+  "url": "https://passkeys.dev/docs/advanced/related-origins/",
+  "repository_url": "",
+  "commit_sha": "",
+  "version": "Related Origin Requests deployment guide; Last Updated 2026-02-05; verified 2026-10-05",
+  "retrieved_at": "2026-10-05",
+  "license": "CC-BY-NC-ND-4.0 as displayed in site footer; attributed original factual summary only, no translated reproduction or copied examples",
+  "trust": "maintainer",
+  "type": "maintainer_article",
+  "purpose": "W3C Web Identity and Credentials Adoption CGとFIDO Allianceのmemberが運営するガイドとして、既存複数RP IDの記録、identifier-first lookup、元originへのfederation fallbackを確認する。仕様のMUSTや最新製品互換性へ格上げしない。"
+}

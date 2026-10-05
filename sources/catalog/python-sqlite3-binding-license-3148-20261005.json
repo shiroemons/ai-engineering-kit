@@ -1,0 +1,12 @@
+{
+  "id": "python-sqlite3-binding-license-3148-20261005",
+  "url": "https://docs.python.org/3.14/license.html",
+  "repository_url": "",
+  "commit_sha": "",
+  "version": "Python 3.14.8 History and License; retrieved 2026-10-05 UTC",
+  "retrieved_at": "2026-10-05",
+  "license": "PSF-2.0; documentation code additionally 0BSD",
+  "trust": "official",
+  "type": "official_docs",
+  "purpose": "native webでPython software/documentationのPSF License Version 2、3.8.6以降のdocument codeのPSF/0BSD dual license、組込みsoftwareの個別license例外を確認。"
+}

@@ -1,0 +1,12 @@
+{
+  "id": "postgres-queue-commit-18-20261005",
+  "url": "https://www.postgresql.org/docs/18/sql-commit.html",
+  "repository_url": "",
+  "commit_sha": "",
+  "version": "PostgreSQL 18 versioned manual, verified 2026-10-05 UTC; individual publication/update date and patch version not stated on these pages",
+  "retrieved_at": "2026-10-05",
+  "license": "PostgreSQL License",
+  "trust": "official",
+  "type": "official_docs",
+  "purpose": "COMMIT is the transaction completion boundary; original failure matrix distinguishes claim output from confirmed completion, without asserting failover durability under unverified settings. License verified in the versioned Legal Notice and official about/licence page."
+}
