@@ -1,0 +1,12 @@
+{
+  "id": "postgres-advisory-functions-18-20261004",
+  "url": "https://www.postgresql.org/docs/18/functions-admin.html#FUNCTIONS-ADVISORY-LOCKS",
+  "repository_url": "",
+  "commit_sha": "",
+  "version": "PostgreSQL 18 versioned manual, verified 2026-10-04 UTC; individual publication date and patch version not stated on these pages",
+  "retrieved_at": "2026-10-04",
+  "license": "PostgreSQL License",
+  "trust": "official",
+  "type": "official_docs",
+  "purpose": "Key-space separation, shared/exclusive modes, try-lock boolean results, stacked session acquisitions, unlock and unlock_all ownership. License verified at https://www.postgresql.org/docs/18/legalnotice.html and https://www.postgresql.org/about/licence/; covers software and documentation. Original Japanese summary; no copied code."
+}

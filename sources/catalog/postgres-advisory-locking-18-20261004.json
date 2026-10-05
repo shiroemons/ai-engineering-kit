@@ -1,0 +1,12 @@
+{
+  "id": "postgres-advisory-locking-18-20261004",
+  "url": "https://www.postgresql.org/docs/18/explicit-locking.html#ADVISORY-LOCKS",
+  "repository_url": "",
+  "commit_sha": "",
+  "version": "PostgreSQL 18 versioned manual, verified 2026-10-04 UTC; individual publication date and patch version not stated on these pages",
+  "retrieved_at": "2026-10-04",
+  "license": "PostgreSQL License",
+  "trust": "official",
+  "type": "official_docs",
+  "purpose": "Session/transaction lifetime, rollback-independent session locks, same-session reacquisition, shared lock-memory budget and LIMIT evaluation hazard. License verified at https://www.postgresql.org/docs/18/legalnotice.html and https://www.postgresql.org/about/licence/; covers software and documentation. Original Japanese summary; no copied code."
+}

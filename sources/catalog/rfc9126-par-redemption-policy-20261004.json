@@ -1,0 +1,12 @@
+{
+  "id": "rfc9126-par-redemption-policy-20261004",
+  "url": "https://www.rfc-editor.org/rfc/rfc9126.html",
+  "repository_url": "",
+  "commit_sha": "",
+  "version": "RFC 9126, Standards Track, September 2021",
+  "retrieved_at": "2026-10-04",
+  "license": "IETF Trust Legal Provisions / BCP 78; Code Components: Simplified BSD per RFC copyright notice",
+  "trust": "official",
+  "type": "official_docs",
+  "purpose": "§2–§4のPAR受付・client認証・JAR併用・client binding・期限・one-timeとrefresh例外、§5–§7のpolicyとURI入替えを確認。errata取得はcache miss/429等で未完了。"
+}

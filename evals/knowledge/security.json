@@ -287,5 +287,16 @@
     {"name": "coep-observe-effective-capability", "query": "self.crossOriginIsolated 実効", "expected_ids": ["security-coop-coep-credentialless-deployment-boundary"]},
     {"name": "coep-popup-business-completion", "query": "COOP popup 完了通知", "expected_ids": ["security-coop-coep-credentialless-deployment-boundary"]},
     {"name": "coep-redirect-taint-observation", "query": "COEP redirect-taint", "expected_ids": ["security-coop-coep-credentialless-deployment-boundary"]},
-    {"name": "coep-rollout-content-semantics", "query": "COEP 匿名版 認証状態", "expected_ids": ["security-coop-coep-credentialless-deployment-boundary"]}
+    {"name": "coep-rollout-content-semantics", "query": "COEP 匿名版 認証状態", "expected_ids": ["security-coop-coep-credentialless-deployment-boundary"]},
+    {"name": "par-client-once-server-refresh", "query": "request_uri client MUST refresh", "expected_ids": ["oauth-par-jar-request-uri-redemption-boundary"]},
+    {"name": "par-authenticated-signed-client-mismatch", "query": "認証済み client_id Request Object", "expected_ids": ["oauth-par-jar-request-uri-redemption-boundary"]},
+    {"name": "jar-outer-query-not-merge", "query": "JAR 外側query merge", "expected_ids": ["oauth-par-jar-request-uri-redemption-boundary"]},
+    {"name": "par-jar-policy-independent", "query": "require_pushed_authorization_requests require_signed_request_object", "expected_ids": ["oauth-par-jar-request-uri-redemption-boundary"]},
+    {"name": "par-preload-before-authorization", "query": "preload 認可時点", "expected_ids": ["oauth-par-jar-request-uri-redemption-boundary"]},
+    {"name": "par-cross-instance-atomic-consume", "query": "PAR instance 原子的", "expected_ids": ["oauth-par-jar-request-uri-redemption-boundary"]},
+    {"name": "par-stale-policy-after-push", "query": "PAR policy世代 scope", "expected_ids": ["oauth-par-jar-request-uri-redemption-boundary"]},
+    {"name": "par-ttl-deletion-not-expiry", "query": "PAR TTL削除遅延", "expected_ids": ["oauth-par-jar-request-uri-redemption-boundary"]},
+    {"name": "par-csrf-state-conditional", "query": "PAR PKCE state 常に仕様上必須", "expected_ids": ["oauth-par-jar-request-uri-redemption-boundary"]},
+    {"name": "par-fapi-lifetime-strict-boundary", "query": "FAPI 600秒未満 一律上限", "expected_ids": ["oauth-par-jar-request-uri-redemption-boundary"]},
+    {"name": "par-errata-unverified", "query": "9126 errata cache miss", "expected_ids": ["oauth-par-jar-request-uri-redemption-boundary"]}
   ]}

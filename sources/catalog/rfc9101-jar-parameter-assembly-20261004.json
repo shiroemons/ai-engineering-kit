@@ -1,0 +1,12 @@
+{
+  "id": "rfc9101-jar-parameter-assembly-20261004",
+  "url": "https://www.rfc-editor.org/rfc/rfc9101.html",
+  "repository_url": "",
+  "commit_sha": "",
+  "version": "RFC 9101, Standards Track, August 2021",
+  "retrieved_at": "2026-10-04",
+  "license": "IETF Trust Legal Provisions / BCP 78; Code Components: Simplified BSD per RFC copyright notice",
+  "trust": "official",
+  "type": "official_docs",
+  "purpose": "§2.2・§4–§6のRequest Object、client_id照合、署名検査、外側queryをmergeしない規則と、§10.5・§10.7のdowngrade・不一致防止を確認。"
+}

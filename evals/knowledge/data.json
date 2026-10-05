@@ -1326,6 +1326,22 @@
     {"name": "redis-set-cas-split-get-digest-race", "query": "GET DIGEST lost update", "expected_ids": ["redis-set-cas-reply-ttl-history-boundary"]},
     {"name": "redis-set-cas-multi-no-short-circuit", "query": "MULTI IFEQ 後続command", "expected_ids": ["redis-set-cas-reply-ttl-history-boundary"]},
     {"name": "redis-set-cas-reply-loss-not-proof", "query": "CAS 通信断 初回", "expected_ids": ["redis-set-cas-reply-ttl-history-boundary"]},
-    {"name": "redis-set-cas-runtime-unverified", "query": "CAS runtime試験案 実行試験はしていない", "expected_ids": ["redis-set-cas-reply-ttl-history-boundary"]}
+    {"name": "redis-set-cas-runtime-unverified", "query": "CAS runtime試験案 実行試験はしていない", "expected_ids": ["redis-set-cas-reply-ttl-history-boundary"]},
+    {"name": "postgres-advisory-session-rollback-retained", "query": "session ROLLBACK 残る", "expected_ids": ["postgres-advisory-lock-session-pool-lifetime-boundary"]},
+    {"name": "postgres-advisory-unlock-rollback-not-restored", "query": "明示unlock ROLLBACK 取り消されない", "expected_ids": ["postgres-advisory-lock-session-pool-lifetime-boundary"]},
+    {"name": "postgres-advisory-try-reacquire-not-observation", "query": "try-lock 状態照会 取得回数", "expected_ids": ["postgres-advisory-lock-session-pool-lifetime-boundary"]},
+    {"name": "postgres-advisory-unlock-true-count-remaining", "query": "unlock true 残り1回分", "expected_ids": ["postgres-advisory-lock-session-pool-lifetime-boundary"]},
+    {"name": "postgres-advisory-unlock-all-owner-scope", "query": "pg_advisory_unlock_all 別session transaction-level", "expected_ids": ["postgres-advisory-lock-session-pool-lifetime-boundary"]},
+    {"name": "postgres-advisory-pool-backend-owner-switch", "query": "S1 S2 論理job", "expected_ids": ["postgres-advisory-lock-session-pool-lifetime-boundary"]},
+    {"name": "postgres-advisory-pool-client-not-server-pin", "query": "client connection server session固定", "expected_ids": ["postgres-advisory-lock-session-pool-lifetime-boundary"]},
+    {"name": "postgres-advisory-reset-not-lifetime-repair", "query": "server_reset_query_always 毎transaction", "expected_ids": ["postgres-advisory-lock-session-pool-lifetime-boundary"]},
+    {"name": "postgres-advisory-autocommit-xact-next-statement", "query": "pg_advisory_xact_lock autocommit 後続更新", "expected_ids": ["postgres-advisory-lock-session-pool-lifetime-boundary"]},
+    {"name": "postgres-advisory-try-false-no-work", "query": "pg_try_advisory_xact_lock false SQL batch", "expected_ids": ["postgres-advisory-lock-session-pool-lifetime-boundary"]},
+    {"name": "postgres-advisory-snapshot-lock-same-select", "query": "advisory READ COMMITTED 同一SELECT", "expected_ids": ["postgres-advisory-lock-session-pool-lifetime-boundary"]},
+    {"name": "postgres-advisory-repeatable-read-not-refreshed", "query": "advisory REPEATABLE READ 既存snapshot", "expected_ids": ["postgres-advisory-lock-session-pool-lifetime-boundary"]},
+    {"name": "postgres-advisory-key-spaces-database", "query": "bigint objsubid=2 databaseローカル", "expected_ids": ["postgres-advisory-lock-session-pool-lifetime-boundary"]},
+    {"name": "postgres-advisory-limit-not-acquisition-bound", "query": "advisory LIMIT 返却されない", "expected_ids": ["postgres-advisory-lock-session-pool-lifetime-boundary"]},
+    {"name": "postgres-advisory-view-not-reentry-counter", "query": "pg_locks 行数 再入取得回数", "expected_ids": ["postgres-advisory-lock-session-pool-lifetime-boundary"]},
+    {"name": "postgres-advisory-no-runtime-claim", "query": "advisory 未実行のruntime試験案", "expected_ids": ["postgres-advisory-lock-session-pool-lifetime-boundary"]}
   ]
 }

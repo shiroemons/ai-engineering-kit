@@ -1,0 +1,12 @@
+{
+  "id": "pgbouncer-advisory-feature-map-20261004",
+  "url": "https://www.pgbouncer.org/features.html",
+  "repository_url": "",
+  "commit_sha": "",
+  "version": "Rolling official feature map retrieved 2026-10-04 UTC; page has no version or publication date",
+  "retrieved_at": "2026-10-04",
+  "license": "unknown (website content license not established)",
+  "trust": "official",
+  "type": "official_docs",
+  "purpose": "Session pooling versus transaction pooling compatibility; session-level advisory locks explicitly unsupported in transaction pooling. Corroborates the separately pinned 1.26.0 configuration documentation. Website content license could not be established; original attributed summary only."
+}

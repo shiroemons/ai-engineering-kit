@@ -1,0 +1,12 @@
+{
+  "id": "fapi2-par-preload-single-use-final-20261004",
+  "url": "https://openid.net/specs/fapi-security-profile-2_0-final.html",
+  "repository_url": "",
+  "commit_sha": "",
+  "version": "FAPI 2.0 Security Profile Final, published 2025-02-22",
+  "retrieved_at": "2026-10-04",
+  "license": "OpenID Foundation specification copyright license, Appendix B; attribution required; specification-development and implementation purposes",
+  "trust": "official",
+  "type": "official_docs",
+  "purpose": "§1・§5.3.2.2のconfidential client、認証付きPAR/S256要件、600秒未満のexpires_in、Note 3のpage load/preloadと認可時one-time enforcementの区別を確認。FAPI全体の適合性は評価していない。"
+}
