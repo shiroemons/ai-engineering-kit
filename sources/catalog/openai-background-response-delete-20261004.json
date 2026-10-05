@@ -1,0 +1,12 @@
+{
+  "id": "openai-background-response-delete-20261004",
+  "url": "https://developers.openai.com/api/reference/resources/responses/methods/delete",
+  "repository_url": "",
+  "commit_sha": "",
+  "version": "DELETE /v1/responses/{response_id}, rolling API reference; retrieved 2026-10-04 UTC; publication date and fixed schema version not stated",
+  "retrieved_at": "2026-10-04",
+  "license": "unknown",
+  "trust": "official",
+  "type": "official_docs",
+  "purpose": "応答削除がcancelとは別endpointでdeletedを返すことを確認。cancel停止確認の代用や外部副作用のundo保証として扱わない。 取得ページでopen licenseを確認できず、独自要約のみ。sample code複製・module昇格は行わない。"
+}

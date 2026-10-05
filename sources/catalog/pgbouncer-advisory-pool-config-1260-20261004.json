@@ -1,0 +1,12 @@
+{
+  "id": "pgbouncer-advisory-pool-config-1260-20261004",
+  "url": "https://github.com/pgbouncer/pgbouncer/blob/7d38761c8f6c757238fde9f942cf9fe0cd272ae3/doc/config.md",
+  "repository_url": "https://github.com/pgbouncer/pgbouncer",
+  "commit_sha": "7d38761c8f6c757238fde9f942cf9fe0cd272ae3",
+  "version": "PgBouncer 1.26.0, tag pgbouncer_1_26_0; exact commit 7d38761c8f6c757238fde9f942cf9fe0cd272ae3; tagger date 2026-09-23; publication corroborated by official release announcement",
+  "retrieved_at": "2026-10-04",
+  "license": "ISC",
+  "trust": "primary-source",
+  "type": "github_repository_analysis",
+  "purpose": "Read only doc/config.md pool_mode, server_reset_query and server_reset_query_always, not implementation. Annotated tag object 3b0b7e1e1d144f72b0ae88a13ac21b6a274546ab resolves to this commit. ISC verified in same-commit COPYRIGHT: https://github.com/pgbouncer/pgbouncer/blob/7d38761c8f6c757238fde9f942cf9fe0cd272ae3/COPYRIGHT. Original summary, no source-code reuse."
+}

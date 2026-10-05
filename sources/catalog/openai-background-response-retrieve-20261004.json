@@ -1,0 +1,12 @@
+{
+  "id": "openai-background-response-retrieve-20261004",
+  "url": "https://developers.openai.com/api/reference/python/resources/responses/methods/retrieve",
+  "repository_url": "",
+  "commit_sha": "",
+  "version": "GET /v1/responses/{response_id}, Python-rendered rolling HTTP reference; retrieved 2026-10-04 UTC; fixed schema/SDK version not stated",
+  "retrieved_at": "2026-10-04",
+  "license": "unknown",
+  "trust": "official",
+  "type": "official_docs",
+  "purpose": "status列挙、error/incomplete_details、outputの型別取扱い、starting_afterのevent順序を確認。Python SDK実装・対応最低版は解析していない。 取得ページでopen licenseを確認できず、独自要約のみ。sample code複製・module昇格は行わない。"
+}

@@ -2077,6 +2077,111 @@
       "expected_ids": [
         "agents-gemini-antigravity-tool-migration-hook-boundary"
       ]
+    },
+    {
+      "name": "openai-background-store-false-disk",
+      "query": "store=false disk 書込み皆無",
+      "expected_ids": [
+        "llm-openai-background-retention-recovery-boundary"
+      ]
+    },
+    {
+      "name": "openai-background-mam-explicit-store",
+      "query": "MAM 明示store=true 省略",
+      "expected_ids": [
+        "llm-openai-background-retention-recovery-boundary"
+      ]
+    },
+    {
+      "name": "openai-background-zdr-store-override",
+      "query": "ZDR true false扱い",
+      "expected_ids": [
+        "llm-openai-background-retention-recovery-boundary"
+      ]
+    },
+    {
+      "name": "openai-background-not-ten-minute-sla",
+      "query": "created_at 600秒 起算点",
+      "expected_ids": [
+        "llm-openai-background-retention-recovery-boundary"
+      ]
+    },
+    {
+      "name": "openai-background-webhook-window-not-retention",
+      "query": "72時間 結果保持 延長",
+      "expected_ids": [
+        "llm-openai-background-retention-recovery-boundary"
+      ]
+    },
+    {
+      "name": "openai-background-receipt-not-ingestion",
+      "query": "queue 回収完了",
+      "expected_ids": [
+        "llm-openai-background-retention-recovery-boundary"
+      ]
+    },
+    {
+      "name": "openai-background-dual-retrieval-dedup",
+      "query": "webhook-id response ID 一意化",
+      "expected_ids": [
+        "llm-openai-background-retention-recovery-boundary"
+      ]
+    },
+    {
+      "name": "openai-background-cursor-after-event-save",
+      "query": "cursor 41 保存前",
+      "expected_ids": [
+        "llm-openai-background-retention-recovery-boundary"
+      ]
+    },
+    {
+      "name": "openai-background-no-stream-upgrade",
+      "query": "stream=false retrieve 再開",
+      "expected_ids": [
+        "llm-openai-background-retention-recovery-boundary"
+      ]
+    },
+    {
+      "name": "openai-background-create-id-unknown",
+      "query": "creation_unknown 生成失敗",
+      "expected_ids": [
+        "llm-openai-background-retention-recovery-boundary"
+      ]
+    },
+    {
+      "name": "openai-background-incomplete-not-success",
+      "query": "incomplete 部分text 完全成功",
+      "expected_ids": [
+        "llm-openai-background-retention-recovery-boundary"
+      ]
+    },
+    {
+      "name": "openai-background-cancel-not-create-retry",
+      "query": "冪等性 新規生成POST",
+      "expected_ids": [
+        "llm-openai-background-retention-recovery-boundary"
+      ]
+    },
+    {
+      "name": "openai-background-cancel-not-delete",
+      "query": "Delete cancel 別操作",
+      "expected_ids": [
+        "llm-openai-background-retention-recovery-boundary"
+      ]
+    },
+    {
+      "name": "openai-background-unknown-status-not-success",
+      "query": "status 未知値 空の成功",
+      "expected_ids": [
+        "llm-openai-background-retention-recovery-boundary"
+      ]
+    },
+    {
+      "name": "openai-background-retrieve-not-found-not-failed",
+      "query": "取得不能 生成失敗 断定",
+      "expected_ids": [
+        "llm-openai-background-retention-recovery-boundary"
+      ]
     }
   ]
 }

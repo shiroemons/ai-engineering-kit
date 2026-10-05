@@ -1,0 +1,12 @@
+{
+  "id": "openai-background-lifecycle-20261004",
+  "url": "https://developers.openai.com/api/docs/guides/background",
+  "repository_url": "",
+  "commit_sha": "",
+  "version": "Responses API background mode rolling guide; retrieved 2026-10-04 UTC; publication date and fixed API/SDK version not stated",
+  "retrieved_at": "2026-10-04",
+  "license": "unknown",
+  "trust": "official",
+  "type": "official_docs",
+  "purpose": "background実行、polling、stream作成時optionとcursor、再取消の冪等性、ZDR一時保存を確認。10分の起算点・最低保持SLA・SDK最低版は未確認。 取得ページでopen licenseを確認できず、独自要約のみ。sample code複製・module昇格は行わない。"
+}

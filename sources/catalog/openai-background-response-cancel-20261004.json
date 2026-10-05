@@ -1,0 +1,12 @@
+{
+  "id": "openai-background-response-cancel-20261004",
+  "url": "https://developers.openai.com/api/reference/python/resources/responses/methods/cancel",
+  "repository_url": "",
+  "commit_sha": "",
+  "version": "POST /v1/responses/{response_id}/cancel, Python-rendered rolling HTTP reference; retrieved 2026-10-04 UTC; fixed schema/SDK version not stated",
+  "retrieved_at": "2026-10-04",
+  "license": "unknown",
+  "trust": "official",
+  "type": "official_docs",
+  "purpose": "cancelがbackground=trueで作成したResponseを対象とし、Responseを返す契約を確認。tool rollback・課金・実APIの完了競合は未確認。 取得ページでopen licenseを確認できず、独自要約のみ。sample code複製・module昇格は行わない。"
+}

@@ -1,0 +1,12 @@
+{
+  "id": "openai-background-retention-controls-20261004",
+  "url": "https://developers.openai.com/api/docs/guides/your-data",
+  "repository_url": "",
+  "commit_sha": "",
+  "version": "Responses Application State retention controls, rolling page; retrieved 2026-10-04 UTC; MAM/enhanced MAM and ZDR conditions; change publication date not stated",
+  "retrieved_at": "2026-10-04",
+  "license": "unknown",
+  "trust": "official",
+  "type": "official_docs",
+  "purpose": "通常保持の例外、ZDRのstore=false扱い、MAM/enhanced MAM backgroundの明示store=trueと省略/falseの保持差、一時polling期間を確認。全projectへの一律一般化はしない。 取得ページでopen licenseを確認できず、独自要約のみ。sample code複製・module昇格は行わない。"
+}
