@@ -1,0 +1,12 @@
+{
+  "id": "kubernetes-job-policy-source-v1370-20261005",
+  "url": "https://github.com/kubernetes/kubernetes/tree/f54c212e3a2f75d674b717a9b29052b20b60aefc/pkg/controller/job",
+  "repository_url": "https://github.com/kubernetes/kubernetes",
+  "commit_sha": "f54c212e3a2f75d674b717a9b29052b20b60aefc",
+  "version": "Kubernetes v1.37.0; annotated release tag dated 2026-08-26",
+  "retrieved_at": "2026-10-05",
+  "license": "Apache-2.0 (root LICENSE and source/test headers at pinned commit checked)",
+  "trust": "primary-source",
+  "type": "github_repository_analysis",
+  "purpose": "job_controller.go、indexed_job_utils.go、success_policy.go、pod_failure_policy.goと対応unit testsの読解。既存condition優先、同時評価時のfailure優先、maxFailedIndexes未指定時のFailed、retry countと終了待ちを照合。test本文はGitHub connector取得、上流test・実クラスタ未実行"
+}

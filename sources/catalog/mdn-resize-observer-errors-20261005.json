@@ -1,0 +1,12 @@
+{
+  "id": "mdn-resize-observer-errors-20261005",
+  "url": "https://developer.mozilla.org/en-US/docs/Web/API/ResizeObserver",
+  "repository_url": "",
+  "commit_sha": "",
+  "version": "MDN ResizeObserver, Last modified 2025-11-07; retrieved 2026-10-05",
+  "retrieved_at": "2026-10-05",
+  "license": "CC-BY-SA-2.5 or later; code samples added on/after 2010-08-20 CC0-1.0, earlier MIT (https://developer.mozilla.org/en-US/docs/MDN/Writing_guidelines/Attrib_copyright_license); no code copied",
+  "trust": "official",
+  "type": "official_docs",
+  "purpose": "content/borderの領域、未配送通知の延期、loop防御と収束の違い、rAFと期待寸法比較の解説を確認。"
+}

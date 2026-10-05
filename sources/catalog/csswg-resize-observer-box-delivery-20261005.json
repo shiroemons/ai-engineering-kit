@@ -1,0 +1,12 @@
+{
+  "id": "csswg-resize-observer-box-delivery-20261005",
+  "url": "https://drafts.csswg.org/resize-observer/",
+  "repository_url": "",
+  "commit_sha": "",
+  "version": "Resize Observer Module Level 1 Editor's Draft, displayed 2022-11-22; retrieved 2026-10-05",
+  "retrieved_at": "2026-10-05",
+  "license": "W3C Software and Document License 2023 (https://www.w3.org/copyright/software-license-2023/)",
+  "trust": "official",
+  "type": "official_docs",
+  "purpose": "観測box選択・再observe時の置換・box寸法・depthによる配送制限・loop error・測定対象・lifetimeを確認。最終勧告ではない。"
+}

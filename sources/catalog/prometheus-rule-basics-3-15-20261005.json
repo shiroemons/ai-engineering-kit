@@ -1,0 +1,12 @@
+{
+  "id": "prometheus-rule-basics-3-15-20261005",
+  "url": "https://prometheus.io/docs/prometheus/3.15/querying/basics/",
+  "repository_url": "https://github.com/prometheus/docs",
+  "commit_sha": "",
+  "version": "Prometheus 3.15 versioned documentation; page publication date unverified; retrieved 2026-10-05 UTC; not an immutable implementation snapshot",
+  "retrieved_at": "2026-10-05",
+  "license": "Apache-2.0 (site footer and https://github.com/prometheus/docs/blob/main/LICENSE verified 2026-10-05 UTC); original summary only",
+  "trust": "official",
+  "type": "official_docs",
+  "purpose": "lookback・stale marker・range窓境界・selector offset、および出力件数と入力負荷の違いを確認"
+}

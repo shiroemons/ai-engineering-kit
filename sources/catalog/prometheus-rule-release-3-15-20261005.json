@@ -1,0 +1,12 @@
+{
+  "id": "prometheus-rule-release-3-15-20261005",
+  "url": "https://github.com/prometheus/prometheus/releases/tag/v3.15.0",
+  "repository_url": "https://github.com/prometheus/prometheus",
+  "commit_sha": "",
+  "version": "v3.15.0; release title 2026-09-24, publication display 2026-09-25; commit 5241a27fe3c6983549fccc32f6e65917408c63cd",
+  "retrieved_at": "2026-10-05",
+  "license": "unknown (release prose-specific license not verified; original factual summary only)",
+  "trust": "official",
+  "type": "release_notes",
+  "purpose": "適用版のrelease日と固定commitの対応を確認。rule機能の新規導入を主張するための資料ではない"
+}

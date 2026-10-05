@@ -1,0 +1,12 @@
+{
+  "repository_url": "https://github.com/kubernetes/website",
+  "commit_sha": "",
+  "retrieved_at": "2026-10-05",
+  "license": "CC-BY-4.0 (https://github.com/kubernetes/website/blob/main/LICENSE; checked 2026-10-05)",
+  "trust": "maintainer",
+  "id": "kubernetes-job-success-policy-ga-20261005",
+  "url": "https://kubernetes.io/blog/2025/05/15/kubernetes-1-33-jobs-success-policy-goes-ga/",
+  "type": "maintainer_article",
+  "version": "Job successPolicy GA in Kubernetes v1.33; published 2025-05-15; footer modification 2026-01-03 is blog reorganization",
+  "purpose": "successPolicyのv1.33 GA、leader/subset成功と残存Pod終了、SuccessCriteriaMetからCompleteへの段階を確認"
+}

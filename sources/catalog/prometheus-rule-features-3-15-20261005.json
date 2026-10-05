@@ -1,0 +1,12 @@
+{
+  "id": "prometheus-rule-features-3-15-20261005",
+  "url": "https://prometheus.io/docs/prometheus/3.15/feature_flags/",
+  "repository_url": "https://github.com/prometheus/docs",
+  "commit_sha": "",
+  "version": "Prometheus 3.15 versioned documentation; page publication date unverified; retrieved 2026-10-05 UTC; not an immutable implementation snapshot",
+  "retrieved_at": "2026-10-05",
+  "license": "Apache-2.0 (site footer and https://github.com/prometheus/docs/blob/main/LICENSE verified 2026-10-05 UTC); original summary only",
+  "trust": "official",
+  "type": "official_docs",
+  "purpose": "group間の既定並行実行とconcurrent-rule-evalの独立rule並行化・同時query負荷の代償を確認"
+}

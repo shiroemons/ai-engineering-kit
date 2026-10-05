@@ -1242,6 +1242,139 @@
     {"name": "html-form-async-intent-revision", "query": "submitter revision identity", "expected_ids": ["html-form-submitter-payload-async-boundary"]},
     {"name": "html-form-formdata-not-transport", "query": "FormData formaction formmethod 代行", "expected_ids": ["html-form-submitter-payload-async-boundary"]},
     {"name": "html-form-approval-permit-clear", "query": "validation failure 通過フラグ", "expected_ids": ["html-form-submitter-payload-async-boundary"]},
-    {"name": "html-form-browser-unverified", "query": "Chromium 154.0.8037.57 socket", "expected_ids": ["html-form-submitter-payload-async-boundary"]}
+    {"name": "html-form-browser-unverified", "query": "Chromium 154.0.8037.57 socket", "expected_ids": ["html-form-submitter-payload-async-boundary"]},
+    {
+      "name": "resizeobserver-draft-not-new",
+      "query": "ResizeObserver 2022-11-22 最終勧告",
+      "expected_ids": [
+        "javascript-resizeobserver-box-delivery-convergence-boundary"
+      ]
+    },
+    {
+      "name": "resizeobserver-box-trigger-not-return",
+      "query": "borderBoxSize 通知条件",
+      "expected_ids": [
+        "javascript-resizeobserver-box-delivery-convergence-boundary"
+      ]
+    },
+    {
+      "name": "resizeobserver-same-target-replaces",
+      "query": "observe() 新しい設定に置き換える",
+      "expected_ids": [
+        "javascript-resizeobserver-box-delivery-convergence-boundary"
+      ]
+    },
+    {
+      "name": "resizeobserver-content-border-separate",
+      "query": "paddingが変わりcontentが縮む",
+      "expected_ids": [
+        "javascript-resizeobserver-box-delivery-convergence-boundary"
+      ]
+    },
+    {
+      "name": "resizeobserver-logical-axes",
+      "query": "inlineSize 縦書き",
+      "expected_ids": [
+        "javascript-resizeobserver-box-delivery-convergence-boundary"
+      ]
+    },
+    {
+      "name": "resizeobserver-device-pixels-not-rounding",
+      "query": "devicePixelRatio subpixel snapping",
+      "expected_ids": [
+        "javascript-resizeobserver-box-delivery-convergence-boundary"
+      ]
+    },
+    {
+      "name": "resizeobserver-depth-not-count",
+      "query": "depth 100回",
+      "expected_ids": [
+        "javascript-resizeobserver-box-delivery-convergence-boundary"
+      ]
+    },
+    {
+      "name": "resizeobserver-multiple-callbacks-frame",
+      "query": "1フレーム1callback",
+      "expected_ids": [
+        "javascript-resizeobserver-box-delivery-convergence-boundary"
+      ]
+    },
+    {
+      "name": "resizeobserver-deferred-not-converged",
+      "query": "lockup 無限増加",
+      "expected_ids": [
+        "javascript-resizeobserver-box-delivery-convergence-boundary"
+      ]
+    },
+    {
+      "name": "resizeobserver-single-error-not-infinite",
+      "query": "一回のerror 無限loop",
+      "expected_ids": [
+        "javascript-resizeobserver-box-delivery-convergence-boundary"
+      ]
+    },
+    {
+      "name": "resizeobserver-raf-not-fix",
+      "query": "rAF 無条件の増分",
+      "expected_ids": [
+        "javascript-resizeobserver-box-delivery-convergence-boundary"
+      ]
+    },
+    {
+      "name": "resizeobserver-ancestor-cycle-remains",
+      "query": "親のintrinsic 循環",
+      "expected_ids": [
+        "javascript-resizeobserver-box-delivery-convergence-boundary"
+      ]
+    },
+    {
+      "name": "resizeobserver-expected-size-constraints",
+      "query": "hysteresis min/max制約",
+      "expected_ids": [
+        "javascript-resizeobserver-box-delivery-convergence-boundary"
+      ]
+    },
+    {
+      "name": "resizeobserver-delayed-write-teardown",
+      "query": "旧target 遅延書込み",
+      "expected_ids": [
+        "javascript-resizeobserver-box-delivery-convergence-boundary"
+      ]
+    },
+    {
+      "name": "resizeobserver-transforms-not-trigger",
+      "query": "CSS transformsだけ 発火させない",
+      "expected_ids": [
+        "javascript-resizeobserver-box-delivery-convergence-boundary"
+      ]
+    },
+    {
+      "name": "resizeobserver-fragment-first-column",
+      "query": "先頭column 全fragment",
+      "expected_ids": [
+        "javascript-resizeobserver-box-delivery-convergence-boundary"
+      ]
+    },
+    {
+      "name": "resizeobserver-lifetime-both-conditions",
+      "query": "null 両条件",
+      "expected_ids": [
+        "javascript-resizeobserver-box-delivery-convergence-boundary"
+      ]
+    },
+    {
+      "name": "resizeobserver-shared-unobserve",
+      "query": "unobserve(target) 共有observer",
+      "expected_ids": [
+        "javascript-resizeobserver-box-delivery-convergence-boundary"
+      ]
+    },
+    {
+      "name": "resizeobserver-browser-runtime-not-run",
+      "query": "ブラウザーruntime試験 WPTは実行していない",
+      "expected_ids": [
+        "javascript-resizeobserver-box-delivery-convergence-boundary"
+      ]
+    }
   ]
 }

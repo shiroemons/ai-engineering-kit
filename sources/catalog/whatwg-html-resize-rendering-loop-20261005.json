@@ -1,0 +1,12 @@
+{
+  "id": "whatwg-html-resize-rendering-loop-20261005",
+  "url": "https://html.spec.whatwg.org/multipage/webappapis.html",
+  "repository_url": "",
+  "commit_sha": "",
+  "version": "HTML Living Standard, Last Updated 2026-10-04; update the rendering",
+  "retrieved_at": "2026-10-05",
+  "license": "CC-BY-4.0; code portions BSD-3-Clause (https://html.spec.whatwg.org/multipage/acknowledgements.html#ipr)",
+  "trust": "official",
+  "type": "official_docs",
+  "purpose": "rAF・style/layout・resize配送反復・skipped観測のerror報告・描画機会の制約を確認。"
+}

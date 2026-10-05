@@ -1,0 +1,12 @@
+{
+  "repository_url": "https://github.com/kubernetes/website",
+  "commit_sha": "",
+  "retrieved_at": "2026-10-05",
+  "license": "CC-BY-4.0 (https://github.com/kubernetes/website/blob/main/LICENSE; checked 2026-10-05)",
+  "trust": "official",
+  "id": "kubernetes-job-policy-concepts-20261005",
+  "url": "https://kubernetes.io/docs/concepts/workloads/controllers/job/",
+  "type": "official_docs",
+  "version": "Kubernetes rolling docs v1.37; footer last modified 2026-07-31; feature state differs per field",
+  "purpose": "Indexed Jobのretry予算、失敗index、successPolicy、terminal conditionとreplacement時期を確認。APIのmaxFailedIndexes文言および本ページ前半のreplacement文言との不整合は固定版実装で照合"
+}

@@ -1,0 +1,12 @@
+{
+  "id": "prometheus-rule-api-implementation-3-15-20261005",
+  "url": "https://github.com/prometheus/prometheus/blob/5241a27fe3c6983549fccc32f6e65917408c63cd/web/api/v1/api.go",
+  "repository_url": "https://github.com/prometheus/prometheus",
+  "commit_sha": "5241a27fe3c6983549fccc32f6e65917408c63cd",
+  "version": "Prometheus v3.15.0 at 5241a27fe3c6983549fccc32f6e65917408c63cd; fixed file retrieved 2026-10-05 UTC via GitHub API",
+  "retrieved_at": "2026-10-05",
+  "license": "Apache-2.0 (fixed-commit LICENSE and api.go header verified 2026-10-05 UTC); original analysis, no code copied",
+  "trust": "primary-source",
+  "type": "github_repository_analysis",
+  "purpose": "Rules APIがlastEvaluation・evaluationTime・health・lastErrorを別フィールドで返す対応、およびquery応答切詰めを確認。実APIは未実行"
+}
