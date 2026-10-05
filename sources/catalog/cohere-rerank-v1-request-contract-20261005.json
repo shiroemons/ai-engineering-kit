@@ -1,0 +1,12 @@
+{
+  "id": "cohere-rerank-v1-request-contract-20261005",
+  "url": "https://docs.cohere.com/v1/reference/rerank",
+  "repository_url": "",
+  "commit_sha": "",
+  "version": "Cohere POST /v1/rerank rolling reference retrieved 2026-10-05 UTC; independent publication/revision date not displayed",
+  "retrieved_at": "2026-10-05",
+  "license": "unknown",
+  "trust": "official",
+  "type": "official_docs",
+  "purpose": "v1のobject入力、rank_fields、return_documents、max_chunks_per_doc既定10、documents数×max_chunks_per_docが10000未満という記述を確認。best-practicesの既定1・境界表現との差を未解決として残す。コード転載なし"
+}

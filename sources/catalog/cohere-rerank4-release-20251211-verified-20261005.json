@@ -1,0 +1,12 @@
+{
+  "id": "cohere-rerank4-release-20251211-verified-20261005",
+  "url": "https://docs.cohere.com/changelog/rerank-v4.0",
+  "repository_url": "",
+  "commit_sha": "",
+  "version": "Rerank v4.0 release announcement dated 2025-12-11; rerank-v4.0-pro / rerank-v4.0-fast; verified 2026-10-05 UTC",
+  "retrieved_at": "2026-10-05",
+  "license": "unknown",
+  "trust": "official",
+  "type": "release_notes",
+  "purpose": "Rerank4の公開日、2種類のmodel ID、32k contextという発表を確認。2026-10-05の新規releaseとは呼ばず、文書上限とAPI切詰めを区別するdurable gapの適用版を記録。コード転載なし"
+}

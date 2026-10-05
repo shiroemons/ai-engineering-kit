@@ -1,0 +1,12 @@
+{
+  "id": "nats-fast-214-announcement-20261005",
+  "url": "https://nats.io/blog/nats-server-2.14-release/",
+  "repository_url": "",
+  "commit_sha": "",
+  "version": "NATS Server 2.14 announcement, published 2026-04-30; fast-ingest introduction",
+  "license": "unknown",
+  "trust": "maintainer",
+  "type": "maintainer_article",
+  "purpose": "Opened native web page: fast-ingest persists continuously without atomic staging, gap modes and EOB support. Release prose has no separately established open license; original attributed summary only. No benchmark claim or code copied.",
+  "retrieved_at": "2026-10-05"
+}

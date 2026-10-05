@@ -1,0 +1,12 @@
+{
+  "id": "go1271-uuid-implementation-20261005",
+  "url": "https://github.com/golang/go/blob/862c888e612ac346c7c4d99c9392bdfd265f33b0/src/uuid/uuid.go",
+  "repository_url": "https://github.com/golang/go",
+  "commit_sha": "862c888e612ac346c7c4d99c9392bdfd265f33b0",
+  "version": "Go 1.27.1 (2026-09-01), src/uuid/uuid.go",
+  "license": "BSD-3-Clause",
+  "trust": "official",
+  "type": "github_repository_analysis",
+  "purpose": "Parseの構文検査とversion/variant非検査、UnmarshalTextの成功時代入、NewV7のprocess内state・Unix秒後退・logical timestamp加算・lock解放位置を読解。GitHub版固定web取得は失敗したが、tag版webとcommit固定raw取得、公式Git sparse cloneを確認し、locked toolchain内のsourceとcmp一致。固定LICENSEとファイルheaderを確認。",
+  "retrieved_at": "2026-10-05"
+}

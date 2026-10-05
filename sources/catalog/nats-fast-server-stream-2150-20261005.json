@@ -1,0 +1,12 @@
+{
+  "id": "nats-fast-server-stream-2150-20261005",
+  "url": "https://github.com/nats-io/nats-server/blob/eb763679aa3c24a40dcd3012aa046ad1996d851c/server/stream.go",
+  "repository_url": "https://github.com/nats-io/nats-server",
+  "commit_sha": "eb763679aa3c24a40dcd3012aa046ad1996d851c",
+  "version": "NATS Server v2.15.0, released 2026-09-17; tag peeled through annotated tag 4165d0d62508a8abe99feed39bb9e8ca4216aede",
+  "license": "Apache-2.0",
+  "trust": "maintainer",
+  "type": "github_repository_analysis",
+  "purpose": "Read BatchFlowAck/Gap/Err, PersistModeType and processJetStreamFastBatchMsg. Native web opened tag raw source; separately retrieved tag bytes and pinned commit bytes are identical. Checked repository LICENSE and source header. Distinguish initial seq=0, control errors, dedup, backward-sequence handling and async durability; no code copied.",
+  "retrieved_at": "2026-10-05"
+}

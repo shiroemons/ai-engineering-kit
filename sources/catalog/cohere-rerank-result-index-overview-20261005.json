@@ -1,0 +1,12 @@
+{
+  "id": "cohere-rerank-result-index-overview-20261005",
+  "url": "https://docs.cohere.com/docs/rerank-overview",
+  "repository_url": "",
+  "commit_sha": "",
+  "version": "Cohere ClientV2 Rerank overview retrieved 2026-10-05 UTC; examples use rerank-v4.0-pro; publication/revision date not displayed",
+  "retrieved_at": "2026-10-05",
+  "license": "unknown",
+  "trust": "official",
+  "type": "official_docs",
+  "purpose": "rerank応答indexが入力documents配列の0始まり位置を指すこと、structured dataをYAML stringsとして送る推奨を確認。永続document ID・出力順位・根拠spanと取り違えない設計案の根拠。コード転載なし"
+}

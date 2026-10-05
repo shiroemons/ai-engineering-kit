@@ -1,0 +1,12 @@
+{
+  "id": "cohere-rerank-best-practices-20261005",
+  "url": "https://docs.cohere.com/docs/reranking-best-practices",
+  "repository_url": "",
+  "commit_sha": "",
+  "version": "Cohere Rerank v4.0/v3.5/v3.0 best practices retrieved 2026-10-05 UTC; publication/revision date not displayed; defaults and boundary wording conflict with v1 reference",
+  "retrieved_at": "2026-10-05",
+  "license": "unknown",
+  "trust": "official",
+  "type": "official_docs",
+  "purpose": "model内部chunkingのmax集約、max_chunks_per_doc既定1と10000超過errorの説明、query依存のrelevance_score、構造化文書の順序と切詰めへの注意を確認。矛盾を都合よく統合せず実挙動未確認とする。コード転載なし"
+}

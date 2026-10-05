@@ -1,0 +1,12 @@
+{
+  "id": "go1271-uuid-tests-20261005",
+  "url": "https://github.com/golang/go/blob/862c888e612ac346c7c4d99c9392bdfd265f33b0/src/uuid/uuid_test.go",
+  "repository_url": "https://github.com/golang/go",
+  "commit_sha": "862c888e612ac346c7c4d99c9392bdfd265f33b0",
+  "version": "Go 1.27.1 (2026-09-01), src/uuid/uuid_test.go",
+  "license": "BSD-3-Clause",
+  "trust": "official",
+  "type": "github_repository_analysis",
+  "purpose": "TestParseSuccess/Errors、TestNewV7Millis、TestNewV7Collisionのassertion範囲を確認。web取得失敗後にcommit固定raw取得・公式Git sparse cloneで読解し、locked toolchainとのcmp一致を確認。Linux/amd64でgo test -race -count=1 uuid成功。固定LICENSEとファイルheaderを確認。",
+  "retrieved_at": "2026-10-05"
+}
