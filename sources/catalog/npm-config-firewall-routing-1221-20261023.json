@@ -1,0 +1,12 @@
+{
+  "id": "npm-config-firewall-routing-1221-20261023",
+  "url": "https://docs.npmjs.com/cli/v12/using-npm/config/",
+  "repository_url": "https://github.com/npm/documentation",
+  "commit_sha": "",
+  "version": "npm CLI 12.2.1 page label; Last edited 2026-02-11 is page metadata, not the release date; checked 2026-10-23 UTC",
+  "retrieved_at": "2026-10-23",
+  "license": "unknown for exact live CLI page; npm/documentation content LICENSE is CC-BY-4.0 and npm/cli LICENSE is Artistic-2.0, both checked 2026-10-23, but page-to-repository licensing boundary not pinned; original summary only, no code copied",
+  "trust": "official",
+  "type": "official_docs",
+  "purpose": "replace-registry-hostの既定置換、offline/prefer-offline/prefer-onlineの差を確認。registry設定と全downloadの検査を混同しないための根拠。"
+}

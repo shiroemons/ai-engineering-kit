@@ -1,0 +1,12 @@
+{
+  "id": "python-sentinel-release3150-20261023",
+  "url": "https://www.python.org/downloads/release/python-3150/",
+  "repository_url": "",
+  "commit_sha": "",
+  "version": "Python 3.15.0 stable; released 2026-10-09",
+  "retrieved_at": "2026-10-23",
+  "license": "unknown",
+  "trust": "official",
+  "type": "release_notes",
+  "purpose": "公式配布ページをnative webで開き、実公開日2026-10-09とsentinel導入系列を確認。ページ自体のlicenseは未確認、独自要約のみ。"
+}

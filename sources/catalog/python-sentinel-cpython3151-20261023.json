@@ -1,0 +1,12 @@
+{
+  "id": "python-sentinel-cpython3151-20261023",
+  "url": "https://github.com/python/cpython/tree/c37e74cb6bcdadcd5f46f289498f6b3298ddee61",
+  "repository_url": "https://github.com/python/cpython",
+  "commit_sha": "c37e74cb6bcdadcd5f46f289498f6b3298ddee61",
+  "version": "CPython v3.15.1; commit c37e74cb6bcdadcd5f46f289498f6b3298ddee61",
+  "retrieved_at": "2026-10-23",
+  "license": "PSF-2.0; repository LICENSE includes historical notices",
+  "trust": "official",
+  "type": "github_repository_analysis",
+  "purpose": "read-only sparse cloneのHEADをv3.15.1のdereferenced SHAと照合。Objects/sentinelobject.c、Lib/test/test_builtin.py、Lib/pickle.py、Modules/_pickle.c、LICENSEを読解。上流testの実行はしていない。GitHub/rawのnative web取得失敗をgit取得で補完。"
+}

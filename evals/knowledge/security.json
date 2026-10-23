@@ -382,5 +382,17 @@
       "expected_ids": [
         "security-webauthn-related-origin-rpid-verification-boundary"
       ]
-    }
+    },
+    {"name": "package-firewall-preview-not-ga", "query": "firewall 2026-10-20 public preview", "expected_ids": ["github-package-firewall-routing-cache-admission-boundary"]},
+    {"name": "package-firewall-npm-ecosystem-not-clients", "query": "firewall ecosystem pnpm Yarn Bun", "expected_ids": ["github-package-firewall-routing-cache-admission-boundary"]},
+    {"name": "package-firewall-routing-not-config", "query": "firewall 経路の証拠 enforcement", "expected_ids": ["github-package-firewall-routing-cache-admission-boundary"]},
+    {"name": "package-firewall-cache-not-policy", "query": "firewall cache verify 再認可", "expected_ids": ["github-package-firewall-routing-cache-admission-boundary"]},
+    {"name": "package-firewall-offline-no-new-admission", "query": "firewall offline network要求", "expected_ids": ["github-package-firewall-routing-cache-admission-boundary"]},
+    {"name": "package-firewall-warm-policy-timestamp", "query": "firewall 同一性 観測日時", "expected_ids": ["github-package-firewall-routing-cache-admission-boundary"]},
+    {"name": "package-firewall-override-not-one-run", "query": "firewall override policy 全version", "expected_ids": ["github-package-firewall-routing-cache-admission-boundary"]},
+    {"name": "package-firewall-registry-no-fallback", "query": "firewall public registry 自動fallback", "expected_ids": ["github-package-firewall-routing-cache-admission-boundary"]},
+    {"name": "package-firewall-token-identity-not-name", "query": "firewall GITHUB_TOKEN repository token", "expected_ids": ["github-package-firewall-routing-cache-admission-boundary"]},
+    {"name": "package-firewall-not-all-signed", "query": "firewall attestation downgrade 署名必須", "expected_ids": ["github-package-firewall-routing-cache-admission-boundary"]},
+    {"name": "package-firewall-not-complete-sbom", "query": "firewall 完全なSBOM runtime保証", "expected_ids": ["github-package-firewall-routing-cache-admission-boundary"]},
+    {"name": "package-firewall-cold-warm-test-plan", "query": "firewall cold cache warm cache 実行済み", "expected_ids": ["github-package-firewall-routing-cache-admission-boundary"]}
   ]}

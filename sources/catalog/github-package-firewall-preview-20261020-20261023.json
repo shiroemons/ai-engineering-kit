@@ -1,0 +1,12 @@
+{
+  "id": "github-package-firewall-preview-20261020-20261023",
+  "url": "https://github.blog/changelog/2026-10-20-github-package-firewall-in-public-preview/",
+  "repository_url": "",
+  "commit_sha": "",
+  "version": "Published 2026-10-20; editorial clarification 2026-10-21; GitHub Enterprise Cloud public preview, npm ecosystem only; checked 2026-10-23 UTC",
+  "retrieved_at": "2026-10-23",
+  "license": "unknown; no open-content license identified on the GitHub Changelog page; original attributed summary only, no code copied",
+  "trust": "official",
+  "type": "release_notes",
+  "purpose": "public previewの提供対象、npm限定、metadataとdownloadのinstall-time gate、previewとGAの料金説明を確認。"
+}

@@ -1,0 +1,12 @@
+{
+  "id": "python-sentinel-pickle3151-20261023",
+  "url": "https://docs.python.org/3.15/library/pickle.html",
+  "repository_url": "",
+  "commit_sha": "",
+  "version": "Python 3.15.1 rolling pickle documentation; retrieved 2026-10-23",
+  "retrieved_at": "2026-10-23",
+  "license": "PSF-2.0; documentation code additionally 0BSD",
+  "trust": "official",
+  "type": "official_docs",
+  "purpose": "native webでstringを返す__reduce__のglobal lookup、unpickleのimport、失敗例外と信頼できないpickleの危険を確認。sentinelの配備境界を説明するための根拠。"
+}

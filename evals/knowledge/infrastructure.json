@@ -2032,6 +2032,90 @@
       "expected_ids": [
         "github-actions-execution-policy-workflow-path-boundary"
       ]
+    },
+    {
+      "name": "terraform-minimal-refresh-preplan-replan",
+      "query": "minimal-refresh preplan replan",
+      "expected_ids": [
+        "terraform-minimal-refresh-planning-drift-boundary"
+      ]
+    },
+    {
+      "name": "terraform-minimal-refresh-nochange-drift",
+      "query": "minimal-refresh No changes drift",
+      "expected_ids": [
+        "terraform-minimal-refresh-planning-drift-boundary"
+      ]
+    },
+    {
+      "name": "terraform-minimal-refresh-dependency-nonpropagation",
+      "query": "minimal-refresh 依存非伝播",
+      "expected_ids": [
+        "terraform-minimal-refresh-planning-drift-boundary"
+      ]
+    },
+    {
+      "name": "terraform-minimal-refresh-provider-upgrade-guard",
+      "query": "minimal-refresh provider upgrade lockfile",
+      "expected_ids": [
+        "terraform-minimal-refresh-planning-drift-boundary"
+      ]
+    },
+    {
+      "name": "terraform-minimal-refresh-identity-schema-guard",
+      "query": "minimal-refresh identity schema upgrade",
+      "expected_ids": [
+        "terraform-minimal-refresh-planning-drift-boundary"
+      ]
+    },
+    {
+      "name": "terraform-minimal-refresh-per-instance-key",
+      "query": "minimal-refresh for_each key",
+      "expected_ids": [
+        "terraform-minimal-refresh-planning-drift-boundary"
+      ]
+    },
+    {
+      "name": "terraform-minimal-refresh-ignore-changes-noop",
+      "query": "minimal-refresh ignore_changes NoOp",
+      "expected_ids": [
+        "terraform-minimal-refresh-planning-drift-boundary"
+      ]
+    },
+    {
+      "name": "terraform-minimal-refresh-replace-triggered-by",
+      "query": "minimal-refresh replace_triggered_by B",
+      "expected_ids": [
+        "terraform-minimal-refresh-planning-drift-boundary"
+      ]
+    },
+    {
+      "name": "terraform-minimal-refresh-invalid-refresh-only",
+      "query": "minimal-refresh refresh-only Incompatible",
+      "expected_ids": [
+        "terraform-minimal-refresh-planning-drift-boundary"
+      ]
+    },
+    {
+      "name": "terraform-minimal-refresh-invalid-refresh-false",
+      "query": "minimal-refresh refresh=false Incompatible",
+      "expected_ids": [
+        "terraform-minimal-refresh-planning-drift-boundary"
+      ]
+    },
+    {
+      "name": "terraform-minimal-refresh-destroy-allowed-not-recommended",
+      "query": "minimal-refresh destroy 禁止",
+      "expected_ids": [
+        "terraform-minimal-refresh-planning-drift-boundary"
+      ]
+    },
+    {
+      "name": "terraform-minimal-refresh-unrun-acceptance-scenarios",
+      "query": "minimal-refresh 受入れ試験 未実行",
+      "expected_ids": [
+        "terraform-minimal-refresh-planning-drift-boundary"
+      ]
     }
   ]
 }
