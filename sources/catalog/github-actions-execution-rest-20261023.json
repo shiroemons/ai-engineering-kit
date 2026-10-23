@@ -1,0 +1,12 @@
+{
+  "id": "github-actions-execution-rest-20261023",
+  "url": "https://docs.github.com/en/rest/actions/policies",
+  "repository_url": "https://github.com/github/docs",
+  "commit_sha": "",
+  "version": "GitHub Docs live REST reference を2026-10-23 UTC 再確認。例の X-GitHub-Api-Version は2026-03-10。organization/repository policy のみを対象とし初出版を主張しない",
+  "retrieved_at": "2026-10-23",
+  "license": "CC-BY-4.0 documentation; https://raw.githubusercontent.com/github/docs/main/LICENSE verified 2026-10-23; 出典付き原著要約、コード転載なし",
+  "trust": "official",
+  "type": "official_docs",
+  "purpose": "workflow_path の create/update 省略差、include/exclude/~ALL、repository 条件の server-side validation、has_parents と API permissions を再確認"
+}
