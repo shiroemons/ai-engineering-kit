@@ -1,0 +1,12 @@
+{
+  "id": "rfc7521-client-assertion-binding-20261023",
+  "url": "https://www.rfc-editor.org/rfc/rfc7521.html",
+  "repository_url": "",
+  "commit_sha": "",
+  "version": "RFC 7521, Standards Track, May 2015",
+  "retrieved_at": "2026-10-23",
+  "license": "IETF Trust Legal Provisions / BCP 78; extracted Code Components: Simplified BSD License per RFC copyright notice; no code copied",
+  "trust": "official",
+  "type": "official_docs",
+  "purpose": "§4.1–4.2.1 and §8.2: client_id照合、認証方式の多重使用、grantとの分離、盗まれたassertionと有効期間内の再利用の脅威を確認。"
+}

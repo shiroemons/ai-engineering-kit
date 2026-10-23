@@ -1,0 +1,12 @@
+{
+  "id": "rfc9110-range-resume-contract-20261023",
+  "url": "https://www.rfc-editor.org/rfc/rfc9110.html",
+  "repository_url": "",
+  "commit_sha": "",
+  "version": "RFC 9110 / STD 97, June 2022; sections 8.4, 8.8, 13.1.5, 14, 15.3.7, 15.5.17; verified 2026-10-23 UTC",
+  "retrieved_at": "2026-10-23",
+  "license": "IETF Trust Legal Provisions / BCP 78; Code Components: Revised BSD",
+  "trust": "official",
+  "type": "official_docs",
+  "purpose": "Range downloadのencoded byte位置、If-Rangeのstrong比較と200 fallback、206の部分/metadata省略/multipart、Content-Rangeと416、same strong validatorによる結合条件を確認。独自要約のみ。"
+}

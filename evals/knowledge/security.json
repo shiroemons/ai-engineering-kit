@@ -394,5 +394,17 @@
     {"name": "package-firewall-token-identity-not-name", "query": "firewall GITHUB_TOKEN repository token", "expected_ids": ["github-package-firewall-routing-cache-admission-boundary"]},
     {"name": "package-firewall-not-all-signed", "query": "firewall attestation downgrade 署名必須", "expected_ids": ["github-package-firewall-routing-cache-admission-boundary"]},
     {"name": "package-firewall-not-complete-sbom", "query": "firewall 完全なSBOM runtime保証", "expected_ids": ["github-package-firewall-routing-cache-admission-boundary"]},
-    {"name": "package-firewall-cold-warm-test-plan", "query": "firewall cold cache warm cache 実行済み", "expected_ids": ["github-package-firewall-routing-cache-admission-boundary"]}
+    {"name": "package-firewall-cold-warm-test-plan", "query": "firewall cold cache warm cache 実行済み", "expected_ids": ["github-package-firewall-routing-cache-admission-boundary"]},
+    {"name": "private-key-jwt-oidc-required-jti", "query": "private_key_jwt jti REQUIRED", "expected_ids": ["oauth-private-key-jwt-audience-replay-grant-boundary"]},
+    {"name": "private-key-jwt-base-rfc-replay-optional", "query": "7523 replay protection 任意", "expected_ids": ["oauth-private-key-jwt-audience-replay-grant-boundary"]},
+    {"name": "private-key-jwt-grant-binding-separate", "query": "client_assertion_type grant_type assertion", "expected_ids": ["oauth-private-key-jwt-audience-replay-grant-boundary"]},
+    {"name": "private-key-jwt-fapi-array-rejected", "query": "FAPI issuer 単一要素配列", "expected_ids": ["oauth-private-key-jwt-audience-replay-grant-boundary"]},
+    {"name": "private-key-jwt-draft-status-distinct", "query": "rfc7523bis-11 Final Approval Pending 2026-04-28", "expected_ids": ["oauth-private-key-jwt-audience-replay-grant-boundary"]},
+    {"name": "private-key-jwt-draft-typ-not-sufficient", "query": "client-authentication+jwt 欠落 非推奨", "expected_ids": ["oauth-private-key-jwt-audience-replay-grant-boundary"]},
+    {"name": "private-key-jwt-validation-type-separated", "query": "private_key_jwt Request Object 検証入口", "expected_ids": ["oauth-private-key-jwt-audience-replay-grant-boundary"]},
+    {"name": "private-key-jwt-atomic-replay-domain", "query": "private_key_jwt replica 原子的", "expected_ids": ["oauth-private-key-jwt-audience-replay-grant-boundary"]},
+    {"name": "private-key-jwt-kid-not-replay-namespace", "query": "private_key_jwt kid 識別子", "expected_ids": ["oauth-private-key-jwt-audience-replay-grant-boundary"]},
+    {"name": "private-key-jwt-replay-store-uncertain", "query": "private_key_jwt store 書込み結果不明", "expected_ids": ["oauth-private-key-jwt-audience-replay-grant-boundary"]},
+    {"name": "private-key-jwt-grant-failure-consumption", "query": "private_key_jwt grant 利用済み印", "expected_ids": ["oauth-private-key-jwt-audience-replay-grant-boundary"]},
+    {"name": "private-key-jwt-new-assertion-not-code-retry", "query": "private_key_jwt 新しいjti code", "expected_ids": ["oauth-private-key-jwt-audience-replay-grant-boundary"]}
   ]}

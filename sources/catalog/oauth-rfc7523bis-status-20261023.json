@@ -1,0 +1,12 @@
+{
+  "id": "oauth-rfc7523bis-status-20261023",
+  "url": "https://datatracker.ietf.org/doc/draft-ietf-oauth-rfc7523bis/",
+  "repository_url": "",
+  "commit_sha": "",
+  "version": "Datatracker status observed 2026-10-23: revision -11; Last updated 2026-10-19; Latest revision 2026-04-28; RFC Ed Queue; blocked: Final Approval Pending",
+  "retrieved_at": "2026-10-23",
+  "license": "unknown (Datatracker status-page reuse license not verified; only attributed original factual summary)",
+  "trust": "official",
+  "type": "official_docs",
+  "purpose": "draft本文の2026-03-26/2026-09-27表示と状態レコードの日付を区別し、2026-10-23時点でRFC Ed Queue / Final Approval Pendingの観測を記録。"
+}

@@ -1,0 +1,12 @@
+{
+  "id": "rfc9111-incomplete-range-cache-20261023",
+  "url": "https://www.rfc-editor.org/rfc/rfc9111.html",
+  "repository_url": "",
+  "commit_sha": "",
+  "version": "RFC 9111 / STD 98, June 2022; sections 3.2-3.4; verified 2026-10-23 UTC",
+  "retrieved_at": "2026-10-23",
+  "license": "IETF Trust Legal Provisions / BCP 78; Code Components: Revised BSD",
+  "trust": "official",
+  "type": "official_docs",
+  "purpose": "不完全応答の明示、Range未対応cacheの保存制約、保有区間内の配信、same strong validatorによる部分結合とmetadata更新を確認。ローカルjournal要件は独自設計として分離。"
+}
