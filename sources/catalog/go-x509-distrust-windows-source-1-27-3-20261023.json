@@ -1,0 +1,12 @@
+{
+  "id": "go-x509-distrust-windows-source-1-27-3-20261023",
+  "url": "https://raw.githubusercontent.com/golang/go/2aae1000ea1d4b28923b96db28acf4e3b99d6aff/src/crypto/x509/root_windows.go",
+  "repository_url": "https://github.com/golang/go",
+  "commit_sha": "2aae1000ea1d4b28923b96db28acf4e3b99d6aff",
+  "version": "go1.27.3 (2aae1000ea1d4b28923b96db28acf4e3b99d6aff)",
+  "retrieved_at": "2026-10-23",
+  "license": "BSD-3-Clause; https://raw.githubusercontent.com/golang/go/2aae1000ea1d4b28923b96db28acf4e3b99d6aff/LICENSE",
+  "trust": "primary-source",
+  "type": "github_repository_analysis",
+  "purpose": "systemVerify が OS 検証で得たchainを同じSPKI判定で除外し、全除外時に既存topErrまたはNoValidChainsを返す分岐を確認。Native web は cache miss のため同一40桁SHAの public raw HTTP で全文を取得。実機実行ではない。 git ls-remoteでrelease tagのSHAを照合し、固定LICENSEとファイルのBSD headerを確認。コード転載なし。"
+}

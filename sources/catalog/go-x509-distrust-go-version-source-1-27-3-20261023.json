@@ -1,0 +1,12 @@
+{
+  "id": "go-x509-distrust-go-version-source-1-27-3-20261023",
+  "url": "https://raw.githubusercontent.com/golang/go/2aae1000ea1d4b28923b96db28acf4e3b99d6aff/src/cmd/go/alldocs.go",
+  "repository_url": "https://github.com/golang/go",
+  "commit_sha": "2aae1000ea1d4b28923b96db28acf4e3b99d6aff",
+  "version": "go1.27.3 (2aae1000ea1d4b28923b96db28acf4e3b99d6aff)",
+  "retrieved_at": "2026-10-23",
+  "license": "BSD-3-Clause; https://raw.githubusercontent.com/golang/go/2aae1000ea1d4b28923b96db28acf4e3b99d6aff/LICENSE",
+  "trust": "primary-source",
+  "type": "github_repository_analysis",
+  "purpose": "Print Go version の説明から、file指定はその実行ファイルをbuildしたGo版、file指定なしはgo command自身の版、-mは利用可能な埋込module情報を表示する契約を確認。版固定pkg.go.devのnative web取得失敗後、同一40桁SHAの public raw HTTP で本文を取得。 git ls-remoteでrelease tagのSHAを照合し、固定LICENSEとファイルのBSD headerを確認。コード転載なし。"
+}

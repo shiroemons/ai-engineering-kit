@@ -1,0 +1,12 @@
+{
+  "id": "sqlite-limits-category-contract-20261023",
+  "url": "https://www.sqlite.org/c3ref/c_limit_attached.html",
+  "repository_url": "",
+  "commit_sha": "",
+  "version": "Rolling SQLite C API documentation, retrieved 2026-10-23 UTC; schema/trigger-step categories introduced in 3.54.0",
+  "retrieved_at": "2026-10-23",
+  "license": "Public domain (SQLite documentation; https://www.sqlite.org/copyright.html)",
+  "trust": "official",
+  "type": "official_docs",
+  "purpose": "schema object数、single triggerのSQL文数、trigger depth、VDBE program命令数という異なる制限単位を確認"
+}

@@ -1,0 +1,12 @@
+{
+  "id": "sqlite-354-limits-release-20261023",
+  "url": "https://www.sqlite.org/releaselog/3_54_0.html",
+  "repository_url": "",
+  "commit_sha": "",
+  "version": "SQLite 3.54.0, released 2026-10-09",
+  "retrieved_at": "2026-10-23",
+  "license": "Public domain (SQLite documentation; https://www.sqlite.org/copyright.html)",
+  "trust": "official",
+  "type": "release_notes",
+  "purpose": "SQLITE_LIMIT_SCHEMA と SQLITE_LIMIT_TRIGGER_STEPS の導入日・導入版を確認"
+}

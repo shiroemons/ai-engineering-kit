@@ -1,0 +1,12 @@
+{
+  "id": "anthropic-python-v200-client-contract-20261023",
+  "url": "https://github.com/anthropics/anthropic-sdk-python/tree/ecfee6cd504cfbf634919bdbd058fb74afdbd533",
+  "repository_url": "https://github.com/anthropics/anthropic-sdk-python",
+  "commit_sha": "ecfee6cd504cfbf634919bdbd058fb74afdbd533",
+  "version": "anthropic Python SDK v2.0.0 (2026-10-21), pinned commit ecfee6cd504cfbf634919bdbd058fb74afdbd533",
+  "retrieved_at": "2026-10-23",
+  "license": "Apache-2.0 (LICENSE at pinned commit verified; no external implementation copied)",
+  "trust": "official",
+  "type": "github_repository_analysis",
+  "purpose": "v2.0.0 release pageから40桁commitを確定し、src/anthropic/_constants.py、_client.pyのconstructor / auth_headers / default_headers / copy、types/message_param.py、LICENSEを実読。API版値とBearer認証の生成が別、明示credential排他・環境変数優先順、credential差替時のprofile由来base URL/headerと明示base URLの扱い、MessageParam role unionを確認。SDK install・live request・runtime実行は未実施。"
+}

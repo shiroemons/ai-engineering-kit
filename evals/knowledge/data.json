@@ -1412,6 +1412,104 @@
       "expected_ids": [
         "postgres-skip-locked-claim-recovery-boundary"
       ]
+    },
+    {
+      "name": "sqlite-limits-introduced-version",
+      "query": "SQLITE_LIMIT_SCHEMA 3.54.0 2026-10-09",
+      "expected_ids": [
+        "sqlite-schema-trigger-admission-budget-boundary"
+      ]
+    },
+    {
+      "name": "sqlite-limits-setter-prior-value",
+      "query": "sqlite3_limit 戻り値は変更前",
+      "expected_ids": [
+        "sqlite-schema-trigger-admission-budget-boundary"
+      ]
+    },
+    {
+      "name": "sqlite-limits-setter-clamp-readback",
+      "query": "SQLITE_LIMIT_TRIGGER_STEPS clamp readback",
+      "expected_ids": [
+        "sqlite-schema-trigger-admission-budget-boundary"
+      ]
+    },
+    {
+      "name": "sqlite-limits-negative-not-unlimited",
+      "query": "schema 負値 無制限化ではなく照会",
+      "expected_ids": [
+        "sqlite-schema-trigger-admission-budget-boundary"
+      ]
+    },
+    {
+      "name": "sqlite-limits-physical-connection-policy",
+      "query": "schema 全物理接続 pool",
+      "expected_ids": [
+        "sqlite-schema-trigger-admission-budget-boundary"
+      ]
+    },
+    {
+      "name": "sqlite-limits-schema-internal-implicit-count",
+      "query": "SQLITE_LIMIT_SCHEMA sqlite_schema 自動index",
+      "expected_ids": [
+        "sqlite-schema-trigger-admission-budget-boundary"
+      ]
+    },
+    {
+      "name": "sqlite-limits-schema-not-attached-total",
+      "query": "schema 他のattached databaseの件数を合算していない",
+      "expected_ids": [
+        "sqlite-schema-trigger-admission-budget-boundary"
+      ]
+    },
+    {
+      "name": "sqlite-limits-trigger-steps-not-depth",
+      "query": "SQLITE_LIMIT_TRIGGER_STEPS SQLITE_LIMIT_TRIGGER_DEPTH",
+      "expected_ids": [
+        "sqlite-schema-trigger-admission-budget-boundary"
+      ]
+    },
+    {
+      "name": "sqlite-limits-vdbe-ops-not-runtime",
+      "query": "SQLITE_LIMIT_VDBE_OP 累積回数",
+      "expected_ids": [
+        "sqlite-schema-trigger-admission-budget-boundary"
+      ]
+    },
+    {
+      "name": "sqlite-limits-parse-before-trigger-check",
+      "query": "sqlite3FinishTrigger 一時的なmemory",
+      "expected_ids": [
+        "sqlite-schema-trigger-admission-budget-boundary"
+      ]
+    },
+    {
+      "name": "sqlite-limits-lowering-not-retroactive",
+      "query": "sqlite3_limit 全再検査・縮小処理はしない",
+      "expected_ids": [
+        "sqlite-schema-trigger-admission-budget-boundary"
+      ]
+    },
+    {
+      "name": "sqlite-limits-progress-not-wall-clock",
+      "query": "schema callback間隔 厳密な時間上限ではない",
+      "expected_ids": [
+        "sqlite-schema-trigger-admission-budget-boundary"
+      ]
+    },
+    {
+      "name": "sqlite-limits-limits-not-overflow-fix",
+      "query": "SQLITE_LIMIT_SCHEMA heap-buffer 旧版",
+      "expected_ids": [
+        "sqlite-schema-trigger-admission-budget-boundary"
+      ]
+    },
+    {
+      "name": "sqlite-limits-runtime-not-tested",
+      "query": "schema 未実行のruntime試験案",
+      "expected_ids": [
+        "sqlite-schema-trigger-admission-budget-boundary"
+      ]
     }
   ]
 }
