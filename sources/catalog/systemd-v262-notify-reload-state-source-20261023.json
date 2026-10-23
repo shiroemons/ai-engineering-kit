@@ -1,0 +1,12 @@
+{
+  "id": "systemd-v262-notify-reload-state-source-20261023",
+  "url": "https://github.com/systemd/systemd/blob/8cc40e0c5e9234bf45084751ac53b1fbfe70b492/src/core/service.c",
+  "repository_url": "https://github.com/systemd/systemd",
+  "commit_sha": "8cc40e0c5e9234bf45084751ac53b1fbfe70b492",
+  "version": "systemd v262 source snapshot 8cc40e0c5e9234bf45084751ac53b1fbfe70b492",
+  "retrieved_at": "2026-10-23",
+  "license": "LGPL-2.1-or-later (SPDX headers in service.c, manager.c, process-util.c; LICENSES/README.md and LICENSE.LGPL2.1 checked; no source code copied)",
+  "trust": "primary-source",
+  "type": "github_repository_analysis",
+  "purpose": "service_check_reload_signal_handler、service_notify_message_process_state、service_enter_reload、service_enter_reload_signal、service_reload_finishとtimeout経路を静的分析。同commitのsrc/core/manager.cでbarrierがunit dispatchより先に処理される点、src/basic/process-util.cでSigCgt/SigBlkの読み出しを確認。runtime未実行。"
+}

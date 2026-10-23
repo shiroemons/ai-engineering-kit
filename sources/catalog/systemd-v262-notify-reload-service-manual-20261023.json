@@ -1,0 +1,12 @@
+{
+  "id": "systemd-v262-notify-reload-service-manual-20261023",
+  "url": "https://www.freedesktop.org/software/systemd/man/262/systemd.service.html",
+  "repository_url": "https://github.com/systemd/systemd",
+  "commit_sha": "8cc40e0c5e9234bf45084751ac53b1fbfe70b492",
+  "version": "systemd v262 versioned systemd.service manual",
+  "retrieved_at": "2026-10-23",
+  "license": "LGPL-2.1-or-later (man/systemd.service.xml SPDX header at 8cc40e0c5e9234bf45084751ac53b1fbfe70b492; LICENSES/README.md and LICENSE.LGPL2.1 checked)",
+  "trust": "official",
+  "type": "official_docs",
+  "purpose": "Type=notify-reloadのmain signal handler検査、初回READYでの拒否とreload直前の警告、ReloadSignal、NotifyAccess、ExecReload併用、TimeoutStartSec、ExecStartPostの順序を確認。versioned HTML本文と固定版XMLを照合。"
+}

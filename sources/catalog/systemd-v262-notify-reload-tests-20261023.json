@@ -1,0 +1,12 @@
+{
+  "id": "systemd-v262-notify-reload-tests-20261023",
+  "url": "https://github.com/systemd/systemd/blob/8cc40e0c5e9234bf45084751ac53b1fbfe70b492/test/units/TEST-80-NOTIFYACCESS.sh",
+  "repository_url": "https://github.com/systemd/systemd",
+  "commit_sha": "8cc40e0c5e9234bf45084751ac53b1fbfe70b492",
+  "version": "systemd v262 upstream test snapshot 8cc40e0c5e9234bf45084751ac53b1fbfe70b492",
+  "retrieved_at": "2026-10-23",
+  "license": "LGPL-2.1-or-later (SPDX headers in TEST-80-NOTIFYACCESS.sh and notify-reload-harness.sh; no test code copied)",
+  "trust": "primary-source",
+  "type": "github_repository_analysis",
+  "purpose": "同commitのTEST-80-NOTIFYACCESS.shとtest/integration-tests/TEST-80-NOTIFYACCESS/TEST-80-NOTIFYACCESS.units/notify-reload-harness.shを静的確認。handler欠落のResult=protocol、SIGSTOP例外、起動後handler解除でのsignal送信と非active化、正常reloadのReloadResult=successというassertionを記録。上流testを実行したとは扱わない。"
+}
