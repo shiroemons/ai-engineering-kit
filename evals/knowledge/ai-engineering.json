@@ -2252,6 +2252,76 @@
       "expected_ids": [
         "rag-cohere-rerank-truncation-result-index-boundary"
       ]
+    },
+    {
+      "name": "embed5-shared-pro-fast-space",
+      "query": "Cohere Pro/Fast 共有空間",
+      "expected_ids": [
+        "rag-cohere-embed5-pair-dimension-representation-boundary"
+      ]
+    },
+    {
+      "name": "embed5-default-dimension-change",
+      "query": "Embed5 2048 1536",
+      "expected_ids": [
+        "rag-cohere-embed5-pair-dimension-representation-boundary"
+      ]
+    },
+    {
+      "name": "embed5-matched-dimension-not-generation-proof",
+      "query": "Embed5 世代 1536",
+      "expected_ids": [
+        "rag-cohere-embed5-pair-dimension-representation-boundary"
+      ]
+    },
+    {
+      "name": "embed5-document-query-input-roles",
+      "query": "Embed5 search_document search_query",
+      "expected_ids": [
+        "rag-cohere-embed5-pair-dimension-representation-boundary"
+      ]
+    },
+    {
+      "name": "embed5-representation-count-shape",
+      "query": "Embed5 embedding_types 回収数",
+      "expected_ids": [
+        "rag-cohere-embed5-pair-dimension-representation-boundary"
+      ]
+    },
+    {
+      "name": "embed5-packed-binary-logical-dimension",
+      "query": "Embed5 packed-binary 128",
+      "expected_ids": [
+        "rag-cohere-embed5-pair-dimension-representation-boundary"
+      ]
+    },
+    {
+      "name": "embed5-truncation-coverage-shape",
+      "query": "Embed5 truncate 但書",
+      "expected_ids": [
+        "rag-cohere-embed5-pair-dimension-representation-boundary"
+      ]
+    },
+    {
+      "name": "embed5-explicit-matryoshka-dimension",
+      "query": "Embed5 Matryoshka output_dimension",
+      "expected_ids": [
+        "rag-cohere-embed5-pair-dimension-representation-boundary"
+      ]
+    },
+    {
+      "name": "embed5-fallback-encoder-admission",
+      "query": "Embed5 fallback 未対応",
+      "expected_ids": [
+        "rag-cohere-embed5-pair-dimension-representation-boundary"
+      ]
+    },
+    {
+      "name": "embed5-retrieval-quality-gate",
+      "query": "Embed5 Recall@k p95",
+      "expected_ids": [
+        "rag-cohere-embed5-pair-dimension-representation-boundary"
+      ]
     }
   ]
 }

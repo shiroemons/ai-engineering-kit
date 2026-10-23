@@ -1,0 +1,12 @@
+{
+  "id": "cohere-embed5-shared-space-release-20261005",
+  "url": "https://docs.cohere.com/changelog/embed-v5",
+  "repository_url": "",
+  "commit_sha": "",
+  "version": "Embed 5 release announcement dated 2026-09-30; embed-v5.0-pro / embed-v5.0-fast; verified 2026-10-05 UTC",
+  "retrieved_at": "2026-10-05",
+  "license": "unknown",
+  "trust": "official",
+  "type": "release_notes",
+  "purpose": "新しいPro/Fast pairの共有embedding空間と、Proで索引化しFastでqueryを生成する開発元推奨を確認。任意の同次元モデルの互換性や品質同等へ一般化しない。コード転載なし"
+}

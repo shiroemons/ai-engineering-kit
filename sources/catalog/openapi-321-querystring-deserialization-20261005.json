@@ -1,0 +1,12 @@
+{
+  "id": "openapi-321-querystring-deserialization-20261005",
+  "url": "https://spec.openapis.org/oas/v3.2.1.html",
+  "repository_url": "https://github.com/OAI/OpenAPI-Specification",
+  "commit_sha": "",
+  "version": "OpenAPI Specification 3.2.1; published 2026-09-10",
+  "retrieved_at": "2026-10-05",
+  "license": "Apache-2.0 (verified https://raw.githubusercontent.com/OAI/OpenAPI-Specification/3.2.1/LICENSE); original attributed summary and original examples only",
+  "trust": "official",
+  "type": "official_docs",
+  "purpose": "querystringのcontent必須・個別queryとの継承を含む相互排他、重複nameの順序付きarray復号、deepObjectの範囲、Encoding ObjectのcontentType切替、percent-encodingを確認。3.2.0と対象節の本文比較を実施。"
+}

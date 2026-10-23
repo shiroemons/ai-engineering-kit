@@ -1,0 +1,12 @@
+{
+  "id": "cohere-embed5-retrieval-input-roles-20261005",
+  "url": "https://docs.cohere.com/v2/docs/semantic-search-embed",
+  "repository_url": "",
+  "commit_sha": "",
+  "version": "Cohere Semantic Search with Embeddings guide using embed-v5.0-pro; rolling docs retrieved 2026-10-05 UTC, page publication/revision date not displayed",
+  "retrieved_at": "2026-10-05",
+  "license": "unknown",
+  "trust": "official",
+  "type": "official_docs",
+  "purpose": "search_documentとsearch_queryの用途分離、双方を明示次元とfloatに揃える例を照合。Pro/Proの例をPro/Fastの実測結果と扱わない。コード・例文・評価データ転載なし"
+}

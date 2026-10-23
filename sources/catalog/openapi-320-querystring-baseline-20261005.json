@@ -1,0 +1,12 @@
+{
+  "id": "openapi-320-querystring-baseline-20261005",
+  "url": "https://spec.openapis.org/oas/v3.2.0.html",
+  "repository_url": "https://github.com/OAI/OpenAPI-Specification",
+  "commit_sha": "",
+  "version": "OpenAPI Specification 3.2.0; published 2025-09-19",
+  "retrieved_at": "2026-10-05",
+  "license": "Apache-2.0 (verified https://raw.githubusercontent.com/OAI/OpenAPI-Specification/3.2.0/LICENSE); original attributed summary only",
+  "trust": "official",
+  "type": "official_docs",
+  "purpose": "querystring・content必須・個別queryとの相互排他・deepObject制限が3.2.0にも存在することを確認。Encoding By Nameの3.2.1復号文追加と、既存の要素別直列化を区別。"
+}

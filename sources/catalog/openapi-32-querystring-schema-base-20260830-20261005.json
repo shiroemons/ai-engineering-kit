@@ -1,0 +1,12 @@
+{
+  "id": "openapi-32-querystring-schema-base-20260830-20261005",
+  "url": "https://spec.openapis.org/oas/3.2/schema-base/2026-08-30",
+  "repository_url": "https://github.com/OAI/spec.openapis.org",
+  "commit_sha": "",
+  "version": "OAS 3.2 schema-base iteration 2026-08-30; references schema/2026-08-30, dialect/2026-02-26, meta/2026-02-26; retrieved 2026-10-05",
+  "retrieved_at": "2026-10-05",
+  "license": "Apache-2.0 (verified publication site https://spec.openapis.org/oas/ footer); used for local validation, not copied into repository",
+  "trust": "official",
+  "type": "official_docs",
+  "purpose": "公式JSONと参照先をHTTPS取得しjsonschema4.26.0で独自構造fixture6件を実行。同じparameters配列のquery/querystring混在は拒否、Path Itemから継承する混在は通過した観測の再現。native webでは取得エラー、urllib取得で検証。"
+}

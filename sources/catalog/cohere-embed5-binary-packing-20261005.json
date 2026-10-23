@@ -1,0 +1,12 @@
+{
+  "id": "cohere-embed5-binary-packing-20261005",
+  "url": "https://docs.cohere.com/docs/embeddings",
+  "repository_url": "",
+  "commit_sha": "",
+  "version": "Cohere Embeddings guide: Matryoshka, compression levels and bit/byte packing, embed-v5.0-pro examples; rolling docs retrieved 2026-10-05 UTC, publication/revision date not displayed",
+  "retrieved_at": "2026-10-05",
+  "license": "unknown",
+  "trust": "official",
+  "type": "official_docs",
+  "purpose": "output_dimensionでの次元選択、複数表現、1024論理次元のbinaryを128 byteに詰める説明を確認。説明文embeddings_typesとAPI/caseのembedding_typesの表記差を記録し、実装不具合と断定しない。コード転載なし"
+}
