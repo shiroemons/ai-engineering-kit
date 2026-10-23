@@ -1,0 +1,12 @@
+{
+  "id": "python-frozendict-stdtypes3151-20261023",
+  "url": "https://docs.python.org/3.15/builtins/stdtypes.html",
+  "repository_url": "https://github.com/python/cpython",
+  "commit_sha": "",
+  "version": "Python 3.15.1 documentation, rolling /3.15/ page retrieved 2026-10-23",
+  "retrieved_at": "2026-10-23",
+  "license": "PSF-2.0; documentation code additionally 0BSD",
+  "trust": "official",
+  "type": "official_docs",
+  "purpose": "Frozen dictionaries節で導入版、構築API、更新methodの不在、条件付きhashability、|=の再生成、dict非subclassを確認。"
+}

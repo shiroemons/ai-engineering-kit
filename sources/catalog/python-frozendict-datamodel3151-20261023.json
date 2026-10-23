@@ -1,0 +1,12 @@
+{
+  "id": "python-frozendict-datamodel3151-20261023",
+  "url": "https://docs.python.org/3.15/reference/datamodel.html",
+  "repository_url": "https://github.com/python/cpython",
+  "commit_sha": "",
+  "version": "Python 3.15.1 documentation, rolling /3.15/ page retrieved 2026-10-23",
+  "retrieved_at": "2026-10-23",
+  "license": "PSF-2.0; documentation code additionally 0BSD",
+  "trust": "official",
+  "type": "official_docs",
+  "purpose": "object.__hash__節でhash/equality契約、利用者定義classの既定hash、可変な比較値の危険、str/bytesのprocess間hash不安定性を確認。"
+}

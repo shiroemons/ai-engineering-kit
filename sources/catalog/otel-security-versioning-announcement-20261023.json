@@ -1,0 +1,12 @@
+{
+  "id": "otel-security-versioning-announcement-20261023",
+  "url": "https://opentelemetry.io/blog/2026/security-versioning-policy/",
+  "repository_url": "https://github.com/open-telemetry/opentelemetry.io",
+  "commit_sha": "0af314ede9e7cf438936107d4875b3b0c3a498ff",
+  "version": "2026-10-22 article by Robert Pająk (Splunk), page revision 0af314ede9e7cf438936107d4875b3b0c3a498ff; verified 2026-10-23 UTC",
+  "license": "CC-BY-4.0 (LICENSE at article revision verified); original Japanese summary, no code copied",
+  "trust": "maintainer",
+  "type": "maintainer_article",
+  "purpose": "Security versioning policy 告知の対象、限定的な挙動変更と移行確認を確認。第三者の脅威予測は根拠に採用せず、規範的契約は固定仕様で照合",
+  "retrieved_at": "2026-10-23"
+}

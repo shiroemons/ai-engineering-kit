@@ -1,0 +1,12 @@
+{
+  "id": "rabbitmq-deferral-release-table-20261023",
+  "url": "https://www.rabbitmq.com/release-information",
+  "repository_url": "",
+  "commit_sha": "",
+  "version": "RabbitMQ release table retrieved 2026-10-23; 4.4.0 Date of Release 2026-10-20",
+  "retrieved_at": "2026-10-23",
+  "license": "unknown",
+  "trust": "official",
+  "type": "official_docs",
+  "purpose": "公式release表の10月20日とGitHub published_atの10月19日を別の来歴として記録する。native webで本文を開いた。"
+}

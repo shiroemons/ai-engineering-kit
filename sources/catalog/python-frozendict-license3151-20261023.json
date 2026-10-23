@@ -1,0 +1,12 @@
+{
+  "id": "python-frozendict-license3151-20261023",
+  "url": "https://docs.python.org/3.15/license.html",
+  "repository_url": "https://github.com/python/cpython",
+  "commit_sha": "",
+  "version": "Python 3.15.1 History and License; retrieved 2026-10-23",
+  "retrieved_at": "2026-10-23",
+  "license": "PSF-2.0; documentation code additionally 0BSD",
+  "trust": "official",
+  "type": "official_docs",
+  "purpose": "Python文書のPSF-2.0と、文書内codeに追加適用される0BSDを確認。本調査は上流codeをコピーしない。"
+}

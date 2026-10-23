@@ -1294,6 +1294,48 @@
     {"name": "range-resume-journal-not-before-data", "query": "prefix journal metadata 先行", "expected_ids": ["http-range-if-range-resume-completion-boundary"]},
     {"name": "range-resume-etag-not-cross-resource", "query": "ETag 別URI 別tenant", "expected_ids": ["http-range-if-range-resume-completion-boundary"]},
     {"name": "range-resume-protocol-not-filesystem", "query": "filesystem crash consistency", "expected_ids": ["http-range-if-range-resume-completion-boundary"]},
-    {"name": "range-resume-fault-tests-not-executed", "query": "fault test 今回実行していない", "expected_ids": ["http-range-if-range-resume-completion-boundary"]}
+    {"name": "range-resume-fault-tests-not-executed", "query": "fault test 今回実行していない", "expected_ids": ["http-range-if-range-resume-completion-boundary"]},
+    {
+      "name": "messaging-rabbitmq-deferral-claim-credit",
+      "query": "deferral claim credit",
+      "expected_ids": [
+        "messaging-rabbitmq-deferral-claim-credit-deadline-boundary"
+      ]
+    },
+    {
+      "name": "messaging-rabbitmq-deferral-deadline",
+      "query": "deferral deadline 通常配送",
+      "expected_ids": [
+        "messaging-rabbitmq-deferral-claim-credit-deadline-boundary"
+      ]
+    },
+    {
+      "name": "messaging-rabbitmq-deferral-token-limit",
+      "query": "x-opt-deferral-token 256 bytes",
+      "expected_ids": [
+        "messaging-rabbitmq-deferral-claim-credit-deadline-boundary"
+      ]
+    },
+    {
+      "name": "messaging-rabbitmq-deferral-missing-token",
+      "query": "claim_deferred token 不在",
+      "expected_ids": [
+        "messaging-rabbitmq-deferral-claim-credit-deadline-boundary"
+      ]
+    },
+    {
+      "name": "messaging-rabbitmq-deferral-future-time",
+      "query": "should_delay 未来",
+      "expected_ids": [
+        "messaging-rabbitmq-deferral-claim-credit-deadline-boundary"
+      ]
+    },
+    {
+      "name": "messaging-rabbitmq-deferral-cross-token-order",
+      "query": "take_claimed_up_to 順序",
+      "expected_ids": [
+        "messaging-rabbitmq-deferral-claim-credit-deadline-boundary"
+      ]
+    }
   ]
 }

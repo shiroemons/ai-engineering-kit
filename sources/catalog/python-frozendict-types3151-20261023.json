@@ -1,0 +1,12 @@
+{
+  "id": "python-frozendict-types3151-20261023",
+  "url": "https://docs.python.org/3.15/library/types.html",
+  "repository_url": "https://github.com/python/cpython",
+  "commit_sha": "",
+  "version": "Python 3.15.1 documentation, rolling /3.15/ page retrieved 2026-10-23",
+  "retrieved_at": "2026-10-23",
+  "license": "PSF-2.0; documentation code additionally 0BSD",
+  "trust": "official",
+  "type": "official_docs",
+  "purpose": "MappingProxyTypeのdynamic viewと、3.12以降のhash(proxy)の基底mappingへの委譲を確認。read-only viewとsnapshotを区別する。"
+}

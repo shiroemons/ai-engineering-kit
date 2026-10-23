@@ -1,0 +1,12 @@
+{
+  "id": "otel-security-versioning-release-162-20261023",
+  "url": "https://github.com/open-telemetry/opentelemetry-specification/releases/tag/v1.62.0",
+  "repository_url": "https://github.com/open-telemetry/opentelemetry-specification",
+  "commit_sha": "18c5c1706e346fec3bdb5e135a6e3a78f461e586",
+  "version": "specification v1.62.0; GitHub published_at 2026-10-22T23:32:52Z; CHANGELOG label 2026-10-21; tag ref points directly to 18c5c1706e346fec3bdb5e135a6e3a78f461e586",
+  "license": "Apache-2.0 (same-tag LICENSE verified); original summary of release entry and metadata",
+  "trust": "official",
+  "type": "release_notes",
+  "purpose": "Supplementary Guidelines の PR #5357 収録、公開日時、仕様版と tag commit を確認。仕様の版を各言語 SDK の配布版と混同しない",
+  "retrieved_at": "2026-10-23"
+}

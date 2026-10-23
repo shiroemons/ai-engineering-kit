@@ -1,0 +1,12 @@
+{
+  "id": "otel-security-versioning-policy-pr5357-20261023",
+  "url": "https://github.com/open-telemetry/opentelemetry-specification/pull/5357",
+  "repository_url": "https://github.com/open-telemetry/opentelemetry-specification",
+  "commit_sha": "595ea5f213728151f41df589c7ef2e9703d454b0",
+  "version": "Merged PR #5357 at 595ea5f213728151f41df589c7ef2e9703d454b0, merged_at 2026-10-20T18:38:21Z; changes included in v1.62.0",
+  "license": "Apache-2.0 for repository file changes; PR commentary license unknown; attributed original summary only, no code copied",
+  "trust": "primary-source",
+  "type": "github_repository_analysis",
+  "purpose": "merge metadata、5ファイルの差分、および policy-only の範囲説明を確認。具体的な上限値・resource/metric 例外除去・上限超過時動作・後続提案の承認までは決定していない点を採用し、議論を最終仕様の代用にはしない",
+  "retrieved_at": "2026-10-23"
+}

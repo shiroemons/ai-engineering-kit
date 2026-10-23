@@ -1,0 +1,12 @@
+{
+  "id": "rabbitmq-deferral-amqp-docs-44-20261023",
+  "url": "https://www.rabbitmq.com/docs/amqp",
+  "repository_url": "",
+  "commit_sha": "",
+  "version": "RabbitMQ documentation Version 4.4, retrieved 2026-10-23",
+  "retrieved_at": "2026-10-23",
+  "license": "unknown",
+  "trust": "official",
+  "type": "official_docs",
+  "purpose": "AMQP 1.0限定のDeferred Messages、modified outcome、consumer acceptedとexactly-once非対応の説明を確認。native webで本文を開いた。"
+}

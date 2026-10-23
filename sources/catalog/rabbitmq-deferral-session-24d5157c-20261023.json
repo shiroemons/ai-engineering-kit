@@ -1,0 +1,12 @@
+{
+  "id": "rabbitmq-deferral-session-24d5157c-20261023",
+  "url": "https://github.com/rabbitmq/rabbitmq-server/blob/24d5157cd415ef396c8ecd40a2d08c4d7ad3da9f/deps/rabbit/src/rabbit_amqp_session.erl",
+  "repository_url": "https://github.com/rabbitmq/rabbitmq-server",
+  "commit_sha": "24d5157cd415ef396c8ecd40a2d08c4d7ad3da9f",
+  "version": "RabbitMQ v4.4.0 at 24d5157cd415ef396c8ecd40a2d08c4d7ad3da9f",
+  "retrieved_at": "2026-10-23",
+  "license": "MPL-2.0",
+  "trust": "primary-source",
+  "type": "github_repository_analysis",
+  "purpose": "固定tagのsettle_op_from_outcome、parse_deferred_tokens、claim_deferred_then_credit、validate_deferral_token_sizeを読解。AMQP型・256 byte/件制約とcreditとの分離を確認。ファイル先頭MPL-2.0を確認。native web取得はcache miss、公式GitHub connectorで全文取得。"
+}

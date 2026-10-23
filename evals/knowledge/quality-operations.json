@@ -949,6 +949,104 @@
     {"name": "go-test-count-one-not-build-clean", "query": "Go -count=1 build cache", "expected_ids": ["testing-go-test-timeout-json-completion-boundary"]},
     {"name": "go-test-race-near-budget", "query": "Go race 590s 600s", "expected_ids": ["testing-go-test-timeout-json-completion-boundary"]},
     {"name": "go-test-timeout-filter-scope", "query": "Go filter 正式run", "expected_ids": ["testing-go-test-timeout-json-completion-boundary"]},
-    {"name": "go-test-eval-not-runtime", "query": "Go 検索eval runtime 再現試験", "expected_ids": ["testing-go-test-timeout-json-completion-boundary"]}
+    {"name": "go-test-eval-not-runtime", "query": "Go 検索eval runtime 再現試験", "expected_ids": ["testing-go-test-timeout-json-completion-boundary"]},
+    {
+      "name": "otel-security-versioning-patch-api-config",
+      "query": "patch compile 設定",
+      "expected_ids": [
+        "opentelemetry-security-versioning-configuration-telemetry-boundary"
+      ]
+    },
+    {
+      "name": "otel-security-versioning-concrete-risk-not-performance",
+      "query": "concrete 性能改善",
+      "expected_ids": [
+        "opentelemetry-security-versioning-configuration-telemetry-boundary"
+      ]
+    },
+    {
+      "name": "otel-security-versioning-config-name-value",
+      "query": "parameter 削除 既定値",
+      "expected_ids": [
+        "opentelemetry-security-versioning-configuration-telemetry-boundary"
+      ]
+    },
+    {
+      "name": "otel-security-versioning-api-signature-preserved",
+      "query": "API signature plugin",
+      "expected_ids": [
+        "opentelemetry-security-versioning-configuration-telemetry-boundary"
+      ]
+    },
+    {
+      "name": "otel-security-versioning-abi-existing-not-universal",
+      "query": "ABI SHOULD 一律",
+      "expected_ids": [
+        "opentelemetry-security-versioning-configuration-telemetry-boundary"
+      ]
+    },
+    {
+      "name": "otel-security-versioning-telemetry-moratorium",
+      "query": "fixed-schema moratorium",
+      "expected_ids": [
+        "opentelemetry-security-versioning-configuration-telemetry-boundary"
+      ]
+    },
+    {
+      "name": "otel-security-versioning-override-not-compatible",
+      "query": "override 後方互換",
+      "expected_ids": [
+        "opentelemetry-security-versioning-configuration-telemetry-boundary"
+      ]
+    },
+    {
+      "name": "otel-security-versioning-collector-excluded",
+      "query": "clients Collector 除外",
+      "expected_ids": [
+        "opentelemetry-security-versioning-configuration-telemetry-boundary"
+      ]
+    },
+    {
+      "name": "otel-security-versioning-policy-not-limits",
+      "query": "policy default limits",
+      "expected_ids": [
+        "opentelemetry-security-versioning-configuration-telemetry-boundary"
+      ]
+    },
+    {
+      "name": "otel-security-versioning-startup-runtime",
+      "query": "初期化時 runtime failure",
+      "expected_ids": [
+        "opentelemetry-security-versioning-configuration-telemetry-boundary"
+      ]
+    },
+    {
+      "name": "otel-security-versioning-patch-backport-boundary",
+      "query": "patch backport minor",
+      "expected_ids": [
+        "opentelemetry-security-versioning-configuration-telemetry-boundary"
+      ]
+    },
+    {
+      "name": "otel-security-versioning-release-date-distinction",
+      "query": "2026-10-21 2026-10-22T23:32:52Z",
+      "expected_ids": [
+        "opentelemetry-security-versioning-configuration-telemetry-boundary"
+      ]
+    },
+    {
+      "name": "otel-security-versioning-boolean-rename-default",
+      "query": "Boolean 改名 既定値",
+      "expected_ids": [
+        "opentelemetry-security-versioning-configuration-telemetry-boundary"
+      ]
+    },
+    {
+      "name": "otel-security-versioning-upgrade-acceptance-evidence",
+      "query": "effective config fixture",
+      "expected_ids": [
+        "opentelemetry-security-versioning-configuration-telemetry-boundary"
+      ]
+    }
   ]
 }
