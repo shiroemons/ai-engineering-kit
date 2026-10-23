@@ -1,0 +1,12 @@
+{
+  "id": "postgres-conflict-select-rc1-announcement-20261023",
+  "url": "https://www.postgresql.org/about/news/postgresql-19-rc-1-released-3409/",
+  "repository_url": "",
+  "commit_sha": "",
+  "version": "PostgreSQL 19 RC1; announcement published 2026-10-15; RC2 and GA dates are plans, not releases",
+  "retrieved_at": "2026-10-23",
+  "license": "unknown",
+  "trust": "official",
+  "type": "release_notes",
+  "purpose": "RC1公開日、pre-release状態、2026-11-12 RC2予定と2026-11-19 GA予定を確認。ニュース本文固有の再利用ライセンスは未確認。原文転載なしの独自要約。"
+}

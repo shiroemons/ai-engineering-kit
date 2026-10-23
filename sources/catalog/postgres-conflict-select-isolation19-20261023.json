@@ -1,0 +1,12 @@
+{
+  "id": "postgres-conflict-select-isolation19-20261023",
+  "url": "https://www.postgresql.org/docs/19/transaction-iso.html",
+  "repository_url": "",
+  "commit_sha": "",
+  "version": "PostgreSQL 19 development transaction-isolation manual; retrieved 2026-10-23, not publication date",
+  "retrieved_at": "2026-10-23",
+  "license": "PostgreSQL License",
+  "trust": "official",
+  "type": "official_docs",
+  "purpose": "READ COMMITTEDのDO SELECTが競合transactionの確定を待ちstatement snapshot外のcommit済み行を返せる契約、通常SELECTのsnapshot境界、高い分離レベルの再試行を確認。 ライセンス根拠 https://www.postgresql.org/about/licence/ はsoftwareとdocumentationを対象とする。実装・fixture・原文を転載せず独自の日本語要約・分析として使用。"
+}

@@ -1,0 +1,12 @@
+{
+  "id": "ruby-io-buffer-api-4-0-20261023",
+  "url": "https://docs.ruby-lang.org/en/4.0/IO/Buffer.html",
+  "repository_url": "https://github.com/ruby/ruby",
+  "commit_sha": "",
+  "version": "Ruby 4.0 RDoc; patch version and page publication date not displayed; retrieved 2026-10-23 UTC",
+  "retrieved_at": "2026-10-23",
+  "license": "Ruby License OR BSD-2-Clause for underlying Ruby source (4.0 COPYING verified); documentation-specific text license not independently established; original summary only",
+  "trust": "official",
+  "type": "official_docs",
+  "purpose": "Versioned old contract for read/write/pread/pwrite: optional length before offset, minimum transfer intent, default remaining buffer and zero length requesting one operation. Not treated as Ruby 4.1 documentation."
+}

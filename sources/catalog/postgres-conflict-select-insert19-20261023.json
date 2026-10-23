@@ -1,0 +1,12 @@
+{
+  "id": "postgres-conflict-select-insert19-20261023",
+  "url": "https://www.postgresql.org/docs/19/sql-insert.html",
+  "repository_url": "",
+  "commit_sha": "",
+  "version": "PostgreSQL 19 development INSERT manual; unsupported-version label; individual update date not displayed",
+  "retrieved_at": "2026-10-23",
+  "license": "PostgreSQL License",
+  "trust": "official",
+  "type": "official_docs",
+  "purpose": "conflict_target・RETURNING必須、OLD/NEW、WHEREによる返却除外、選択を含むcount、必要権限を確認。RC1同梱insert.sgmlとも照合。 ライセンス根拠 https://www.postgresql.org/about/licence/ はsoftwareとdocumentationを対象とする。実装・fixture・原文を転載せず独自の日本語要約・分析として使用。"
+}

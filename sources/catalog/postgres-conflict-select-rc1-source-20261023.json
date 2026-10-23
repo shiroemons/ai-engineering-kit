@@ -1,0 +1,12 @@
+{
+  "id": "postgres-conflict-select-rc1-source-20261023",
+  "url": "https://github.com/postgres/postgres/tree/0b8bff042a997fe50fcd1c4c83b9ef1cc9ed8a89",
+  "repository_url": "https://github.com/postgres/postgres",
+  "commit_sha": "0b8bff042a997fe50fcd1c4c83b9ef1cc9ed8a89",
+  "version": "REL_19_RC1 at 0b8bff042a997fe50fcd1c4c83b9ef1cc9ed8a89; Stamp 19rc1 commit 2026-10-12T19:21:12Z; announcement 2026-10-15",
+  "retrieved_at": "2026-10-23",
+  "license": "PostgreSQL License",
+  "trust": "primary-source",
+  "type": "github_repository_analysis",
+  "purpose": "GitHub tag refとcommit metadataを照合。doc/src/sgml/ref/insert.sgml、src/backend/executor/nodeModifyTable.cのExecInsert/ExecOnConflictSelect/ExecOnConflictLockRow/ExecCheckTupleVisible、src/test/isolation/specs/insert-conflict-do-select.specと対応expected、src/test/regress/sql/insert_conflict.sqlと対応expectedのselfconflict節、src/test/regress/expected/triggers.outを静的読解。重複inputの返却とlocking時のcardinality error、trigger実行、visibility検査を確認。upstream期待値を読んだだけでruntime試験は実行していない。COPYRIGHTも同じcommitで確認。 ライセンス根拠 https://www.postgresql.org/about/licence/ はsoftwareとdocumentationを対象とする。実装・fixture・原文を転載せず独自の日本語要約・分析として使用。"
+}

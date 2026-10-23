@@ -1,0 +1,12 @@
+{
+  "id": "rabbitmq-timeout-quorum-docs-43-20261023",
+  "url": "https://www.rabbitmq.com/docs/4.3/quorum-queues",
+  "repository_url": "",
+  "commit_sha": "",
+  "version": "RabbitMQ Documentation 4.3, Quorum Queues / Consumer Timeout; live within version, publication date not displayed",
+  "retrieved_at": "2026-10-23",
+  "license": "unknown",
+  "trust": "official",
+  "type": "official_docs",
+  "purpose": "quorum timeoutの配送返却、protocol別通知、AMQP 0-9-1のclient capabilityによる差を確認。4.3.7の細部は固定release実装で照合。native webで本文を開いた。独自要約のみ。"
+}
