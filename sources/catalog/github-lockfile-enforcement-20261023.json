@@ -1,0 +1,12 @@
+{
+  "id": "github-lockfile-enforcement-20261023",
+  "url": "https://docs.github.com/en/actions/how-tos/administer/enforce-workflow-lockfiles",
+  "repository_url": "https://github.com/github/docs",
+  "commit_sha": "",
+  "version": "GitHub Docs live public preview enforcement guide, no fixed version/publication date; verified 2026-10-23 UTC",
+  "retrieved_at": "2026-10-23",
+  "license": "CC-BY-4.0 documentation; https://github.com/github/docs/blob/main/LICENSE verified 2026-10-23; original attributed summary, no copied examples",
+  "trust": "official",
+  "type": "official_docs",
+  "purpose": "Require lockfileの段階導入、Evaluate限定、offline coverageとonline検証の違い、Dependabotの限界を確認。"
+}

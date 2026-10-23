@@ -1,0 +1,12 @@
+{
+  "id": "github-lockfile-cli-snapshot-20261023",
+  "url": "https://github.com/github/gh-actions-lock/tree/306099fd71536793d6f1bab556ab318dcd8cb975",
+  "repository_url": "https://github.com/github/gh-actions-lock",
+  "commit_sha": "306099fd71536793d6f1bab556ab318dcd8cb975",
+  "version": "gh-actions-lock main snapshot 306099fd71536793d6f1bab556ab318dcd8cb975, commit 2026-10-22T16:18:34Z; pre-1.0; static reading only, not a tagged-release claim",
+  "retrieved_at": "2026-10-23",
+  "license": "MIT; LICENSE at the recorded commit checked; original analysis only, no source-code copying",
+  "trust": "primary-source",
+  "type": "github_repository_analysis",
+  "purpose": "README、internal/uses/uses.go、internal/workflowfile/workflowfile.go と testを固定読解。job-level reusableを分類してもlocking refsへ追加しない境界、imageとoffline検証の制限。"
+}

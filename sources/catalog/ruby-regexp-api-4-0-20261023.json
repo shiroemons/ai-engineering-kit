@@ -1,0 +1,12 @@
+{
+  "id": "ruby-regexp-api-4-0-20261023",
+  "url": "https://docs.ruby-lang.org/en/4.0/Regexp.html",
+  "repository_url": "https://github.com/ruby/ruby",
+  "commit_sha": "",
+  "version": "Ruby 4.0 RDoc; page patch version and publication date not displayed; retrieved 2026-10-23",
+  "retrieved_at": "2026-10-23",
+  "license": "Ruby License OR BSD-2-Clause (Ruby distribution documentation; COPYING and LEGAL verified; original summary only)",
+  "trust": "official",
+  "type": "official_docs",
+  "purpose": "matching timeoutのprocess-global/instance契約、nilのfallback、escapeによるliteral化を確認。https://docs.ruby-lang.org/en/4.0/COPYING.html と LEGAL.html を確認。コンパイル修正の収録版は別のrelease sourcesで判断し、RDoc表示4.0をpatch証明にしない。"
+}
