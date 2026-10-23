@@ -1,0 +1,12 @@
+{
+  "id": "pact-broker-environment-cvpv-v2120-release-20261023",
+  "url": "https://github.com/pact-foundation/pact_broker/releases/tag/v2.120.0",
+  "repository_url": "https://github.com/pact-foundation/pact_broker",
+  "commit_sha": "2393f531f4ad461df786c0316c61cd54349e1f07",
+  "version": "Pact Broker v2.120.0; published 2026-07-16T11:01:02Z; tag commit 2393f531f4ad461df786c0316c61cd54349e1f07",
+  "retrieved_at": "2026-10-23",
+  "license": "MIT",
+  "trust": "official",
+  "type": "release_notes",
+  "purpose": "environmentを対象とするcan-i-deployでcvpvを使う修正のrelease収録を確認。GitHub APIで公開日時とannotated tagのcommitを確認。本文は同repositoryのMIT対象CHANGELOGにも収録。"
+}

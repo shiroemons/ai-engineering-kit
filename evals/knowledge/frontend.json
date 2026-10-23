@@ -1557,6 +1557,23 @@
       "expected_ids": [
         "css-scroll-anchoring-manual-correction-boundary"
       ]
-    }
+    },
+    {"name": "beforeinput-draft-not-shipped", "query": "2026-10-15 最終勧告", "expected_ids": ["javascript-beforeinput-ime-edit-ownership-boundary"]},
+    {"name": "beforeinput-ime-noncancelable", "query": "insertCompositionText 取消不能", "expected_ids": ["javascript-beforeinput-ime-edit-ownership-boundary"]},
+    {"name": "beforeinput-autofill-missing", "query": "password manager 発生しない", "expected_ids": ["javascript-beforeinput-ime-edit-ownership-boundary"]},
+    {"name": "beforeinput-passive-not-cancelled", "query": "passive 取消し", "expected_ids": ["javascript-beforeinput-ime-edit-ownership-boundary"]},
+    {"name": "beforeinput-async-not-gate", "query": "await 同期handler", "expected_ids": ["javascript-beforeinput-ime-edit-ownership-boundary"]},
+    {"name": "beforeinput-composition-order-disagreement", "query": "compositionupdate 文書間不一致", "expected_ids": ["javascript-beforeinput-ime-edit-ownership-boundary"]},
+    {"name": "beforeinput-iscomposing-not-valid", "query": "isComposing 妥当性", "expected_ids": ["javascript-beforeinput-ime-edit-ownership-boundary"]},
+    {"name": "beforeinput-empty-range-not-no-edit", "query": "空配列 selection 編集意図", "expected_ids": ["javascript-beforeinput-ime-edit-ownership-boundary"]},
+    {"name": "beforeinput-targetranges-not-new", "query": "targetRanges 2025年版 新設", "expected_ids": ["javascript-beforeinput-ime-edit-ownership-boundary"]},
+    {"name": "beforeinput-synthetic-ranges-kept", "query": "synthetic 初期化された範囲", "expected_ids": ["javascript-beforeinput-ime-edit-ownership-boundary"]},
+    {"name": "beforeinput-dispatch-not-ack", "query": "dispatchEvent command成功", "expected_ids": ["javascript-beforeinput-ime-edit-ownership-boundary"]},
+    {"name": "beforeinput-react-not-native", "query": "onBeforeInput polyfill", "expected_ids": ["javascript-beforeinput-ime-edit-ownership-boundary"]},
+    {"name": "beforeinput-type-assertion-not-proof", "query": "nativeEvent 型assertion", "expected_ids": ["javascript-beforeinput-ime-edit-ownership-boundary"]},
+    {"name": "beforeinput-one-edit-owner", "query": "synthetic handler native listener 両方", "expected_ids": ["javascript-beforeinput-ime-edit-ownership-boundary"]},
+    {"name": "beforeinput-programmatic-not-input", "query": "programmatic reset 復元", "expected_ids": ["javascript-beforeinput-ime-edit-ownership-boundary"]},
+    {"name": "beforeinput-stale-validation-result", "query": "identity revision generation", "expected_ids": ["javascript-beforeinput-ime-edit-ownership-boundary"]},
+    {"name": "beforeinput-runtime-probe-blocked", "query": "155.0.8059.79 socket() 未検証", "expected_ids": ["javascript-beforeinput-ime-edit-ownership-boundary"]}
   ]
 }

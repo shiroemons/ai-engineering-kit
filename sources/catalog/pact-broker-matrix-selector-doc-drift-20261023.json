@@ -1,0 +1,12 @@
+{
+  "id": "pact-broker-matrix-selector-doc-drift-20261023",
+  "url": "https://docs.pact.io/pact_broker/advanced_topics/matrix_selectors",
+  "repository_url": "",
+  "commit_sha": "",
+  "version": "Unversioned Matrix selectors guide; page last updated 2023-08-31; environment+cvp example differs from Broker v2.122.0",
+  "retrieved_at": "2026-10-23",
+  "license": "unknown",
+  "trust": "official",
+  "type": "official_docs",
+  "purpose": "cvp/cvpvのgrouping説明とenvironment+cvp例を確認。取得日時点の例はv2.120.0修正・v2.122.0実装と不一致のため、現行environment gateの実装例としては採用しない。"
+}

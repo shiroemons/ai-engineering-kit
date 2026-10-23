@@ -2371,6 +2371,83 @@
       "expected_ids": [
         "llm-claude-api-sdk-version-rollback-boundary"
       ]
+    },
+    {
+      "name": "lmeval-choice-character-not-token",
+      "query": "acc_norm Python文字列 token数",
+      "expected_ids": [
+        "evals-lm-eval-choice-likelihood-normalization-boundary"
+      ]
+    },
+    {
+      "name": "lmeval-choice-byte-unicode-reversal",
+      "query": "acc_bytes ab あ",
+      "expected_ids": [
+        "evals-lm-eval-choice-likelihood-normalization-boundary"
+      ]
+    },
+    {
+      "name": "lmeval-choice-label-not-answer-body",
+      "query": "ラベル採点 回答本文採点",
+      "expected_ids": [
+        "evals-lm-eval-choice-likelihood-normalization-boundary"
+      ]
+    },
+    {
+      "name": "lmeval-choice-not-greedy-generation",
+      "query": "候補内 is_greedy=false",
+      "expected_ids": [
+        "evals-lm-eval-choice-likelihood-normalization-boundary"
+      ]
+    },
+    {
+      "name": "lmeval-choice-normalized-correctness-not-logprob",
+      "query": "acc_norm 問題ごとの正誤",
+      "expected_ids": [
+        "evals-lm-eval-choice-likelihood-normalization-boundary"
+      ]
+    },
+    {
+      "name": "lmeval-choice-delimiter-outside-denominator",
+      "query": "target_delimiter 分母 含まれない",
+      "expected_ids": [
+        "evals-lm-eval-choice-likelihood-normalization-boundary"
+      ]
+    },
+    {
+      "name": "lmeval-choice-mutual-info-not-length",
+      "query": "acc_mutual_info 長さによる除算",
+      "expected_ids": [
+        "evals-lm-eval-choice-likelihood-normalization-boundary"
+      ]
+    },
+    {
+      "name": "lmeval-choice-prefix-not-empty-tokens",
+      "query": "空context prefix token",
+      "expected_ids": [
+        "evals-lm-eval-choice-likelihood-normalization-boundary"
+      ]
+    },
+    {
+      "name": "lmeval-choice-long-answer-changes-context",
+      "query": "候補のtoken長 context 短く",
+      "expected_ids": [
+        "evals-lm-eval-choice-likelihood-normalization-boundary"
+      ]
+    },
+    {
+      "name": "lmeval-choice-versions-not-model-name",
+      "query": "tokenizer/template/version artifacts",
+      "expected_ids": [
+        "evals-lm-eval-choice-likelihood-normalization-boundary"
+      ]
+    },
+    {
+      "name": "lmeval-choice-preflight-invalid-input",
+      "query": "空候補 不正gold NaN",
+      "expected_ids": [
+        "evals-lm-eval-choice-likelihood-normalization-boundary"
+      ]
     }
   ]
 }

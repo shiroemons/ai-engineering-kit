@@ -1,0 +1,12 @@
+{
+  "id": "pact-broker-environment-gate-v2122-code-20261023",
+  "url": "https://github.com/pact-foundation/pact_broker/tree/818e7bc48967f602fe3aca95c6138072e7e78307",
+  "repository_url": "https://github.com/pact-foundation/pact_broker",
+  "commit_sha": "818e7bc48967f602fe3aca95c6138072e7e78307",
+  "version": "Pact Broker v2.122.0; released 2026-10-01; full tag commit 818e7bc48967f602fe3aca95c6138072e7e78307",
+  "retrieved_at": "2026-10-23",
+  "license": "MIT",
+  "trust": "primary-source",
+  "type": "github_repository_analysis",
+  "purpose": "ParseCanIDeployQuery、branch-to-environment resource、Matrix::RepositoryとDeploymentStatusSummary、parse/integration/HTTP feature/summary specsを静的読解。環境cvpv、タグcvp、共存版回帰、三値と空集合の意味を確認。LICENSE.txtはMIT。Ruby/DB/CLIの実行は行っていない。"
+}
