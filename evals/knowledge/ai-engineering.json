@@ -2322,6 +2322,55 @@
       "expected_ids": [
         "rag-cohere-embed5-pair-dimension-representation-boundary"
       ]
+    },
+    {
+      "name": "claude-api-sdk-rollback-layers",
+      "query": "Claude rollback anthropic-version",
+      "expected_ids": [
+        "llm-claude-api-sdk-version-rollback-boundary"
+      ]
+    },
+    {
+      "name": "claude-api-sampling-default-rejected",
+      "query": "Claude temperature field省略",
+      "expected_ids": [
+        "llm-claude-api-sdk-version-rollback-boundary"
+      ]
+    },
+    {
+      "name": "claude-api-role-citations-history",
+      "query": "Claude citations serializer",
+      "expected_ids": [
+        "llm-claude-api-sdk-version-rollback-boundary"
+      ]
+    },
+    {
+      "name": "claude-sdk-messageparam-union",
+      "query": "MessageParam union TypeError",
+      "expected_ids": [
+        "llm-claude-api-sdk-version-rollback-boundary"
+      ]
+    },
+    {
+      "name": "claude-sdk-bearer-header-rollback",
+      "query": "Claude X-Api-Key Authorization rollback",
+      "expected_ids": [
+        "llm-claude-api-sdk-version-rollback-boundary"
+      ]
+    },
+    {
+      "name": "claude-sdk-credential-selection",
+      "query": "Claude credential gateway",
+      "expected_ids": [
+        "llm-claude-api-sdk-version-rollback-boundary"
+      ]
+    },
+    {
+      "name": "claude-api-bedrock-model-boundary",
+      "query": "Claude Bedrock 4.7 rollback",
+      "expected_ids": [
+        "llm-claude-api-sdk-version-rollback-boundary"
+      ]
     }
   ]
 }

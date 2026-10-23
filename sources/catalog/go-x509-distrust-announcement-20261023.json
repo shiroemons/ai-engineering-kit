@@ -1,0 +1,12 @@
+{
+  "id": "go-x509-distrust-announcement-20261023",
+  "url": "https://groups.google.com/g/golang-announce/c/66pojueaQek",
+  "repository_url": "https://github.com/golang/go",
+  "commit_sha": "",
+  "version": "Go 1.27.3 and Go 1.26.10; CVE-2026-111943; announcement 2026-10-19",
+  "retrieved_at": "2026-10-23",
+  "license": "unknown; original attributed summary only, no copied code",
+  "trust": "official",
+  "type": "release_notes",
+  "purpose": "Go team の公式告知本文を native web で取得。少数の intermediate certificates を含む chain を Verify の返却対象から除外する方針、CVE ID、更新推奨を確認。CA名や事故原因の詳細はこの告知から断定しない。"
+}

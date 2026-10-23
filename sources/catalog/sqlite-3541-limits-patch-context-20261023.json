@@ -1,0 +1,12 @@
+{
+  "id": "sqlite-3541-limits-patch-context-20261023",
+  "url": "https://www.sqlite.org/releaselog/3_54_1.html",
+  "repository_url": "",
+  "commit_sha": "",
+  "version": "SQLite 3.54.1, released 2026-10-16",
+  "retrieved_at": "2026-10-23",
+  "license": "Public domain (SQLite documentation; https://www.sqlite.org/copyright.html)",
+  "trust": "official",
+  "type": "release_notes",
+  "purpose": "固定実装のpatch版を確認。32-bit heap-buffer overflow修正と新limit機能の効果を混同しない"
+}

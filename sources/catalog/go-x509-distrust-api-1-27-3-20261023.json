@@ -1,0 +1,12 @@
+{
+  "id": "go-x509-distrust-api-1-27-3-20261023",
+  "url": "https://pkg.go.dev/crypto/x509@go1.27.3",
+  "repository_url": "https://github.com/golang/go",
+  "commit_sha": "",
+  "version": "go1.27.3; pkg.go.dev publication display 2026-10-20",
+  "retrieved_at": "2026-10-23",
+  "license": "BSD-3-Clause; https://raw.githubusercontent.com/golang/go/2aae1000ea1d4b28923b96db28acf4e3b99d6aff/LICENSE",
+  "trust": "official",
+  "type": "official_docs",
+  "purpose": "Native web で版固定 API 本文を確認。Verify の返却chain、Roots=nil のplatform経路、revocation checking を行わない警告と RawSubjectPublicKeyInfo の意味を参照。"
+}

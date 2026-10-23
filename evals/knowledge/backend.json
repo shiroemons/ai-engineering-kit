@@ -2484,6 +2484,62 @@
       "expected_ids": [
         "python-utf8-default-file-pipe-migration-boundary"
       ]
+    },
+    {
+      "name": "go-x509-distrust-release-boundary",
+      "query": "CVE-2026-111943 1.27.3 1.26.10",
+      "expected_ids": [
+        "go-x509-intermediate-distrust-binary-rollout"
+      ]
+    },
+    {
+      "name": "go-x509-distrust-spki-not-certificate-fingerprint",
+      "query": "SPKI fingerprint distrust",
+      "expected_ids": [
+        "go-x509-intermediate-distrust-binary-rollout"
+      ]
+    },
+    {
+      "name": "go-x509-distrust-alternative-valid-chain",
+      "query": "distrust 代替chain NoValidChains",
+      "expected_ids": [
+        "go-x509-intermediate-distrust-binary-rollout"
+      ]
+    },
+    {
+      "name": "go-x509-distrust-platform-post-verification",
+      "query": "SPKI platform Windows Darwin",
+      "expected_ids": [
+        "go-x509-intermediate-distrust-binary-rollout"
+      ]
+    },
+    {
+      "name": "go-x509-distrust-not-general-revocation",
+      "query": "CVE-2026-111943 失効確認 OCSP",
+      "expected_ids": [
+        "go-x509-intermediate-distrust-binary-rollout"
+      ]
+    },
+    {
+      "name": "go-x509-distrust-running-binary-version",
+      "query": "再ビルド ReadBuildInfo 稼働",
+      "expected_ids": [
+        "go-x509-intermediate-distrust-binary-rollout"
+      ]
+    },
+    {
+      "name": "go-x509-distrust-image-build-stage",
+      "query": "distrust build stage digest",
+      "expected_ids": [
+        "go-x509-intermediate-distrust-binary-rollout"
+      ]
+    },
+    {
+      "name": "go-x509-distrust-fresh-handshake-resumption",
+      "query": "distrust VerifyPeerCertificate DidResume",
+      "expected_ids": [
+        "go-x509-intermediate-distrust-binary-rollout"
+      ]
     }
   ]
 }

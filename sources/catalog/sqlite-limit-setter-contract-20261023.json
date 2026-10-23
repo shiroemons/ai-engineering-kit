@@ -1,0 +1,12 @@
+{
+  "id": "sqlite-limit-setter-contract-20261023",
+  "url": "https://www.sqlite.org/c3ref/limit.html",
+  "repository_url": "",
+  "commit_sha": "",
+  "version": "Rolling SQLite C API documentation, retrieved 2026-10-23 UTC",
+  "retrieved_at": "2026-10-23",
+  "license": "Public domain (SQLite documentation; https://www.sqlite.org/copyright.html)",
+  "trust": "official",
+  "type": "official_docs",
+  "purpose": "接続単位、負値は変更なし、戻り値は旧値、compile-time上限へのclamp、他の制御との役割分担を確認"
+}

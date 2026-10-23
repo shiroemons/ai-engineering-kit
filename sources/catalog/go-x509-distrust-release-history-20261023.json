@@ -1,0 +1,12 @@
+{
+  "id": "go-x509-distrust-release-history-20261023",
+  "url": "https://go.dev/doc/devel/release",
+  "repository_url": "https://github.com/golang/go",
+  "commit_sha": "",
+  "version": "Go 1.27.3 and Go 1.26.10; released 2026-10-19",
+  "retrieved_at": "2026-10-23",
+  "license": "CC-BY-4.0 for prose; https://go.dev/copyright",
+  "trust": "official",
+  "type": "release_notes",
+  "purpose": "Native web で release history 本文を取得し、1.27.3 / 1.26.10 の公開日と crypto/x509 security fix を確認。取得時点の記録で、将来の最新版を保証しない。"
+}

@@ -1,0 +1,12 @@
+{
+  "id": "claude-api-version-contract-20261023",
+  "url": "https://platform.claude.com/docs/en/api/versioning",
+  "repository_url": "",
+  "commit_sha": "",
+  "version": "Claude API versions 2023-06-01 and 2026-10-21; rolling official reference verified 2026-10-23 UTC",
+  "retrieved_at": "2026-10-23",
+  "license": "unknown (original attributed summary only; no external code copied)",
+  "trust": "official",
+  "type": "official_docs",
+  "purpose": "anthropic-versionの役割、版内で許される追加・error条件変更、2026-10-21のsampling削除・role依存のdocument/citations拒否、Bedrockでのモデル適用範囲を確認。ページ固有の更新日は表示なし。"
+}

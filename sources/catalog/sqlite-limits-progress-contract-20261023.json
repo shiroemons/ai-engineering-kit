@@ -1,0 +1,12 @@
+{
+  "id": "sqlite-limits-progress-contract-20261023",
+  "url": "https://www.sqlite.org/c3ref/progress_handler.html",
+  "repository_url": "",
+  "commit_sha": "",
+  "version": "Rolling SQLite C API documentation, retrieved 2026-10-23 UTC; prepare progress callbacks expanded in 3.41.0",
+  "retrieved_at": "2026-10-23",
+  "license": "Public domain (SQLite documentation; https://www.sqlite.org/copyright.html)",
+  "trust": "official",
+  "type": "official_docs",
+  "purpose": "progress callbackの概数命令間隔、非zeroによる中断、単一callback、prepare中の呼出可能性を確認"
+}

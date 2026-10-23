@@ -1,0 +1,12 @@
+{
+  "id": "claude-api-version-release-20261021-verified-20261023",
+  "url": "https://platform.claude.com/docs/en/release-notes/overview",
+  "repository_url": "",
+  "commit_sha": "",
+  "version": "Claude Platform release notes, October 21 2026 API version and SDK major releases; retrieved 2026-10-23 UTC",
+  "retrieved_at": "2026-10-23",
+  "license": "unknown (original attributed summary only; no external code copied)",
+  "trust": "official",
+  "type": "release_notes",
+  "purpose": "2026-10-21のAPI版公開とPython SDK 2.0.0 / TypeScript 1.0.0 / ant CLI 2.0.0などの既定header切替、API版に依存しないSDK変更の告知を確認。別日のモデル更新をこのAPI版の変更として扱わない。"
+}

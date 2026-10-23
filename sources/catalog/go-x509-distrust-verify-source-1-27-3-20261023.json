@@ -1,0 +1,12 @@
+{
+  "id": "go-x509-distrust-verify-source-1-27-3-20261023",
+  "url": "https://raw.githubusercontent.com/golang/go/2aae1000ea1d4b28923b96db28acf4e3b99d6aff/src/crypto/x509/verify.go",
+  "repository_url": "https://github.com/golang/go",
+  "commit_sha": "2aae1000ea1d4b28923b96db28acf4e3b99d6aff",
+  "version": "go1.27.3 (2aae1000ea1d4b28923b96db28acf4e3b99d6aff)",
+  "retrieved_at": "2026-10-23",
+  "license": "BSD-3-Clause; https://raw.githubusercontent.com/golang/go/2aae1000ea1d4b28923b96db28acf4e3b99d6aff/LICENSE",
+  "trust": "primary-source",
+  "type": "github_repository_analysis",
+  "purpose": "Verify の候補chain filtering、NoValidChains と他の検証エラー、8件の distrustedSPKIHashes、全chain要素の RawSubjectPublicKeyInfo に対する SHA-256 照合を確認。Native web と同一SHAの public raw HTTP で本文を取得。 git ls-remoteでrelease tagのSHAを照合し、固定LICENSEとファイルのBSD headerを確認。コード転載なし。"
+}

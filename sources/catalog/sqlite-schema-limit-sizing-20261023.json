@@ -1,0 +1,12 @@
+{
+  "id": "sqlite-schema-limit-sizing-20261023",
+  "url": "https://www.sqlite.org/limits.html",
+  "repository_url": "",
+  "commit_sha": "",
+  "version": "Limits in SQLite, retrieved 2026-10-23 UTC; page footer 2026-07-10; body identifies 3.54.0 (2026-10-09)",
+  "retrieved_at": "2026-10-23",
+  "license": "Public domain (SQLite documentation; https://www.sqlite.org/copyright.html)",
+  "trust": "official",
+  "type": "official_docs",
+  "purpose": "schema読込の時間・memoryとobject数の関係、既定schema cap 10 millionを確認。footerから機能公開日を推定しない"
+}
