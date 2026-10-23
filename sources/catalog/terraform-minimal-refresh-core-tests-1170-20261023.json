@@ -1,0 +1,12 @@
+{
+  "id": "terraform-minimal-refresh-core-tests-1170-20261023",
+  "url": "https://github.com/hashicorp/terraform/blob/018a99c83c5dcc6d87bcdc4637b1e8da572a7042/internal/terraform/context_plan_minimal_refresh_test.go",
+  "repository_url": "https://github.com/hashicorp/terraform",
+  "commit_sha": "018a99c83c5dcc6d87bcdc4637b1e8da572a7042",
+  "version": "Terraform v1.17.0; TestContext2Plan_minimal_refresh_*",
+  "retrieved_at": "2026-10-23",
+  "license": "BUSL-1.1 (pinned root LICENSE and test-file SPDX header verified; no code copied)",
+  "trust": "primary-source",
+  "type": "github_repository_analysis",
+  "purpose": "固定テストを読んだ。for_each、providerが作る変更、state/identity schema upgrade、ignore_changes、force_replace、replace_triggered_byのReadResourceCalledとaction assertionを確認。destroy/orphan/deposedケースおよびvalidation errorも確認。実行したテストではなく設計されたassertionの静的分析。"
+}

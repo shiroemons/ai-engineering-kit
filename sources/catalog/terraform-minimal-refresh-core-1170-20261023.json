@@ -1,0 +1,12 @@
+{
+  "id": "terraform-minimal-refresh-core-1170-20261023",
+  "url": "https://github.com/hashicorp/terraform/tree/018a99c83c5dcc6d87bcdc4637b1e8da572a7042/internal/terraform",
+  "repository_url": "https://github.com/hashicorp/terraform",
+  "commit_sha": "018a99c83c5dcc6d87bcdc4637b1e8da572a7042",
+  "version": "Terraform v1.17.0; node_resource_plan_instance.go and node_resource_abstract.go",
+  "retrieved_at": "2026-10-23",
+  "license": "BUSL-1.1 (pinned root LICENSE and node_resource_plan_instance.go SPDX header verified; no code copied)",
+  "trust": "primary-source",
+  "type": "github_repository_analysis",
+  "purpose": "同一SHAのGitHub connector取得内容を分析。managedResourceExecuteのinitial plan、NoOp時return、refresh後のplan、readResourceInstanceStateのstateSchemaUpgraded || identityUpgradedを確認。importing/nil stateを初期plan分岐から除く条件も確認。コード転載・Terraform実行なし。固定GitHub/raw URLのnative web取得はcache missだったためread-only connectorで内容を取得。"
+}

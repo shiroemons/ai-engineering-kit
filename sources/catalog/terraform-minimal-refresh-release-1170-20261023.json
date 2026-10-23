@@ -1,0 +1,12 @@
+{
+  "id": "terraform-minimal-refresh-release-1170-20261023",
+  "url": "https://github.com/hashicorp/terraform/releases/tag/v1.17.0",
+  "repository_url": "https://github.com/hashicorp/terraform",
+  "commit_sha": "",
+  "version": "Terraform v1.17.0; released 2026-10-21; release commit 018a99c83c5dcc6d87bcdc4637b1e8da572a7042",
+  "retrieved_at": "2026-10-23",
+  "license": "unknown (release page license not separately stated; original factual summary only)",
+  "trust": "official",
+  "type": "release_notes",
+  "purpose": "native webで2026-10-21公開のv1.17.0 releaseとminimal-refresh導入を確認。release commitをGitHub connectorで取得しCHANGELOGおよびversion/VERSIONの変更と照合。alphaの予定を安定版の提供事実と混同しない。"
+}

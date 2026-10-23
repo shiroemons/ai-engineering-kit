@@ -1,0 +1,12 @@
+{
+  "id": "python-sentinel-pep661-20261023",
+  "url": "https://peps.python.org/pep-0661/",
+  "repository_url": "",
+  "commit_sha": "",
+  "version": "PEP 661 Final; Python-Version 3.15; created 2021-06-06; last modified 2026-05-19",
+  "retrieved_at": "2026-10-23",
+  "license": "CC0-1.0-Universal or public domain",
+  "trust": "official",
+  "type": "official_docs",
+  "purpose": "native webで同名registry案の不採用、name一致の型認識、isによるnarrowing、backportとの差、copyrightを確認。旧草案や型checker実装状況と区別。"
+}

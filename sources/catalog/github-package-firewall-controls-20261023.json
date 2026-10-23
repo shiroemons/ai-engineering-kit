@@ -1,0 +1,12 @@
+{
+  "id": "github-package-firewall-controls-20261023",
+  "url": "https://docs.github.com/en/code-security/how-tos/secure-your-supply-chain/secure-your-dependencies/protecting-endpoints-with-package-firewall",
+  "repository_url": "https://github.com/github/docs",
+  "commit_sha": "",
+  "version": "GitHub Docs live page, no fixed page version or publication date; public preview verified 2026-10-23 UTC",
+  "retrieved_at": "2026-10-23",
+  "license": "CC-BY-4.0; github/docs LICENSE checked at https://github.com/github/docs/blob/main/LICENSE on 2026-10-23; original summary only",
+  "trust": "official",
+  "type": "official_docs",
+  "purpose": "policy controls、endpoint認証の条件、Artifactory experimental、version overrideと全versionへの拡張を確認。"
+}

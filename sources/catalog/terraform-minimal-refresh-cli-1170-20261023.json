@@ -1,0 +1,12 @@
+{
+  "id": "terraform-minimal-refresh-cli-1170-20261023",
+  "url": "https://github.com/hashicorp/terraform/tree/018a99c83c5dcc6d87bcdc4637b1e8da572a7042/internal/command/arguments",
+  "repository_url": "https://github.com/hashicorp/terraform",
+  "commit_sha": "018a99c83c5dcc6d87bcdc4637b1e8da572a7042",
+  "version": "Terraform v1.17.0; extended.go and plan_test.go",
+  "retrieved_at": "2026-10-23",
+  "license": "BUSL-1.1 (pinned root LICENSE and both file SPDX headers verified; no code copied)",
+  "trust": "primary-source",
+  "type": "github_repository_analysis",
+  "purpose": "extended.goのnormal/destroyのみ許可する検査とRefresh=false拒否、plan_test.goのTestParsePlan_minimal_refreshのdiagnostic assertionを確認。CLI受入れ試験は実行していない。destroyを禁止組合せと誤記せず、利用推奨と構文受理を区別する。"
+}

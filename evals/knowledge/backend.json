@@ -2540,6 +2540,48 @@
       "expected_ids": [
         "go-x509-intermediate-distrust-binary-rollout"
       ]
+    },
+    {
+      "name": "python-sentinel-missing-none-truthy",
+      "query": "sentinel None truthy",
+      "expected_ids": [
+        "python-sentinel-missing-pickle-identity-boundary"
+      ]
+    },
+    {
+      "name": "python-sentinel-same-name-distinct",
+      "query": "sentinel 同名 registry",
+      "expected_ids": [
+        "python-sentinel-missing-pickle-identity-boundary"
+      ]
+    },
+    {
+      "name": "python-sentinel-pickle-module-factory",
+      "query": "sentinel pickle factory",
+      "expected_ids": [
+        "python-sentinel-missing-pickle-identity-boundary"
+      ]
+    },
+    {
+      "name": "python-sentinel-reload-default-identity",
+      "query": "sentinel reload default",
+      "expected_ids": [
+        "python-sentinel-missing-pickle-identity-boundary"
+      ]
+    },
+    {
+      "name": "python-sentinel-type-narrowing-boundary",
+      "query": "sentinel narrowing 型checker",
+      "expected_ids": [
+        "python-sentinel-missing-pickle-identity-boundary"
+      ]
+    },
+    {
+      "name": "python-sentinel-class-pickle-qualified-name",
+      "query": "sentinel qualified name",
+      "expected_ids": [
+        "python-sentinel-missing-pickle-identity-boundary"
+      ]
     }
   ]
 }
