@@ -1,0 +1,12 @@
+{
+  "id": "python-utf8-pep686-20261023",
+  "url": "https://peps.python.org/pep-0686/",
+  "repository_url": "",
+  "commit_sha": "",
+  "version": "PEP 686 Final; Python-Version 3.15; created 2022-03-18; page last modified 2026-01-19 UTC",
+  "retrieved_at": "2026-10-23",
+  "license": "Public Domain or CC0-1.0-Universal, whichever is more permissive; PEP Copyright section",
+  "trust": "official",
+  "type": "official_docs",
+  "purpose": "native webで仕様・Backward Compatibility・Rejected Alternativeを確認。locale指定の3.11修正、警告による移行、PYTHONIOENCODINGをsubprocess PIPEの既定codecに使う案の却下を根拠化。Copyright節を確認。"
+}

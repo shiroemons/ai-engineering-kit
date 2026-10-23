@@ -1,0 +1,12 @@
+{
+  "id": "otel-hostmetrics-process-release-0163-20261023",
+  "url": "https://github.com/open-telemetry/opentelemetry-collector-contrib/releases/tag/v0.163.0",
+  "repository_url": "https://github.com/open-telemetry/opentelemetry-collector-contrib",
+  "commit_sha": "df849b5403c041d5e799e7846392a6f18b0b55ae",
+  "version": "Contrib v1.2.0/v0.163.0; published_at 2026-10-14T06:53:39Z; annotated tag cd451b4b016f2e7268cbf8205663f9e6cba0bf84 resolves to df849b5403c041d5e799e7846392a6f18b0b55ae",
+  "license": "unknown (release-page text-specific license not verified); original summary only, no code copied",
+  "trust": "official",
+  "type": "release_notes",
+  "purpose": "2026-10-23時点の直近公開 release を確認し、調査実装の適用版と完全 commit SHA を固定。公開時刻と tag object の解決を GitHub API で照合",
+  "retrieved_at": "2026-10-23"
+}

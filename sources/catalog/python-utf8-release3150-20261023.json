@@ -1,0 +1,12 @@
+{
+  "id": "python-utf8-release3150-20261023",
+  "url": "https://www.python.org/downloads/release/python-3150/",
+  "repository_url": "",
+  "commit_sha": "",
+  "version": "Python 3.15.0; released 2026-10-09",
+  "retrieved_at": "2026-10-23",
+  "license": "unknown",
+  "trust": "official",
+  "type": "release_notes",
+  "purpose": "公式配布ページをnative webで開いて実公開日とUTF-8既定化を確認。予定日ではなく公開日の根拠。ページ自体の個別licenseは未確認、日付と変更点の独自要約のみ。"
+}

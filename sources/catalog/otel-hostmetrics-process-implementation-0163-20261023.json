@@ -1,0 +1,12 @@
+{
+  "id": "otel-hostmetrics-process-implementation-0163-20261023",
+  "url": "https://github.com/open-telemetry/opentelemetry-collector-contrib/tree/df849b5403c041d5e799e7846392a6f18b0b55ae/receiver/hostmetricsreceiver",
+  "repository_url": "https://github.com/open-telemetry/opentelemetry-collector-contrib",
+  "commit_sha": "df849b5403c041d5e799e7846392a6f18b0b55ae",
+  "version": "Contrib v0.163.0 source and tests at df849b5403c041d5e799e7846392a6f18b0b55ae; retrieved 2026-10-23 UTC; upstream tests read, not executed",
+  "license": "Apache-2.0 (same-commit LICENSE and handwritten source SPDX headers verified 2026-10-23 UTC); original analysis, no code copied",
+  "trust": "primary-source",
+  "type": "github_repository_analysis",
+  "purpose": "receiver factory.go/factory_test.go/README.md/internal metadata gate登録と、processscraper metadata.yaml、config.go、factory.go、process_scraper.go/process_scraper_linux.go/process_scraper_test.go、validate_platform_linux.go/validate_platform_others.go/validate_platform_windows.go、internal/metadata generated_config.go/generated_metrics.go/generated_metrics_test.go/generated_feature_gates.go/generated_status.goを照合。global gate上書き、同名衝突、target明示false、legacy収集guardとtestの検証範囲を分析",
+  "retrieved_at": "2026-10-23"
+}

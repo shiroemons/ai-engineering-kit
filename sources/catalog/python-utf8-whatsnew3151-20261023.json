@@ -1,0 +1,12 @@
+{
+  "id": "python-utf8-whatsnew3151-20261023",
+  "url": "https://docs.python.org/3.15/whatsnew/3.15.html",
+  "repository_url": "",
+  "commit_sha": "",
+  "version": "Python 3.15 release notes; rendered 3.15.1 documentation; 3.15 release date 2026-10-09",
+  "retrieved_at": "2026-10-23",
+  "license": "PSF-2.0; documentation code additionally 0BSD; https://docs.python.org/3.15/license.html",
+  "trust": "official",
+  "type": "release_notes",
+  "purpose": "native webでOther language changesを読み、encoding省略時の既定変更、明示encodingによる版間互換、EncodingWarning、utf8=0による旧動作への切替を確認。rolling URL、本文の編集公開日は未表示。"
+}

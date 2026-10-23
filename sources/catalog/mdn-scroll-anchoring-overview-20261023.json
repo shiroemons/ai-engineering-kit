@@ -1,0 +1,12 @@
+{
+  "id": "mdn-scroll-anchoring-overview-20261023",
+  "url": "https://developer.mozilla.org/en-US/docs/Web/CSS/Guides/Scroll_anchoring/Overview",
+  "repository_url": "",
+  "commit_sha": "",
+  "version": "MDN Overview of scroll anchoring, last modified 2025-11-07; live page retrieved 2026-10-23 UTC",
+  "retrieved_at": "2026-10-23",
+  "license": "CC-BY-SA-2.5-or-later for documentation, per https://developer.mozilla.org/en-US/docs/MDN/Writing_guidelines/Attrib_copyright_license checked 2026-10-23; no prose or code copied",
+  "trust": "official",
+  "type": "official_docs",
+  "purpose": "既定有効の動作とscroll listenerの診断、除外したsubtreeの子ではautoで再有効化できないという説明を確認。独立したnested scrolling boxの例外はCSSWG草案を参照し、MDNの略説を過度に一般化しない。"
+}

@@ -2400,6 +2400,90 @@
       "expected_ids": [
         "ruby-regexp-compile-timeout-patch-boundary"
       ]
+    },
+    {
+      "name": "python-utf8-default-release-boundary",
+      "query": "Python 3.15 UTF-8 2026-10-09",
+      "expected_ids": [
+        "python-utf8-default-file-pipe-migration-boundary"
+      ]
+    },
+    {
+      "name": "python-utf8-explicit-locale-not-detection",
+      "query": "encoding=\"locale\" 判定 codec",
+      "expected_ids": [
+        "python-utf8-default-file-pipe-migration-boundary"
+      ]
+    },
+    {
+      "name": "python-utf8-preferred-vs-current-locale",
+      "query": "getpreferredencoding getencoding LC_CTYPE",
+      "expected_ids": [
+        "python-utf8-default-file-pipe-migration-boundary"
+      ]
+    },
+    {
+      "name": "python-utf8-subprocess-not-child-agreement",
+      "query": "subprocess text=True 子process 合意",
+      "expected_ids": [
+        "python-utf8-default-file-pipe-migration-boundary"
+      ]
+    },
+    {
+      "name": "python-utf8-pythonioencoding-not-pipe-default",
+      "query": "PYTHONIOENCODING PIPE 却下",
+      "expected_ids": [
+        "python-utf8-default-file-pipe-migration-boundary"
+      ]
+    },
+    {
+      "name": "python-utf8-binary-newline-preservation",
+      "query": "binary text 改行 E9",
+      "expected_ids": [
+        "python-utf8-default-file-pipe-migration-boundary"
+      ]
+    },
+    {
+      "name": "python-utf8-warning-not-correctness",
+      "query": "EncodingWarning 警告 文字化け",
+      "expected_ids": [
+        "python-utf8-default-file-pipe-migration-boundary"
+      ]
+    },
+    {
+      "name": "python-utf8-startup-opt-out",
+      "query": "PYTHONUTF8=0 起動 sys.flags.utf8_mode",
+      "expected_ids": [
+        "python-utf8-default-file-pipe-migration-boundary"
+      ]
+    },
+    {
+      "name": "python-utf8-isolated-environment-ignored",
+      "query": "PYTHON -I 環境変数",
+      "expected_ids": [
+        "python-utf8-default-file-pipe-migration-boundary"
+      ]
+    },
+    {
+      "name": "python-utf8-error-handler-boundary",
+      "query": "surrogateescape strict 標準入力",
+      "expected_ids": [
+        "python-utf8-default-file-pipe-migration-boundary"
+      ]
+    },
+    {
+      "name": "python-utf8-limited-runtime-evidence",
+      "query": "CPython 3.12.14 ISO-8859-1 UnicodeDecodeError",
+      "expected_ids": [
+        "python-utf8-default-file-pipe-migration-boundary"
+      ]
+    },
+    {
+      "name": "python-utf8-write-rollback-consumer",
+      "query": "rollback consumer 出力形式",
+      "expected_ids": [
+        "python-utf8-default-file-pipe-migration-boundary"
+      ]
     }
   ]
 }
