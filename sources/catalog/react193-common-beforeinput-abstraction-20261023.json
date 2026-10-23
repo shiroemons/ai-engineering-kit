@@ -1,0 +1,12 @@
+{
+  "id": "react193-common-beforeinput-abstraction-20261023",
+  "url": "https://react.dev/reference/react-dom/components/common",
+  "repository_url": "",
+  "commit_sha": "",
+  "version": "React documentation displayed v19.3; unversioned page with no publication date displayed; verified 2026-10-23 UTC; runtime not tested",
+  "retrieved_at": "2026-10-23",
+  "license": "CC-BY-4.0 documentation; https://github.com/reactjs/react.dev/blob/main/LICENSE-DOCS.md; original summary; no samples copied",
+  "trust": "official",
+  "type": "official_docs",
+  "purpose": "onBeforeInputがnative beforeinputではなく他eventからのpolyfillである旨、nativeEvent対応が公開API契約ではない旨、ref cleanupとcontentEditable警告の範囲を確認。"
+}

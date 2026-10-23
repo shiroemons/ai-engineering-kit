@@ -1,0 +1,12 @@
+{
+  "id": "lmeval-choice-release-0-4-13-20261023",
+  "url": "https://github.com/EleutherAI/lm-evaluation-harness/releases/tag/v0.4.13",
+  "repository_url": "https://github.com/EleutherAI/lm-evaluation-harness",
+  "commit_sha": "",
+  "version": "v0.4.13; published_at 2026-08-31T20:42:30Z; dereferenced tag commit ddd67220430a2470529f25fd5c05a576ca1057a0",
+  "retrieved_at": "2026-10-23",
+  "license": "unknown; release prose license not established; original summary only",
+  "trust": "official",
+  "type": "release_notes",
+  "purpose": "Native webで実際のrelease本文を確認。few-shot評価document混入等の修正が既報値を変え得るとの注意を採用。公開日時はGitHub release APIをPython urllibで照合し、git ls-remoteでannotated tagをdereferenceしたcommitを確認。release APIのnative web取得は失敗したため補助取得で照合。最新全般・全修正の検証ではない。"
+}

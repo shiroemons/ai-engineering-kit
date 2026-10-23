@@ -1,0 +1,12 @@
+{
+  "id": "pact-broker-verification-publication-20261023",
+  "url": "https://docs.pact.io/pact_broker/advanced_topics/provider_verification_results",
+  "repository_url": "",
+  "commit_sha": "",
+  "version": "Unversioned verification-results guide; page last updated 2023-01-26",
+  "retrieved_at": "2026-10-23",
+  "license": "unknown",
+  "trust": "official",
+  "type": "official_docs",
+  "purpose": "provider application versionとverification publishing設定、同一pact内容への結果再利用、consumer deploy前のBroker照会を確認。古い言語別最低版表やtag推奨を現行推奨として拡張しない。"
+}

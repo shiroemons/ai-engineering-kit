@@ -1,0 +1,12 @@
+{
+  "id": "w3c-uievents20260221-composition-order-20261023",
+  "url": "https://www.w3.org/TR/2026/WD-uievents-20260221/",
+  "repository_url": "",
+  "commit_sha": "",
+  "version": "UI Events, W3C Working Draft 2026-02-21",
+  "retrieved_at": "2026-10-23",
+  "license": "W3C Software and Document License 2023 (https://www.w3.org/copyright/software-license-2023/); original summary only; no code copied",
+  "trust": "official",
+  "type": "official_docs",
+  "purpose": "§3.4.1のisComposingと§3.6.6のcompositionupdate順序を確認。Input Events Level 2との文書間不一致を記録し、特定ブラウザーの実測結果とは扱わない。"
+}

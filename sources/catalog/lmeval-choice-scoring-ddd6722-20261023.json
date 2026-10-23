@@ -1,0 +1,12 @@
+{
+  "id": "lmeval-choice-scoring-ddd6722-20261023",
+  "url": "https://github.com/EleutherAI/lm-evaluation-harness/tree/ddd67220430a2470529f25fd5c05a576ca1057a0",
+  "repository_url": "https://github.com/EleutherAI/lm-evaluation-harness",
+  "commit_sha": "ddd67220430a2470529f25fd5c05a576ca1057a0",
+  "version": "lm_eval 0.4.13; pyproject.toml version=0.4.13; commit ddd67220430a2470529f25fd5c05a576ca1057a0",
+  "retrieved_at": "2026-10-23",
+  "license": "MIT; LICENSE.md and pyproject.toml verified. metrics.py separately identifies an Apache-derived exact-match section, which is not analyzed or copied here. No source code copied.",
+  "trust": "official",
+  "type": "github_repository_analysis",
+  "purpose": "Native webで固定commitのlm_eval/api/task.py、model.py、metrics.py、models/huggingface.py、pyproject.toml、LICENSE.mdを実読し、同じraw URLのローカル取得とも照合。ConfigurableTaskのrequest構築・char/UTF-8 byte正規化・mutual-info分割・exact_match、TemplateLMの空白移動/prefix、HFLMのlogprob合計と左側切詰め、metricのmean登録を確認。tests/test_metrics.pyはnative webのcache miss後にurllibで同commitを取得して回帰ケースを読解した。tests/test_task.pyは404で不採用。公式テスト・モデル推論は未実行。"
+}

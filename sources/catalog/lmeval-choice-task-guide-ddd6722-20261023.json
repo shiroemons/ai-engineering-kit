@@ -1,0 +1,12 @@
+{
+  "id": "lmeval-choice-task-guide-ddd6722-20261023",
+  "url": "https://github.com/EleutherAI/lm-evaluation-harness/blob/ddd67220430a2470529f25fd5c05a576ca1057a0/docs/task_guide.md",
+  "repository_url": "https://github.com/EleutherAI/lm-evaluation-harness",
+  "commit_sha": "ddd67220430a2470529f25fd5c05a576ca1057a0",
+  "version": "lm_eval 0.4.13 task guide at ddd67220430a2470529f25fd5c05a576ca1057a0; standalone publication date not shown",
+  "retrieved_at": "2026-10-23",
+  "license": "MIT; root LICENSE.md at the same commit covers software and associated documentation; no code copied",
+  "trust": "official",
+  "type": "official_docs",
+  "purpose": "Native webで固定commitのraw task guideを実読。YAMLとcode commitの再現条件、doc_to_choice/doc_to_target、output_type、target_delimiter既定空白とmetric設定を確認。ConfigurableTaskの既定single-target multiple_choiceへ適用を限定し、tokenizerやtemplate等の追加manifestは本書の設計案。"
+}

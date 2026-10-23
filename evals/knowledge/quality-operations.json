@@ -920,6 +920,21 @@
       "expected_ids": [
         "opentelemetry-hostmetrics-process-rc-dual-emission-boundary"
       ]
-    }
+    },
+    {"name": "pact-environment-release-fix-version", "query": "Pact 2.120.0 2026-07-16 cvpv", "expected_ids": ["testing-pact-environment-version-deployment-gate"]},
+    {"name": "pact-environment-coexisting-provider-failure", "query": "Pact C7 P40 P41 2組", "expected_ids": ["testing-pact-environment-version-deployment-gate"]},
+    {"name": "pact-environment-tag-not-fixed-path", "query": "Pact tag cvp latest", "expected_ids": ["testing-pact-environment-version-deployment-gate"]},
+    {"name": "pact-environment-docs-example-drift", "query": "Pact 2023-08-31 environment cvp", "expected_ids": ["testing-pact-environment-version-deployment-gate"]},
+    {"name": "pact-environment-api-status-not-gate", "query": "Pact HTTP成功レスポンス summary.deployable", "expected_ids": ["testing-pact-environment-version-deployment-gate"]},
+    {"name": "pact-environment-pending-build-not-consumer", "query": "Pact pending C6 C7", "expected_ids": ["testing-pact-environment-version-deployment-gate"]},
+    {"name": "pact-environment-publishing-provider-version", "query": "Pact provider application version 公開", "expected_ids": ["testing-pact-environment-version-deployment-gate"]},
+    {"name": "pact-environment-same-content-result-reuse", "query": "Pact 同じpact内容 再実行", "expected_ids": ["testing-pact-environment-version-deployment-gate"]},
+    {"name": "pact-environment-target-omission", "query": "Pact --to-environment target 省いた", "expected_ids": ["testing-pact-environment-version-deployment-gate"]},
+    {"name": "pact-environment-rolling-record-too-early", "query": "Pact rolling 開始時 P41", "expected_ids": ["testing-pact-environment-version-deployment-gate"]},
+    {"name": "pact-environment-anonymous-instance", "query": "Pact 匿名instance 名前付き", "expected_ids": ["testing-pact-environment-version-deployment-gate"]},
+    {"name": "pact-environment-null-not-false", "query": "Pact null !== false", "expected_ids": ["testing-pact-environment-version-deployment-gate"]},
+    {"name": "pact-environment-empty-matrix-provider", "query": "Pact 空集合 consumer 未配備", "expected_ids": ["testing-pact-environment-version-deployment-gate"]},
+    {"name": "pact-environment-ignore-removes-evidence", "query": "Pact ignored row 未検証", "expected_ids": ["testing-pact-environment-version-deployment-gate"]},
+    {"name": "pact-environment-runtime-evidence-limit", "query": "Pact 検索eval upstream runtime", "expected_ids": ["testing-pact-environment-version-deployment-gate"]}
   ]
 }

@@ -1,0 +1,12 @@
+{
+  "id": "mdn-beforeinput-missing-cancelability-20261023",
+  "url": "https://developer.mozilla.org/en-US/docs/Web/API/Element/beforeinput_event",
+  "repository_url": "",
+  "commit_sha": "",
+  "version": "Unversioned MDN page; displayed last modified 2026-07-28; verified 2026-10-23 UTC",
+  "retrieved_at": "2026-10-23",
+  "license": "CC-BY-SA-2.5-or-later documentation (Mozilla Contributors); https://developer.mozilla.org/en-US/docs/MDN/Writing_guidelines/Attrib_copyright_license; original summary; no samples copied",
+  "trust": "official",
+  "type": "official_docs",
+  "purpose": "autocomplete・spell correction・password manager・IMEでbeforeinput不発/取消不能があり、browser/OS差とinput側の補完が必要という注意を確認。"
+}

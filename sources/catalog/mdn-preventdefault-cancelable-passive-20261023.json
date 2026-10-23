@@ -1,0 +1,12 @@
+{
+  "id": "mdn-preventdefault-cancelable-passive-20261023",
+  "url": "https://developer.mozilla.org/en-US/docs/Web/API/Event/preventDefault",
+  "repository_url": "",
+  "commit_sha": "",
+  "version": "Unversioned MDN page; displayed last modified 2025-09-18; verified 2026-10-23 UTC",
+  "retrieved_at": "2026-10-23",
+  "license": "CC-BY-SA-2.5-or-later documentation (Mozilla Contributors); https://developer.mozilla.org/en-US/docs/MDN/Writing_guidelines/Attrib_copyright_license; original summary; no samples copied",
+  "trust": "official",
+  "type": "official_docs",
+  "purpose": "non-cancelable eventとpassive listenerでpreventDefaultが取消しを成立させない点を確認。"
+}

@@ -1,0 +1,12 @@
+{
+  "id": "pact-broker-can-i-deploy-contract-20261023",
+  "url": "https://docs.pact.io/pact_broker/can_i_deploy",
+  "repository_url": "",
+  "commit_sha": "",
+  "version": "Unversioned guide; page last updated 2022-10-05; retrieved 2026-10-23 UTC",
+  "retrieved_at": "2026-10-23",
+  "license": "unknown",
+  "trust": "official",
+  "type": "official_docs",
+  "purpose": "候補application版と対象environmentを指定するgate、結果照会の前後に置く配備手順、dry-runとtarget省略の意味を確認。公開日は不明、表示更新日を記録。"
+}

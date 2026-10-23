@@ -1,0 +1,12 @@
+{
+  "id": "mdn-dispatchevent-result-not-edit-20261023",
+  "url": "https://developer.mozilla.org/en-US/docs/Web/API/EventTarget/dispatchEvent",
+  "repository_url": "",
+  "commit_sha": "",
+  "version": "Unversioned MDN page; displayed last modified 2026-07-10; verified 2026-10-23 UTC",
+  "retrieved_at": "2026-10-23",
+  "license": "CC-BY-SA-2.5-or-later documentation (Mozilla Contributors); https://developer.mozilla.org/en-US/docs/MDN/Writing_guidelines/Attrib_copyright_license; original summary; no samples copied",
+  "trust": "official",
+  "type": "official_docs",
+  "purpose": "同期listener配送、isTrusted=false、戻り値が取消しの有無を示す点、handler例外が呼出し元へ伝播しない点を確認。"
+}
