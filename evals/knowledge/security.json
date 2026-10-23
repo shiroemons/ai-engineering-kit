@@ -406,5 +406,61 @@
     {"name": "private-key-jwt-kid-not-replay-namespace", "query": "private_key_jwt kid 識別子", "expected_ids": ["oauth-private-key-jwt-audience-replay-grant-boundary"]},
     {"name": "private-key-jwt-replay-store-uncertain", "query": "private_key_jwt store 書込み結果不明", "expected_ids": ["oauth-private-key-jwt-audience-replay-grant-boundary"]},
     {"name": "private-key-jwt-grant-failure-consumption", "query": "private_key_jwt grant 利用済み印", "expected_ids": ["oauth-private-key-jwt-audience-replay-grant-boundary"]},
-    {"name": "private-key-jwt-new-assertion-not-code-retry", "query": "private_key_jwt 新しいjti code", "expected_ids": ["oauth-private-key-jwt-audience-replay-grant-boundary"]}
+    {"name": "private-key-jwt-new-assertion-not-code-retry", "query": "private_key_jwt 新しいjti code", "expected_ids": ["oauth-private-key-jwt-audience-replay-grant-boundary"]},
+    {
+      "name": "chips-site-tenant-origin",
+      "query": "CHIPS registrable tenant",
+      "expected_ids": [
+        "security-chips-partition-session-logout-boundary"
+      ]
+    },
+    {
+      "name": "chips-ancestor-partition-key",
+      "query": "CHIPS hasCrossSiteAncestor partitionKey",
+      "expected_ids": [
+        "security-chips-partition-session-logout-boundary"
+      ]
+    },
+    {
+      "name": "chips-unsupported-fallback",
+      "query": "Partitioned unsupported SameSite=None",
+      "expected_ids": [
+        "security-chips-partition-session-logout-boundary"
+      ]
+    },
+    {
+      "name": "chips-host-prefix-port",
+      "query": "CHIPS __Host- port",
+      "expected_ids": [
+        "security-chips-partition-session-logout-boundary"
+      ]
+    },
+    {
+      "name": "chips-cookie-header-identity",
+      "query": "CHIPS Cookie header 属性",
+      "expected_ids": [
+        "security-chips-partition-session-logout-boundary"
+      ]
+    },
+    {
+      "name": "chips-clear-partition-logout",
+      "query": "CHIPS Clear-Site-Data logout",
+      "expected_ids": [
+        "security-chips-partition-session-logout-boundary"
+      ]
+    },
+    {
+      "name": "chips-logout-global-revocation",
+      "query": "CHIPS global logout server",
+      "expected_ids": [
+        "security-chips-partition-session-logout-boundary"
+      ]
+    },
+    {
+      "name": "chips-logout-race-boundary",
+      "query": "CHIPS logout race",
+      "expected_ids": [
+        "security-chips-partition-session-logout-boundary"
+      ]
+    }
   ]}

@@ -1,0 +1,12 @@
+{
+  "id": "ietf-chips01-historical-status-20261023",
+  "url": "https://datatracker.ietf.org/doc/html/draft-cutler-httpbis-partitioned-cookies-01",
+  "repository_url": "",
+  "commit_sha": "",
+  "version": "draft-cutler-httpbis-partitioned-cookies-01, published 2022-11-10, expired 2023-05-14; archived individual Internet-Draft rechecked 2026-10-23 UTC",
+  "retrieved_at": "2026-10-23",
+  "license": "IETF Trust Legal Provisions / BCP 78; Revised BSD for extracted Code Components per document copyright notice; no code copied",
+  "trust": "primary-source",
+  "type": "official_docs",
+  "purpose": "歴史的提案としてのみ使用。§2.4のpartitionを含むcookie identityと§3.6/§4.3のcross-partition clearing回避の背景。現行RFC・全browser保証にはしない。"
+}

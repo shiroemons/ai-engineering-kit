@@ -1,0 +1,12 @@
+{
+  "id": "node24-worker-transfer-aliases-20261023",
+  "url": "https://nodejs.org/download/release/v24.19.0/docs/api/worker_threads.html#considerations-when-transferring-typedarrays-and-buffers",
+  "repository_url": "https://github.com/nodejs/node",
+  "commit_sha": "",
+  "version": "Node.js v24.19.0 versioned API documentation; worker_threads TypedArrays and Buffers section; page publication date not displayed",
+  "retrieved_at": "2026-10-23",
+  "license": "MIT for Node.js-origin software and associated documentation; https://github.com/nodejs/node/blob/v24.19.0/LICENSE verified 2026-10-23; third-party components have separate licenses; no code copied",
+  "trust": "official",
+  "type": "official_docs",
+  "purpose": "Official implementation documentation corroborating shared-backing-buffer alias invalidation; Node-specific Buffer pooling and marking are explicitly not treated as browser contracts."
+}

@@ -1574,6 +1574,76 @@
     {"name": "beforeinput-one-edit-owner", "query": "synthetic handler native listener 両方", "expected_ids": ["javascript-beforeinput-ime-edit-ownership-boundary"]},
     {"name": "beforeinput-programmatic-not-input", "query": "programmatic reset 復元", "expected_ids": ["javascript-beforeinput-ime-edit-ownership-boundary"]},
     {"name": "beforeinput-stale-validation-result", "query": "identity revision generation", "expected_ids": ["javascript-beforeinput-ime-edit-ownership-boundary"]},
-    {"name": "beforeinput-runtime-probe-blocked", "query": "155.0.8059.79 socket() 未検証", "expected_ids": ["javascript-beforeinput-ime-edit-ownership-boundary"]}
+    {"name": "beforeinput-runtime-probe-blocked", "query": "155.0.8059.79 socket() 未検証", "expected_ids": ["javascript-beforeinput-ime-edit-ownership-boundary"]},
+    {
+      "name": "worker-transfer-clone-ownership",
+      "query": "Worker ArrayBuffer 所有権 transfer",
+      "expected_ids": [
+        "javascript-worker-transfer-ownership-retry-boundary"
+      ]
+    },
+    {
+      "name": "worker-transfer-list-payload-reachability",
+      "query": "transfer list payload 辿れ",
+      "expected_ids": [
+        "javascript-worker-transfer-ownership-retry-boundary"
+      ]
+    },
+    {
+      "name": "worker-transfer-subarray-whole-backing",
+      "query": "subarray buffer 範囲外",
+      "expected_ids": [
+        "javascript-worker-transfer-ownership-retry-boundary"
+      ]
+    },
+    {
+      "name": "worker-transfer-datacloneerror-before-detach",
+      "query": "DataCloneError function 転送前",
+      "expected_ids": [
+        "javascript-worker-transfer-ownership-retry-boundary"
+      ]
+    },
+    {
+      "name": "worker-transfer-getter-side-effect-rollback",
+      "query": "getter structuredClone rollback",
+      "expected_ids": [
+        "javascript-worker-transfer-ownership-retry-boundary"
+      ]
+    },
+    {
+      "name": "worker-transfer-messageerror-versus-completed",
+      "query": "postMessage messageerror completed",
+      "expected_ids": [
+        "javascript-worker-transfer-ownership-retry-boundary"
+      ]
+    },
+    {
+      "name": "worker-transfer-retry-logical-input",
+      "query": "retry taskId attempt 再生成",
+      "expected_ids": [
+        "javascript-worker-transfer-ownership-retry-boundary"
+      ]
+    },
+    {
+      "name": "worker-transfer-sharedarraybuffer-agent-cluster",
+      "query": "SharedArrayBuffer agent cluster",
+      "expected_ids": [
+        "javascript-worker-transfer-ownership-retry-boundary"
+      ]
+    },
+    {
+      "name": "worker-transfer-alias-pool-replacement",
+      "query": "transfer alias pool",
+      "expected_ids": [
+        "javascript-worker-transfer-ownership-retry-boundary"
+      ]
+    },
+    {
+      "name": "worker-transfer-terminate-unknown-outcome",
+      "query": "terminate outcome-unknown",
+      "expected_ids": [
+        "javascript-worker-transfer-ownership-retry-boundary"
+      ]
+    }
   ]
 }

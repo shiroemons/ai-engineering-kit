@@ -1,0 +1,12 @@
+{
+  "id": "whatwg-messageport-delivery-transfer-20261023",
+  "url": "https://html.spec.whatwg.org/multipage/web-messaging.html#message-port-post-message-steps",
+  "repository_url": "https://github.com/whatwg/html",
+  "commit_sha": "",
+  "version": "HTML Living Standard; page Last Updated 22 October 2026; section 9.4.4 message port post message steps",
+  "retrieved_at": "2026-10-23",
+  "license": "CC-BY-4.0 (text); BSD-3-Clause for portions incorporated into source code; https://whatwg.org/ipr-policy section 7.1.1 verified 2026-10-23; original summary only",
+  "trust": "official",
+  "type": "official_docs",
+  "purpose": "Synchronous serialization and transfer precede target-port viability check and queued delivery; receive-side deserialization failure fires messageerror."
+}

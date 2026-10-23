@@ -1,0 +1,12 @@
+{
+  "id": "chrome-cookie-partition-api-20261023",
+  "url": "https://developer.chrome.com/docs/extensions/reference/api/cookies",
+  "repository_url": "",
+  "commit_sha": "",
+  "version": "Chrome Extensions cookies API; updated 2026-09-11 UTC; partitionKey 119+, hasCrossSiteAncestor 130+, getPartitionKey 132+",
+  "retrieved_at": "2026-10-23",
+  "license": "CC-BY-4.0 for prose; Apache-2.0 for code samples, per page footer; no code copied",
+  "trust": "official",
+  "type": "official_docs",
+  "purpose": "現行inspection用APIのpartitionKeyとancestor flag、既定ではunpartitioned操作、frame keyとcookie storeの区別。一般web pageのAPIや全browser共通仕様とは扱わない。"
+}

@@ -1,0 +1,12 @@
+{
+  "id": "ecma2027-arraybuffer-detachment-20261023",
+  "url": "https://tc39.es/ecma262/multipage/structured-data.html#sec-detacharraybuffer",
+  "repository_url": "https://github.com/tc39/ecma262",
+  "commit_sha": "",
+  "version": "Draft ECMA-262 / October 23, 2026, ECMAScript 2027; sections 25.1.3.4-25.1.3.5, 25.1.6.1 and 25.1.6.3; not a published 2027 edition",
+  "retrieved_at": "2026-10-23",
+  "license": "Ecma alternative copyright notice and copyright license (text); BSD-3-Clause (software); https://tc39.es/ecma262/multipage/copyright-and-software-license.html verified 2026-10-23; original summary only",
+  "trust": "official",
+  "type": "official_docs",
+  "purpose": "DetachArrayBuffer clears the data block and byte length; detached versus empty buffers and SharedArrayBuffer exclusion."
+}

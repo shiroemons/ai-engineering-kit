@@ -1,0 +1,12 @@
+{
+  "id": "chrome-chips-partition-session-20261023",
+  "url": "https://privacysandbox.google.com/cookies/chips",
+  "repository_url": "",
+  "commit_sha": "",
+  "version": "CHIPS live documentation; footer last updated 2023-12-15 UTC; Chrome 114+ implementation statement rechecked 2026-10-23 UTC",
+  "retrieved_at": "2026-10-23",
+  "license": "CC-BY-4.0 for prose; Apache-2.0 for code samples, per page footer; no code copied",
+  "trust": "official",
+  "type": "official_docs",
+  "purpose": "Top-level siteによるcookie分割、top-level訪問時の別partition、Secure要件、非対応時のSameSite=None fallback。本文の古い将来計画・demo flagは採用しない。"
+}
