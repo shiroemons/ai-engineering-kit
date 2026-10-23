@@ -1,0 +1,12 @@
+{
+  "id": "systemd-v262-notify-cli-manual-20261023",
+  "url": "https://www.freedesktop.org/software/systemd/man/262/systemd-notify.html",
+  "repository_url": "https://github.com/systemd/systemd",
+  "commit_sha": "8cc40e0c5e9234bf45084751ac53b1fbfe70b492",
+  "version": "systemd v262 versioned systemd-notify manual",
+  "retrieved_at": "2026-10-23",
+  "license": "LGPL-2.1-or-later (man/systemd-notify.xml SPDX header at 8cc40e0c5e9234bf45084751ac53b1fbfe70b492; embedded examples MIT-0; no example code copied)",
+  "trust": "official",
+  "type": "official_docs",
+  "purpose": "systemd-notify既定の受信同期、--no-blockによる競合、親PID送信の権限と自身PIDへのfallback、--reloadingがMONOTONIC_USECも設定する点を確認。元XMLは同版GitHub connectorで再取得。"
+}

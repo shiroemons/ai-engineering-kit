@@ -2116,6 +2116,90 @@
       "expected_ids": [
         "terraform-minimal-refresh-planning-drift-boundary"
       ]
+    },
+    {
+      "name": "systemd-notify-reload-v262-start-handler-gate",
+      "query": "notify-reload 初回READY protocol",
+      "expected_ids": [
+        "linux-systemd-notify-reload-readiness-acceptance-boundary"
+      ]
+    },
+    {
+      "name": "systemd-notify-reload-ignore-not-caught-or-blocked",
+      "query": "notify-reload SIG_IGN SigCgt SigBlk",
+      "expected_ids": [
+        "linux-systemd-notify-reload-readiness-acceptance-boundary"
+      ]
+    },
+    {
+      "name": "systemd-notify-reload-blocked-not-functional-handler",
+      "query": "notify-reload block 消費処理",
+      "expected_ids": [
+        "linux-systemd-notify-reload-readiness-acceptance-boundary"
+      ]
+    },
+    {
+      "name": "systemd-notify-reload-main-not-helper-handler",
+      "query": "notify-reload main 補助プロセス handler",
+      "expected_ids": [
+        "linux-systemd-notify-reload-readiness-acceptance-boundary"
+      ]
+    },
+    {
+      "name": "systemd-notify-reload-post-start-handler-removal",
+      "query": "notify-reload 起動後 警告 SIGHUP",
+      "expected_ids": [
+        "linux-systemd-notify-reload-readiness-acceptance-boundary"
+      ]
+    },
+    {
+      "name": "systemd-notify-reload-reload-monotonic-current-cycle",
+      "query": "notify-reload MONOTONIC_USEC 古い",
+      "expected_ids": [
+        "linux-systemd-notify-reload-readiness-acceptance-boundary"
+      ]
+    },
+    {
+      "name": "systemd-notify-reload-ready-not-reload-start",
+      "query": "notify-reload READY=1 reload-signal",
+      "expected_ids": [
+        "linux-systemd-notify-reload-readiness-acceptance-boundary"
+      ]
+    },
+    {
+      "name": "systemd-notify-reload-barrier-not-semantic-ack",
+      "query": "sd_notify_barrier 意味的受理",
+      "expected_ids": [
+        "linux-systemd-notify-reload-readiness-acceptance-boundary"
+      ]
+    },
+    {
+      "name": "systemd-notify-reload-notify-access-attribution-race",
+      "query": "NotifyAccess=all 即時終了",
+      "expected_ids": [
+        "linux-systemd-notify-reload-readiness-acceptance-boundary"
+      ]
+    },
+    {
+      "name": "systemd-notify-reload-notify-env-lifetime",
+      "query": "sd_notify unset_environment NOTIFY_SOCKET",
+      "expected_ids": [
+        "linux-systemd-notify-reload-readiness-acceptance-boundary"
+      ]
+    },
+    {
+      "name": "systemd-notify-reload-notify-cli-no-block-race",
+      "query": "systemd-notify --no-block 競合",
+      "expected_ids": [
+        "linux-systemd-notify-reload-readiness-acceptance-boundary"
+      ]
+    },
+    {
+      "name": "systemd-notify-reload-reload-timeout-not-rollback",
+      "query": "notify-reload ReloadResult=timeout rollback",
+      "expected_ids": [
+        "linux-systemd-notify-reload-readiness-acceptance-boundary"
+      ]
     }
   ]
 }

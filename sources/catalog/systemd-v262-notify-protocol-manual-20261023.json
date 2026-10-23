@@ -1,0 +1,12 @@
+{
+  "id": "systemd-v262-notify-protocol-manual-20261023",
+  "url": "https://www.freedesktop.org/software/systemd/man/262/sd_notify.html",
+  "repository_url": "https://github.com/systemd/systemd",
+  "commit_sha": "8cc40e0c5e9234bf45084751ac53b1fbfe70b492",
+  "version": "systemd v262 versioned sd_notify manual",
+  "retrieved_at": "2026-10-23",
+  "license": "LGPL-2.1-or-later (man/sd_notify.xml SPDX header at 8cc40e0c5e9234bf45084751ac53b1fbfe70b492; embedded examples MIT-0; no example code copied)",
+  "trust": "official",
+  "type": "official_docs",
+  "purpose": "sd_notify戻り値と意味的受理の違い、通知帰属競合、barrier受信同期、MONOTONIC_USECの時計/単位、unset_environmentによるNOTIFY_SOCKET消去を確認。HTMLをnative webで開き、元XMLは同版GitHub connectorで再取得。"
+}
