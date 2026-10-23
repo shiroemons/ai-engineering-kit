@@ -1278,6 +1278,22 @@
     {"name": "rabbit-timeout-no-external-fencing", "query": "timeout通知 業務rollback fencing証明", "expected_ids": ["messaging-rabbitmq-consumer-timeout-cancel-recovery-boundary"]},
     {"name": "rabbit-timeout-generic-doc-conflict", "query": "Consumers PRECONDITION_FAILED 不一致", "expected_ids": ["messaging-rabbitmq-consumer-timeout-cancel-recovery-boundary"]},
     {"name": "rabbit-timeout-late-ack-ready", "query": "late ack ready 復旧手段", "expected_ids": ["messaging-rabbitmq-consumer-timeout-cancel-recovery-boundary"]},
-    {"name": "rabbit-timeout-upstream-not-executed", "query": "upstream試験は今回実行していない", "expected_ids": ["messaging-rabbitmq-consumer-timeout-cancel-recovery-boundary"]}
+    {"name": "rabbit-timeout-upstream-not-executed", "query": "upstream試験は今回実行していない", "expected_ids": ["messaging-rabbitmq-consumer-timeout-cancel-recovery-boundary"]},
+    {"name": "range-resume-if-range-not-412", "query": "If-Range 不一致 412", "expected_ids": ["http-range-if-range-resume-completion-boundary"]},
+    {"name": "range-resume-200-replace-not-append", "query": "200 旧prefixへ追記しない 新世代", "expected_ids": ["http-range-if-range-resume-completion-boundary"]},
+    {"name": "range-resume-coded-offset-not-decoded", "query": "gzip 自動展開 offset", "expected_ids": ["http-range-if-range-resume-completion-boundary"]},
+    {"name": "range-resume-missing-encoding-not-identity", "query": "Content-Encoding 欠落 identity", "expected_ids": ["http-range-if-range-resume-completion-boundary"]},
+    {"name": "range-resume-206-subset-not-complete", "query": "短い206 全体完了", "expected_ids": ["http-range-if-range-resume-completion-boundary"]},
+    {"name": "range-resume-total-unknown", "query": "Content-Range 全体長 未知", "expected_ids": ["http-range-if-range-resume-completion-boundary"]},
+    {"name": "range-resume-416-size-not-identity", "query": "416 N=L 内容一致", "expected_ids": ["http-range-if-range-resume-completion-boundary"]},
+    {"name": "range-resume-weak-tag-no-date-shortcut", "query": "弱い ETag 日付 fallback", "expected_ids": ["http-range-if-range-resume-completion-boundary"]},
+    {"name": "range-resume-integer-and-hole-checks", "query": "a=N overflow", "expected_ids": ["http-range-if-range-resume-completion-boundary"]},
+    {"name": "range-resume-sparse-file-not-coverage", "query": "sparse coverage", "expected_ids": ["http-range-if-range-resume-completion-boundary"]},
+    {"name": "range-resume-multipart-part-order", "query": "multipart 順序 個数", "expected_ids": ["http-range-if-range-resume-completion-boundary"]},
+    {"name": "range-resume-full-digest-not-segment", "query": "Repr-Digest Content-Digest 文字列連結", "expected_ids": ["http-range-if-range-resume-completion-boundary"]},
+    {"name": "range-resume-journal-not-before-data", "query": "prefix journal metadata 先行", "expected_ids": ["http-range-if-range-resume-completion-boundary"]},
+    {"name": "range-resume-etag-not-cross-resource", "query": "ETag 別URI 別tenant", "expected_ids": ["http-range-if-range-resume-completion-boundary"]},
+    {"name": "range-resume-protocol-not-filesystem", "query": "filesystem crash consistency", "expected_ids": ["http-range-if-range-resume-completion-boundary"]},
+    {"name": "range-resume-fault-tests-not-executed", "query": "fault test 今回実行していない", "expected_ids": ["http-range-if-range-resume-completion-boundary"]}
   ]
 }

@@ -1,0 +1,12 @@
+{
+  "id": "rfc9530-range-representation-digest-20261023",
+  "url": "https://www.rfc-editor.org/rfc/rfc9530.html",
+  "repository_url": "",
+  "commit_sha": "",
+  "version": "RFC 9530, February 2024; sections 2-3 and 6; verified 2026-10-23 UTC; current errata retrieval failed",
+  "retrieved_at": "2026-10-23",
+  "license": "IETF Trust Legal Provisions / BCP 78; Code Components: Revised BSD",
+  "trust": "official",
+  "type": "official_docs",
+  "purpose": "Content-DigestとRepr-Digestの対象、range復元後の全体検証、content coding、digest単独では認証にならない境界を確認。原文example vectorは採用せず、errata取得失敗を本文に明示。"
+}

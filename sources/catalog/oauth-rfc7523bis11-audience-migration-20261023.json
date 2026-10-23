@@ -1,0 +1,12 @@
+{
+  "id": "oauth-rfc7523bis11-audience-migration-20261023",
+  "url": "https://datatracker.ietf.org/doc/html/draft-ietf-oauth-rfc7523bis-11",
+  "repository_url": "",
+  "commit_sha": "",
+  "version": "draft-ietf-oauth-rfc7523bis-11, work in progress; header Published 2026-03-26, Expires 2026-09-27; retrieved 2026-10-23",
+  "retrieved_at": "2026-10-23",
+  "license": "IETF Trust Legal Provisions / BCP 78; extracted Code Components: Revised BSD License per draft copyright notice; no code copied",
+  "trust": "official",
+  "type": "official_docs",
+  "purpose": "§1, §4–6: client authenticationのaudを唯一のAS issuerへ制限する候補、JWT bearer grantとの差、typ推奨と欠落だけの拒否非推奨、PARへの適用、移行時の互換性を確認。発行済RFCとは扱わない。"
+}

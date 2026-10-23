@@ -1,0 +1,12 @@
+{
+  "id": "oidc-core-private-key-jwt-errata2-20261023",
+  "url": "https://openid.net/specs/openid-connect-core-1_0.html",
+  "repository_url": "",
+  "commit_sha": "",
+  "version": "OpenID Connect Core 1.0 incorporating errata set 2, Final, 2023-12-15",
+  "retrieved_at": "2026-10-23",
+  "license": "OpenID Foundation specification copyright license, Appendix C; attribution required for specification development/implementation; no endorsement or copied code",
+  "trust": "official",
+  "type": "official_docs",
+  "purpose": "§9 private_key_jwt: iss/subのclient_id、audienceのSHOULD、jti REQUIRED、一回利用と交渉済み例外、exp/iatの要求を確認。"
+}

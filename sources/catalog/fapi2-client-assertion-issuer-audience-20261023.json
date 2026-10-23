@@ -1,0 +1,12 @@
+{
+  "id": "fapi2-client-assertion-issuer-audience-20261023",
+  "url": "https://openid.net/specs/fapi-security-profile-2_0-final.html",
+  "repository_url": "",
+  "commit_sha": "",
+  "version": "FAPI 2.0 Security Profile, Final, 2025-02-22",
+  "retrieved_at": "2026-10-23",
+  "license": "OpenID Foundation specification copyright license, Appendix B; attribution required for specification development/implementation; no endorsement or copied code",
+  "trust": "official",
+  "type": "official_docs",
+  "purpose": "§5.3.2.1 and §5.3.3.1: private_key_jwt client assertionのaudはAS issuer identifierの文字列に限定し、配列を使わない。client認証とsender-constrained access token要件を区別。"
+}
