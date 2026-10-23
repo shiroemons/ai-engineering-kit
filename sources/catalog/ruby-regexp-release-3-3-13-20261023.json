@@ -1,0 +1,12 @@
+{
+  "id": "ruby-regexp-release-3-3-13-20261023",
+  "url": "https://www.ruby-lang.org/en/news/2026/10/23/ruby-3-3-13-released/",
+  "repository_url": "",
+  "commit_sha": "",
+  "version": "Ruby 3.3.13; published 2026-10-23",
+  "retrieved_at": "2026-10-23",
+  "license": "unknown",
+  "trust": "official",
+  "type": "release_notes",
+  "purpose": "3.3.13の公開日、security-maintenance中のRegexp修正の例外的収録を確認。同時収録のresolv更新をRegexp修正と混同しない。本文のopen licenseは未確認。独自要約のみ。"
+}

@@ -1,0 +1,12 @@
+{
+  "id": "github-lockfile-reusable-correction-20261023",
+  "url": "https://github.com/github/gh-actions-lock/issues/179#issuecomment-6294039032",
+  "repository_url": "https://github.com/github/gh-actions-lock",
+  "commit_sha": "",
+  "version": "Issue #179 opened 2026-10-16; GitHub COLLABORATOR nodeselector correction 2026-10-20T15:05:30Z; verified 2026-10-23 UTC",
+  "retrieved_at": "2026-10-23",
+  "license": "unknown; issue/comment license not established; original attributed summary only, no reproduced report or code",
+  "trust": "maintainer",
+  "type": "maintainer_article",
+  "purpose": "maintainerがreusable workflowのDocs記述を誤りと認めた訂正。CLIによる将来の任意SHA pin案を実装済み扱いしない。"
+}

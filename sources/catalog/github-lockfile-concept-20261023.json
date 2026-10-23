@@ -1,0 +1,12 @@
+{
+  "id": "github-lockfile-concept-20261023",
+  "url": "https://docs.github.com/en/actions/concepts/security/workflow-dependency-lockfiles",
+  "repository_url": "https://github.com/github/docs",
+  "commit_sha": "",
+  "version": "GitHub Docs live preview concept, no fixed version/publication date; verified 2026-10-23 UTC",
+  "retrieved_at": "2026-10-23",
+  "license": "CC-BY-4.0 documentation; https://github.com/github/docs/blob/main/LICENSE verified 2026-10-23; original attributed summary, no copied examples",
+  "trust": "official",
+  "type": "official_docs",
+  "purpose": "onboarding、commitとrepository identity、coverageの説明を確認。reusable workflow記述に残る不一致を明示。"
+}

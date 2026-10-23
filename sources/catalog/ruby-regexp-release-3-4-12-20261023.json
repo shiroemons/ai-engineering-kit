@@ -1,0 +1,12 @@
+{
+  "id": "ruby-regexp-release-3-4-12-20261023",
+  "url": "https://www.ruby-lang.org/en/news/2026/10/23/ruby-3-4-12-released/",
+  "repository_url": "",
+  "commit_sha": "",
+  "version": "Ruby 3.4.12; published 2026-10-23",
+  "retrieved_at": "2026-10-23",
+  "license": "unknown",
+  "trust": "official",
+  "type": "release_notes",
+  "purpose": "3.4.12の公開日とGitLabの4件のCVEに関係するRegexp修正の収録を確認。その他のbugfixとは区別する。本文のopen licenseは未確認。独自要約のみ。"
+}

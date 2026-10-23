@@ -1,0 +1,12 @@
+{
+  "id": "ruby-regexp-gitlab-critical-19-5-1-20261023",
+  "url": "https://docs.gitlab.com/releases/patches/patch-release-gitlab-19-5-1-released/",
+  "repository_url": "",
+  "commit_sha": "",
+  "version": "GitLab CE/EE 19.5.1 / 19.4.3 / 19.3.6 / 19.2.9 / 19.1.9 / 19.0.10 / 18.11.13; published 2026-10-21",
+  "retrieved_at": "2026-10-23",
+  "license": "unknown",
+  "trust": "official",
+  "type": "release_notes",
+  "purpose": "CVE-2026-110264のGitLab CE/EE固有の適用条件と修正版、未認証RCEの可能性、GitLab.com適用済みを確認。GitLabの影響判定を全Rubyアプリへ一般化しない。本文の個別licenseは未確認。独自要約のみ。"
+}

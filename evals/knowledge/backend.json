@@ -2337,6 +2337,69 @@
       "expected_ids": [
         "python-sqlite3-binding-batch-commit-boundary"
       ]
+    },
+    {
+      "name": "ruby-regexp-partial-patch",
+      "query": "4.0.8 全修正",
+      "expected_ids": [
+        "ruby-regexp-compile-timeout-patch-boundary"
+      ]
+    },
+    {
+      "name": "ruby-regexp-timeout-not-compile",
+      "query": "Regexp.timeout コンパイル メモリ破壊",
+      "expected_ids": [
+        "ruby-regexp-compile-timeout-patch-boundary"
+      ]
+    },
+    {
+      "name": "ruby-regexp-short-pattern-not-safe",
+      "query": "文字数制限 短い",
+      "expected_ids": [
+        "ruby-regexp-compile-timeout-patch-boundary"
+      ]
+    },
+    {
+      "name": "ruby-regexp-fixed-pattern-target",
+      "query": "固定パターン 対象文字列",
+      "expected_ids": [
+        "ruby-regexp-compile-timeout-patch-boundary"
+      ]
+    },
+    {
+      "name": "ruby-regexp-cve-owner",
+      "query": "Ruby独自 CVE 未申請",
+      "expected_ids": [
+        "ruby-regexp-compile-timeout-patch-boundary"
+      ]
+    },
+    {
+      "name": "ruby-regexp-gitlab-scope",
+      "query": "GitLab CVSS 全Ruby",
+      "expected_ids": [
+        "ruby-regexp-compile-timeout-patch-boundary"
+      ]
+    },
+    {
+      "name": "ruby-regexp-literal-design",
+      "query": "literal 文字列API",
+      "expected_ids": [
+        "ruby-regexp-compile-timeout-patch-boundary"
+      ]
+    },
+    {
+      "name": "ruby-regexp-runtime-not-gemfile",
+      "query": "Gemfile runtime 配布元",
+      "expected_ids": [
+        "ruby-regexp-compile-timeout-patch-boundary"
+      ]
+    },
+    {
+      "name": "ruby-regexp-unverified-runtime",
+      "query": "Ruby runtime試験 未実行",
+      "expected_ids": [
+        "ruby-regexp-compile-timeout-patch-boundary"
+      ]
     }
   ]
 }

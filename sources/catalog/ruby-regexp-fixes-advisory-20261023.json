@@ -1,0 +1,12 @@
+{
+  "id": "ruby-regexp-fixes-advisory-20261023",
+  "url": "https://www.ruby-lang.org/en/news/2026/10/23/regexp-fixes-for-gitlab-cves/",
+  "repository_url": "",
+  "commit_sha": "",
+  "version": "Ruby 4.0.9 / 3.4.12 / 3.3.13; advisory published 2026-10-23 03:11:22 UTC",
+  "retrieved_at": "2026-10-23",
+  "license": "unknown",
+  "trust": "official",
+  "type": "release_notes",
+  "purpose": "GitLabの4件のCVEに対応するRuby側修正の系列別初版、未信頼パターンへの到達条件、timeoutと文字数制限の限界、Ruby独自CVEの未申請を確認。ニュース本文のopen licenseは確認できず、独自要約のみ。コード・図・長文の転載なし。"
+}

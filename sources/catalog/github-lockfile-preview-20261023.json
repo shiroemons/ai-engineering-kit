@@ -1,0 +1,12 @@
+{
+  "id": "github-lockfile-preview-20261023",
+  "url": "https://github.blog/changelog/2026-10-14-github-actions-workflow-lockfiles-in-public-preview/",
+  "repository_url": "",
+  "commit_sha": "",
+  "version": "GitHub Changelog 2026-10-14 public preview; same-day plan correction; retrieved 2026-10-23 UTC",
+  "retrieved_at": "2026-10-23",
+  "license": "unknown; Copyright GitHub, Inc.; original attributed summary only, no copied code",
+  "trust": "official",
+  "type": "release_notes",
+  "purpose": "公開日・preview・対象plan訂正と初期説明を確認。reusable workflow保証は後続maintainer訂正と照合する。"
+}

@@ -1948,6 +1948,62 @@
       "expected_ids": [
         "kubernetes-resize-generation-actuation-preemption-boundary"
       ]
+    },
+    {
+      "name": "github-lockfile-preview-date",
+      "query": "lockfile 2026-10-14",
+      "expected_ids": [
+        "github-actions-lockfile-reusable-verification-boundary"
+      ]
+    },
+    {
+      "name": "github-lockfile-reusable-gap",
+      "query": "lockfile ReusableWorkflow",
+      "expected_ids": [
+        "github-actions-lockfile-reusable-verification-boundary"
+      ]
+    },
+    {
+      "name": "github-lockfile-verify-scope",
+      "query": "lockfile --verify provenance",
+      "expected_ids": [
+        "github-actions-lockfile-reusable-verification-boundary"
+      ]
+    },
+    {
+      "name": "github-lockfile-offline-coverage",
+      "query": "lockfile --verify-local coverage",
+      "expected_ids": [
+        "github-actions-lockfile-reusable-verification-boundary"
+      ]
+    },
+    {
+      "name": "github-lockfile-dependabot-onboard",
+      "query": "lockfile Dependabot onboarding",
+      "expected_ids": [
+        "github-actions-lockfile-reusable-verification-boundary"
+      ]
+    },
+    {
+      "name": "github-lockfile-identity-review",
+      "query": "lockfile identity commit",
+      "expected_ids": [
+        "github-actions-lockfile-reusable-verification-boundary"
+      ]
+    },
+    {
+      "name": "github-lockfile-image-scope",
+      "query": "lockfile image digest",
+      "expected_ids": [
+        "github-actions-lockfile-reusable-verification-boundary"
+      ]
+    },
+    {
+      "name": "github-lockfile-moved-ref",
+      "query": "lockfile --relock --accept-moved",
+      "expected_ids": [
+        "github-actions-lockfile-reusable-verification-boundary"
+      ]
     }
   ]
 }
