@@ -1,0 +1,12 @@
+{
+  "id": "go127-test-timeout-alarm-source-20261023",
+  "url": "https://github.com/golang/go/blob/862c888e612ac346c7c4d99c9392bdfd265f33b0/src/testing/testing.go",
+  "repository_url": "https://github.com/golang/go",
+  "commit_sha": "862c888e612ac346c7c4d99c9392bdfd265f33b0",
+  "version": "Go 1.27.1 tag; commit 862c888e612ac346c7c4d99c9392bdfd265f33b0 (2026-09-01)",
+  "retrieved_at": "2026-10-23",
+  "license": "BSD-3-Clause",
+  "trust": "primary-source",
+  "type": "github_repository_analysis",
+  "purpose": "Native webでgo1.27.1 tag版testing.goを開き、release tag→full commit照合後にGitHub connectorでfull-commit fileも取得。M.Run/startAlarm/stopAlarm/runTestsにより共通deadlineと-count/-cpu反復、init/TestMainの範囲外を分析。同commit LICENSEとheaderを確認。コード転載なし、runtime未検証。"
+}

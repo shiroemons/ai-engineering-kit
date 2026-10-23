@@ -1,0 +1,12 @@
+{
+  "id": "go127-test-timeout-driver-source-20261023",
+  "url": "https://github.com/golang/go/blob/862c888e612ac346c7c4d99c9392bdfd265f33b0/src/cmd/go/internal/test/test.go",
+  "repository_url": "https://github.com/golang/go",
+  "commit_sha": "862c888e612ac346c7c4d99c9392bdfd265f33b0",
+  "version": "Go 1.27.1 tag; commit 862c888e612ac346c7c4d99c9392bdfd265f33b0 (2026-09-01)",
+  "retrieved_at": "2026-10-23",
+  "license": "BSD-3-Clause",
+  "trust": "primary-source",
+  "type": "github_repository_analysis",
+  "purpose": "Native webでfull-commit raw sourceを取得しrunTestのbackup kill/WaitDelay、runTestActor.Actのbuild完了後の起動、process終了時刻とsummary、異常終了時FAIL付加を確認。release tagリンクからfull commitを照合し同commit LICENSEとfile headerを確認。実装観察の原著要約でコード転載なし。"
+}

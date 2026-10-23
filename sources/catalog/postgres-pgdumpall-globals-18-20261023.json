@@ -1,0 +1,12 @@
+{
+  "id": "postgres-pgdumpall-globals-18-20261023",
+  "url": "https://www.postgresql.org/docs/18/app-pg-dumpall.html",
+  "repository_url": "",
+  "commit_sha": "",
+  "version": "PostgreSQL 18 versioned manual, verified 2026-10-23 UTC; exact patch version and individual publication/update date not stated on page",
+  "retrieved_at": "2026-10-23",
+  "license": "PostgreSQL License",
+  "trust": "official",
+  "type": "official_docs",
+  "purpose": "Global objects include roles, tablespaces and parameter privilege grants; tablespace directories prerequisite; expected bootstrap-role duplicate errors and psql-based restore. Individual publication/update date not stated. Original Japanese summary; no upstream implementation copied. License reference: https://www.postgresql.org/docs/18/legalnotice.html ."
+}

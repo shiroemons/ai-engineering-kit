@@ -1,0 +1,12 @@
+{
+  "id": "postgres-pgdump-version-status-19rc1-20261023",
+  "url": "https://www.postgresql.org/about/news/postgresql-19-rc-1-released-3409/",
+  "repository_url": "",
+  "commit_sha": "",
+  "version": "PostgreSQL 19 RC1 announcement published 2026-10-15; retrieved 2026-10-23 UTC; planned dates are not release-completion evidence",
+  "retrieved_at": "2026-10-23",
+  "license": "unknown (announcement page has no explicit license statement; original summary only)",
+  "trust": "official",
+  "type": "release_notes",
+  "purpose": "Published 2026-10-15. Confirms 19 RC1 is prerelease and GA was planned for 2026-11-19; used only to distinguish PostgreSQL 18 manual scope from 19 preview, not as evidence for 18 backup behavior. Original Japanese summary; no upstream implementation copied. Project documentation license is verified separately; no separate licensing grant is assumed for this announcement."
+}

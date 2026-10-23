@@ -1,0 +1,12 @@
+{
+  "id": "go127-testing-deadline-contract-20261023",
+  "url": "https://pkg.go.dev/testing@go1.27.1",
+  "repository_url": "https://github.com/golang/go",
+  "commit_sha": "",
+  "version": "Go 1.27.1 testing.T.Deadline / Context / TestMain; published 2026-09-01",
+  "retrieved_at": "2026-10-23",
+  "license": "BSD-3-Clause",
+  "trust": "official",
+  "type": "official_docs",
+  "purpose": "Native webでT.Deadlineがtest binaryの期限を返すこと、Contextのcleanup前cancel、TestMainのm.Run前後処理を確認。sourceと公開契約を混同しない。BSD-3-Clause表示確認、コード転載なし。"
+}

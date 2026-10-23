@@ -1,0 +1,12 @@
+{
+  "id": "go127-test2json-event-contract-20261023",
+  "url": "https://pkg.go.dev/cmd/test2json@go1.27.1",
+  "repository_url": "https://github.com/golang/go",
+  "commit_sha": "",
+  "version": "Go 1.27.1 cmd/test2json; published 2026-09-01",
+  "retrieved_at": "2026-10-23",
+  "license": "BSD-3-Clause",
+  "trust": "official",
+  "type": "official_docs",
+  "purpose": "Native webでPackage/Test/Elapsed/FailedBuildとeventの契約、複数packageではgo test -jsonを使う条件を確認。文書のBSD-3-Clause表示と固定版LICENSEを照合。コード転載なし。"
+}

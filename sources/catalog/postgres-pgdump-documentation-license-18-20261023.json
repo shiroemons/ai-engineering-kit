@@ -1,0 +1,12 @@
+{
+  "id": "postgres-pgdump-documentation-license-18-20261023",
+  "url": "https://www.postgresql.org/docs/18/legalnotice.html",
+  "repository_url": "",
+  "commit_sha": "",
+  "version": "PostgreSQL 18 documentation Legal Notice, PGDG 1996-2026 / University of California 1994; verified 2026-10-23 UTC",
+  "retrieved_at": "2026-10-23",
+  "license": "PostgreSQL License",
+  "trust": "official",
+  "type": "official_docs",
+  "purpose": "Software and documentation license text, PGDG 1996-2026 and University of California 1994 copyright. License name checked at https://www.postgresql.org/about/licence/; individual publication/update date not stated. Original Japanese summary; no upstream implementation copied. License reference: https://www.postgresql.org/docs/18/legalnotice.html ."
+}
