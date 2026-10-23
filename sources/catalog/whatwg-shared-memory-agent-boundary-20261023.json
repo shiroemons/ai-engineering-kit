@@ -1,0 +1,12 @@
+{
+  "id": "whatwg-shared-memory-agent-boundary-20261023",
+  "url": "https://html.spec.whatwg.org/multipage/webappapis.html#integration-with-the-javascript-agent-cluster-formalism",
+  "repository_url": "https://github.com/whatwg/html",
+  "commit_sha": "",
+  "version": "HTML Living Standard; page Last Updated 22 October 2026; sections 8.1.2.1-8.1.2.2 and cross-origin isolated capability",
+  "retrieved_at": "2026-10-23",
+  "license": "CC-BY-4.0 (text); BSD-3-Clause for portions incorporated into source code; https://whatwg.org/ipr-policy section 7.1.1 verified 2026-10-23; original summary only",
+  "trust": "official",
+  "type": "official_docs",
+  "purpose": "Shared memory is bounded by agent clusters; creator and dedicated worker differ from creator and shared/service worker; main-window blocking differs from workers."
+}

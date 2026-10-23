@@ -1,0 +1,12 @@
+{
+  "id": "whatwg-worker-postmessage-lifecycle-20261023",
+  "url": "https://html.spec.whatwg.org/multipage/workers.html#dom-worker-postmessage",
+  "repository_url": "https://github.com/whatwg/html",
+  "commit_sha": "",
+  "version": "HTML Living Standard; page Last Updated 22 October 2026; Worker.postMessage, DedicatedWorkerGlobalScope.postMessage and terminate a worker",
+  "retrieved_at": "2026-10-23",
+  "license": "CC-BY-4.0 (text); BSD-3-Clause for portions incorporated into source code; https://whatwg.org/ipr-policy section 7.1.1 verified 2026-10-23; original summary only",
+  "trust": "official",
+  "type": "official_docs",
+  "purpose": "Worker messaging delegates to MessagePort; termination discards tasks and aborts running script, not an application acknowledgment or buffer recovery operation."
+}
