@@ -1,0 +1,12 @@
+{
+  "id": "github-actions-execution-admin-20261023",
+  "url": "https://docs.github.com/en/actions/how-tos/administer/control-workflow-execution",
+  "repository_url": "https://github.com/github/docs",
+  "commit_sha": "",
+  "version": "GitHub Docs github.com の live 設定手順。固定版・公開日表示なし。2026-10-23 UTC 再確認。Evaluate 作成は GitHub Enterprise Cloud のみと記載。強制適用日は2026-11-02の記載が残る",
+  "retrieved_at": "2026-10-23",
+  "license": "CC-BY-4.0 documentation; https://raw.githubusercontent.com/github/docs/main/LICENSE verified 2026-10-23; 出典付き原著要約、コード転載なし",
+  "trust": "official",
+  "type": "official_docs",
+  "purpose": "plan・適用階層・actor/event の組合せ・組込み identity・Insights を再確認。Require lockfile の追加と日付の不一致を範囲注記へ反映する"
+}

@@ -4,7 +4,7 @@
   "title": "GitHub Actions 実行ポリシー: workflow_path の省略・空配列と pull_request_target の段階適用",
   "kind": "knowledge",
   "technology": "github-actions",
-  "version": "github.com workflow execution protections GA 2026-09-17; live GitHub Docs verified 2026-10-03 UTC; REST examples use 2026-03-10; qualified default pull_request_target enforcement scheduled 2026-11-02, GHES unverified",
+  "version": "github.com workflow execution protections GA 2026-09-17; enforcement correction published 2026-10-21; live official sources verified 2026-10-23 UTC; REST examples use 2026-03-10; qualified pre-GA default pull_request_target enforcement scheduled 2026-12-02; Docs still show 2026-11-02; GHES unverified",
   "tags": [
     "research-domain:infrastructure",
     "github-actions",
@@ -19,32 +19,32 @@
   ],
   "sources": [
     {
-      "id": "github-actions-execution-ga-20260917-20261003",
+      "id": "github-actions-execution-ga-20260917-20261023",
       "url": "https://github.blog/changelog/2026-09-17-workflow-execution-protections-in-github-actions-generally-available/",
       "type": "release_notes"
     },
     {
-      "id": "github-actions-execution-concept-20261003",
+      "id": "github-actions-execution-concept-20261023",
       "url": "https://docs.github.com/en/actions/concepts/about-actions-policies",
       "type": "official_docs"
     },
     {
-      "id": "github-actions-execution-admin-20261003",
+      "id": "github-actions-execution-admin-20261023",
       "url": "https://docs.github.com/en/actions/how-tos/administer/control-workflow-execution",
       "type": "official_docs"
     },
     {
-      "id": "github-actions-execution-rest-20261003",
+      "id": "github-actions-execution-rest-20261023",
       "url": "https://docs.github.com/en/rest/actions/policies",
       "type": "official_docs"
     },
     {
-      "id": "github-actions-execution-pr-target-20261003",
+      "id": "github-actions-execution-pr-target-20261023",
       "url": "https://docs.github.com/en/actions/reference/security/securely-using-pull_request_target",
       "type": "official_docs"
     }
   ],
-  "retrieved_at": "2026-10-03",
+  "retrieved_at": "2026-10-23",
   "expires_at": "2026-10-30",
   "trust": "primary-source",
   "status": "active",
@@ -62,9 +62,9 @@
 
 結論は、**作成と更新の意図を別に持ち、workflow path・actor・event・適用階層を確認してから active にする**こと。update 要求から `workflow_path` を省くことを「全 workflow へ変更」と扱う同期処理は誤る。許可リストへの追加だけで、他の階層の制限や実行コードの危険性が解消されるとも判断しない。
 
-[公式告知][ga]の公開日は2026-09-17。GA では workflow file targeting、Insights、REST API が加わった。本稿は2026-10-03 UTC に実際に開いた github.com 向け公式資料に基づく。Docs に固定版・公開日の表示はなく、[REST reference][rest]の例にある API header は `2026-03-10` である。この API 版が機能の初出とは主張しない。GHES の対応版は未確認。
+[公式告知][ga]の公開日は2026-09-17、既定ポリシーの期日を訂正した編集注記は2026-10-21。GA では workflow file targeting、Insights、REST API が加わった。本稿は2026-10-23 UTC に全参照先を再確認した github.com 向け公式資料に基づく。予定日は訂正済みの告知を採用する一方、Docs に残る旧日付との不一致を第3節に記録する。Docs に固定版・公開日の表示はなく、[REST reference][rest]の例にある API header は `2026-03-10` である。この API 版が機能の初出とは主張しない。GHES の対応版は未確認。
 
-[既存の cache-mode 文書](../supply-chain-security/github-cache-mode-reusable-default-poisoning-boundary.md)は cache の read/save 能力を扱う。本稿の範囲は **workflow を起動できる条件**であり、cache mode の再説明や変更は行わない。
+[既存の cache-mode 文書](../supply-chain-security/github-cache-mode-reusable-default-poisoning-boundary.md)は cache の read/save 能力を扱う。本稿の範囲は **workflow を起動できる条件**であり、cache mode の再説明や変更は行わない。 [設定手順][admin]には現在 Require lockfile もあるため、本稿の actor/event と workflow path の整理を実行保護の全機能一覧とは扱わない。依存関係の固定・検証は[既存の lockfile 文書](lockfile-reusable-verification-boundary.md)を参照する。
 
 ## 1. 公式契約: actor と event の許可は同時に必要
 
@@ -100,17 +100,21 @@ organization の `conditions` は `repository_name` / `repository_id` / `reposit
 
 一覧の `has_parents` は既定 true で、適用される上位 policy を含む。ページングもあるため、1ページまたはローカル階層だけの一覧を全有効制限とは見なさない。調査時の List/Get も REST 文書では該当 scope の Administration write 権限を要求している。read-only の HTTP 操作であることと token の必要権限を分け、監査目的だけで無断の権限拡張をしない。[REST reference][rest]
 
-## 3. 2026-11-02 は特定 default policy の将来の強制適用日
+## 3. 2026-12-02 は GA 前の特定 default policy の訂正後の予定日
 
-2026-10-03 時点の [pull_request_target の公式説明][prtarget]は、次を区別している。
+2026-10-23 に再取得した [GA 告知][ga]は、2026-10-21 の編集注記で自動強制適用日を **2026-12-02** に変更したと明示している。次の対象条件を日付と一緒に保持する。
 
-- 対象は、適用される Actions event policy がまだない public repository。private / internal repository は対象外で、既存の適用可能な event policy は置換しない
-- GitHub 提供の default policy は現在 evaluate。対象 event を使う workflow が動き続けても、その観測だけでは今後も許可される根拠にならない
-- 2026-11-02 の自動強制適用について、告知は **GA 前から default pull_request_target policy を使っていた affected repository** と条件を付けている。全 repository が同日一律に切り替わるとは書かない
+- default policy の対象は、適用される Actions event policy がまだない public repository。private / internal repository は対象外で、既存の適用可能な event policy は置換しない
+- GitHub 提供の default policy は資料上 evaluate。対象 event を使う workflow が動き続けても、その観測だけでは今後も許可される根拠にならない
+- 2026-12-02 の自動強制適用は **GA 前から default pull_request_target policy を使っていた affected repository** が対象。全 repository が同日一律に切り替わるとは書かない
 
-[GA 告知][ga]と[安全利用の説明][prtarget]は、この対象条件と期日で一致する。一般的な概要ページの短い期日だけで対象集合を拡張しない。手動設定済みの active policy による現在の拒否と、default policy の予定変更も別件である。
+### 旧日付との不一致と採用根拠
 
-移行の選択肢は、不要なら `pull_request` 等への変更を検討する、必要性と安全性を確認した workflow だけ適用可能な event policy で明示許可する、または既定の拒否を維持すること。期日を理由に全 workflow の `pull_request_target` をまとめて許可する設計にはしない。[安全利用の説明][prtarget]
+同日に開いた[概念説明][concept]、[設定手順][admin]、[安全利用の説明][prtarget]には、旧予定の **2026-11-02** が残っている。安全利用の説明も GA 前から既定ポリシーを使用していた対象群を指すため、別の対象群だから日付が違うとは説明できない。以前の本文にあった「告知と安全利用の説明は期日で一致する」という記述は、この再確認時点では成立しない。
+
+本稿では、変更日と変更後の日付を明示した2026-10-21の編集注記を、予定日の根拠として優先する。これは公式資料間の不一致を解消したという主張でも、個別 repository の実効 enforcement を確認したという主張でもない。一般的な概要ページの短い説明から対象集合を広げず、GA 後に作られた repository の具体的な rollout は未確認のままとする。
+
+手動設定済みの active policy による現在の拒否は別件であり、日程の延期を理由に既存制限を緩めない。移行の選択肢は、不要なら `pull_request` 等への変更を検討する、必要性と安全性を確認した workflow だけ適用可能な event policy で明示許可する、または既定の拒否を維持すること。期日を理由に全 workflow の `pull_request_target` をまとめて許可する設計にはしない。[安全利用の説明][prtarget]
 
 ## 4. 起動許可は fork コードの信頼確認を代行しない
 
@@ -146,7 +150,7 @@ cache-mode、GITHUB_TOKEN の最小権限、runner 分離は引き続き独立�
 - enterprise API の request schema、glob の細かい照合規則、reusable workflow の actor 解決、policy 更新と実行開始の競合時の原子性は未確認。organization / repository の契約をそのまま流用しない
 - API の version header は閲覧した例の値である。GHES、旧 API 版、runner / action の最小版に対する互換性を保証しない
 - GitHub, Inc. の Docs は [github/docs LICENSE][license] の CC-BY-4.0 を取得日に確認した。出典を明記した原著要約で、構成・設計案・試験案は本稿で作成した。Changelog の開放ライセンスは確認できず catalog は unknown。コードや長文の転載はない
-- 明示期限は2026-10-30。release notes の取得日+30日より早く、予定された2026-11-02 の前に対象・期日・live 文書を再確認するための期限である。将来の enforcement 完了を確認した記録ではない
+- 明示期限は2026-10-30のまま維持する。訂正後の予定日は2026-12-02だが、Docs に旧日付が残るため再確認を延期しない。新しい release notes 取得日の30日後（2026-11-22）より早く、対象条件・編集注記・Docs の不一致を再確認する期限である。将来の enforcement 完了を確認した記録ではない
 - `evals/knowledge/infrastructure.json` の追加 eval は検索到達性を確認するもの。上記のサービス実行試験とは区別する
 
 [ga]: https://github.blog/changelog/2026-09-17-workflow-execution-protections-in-github-actions-generally-available/

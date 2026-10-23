@@ -1,0 +1,12 @@
+{
+  "id": "github-actions-execution-pr-target-20261023",
+  "url": "https://docs.github.com/en/actions/reference/security/securely-using-pull_request_target",
+  "repository_url": "https://github.com/github/docs",
+  "commit_sha": "",
+  "version": "GitHub Docs github.com の live security reference。固定版・公開日表示なし。2026-10-23 UTC 再確認。GA 前の対象群の予定は依然2026-11-02と記載され、10月21日更新の Changelog と不一致",
+  "retrieved_at": "2026-10-23",
+  "license": "CC-BY-4.0 documentation; https://raw.githubusercontent.com/github/docs/main/LICENSE verified 2026-10-23; 出典付き原著要約、コード転載なし",
+  "trust": "official",
+  "type": "official_docs",
+  "purpose": "既定ポリシーの対象・例外・evaluate と fork コードの信頼境界を再確認。旧日付の残存を記録し Changelog と期日が一致するという旧本文を訂正する"
+}

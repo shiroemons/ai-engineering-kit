@@ -1,0 +1,12 @@
+{
+  "id": "github-actions-execution-concept-20261023",
+  "url": "https://docs.github.com/en/actions/concepts/about-actions-policies",
+  "repository_url": "https://github.com/github/docs",
+  "commit_sha": "",
+  "version": "GitHub Docs github.com の live 概念文書。固定版・公開日表示なし。2026-10-23 UTC 再確認。強制適用日は2026-11-02の記載が残り、10月21日更新の Changelog と不一致",
+  "retrieved_at": "2026-10-23",
+  "license": "CC-BY-4.0 documentation; https://raw.githubusercontent.com/github/docs/main/LICENSE verified 2026-10-23; 出典付き原著要約、コード転載なし",
+  "trust": "official",
+  "type": "official_docs",
+  "purpose": "actor/event の責務と実行拒否を再確認。日付の根拠には訂正済み Changelog を用い、この文書に残る旧予定を明示する"
+}

@@ -1,0 +1,12 @@
+{
+  "id": "github-actions-execution-ga-20260917-20261023",
+  "url": "https://github.blog/changelog/2026-09-17-workflow-execution-protections-in-github-actions-generally-available/",
+  "repository_url": "",
+  "commit_sha": "",
+  "version": "GitHub Changelog: 2026-09-17 公開、2026-10-21 編集注記、2026-10-23 UTC 再確認。GA 前から既定ポリシーを使用していた対象 repository の自動強制適用予定は2026-12-02",
+  "retrieved_at": "2026-10-23",
+  "license": "unknown; Copyright 2026 GitHub, Inc. on page, no open-content license identified; attributed original summary only, no code copied",
+  "trust": "official",
+  "type": "release_notes",
+  "purpose": "GA の機能と既定ポリシーの対象を再確認。2026-10-21 の日付訂正を、同時取得した Docs に残る2026-11-02と区別する"
+}
