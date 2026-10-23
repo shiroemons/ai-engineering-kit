@@ -1487,6 +1487,76 @@
       "expected_ids": [
         "javascript-indexeddb-transaction-completion-durability-boundary"
       ]
+    },
+    {
+      "name": "scroll-anchoring-safari27-default",
+      "query": "Safari 27.0 scroll anchoring",
+      "expected_ids": [
+        "css-scroll-anchoring-manual-correction-boundary"
+      ]
+    },
+    {
+      "name": "scroll-anchoring-offset-not-position",
+      "query": "scrollTop 相対位置 保持",
+      "expected_ids": [
+        "css-scroll-anchoring-manual-correction-boundary"
+      ]
+    },
+    {
+      "name": "scroll-anchoring-exclusion-nested",
+      "query": "overflow-anchor nested scroll container",
+      "expected_ids": [
+        "css-scroll-anchoring-manual-correction-boundary"
+      ]
+    },
+    {
+      "name": "scroll-anchoring-noninherited-subtree",
+      "query": "auto 非継承 除外",
+      "expected_ids": [
+        "css-scroll-anchoring-manual-correction-boundary"
+      ]
+    },
+    {
+      "name": "scroll-anchoring-suppression-computed",
+      "query": "suppression computed height",
+      "expected_ids": [
+        "css-scroll-anchoring-manual-correction-boundary"
+      ]
+    },
+    {
+      "name": "scroll-anchoring-measurement-window",
+      "query": "suppression window getBoundingClientRect",
+      "expected_ids": [
+        "css-scroll-anchoring-manual-correction-boundary"
+      ]
+    },
+    {
+      "name": "scroll-anchoring-double-compensation",
+      "query": "prepend 二回 手動補正",
+      "expected_ids": [
+        "css-scroll-anchoring-manual-correction-boundary"
+      ]
+    },
+    {
+      "name": "scroll-anchoring-event-not-intent",
+      "query": "scroll event 利用者操作数",
+      "expected_ids": [
+        "css-scroll-anchoring-manual-correction-boundary"
+      ]
+    },
+    {
+      "name": "scroll-anchoring-stale-correction",
+      "query": "基準行ID 更新世代 古い",
+      "expected_ids": [
+        "css-scroll-anchoring-manual-correction-boundary"
+      ]
+    },
+    {
+      "name": "scroll-anchoring-runtime-not-verified",
+      "query": "Safari WPT 未検証",
+      "expected_ids": [
+        "css-scroll-anchoring-manual-correction-boundary"
+      ]
     }
   ]
 }

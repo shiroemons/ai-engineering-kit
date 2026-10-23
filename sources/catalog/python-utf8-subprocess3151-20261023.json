@@ -1,0 +1,12 @@
+{
+  "id": "python-utf8-subprocess3151-20261023",
+  "url": "https://docs.python.org/3.15/library/subprocess.html",
+  "repository_url": "",
+  "commit_sha": "",
+  "version": "Python 3.15.1 documentation; run and Frequently Used Arguments; verified 2026-10-23 UTC",
+  "retrieved_at": "2026-10-23",
+  "license": "PSF-2.0; documentation code additionally 0BSD; https://docs.python.org/3.15/license.html",
+  "trust": "official",
+  "type": "official_docs",
+  "purpose": "native webでtext/encoding/errorsのtext mode選択、TextIOWrapper既定への依存、binary時の無変換、text時の改行変換、capture結果と終了codeを確認。外部子processのencodingを自動変更する保証とは解釈しない。"
+}

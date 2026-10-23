@@ -1,0 +1,12 @@
+{
+  "id": "csswg-scroll-anchoring-selection-suppression-20261023",
+  "url": "https://drafts.csswg.org/css-scroll-anchoring-1/",
+  "repository_url": "",
+  "commit_sha": "",
+  "version": "CSS Scroll Anchoring Module Level 1 Editor's Draft 2026-09-30, sections 2–3; retrieved 2026-10-23 UTC",
+  "retrieved_at": "2026-10-23",
+  "license": "W3C Software and Document License 2023; header link checked at https://www.w3.org/copyright/software-license-2023/; original summary only, no copied algorithms or code",
+  "trust": "official",
+  "type": "official_docs",
+  "purpose": "anchor nodeによるblock方向補正、scroll event、suppression windowとcomputed-value条件、overflow-anchorの除外とnested scroll containerの独立性を確認。Editor's DraftでありSafari実装の証明とは分離。"
+}

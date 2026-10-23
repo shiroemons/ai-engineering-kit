@@ -1,0 +1,12 @@
+{
+  "id": "webkit-safari27-scroll-anchoring-release-20261023",
+  "url": "https://webkit.org/blog/18325/webkit-features-for-safari-27-0/",
+  "repository_url": "",
+  "commit_sha": "",
+  "version": "Safari 27.0 release article published 2026-09-17; Scroll Anchoring section; retrieved 2026-10-23 UTC",
+  "retrieved_at": "2026-10-23",
+  "license": "unknown",
+  "trust": "maintainer",
+  "type": "release_notes",
+  "purpose": "Safari 27.0のscroll anchoring対応、既定有効化、overflow-anchorによるopt-outの出荷根拠。WebKit licensingページはソフトウェアのLGPL/BSDのみ確認でき、記事本文には適用しない。独自要約のみで文章・コード・画像の転載なし。"
+}

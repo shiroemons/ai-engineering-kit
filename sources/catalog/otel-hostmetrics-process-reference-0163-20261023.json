@@ -1,0 +1,12 @@
+{
+  "id": "otel-hostmetrics-process-reference-0163-20261023",
+  "url": "https://github.com/open-telemetry/opentelemetry-collector-contrib/blob/df849b5403c041d5e799e7846392a6f18b0b55ae/receiver/hostmetricsreceiver/internal/scraper/processscraper/documentation.md",
+  "repository_url": "https://github.com/open-telemetry/opentelemetry-collector-contrib",
+  "commit_sha": "df849b5403c041d5e799e7846392a6f18b0b55ae",
+  "version": "Generated process scraper reference in Contrib v0.163.0 at df849b5403c041d5e799e7846392a6f18b0b55ae; no independent publication date shown",
+  "license": "Apache-2.0 (LICENSE at the same commit verified 2026-10-23 UTC); original summary, no code copied",
+  "trust": "official",
+  "type": "official_docs",
+  "purpose": "設定keyと emitted name、unit、type、default/optional metrics、name_override後の属性キー、resource属性とalpha gateを確認。process.owner の一般例を実在する改名と取り違えない",
+  "retrieved_at": "2026-10-23"
+}

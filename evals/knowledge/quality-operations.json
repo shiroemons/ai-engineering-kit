@@ -815,6 +815,111 @@
       "expected_ids": [
         "opentelemetry-filelog-checkpoint-delivery-boundary"
       ]
+    },
+    {
+      "name": "otel-hostmetrics-release-not-blog-date",
+      "query": "hostmetrics 2026-09-02 2026-10-13",
+      "expected_ids": [
+        "opentelemetry-hostmetrics-process-rc-dual-emission-boundary"
+      ]
+    },
+    {
+      "name": "otel-hostmetrics-version-not-stable",
+      "query": "hostmetrics @v1 1.43.0 alpha",
+      "expected_ids": [
+        "opentelemetry-hostmetrics-process-rc-dual-emission-boundary"
+      ]
+    },
+    {
+      "name": "otel-hostmetrics-suffix-not-emitted",
+      "query": "process.cpu.time@v1 Emitted Name",
+      "expected_ids": [
+        "opentelemetry-hostmetrics-process-rc-dual-emission-boundary"
+      ]
+    },
+    {
+      "name": "otel-hostmetrics-attribute-name-override",
+      "query": "context_switch_type name_override type",
+      "expected_ids": [
+        "opentelemetry-hostmetrics-process-rc-dual-emission-boundary"
+      ]
+    },
+    {
+      "name": "otel-hostmetrics-wait-value-migration",
+      "query": "state=wait cpu.mode=iowait",
+      "expected_ids": [
+        "opentelemetry-hostmetrics-process-rc-dual-emission-boundary"
+      ]
+    },
+    {
+      "name": "otel-hostmetrics-dual-not-independent",
+      "query": "dual 同じ1本 独立",
+      "expected_ids": [
+        "opentelemetry-hostmetrics-process-rc-dual-emission-boundary"
+      ]
+    },
+    {
+      "name": "otel-hostmetrics-rename-double-count",
+      "query": "process.threads process.thread.count 二重加算",
+      "expected_ids": [
+        "opentelemetry-hostmetrics-process-rc-dual-emission-boundary"
+      ]
+    },
+    {
+      "name": "otel-hostmetrics-unit-not-legacy-copy",
+      "query": "{context_switch} {count} コピー",
+      "expected_ids": [
+        "opentelemetry-hostmetrics-process-rc-dual-emission-boundary"
+      ]
+    },
+    {
+      "name": "otel-hostmetrics-explicit-false-not-omission",
+      "query": "hostmetrics enabledSetByUser 省略",
+      "expected_ids": [
+        "opentelemetry-hostmetrics-process-rc-dual-emission-boundary"
+      ]
+    },
+    {
+      "name": "otel-hostmetrics-target-enabled-without-gate",
+      "query": "hostmetrics enabled=true EmitV1=false warning",
+      "expected_ids": [
+        "opentelemetry-hostmetrics-process-rc-dual-emission-boundary"
+      ]
+    },
+    {
+      "name": "otel-hostmetrics-legacy-collection-guard",
+      "query": "ProcessThreads.Enabled process.thread.count@v1",
+      "expected_ids": [
+        "opentelemetry-hostmetrics-process-rc-dual-emission-boundary"
+      ]
+    },
+    {
+      "name": "otel-hostmetrics-receiver-global-override",
+      "query": "receiver.hostmetrics.EmitV1SystemConventions GlobalRegistry",
+      "expected_ids": [
+        "opentelemetry-hostmetrics-process-rc-dual-emission-boundary"
+      ]
+    },
+    {
+      "name": "otel-hostmetrics-pipeline-not-control-group",
+      "query": "hostmetrics/legacy hostmetrics/rc 隔離",
+      "expected_ids": [
+        "opentelemetry-hostmetrics-process-rc-dual-emission-boundary"
+      ]
+    },
+    {
+      "name": "otel-hostmetrics-first-scrape-not-data",
+      "query": "process.cpu.utilization 初回 2回目",
+      "expected_ids": [
+        "opentelemetry-hostmetrics-process-rc-dual-emission-boundary"
+      ]
+    },
+    {
+      "name": "otel-hostmetrics-builder-test-not-runtime",
+      "query": "TestVersionedMetrics OS runtime",
+      "expected_ids": [
+        "opentelemetry-hostmetrics-process-rc-dual-emission-boundary"
+      ]
     }
   ]
 }

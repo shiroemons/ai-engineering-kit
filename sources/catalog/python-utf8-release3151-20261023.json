@@ -1,0 +1,12 @@
+{
+  "id": "python-utf8-release3151-20261023",
+  "url": "https://www.python.org/downloads/release/python-3151/",
+  "repository_url": "",
+  "commit_sha": "",
+  "version": "Python 3.15.1; released 2026-10-21",
+  "retrieved_at": "2026-10-23",
+  "license": "unknown",
+  "trust": "official",
+  "type": "release_notes",
+  "purpose": "公式配布ページをnative webで開いて3.15.1が取得日以前に公開済みであることを確認。既定化の導入版3.15.0と区別。ページ自体の個別licenseは未確認、コード転載なし。"
+}

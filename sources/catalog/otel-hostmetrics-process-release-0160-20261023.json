@@ -1,0 +1,12 @@
+{
+  "id": "otel-hostmetrics-process-release-0160-20261023",
+  "url": "https://github.com/open-telemetry/opentelemetry-collector-contrib/releases/tag/v0.160.0",
+  "repository_url": "https://github.com/open-telemetry/opentelemetry-collector-contrib",
+  "commit_sha": "",
+  "version": "Contrib v0.160.0; published_at 2026-09-02T16:36:04Z verified with GitHub release API on 2026-10-23 UTC",
+  "license": "unknown (release-page text-specific license not verified); original summary only, no code copied",
+  "trust": "official",
+  "type": "release_notes",
+  "purpose": "process RC opt-in の EmitV1 / DontEmitV0 と receiver-level gate の導入を確認。gate metadata の from_version や2026-10-13告知日から初回配布日を推定しない",
+  "retrieved_at": "2026-10-23"
+}

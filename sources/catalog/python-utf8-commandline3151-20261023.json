@@ -1,0 +1,12 @@
+{
+  "id": "python-utf8-commandline3151-20261023",
+  "url": "https://docs.python.org/3.15/using/cmdline.html",
+  "repository_url": "",
+  "commit_sha": "",
+  "version": "Python 3.15.1 documentation; UTF-8 and stdio startup options; verified 2026-10-23 UTC",
+  "retrieved_at": "2026-10-23",
+  "license": "PSF-2.0; documentation code additionally 0BSD; https://docs.python.org/3.15/license.html",
+  "trust": "official",
+  "type": "official_docs",
+  "purpose": "native webで-X utf8、warning option、PYTHONIOENCODINGの標準stream限定とWindows interactive console例外、stderr handler、-IがPYTHON環境変数を無視することを確認。locale coercionとUTF-8 modeを別設定として扱う。"
+}

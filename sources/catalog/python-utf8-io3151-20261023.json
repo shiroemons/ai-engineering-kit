@@ -1,0 +1,12 @@
+{
+  "id": "python-utf8-io3151-20261023",
+  "url": "https://docs.python.org/3.15/library/io.html",
+  "repository_url": "",
+  "commit_sha": "",
+  "version": "Python 3.15.1 documentation; Text encoding, text_encoding and TextIOWrapper; verified 2026-10-23 UTC",
+  "retrieved_at": "2026-10-23",
+  "license": "PSF-2.0; documentation code additionally 0BSD; https://docs.python.org/3.15/license.html",
+  "trust": "official",
+  "type": "official_docs",
+  "purpose": "native webでencoding=Noneとlocale指定、strict/ignore/replace、EncodingWarning、io.text_encodingの呼出し元警告を確認。binary I/Oではcodec/newline変換しないことも確認。コード転載なし。"
+}

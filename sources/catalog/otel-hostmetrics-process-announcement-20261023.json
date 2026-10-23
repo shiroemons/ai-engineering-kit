@@ -1,0 +1,12 @@
+{
+  "id": "otel-hostmetrics-process-announcement-20261023",
+  "url": "https://opentelemetry.io/blog/2026/hostmetrics-process-scraper-rc/",
+  "repository_url": "https://github.com/open-telemetry/opentelemetry.io",
+  "commit_sha": "83c4047e5396d66375137c7bd1952bd45285b4ef",
+  "version": "2026-10-13 maintainer announcement; page revision 83c4047e5396d66375137c7bd1952bd45285b4ef; feature introduced in Contrib v0.160.0",
+  "license": "CC-BY-4.0 (same article-revision LICENSE verified 2026-10-23 UTC); original Japanese summary and independent analysis, no code copied",
+  "trust": "maintainer",
+  "type": "maintainer_article",
+  "purpose": "Dónal O’Sullivan による versioned metrics の経緯、@v1 と emitted name、RC と feature gate 成熟度を確認。告知日の新しさと機能提供開始日を区別し、具体的な出力契約は固定 v0.163.0 実装で照合",
+  "retrieved_at": "2026-10-23"
+}
