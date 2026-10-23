@@ -1,0 +1,12 @@
+{
+  "id": "rabbitmq-deferral-release-440-20261023",
+  "url": "https://github.com/rabbitmq/rabbitmq-server/releases/tag/v4.4.0",
+  "repository_url": "https://github.com/rabbitmq/rabbitmq-server",
+  "commit_sha": "24d5157cd415ef396c8ecd40a2d08c4d7ad3da9f",
+  "version": "RabbitMQ v4.4.0; GitHub published_at 2026-10-19T06:38:13Z; tag 24d5157cd415ef396c8ecd40a2d08c4d7ad3da9f",
+  "retrieved_at": "2026-10-23",
+  "license": "unknown",
+  "trust": "official",
+  "type": "release_notes",
+  "purpose": "releaseの版と公開時刻、producerのdelayed messageを確認。deferral-tokenの詳細は本release本文から推測しない。native webと公式GitHub connectorで確認。"
+}

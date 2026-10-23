@@ -1,0 +1,12 @@
+{
+  "id": "rabbitmq-deferral-highlights-44-20261023",
+  "url": "https://www.rabbitmq.com/blog/2026/10/20/rabbitmq-4.4-release",
+  "repository_url": "",
+  "commit_sha": "",
+  "version": "RabbitMQ 4.4 highlights, published 2026-10-20",
+  "retrieved_at": "2026-10-23",
+  "license": "unknown",
+  "trust": "maintainer",
+  "type": "maintainer_article",
+  "purpose": "開発元記事のdeferred message紹介を確認。遅延発行・delayed retryとの区別、tokenによる取得、期限後の通常配送を独自要約する。native webで本文を開いた。"
+}

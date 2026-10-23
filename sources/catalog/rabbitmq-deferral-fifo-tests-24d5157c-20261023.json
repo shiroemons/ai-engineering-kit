@@ -1,0 +1,12 @@
+{
+  "id": "rabbitmq-deferral-fifo-tests-24d5157c-20261023",
+  "url": "https://github.com/rabbitmq/rabbitmq-server/blob/24d5157cd415ef396c8ecd40a2d08c4d7ad3da9f/deps/rabbit/test/rabbit_fifo_SUITE.erl",
+  "repository_url": "https://github.com/rabbitmq/rabbitmq-server",
+  "commit_sha": "24d5157cd415ef396c8ecd40a2d08c4d7ad3da9f",
+  "version": "RabbitMQ v4.4.0 at 24d5157cd415ef396c8ecd40a2d08c4d7ad3da9f",
+  "retrieved_at": "2026-10-23",
+  "license": "MPL-2.0",
+  "trust": "primary-source",
+  "type": "github_repository_analysis",
+  "purpose": "固定tagの不足credit、競合claim、期限が発火するケース、token不在、consumer取消・切断のテストを読解。実行していない。deps/rabbit/LICENSEによりMPL-2.0、原文コード転載なし。公式GitHub connectorで全文取得。"
+}

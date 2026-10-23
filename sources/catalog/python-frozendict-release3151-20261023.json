@@ -1,0 +1,12 @@
+{
+  "id": "python-frozendict-release3151-20261023",
+  "url": "https://www.python.org/downloads/release/python-3151/",
+  "repository_url": "https://github.com/python/cpython",
+  "commit_sha": "",
+  "version": "Python 3.15.1 first maintenance release, 2026-10-21",
+  "retrieved_at": "2026-10-23",
+  "license": "unknown",
+  "trust": "official",
+  "type": "release_notes",
+  "purpose": "2026-10-21公開の3.15.1と、取得時の3.15系列のmaintenance releaseを確認。告知ページ自体のlicenseは未確認、独自要約のみ。"
+}

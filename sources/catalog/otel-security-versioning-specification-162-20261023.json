@@ -1,0 +1,12 @@
+{
+  "id": "otel-security-versioning-specification-162-20261023",
+  "url": "https://github.com/open-telemetry/opentelemetry-specification/tree/18c5c1706e346fec3bdb5e135a6e3a78f461e586/specification",
+  "repository_url": "https://github.com/open-telemetry/opentelemetry-specification",
+  "commit_sha": "18c5c1706e346fec3bdb5e135a6e3a78f461e586",
+  "version": "specification v1.62.0 at 18c5c1706e346fec3bdb5e135a6e3a78f461e586; versioning Stable / telemetry-stability Development; retrieved 2026-10-23 UTC; no client runtime tests",
+  "license": "Apache-2.0 (same-commit LICENSE verified); original analysis, no source code copied",
+  "trust": "primary-source",
+  "type": "github_repository_analysis",
+  "purpose": "versioning-and-stability.md、upgrading.md、telemetry-stability.md、configuration/sdk-environment-variables.md、error-handling.md と CHANGELOG.md を固定 commit で照合。client と Collector の境界、API/source/ABI/plugin 保証、Boolean 設定名と既定値、telemetry moratorium、具体的な危険の必要性、release notes/override/backport の条件を分析",
+  "retrieved_at": "2026-10-23"
+}

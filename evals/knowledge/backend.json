@@ -2666,6 +2666,41 @@
       "expected_ids": [
         "ruby-io-buffer-short-transfer-migration-boundary"
       ]
+    },
+    {
+      "name": "python-frozendict-shallow-immutability",
+      "query": "frozendict 浅い不変性",
+      "expected_ids": [
+        "python-frozendict-shallow-hash-cache-key-boundary"
+      ]
+    },
+    {
+      "name": "python-frozendict-nested-typed",
+      "query": "frozendict typed=True",
+      "expected_ids": [
+        "python-frozendict-shallow-hash-cache-key-boundary"
+      ]
+    },
+    {
+      "name": "python-frozendict-order-sensitive",
+      "query": "frozendict 順序依存",
+      "expected_ids": [
+        "python-frozendict-shallow-hash-cache-key-boundary"
+      ]
+    },
+    {
+      "name": "python-frozendict-proxy-snapshot",
+      "query": "MappingProxyType snapshot hash",
+      "expected_ids": [
+        "python-frozendict-shallow-hash-cache-key-boundary"
+      ]
+    },
+    {
+      "name": "python-frozendict-persistent-hash",
+      "query": "frozendict 永続ID",
+      "expected_ids": [
+        "python-frozendict-shallow-hash-cache-key-boundary"
+      ]
     }
   ]
 }

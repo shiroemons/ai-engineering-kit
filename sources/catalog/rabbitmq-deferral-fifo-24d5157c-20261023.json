@@ -1,0 +1,12 @@
+{
+  "id": "rabbitmq-deferral-fifo-24d5157c-20261023",
+  "url": "https://github.com/rabbitmq/rabbitmq-server/blob/24d5157cd415ef396c8ecd40a2d08c4d7ad3da9f/deps/rabbit/src/rabbit_fifo.erl",
+  "repository_url": "https://github.com/rabbitmq/rabbitmq-server",
+  "commit_sha": "24d5157cd415ef396c8ecd40a2d08c4d7ad3da9f",
+  "version": "RabbitMQ v4.4.0 at 24d5157cd415ef396c8ecd40a2d08c4d7ad3da9f",
+  "retrieved_at": "2026-10-23",
+  "license": "MPL-2.0",
+  "trust": "primary-source",
+  "type": "github_repository_analysis",
+  "purpose": "固定tagのshould_delay、assign_deferred、claim_deferred、take_claimed_up_to、release_deferred_claimsを読解。未来期限・claimと配送の分離・token不在・期限経路・token間順序を確認。repositoryとdeps/rabbitのLICENSEはMPL-2.0。公式GitHub connectorで全文取得。"
+}
