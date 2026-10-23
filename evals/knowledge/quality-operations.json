@@ -935,6 +935,20 @@
     {"name": "pact-environment-null-not-false", "query": "Pact null !== false", "expected_ids": ["testing-pact-environment-version-deployment-gate"]},
     {"name": "pact-environment-empty-matrix-provider", "query": "Pact 空集合 consumer 未配備", "expected_ids": ["testing-pact-environment-version-deployment-gate"]},
     {"name": "pact-environment-ignore-removes-evidence", "query": "Pact ignored row 未検証", "expected_ids": ["testing-pact-environment-version-deployment-gate"]},
-    {"name": "pact-environment-runtime-evidence-limit", "query": "Pact 検索eval upstream runtime", "expected_ids": ["testing-pact-environment-version-deployment-gate"]}
+    {"name": "pact-environment-runtime-evidence-limit", "query": "Pact 検索eval upstream runtime", "expected_ids": ["testing-pact-environment-version-deployment-gate"]},
+    {"name": "go-test-timeout-package-not-test", "query": "Go timeout 各Test 共通", "expected_ids": ["testing-go-test-timeout-json-completion-boundary"]},
+    {"name": "go-test-timeout-short-running-test", "query": "Go timeout 600秒 2秒", "expected_ids": ["testing-go-test-timeout-json-completion-boundary"]},
+    {"name": "go-test-timeout-alarm-testmain", "query": "Go startAlarm TestMain init", "expected_ids": ["testing-go-test-timeout-json-completion-boundary"]},
+    {"name": "go-test-timeout-repeat-shared-deadline", "query": "Go -count -cpu 共通deadline", "expected_ids": ["testing-go-test-timeout-json-completion-boundary"]},
+    {"name": "go-test-deadline-not-context-cancel", "query": "Go T.Deadline T.Context cleanup", "expected_ids": ["testing-go-test-timeout-json-completion-boundary"]},
+    {"name": "go-test-json-individual-not-terminal", "query": "test2json 個別 package終端", "expected_ids": ["testing-go-test-timeout-json-completion-boundary"]},
+    {"name": "go-test-json-incomplete-not-pass", "query": "JSON 終端 証拠不足", "expected_ids": ["testing-go-test-timeout-json-completion-boundary"]},
+    {"name": "go-test-json-build-identifier", "query": "build-fail FailedBuild ImportPath", "expected_ids": ["testing-go-test-timeout-json-completion-boundary"]},
+    {"name": "go-test-json-stderr-process-exit", "query": "Go JSON stderr exit status", "expected_ids": ["testing-go-test-timeout-json-completion-boundary"]},
+    {"name": "go-test-timeout-cached-rerun", "query": "Go -timeout cache hit ゼロ", "expected_ids": ["testing-go-test-timeout-json-completion-boundary"]},
+    {"name": "go-test-count-one-not-build-clean", "query": "Go -count=1 build cache", "expected_ids": ["testing-go-test-timeout-json-completion-boundary"]},
+    {"name": "go-test-race-near-budget", "query": "Go race 590s 600s", "expected_ids": ["testing-go-test-timeout-json-completion-boundary"]},
+    {"name": "go-test-timeout-filter-scope", "query": "Go filter 正式run", "expected_ids": ["testing-go-test-timeout-json-completion-boundary"]},
+    {"name": "go-test-eval-not-runtime", "query": "Go 検索eval runtime 再現試験", "expected_ids": ["testing-go-test-timeout-json-completion-boundary"]}
   ]
 }

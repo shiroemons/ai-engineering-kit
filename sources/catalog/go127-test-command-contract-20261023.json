@@ -1,0 +1,12 @@
+{
+  "id": "go127-test-command-contract-20261023",
+  "url": "https://pkg.go.dev/cmd/go@go1.27.1",
+  "repository_url": "https://github.com/golang/go",
+  "commit_sha": "",
+  "version": "Go 1.27.1 cmd/go; published 2026-09-01",
+  "retrieved_at": "2026-10-23",
+  "license": "BSD-3-Clause",
+  "trust": "official",
+  "type": "official_docs",
+  "purpose": "Native webで版固定文書のTest packages・Testing flags・Build -json encoding・Build and test cachingを確認。packageごとのbinary、10m既定値、result cacheと-count=1、build/test event識別を要約。同版LICENSEを確認。コード転載なし。"
+}

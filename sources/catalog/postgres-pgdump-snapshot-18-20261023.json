@@ -1,0 +1,12 @@
+{
+  "id": "postgres-pgdump-snapshot-18-20261023",
+  "url": "https://www.postgresql.org/docs/18/app-pgdump.html",
+  "repository_url": "",
+  "commit_sha": "",
+  "version": "PostgreSQL 18 versioned manual, verified 2026-10-23 UTC; exact patch version and individual publication/update date not stated on page",
+  "retrieved_at": "2026-10-23",
+  "license": "PostgreSQL License",
+  "trust": "official",
+  "type": "official_docs",
+  "purpose": "Parallel directory dump, synchronized snapshots, queued exclusive-lock/NOWAIT abort, initial lock timeout, source/target major-version limits. Options and Notes sections; individual publication/update date not stated. Original Japanese summary; no upstream implementation copied. License reference: https://www.postgresql.org/docs/18/legalnotice.html ."
+}

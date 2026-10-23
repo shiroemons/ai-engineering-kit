@@ -1528,6 +1528,20 @@
     {"name": "postgres-conflict-select-before-insert-still-runs", "query": "DO SELECT BEFORE ROW INSERT", "expected_ids": ["postgres-conflict-select-return-lock-batch-boundary"]},
     {"name": "postgres-conflict-select-nextval-not-gapless", "query": "DO SELECT nextval gapless", "expected_ids": ["postgres-conflict-select-return-lock-batch-boundary"]},
     {"name": "postgres-conflict-select-not-zero-write", "query": "DO SELECT zero-write disk", "expected_ids": ["postgres-conflict-select-return-lock-batch-boundary"]},
-    {"name": "postgres-conflict-select-no-runtime-claim", "query": "DO SELECT runtime 実行していない", "expected_ids": ["postgres-conflict-select-return-lock-batch-boundary"]}
+    {"name": "postgres-conflict-select-no-runtime-claim", "query": "DO SELECT runtime 実行していない", "expected_ids": ["postgres-conflict-select-return-lock-batch-boundary"]},
+    {"name": "postgres-pgdump-snapshot-not-cluster-atomic", "query": "pg_dump snapshot 同期されない", "expected_ids": ["postgres-pgdump-snapshot-restore-atomicity-boundary"]},
+    {"name": "postgres-pgdump-globals-separate", "query": "pg_dump globals-only privilege", "expected_ids": ["postgres-pgdump-snapshot-restore-atomicity-boundary"]},
+    {"name": "postgres-pgdump-parallel-directory-connections", "query": "pg_dump directory N+1", "expected_ids": ["postgres-pgdump-snapshot-restore-atomicity-boundary"]},
+    {"name": "postgres-pgdump-worker-nowait-abort", "query": "pg_dump NOWAIT 中止する", "expected_ids": ["postgres-pgdump-snapshot-restore-atomicity-boundary"]},
+    {"name": "postgres-pgdump-lock-timeout-initial-only", "query": "pg_dump lock-wait-timeout 開始時", "expected_ids": ["postgres-pgdump-snapshot-restore-atomicity-boundary"]},
+    {"name": "postgres-pgrestore-exit-not-rollback", "query": "pg_restore exit-on-error 先行commit", "expected_ids": ["postgres-pgdump-snapshot-restore-atomicity-boundary"]},
+    {"name": "postgres-pgrestore-single-transaction-not-parallel", "query": "pg_restore single-transaction 複数jobs", "expected_ids": ["postgres-pgdump-snapshot-restore-atomicity-boundary"]},
+    {"name": "postgres-pgrestore-chunk-not-all-atomic", "query": "pg_restore transaction-size 全体atomic", "expected_ids": ["postgres-pgdump-snapshot-restore-atomicity-boundary"]},
+    {"name": "postgres-psql-single-transaction-file-stop", "query": "psql ON_ERROR_STOP -f", "expected_ids": ["postgres-pgdump-snapshot-restore-atomicity-boundary"]},
+    {"name": "postgres-pgdump-client-newer-source-refusal", "query": "pg_dump 新しい major 拒否", "expected_ids": ["postgres-pgdump-snapshot-restore-atomicity-boundary"]},
+    {"name": "postgres-pgrestore-partial-not-code-sandbox", "query": "pg_restore partial superuser", "expected_ids": ["postgres-pgdump-snapshot-restore-atomicity-boundary"]},
+    {"name": "postgres-pgdump-version18-not19ga", "query": "pg_dump 18 RC1 予定", "expected_ids": ["postgres-pgdump-snapshot-restore-atomicity-boundary"]},
+    {"name": "postgres-pgdump-runtime-not-executed", "query": "pg_dump runtime試験は実行していない", "expected_ids": ["postgres-pgdump-snapshot-restore-atomicity-boundary"]},
+    {"name": "postgres-pgrestore-sequence-not-rolled-back", "query": "pg_restore setval 取り消されない", "expected_ids": ["postgres-pgdump-snapshot-restore-atomicity-boundary"]}
   ]
 }

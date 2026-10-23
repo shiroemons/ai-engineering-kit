@@ -1,0 +1,12 @@
+{
+  "id": "postgres-pgrestore-sequence-rollback-18-20261023",
+  "url": "https://www.postgresql.org/docs/18/functions-sequence.html",
+  "repository_url": "",
+  "commit_sha": "",
+  "version": "PostgreSQL 18 versioned manual, verified 2026-10-23 UTC; exact patch version and individual publication/update date not stated on page",
+  "retrieved_at": "2026-10-23",
+  "license": "PostgreSQL License",
+  "trust": "official",
+  "type": "official_docs",
+  "purpose": "Sequence Manipulation Functions Caution: setval state changes are immediately visible and not undone by transaction rollback. Qualifies restore atomicity for paths modifying pre-existing sequence state; no restore-runtime result claimed. Original Japanese summary; no upstream code copied. License reference: https://www.postgresql.org/docs/18/legalnotice.html ."
+}
