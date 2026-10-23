@@ -1,0 +1,12 @@
+{
+  "id": "whatwg-url-query-tuple-decoding-20261005",
+  "url": "https://url.spec.whatwg.org/",
+  "repository_url": "https://github.com/whatwg/url",
+  "commit_sha": "",
+  "version": "WHATWG URL Living Standard; displayed Last Updated 2026-09-10; retrieved 2026-10-05 UTC",
+  "retrieved_at": "2026-10-05",
+  "license": "CC-BY-4.0 for specification prose; BSD-3-Clause for portions incorporated into source code (verified page Intellectual property rights); no copied implementation code",
+  "trust": "official",
+  "type": "official_docs",
+  "purpose": "application/x-www-form-urlencoded parserが分割、+からspace、percent/UTF-8 decodeの順でtuple listを返すこと、空値と欠落、復号順序のfixtureを確認。ブラウザー実装の適合保証ではない。"
+}

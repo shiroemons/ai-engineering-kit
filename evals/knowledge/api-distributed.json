@@ -1176,6 +1176,90 @@
     {"name": "nats-fast-flow-ack-cumulative", "query": "fast-ingest ack 30 ack 40", "expected_ids": ["messaging-nats-fast-ingest-gap-count-completion-boundary"]},
     {"name": "nats-fast-ping-no-sequence-increment", "query": "ping用にsequenceを増やさない", "expected_ids": ["messaging-nats-fast-ingest-gap-count-completion-boundary"]},
     {"name": "nats-fast-async-not-fsync", "query": "PersistMode: async fsync完了", "expected_ids": ["messaging-nats-fast-ingest-gap-count-completion-boundary"]},
-    {"name": "nats-fast-upstream-not-runtime", "query": "NATS fault testは実行していない", "expected_ids": ["messaging-nats-fast-ingest-gap-count-completion-boundary"]}
+    {"name": "nats-fast-upstream-not-runtime", "query": "NATS fault testは実行していない", "expected_ids": ["messaging-nats-fast-ingest-gap-count-completion-boundary"]},
+    {
+      "name": "openapi-querystring-content-mutual-exclusion",
+      "query": "querystring content 併用禁止",
+      "expected_ids": [
+        "api-design-openapi-querystring-duplicate-decoding-boundary"
+      ]
+    },
+    {
+      "name": "openapi-querystring-inherited-parameters",
+      "query": "querystring Path Item 継承",
+      "expected_ids": [
+        "api-design-openapi-querystring-duplicate-decoding-boundary"
+      ]
+    },
+    {
+      "name": "openapi-querystring-name-wire",
+      "query": "querystring searchInput wire",
+      "expected_ids": [
+        "api-design-openapi-querystring-duplicate-decoding-boundary"
+      ]
+    },
+    {
+      "name": "openapi-querystring-321-duplicate-delta",
+      "query": "3.2.1 重複値 復号",
+      "expected_ids": [
+        "api-design-openapi-querystring-duplicate-decoding-boundary"
+      ]
+    },
+    {
+      "name": "openapi-querystring-duplicate-scalar",
+      "query": "querystring last-wins string",
+      "expected_ids": [
+        "api-design-openapi-querystring-duplicate-decoding-boundary"
+      ]
+    },
+    {
+      "name": "openapi-querystring-single-array-item",
+      "query": "querystring 単一値 array",
+      "expected_ids": [
+        "api-design-openapi-querystring-duplicate-decoding-boundary"
+      ]
+    },
+    {
+      "name": "openapi-querystring-deepobject-limits",
+      "query": "deepObject scalar 未定義",
+      "expected_ids": [
+        "api-design-openapi-querystring-duplicate-decoding-boundary"
+      ]
+    },
+    {
+      "name": "openapi-querystring-contenttype-override",
+      "query": "querystring contentType allowReserved",
+      "expected_ids": [
+        "api-design-openapi-querystring-duplicate-decoding-boundary"
+      ]
+    },
+    {
+      "name": "openapi-querystring-dependent-required",
+      "query": "querystring dependentRequired tenant",
+      "expected_ids": [
+        "api-design-openapi-querystring-duplicate-decoding-boundary"
+      ]
+    },
+    {
+      "name": "openapi-querystring-percent-double-decode",
+      "query": "querystring %252B 二重復号",
+      "expected_ids": [
+        "api-design-openapi-querystring-duplicate-decoding-boundary"
+      ]
+    },
+    {
+      "name": "openapi-querystring-schema-inheritance-gap",
+      "query": "querystring schema-base 継承 違反",
+      "expected_ids": [
+        "api-design-openapi-querystring-duplicate-decoding-boundary"
+      ]
+    },
+    {
+      "name": "openapi-querystring-json-filter-wire",
+      "query": "querystring filter application/json",
+      "expected_ids": [
+        "api-design-openapi-querystring-duplicate-decoding-boundary"
+      ]
+    }
   ]
 }

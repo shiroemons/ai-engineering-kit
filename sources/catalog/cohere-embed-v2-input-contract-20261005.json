@@ -1,0 +1,12 @@
+{
+  "id": "cohere-embed-v2-input-contract-20261005",
+  "url": "https://docs.cohere.com/v2/reference/embed.md",
+  "repository_url": "",
+  "commit_sha": "",
+  "version": "Cohere POST /v2/embed official Markdown reference retrieved 2026-10-05 UTC; independent publication/revision date not displayed; HTML retrieval exceeded tool size limit",
+  "retrieved_at": "2026-10-05",
+  "license": "unknown",
+  "trust": "official",
+  "type": "official_docs",
+  "purpose": "input_type、output_dimension、embedding_types、text/input件数、max_tokens、truncate、text件数と各表現の返却数を公式Markdownで確認。API実測はしておらず画像上限をtext契約から推測しない。コード転載なし"
+}

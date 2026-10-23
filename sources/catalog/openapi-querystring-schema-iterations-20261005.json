@@ -1,0 +1,12 @@
+{
+  "id": "openapi-querystring-schema-iterations-20261005",
+  "url": "https://spec.openapis.org/oas/",
+  "repository_url": "https://github.com/OAI/spec.openapis.org",
+  "commit_sha": "",
+  "version": "OpenAPI publication index; OAS 3.2 schema/schema-base iteration 2026-08-30; dialect/meta 2026-02-26; checked 2026-10-05",
+  "retrieved_at": "2026-10-05",
+  "license": "Apache-2.0 (verified publication page footer); original attributed summary only",
+  "trust": "official",
+  "type": "official_docs",
+  "purpose": "schemaは全違反を捕捉せず本文が優先される点、iterationはpatch公開日とは別、schemaとschema-baseのSchema Object検証範囲を確認。"
+}

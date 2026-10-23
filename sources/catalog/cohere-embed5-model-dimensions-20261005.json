@@ -1,0 +1,12 @@
+{
+  "id": "cohere-embed5-model-dimensions-20261005",
+  "url": "https://docs.cohere.com/v2/docs/cohere-embed",
+  "repository_url": "",
+  "commit_sha": "",
+  "version": "Cohere Embed model table for embed-v5.0-pro / embed-v5.0-fast and embed-v4.0; rolling docs retrieved 2026-10-05 UTC, page publication/revision date not displayed",
+  "retrieved_at": "2026-10-05",
+  "license": "unknown",
+  "trust": "official",
+  "type": "official_docs",
+  "purpose": "Embed 5の選択可能次元と既定2048、Embed 4の既定1536、入力上限128kを照合。次元共有とembedding空間共有を区別する。コード転載なし"
+}
