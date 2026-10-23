@@ -1260,6 +1260,24 @@
       "expected_ids": [
         "api-design-openapi-querystring-duplicate-decoding-boundary"
       ]
-    }
+    },
+    {"name": "rabbit-timeout-437-release-not-retrieval", "query": "4.3.7 2026-10-20 取得日", "expected_ids": ["messaging-rabbitmq-consumer-timeout-cancel-recovery-boundary"]},
+    {"name": "rabbit-timeout-two-capability-directions", "query": "consumer_cancel_notify accept_consumer_cancel_ok 向き", "expected_ids": ["messaging-rabbitmq-consumer-timeout-cancel-recovery-boundary"]},
+    {"name": "rabbit-timeout-old-server-no-blind-cancel-ok", "query": "無条件 cancel-ok 旧broker", "expected_ids": ["messaging-rabbitmq-consumer-timeout-cancel-recovery-boundary"]},
+    {"name": "rabbit-timeout-notify-not-always-open", "query": "notify_consumer mapping 条件", "expected_ids": ["messaging-rabbitmq-consumer-timeout-cancel-recovery-boundary"]},
+    {"name": "rabbit-timeout-close-channel-compat-scope", "query": "consumer_timeout_response=close_channel 古い4.3.x", "expected_ids": ["messaging-rabbitmq-consumer-timeout-cancel-recovery-boundary"]},
+    {"name": "rabbit-timeout-basic-get-fallback", "query": "basic.get subscription tag", "expected_ids": ["messaging-rabbitmq-consumer-timeout-cancel-recovery-boundary"]},
+    {"name": "rabbit-timeout-cancel-ok-timer-not-processing-limit", "query": "10秒 consumer_timeout 別の時計", "expected_ids": ["messaging-rabbitmq-consumer-timeout-cancel-recovery-boundary"]},
+    {"name": "rabbit-timeout-fallback-not-channel-close", "query": "cancel-ok待ち channelを閉じる経路ではない", "expected_ids": ["messaging-rabbitmq-consumer-timeout-cancel-recovery-boundary"]},
+    {"name": "rabbit-timeout-stale-timer-reference", "query": "timer reference 一致", "expected_ids": ["messaging-rabbitmq-consumer-timeout-cancel-recovery-boundary"]},
+    {"name": "rabbit-timeout-unsolicited-cancel-ok", "query": "active consumer 取消しの代用", "expected_ids": ["messaging-rabbitmq-consumer-timeout-cancel-recovery-boundary"]},
+    {"name": "rabbit-timeout-erlang-capability-known-tag", "query": "Erlang capability 既知", "expected_ids": ["messaging-rabbitmq-consumer-timeout-cancel-recovery-boundary"]},
+    {"name": "rabbit-timeout-sdk-alone-not-server-fix", "query": "新client 広告 旧4.3", "expected_ids": ["messaging-rabbitmq-consumer-timeout-cancel-recovery-boundary"]},
+    {"name": "rabbit-timeout-cancel-ok-not-business-ack", "query": "basic.cancel-ok basic.ack 業務commit", "expected_ids": ["messaging-rabbitmq-consumer-timeout-cancel-recovery-boundary"]},
+    {"name": "rabbit-timeout-open-channel-not-subscribed", "query": "channelがopen consumerが登録済み", "expected_ids": ["messaging-rabbitmq-consumer-timeout-cancel-recovery-boundary"]},
+    {"name": "rabbit-timeout-no-external-fencing", "query": "timeout通知 業務rollback fencing証明", "expected_ids": ["messaging-rabbitmq-consumer-timeout-cancel-recovery-boundary"]},
+    {"name": "rabbit-timeout-generic-doc-conflict", "query": "Consumers PRECONDITION_FAILED 不一致", "expected_ids": ["messaging-rabbitmq-consumer-timeout-cancel-recovery-boundary"]},
+    {"name": "rabbit-timeout-late-ack-ready", "query": "late ack ready 復旧手段", "expected_ids": ["messaging-rabbitmq-consumer-timeout-cancel-recovery-boundary"]},
+    {"name": "rabbit-timeout-upstream-not-executed", "query": "upstream試験は今回実行していない", "expected_ids": ["messaging-rabbitmq-consumer-timeout-cancel-recovery-boundary"]}
   ]
 }

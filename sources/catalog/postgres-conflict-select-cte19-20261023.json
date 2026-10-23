@@ -1,0 +1,12 @@
+{
+  "id": "postgres-conflict-select-cte19-20261023",
+  "url": "https://www.postgresql.org/docs/19/queries-with.html",
+  "repository_url": "",
+  "commit_sha": "",
+  "version": "PostgreSQL 19 development WITH Queries manual; section 7.8.4",
+  "retrieved_at": "2026-10-23",
+  "license": "PostgreSQL License",
+  "trust": "official",
+  "type": "official_docs",
+  "purpose": "data-modifying CTEと親queryが同じsnapshotを使う契約を確認。DO NOTHING RETURNINGと通常SELECTのUNION fallbackの空結果例はisolation契約と合わせた独自分析で、runtime観測ではない。 ライセンス根拠 https://www.postgresql.org/about/licence/ はsoftwareとdocumentationを対象とする。実装・fixture・原文を転載せず独自の日本語要約・分析として使用。"
+}

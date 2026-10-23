@@ -2582,6 +2582,90 @@
       "expected_ids": [
         "python-sentinel-missing-pickle-identity-boundary"
       ]
+    },
+    {
+      "name": "ruby-io-buffer-preview-not-stable",
+      "query": "IO::Buffer 4.1.0-preview1 2026-10-12 安定版",
+      "expected_ids": [
+        "ruby-io-buffer-short-transfer-migration-boundary"
+      ]
+    },
+    {
+      "name": "ruby-io-buffer-order-arity",
+      "query": "IO::Buffer arity検査 offset4 最大8-byte",
+      "expected_ids": [
+        "ruby-io-buffer-short-transfer-migration-boundary"
+      ]
+    },
+    {
+      "name": "ruby-io-buffer-minimum-not-maximum",
+      "query": "IO::Buffer 最低転送量 最大転送量",
+      "expected_ids": [
+        "ruby-io-buffer-short-transfer-migration-boundary"
+      ]
+    },
+    {
+      "name": "ruby-io-buffer-zero-noop",
+      "query": "IO::Buffer zero length no-op",
+      "expected_ids": [
+        "ruby-io-buffer-short-transfer-migration-boundary"
+      ]
+    },
+    {
+      "name": "ruby-io-buffer-zero-still-validates",
+      "query": "IO::Buffer zero length 引数・buffer検証",
+      "expected_ids": [
+        "ruby-io-buffer-short-transfer-migration-boundary"
+      ]
+    },
+    {
+      "name": "ruby-io-buffer-caller-eagain",
+      "query": "IO::Buffer -EAGAIN 呼出側 待機",
+      "expected_ids": [
+        "ruby-io-buffer-short-transfer-migration-boundary"
+      ]
+    },
+    {
+      "name": "ruby-io-buffer-hook-not-buffer-stable",
+      "query": "IO::Buffer hooksのexperimental終了 安定化",
+      "expected_ids": [
+        "ruby-io-buffer-short-transfer-migration-boundary"
+      ]
+    },
+    {
+      "name": "ruby-io-buffer-optional-hook-install",
+      "query": "IO::Buffer fiber_interrupt install条件",
+      "expected_ids": [
+        "ruby-io-buffer-short-transfer-migration-boundary"
+      ]
+    },
+    {
+      "name": "ruby-io-buffer-advance-two-offsets",
+      "query": "IO::Buffer buffer offsetとfile offsetの両方",
+      "expected_ids": [
+        "ruby-io-buffer-short-transfer-migration-boundary"
+      ]
+    },
+    {
+      "name": "ruby-io-buffer-preserve-partial-progress",
+      "query": "IO::Buffer completed rollback 再送",
+      "expected_ids": [
+        "ruby-io-buffer-short-transfer-migration-boundary"
+      ]
+    },
+    {
+      "name": "ruby-io-buffer-c-types-not-protection",
+      "query": "IO::Buffer size_t 型エラー",
+      "expected_ids": [
+        "ruby-io-buffer-short-transfer-migration-boundary"
+      ]
+    },
+    {
+      "name": "ruby-io-buffer-runtime-not-executed",
+      "query": "IO::Buffer Ruby runtime試験は実行していない",
+      "expected_ids": [
+        "ruby-io-buffer-short-transfer-migration-boundary"
+      ]
     }
   ]
 }

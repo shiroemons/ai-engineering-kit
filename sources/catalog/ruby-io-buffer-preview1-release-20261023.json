@@ -1,0 +1,12 @@
+{
+  "id": "ruby-io-buffer-preview1-release-20261023",
+  "url": "https://www.ruby-lang.org/en/news/2026/10/12/ruby-4-1-0-preview1-released/",
+  "repository_url": "https://github.com/ruby/ruby",
+  "commit_sha": "",
+  "version": "Ruby 4.1.0-preview1; official release announcement published 2026-10-12, not a stable-release claim",
+  "retrieved_at": "2026-10-23",
+  "license": "unknown for news text; original attributed summary only, no copied code",
+  "trust": "official",
+  "type": "release_notes",
+  "purpose": "Release date and preview status; IO::Buffer transfer order, maximum length and short-transfer behavior; corresponding scheduler hooks leaving experimental status; separate fiber_interrupt installation requirement."
+}

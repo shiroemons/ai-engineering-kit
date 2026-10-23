@@ -1,0 +1,12 @@
+{
+  "id": "rabbitmq-timeout-release-437-20261023",
+  "url": "https://github.com/rabbitmq/rabbitmq-server/releases/tag/v4.3.7",
+  "repository_url": "https://github.com/rabbitmq/rabbitmq-server",
+  "commit_sha": "cd87622aee0d4fd8b119d713f2e03420b0642a89",
+  "version": "RabbitMQ 4.3.7, release published 2026-10-20; tag resolves to cd87622aee0d4fd8b119d713f2e03420b0642a89",
+  "retrieved_at": "2026-10-23",
+  "license": "unknown",
+  "trust": "official",
+  "type": "release_notes",
+  "purpose": "consumer timeout取消通知後の無応答client cleanup、capability広告、consumer_timeout_response追加を確認。公開日と取得日を区別し、4.3.7を全系列の最新版とはしない。native webで本文を開いた。独自要約のみ。"
+}

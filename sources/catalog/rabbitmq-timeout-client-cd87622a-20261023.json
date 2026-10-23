@@ -1,0 +1,12 @@
+{
+  "id": "rabbitmq-timeout-client-cd87622a-20261023",
+  "url": "https://github.com/rabbitmq/rabbitmq-server/blob/cd87622aee0d4fd8b119d713f2e03420b0642a89/deps/amqp_client/src/amqp_channel.erl",
+  "repository_url": "https://github.com/rabbitmq/rabbitmq-server",
+  "commit_sha": "cd87622aee0d4fd8b119d713f2e03420b0642a89",
+  "version": "RabbitMQ v4.3.7 at cd87622aee0d4fd8b119d713f2e03420b0642a89; deps/amqp_client/src/amqp_channel.erl",
+  "retrieved_at": "2026-10-23",
+  "license": "MPL-2.0; file header and root LICENSE at pinned commit verified; no source code copied",
+  "trust": "primary-source",
+  "type": "github_repository_analysis",
+  "purpose": "同梱Erlang clientが明示trueのserver capabilityと既知consumer tagを条件にcancel-okを送ること、capability不在をfalse扱いにすることを確認。他言語SDKの発売済み版へ一般化しない。 GitHub connectorで固定SHAの本文取得。独自解析のみ。"
+}

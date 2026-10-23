@@ -1,0 +1,12 @@
+{
+  "id": "postgres-conflict-select-locks19-20261023",
+  "url": "https://www.postgresql.org/docs/19/explicit-locking.html",
+  "repository_url": "",
+  "commit_sha": "",
+  "version": "PostgreSQL 19 development explicit-locking manual; individual update date not displayed",
+  "retrieved_at": "2026-10-23",
+  "license": "PostgreSQL License",
+  "trust": "official",
+  "type": "official_docs",
+  "purpose": "row lockのtransaction終了・savepoint rollbackでの解放、各lock強度、FOR KEY SHAREの非key更新許容、lockによるdisk writeを確認。 ライセンス根拠 https://www.postgresql.org/about/licence/ はsoftwareとdocumentationを対象とする。実装・fixture・原文を転載せず独自の日本語要約・分析として使用。"
+}

@@ -1,0 +1,12 @@
+{
+  "id": "ruby-io-buffer-preview1-source-2d08b5f4-20261023",
+  "url": "https://github.com/ruby/ruby/tree/2d08b5f42f2cbed4a4e6ecf8d62987a4f21f98c1",
+  "repository_url": "https://github.com/ruby/ruby",
+  "commit_sha": "2d08b5f42f2cbed4a4e6ecf8d62987a4f21f98c1",
+  "version": "CRuby v4.1.0-preview1; official tag resolved by git ls-remote and cloned at 2d08b5f42f2cbed4a4e6ecf8d62987a4f21f98c1; commit 2026-10-11 UTC, release 2026-10-12",
+  "retrieved_at": "2026-10-23",
+  "license": "Ruby License OR BSD-2-Clause; same-commit COPYING, BSDL, LEGAL and analyzed file headers checked; original analysis, no implementation or test code copied",
+  "trust": "official",
+  "type": "github_repository_analysis",
+  "purpose": "Read NEWS.md, io_buffer.c, scheduler.c, relevant io.c paths, include/ruby/io/buffer.h, include/ruby/fiber/scheduler.h, test/ruby/test_io_buffer.rb, test/fiber/test_io_buffer.rb and test/fiber/scheduler.rb. Confirms argument order, default extraction, zero-length validation/no-op, one-operation callbacks, negative errno, -EAGAIN ownership, optional IO hooks, required fiber_interrupt, and upstream test intent. Native web raw/commit fetches failed with cache misses; official Git clone succeeded and HEAD was verified. No Ruby execution or upstream-test run."
+}

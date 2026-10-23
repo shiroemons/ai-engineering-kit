@@ -1,0 +1,12 @@
+{
+  "id": "postgres-conflict-select-sequence19-20261023",
+  "url": "https://www.postgresql.org/docs/19/functions-sequence.html",
+  "repository_url": "",
+  "commit_sha": "",
+  "version": "PostgreSQL 19 development sequence-functions manual; ON CONFLICT nextval caution",
+  "retrieved_at": "2026-10-23",
+  "license": "PostgreSQL License",
+  "trust": "official",
+  "type": "official_docs",
+  "purpose": "ON CONFLICTの競合検出前にnextvalを含む候補行が計算され、既存行を返しても採番が進みうる点を確認。 ライセンス根拠 https://www.postgresql.org/about/licence/ はsoftwareとdocumentationを対象とする。実装・fixture・原文を転載せず独自の日本語要約・分析として使用。"
+}

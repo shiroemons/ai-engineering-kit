@@ -1,0 +1,12 @@
+{
+  "id": "rabbitmq-timeout-channel-cd87622a-20261023",
+  "url": "https://github.com/rabbitmq/rabbitmq-server/blob/cd87622aee0d4fd8b119d713f2e03420b0642a89/deps/rabbit/src/rabbit_channel.erl",
+  "repository_url": "https://github.com/rabbitmq/rabbitmq-server",
+  "commit_sha": "cd87622aee0d4fd8b119d713f2e03420b0642a89",
+  "version": "RabbitMQ v4.3.7 at cd87622aee0d4fd8b119d713f2e03420b0642a89; deps/rabbit/src/rabbit_channel.erl",
+  "retrieved_at": "2026-10-23",
+  "license": "MPL-2.0; file header and root LICENSE at pinned commit verified; no source code copied",
+  "trust": "primary-source",
+  "type": "github_repository_analysis",
+  "purpose": "handle_consumer_delivery_timeout、pending_consumer_cancels、10,000ms timer、cancel-ok待ちのtag/reference一致、非pending cancel-ok無視、consumer削除とchannel閉鎖の分岐を解析。 GitHub connectorで固定SHAの本文取得。独自解析のみ。"
+}

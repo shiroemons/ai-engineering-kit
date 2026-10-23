@@ -1,0 +1,12 @@
+{
+  "id": "rabbitmq-timeout-consumers-docs-43-20261023",
+  "url": "https://blog.rabbitmq.com/docs/4.3/consumers",
+  "repository_url": "",
+  "commit_sha": "",
+  "version": "RabbitMQ Documentation 4.3, Consumers; version selector verified 2026-10-23; publication date not displayed",
+  "retrieved_at": "2026-10-23",
+  "license": "unknown",
+  "trust": "official",
+  "type": "official_docs",
+  "purpose": "一般guideのchannel閉鎖説明と4.3.7の条件付き通知実装の不一致、通常cancelとin-flight配送の境界を確認。www host取得失敗後、公式blog hostの4.3版本文をnative webで取得。独自要約のみ。"
+}

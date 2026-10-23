@@ -1510,6 +1510,24 @@
       "expected_ids": [
         "sqlite-schema-trigger-admission-budget-boundary"
       ]
-    }
+    },
+    {"name": "postgres-conflict-select-rc1-preview-not-ga", "query": "RC1 2026-10-15 2026-11-19 GA", "expected_ids": ["postgres-conflict-select-return-lock-batch-boundary"]},
+    {"name": "postgres-conflict-select-target-returning-required", "query": "DO SELECT conflict_target 必須", "expected_ids": ["postgres-conflict-select-return-lock-batch-boundary"]},
+    {"name": "postgres-conflict-select-count-not-created", "query": "DO SELECT count distinct", "expected_ids": ["postgres-conflict-select-return-lock-batch-boundary"]},
+    {"name": "postgres-conflict-select-old-id-null", "query": "DO SELECT old.id nullable", "expected_ids": ["postgres-conflict-select-return-lock-batch-boundary"]},
+    {"name": "postgres-conflict-select-where-empty-not-missing", "query": "DO SELECT 空の RETURNING 別経路", "expected_ids": ["postgres-conflict-select-return-lock-batch-boundary"]},
+    {"name": "postgres-conflict-select-filtered-still-locked", "query": "DO SELECT 返却から除外 lock", "expected_ids": ["postgres-conflict-select-return-lock-batch-boundary"]},
+    {"name": "postgres-conflict-select-read-committed-visible", "query": "DO SELECT statement snapshot dirty", "expected_ids": ["postgres-conflict-select-return-lock-batch-boundary"]},
+    {"name": "postgres-conflict-select-cte-fallback-empty", "query": "DO NOTHING UNION 両 branch", "expected_ids": ["postgres-conflict-select-return-lock-batch-boundary"]},
+    {"name": "postgres-conflict-select-high-isolation-retry", "query": "ExecCheckTupleVisible serialization failure", "expected_ids": ["postgres-conflict-select-return-lock-batch-boundary"]},
+    {"name": "postgres-conflict-select-autocommit-not-reservation", "query": "DO SELECT autocommit 予約", "expected_ids": ["postgres-conflict-select-return-lock-batch-boundary"]},
+    {"name": "postgres-conflict-select-keyshare-not-payload", "query": "FOR KEY SHARE 非key列", "expected_ids": ["postgres-conflict-select-return-lock-batch-boundary"]},
+    {"name": "postgres-conflict-select-batch-repeated-results", "query": "selfconflict 二回返す", "expected_ids": ["postgres-conflict-select-return-lock-batch-boundary"]},
+    {"name": "postgres-conflict-select-locking-cardinality", "query": "TM_Invisible ERRCODE_CARDINALITY_VIOLATION", "expected_ids": ["postgres-conflict-select-return-lock-batch-boundary"]},
+    {"name": "postgres-conflict-select-batch-not-all-existing", "query": "DO SELECT 事前に存在 繰返し", "expected_ids": ["postgres-conflict-select-return-lock-batch-boundary"]},
+    {"name": "postgres-conflict-select-before-insert-still-runs", "query": "DO SELECT BEFORE ROW INSERT", "expected_ids": ["postgres-conflict-select-return-lock-batch-boundary"]},
+    {"name": "postgres-conflict-select-nextval-not-gapless", "query": "DO SELECT nextval gapless", "expected_ids": ["postgres-conflict-select-return-lock-batch-boundary"]},
+    {"name": "postgres-conflict-select-not-zero-write", "query": "DO SELECT zero-write disk", "expected_ids": ["postgres-conflict-select-return-lock-batch-boundary"]},
+    {"name": "postgres-conflict-select-no-runtime-claim", "query": "DO SELECT runtime 実行していない", "expected_ids": ["postgres-conflict-select-return-lock-batch-boundary"]}
   ]
 }
