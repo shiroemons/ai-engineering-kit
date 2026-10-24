@@ -1,0 +1,12 @@
+{
+  "id": "sqlite-3541-default-auth-patch-20261024",
+  "url": "https://www.sqlite.org/releaselog/3_54_1.html",
+  "repository_url": "https://github.com/sqlite/sqlite",
+  "commit_sha": "",
+  "version": "SQLite 3.54.1 released 2026-10-16; inherited 3.54.0 DEFAULT authorizer change",
+  "retrieved_at": "2026-10-24",
+  "license": "Public domain (SQLite code and documentation; https://www.sqlite.org/copyright.html)",
+  "trust": "official",
+  "type": "release_notes",
+  "purpose": "固定実装のpatch版とFossil source IDを照合。3.54.0の導入日と3.54.1の公開日を区別"
+}

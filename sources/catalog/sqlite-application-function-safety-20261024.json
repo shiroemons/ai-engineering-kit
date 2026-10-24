@@ -1,0 +1,12 @@
+{
+  "id": "sqlite-application-function-safety-20261024",
+  "url": "https://www.sqlite.org/appfunc.html",
+  "repository_url": "https://github.com/sqlite/sqlite",
+  "commit_sha": "",
+  "version": "Application-Defined SQL Functions; page last updated 2026-04-21 10:28:59Z; retrieved 2026-10-24 UTC",
+  "retrieved_at": "2026-10-24",
+  "license": "Public domain (SQLite code and documentation; https://www.sqlite.org/copyright.html)",
+  "trust": "official",
+  "type": "official_docs",
+  "purpose": "接続ごとのSQL関数登録とschema由来の副作用、trusted_schemaの初期化、DIRECTONLYとINNOCUOUSの安全な利用判断を確認"
+}

@@ -1,0 +1,12 @@
+{
+  "id": "rfc7578-multipart-form-order-20261024",
+  "url": "https://www.rfc-editor.org/rfc/rfc7578.html",
+  "repository_url": "",
+  "commit_sha": "",
+  "version": "RFC 7578 (July 2015), sections 4.2, 4.3, 4.8, 5.2",
+  "retrieved_at": "2026-10-24",
+  "license": "IETF Trust Legal Provisions / BCP 78; extracted Code Components subject to Simplified BSD terms; original summary only",
+  "trust": "official",
+  "type": "official_docs",
+  "purpose": "form-data の name と同名 part、intermediary の並べ替え・coalescing 禁止を positional mixed と区別する。"
+}

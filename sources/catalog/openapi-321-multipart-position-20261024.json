@@ -1,0 +1,12 @@
+{
+  "id": "openapi-321-multipart-position-20261024",
+  "url": "https://spec.openapis.org/oas/v3.2.1.html",
+  "repository_url": "https://github.com/OAI/OpenAPI-Specification",
+  "commit_sha": "",
+  "version": "OpenAPI Specification 3.2.1, published 2026-09-10",
+  "retrieved_at": "2026-10-24",
+  "license": "Apache-2.0 (specification section 1.1; repository LICENSE checked at tag 3.2.1)",
+  "trust": "official",
+  "type": "official_docs",
+  "purpose": "§4.14.5.2–3 と §4.15 の positional encoding、part contentType、無対応 entry の扱いを確認。公式本文の独自要約のみ。"
+}

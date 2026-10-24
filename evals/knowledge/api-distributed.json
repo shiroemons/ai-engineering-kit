@@ -1336,6 +1336,16 @@
       "expected_ids": [
         "messaging-rabbitmq-deferral-claim-credit-deadline-boundary"
       ]
-    }
+    },
+    {"name": "openapi-multipart-prefix-not-presence", "query": "prefixEncoding 存在の要求", "expected_ids": ["api-design-openapi-multipart-position-cardinality-boundary"]},
+    {"name": "openapi-multipart-short-prefix-old-contract", "query": "3.2.0 短い", "expected_ids": ["api-design-openapi-multipart-position-cardinality-boundary"]},
+    {"name": "openapi-multipart-minitems-body-required", "query": "requestBody.required minItems", "expected_ids": ["api-design-openapi-multipart-position-cardinality-boundary"]},
+    {"name": "openapi-multipart-items-no-encoding-permission", "query": "itemEncoding items: false", "expected_ids": ["api-design-openapi-multipart-position-cardinality-boundary"]},
+    {"name": "openapi-multipart-part-contenttype-not-header-map", "query": "headers.Content-Type.required 無視", "expected_ids": ["api-design-openapi-multipart-position-cardinality-boundary"]},
+    {"name": "openapi-multipart-missing-contenttype-no-json-default", "query": "headerを補充 text/plain", "expected_ids": ["api-design-openapi-multipart-position-cardinality-boundary"]},
+    {"name": "openapi-multipart-formdata-order-not-map", "query": "form-data name/value 順序", "expected_ids": ["api-design-openapi-multipart-position-cardinality-boundary"]},
+    {"name": "openapi-multipart-schema-not-csv-validator", "query": "CSV schema valid", "expected_ids": ["api-design-openapi-multipart-position-cardinality-boundary"]},
+    {"name": "openapi-multipart-runtime-unverified", "query": "runtime feature SDK", "expected_ids": ["api-design-openapi-multipart-position-cardinality-boundary"]},
+    {"name": "openapi-multipart-completion-not-two-values", "query": "二つの値 全body", "expected_ids": ["api-design-openapi-multipart-position-cardinality-boundary"]}
   ]
 }

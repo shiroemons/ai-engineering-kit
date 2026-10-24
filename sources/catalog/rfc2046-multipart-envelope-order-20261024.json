@@ -1,0 +1,12 @@
+{
+  "id": "rfc2046-multipart-envelope-order-20261024",
+  "url": "https://www.rfc-editor.org/rfc/rfc2046.html",
+  "repository_url": "",
+  "commit_sha": "",
+  "version": "RFC 2046 (November 1996), sections 5.1, 5.1.1, 5.1.3",
+  "retrieved_at": "2026-10-24",
+  "license": "unknown (page permits unlimited distribution but displays no specific copyright license grant); original attributed summary only, no copied code",
+  "trust": "official",
+  "type": "official_docs",
+  "purpose": "multipart boundary、part header 欠落時の default、mixed の順序、終端構文と payload の責務を確認。"
+}

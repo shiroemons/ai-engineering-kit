@@ -1542,6 +1542,18 @@
     {"name": "postgres-pgrestore-partial-not-code-sandbox", "query": "pg_restore partial superuser", "expected_ids": ["postgres-pgdump-snapshot-restore-atomicity-boundary"]},
     {"name": "postgres-pgdump-version18-not19ga", "query": "pg_dump 18 RC1 予定", "expected_ids": ["postgres-pgdump-snapshot-restore-atomicity-boundary"]},
     {"name": "postgres-pgdump-runtime-not-executed", "query": "pg_dump runtime試験は実行していない", "expected_ids": ["postgres-pgdump-snapshot-restore-atomicity-boundary"]},
-    {"name": "postgres-pgrestore-sequence-not-rolled-back", "query": "pg_restore setval 取り消されない", "expected_ids": ["postgres-pgdump-snapshot-restore-atomicity-boundary"]}
+    {"name": "postgres-pgrestore-sequence-not-rolled-back", "query": "pg_restore setval 取り消されない", "expected_ids": ["postgres-pgdump-snapshot-restore-atomicity-boundary"]},
+    {"name": "sqlite-default-authorizer-introduced-354", "query": "DEFAULT authorizer 3.54.0 2026-10-09", "expected_ids": ["sqlite-default-function-authorizer-reprepare-boundary"]},
+    {"name": "sqlite-default-authorizer-compile-not-row-audit", "query": "authorizer compile audit", "expected_ids": ["sqlite-default-function-authorizer-reprepare-boundary"]},
+    {"name": "sqlite-default-authorizer-schema-open-not-approval", "query": "DEFAULT authorizer schema読込み", "expected_ids": ["sqlite-default-function-authorizer-reprepare-boundary"]},
+    {"name": "sqlite-default-authorizer-ignore-not-null", "query": "DEFAULT SQLITE_IGNORE TK_NULL", "expected_ids": ["sqlite-default-function-authorizer-reprepare-boundary"]},
+    {"name": "sqlite-default-authorizer-function-name-context", "query": "SQLITE_FUNCTION 第4引数 case", "expected_ids": ["sqlite-default-function-authorizer-reprepare-boundary"]},
+    {"name": "sqlite-default-authorizer-step-reprepare", "query": "authorizer step reprepare", "expected_ids": ["sqlite-default-function-authorizer-reprepare-boundary"]},
+    {"name": "sqlite-default-authorizer-advisory-not-cancel", "query": "authorizer advisory expiration 実行中", "expected_ids": ["sqlite-default-function-authorizer-reprepare-boundary"]},
+    {"name": "sqlite-default-authorizer-userdata-cache-policy", "query": "authorizer userdata cache policy", "expected_ids": ["sqlite-default-function-authorizer-reprepare-boundary"]},
+    {"name": "sqlite-default-authorizer-pool-physical-connection", "query": "authorizer pool 物理接続", "expected_ids": ["sqlite-default-function-authorizer-reprepare-boundary"]},
+    {"name": "sqlite-default-authorizer-directonly-not-innocuous", "query": "DEFAULT DIRECTONLY INNOCUOUS", "expected_ids": ["sqlite-default-function-authorizer-reprepare-boundary"]},
+    {"name": "sqlite-default-authorizer-generated-column-distinction", "query": "authorizer generated column", "expected_ids": ["sqlite-default-function-authorizer-reprepare-boundary"]},
+    {"name": "sqlite-default-authorizer-static-not-runtime", "query": "DEFAULT authorizer runtime 実行していない", "expected_ids": ["sqlite-default-function-authorizer-reprepare-boundary"]}
   ]
 }
