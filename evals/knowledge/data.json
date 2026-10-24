@@ -1554,6 +1554,90 @@
     {"name": "sqlite-default-authorizer-pool-physical-connection", "query": "authorizer pool 物理接続", "expected_ids": ["sqlite-default-function-authorizer-reprepare-boundary"]},
     {"name": "sqlite-default-authorizer-directonly-not-innocuous", "query": "DEFAULT DIRECTONLY INNOCUOUS", "expected_ids": ["sqlite-default-function-authorizer-reprepare-boundary"]},
     {"name": "sqlite-default-authorizer-generated-column-distinction", "query": "authorizer generated column", "expected_ids": ["sqlite-default-function-authorizer-reprepare-boundary"]},
-    {"name": "sqlite-default-authorizer-static-not-runtime", "query": "DEFAULT authorizer runtime 実行していない", "expected_ids": ["sqlite-default-function-authorizer-reprepare-boundary"]}
+    {"name": "sqlite-default-authorizer-static-not-runtime", "query": "DEFAULT authorizer runtime 実行していない", "expected_ids": ["sqlite-default-function-authorizer-reprepare-boundary"]},
+    {
+      "name": "redis-preload-rc-not-stable-fix",
+      "query": "preload-file 8.12-RC1 stable backport",
+      "expected_ids": [
+        "redis-preload-source-restart-boundary"
+      ]
+    },
+    {
+      "name": "redis-preload-replaces-local-input",
+      "query": "preload-file 追加 local RDB",
+      "expected_ids": [
+        "redis-preload-source-restart-boundary"
+      ]
+    },
+    {
+      "name": "redis-preload-legacy-path-upgrade",
+      "query": "preload-file legacy rename unlink",
+      "expected_ids": [
+        "redis-preload-source-restart-boundary"
+      ]
+    },
+    {
+      "name": "redis-preload-fix-not-all-restore",
+      "query": "preload-file 8.10.2 すべて",
+      "expected_ids": [
+        "redis-preload-source-restart-boundary"
+      ]
+    },
+    {
+      "name": "redis-preload-fsync-not-path-safety",
+      "query": "preload-file appendfsync always path",
+      "expected_ids": [
+        "redis-preload-source-restart-boundary"
+      ]
+    },
+    {
+      "name": "redis-preload-manifest-cleanup-archive",
+      "query": "preload-file appendonlydir archive cleanup",
+      "expected_ids": [
+        "redis-preload-source-restart-boundary"
+      ]
+    },
+    {
+      "name": "redis-preload-fresh-incr-not-input-name",
+      "query": "preload-file basename fresh INCR",
+      "expected_ids": [
+        "redis-preload-source-restart-boundary"
+      ]
+    },
+    {
+      "name": "redis-preload-current-manifest-exception",
+      "query": "preloadFileIsCurrentAofManifest existing INCR",
+      "expected_ids": [
+        "redis-preload-source-restart-boundary"
+      ]
+    },
+    {
+      "name": "redis-preload-restart-without-preload",
+      "query": "preloadなし再起動 probe",
+      "expected_ids": [
+        "redis-preload-source-restart-boundary"
+      ]
+    },
+    {
+      "name": "redis-preload-not-failure-atomic",
+      "query": "preload-file disk full rollback",
+      "expected_ids": [
+        "redis-preload-source-restart-boundary"
+      ]
+    },
+    {
+      "name": "redis-preload-hardlink-not-independent-copy",
+      "query": "preload-file hardlink 独立backup",
+      "expected_ids": [
+        "redis-preload-source-restart-boundary"
+      ]
+    },
+    {
+      "name": "redis-preload-runtime-not-verified",
+      "query": "preload-file runtime試験案 実行していない",
+      "expected_ids": [
+        "redis-preload-source-restart-boundary"
+      ]
+    }
   ]
 }

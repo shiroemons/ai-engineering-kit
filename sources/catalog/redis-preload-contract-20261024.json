@@ -1,0 +1,12 @@
+{
+  "id": "redis-preload-contract-20261024",
+  "url": "https://redis.io/docs/latest/operate/oss_and_stack/management/persistence/",
+  "repository_url": "",
+  "commit_sha": "",
+  "version": "Redis persistence rolling docs retrieved 2026-10-24 UTC; preload-file restore section",
+  "retrieved_at": "2026-10-24",
+  "license": "unknown (documentation reuse license not established; original attributed summary only)",
+  "trust": "official",
+  "type": "official_docs",
+  "purpose": "preload-fileは指定artifactのみを読み、通常のlocal AOF/RDB読込をskipすること、missing/load failureではstartupを中止し、preload後に設定済みpersistenceへ戻ることを確認。"
+}

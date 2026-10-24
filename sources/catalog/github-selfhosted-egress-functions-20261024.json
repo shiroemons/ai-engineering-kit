@@ -1,0 +1,12 @@
+{
+  "id": "github-selfhosted-egress-functions-20261024",
+  "url": "https://docs.github.com/en/actions/reference/runners/self-hosted-runners",
+  "repository_url": "https://github.com/github/docs",
+  "commit_sha": "",
+  "version": "GitHub.com self-hosted runner reference retrieved 2026-10-24",
+  "retrieved_at": "2026-10-24",
+  "license": "CC-BY-4.0",
+  "trust": "official",
+  "type": "official_docs",
+  "purpose": "outbound HTTPS443、機能別通信先、CNAME追跡、summary/log/artifact/cache宛先とorganization IP allowlistの別境界を確認。GitHub Docs LICENSEを確認。"
+}

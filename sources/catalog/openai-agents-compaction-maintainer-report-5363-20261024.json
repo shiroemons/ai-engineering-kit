@@ -1,0 +1,12 @@
+{
+  "id": "openai-agents-compaction-maintainer-report-5363-20261024",
+  "url": "https://github.com/openai/openai-agents-python/pull/5363",
+  "repository_url": "https://github.com/openai/openai-agents-python",
+  "commit_sha": "5eb47a5bdeab8ba9f6087de288c7e606816c76c6",
+  "version": "Maintainer PR #5363; report dated 2026-10-13; merged change pinned to 5eb47a5bdeab8ba9f6087de288c7e606816c76c6",
+  "retrieved_at": "2026-10-24",
+  "license": "unknown (pull-request prose license not independently established; original summary only)",
+  "trust": "maintainer",
+  "type": "github_repository_analysis",
+  "purpose": "修正作者による障害説明と検証報告を2026-10-24に確認。v0.23.1でapproval interruptionが返る前にHTTP 400となる再現、manual/public API非変更、修正後の承認・拒否と次turnの確認は作者の報告として扱う。PR本文は取得時点の可変資料、実装はcommit固定。"
+}

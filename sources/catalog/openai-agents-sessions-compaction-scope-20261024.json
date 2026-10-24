@@ -1,0 +1,12 @@
+{
+  "id": "openai-agents-sessions-compaction-scope-20261024",
+  "url": "https://openai.github.io/openai-agents-python/sessions/",
+  "repository_url": "https://github.com/openai/openai-agents-python",
+  "commit_sha": "",
+  "version": "Rolling Sessions guide; verified 2026-10-24 UTC; publication date not shown",
+  "retrieved_at": "2026-10-24",
+  "license": "unknown (deployed guide prose license not independently established; original summary only)",
+  "trust": "official",
+  "type": "official_docs",
+  "purpose": "OpenAIResponsesCompactionSessionの格納履歴置換、stream/Runner完了待ち、OpenAIConversationsSessionとの非互換、同一wrapper内のmutation直列化と失敗時recoveryの限界、underlying session直接変更が保証を迂回する点を確認。"
+}

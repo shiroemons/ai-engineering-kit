@@ -1,0 +1,12 @@
+{
+  "id": "github-meta-contract-20261024",
+  "url": "https://docs.github.com/en/rest/meta/meta?apiVersion=2026-03-10",
+  "repository_url": "https://github.com/github/docs",
+  "commit_sha": "",
+  "version": "GitHub REST API meta live documentation, 2026-03-10 examples, retrieved 2026-10-24",
+  "retrieved_at": "2026-10-24",
+  "license": "CC-BY-4.0",
+  "trust": "official",
+  "type": "official_docs",
+  "purpose": "Meta APIのdomain/IP情報、例示応答とlive取得の区別、未認証の公開情報取得を確認。GitHub Docs LICENSE https://github.com/github/docs/blob/main/LICENSE を確認。"
+}

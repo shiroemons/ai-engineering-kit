@@ -2532,6 +2532,76 @@
       "expected_ids": [
         "agents-claude-managed-web-policy-session-update-boundary"
       ]
+    },
+    {
+      "name": "openai-compaction-pending-approval-deferral",
+      "query": "compaction 承認待ち",
+      "expected_ids": [
+        "openai-compaction-approval-replay-boundary"
+      ]
+    },
+    {
+      "name": "openai-compaction-http400-before-interruption",
+      "query": "OpenAIResponsesCompactionSession HTTP 400",
+      "expected_ids": [
+        "openai-compaction-approval-replay-boundary"
+      ]
+    },
+    {
+      "name": "openai-compaction-hosted-mcp-request-pair",
+      "query": "mcp_approval_response approval_request_id",
+      "expected_ids": [
+        "openai-compaction-approval-replay-boundary"
+      ]
+    },
+    {
+      "name": "openai-compaction-manual-force-distinction",
+      "query": "manual run_compaction force",
+      "expected_ids": [
+        "openai-compaction-approval-replay-boundary"
+      ]
+    },
+    {
+      "name": "openai-compaction-stream-drain-interruptions",
+      "query": "stream_events interruptions compaction",
+      "expected_ids": [
+        "openai-compaction-approval-replay-boundary"
+      ]
+    },
+    {
+      "name": "openai-compaction-serialized-state-session",
+      "query": "RunState 同じ session",
+      "expected_ids": [
+        "openai-compaction-approval-replay-boundary"
+      ]
+    },
+    {
+      "name": "openai-compaction-trigger-not-execution",
+      "query": "should_trigger_compaction 未解決",
+      "expected_ids": [
+        "openai-compaction-approval-replay-boundary"
+      ]
+    },
+    {
+      "name": "openai-compaction-resume-next-turn-replay",
+      "query": "compaction 次turn replay",
+      "expected_ids": [
+        "openai-compaction-approval-replay-boundary"
+      ]
+    },
+    {
+      "name": "openai-compaction-wrapper-not-global-lock",
+      "query": "compaction wrapper 全worker",
+      "expected_ids": [
+        "openai-compaction-approval-replay-boundary"
+      ]
+    },
+    {
+      "name": "openai-compaction-pending-version-migration",
+      "query": "compaction 版識別子",
+      "expected_ids": [
+        "openai-compaction-approval-replay-boundary"
+      ]
     }
   ]
 }

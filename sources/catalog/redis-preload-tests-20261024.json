@@ -1,0 +1,12 @@
+{
+  "id": "redis-preload-tests-20261024",
+  "url": "https://github.com/redis/redis/blob/940a4d72fc7caaed6f853b65b39920ff3fb9ac1f/tests/integration/backup.tcl",
+  "repository_url": "https://github.com/redis/redis",
+  "commit_sha": "940a4d72fc7caaed6f853b65b39920ff3fb9ac1f",
+  "version": "Upstream backup/preload integration tests after #15916 at 940a4d72fc7caaed6f853b65b39920ff3fb9ac1f",
+  "retrieved_at": "2026-10-24",
+  "license": "RSALv2 OR SSPLv1 OR AGPLv3; pinned LICENSE.txt verified; server.c additionally identifies BSD-3-Clause portions in REDISCONTRIBUTIONS; original analysis only, no code copied",
+  "trust": "official",
+  "type": "github_repository_analysis",
+  "purpose": "legacy AOFのsource存在・local BASE・preload後write・preloadなしrestart検査を確認。standalone AOF名衝突、current manifest再利用、same-dir INCR再作成、local RDB skipの期待値も読み、未実行と区別。"
+}
