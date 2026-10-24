@@ -1,0 +1,12 @@
+{
+  "id": "wpt-popover-removal-move-9f8310d1-20261024",
+  "url": "https://github.com/web-platform-tests/wpt/tree/9f8310d123a408e0c6adba3ad1043cbcac61b337/html/semantics/popovers",
+  "repository_url": "https://github.com/web-platform-tests/wpt",
+  "commit_sha": "9f8310d123a408e0c6adba3ad1043cbcac61b337",
+  "version": "WPT PR #63185 merged 2026-10-07T17:57:51Z; commit 9f8310d123a408e0c6adba3ad1043cbcac61b337",
+  "retrieved_at": "2026-10-24",
+  "license": "BSD-3-Clause; LICENSE.md verified at the pinned commit; no test code copied",
+  "trust": "primary-source",
+  "type": "github_repository_analysis",
+  "purpose": "popover-removal-hides.html、popover-hide-inactive-document.html、popover-move-documents-during-hide.html の3試験を全文読解。DOM除去時の新規toggle通知なし、非active文書でのhide、文書移動再表示後の旧hide例外とEsc継続を回帰期待値として要約する。WPTは実行していない。"
+}

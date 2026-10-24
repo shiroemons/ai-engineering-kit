@@ -1,0 +1,12 @@
+{
+  "id": "whatwg-html-dialog-lifecycle-20261024",
+  "url": "https://html.spec.whatwg.org/multipage/interactive-elements.html#the-dialog-element",
+  "repository_url": "https://github.com/whatwg/html",
+  "commit_sha": "",
+  "version": "WHATWG HTML Living Standard, Last Updated 22 October 2026; dialog lifecycle and light dismiss",
+  "retrieved_at": "2026-10-24",
+  "license": "CC-BY-4.0; portions incorporated into source code: BSD-3-Clause; WHATWG LICENSE verified at b342939ba3b7e40041655fb926f6e41b54fe47ef",
+  "trust": "official",
+  "type": "official_docs",
+  "purpose": "dialog の表示方式、closedby、requestClose の取消と内部保留値、公開 returnValue、queued close、open 属性手動除去の注意を本文全体と固定 source で再確認する。"
+}

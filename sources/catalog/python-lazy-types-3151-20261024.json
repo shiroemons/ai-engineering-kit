@@ -1,0 +1,12 @@
+{
+  "id": "python-lazy-types-3151-20261024",
+  "url": "https://docs.python.org/3.15/library/types.html",
+  "repository_url": "",
+  "commit_sha": "",
+  "version": "Python 3.15.1 rolling documentation retrieved 2026-10-24 UTC",
+  "retrieved_at": "2026-10-24",
+  "license": "PSF-2.0; documentation examples, recipes and code additionally 0BSD (https://docs.python.org/3.15/license.html); original summary only",
+  "trust": "official",
+  "type": "official_docs",
+  "purpose": "types.LazyImportTypeとresolve()によるproxy検出・明示的reificationの公開APIを再確認。辞書取得だけで全proxyを解決する仕組みとは区別。"
+}

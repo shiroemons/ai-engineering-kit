@@ -1,0 +1,12 @@
+{
+  "id": "chrome154-dialog-popover-click-dismiss-20261024",
+  "url": "https://developer.chrome.com/release-notes/154",
+  "repository_url": "",
+  "commit_sha": "",
+  "version": "Chrome 154 stable, 2026-09-22; page last updated 2026-09-22 UTC",
+  "retrieved_at": "2026-10-24",
+  "license": "CC-BY-4.0 (prose); Apache-2.0 (code samples); page footer verified",
+  "trust": "official",
+  "type": "release_notes",
+  "purpose": "Chrome 154 の click ベース light dismiss と touch scroll・右クリック修正の出荷説明を再確認。HTML PR #13001 の teardown 修正がこの版に搭載されたとは主張しない。"
+}

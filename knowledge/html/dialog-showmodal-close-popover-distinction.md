@@ -1,10 +1,10 @@
 ---
 {
   "id": "html-dialog-showmodal-close-popover-distinction",
-  "title": "HTML dialog・popover の終了境界: requestClose の取消と Chrome 154 light dismiss",
+  "title": "HTML dialog・popover の終了境界: requestClose の取消と除去・文書移動",
   "kind": "knowledge",
   "technology": "html",
-  "version": "WHATWG HTML source 0cd32204c6d9408be0a42cb15c86145e21deab9d (2026-10-02); Chrome 154 stable (2026-09-22); HTML PR #11536 open/unmerged at retrieval; browser runtime unverified",
+  "version": "WHATWG HTML source b342939ba3b7e40041655fb926f6e41b54fe47ef (2026-10-22); popover teardown fix efc54f7b70858d9fcf06d1a5871ae215f448c029 (2026-10-07); Chrome 154 stable (2026-09-22); HTML PR #11536 open/unmerged on 2026-10-24; browser runtime unverified",
   "tags": [
     "research-domain:frontend",
     "dialog",
@@ -34,37 +34,52 @@
     "click",
     "pointerdown",
     "pointerup",
-    "reentrancy"
+    "reentrancy",
+    "teardown",
+    "ownerDocument",
+    "fully-active",
+    "removing-steps",
+    "close-watcher"
   ],
   "sources": [
     {
-      "id": "whatwg-html-dialog-lifecycle-20261002",
+      "id": "whatwg-html-dialog-lifecycle-20261024",
       "url": "https://html.spec.whatwg.org/multipage/interactive-elements.html#the-dialog-element",
       "type": "official_docs"
     },
     {
-      "id": "whatwg-html-popover-lifecycle-20261002",
+      "id": "whatwg-html-popover-lifecycle-20261024",
       "url": "https://html.spec.whatwg.org/multipage/popover.html",
       "type": "official_docs"
     },
     {
-      "id": "whatwg-html-dialog-popover-source-0cd32204-20261002",
-      "url": "https://github.com/whatwg/html/tree/0cd32204c6d9408be0a42cb15c86145e21deab9d",
+      "id": "whatwg-html-dialog-popover-source-b342939b-20261024",
+      "url": "https://github.com/whatwg/html/tree/b342939ba3b7e40041655fb926f6e41b54fe47ef",
       "type": "github_repository_analysis"
     },
     {
-      "id": "chrome154-dialog-popover-click-dismiss-20261002",
+      "id": "chrome154-dialog-popover-click-dismiss-20261024",
       "url": "https://developer.chrome.com/release-notes/154",
       "type": "release_notes"
     },
     {
-      "id": "whatwg-html-click-dismiss-proposal-782a96da-20261002",
+      "id": "whatwg-html-click-dismiss-proposal-782a96da-20261024",
       "url": "https://github.com/josepharhar/html/tree/782a96da0106027d0778c7ae9def1da024362d22",
+      "type": "github_repository_analysis"
+    },
+    {
+      "id": "whatwg-html-popover-teardown-fix-efc54f7b-20261024",
+      "url": "https://github.com/whatwg/html/commit/efc54f7b70858d9fcf06d1a5871ae215f448c029",
+      "type": "github_repository_analysis"
+    },
+    {
+      "id": "wpt-popover-removal-move-9f8310d1-20261024",
+      "url": "https://github.com/web-platform-tests/wpt/tree/9f8310d123a408e0c6adba3ad1043cbcac61b337/html/semantics/popovers",
       "type": "github_repository_analysis"
     }
   ],
-  "retrieved_at": "2026-10-02",
-  "expires_at": "2026-10-16",
+  "retrieved_at": "2026-10-24",
+  "expires_at": "2026-11-07",
   "trust": "primary-source",
   "status": "active",
   "evals": [
@@ -73,22 +88,23 @@
 }
 ---
 
-# HTML dialog・popover の終了境界: requestClose の取消と Chrome 154 light dismiss
+# HTML dialog・popover の終了境界: requestClose の取消と除去・文書移動
 
 ## 問いと結論
 
-閉じる要求を取り消したのに確認結果が更新されたと扱ってよいか。表示済みの popover をもう一度開くのは例外か。Chrome の light-dismiss 更新を全ブラウザの契約として扱えるか。
+閉じる要求を取り消したのに確認結果が更新されたと扱ってよいか。popover を DOM から除去した場合や、閉じる途中に別の文書へ移した場合にも、通常の hide と同じ通知・結果を期待してよいか。
 
-**要求、実際の終了、業務上の承認を分ける。** `requestClose(value)` を `cancel` で取り消せば、通常は `open` と公開 `returnValue` は変わらない。popover の通常の反復呼出しは no-op であり、全てを `InvalidStateError` と説明するのは誤りである。Chrome 154 の変更は出荷済み実装の説明であり、取得時に未統合の仕様提案とは区別する。
+**要求、実際の終了、業務上の承認と teardown を分ける。** `requestClose(value)` の取消では通常、公開 `returnValue` は更新されない。popover の反復は通常 no-op だが、DOM 除去は通知を省略し、文書移動では `InvalidStateError` を投げても移動先の再表示が残り得る。特に「例外なら何も変わっていない」「toggle が来なければ破棄されていない」とは扱わない。
 
-既存文書の `requestClose` 更新順序と popover 状態不一致の記述を訂正し、再オープン時に前回結果が残る境界を補った。基本的な訂正を Chrome 154 で初めて導入された機能とは扱わない。
+2026-10-24 に全体を再確認した。既存の requestClose・no-op・再入の説明は維持し、2026-10-07 に統合された popover の除去・文書移動修正を追加した。Chrome 154 の click ベース light dismiss とこの修正は別の変更であり、仕様の merge をブラウザ出荷と読み替えない。
 
 ## 根拠と適用範囲
 
-- 規範: [HTML dialog](https://html.spec.whatwg.org/multipage/interactive-elements.html#the-dialog-element) と [popover](https://html.spec.whatwg.org/multipage/popover.html)。両ページの表示は Last Updated 2 October 2026。既存の knowledge 本文全体を再点検した。
-- 固定根拠: [WHATWG HTML source](https://github.com/whatwg/html/blob/0cd32204c6d9408be0a42cb15c86145e21deab9d/source)、commit `0cd32204c6d9408be0a42cb15c86145e21deab9d`、commit 日時 2026-10-02 15:54:17 UTC。dialog と popover の該当アルゴリズムを比較した。
+- 規範: [HTML dialog](https://html.spec.whatwg.org/multipage/interactive-elements.html#the-dialog-element) と [popover](https://html.spec.whatwg.org/multipage/popover.html)。両ページの表示は Last Updated 22 October 2026。取得日は 2026-10-24 UTC。既存の knowledge 本文全体を再点検した。
+- 固定根拠: [WHATWG HTML source](https://github.com/whatwg/html/blob/b342939ba3b7e40041655fb926f6e41b54fe47ef/source)、commit `b342939ba3b7e40041655fb926f6e41b54fe47ef`、commit 日時 2026-10-22 21:25:02 UTC。旧固定版 `0cd32204c6d9408be0a42cb15c86145e21deab9d` (2026-10-02) と比較した。dialog・close watcher の該当手順は同一で、popover の hide・validity に差分がある。
 - 出荷情報: [Chrome 154 release notes](https://developer.chrome.com/release-notes/154)、stable 日・ページ更新日ともに 2026-09-22。
-- 提案: [WHATWG HTML PR #11536](https://github.com/whatwg/html/pull/11536) は 2025-08-05 作成。2026-10-02 21:35 UTC の GitHub API 確認では `state=open` / `merged=false`。解析 head は `782a96da0106027d0778c7ae9def1da024362d22` (2026-06-01) であり、main へ統合済みという意味ではない。
+- 提案: [WHATWG HTML PR #11536](https://github.com/whatwg/html/pull/11536) は 2025-08-05 作成。2026-10-24 15:34 UTC の GitHub API 確認では `state=open` / `merged=false`。解析 head は `782a96da0106027d0778c7ae9def1da024362d22` (2026-06-01) であり、main へ統合済みという意味ではない。
+- 新しい仕様修正: [HTML PR #13001](https://github.com/whatwg/html/pull/13001) は 2026-10-07 16:46:35 UTC に merge。固定 commit は `efc54f7b70858d9fcf06d1a5871ae215f448c029`。関連 [WPT PR #63185](https://github.com/web-platform-tests/wpt/pull/63185) も同日 merge され、3試験を `9f8310d123a408e0c6adba3ad1043cbcac61b337` で読んだ。試験の存在と実機での合格は別である。
 
 以下の「契約」は仕様読解、「設計判断」は独自の提案、「期待値」は未実行の試験仕様である。ブラウザ実測とは区別する。
 
@@ -100,11 +116,11 @@
 
 `closedby` の `any` は外側操作と close request、`closerequest` は close request、`none` はユーザー操作による自動終了を制御する。属性省略・不正値は内部の Auto 状態となり、modal なら `closerequest`、そうでなければ `none` 相当である。Auto は独立した有効キーワードとして追加する値ではない。
 
-**`closedby="none"` はプログラムによる終了禁止ではない。** `requestClose()` はこの属性を無視して close watcher を一時的に有効にする。`close()` も直接の終了 API であり、未保存ガードは `closedby` だけでは実装できない。[dialog の固定 source](https://github.com/whatwg/html/blob/0cd32204c6d9408be0a42cb15c86145e21deab9d/source#L66566-L66730)
+**`closedby="none"` はプログラムによる終了禁止ではない。** `requestClose()` はこの属性を無視して close watcher を一時的に有効にする。`close()` も直接の終了 API であり、未保存ガードは `closedby` だけでは実装できない。[dialog の固定 source](https://github.com/whatwg/html/blob/b342939ba3b7e40041655fb926f6e41b54fe47ef/source#L66664-L66828)
 
 ### requestClose(value) の値は内部の保留値
 
-[request-to-close と close の固定手順](https://github.com/whatwg/html/blob/0cd32204c6d9408be0a42cb15c86145e21deab9d/source#L67073-L67170) から、イベントハンドラが別の状態変更を起こさない通常経路は次になる。
+[request-to-close と close の固定手順](https://github.com/whatwg/html/blob/b342939ba3b7e40041655fb926f6e41b54fe47ef/source#L67171-L67268) から、イベントハンドラが別の状態変更を起こさない通常経路は次になる。
 
 1. 開いていて、接続済みかつ fully active な文書にあることを確認する。条件外では return する。
 2. 引数を内部の `request close return value` に置く。この値は公開プロパティ `dialog.returnValue` と別である。
@@ -116,7 +132,7 @@
 
 ### 取消後も内部の保留値は残る: native close request への持ち越し
 
-公開値が不変であることは、内部の保留値が取り消し時に消えることを意味しない。固定 source では `requestClose("approved")` が先に内部値を保存し、[watcher の取消分岐](https://github.com/whatwg/html/blob/0cd32204c6d9408be0a42cb15c86145e21deab9d/source#L89713-L89795) はその値をリセットせず return する。後で [dialog の closeAction](https://github.com/whatwg/html/blob/0cd32204c6d9408be0a42cb15c86145e21deab9d/source#L66970-L67004) が走ると、その時点の内部値を close 手順へ渡す。内部値の null 化は実際の close 手順にある。
+公開値が不変であることは、内部の保留値が取り消し時に消えることを意味しない。固定 source では `requestClose("approved")` が先に内部値を保存し、[watcher の取消分岐](https://github.com/whatwg/html/blob/b342939ba3b7e40041655fb926f6e41b54fe47ef/source#L89945-L90027) はその値をリセットせず return する。後で [dialog の closeAction](https://github.com/whatwg/html/blob/b342939ba3b7e40041655fb926f6e41b54fe47ef/source#L67068-L67102) が走ると、その時点の内部値を close 手順へ渡す。内部値の null 化は実際の close 手順にある。
 
 **source からの導出（実機未再現）:** 承認値を渡した要求を一度取り消し、その後新しい `requestClose()` で上書きせず、Esc などの native close request を受理すると、以前の内部保留値が公開 `returnValue` に反映され得る。`cancel` で止めた承認を、後の Esc によって承認済みへ変えてはならない。公開値を空文字にするだけでは、この内部値を消したことにはならない。
 
@@ -140,7 +156,7 @@
 
 ### 通常の反復は no-op
 
-[check popover validity](https://github.com/whatwg/html/blob/0cd32204c6d9408be0a42cb15c86145e21deab9d/source#L93306-L93360) は「例外または boolean」を返す。状態不一致の `false` を `InvalidStateError` と読み替えない。
+[check popover validity](https://github.com/whatwg/html/blob/b342939ba3b7e40041655fb926f6e41b54fe47ef/source#L93538-L93601) は「例外または boolean」を返す。状態不一致の `false` を `InvalidStateError` と読み替えない。
 
 | 呼出し状況 | 固定 source の分岐 |
 |---|---|
@@ -150,15 +166,39 @@
 | 開こうとする非接続要素、非 active 文書、modal dialog、fullscreen 要素 | 妥当性検査の該当分岐で `InvalidStateError` |
 | `beforetoggle` 中など、同じ文書で別の popover を表示・非表示処理中に `showPopover()` | 表示側の再入ガードで `InvalidStateError` |
 
-順序も契約の一部である。表示側の再入ガードは状態検査より先にあるので、**完了後の反復が no-op でも、処理中の再帰呼出しまで安全ではない。** `isConnected` や `:popover-open` を事前に確認するだけでは、イベントハンドラが途中で DOM を変更する経路を防げない。[show popover](https://github.com/whatwg/html/blob/0cd32204c6d9408be0a42cb15c86145e21deab9d/source#L92497-L92579)
+順序も契約の一部である。表示側の再入ガードは状態検査より先にあるので、**完了後の反復が no-op でも、処理中の再帰呼出しまで安全ではない。** `isConnected` や `:popover-open` を事前に確認するだけでは、イベントハンドラが途中で DOM を変更する経路を防げない。[show popover](https://github.com/whatwg/html/blob/b342939ba3b7e40041655fb926f6e41b54fe47ef/source#L92729-L92811)
+
+### 2026-10-07 の修正: 開ける条件と後片付けできる条件は非対称
+
+[統合 commit](https://github.com/whatwg/html/commit/efc54f7b70858d9fcf06d1a5871ae215f448c029) と [現在の validity](https://github.com/whatwg/html/blob/b342939ba3b7e40041655fb926f6e41b54fe47ef/source#L93538-L93597) では、接続済み・fully active 文書という条件を、非表示から **開く側** (`expectedToBeShowing=false`) にだけ課す。表示中の要素を **隠す側** (`true`) にはこの2条件を課さない。modal・fullscreen・指定文書の不一致など、他の検査まで免除する変更ではない。
+
+この違いは後片付けに必要である。HTML の [removing steps](https://github.com/whatwg/html/blob/b342939ba3b7e40041655fb926f6e41b54fe47ef/source#L1834-L1870) は親から外した後の要素にも hide を実行するため、hide まで `isConnected` を必須にすると表示状態や top-layer の整理が途中で止まる。また iframe が遷移した後、旧文書内の表示中 popover を隠す場合にも同じ問題がある。**`showPopover()` と `hidePopover()` に共通の「非接続なら不正」というガードを作らない。**
+
+#### DOM 除去は toggle 通知を伴う close ではない
+
+通常の要素・祖先の除去で呼ばれる hide は `focusPreviousElement=false`、`fireEvents=false`、`throwExceptions=false` である。この除去自体は新しい `beforetoggle` / `toggle` を通知せず、top-layer から直ちに除去する。既にキュー済みの toggle まで取り消すという意味ではない。除去前のイベント配送が終わった条件で、再挿入しても popover は非表示のまま、という期待値を [popover-removal-hides.html](https://github.com/web-platform-tests/wpt/blob/9f8310d123a408e0c6adba3ad1043cbcac61b337/html/semantics/popovers/popover-removal-hides.html) が検査する。
+
+**設計判断:** アプリの購読解除・所有状態の破棄を `toggle` 受信だけに依存させず、コンポーネントの teardown からも同じ後片付けを呼べるようにする。通知や通常のフォーカス復元が必要なら、所有権がある間に明示的に hide する。除去経路が通常の `hidePopover()` と同じフォーカス復元をするとは期待しない。ここで扱うのは removing steps を伴う除去であり、状態を保つ moving steps と同一視しない。
+
+#### beforetoggle 後に ownerDocument が変わったら旧 hide を続けない
+
+現在の [hide 手順](https://github.com/whatwg/html/blob/b342939ba3b7e40041655fb926f6e41b54fe47ef/source#L93040-L93230) は開始時の Document を保存し、子 popover を隠した後と自身の `beforetoggle` 後の検査に `expectedDocument` として渡す。ハンドラが要素を別文書へ移し、そこで再表示したとき、元の `hidePopover()` は `InvalidStateError` を投げ、新文書での表示を閉じない。これはロールバックではなく、旧操作の続行を止める境界である。
+
+また close watcher の破棄は、早期 return に共通の cleanup から、hide が正常に完了する経路へ移った。途中で中断した旧 hide が、移動先で再表示した要素の close watcher を破棄しないためである。[popover-move-documents-during-hide.html](https://github.com/web-platform-tests/wpt/blob/9f8310d123a408e0c6adba3ad1043cbcac61b337/html/semantics/popovers/popover-move-documents-during-hide.html) は、自身または子の `beforetoggle` からの移動、旧呼出しの例外、新文書での表示維持と Escape による終了を試験する。
+
+表示側の再入ガードは **同じ Document** のフラグであり、全ウィンドウ共通の排他ではない。したがって「show の再入が禁止だから、hide 中に別文書で再表示されることはない」という推論は誤りである。
+
+**設計判断:** ラッパーは要素参照だけでなく `ownerDocument` と表示世代を対応付け、イベントハンドラから戻った後にも所有権を確認する。例外を catch しただけで「非表示」へ状態を確定したり、旧文書の後片付けで新しい表示を remove したりしない。ここで示した仕様修正のブラウザ別の搭載版は未確認である。
 
 ### 例外がなくても表示に成功したとは限らない
 
 開くときの `beforetoggle` は取消可能であり、取消時は正常 return して非表示のままである。閉じるときの `beforetoggle` は取消可能にされていない。未保存確認を popover の閉じる `beforetoggle` で阻止する構成にはしない。
 
-`showPopover()` / `hidePopover()` は成功 boolean を返さない。現在状態は `:popover-open` などで確認する。`togglePopover()` は処理後の開閉状態を返し、引数なしなら反転、`togglePopover(true)` / `togglePopover(false)` なら要求状態を指定できる。force 指定も入力妥当性検査や再入制限を免除しない。
+`showPopover()` / `hidePopover()` は成功 boolean を返さない。現在状態は `:popover-open` などで確認する。`togglePopover()` は処理後の開閉状態を返し、引数なしなら反転、`togglePopover(true)` / `togglePopover(false)` なら要求状態を指定できる。force は要求状態の指定であり、経路ごとの妥当性検査は残る。実際に show する経路には前述の再入ガードもある。
 
-`toggle` はキューされ、同じ要素の連続変更は集約される。呼出し回数と `toggle` イベント数の一対一対応を前提にして利用回数や承認操作を数えない。[show/hide と toggle の固定 source](https://github.com/whatwg/html/blob/0cd32204c6d9408be0a42cb15c86145e21deab9d/source#L92740-L93043)
+**`togglePopover(false)` は `hidePopover()` の完全な別名ではない。** 表示中なら hide 手順へ進むが、既に非表示の場合は [togglePopover の別分岐](https://github.com/whatwg/html/blob/b342939ba3b7e40041655fb926f6e41b54fe47ef/source#L93234-L93273) で `expectedToBeShowing=false` の妥当性検査を行う。このため、`popover` 属性のある非接続・非表示要素では `hidePopover()` は状態不一致で no-op なのに、`togglePopover(false)` は `InvalidStateError` になり得る。今回の hide 側の緩和を force=false の全経路へ一般化せず、「既に閉じたものの後片付け」を toggle の強制値へ機械的に置き換えない。これは固定 source からの導出であり、ブラウザ実測ではない。
+
+`toggle` はキューされ、同じ要素の連続変更は集約される。呼出し回数と `toggle` イベント数の一対一対応を前提にして利用回数や承認操作を数えない。[show/hide と toggle の固定 source](https://github.com/whatwg/html/blob/b342939ba3b7e40041655fb926f6e41b54fe47ef/source#L92972-L93275)
 
 ### auto は「常に一つだけ」ではない
 
@@ -172,9 +212,9 @@ modal dialog の代わりに popover を使っても外側は自動的に modal 
 
 ## Chrome 154 light dismiss: 出荷説明と仕様統合を分ける
 
-[Chrome 154](https://developer.chrome.com/release-notes/154) は、popover と dialog の light dismiss を `pointerdown` / `pointerup` の組み合わせによる判定から `click` ベースへ変更し、touch scroll と右クリックによる意図しない終了を防ぐと説明する。これは Chrome 154 stable の変更であり、全エンジンの同一実装を示す資料ではない。
+[Chrome 154](https://developer.chrome.com/release-notes/154) は、popover と dialog の light dismiss を `pointerdown` / `pointerup` の組み合わせによる判定から `click` ベースへ変更し、touch scroll と右クリックによる意図しない終了を防ぐと説明する。これは Chrome 154 stable の変更であり、全エンジンの同一実装を示す資料ではない。上記の 2026-10-07 の popover teardown 修正まで Chrome 154 に含まれるとする根拠にもならない。
 
-一方、2026-10-02 の固定 HTML main はまだ pointer イベントを扱う。[PR #11536](https://github.com/whatwg/html/pull/11536) も取得時点で open / unmerged である。さらに [提案 head の source](https://github.com/josepharhar/html/blob/782a96da0106027d0778c7ae9def1da024362d22/source#L67084-L67159) は、click ベースへの統合でも押下・解放の target と座標を受け取り、押下先と解放先の dialog が一致するかを確認する。単純な `document.onclick` と包含判定だけへ置き換える実装モデルではない。
+一方、2026-10-22 の固定 HTML main はまだ pointer イベントを扱う。[PR #11536](https://github.com/whatwg/html/pull/11536) も取得時点で open / unmerged である。さらに [提案 head の source](https://github.com/josepharhar/html/blob/782a96da0106027d0778c7ae9def1da024362d22/source#L67084-L67159) は、click ベースへの統合でも押下・解放の target と座標を受け取り、押下先と解放先の dialog が一致するかを確認する。単純な `document.onclick` と包含判定だけへ置き換える実装モデルではない。
 
 以下は独自の移行判断である。
 
@@ -247,17 +287,25 @@ modal dialog の代わりに popover を使っても外側は自動的に modal 
 | `closedby="none"` で requestClose を許可 | cancel を経由して閉じる。none をアプリ終了の禁止と誤解しない |
 | 承認後に再表示し、引数なしで終了 | 無初期化なら過去結果が残る。独自例は今回は未承認と表示する |
 | showPopover を完了後に反復、hidePopover を反復 | 通常の no-op。重複イベントを期待しない |
+| popover 属性あり・非接続・非表示で hidePopover と togglePopover(false) | hide は no-op、force=false は妥当性検査で InvalidStateError。両者を同一視しない |
 | popover 属性なし・非接続・modal と popover の混在 | 属性なしの NotSupportedError と InvalidStateError を区別する |
 | 開く beforetoggle を取消 | 例外なしでも表示されない |
 | beforetoggle 中から別の showPopover | 固定 main の再入ガードを確認する |
+| 開いた auto/manual/hint の要素または祖先を通常の DOM 除去 | hidden へ整理し、除去由来の新規 beforetoggle/toggle はなし。再挿入で自動再表示しない |
+| iframe を除去・遷移した後、旧文書の表示中 popover を hide | 非 fully active だけを理由に例外にせず隠す。対応 WPT は auto/manual を検査 |
+| 自身・子の beforetoggle 中に別文書へ移して再表示 | 旧 hidePopover は InvalidStateError、新文書での表示を維持 |
+| 旧 hide 中断後、新文書へ Escape | close watcher が残り、移動先で終了できる |
+| DOM 除去後に toggle が来ない | teardown の後片付けはイベント待ちせず完了できる |
 | auto popover の子を開く | 有効な祖先は開いたまま |
 | 連続 show/hide と toggle 計数 | 集約を許容し、呼出し一回につき通知一回を要求しない |
 | 外側 click・touch scroll・右クリック・drag | Chrome 154 の説明と実機を照合し、他エンジンは別に測る |
 
-取得時の Chromium CLI 表示は `151.0.7922.173`。headless 起動は socket 制限で失敗し、cloud browser でのローカル `file://` 試験ページも URL policy により開けなかったため、実行を中止した。上の HTML 例、Chrome 154 実機、Firefox・Safari、touch 入力、スクリーンリーダー、フォーカス復元と UA style の実測は未確認である。構文・metadata・検索検証はブラウザ挙動の検証を代替しない。
+今回の 2026-10-24 の再調査ではブラウザ試験・WPT を実行していない。上記の WPT 3ファイルは固定 commit の全文を読んだだけであり、merge や upstream CI の存在を Chrome・Firefox・Safari の合格結果として扱わない。[popover-hide-inactive-document.html](https://github.com/web-platform-tests/wpt/blob/9f8310d123a408e0c6adba3ad1043cbcac61b337/html/semantics/popovers/popover-hide-inactive-document.html) には iframe の除去・遷移後の hidePopover と togglePopover の期待値がある。
 
-固定 commit の rendered snapshot は取得できず、live の公式2ページと固定 raw source を照合した。raw source は Git blob SHA `05319af4659e15aafb3f5137362b7d9561db8812`、提案 head は `dc59a2184845c9ca9f83de30014d628a29d07e1a` とそれぞれ一致することを確認した。PR 状態は取得時点の記録であり、公開時・適用時には再確認する。期限は未統合提案の追跡を考慮して 2026-10-16 とした。
+前回 2026-10-02 の調査では Chromium CLI `151.0.7922.173` の headless 起動が socket 制限、cloud browser の `file://` ページが URL policy で失敗しており、その失敗を今回の実行結果として再利用しない。HTML 例、Chrome 154 light-dismiss、teardown 修正の各実装、touch 入力、スクリーンリーダー、フォーカス復元と UA style は今回も未実測。構文・metadata・検索検証はブラウザ挙動の検証を代替しない。
+
+現在の commit の rendered snapshot は native web で取得できず、live の公式2ページと固定 raw source を照合した。main source の Git blob SHA `f52d0c265bbc8d3af556e49b4934ce4bbeeee994`、提案 head の source `dc59a2184845c9ca9f83de30014d628a29d07e1a` は、それぞれ GitHub API の記録と一致する。PR 状態は取得時点の記録であり、公開時・適用時には再確認する。明示期限は未統合提案と新しい teardown 修正の追跡を考慮して 2026-11-07 とした。
 
 ## 出典の利用条件
 
-[固定 WHATWG LICENSE](https://github.com/whatwg/html/blob/0cd32204c6d9408be0a42cb15c86145e21deab9d/LICENSE) の権利者は WHATWG (Apple, Google, Mozilla, Microsoft)。仕様本文は CC-BY-4.0、ソースコードへ組み込まれる部分は BSD-3-Clause である。旧 catalog の CC0 表記を今回の根拠として再利用せず、新しい記録を追加した。Chrome ページの本文は CC-BY-4.0、例示コードは Apache-2.0。PR 会話の再利用ライセンスは未確認で、状態と提案内容を独自に要約した。本文は出典付きの日本語再構成と独自設計であり、仕様や実装コードの転載・module 昇格は行っていない。
+[固定 WHATWG LICENSE](https://github.com/whatwg/html/blob/b342939ba3b7e40041655fb926f6e41b54fe47ef/LICENSE) の権利者は WHATWG (Apple, Google, Mozilla, Microsoft)。仕様本文は CC-BY-4.0、ソースコードへ組み込まれる部分は BSD-3-Clause である。旧 catalog の CC0 表記を今回の根拠として再利用せず、新しい記録を追加した。Chrome ページの本文は CC-BY-4.0、例示コードは Apache-2.0。[固定 WPT LICENSE.md](https://github.com/web-platform-tests/wpt/blob/9f8310d123a408e0c6adba3ad1043cbcac61b337/LICENSE.md) は BSD-3-Clause で、著作権者は web-platform-tests contributors。試験コードは転載せず期待値を独自に要約した。PR 会話の再利用ライセンスは未確認で、状態と提案内容を独自に要約した。本文は出典付きの日本語再構成と独自設計であり、仕様や実装コードの転載・module 昇格は行っていない。
