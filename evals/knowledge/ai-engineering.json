@@ -2686,6 +2686,97 @@
       "expected_ids": [
         "llm-claude-google-cloud-organization-cutover-boundary"
       ]
+    },
+    {
+      "name": "argon-long-decode-shared-window",
+      "query": "Argon 1,048,576 独立した",
+      "expected_ids": [
+        "llm-gemini-argon-long-decode-usage-context-boundary"
+      ]
+    },
+    {
+      "name": "argon-long-decode-background-not-budget",
+      "query": "backgroundだけ 65,536",
+      "expected_ids": [
+        "llm-gemini-argon-long-decode-usage-context-boundary"
+      ]
+    },
+    {
+      "name": "argon-long-decode-context-not-billed-input",
+      "query": "153,072 232,608 compaction",
+      "expected_ids": [
+        "llm-gemini-argon-long-decode-usage-context-boundary"
+      ]
+    },
+    {
+      "name": "argon-long-decode-cumulative-not-sum",
+      "query": "232,608 334,144",
+      "expected_ids": [
+        "llm-gemini-argon-long-decode-usage-context-boundary"
+      ]
+    },
+    {
+      "name": "argon-long-decode-sdk-manual-scope",
+      "query": "automatic continuation manual/REST",
+      "expected_ids": [
+        "llm-gemini-argon-long-decode-usage-context-boundary"
+      ]
+    },
+    {
+      "name": "argon-long-decode-stream-final-per-hop",
+      "query": "各stream 最後 usage",
+      "expected_ids": [
+        "llm-gemini-argon-long-decode-usage-context-boundary"
+      ]
+    },
+    {
+      "name": "argon-long-decode-serialization-sidecar",
+      "query": "initial_prompt_token_count model_dump()",
+      "expected_ids": [
+        "llm-gemini-argon-long-decode-usage-context-boundary"
+      ]
+    },
+    {
+      "name": "argon-long-decode-missing-context-counter",
+      "query": "Argon context計数不能",
+      "expected_ids": [
+        "llm-gemini-argon-long-decode-usage-context-boundary"
+      ]
+    },
+    {
+      "name": "argon-long-decode-single-hop-test-gap",
+      "query": "単一hop 差",
+      "expected_ids": [
+        "llm-gemini-argon-long-decode-usage-context-boundary"
+      ]
+    },
+    {
+      "name": "argon-long-decode-all-output-steps",
+      "query": "Argon 最後のstep 全対象text",
+      "expected_ids": [
+        "llm-gemini-argon-long-decode-usage-context-boundary"
+      ]
+    },
+    {
+      "name": "argon-long-decode-empty-thinking-budget",
+      "query": "Argon textなし thinkingあり",
+      "expected_ids": [
+        "llm-gemini-argon-long-decode-usage-context-boundary"
+      ]
+    },
+    {
+      "name": "argon-long-decode-rest-limit-discrepancy",
+      "query": "Argon 32768 不一致",
+      "expected_ids": [
+        "llm-gemini-argon-long-decode-usage-context-boundary"
+      ]
+    },
+    {
+      "name": "argon-long-decode-rerun-new-trial",
+      "query": "Argon 別trial",
+      "expected_ids": [
+        "llm-gemini-argon-long-decode-usage-context-boundary"
+      ]
     }
   ]
 }

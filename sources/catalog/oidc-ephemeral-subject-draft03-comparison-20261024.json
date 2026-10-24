@@ -1,0 +1,12 @@
+{
+  "id": "oidc-ephemeral-subject-draft03-comparison-20261024",
+  "url": "https://openid.net/specs/openid-connect-ephemeral-subject-identifier-1_0-03.html",
+  "repository_url": "",
+  "commit_sha": "",
+  "version": "OpenID Connect Ephemeral Subject Identifier 1.0 Draft 03, published 2026-07-10; historical comparison with Final performed 2026-10-24 UTC",
+  "retrieved_at": "2026-10-24",
+  "license": "OpenID Foundation specification copyright license, Appendix B; attribution and specification/implementation purposes; original summary only",
+  "trust": "official",
+  "type": "official_docs",
+  "purpose": "Recheck the fixed historical Draft 03 against the 2026-10-07 Final: sections 1 and 4-8 retain the reviewed operative contract; do not mislabel existing entropy or negotiation requirements as new Final behavior."
+}

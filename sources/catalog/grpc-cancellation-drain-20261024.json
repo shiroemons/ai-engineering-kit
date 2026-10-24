@@ -1,0 +1,12 @@
+{
+  "id": "grpc-cancellation-drain-20261024",
+  "url": "https://grpc.io/docs/guides/cancellation/",
+  "repository_url": "https://github.com/grpc/grpc.io",
+  "commit_sha": "",
+  "version": "Unversioned Cancellation guide; displayed last modified 2024-02-29; verified 2026-10-24 UTC",
+  "retrieved_at": "2026-10-24",
+  "license": "CC-BY-4.0 (documentation); Apache-2.0 (code samples)",
+  "trust": "official",
+  "type": "official_docs",
+  "purpose": "gRPC libraryは任意のapplication handlerを一般に強制中断できず、handlerによる取消しの確認と処理停止が必要なことを再確認。transport/RPC cancellationをhandler・業務副作用の終了証明にしない設計の根拠。grpc.io LICENSE確認済み。"
+}

@@ -1,0 +1,12 @@
+{
+  "id": "google-argon-generatecontent-long-decode-20261024",
+  "url": "https://ai.google.dev/gemini-api/docs/generate-content/long-decode",
+  "repository_url": "",
+  "commit_sha": "",
+  "version": "gemini-4-argon GenerateContent long decode; Python google-genai >=2.30.1 / JavaScript @google/genai >=2.29.1 documented minimum; page last updated 2026-10-13 UTC",
+  "retrieved_at": "2026-10-24",
+  "license": "CC-BY-4.0 (documentation); Apache-2.0 (code samples)",
+  "trust": "official",
+  "type": "official_docs",
+  "purpose": "SDK自動継続とmanual/RESTのusage範囲、initial_prompt_token_countのclient計算とJSON非保存を確認。初回REST上限とsampleの不一致は未検証として留保。 Google公式の実ページをnative webで開き、本文とfooterを確認。独自要約のみでコードの転載・module昇格は行わない。"
+}

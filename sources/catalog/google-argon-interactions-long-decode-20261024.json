@@ -1,0 +1,12 @@
+{
+  "id": "google-argon-interactions-long-decode-20261024",
+  "url": "https://ai.google.dev/gemini-api/docs/long-decode",
+  "repository_url": "",
+  "commit_sha": "",
+  "version": "gemini-4-argon Interactions API background long decode; page last updated 2026-10-13 UTC",
+  "retrieved_at": "2026-10-24",
+  "license": "CC-BY-4.0 (documentation); Apache-2.0 (code samples)",
+  "trust": "official",
+  "type": "official_docs",
+  "purpose": "64K hop、全model_output回収、累積inputとcontext推定の分離、stream累積usage、incompleteを確認。 Google公式の実ページをnative webで開き、本文とfooterを確認。独自要約のみでコードの転載・module昇格は行わない。"
+}

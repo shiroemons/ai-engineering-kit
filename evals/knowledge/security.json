@@ -482,6 +482,12 @@
 {"name":"oauth-step-up-loop","query":"redirect loop acr","expected_ids":["oauth-step-up-auth-time-action-binding-boundary"]},
 {"name":"oauth-step-up-scope","query":"step-up authentication scope","expected_ids":["oauth-step-up-auth-time-action-binding-boundary"]},
 {"name":"oauth-step-up-id-token","query":"ID Token access token 代用","expected_ids":["oauth-step-up-auth-time-action-binding-boundary"]},
-{"name":"oauth-step-up-optional-refresh-omission","query":"OPTIONAL Mozilla 欠落","expected_ids":["oauth-step-up-auth-time-action-binding-boundary"]}
+{"name":"oauth-step-up-optional-refresh-omission","query":"OPTIONAL Mozilla 欠落","expected_ids":["oauth-step-up-auth-time-action-binding-boundary"]},
+    {"name": "oidc-ephemeral-final-approved-edition", "query": "ephemeral Final 2026-10-07 2026-10-08", "expected_ids": ["oidc-ephemeral-subject-correlation-account-boundary"]},
+    {"name": "oidc-ephemeral-final-no-invented-wire-change", "query": "ephemeral Draft wire", "expected_ids": ["oidc-ephemeral-subject-correlation-account-boundary"]},
+    {"name": "oidc-ephemeral-refresh-original-sub", "query": "ephemeral refresh 12.2", "expected_ids": ["oidc-ephemeral-subject-correlation-account-boundary"]},
+    {"name": "oidc-ephemeral-refresh-id-token-omission", "query": "ephemeral ID Token 省略", "expected_ids": ["oidc-ephemeral-subject-correlation-account-boundary"]},
+    {"name": "oidc-ephemeral-migration-registration-boundary", "query": "ephemeral client登録 rollback", "expected_ids": ["oidc-ephemeral-subject-correlation-account-boundary"]},
+    {"name": "oidc-ephemeral-collision-restored-generator", "query": "ephemeral snapshot 衝突予算", "expected_ids": ["oidc-ephemeral-subject-correlation-account-boundary"]}
 ]
 }

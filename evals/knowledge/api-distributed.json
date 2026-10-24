@@ -1356,6 +1356,18 @@
     {"name": "http-conditional-write-no-retag-stale-body", "query": "新ETagだけへ差替えて古いbodyを再送しない", "expected_ids": ["http-conditional-write-validator-atomicity-boundary"]},
     {"name": "http-conditional-write-already-applied-not-reexecute", "query": "2xx例外 業務効果 再実行", "expected_ids": ["http-conditional-write-validator-atomicity-boundary"]},
     {"name": "http-conditional-write-body-validator-snapshot", "query": "GET本文 ETag snapshot", "expected_ids": ["http-conditional-write-validator-atomicity-boundary"]},
-    {"name": "http-conditional-write-runtime-unverified", "query": "HTTPサーバー runtime試験 実行していない", "expected_ids": ["http-conditional-write-validator-atomicity-boundary"]}
+    {"name": "http-conditional-write-runtime-unverified", "query": "HTTPサーバー runtime試験 実行していない", "expected_ids": ["http-conditional-write-validator-atomicity-boundary"]},
+    {"name": "grpc-health-not-admission", "query": "NOT_SERVING admission", "expected_ids": ["architecture-grpc-health-drain-handler-boundary"]},
+    {"name": "grpc-health-empty-key-not-wildcard", "query": "空文字 wildcard", "expected_ids": ["architecture-grpc-health-drain-handler-boundary"]},
+    {"name": "grpc-health-unimplemented-not-fail-closed", "query": "UNIMPLEMENTED fail-closed", "expected_ids": ["architecture-grpc-health-drain-handler-boundary"]},
+    {"name": "grpc-health-unknown-check-watch", "query": "NOT_FOUND SERVICE_UNKNOWN", "expected_ids": ["architecture-grpc-health-drain-handler-boundary"]},
+    {"name": "grpc-health-shutdown-not-watch-end", "query": "Shutdown Watch 終端", "expected_ids": ["architecture-grpc-health-drain-handler-boundary"]},
+    {"name": "grpc-health-graceful-no-timeout-argument", "query": "GracefulStop timeout引数", "expected_ids": ["architecture-grpc-health-drain-handler-boundary"]},
+    {"name": "grpc-health-stop-handler-lifetime", "query": "WaitForHandlers handler", "expected_ids": ["architecture-grpc-health-drain-handler-boundary"]},
+    {"name": "grpc-health-forced-stop-not-graceful-completion", "query": "GracefulStop Stop handlersWG.Wait", "expected_ids": ["architecture-grpc-health-drain-handler-boundary"]},
+    {"name": "grpc-health-bidi-message-admission", "query": "bidirectional message admission", "expected_ids": ["architecture-grpc-health-drain-handler-boundary"]},
+    {"name": "grpc-health-resume-all-serving", "query": "Resume 全キー SERVING", "expected_ids": ["architecture-grpc-health-drain-handler-boundary"]},
+    {"name": "grpc-health-keepalive-not-health", "query": "PING ACK NOT_SERVING", "expected_ids": ["architecture-grpc-health-drain-handler-boundary"]},
+    {"name": "grpc-health-runtime-unverified", "query": "gRPC runtime試験 今回実行していない", "expected_ids": ["architecture-grpc-health-drain-handler-boundary"]}
   ]
 }

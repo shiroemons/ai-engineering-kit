@@ -1,0 +1,12 @@
+{
+  "id": "grpc-health-routing-contract-20261024",
+  "url": "https://grpc.io/docs/guides/health-checking/",
+  "repository_url": "https://github.com/grpc/grpc.io",
+  "commit_sha": "",
+  "version": "Unversioned Health Checking guide; displayed last modified 2024-05-20; verified 2026-10-24 UTC",
+  "retrieved_at": "2026-10-24",
+  "license": "CC-BY-4.0 (documentation); Apache-2.0 (code samples)",
+  "trust": "official",
+  "type": "official_docs",
+  "purpose": "CheckとWatch、applicationによるhealth更新、serviceName/空文字の設定、client-side health checkingの有効化条件とUNIMPLEMENTED時の無効化、policyによる不適用を確認。一般guideのpolicy例は全実装の対応表としない。grpc.io LICENSEを確認し、本文は独自要約。"
+}

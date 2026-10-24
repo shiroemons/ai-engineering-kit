@@ -1,0 +1,12 @@
+{
+  "id": "grpc-go184-health-drain-implementation-20261024",
+  "url": "https://github.com/grpc/grpc-go/tree/e84aa5ab15d1d2b29d54f838312ad490cb7551a8",
+  "repository_url": "https://github.com/grpc/grpc-go",
+  "commit_sha": "e84aa5ab15d1d2b29d54f838312ad490cb7551a8",
+  "version": "grpc-go v1.84.0; tag and version.go verified; version commit 2026-09-17T20:03:25Z; source review only",
+  "retrieved_at": "2026-10-24",
+  "license": "Apache-2.0",
+  "trust": "maintainer",
+  "type": "github_repository_analysis",
+  "purpose": "health/server.goのNewServer・Check・Watch・SetServingStatus・Shutdown・Resume、health/client.goのUNIMPLEMENTED処理、server.goのStop・GracefulStop・stop・WaitForHandlersとhandler待機条件、examples/features/health/client/main.goとexamples/features/gracefulstop/server/main.goを確認。固定commitのLICENSEとfile headersはApache-2.0。tag ref・version.go・commit日時をGitHub readで照合し、native webで版付きAPIも確認。固定fileのweb cache miss後はread-only GitHub connectorで本文を取得。runtime/upstream試験実行・コード転載なし。"
+}
