@@ -1,0 +1,12 @@
+{
+  "id": "typescript-download-major-status-20261024",
+  "url": "https://www.typescriptlang.org/download/",
+  "repository_url": "https://github.com/microsoft/TypeScript",
+  "commit_sha": "",
+  "version": "Live Download page, current-major text 7.0 and 7.1 upcoming link, observed 2026-10-24 UTC",
+  "retrieved_at": "2026-10-24",
+  "license": "unknown",
+  "trust": "official",
+  "type": "official_docs",
+  "purpose": "project-local installとlockfile、transpileとtype-checkの区別、配布案内の7.0表示を確認。patchやbeta配布の不在は推測しない。 原文コードの転載・module昇格なし。ページ自体の再利用ライセンスは未確認。"
+}

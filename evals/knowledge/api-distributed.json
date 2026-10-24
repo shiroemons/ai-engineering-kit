@@ -1346,6 +1346,16 @@
     {"name": "openapi-multipart-formdata-order-not-map", "query": "form-data name/value 順序", "expected_ids": ["api-design-openapi-multipart-position-cardinality-boundary"]},
     {"name": "openapi-multipart-schema-not-csv-validator", "query": "CSV schema valid", "expected_ids": ["api-design-openapi-multipart-position-cardinality-boundary"]},
     {"name": "openapi-multipart-runtime-unverified", "query": "runtime feature SDK", "expected_ids": ["api-design-openapi-multipart-position-cardinality-boundary"]},
-    {"name": "openapi-multipart-completion-not-two-values", "query": "二つの値 全body", "expected_ids": ["api-design-openapi-multipart-position-cardinality-boundary"]}
+    {"name": "openapi-multipart-completion-not-two-values", "query": "二つの値 全body", "expected_ids": ["api-design-openapi-multipart-position-cardinality-boundary"]},
+    {"name": "http-conditional-write-wildcard-existence", "query": "If-Match wildcard existence", "expected_ids": ["http-conditional-write-validator-atomicity-boundary"]},
+    {"name": "http-conditional-write-428-412", "query": "If-Match 428 412", "expected_ids": ["http-conditional-write-validator-atomicity-boundary"]},
+    {"name": "http-conditional-write-atomic-admission", "query": "ETag 原子的境界 CAS", "expected_ids": ["http-conditional-write-validator-atomicity-boundary"]},
+    {"name": "http-conditional-write-date-precedence", "query": "If-Unmodified-Since AND条件", "expected_ids": ["http-conditional-write-validator-atomicity-boundary"]},
+    {"name": "http-conditional-write-put-transform-validator", "query": "PUT 正規化 validator", "expected_ids": ["http-conditional-write-validator-atomicity-boundary"]},
+    {"name": "http-conditional-write-expected-revision-idempotency", "query": "expected revision idempotency", "expected_ids": ["http-conditional-write-validator-atomicity-boundary"]},
+    {"name": "http-conditional-write-no-retag-stale-body", "query": "新ETagだけへ差替えて古いbodyを再送しない", "expected_ids": ["http-conditional-write-validator-atomicity-boundary"]},
+    {"name": "http-conditional-write-already-applied-not-reexecute", "query": "2xx例外 業務効果 再実行", "expected_ids": ["http-conditional-write-validator-atomicity-boundary"]},
+    {"name": "http-conditional-write-body-validator-snapshot", "query": "GET本文 ETag snapshot", "expected_ids": ["http-conditional-write-validator-atomicity-boundary"]},
+    {"name": "http-conditional-write-runtime-unverified", "query": "HTTPサーバー runtime試験 実行していない", "expected_ids": ["http-conditional-write-validator-atomicity-boundary"]}
   ]
 }

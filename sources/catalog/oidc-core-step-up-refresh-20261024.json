@@ -1,0 +1,12 @@
+{
+  "id": "oidc-core-step-up-refresh-20261024",
+  "url": "https://openid.net/specs/openid-connect-core-1_0.html",
+  "repository_url": "",
+  "commit_sha": "",
+  "version": "OpenID Connect Core 1.0 incorporating errata set 2, December 15, 2023",
+  "retrieved_at": "2026-10-24",
+  "license": "OpenID Foundation specification copyright; original summary only",
+  "trust": "official",
+  "type": "official_docs",
+  "purpose": "max_age、Voluntary/Essential acr claim、refresh 時の元の auth_time の保持を確認する"
+}

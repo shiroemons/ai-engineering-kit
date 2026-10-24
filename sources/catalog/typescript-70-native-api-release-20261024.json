@@ -1,0 +1,12 @@
+{
+  "id": "typescript-70-native-api-release-20261024",
+  "url": "https://devblogs.microsoft.com/typescript/announcing-typescript-7-0/",
+  "repository_url": "https://github.com/microsoft/TypeScript",
+  "commit_sha": "",
+  "version": "TypeScript 7.0 announcement, published 2026-07-08; re-read 2026-10-24 UTC",
+  "retrieved_at": "2026-10-24",
+  "license": "unknown",
+  "trust": "official",
+  "type": "release_notes",
+  "purpose": "7.0にprogrammatic APIがないという版限定の事実、typescript6・tsc6とnpm aliasによる併用、language server pluginの歴史的制約を再確認。 原文コードの転載・module昇格なし。ページ自体の再利用ライセンスは未確認。"
+}

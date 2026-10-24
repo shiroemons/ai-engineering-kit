@@ -471,6 +471,17 @@
 {"name":"csp-delegation-fixed-map-authority","query":"strict-dynamic 固定マップ 実行権限","expected_ids":["security-csp-strict-dynamic-loader-delegation-boundary"]},
 {"name":"csp-delegation-static-hash-data","query":"CSP hash 静的HTML","expected_ids":["security-csp-strict-dynamic-loader-delegation-boundary"]},
 {"name":"csp-delegation-report-only-allowed","query":"strict-dynamic Report-Only 許可済み","expected_ids":["security-csp-strict-dynamic-loader-delegation-boundary"]},
-{"name":"csp-delegation-nonce-requirement","query":"nonce MUST SHOULD 128","expected_ids":["security-csp-strict-dynamic-loader-delegation-boundary"]}
-  ]
+{"name":"csp-delegation-nonce-requirement","query":"nonce MUST SHOULD 128","expected_ids":["security-csp-strict-dynamic-loader-delegation-boundary"]},
+{"name":"oauth-step-up-challenge","query":"insufficient_user_authentication acr_values max_age","expected_ids":["oauth-step-up-auth-time-action-binding-boundary"]},
+{"name":"oauth-step-up-voluntary","query":"Voluntary acr claims","expected_ids":["oauth-step-up-auth-time-action-binding-boundary"]},
+{"name":"oauth-step-up-refresh","query":"refresh iat auth_time","expected_ids":["oauth-step-up-auth-time-action-binding-boundary"]},
+{"name":"oauth-step-up-exchange","query":"token exchange 認証情報","expected_ids":["oauth-step-up-auth-time-action-binding-boundary"]},
+{"name":"oauth-step-up-mozilla","query":"Mozilla 5秒 RP","expected_ids":["oauth-step-up-auth-time-action-binding-boundary"]},
+{"name":"oauth-step-up-action-binding","query":"操作意図 nonce 期限","expected_ids":["oauth-step-up-auth-time-action-binding-boundary"]},
+{"name":"oauth-step-up-future-clock","query":"未来時刻 clock skew","expected_ids":["oauth-step-up-auth-time-action-binding-boundary"]},
+{"name":"oauth-step-up-loop","query":"redirect loop acr","expected_ids":["oauth-step-up-auth-time-action-binding-boundary"]},
+{"name":"oauth-step-up-scope","query":"step-up authentication scope","expected_ids":["oauth-step-up-auth-time-action-binding-boundary"]},
+{"name":"oauth-step-up-id-token","query":"ID Token access token 代用","expected_ids":["oauth-step-up-auth-time-action-binding-boundary"]},
+{"name":"oauth-step-up-optional-refresh-omission","query":"OPTIONAL Mozilla 欠落","expected_ids":["oauth-step-up-auth-time-action-binding-boundary"]}
+]
 }

@@ -1700,6 +1700,104 @@
       "expected_ids": [
         "javascript-page-lifecycle-final-delivery-boundary"
       ]
+    },
+    {
+      "name": "ts-native-beta-shipped-not-stable",
+      "query": "7.1 Beta 2026-10-20 Pre-release",
+      "expected_ids": [
+        "typescript-native-cli-compiler-api-migration-boundary"
+      ]
+    },
+    {
+      "name": "ts-native-plan-versus-release",
+      "query": "2026-10-06 2026-10-20 予定",
+      "expected_ids": [
+        "typescript-native-cli-compiler-api-migration-boundary"
+      ]
+    },
+    {
+      "name": "ts-native-api-example-not-config-loader",
+      "query": "tsconfig.json --project 最小例",
+      "expected_ids": [
+        "typescript-native-cli-compiler-api-migration-boundary"
+      ]
+    },
+    {
+      "name": "ts-native-explicit-disposal-go-retention",
+      "query": "Program Snapshot GC Go側",
+      "expected_ids": [
+        "typescript-native-cli-compiler-api-migration-boundary"
+      ]
+    },
+    {
+      "name": "ts-native-snapshot-id-not-object-compatibility",
+      "query": "program ID 混用",
+      "expected_ids": [
+        "typescript-native-cli-compiler-api-migration-boundary"
+      ]
+    },
+    {
+      "name": "ts-native-ensureprograms-new-snapshot",
+      "query": "ensurePrograms 新snapshot",
+      "expected_ids": [
+        "typescript-native-cli-compiler-api-migration-boundary"
+      ]
+    },
+    {
+      "name": "ts-native-layer-host-fallback",
+      "query": "createFileSystemLayer host fallback",
+      "expected_ids": [
+        "typescript-native-cli-compiler-api-migration-boundary"
+      ]
+    },
+    {
+      "name": "ts-native-update-notifications",
+      "query": "fileNotifications 仮想file",
+      "expected_ids": [
+        "typescript-native-cli-compiler-api-migration-boundary"
+      ]
+    },
+    {
+      "name": "ts-native-mapper-execution-permissions",
+      "query": "contentMappers --runExternalCode workspace trust",
+      "expected_ids": [
+        "typescript-native-cli-compiler-api-migration-boundary"
+      ]
+    },
+    {
+      "name": "ts-native-mapper-example-not-package",
+      "query": "@vue/content-mapper 未公開",
+      "expected_ids": [
+        "typescript-native-cli-compiler-api-migration-boundary"
+      ]
+    },
+    {
+      "name": "ts-native-mapper-failure-not-coverage",
+      "query": "mapper failure 診断件数",
+      "expected_ids": [
+        "typescript-native-cli-compiler-api-migration-boundary"
+      ]
+    },
+    {
+      "name": "ts-native-mapper-no-javascript-emit",
+      "query": "content-mapped JavaScript emit",
+      "expected_ids": [
+        "typescript-native-cli-compiler-api-migration-boundary"
+      ]
+    },
+    {
+      "name": "ts-native-stale-analysis-not-adopted",
+      "query": "入力revision 旧request",
+      "expected_ids": [
+        "typescript-native-cli-compiler-api-migration-boundary"
+      ]
+    },
+    {
+      "name": "ts-native-beta-runtime-not-executed",
+      "query": "7.1 Beta runtime試験",
+      "expected_ids": [
+        "typescript-native-cli-compiler-api-migration-boundary"
+      ]
     }
   ]
 }

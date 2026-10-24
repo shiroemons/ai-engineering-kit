@@ -1,0 +1,12 @@
+{
+  "id": "rfc9068-authentication-claims-20261024",
+  "url": "https://www.rfc-editor.org/rfc/rfc9068.html",
+  "repository_url": "",
+  "commit_sha": "",
+  "version": "RFC 9068, October 2021",
+  "retrieved_at": "2026-10-24",
+  "license": "IETF Trust Legal Provisions (RFC text; code components under Simplified BSD License)",
+  "trust": "official",
+  "type": "official_docs",
+  "purpose": "認証情報 claim の refresh/exchange 間での不変性と JWT access token 検証を確認する"
+}
