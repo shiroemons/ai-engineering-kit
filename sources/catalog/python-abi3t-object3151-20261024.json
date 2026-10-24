@@ -1,0 +1,12 @@
+{
+  "id": "python-abi3t-object3151-20261024",
+  "url": "https://docs.python.org/3.15/c-api/object.html",
+  "repository_url": "https://github.com/python/cpython",
+  "commit_sha": "",
+  "version": "Python 3.15.1 Object Protocol; PyObject_GetTypeData added 3.12",
+  "retrieved_at": "2026-10-24",
+  "license": "PSF-2.0; documentation code additionally 0BSD",
+  "trust": "official",
+  "type": "official_docs",
+  "purpose": "PyObject_GetTypeDataのinstance/negative basicsize条件と、その条件をPythonが自動検査しない点を確認。"
+}

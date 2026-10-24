@@ -1,0 +1,12 @@
+{
+  "id": "w3c-web-locks-lifetime-wd20250924-20261024",
+  "url": "https://www.w3.org/TR/2025/WD-web-locks-20250924/",
+  "repository_url": "https://github.com/w3c/web-locks",
+  "commit_sha": "",
+  "version": "Web Locks API W3C Working Draft 2025-09-24; current TR and Editor's Draft also displayed 2025-09-24 when opened 2026-10-24 UTC",
+  "retrieved_at": "2026-10-24",
+  "license": "W3C Software and Document License 2023; publication copyright link and https://www.w3.org/copyright/software-license-2023/ verified 2026-10-24 UTC; original Japanese summary, no copied upstream text or code",
+  "trust": "official",
+  "type": "official_docs",
+  "purpose": "§2.4 と §4.4 の callback returned promise による保持期間、§3.2.1/§4.3 の signal.reason と callback 開始後の取消非適用、§4.1 の steal による旧 released promise の reject、§3.2.2 の snapshot、§2.2/§6.1 の storage bucket scope を確認。prose の略記と規範手順を区別し、ブラウザ実装一致や新機能導入は主張しない。"
+}

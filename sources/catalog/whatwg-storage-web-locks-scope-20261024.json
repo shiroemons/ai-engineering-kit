@@ -1,0 +1,12 @@
+{
+  "id": "whatwg-storage-web-locks-scope-20261024",
+  "url": "https://storage.spec.whatwg.org/",
+  "repository_url": "https://github.com/whatwg/storage",
+  "commit_sha": "",
+  "version": "Storage Living Standard, Last Updated 2026-10-19; linked commit snapshot 115691c5158395b89063dee09278703f10494171; retrieved 2026-10-24 UTC",
+  "retrieved_at": "2026-10-24",
+  "license": "CC-BY-4.0 for document; BSD-3-Clause for portions incorporated into source code; WHATWG copyright paragraph and https://whatwg.org/ipr-policy §7.1.1 verified 2026-10-24 UTC; original summary, no copied code",
+  "trust": "official",
+  "type": "official_docs",
+  "purpose": "§4 の storage key / shelf / bucket / bottle の区別と、取得時の本文が origin tuple・default bucket を記載し partitioning 変更に言及する範囲を確認。Web Locks の bucket scope から exact browser partition key や named Storage Buckets API の一律配備を推定しないための補助資料。"
+}

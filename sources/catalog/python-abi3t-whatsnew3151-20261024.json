@@ -1,0 +1,12 @@
+{
+  "id": "python-abi3t-whatsnew3151-20261024",
+  "url": "https://docs.python.org/3.15/whatsnew/3.15.html",
+  "repository_url": "https://github.com/python/cpython",
+  "commit_sha": "",
+  "version": "Python 3.15.1 documentation; 3.15.0 released 2026-10-09",
+  "retrieved_at": "2026-10-24",
+  "license": "PSF-2.0; documentation code additionally 0BSD",
+  "trust": "official",
+  "type": "release_notes",
+  "purpose": "3.15の正式公開日、abi3t導入、opaque objectとexport hookの移行、未対応build toolではcp315tを別buildする選択を確認。"
+}

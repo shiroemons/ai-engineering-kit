@@ -1,0 +1,12 @@
+{
+  "id": "wpt-web-locks-lifetime-5af3c135-20261024",
+  "url": "https://github.com/web-platform-tests/wpt/tree/5af3c135c9c97381733866150a7ada27d1029c50/web-locks",
+  "repository_url": "https://github.com/web-platform-tests/wpt",
+  "commit_sha": "5af3c135c9c97381733866150a7ada27d1029c50",
+  "version": "WPT repository commit 5af3c135c9c97381733866150a7ada27d1029c50, commit timestamp 2026-10-23T17:53:17Z; no Web Locks introduction-date claim",
+  "retrieved_at": "2026-10-24",
+  "license": "BSD-3-Clause; web-platform-tests contributors; LICENSE.md at 5af3c135c9c97381733866150a7ada27d1029c50 and inspected test headers verified; no upstream code copied",
+  "trust": "primary-source",
+  "type": "github_repository_analysis",
+  "purpose": "固定 commit の web-locks/held.https.any.js、signal.https.any.js、steal.https.any.js、acquire.https.any.js、ifAvailable.https.any.js、partitioned-web-locks.tentative.https.html、storage-buckets.tentative.https.any.js を GitHub connector で静的読解。返却 Promise、取得前後の abort、custom reason、steal の要求順序、取得不可 null、禁止 options と tentative scope テストを確認。WPT runner とブラウザは未実行。"
+}

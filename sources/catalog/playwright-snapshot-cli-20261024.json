@@ -1,0 +1,12 @@
+{
+  "id": "playwright-snapshot-cli-20261024",
+  "url": "https://playwright.dev/docs/test-cli",
+  "repository_url": "https://github.com/microsoft/playwright.dev",
+  "commit_sha": "",
+  "version": "Playwright Node.js live CLI reference; retrieved 2026-10-24; -u preset cross-checked against v1.64.1 program.ts",
+  "license": "CC-BY-4.0",
+  "type": "official_docs",
+  "purpose": "flagなしのdefaultと値なし--update-snapshotsのchanged、ignore-snapshotsの区別を確認。公開日未確認のrolling文書。サイトLICENSE https://github.com/microsoft/playwright.dev/blob/main/LICENSE を確認。独自要約、コード転載なし。",
+  "retrieved_at": "2026-10-24",
+  "trust": "official"
+}

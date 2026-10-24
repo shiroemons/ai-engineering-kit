@@ -1,0 +1,12 @@
+{
+  "id": "python-abi3t-pep803-20261024",
+  "url": "https://peps.python.org/pep-0803/",
+  "repository_url": "https://github.com/python/peps",
+  "commit_sha": "",
+  "version": "PEP 803 Final, Python 3.15; created 2025-08-19; last modified 2026-10-08 20:05:26 UTC",
+  "retrieved_at": "2026-10-24",
+  "license": "CC0-1.0-Universal or public domain, whichever is more permissive (PEP 803 Copyright)",
+  "trust": "official",
+  "type": "official_docs",
+  "purpose": "cp315-abi3.abi3t、別targetのabi3t-only、extension suffix、3.15の互換下限、CC0/public domain表示を確認。"
+}

@@ -2769,6 +2769,62 @@
 {"name":"rails-message-fallback-zero-primary-rotation","query":"fallback 通知0 rotation","expected_ids":["rails-message-serializer-marshal-retirement-boundary"]},
 {"name":"rails-message-payload-log-exposure","query":"message_serializer serialized deserialized","expected_ids":["rails-message-serializer-marshal-retirement-boundary"]},
 {"name":"rails-message-signature-deserialization-distinction","query":"valid_message? serialization error","expected_ids":["rails-message-serializer-marshal-retirement-boundary"]},
-{"name":"rails-message-json-messagepack-reader-boundary","query":":json MessagePack strict","expected_ids":["rails-message-serializer-marshal-retirement-boundary"]}
+{"name":"rails-message-json-messagepack-reader-boundary","query":":json MessagePack strict","expected_ids":["rails-message-serializer-marshal-retirement-boundary"]},
+    {
+      "name": "python-abi3t-abi-gil-independent-slots",
+      "query": "abi3t Py_mod_abi Py_mod_gil",
+      "expected_ids": [
+        "python-abi3t-wheel-gil-acceptance-boundary"
+      ]
+    },
+    {
+      "name": "python-abi3t-wheel-minimum-cp315-not-cp314",
+      "query": "abi3t cp315 3.14",
+      "expected_ids": [
+        "python-abi3t-wheel-gil-acceptance-boundary"
+      ]
+    },
+    {
+      "name": "python-abi3t-compile-both-targets",
+      "query": "abi3t Py_TARGET_ABI3T Py_LIMITED_API",
+      "expected_ids": [
+        "python-abi3t-wheel-gil-acceptance-boundary"
+      ]
+    },
+    {
+      "name": "python-abi3t-export-before-slot-check",
+      "query": "abi3t PyModExport GIL",
+      "expected_ids": [
+        "python-abi3t-wheel-gil-acceptance-boundary"
+      ]
+    },
+    {
+      "name": "python-abi3t-opaque-subclass-type-data",
+      "query": "abi3t PyObject_GetTypeData subclass",
+      "expected_ids": [
+        "python-abi3t-wheel-gil-acceptance-boundary"
+      ]
+    },
+    {
+      "name": "python-abi3t-variable-sized-type-limit",
+      "query": "abi3t variable-sized",
+      "expected_ids": [
+        "python-abi3t-wheel-gil-acceptance-boundary"
+      ]
+    },
+    {
+      "name": "python-abi3t-runtime-gil-reenabled",
+      "query": "abi3t sys._is_gil_enabled 再有効化",
+      "expected_ids": [
+        "python-abi3t-wheel-gil-acceptance-boundary"
+      ]
+    },
+    {
+      "name": "python-abi3t-wheel-not-source-rebuild",
+      "query": "abi3t wheel source build",
+      "expected_ids": [
+        "python-abi3t-wheel-gil-acceptance-boundary"
+      ]
+    }
   ]
 }

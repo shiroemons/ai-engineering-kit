@@ -1,0 +1,12 @@
+{
+  "id": "python-abi3t-migration3151-20261024",
+  "url": "https://docs.python.org/3.15/howto/abi3t-migration.html",
+  "repository_url": "https://github.com/python/cpython",
+  "commit_sha": "",
+  "version": "Python 3.15.1 abi3t migration guide; page updated 2026-10-24 07:24 UTC",
+  "retrieved_at": "2026-10-24",
+  "license": "PSF-2.0; documentation code additionally 0BSD",
+  "trust": "official",
+  "type": "official_docs",
+  "purpose": "移植の前提、opaque PyObject、subclassでのtype data選択、variable-sized型の3.15制約、build-time macroとruntimeの違い、対応版と両buildの試験を確認。"
+}

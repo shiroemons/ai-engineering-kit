@@ -1,0 +1,12 @@
+{
+  "id": "python-abi3t-module3151-20261024",
+  "url": "https://docs.python.org/3.15/c-api/module.html",
+  "repository_url": "https://github.com/python/cpython",
+  "commit_sha": "",
+  "version": "Python 3.15.1 Module Objects; Py_mod_abi added 3.15, Py_mod_gil added 3.13",
+  "retrieved_at": "2026-10-24",
+  "license": "PSF-2.0; documentation code additionally 0BSD",
+  "trust": "official",
+  "type": "official_docs",
+  "purpose": "新module定義でのPy_mod_abi必須条件と、GIL利用slotの既定値・意味が独立していることを確認。"
+}
