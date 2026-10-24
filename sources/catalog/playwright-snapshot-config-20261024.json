@@ -1,0 +1,12 @@
+{
+  "id": "playwright-snapshot-config-20261024",
+  "url": "https://playwright.dev/docs/api/class-testconfig",
+  "repository_url": "https://github.com/microsoft/playwright.dev",
+  "commit_sha": "",
+  "version": "Playwright Node.js live TestConfig reference; retrieved 2026-10-24; updateSnapshots default/missing semantics cross-checked against v1.64.1",
+  "license": "CC-BY-4.0",
+  "type": "official_docs",
+  "purpose": "updateSnapshotsのall/changed/missing/none/defaultとignoreSnapshotsの区別を確認。rollingページの公開日は確認できず取得日のみを記録。サイトLICENSE https://github.com/microsoft/playwright.dev/blob/main/LICENSE を確認。独自要約、コード転載なし。",
+  "retrieved_at": "2026-10-24",
+  "trust": "official"
+}

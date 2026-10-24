@@ -1,0 +1,12 @@
+{
+  "id": "playwright-1641-snapshot-source-20261024",
+  "url": "https://github.com/microsoft/playwright/tree/cfe490d941f992655948eee8fd4fd94e1c4234bf",
+  "repository_url": "https://github.com/microsoft/playwright",
+  "commit_sha": "cfe490d941f992655948eee8fd4fd94e1c4234bf",
+  "version": "Playwright v1.64.1 @ cfe490d941f992655948eee8fd4fd94e1c4234bf; analyzed files identical to v1.64.0 @ 606ecd8b34bac100db32561b6278ffd76e5eb3cd",
+  "license": "Apache-2.0",
+  "type": "github_repository_analysis",
+  "purpose": "固定Git objectのpackages/playwright/src/matchers/toMatchSnapshot.ts、common/config.ts、program.ts、worker/testInfo.ts、tests/playwright-test/golden.spec.tsとto-have-screenshot.spec.tsを分析。両版のblob SHA一致を確認。defaultのsoftErrorとretry抑止、missingの成功・既存不一致維持を読む。固定blobのweb取得はcache missのためGit取得済みobjectで確認。LICENSEと対象headerはApache-2.0。upstream testsは読解のみ、未実行。コード転載なし。",
+  "retrieved_at": "2026-10-24",
+  "trust": "official"
+}

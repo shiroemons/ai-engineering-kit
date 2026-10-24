@@ -1,0 +1,12 @@
+{
+  "id": "python-abi3t-extensions3151-20261024",
+  "url": "https://docs.python.org/3.15/howto/free-threading-extensions.html",
+  "repository_url": "https://github.com/python/cpython",
+  "commit_sha": "",
+  "version": "Python 3.15.1 C API Extension Support for Free Threading",
+  "retrieved_at": "2026-10-24",
+  "license": "PSF-2.0; documentation code additionally 0BSD",
+  "trust": "official",
+  "type": "official_docs",
+  "purpose": "borrowed reference・非locking macro・struct field・PyDict_Nextの並行安全性がABI tagとは別の移行課題であることを確認。"
+}

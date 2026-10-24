@@ -1103,6 +1103,20 @@
       "expected_ids": [
         "opentelemetry-obi-log-correlation-write-boundary"
       ]
-    }
+    },
+    {"name": "playwright-snapshot-missing-not-approval", "query": "Playwright missing レビュー承認", "expected_ids": ["testing-playwright-snapshot-creation-approval-boundary"]},
+    {"name": "playwright-snapshot-default-generation-fails", "query": "default baselineを作る テスト失敗", "expected_ids": ["testing-playwright-snapshot-creation-approval-boundary"]},
+    {"name": "playwright-snapshot-missing-existing-mismatch", "query": "missing 既存baselineとの不一致", "expected_ids": ["testing-playwright-snapshot-creation-approval-boundary"]},
+    {"name": "playwright-snapshot-bare-update-changed", "query": "値なし -u changed", "expected_ids": ["testing-playwright-snapshot-creation-approval-boundary"]},
+    {"name": "playwright-snapshot-cli-config-precedence", "query": "CLI override user config", "expected_ids": ["testing-playwright-snapshot-creation-approval-boundary"]},
+    {"name": "playwright-snapshot-default-nonretriable", "query": "softError shouldNotRetryTest", "expected_ids": ["testing-playwright-snapshot-creation-approval-boundary"]},
+    {"name": "playwright-snapshot-rerun-generated-input", "query": "別プロセス 再実行 生成済み", "expected_ids": ["testing-playwright-snapshot-creation-approval-boundary"]},
+    {"name": "playwright-snapshot-none-not-ignore", "query": "none ignoreSnapshots read-only", "expected_ids": ["testing-playwright-snapshot-creation-approval-boundary"]},
+    {"name": "playwright-snapshot-untracked-baseline", "query": "baseline untracked 生成", "expected_ids": ["testing-playwright-snapshot-creation-approval-boundary"]},
+    {"name": "playwright-snapshot-path-rename", "query": "checkout.png checkout-v2.png", "expected_ids": ["testing-playwright-snapshot-creation-approval-boundary"]},
+    {"name": "playwright-snapshot-stable-not-correct", "query": "連続する2枚 エラー画面", "expected_ids": ["testing-playwright-snapshot-creation-approval-boundary"]},
+    {"name": "playwright-snapshot-other-assertion-fails", "query": "missing テスト全体 業務assertion", "expected_ids": ["testing-playwright-snapshot-creation-approval-boundary"]},
+    {"name": "playwright-snapshot-release-date", "query": "1.64.0 2026-10-07T20:40:43Z", "expected_ids": ["testing-playwright-snapshot-creation-approval-boundary"]},
+    {"name": "playwright-snapshot-runtime-evidence-limit", "query": "Playwright 検索eval 画像比較 未検証", "expected_ids": ["testing-playwright-snapshot-creation-approval-boundary"]}
   ]
 }

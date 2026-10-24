@@ -1798,6 +1798,104 @@
       "expected_ids": [
         "typescript-native-cli-compiler-api-migration-boundary"
       ]
+    },
+    {
+      "name": "web-locks-callback-returned-promise",
+      "query": "navigator.locks waiting promise released promise",
+      "expected_ids": [
+        "javascript-web-locks-admission-lifetime-boundary"
+      ]
+    },
+    {
+      "name": "web-locks-detached-work-outlives-callback",
+      "query": "Web Locks detached updateDraft",
+      "expected_ids": [
+        "javascript-web-locks-admission-lifetime-boundary"
+      ]
+    },
+    {
+      "name": "web-locks-promise-race-not-cancellation",
+      "query": "Web Locks Promise.race timeout",
+      "expected_ids": [
+        "javascript-web-locks-admission-lifetime-boundary"
+      ]
+    },
+    {
+      "name": "web-locks-parallel-failure-drain",
+      "query": "Web Locks Promise.allSettled 並列処理",
+      "expected_ids": [
+        "javascript-web-locks-admission-lifetime-boundary"
+      ]
+    },
+    {
+      "name": "web-locks-signal-before-after-callback",
+      "query": "Web Locks signal callback開始後",
+      "expected_ids": [
+        "javascript-web-locks-admission-lifetime-boundary"
+      ]
+    },
+    {
+      "name": "web-locks-custom-abort-reason",
+      "query": "Web Locks custom reason AbortError",
+      "expected_ids": [
+        "javascript-web-locks-admission-lifetime-boundary"
+      ]
+    },
+    {
+      "name": "web-locks-steal-not-thread-interruption",
+      "query": "Web Locks steal 例外注入",
+      "expected_ids": [
+        "javascript-web-locks-admission-lifetime-boundary"
+      ]
+    },
+    {
+      "name": "web-locks-steal-keeps-pending-requests",
+      "query": "Web Locks steal 待機要求",
+      "expected_ids": [
+        "javascript-web-locks-admission-lifetime-boundary"
+      ]
+    },
+    {
+      "name": "web-locks-query-not-admission",
+      "query": "Web Locks query check-then-act",
+      "expected_ids": [
+        "javascript-web-locks-admission-lifetime-boundary"
+      ]
+    },
+    {
+      "name": "web-locks-ifavailable-null-not-work-done",
+      "query": "Web Locks ifAvailable null",
+      "expected_ids": [
+        "javascript-web-locks-admission-lifetime-boundary"
+      ]
+    },
+    {
+      "name": "web-locks-options-not-composable",
+      "query": "Web Locks signal steal 組合せ不可",
+      "expected_ids": [
+        "javascript-web-locks-admission-lifetime-boundary"
+      ]
+    },
+    {
+      "name": "web-locks-storage-bucket-not-origin-only",
+      "query": "Web Locks storage bucket origin",
+      "expected_ids": [
+        "javascript-web-locks-admission-lifetime-boundary"
+      ]
+    },
+    {
+      "name": "web-locks-tentative-tests-not-browser-results",
+      "query": "Web Locks tentative 実測結果",
+      "expected_ids": [
+        "javascript-web-locks-admission-lifetime-boundary"
+      ]
+    },
+    {
+      "name": "web-locks-self-reacquire-not-reentrant",
+      "query": "Web Locks 同client 自己待ち",
+      "expected_ids": [
+        "javascript-web-locks-admission-lifetime-boundary"
+      ]
     }
   ]
 }

@@ -1,0 +1,12 @@
+{
+  "id": "playwright-164-snapshot-release-20261024",
+  "url": "https://github.com/microsoft/playwright/releases/tag/v1.64.0",
+  "repository_url": "https://github.com/microsoft/playwright",
+  "commit_sha": "",
+  "version": "Playwright Test v1.64.0; published 2026-10-07T20:40:43Z; prerelease=false",
+  "license": "unknown",
+  "type": "release_notes",
+  "purpose": "missingの新規snapshot生成が成功扱いになる変更と、従来の生成失敗動作を維持するdefaultの導入を確認。公開日時はGitHub release APIと照合。release本文の個別ライセンスは未確認。コード転載なし、独自要約のみ。",
+  "retrieved_at": "2026-10-24",
+  "trust": "official"
+}

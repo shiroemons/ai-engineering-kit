@@ -1,0 +1,12 @@
+{
+  "id": "playwright-snapshot-visual-comparisons-20261024",
+  "url": "https://playwright.dev/docs/test-snapshots",
+  "repository_url": "https://github.com/microsoft/playwright.dev",
+  "commit_sha": "",
+  "version": "Playwright Node.js Visual comparisons live guide; retrieved 2026-10-24",
+  "license": "CC-BY-4.0",
+  "type": "official_docs",
+  "purpose": "新規画像生成時の連続する2枚の一致、browser/platform/projectを含むpath、環境依存renderingと同条件での比較推奨を確認。公開日未確認。サイトLICENSE https://github.com/microsoft/playwright.dev/blob/main/LICENSE を確認。独自要約、画像・コード転載なし。",
+  "retrieved_at": "2026-10-24",
+  "trust": "official"
+}

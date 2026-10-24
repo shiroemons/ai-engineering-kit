@@ -1,0 +1,12 @@
+{
+  "id": "playwright-1641-snapshot-release-20261024",
+  "url": "https://github.com/microsoft/playwright/releases/tag/v1.64.1",
+  "repository_url": "https://github.com/microsoft/playwright",
+  "commit_sha": "",
+  "version": "Playwright Test v1.64.1; published 2026-10-14T11:51:33Z; prerelease=false",
+  "license": "unknown",
+  "type": "release_notes",
+  "purpose": "今回の固定実装に採用したpatch版の公開日をGitHub release APIと照合。release notesはElectronとChromium routingの修正を列挙。snapshot関連ファイルの同一性は別の固定repository分析で検証。本文の個別ライセンスは未確認、独自要約のみ。",
+  "retrieved_at": "2026-10-24",
+  "trust": "official"
+}
