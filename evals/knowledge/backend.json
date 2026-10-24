@@ -2701,6 +2701,69 @@
       "expected_ids": [
         "python-frozendict-shallow-hash-cache-key-boundary"
       ]
+    },
+    {
+      "name": "python-startup-empty-start-suppresses-legacy",
+      "query": "空 .start 抑制",
+      "expected_ids": [
+        "python-startup-start-pth-suppression-boundary"
+      ]
+    },
+    {
+      "name": "python-startup-invalid-utf8-no-registration",
+      "query": "不正UTF-8 登録 抑制",
+      "expected_ids": [
+        "python-startup-start-pth-suppression-boundary"
+      ]
+    },
+    {
+      "name": "python-startup-malformed-entry-no-legacy-fallback",
+      "query": "不正 構文 fallback",
+      "expected_ids": [
+        "python-startup-start-pth-suppression-boundary"
+      ]
+    },
+    {
+      "name": "python-startup-all-paths-before-legacy-entrypoints",
+      "query": "process 静的path import行",
+      "expected_ids": [
+        "python-startup-start-pth-suppression-boundary"
+      ]
+    },
+    {
+      "name": "python-startup-filename-order-not-global",
+      "query": "alphabetical 全directory",
+      "expected_ids": [
+        "python-startup-start-pth-suppression-boundary"
+      ]
+    },
+    {
+      "name": "python-startup-state-not-idempotent",
+      "query": "StartupState 冪等 再実行",
+      "expected_ids": [
+        "python-startup-start-pth-suppression-boundary"
+      ]
+    },
+    {
+      "name": "python-startup-stderr-readiness-boundary",
+      "query": "stderr readiness Exception",
+      "expected_ids": [
+        "python-startup-start-pth-suppression-boundary"
+      ]
+    },
+    {
+      "name": "python-startup-strict-entrypoint-format",
+      "query": "strict=True colon callable",
+      "expected_ids": [
+        "python-startup-start-pth-suppression-boundary"
+      ]
+    },
+    {
+      "name": "python-startup-future-deprecation-not-runtime",
+      "query": "3.18 3.19 将来",
+      "expected_ids": [
+        "python-startup-start-pth-suppression-boundary"
+      ]
     }
   ]
 }

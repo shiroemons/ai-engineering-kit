@@ -1,0 +1,12 @@
+{
+  "id": "node-obi-pipe-stdout-24221-20261024",
+  "url": "https://nodejs.org/docs/latest-v24.x/api/process.html#process-a-note-on-process-io",
+  "repository_url": "https://github.com/nodejs/node",
+  "commit_sha": "",
+  "version": "取得ページの表示はNode.js v24.22.1。latest-v24.xは可変URLであり全系列の最新版とは主張しない",
+  "retrieved_at": "2026-10-24",
+  "license": "MIT",
+  "trust": "official",
+  "type": "official_docs",
+  "purpose": "native webでA note on process I/Oを実読。POSIXのpipe/socketは非同期、TTYは同期であることを確認し、OBI固定開発文書の一律同期表と対比。版固定API URLは取得失敗したため取得できた表示版に限定する。nodejs/node v24.22.1 LICENSEの関連文書を含むMIT条件をconnectorで確認。原文転載なし。"
+}

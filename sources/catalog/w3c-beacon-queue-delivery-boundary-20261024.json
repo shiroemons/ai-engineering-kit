@@ -1,0 +1,12 @@
+{
+  "id": "w3c-beacon-queue-delivery-boundary-20261024",
+  "url": "https://www.w3.org/TR/2022/CRD-beacon-20220803/",
+  "repository_url": "",
+  "commit_sha": "",
+  "version": "Beacon W3C Candidate Recommendation Draft 2022-08-03; verified 2026-10-24 UTC",
+  "retrieved_at": "2026-10-24",
+  "license": "W3C Software and Document License 2015 (https://www.w3.org/copyright/software-license-2015/); no code copied",
+  "trust": "official",
+  "type": "official_docs",
+  "purpose": "§3のsendBeaconのtrue/false、POST、keepalive共有quota、response callbackなし、§1のoffline非保証、§3.2・§4のcontent type/CORSを確認。受付を通信成功や業務commitに読み替えない。"
+}

@@ -1,0 +1,12 @@
+{
+  "id": "whatwg-html-page-visibility-20261024",
+  "url": "https://html.spec.whatwg.org/multipage/interaction.html#page-visibility",
+  "repository_url": "",
+  "commit_sha": "",
+  "version": "HTML Living Standard public page last updated 2026-10-22; retrieved 2026-10-24 UTC; commit snapshot unavailable",
+  "retrieved_at": "2026-10-24",
+  "license": "CC-BY-4.0 text; BSD-3-Clause for portions incorporated into source code; no code copied",
+  "trust": "official",
+  "type": "official_docs",
+  "purpose": "§6.2のvisible/hiddenとvisibilitychange配送先documentを確認。可視性とアプリケーションの終了を区別。固定snapshotを読めたという主張はしない。"
+}

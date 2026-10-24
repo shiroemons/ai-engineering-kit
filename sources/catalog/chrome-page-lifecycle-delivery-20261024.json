@@ -1,0 +1,12 @@
+{
+  "id": "chrome-page-lifecycle-delivery-20261024",
+  "url": "https://developer.chrome.com/docs/web-platform/page-lifecycle-api",
+  "repository_url": "",
+  "commit_sha": "",
+  "version": "Chrome for Developers Page Lifecycle API; published 2023-12-01, updated 2026-10-16; verified 2026-10-24 UTC",
+  "retrieved_at": "2026-10-24",
+  "license": "CC-BY-4.0 text; Apache-2.0 code samples; no code copied",
+  "trust": "maintainer",
+  "type": "maintainer_article",
+  "purpose": "hiddenを最後の観測機会とみる運用指針、mobileでの終了event欠落、frozenのcallback停止、beforeunloadの限定利用を確認。全browserの規範event順序やIndexedDB保存保証として採用しない。"
+}

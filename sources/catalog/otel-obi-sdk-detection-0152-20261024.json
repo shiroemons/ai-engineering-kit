@@ -1,0 +1,12 @@
+{
+  "id": "otel-obi-sdk-detection-0152-20261024",
+  "url": "https://github.com/open-telemetry/opentelemetry-ebpf-instrumentation/blob/b28e4e7fe0a01f1961b7c4747a13b8ff486d6fec/devdocs/exclude-otel-instrumented-services.md",
+  "repository_url": "https://github.com/open-telemetry/opentelemetry-ebpf-instrumentation",
+  "commit_sha": "b28e4e7fe0a01f1961b7c4747a13b8ff486d6fec",
+  "version": "OBI v0.15.2固定開発文書。SDK存在ではなくOTLP送信観測による検出",
+  "retrieved_at": "2026-10-24",
+  "license": "Apache-2.0",
+  "trust": "official",
+  "type": "official_docs",
+  "purpose": "検出前window、OTLP exportの成功と可読transportの前提、signal別フラグ、静的なSDK存在判定でないことをGitHub connectorで確認。trace-onlyの適用条件をSDK導入全般へ一般化しないための根拠。LICENSEは同commitで確認し、原文・コードは転載しない。"
+}

@@ -1,0 +1,12 @@
+{
+  "id": "otel-obi-correlation-article-20261024",
+  "url": "https://opentelemetry.io/blog/2026/obi-trace-log-correlation/",
+  "repository_url": "https://github.com/open-telemetry/opentelemetry.io",
+  "commit_sha": "d58d5b2fe59b051fb7a30dfa7bc4eb6ad2641ddf",
+  "version": "Zero-code trace-log correlation with OBI、2026-10-06公開。記事の例を全版の設定契約とは扱わない",
+  "retrieved_at": "2026-10-24",
+  "license": "CC-BY-4.0",
+  "trust": "maintainer",
+  "type": "maintainer_article",
+  "purpose": "Mattia Meleleoによる導入記事。native webで実ページと公開日、対象stdout/stderr、Node pipeのbackpressure、SDK span_id、NUL placeholder、大きなwriteの分割を確認。ページ更新リンクから固定commitを確認した。サイトLICENSEを4cc5cb830e724c286159bf143639b914f876ab17で取得。独自の日本語要約のみで、設定例や画像は転載しない。"
+}

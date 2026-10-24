@@ -1,0 +1,12 @@
+{
+  "id": "otel-obi-correlation-source-0152-20261024",
+  "url": "https://github.com/open-telemetry/opentelemetry-ebpf-instrumentation/tree/b28e4e7fe0a01f1961b7c4747a13b8ff486d6fec",
+  "repository_url": "https://github.com/open-telemetry/opentelemetry-ebpf-instrumentation",
+  "commit_sha": "b28e4e7fe0a01f1961b7c4747a13b8ff486d6fec",
+  "version": "OBI v0.15.2固定ソース。実装・upstream testの静的読解のみ、実行なし",
+  "retrieved_at": "2026-10-24",
+  "license": "Apache-2.0",
+  "trust": "official",
+  "type": "github_repository_analysis",
+  "purpose": "internal/config/convert/import.go 140-163と248-249、internal/config/schema/correlation.go、integration v2設定でmatch必須・filter拒否を確認。pkg/internal/ebpf/logenricherのhandle・shouldOmitSpanID・formatterとテスト、bpf/logenricher/types.hとlogenricher.cでSDK条件、既存値保持、8192 byte・8 iovecとsegment境界を確認。internal/test/integration/log_enricher_test.goのSDK検出後・shipperフィルタ期待値も読解。LICENSEと読んだGo/CヘッダーはApache-2.0。BPFロード用宣言Dual MIT/GPLはファイルSPDXと区別。全本文をconnectorで取得し、コードはコピーしない。"
+}

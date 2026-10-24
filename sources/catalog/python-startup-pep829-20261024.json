@@ -1,0 +1,12 @@
+{
+  "id": "python-startup-pep829-20261024",
+  "url": "https://peps.python.org/pep-0829/",
+  "repository_url": "",
+  "commit_sha": "",
+  "retrieved_at": "2026-10-24",
+  "trust": "official",
+  "version": "PEP 829 Final; Python-Version 3.15; created 2026-03-31; last modified 2026-06-15 17:28:27 UTC",
+  "license": "Public Domain or CC0-1.0-Universal, whichever is more permissive; PEP Copyright section",
+  "type": "official_docs",
+  "purpose": "native webで仕様・移行・エラー・encoding・security・対象外._pth・Copyrightを確認。概要の版別将来計画とSpecificationの省略表現を区別し、固定実装で検証していない将来版を断定しない。"
+}
