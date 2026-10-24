@@ -1,0 +1,12 @@
+{
+  "id": "oidc-ephemeral-final-approval-20261008-20261024",
+  "url": "https://openid.net/openid-connect-ephemeral-subject-identifier-1-0-final-specification-approved/",
+  "repository_url": "",
+  "commit_sha": "",
+  "version": "OpenID Foundation Final approval announcement, published 2026-10-08; rechecked 2026-10-24 UTC",
+  "retrieved_at": "2026-10-24",
+  "license": "unknown",
+  "trust": "maintainer",
+  "type": "maintainer_article",
+  "purpose": "Confirm membership approval of Ephemeral Subject Identifier 1.0 as an OpenID Final Specification and its fixed Final URL, replacing an unconfirmed scheduled-vote status without inferring implementation readiness; original attributed summary only."
+}

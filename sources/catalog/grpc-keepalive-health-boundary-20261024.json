@@ -1,0 +1,12 @@
+{
+  "id": "grpc-keepalive-health-boundary-20261024",
+  "url": "https://grpc.io/docs/guides/keepalive/",
+  "repository_url": "https://github.com/grpc/grpc.io",
+  "commit_sha": "",
+  "version": "Unversioned Keepalive guide; displayed last modified 2025-11-10; verified 2026-10-24 UTC",
+  "retrieved_at": "2026-10-24",
+  "license": "CC-BY-4.0 (documentation); Apache-2.0 (code samples)",
+  "trust": "official",
+  "type": "official_docs",
+  "purpose": "HTTP/2 PINGによる接続生存確認とapplication healthの区別、keepalive失敗による接続切断と進行中streamへの影響を確認。既定値の全言語への一般化は行わない。grpc.io LICENSE確認済み。"
+}

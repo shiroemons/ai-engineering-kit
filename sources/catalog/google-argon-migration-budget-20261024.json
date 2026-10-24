@@ -1,0 +1,12 @@
+{
+  "id": "google-argon-migration-budget-20261024",
+  "url": "https://ai.google.dev/gemini-api/docs/latest-model",
+  "repository_url": "",
+  "commit_sha": "",
+  "version": "Gemini 4 Argon migration guide; page last updated 2026-10-16 UTC",
+  "retrieved_at": "2026-10-24",
+  "license": "CC-BY-4.0 (documentation); Apache-2.0 (code samples)",
+  "trust": "official",
+  "type": "official_docs",
+  "purpose": "thinkingと出力の合計上限、thinking level、backgroundと明示上限の組合せを確認。URLはrollingで取得時のArgonに限定。 Google公式の実ページをnative webで開き、本文とfooterを確認。独自要約のみでコードの転載・module昇格は行わない。"
+}

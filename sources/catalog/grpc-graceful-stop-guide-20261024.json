@@ -1,0 +1,12 @@
+{
+  "id": "grpc-graceful-stop-guide-20261024",
+  "url": "https://grpc.io/docs/guides/server-graceful-stop/",
+  "repository_url": "https://github.com/grpc/grpc.io",
+  "commit_sha": "",
+  "version": "Unversioned Graceful Shutdown guide; displayed last modified 2025-01-15; verified 2026-10-24 UTC",
+  "retrieved_at": "2026-10-24",
+  "license": "CC-BY-4.0 (documentation); Apache-2.0 (code samples)",
+  "trust": "official",
+  "type": "official_docs",
+  "purpose": "新規RPCの停止とin-flight RPC完了待ち、独立timerからforceful shutdownを呼ぶ上限管理を確認。Go固有のtimeout引数・handler待機は別の固定実装sourceで検証。grpc.io LICENSE確認済み。"
+}
