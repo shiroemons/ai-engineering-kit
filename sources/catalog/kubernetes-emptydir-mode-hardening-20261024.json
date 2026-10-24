@@ -1,0 +1,12 @@
+{
+  "id": "kubernetes-emptydir-mode-hardening-20261024",
+  "url": "https://kubernetes.io/blog/2026/09/16/kubernetes-v1-37-hardening-container-storage/",
+  "repository_url": "https://github.com/kubernetes/website",
+  "commit_sha": "",
+  "version": "Kubernetes v1.37; published 2026-09-16; page modified 2026-09-11",
+  "retrieved_at": "2026-10-24",
+  "license": "CC-BY-4.0 (Kubernetes contributors; https://github.com/kubernetes/website/blob/main/LICENSE; verified 2026-10-24)",
+  "trust": "maintainer",
+  "type": "maintainer_article",
+  "purpose": "EmptyDirVolumeModeの導入意図、API/kubelet gateのskewによる0777 fallback、runtime capability不要という範囲を確認"
+}

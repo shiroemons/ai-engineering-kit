@@ -1,0 +1,12 @@
+{
+  "id": "claude-gcp-cutover-iam-20261024",
+  "url": "https://platform.claude.com/docs/en/api/claude-models-on-google-cloud-anthropic-managed-iam-permissions",
+  "repository_url": "",
+  "commit_sha": "",
+  "version": "Rolling claude.googleapis.com IAM route permissions, verified 2026-10-24 UTC",
+  "retrieved_at": "2026-10-24",
+  "license": "unknown (original attributed summary only; no external code copied)",
+  "trust": "official",
+  "type": "official_docs",
+  "purpose": "viewerではmessages/countTokensを実行不可、userは推論だけでなくworkspace resourceの変更権限を含むことを確認。"
+}

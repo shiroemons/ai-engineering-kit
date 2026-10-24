@@ -1,0 +1,12 @@
+{
+  "id": "claude-gcp-cutover-workflow-stop-20261024",
+  "url": "https://platform.claude.com/docs/en/managed-agents/workflow-runs",
+  "repository_url": "",
+  "commit_sha": "",
+  "version": "Claude Managed Agents beta managed-agents-2026-04-01, dynamic workflows; verified 2026-10-24 UTC",
+  "retrieved_at": "2026-10-24",
+  "license": "unknown (original attributed summary only; no external code copied)",
+  "trust": "official",
+  "type": "official_docs",
+  "purpose": "primary interruptはrunを終了させず、停止依頼とrun終端追跡が必要。open runでのarchive/delete拒否可能性を確認。"
+}

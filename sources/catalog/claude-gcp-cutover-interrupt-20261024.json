@@ -1,0 +1,12 @@
+{
+  "id": "claude-gcp-cutover-interrupt-20261024",
+  "url": "https://platform.claude.com/docs/en/managed-agents/events-and-streaming",
+  "repository_url": "",
+  "commit_sha": "",
+  "version": "Claude Managed Agents beta event stream, verified 2026-10-24 UTC",
+  "retrieved_at": "2026-10-24",
+  "license": "unknown (original attributed summary only; no external code copied)",
+  "trust": "official",
+  "type": "official_docs",
+  "purpose": "interruptのqueue受理とprocessed_at・session状態変化、tool実行中の遅延、workflow run未終了の境界を確認。"
+}

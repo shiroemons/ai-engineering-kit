@@ -1,0 +1,12 @@
+{
+  "id": "claude-gcp-cutover-retention-20261024",
+  "url": "https://platform.claude.com/docs/en/manage-claude/api-and-data-retention",
+  "repository_url": "",
+  "commit_sha": "",
+  "version": "Rolling Anthropic API retention/ZDR reference, verified 2026-10-24 UTC",
+  "retrieved_at": "2026-10-24",
+  "license": "unknown (original attributed summary only; no external code copied)",
+  "trust": "official",
+  "type": "official_docs",
+  "purpose": "ZDRのorganization単位有効化と新組織非継承、stateful機能等の適用除外を確認。ユーザー固有の契約は未確認。"
+}

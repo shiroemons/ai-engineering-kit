@@ -1,0 +1,12 @@
+{
+  "id": "linux-unlink-sticky-owner-20261024",
+  "url": "https://man7.org/linux/man-pages/man2/unlink.2.html",
+  "repository_url": "https://git.kernel.org/pub/scm/docs/man-pages/man-pages.git",
+  "commit_sha": "",
+  "version": "Linux man-pages 6.19; manual date 2026-02-08; HTML rendered 2026-09-09",
+  "retrieved_at": "2026-10-24",
+  "license": "unknown (page-specific license not verified; attributed original summary only)",
+  "trust": "official",
+  "type": "official_docs",
+  "purpose": "sticky directoryのunlink制約がfile/directory ownerのeffective UIDとCAP_FOWNERを参照することを確認。container名による隔離ではない"
+}

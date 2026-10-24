@@ -1,0 +1,12 @@
+{
+  "id": "redis-search-schema-release-812rc1-20261024",
+  "url": "https://redis.io/docs/latest/operate/oss_and_stack/stack-with-enterprise/release-notes/redisce/redisos-8.12-release-notes/",
+  "repository_url": "https://github.com/redis/docs",
+  "commit_sha": "",
+  "version": "Redis Open Source 8.12-RC1 release-note label, October 2026; exact release day and binary availability unverified",
+  "retrieved_at": "2026-10-24",
+  "license": "CC-BY-NC-SA-4.0（Redis Website and Documentation: https://github.com/redis/docs/blob/main/LICENSE を2026-10-24 UTCに確認）。旧redis-doc由来部分にはCC-BY-SA-4.0例外があるが当該箇所は未特定。独自要約のみ、コード・図・長文転載なし",
+  "trust": "official",
+  "type": "release_notes",
+  "purpose": "October 2026のRC表示、production非推奨、およびWORKERS>0でFT.ALTERと並行するVECTOR/TAG/NUMERIC/GEO/ISMISSING/GEOSHAPE queryのcrash修正を確認。正式版・stable backportの存在は証明しない。"
+}

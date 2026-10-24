@@ -1,0 +1,12 @@
+{
+  "id": "redis-search-schema-alias-update-20261024",
+  "url": "https://redis.io/docs/latest/commands/ft.aliasupdate/",
+  "repository_url": "https://github.com/redis/docs",
+  "commit_sha": "",
+  "version": "FT.ALIASUPDATE current reference checked 2026-10-24 UTC; command since Search 1.0.0",
+  "retrieved_at": "2026-10-24",
+  "license": "CC-BY-NC-SA-4.0（Redis Website and Documentation: https://github.com/redis/docs/blob/main/LICENSE を2026-10-24 UTCに確認）。旧redis-doc由来部分にはCC-BY-SA-4.0例外があるが当該箇所は未特定。独自要約のみ、コード・図・長文転載なし",
+  "trust": "official",
+  "type": "official_docs",
+  "purpose": "aliasを新indexへ関連付け、旧関連付けを外す契約、OKと存在しないindexのerrorを確認。readiness自動判定や旧queryのdrain保証は記載されない。公開日表示なし。"
+}

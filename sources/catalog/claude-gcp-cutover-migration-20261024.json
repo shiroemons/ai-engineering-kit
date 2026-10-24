@@ -1,0 +1,12 @@
+{
+  "id": "claude-gcp-cutover-migration-20261024",
+  "url": "https://platform.claude.com/docs/en/build-with-claude/claude-models-on-google-cloud/anthropic-managed",
+  "repository_url": "",
+  "commit_sha": "",
+  "version": "Anthropic-managed launch 2026-10-22; rolling migration guide verified 2026-10-24 UTC",
+  "retrieved_at": "2026-10-24",
+  "license": "unknown (original attributed summary only; no external code copied)",
+  "trust": "official",
+  "type": "official_docs",
+  "purpose": "新organizationと資源非移行、設定解決、認証、creator失効後の非同期実行継続を確認。SDK全版の実装保証には使わない。"
+}

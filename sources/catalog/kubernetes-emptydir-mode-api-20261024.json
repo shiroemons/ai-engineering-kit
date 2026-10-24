@@ -1,0 +1,12 @@
+{
+  "id": "kubernetes-emptydir-mode-api-20261024",
+  "url": "https://kubernetes.io/docs/reference/kubernetes-api/core/pod-v1/",
+  "repository_url": "https://github.com/kubernetes/website",
+  "commit_sha": "",
+  "version": "Pod v1 / Kubernetes v1.37; generated API reference modified 2026-08-26",
+  "retrieved_at": "2026-10-24",
+  "license": "CC-BY-4.0 (Kubernetes contributors; https://github.com/kubernetes/website/blob/main/LICENSE; verified 2026-10-24)",
+  "trust": "official",
+  "type": "official_docs",
+  "purpose": "EmptyDirVolumeSource.modeの整数型・値域・fsGroupとの競合・Windows非適用を確認"
+}

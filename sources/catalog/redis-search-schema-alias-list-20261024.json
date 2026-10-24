@@ -1,0 +1,12 @@
+{
+  "id": "redis-search-schema-alias-list-20261024",
+  "url": "https://redis.io/docs/latest/commands/ft.aliaslist/",
+  "repository_url": "https://github.com/redis/docs",
+  "commit_sha": "",
+  "version": "FT.ALIASLIST since Redis Open Source / Search 8.10.0; current reference checked 2026-10-24 UTC",
+  "retrieved_at": "2026-10-24",
+  "license": "CC-BY-NC-SA-4.0（Redis Website and Documentation: https://github.com/redis/docs/blob/main/LICENSE を2026-10-24 UTCに確認）。旧redis-doc由来部分にはCC-BY-SA-4.0例外があるが当該箇所は未特定。独自要約のみ、コード・図・長文転載なし",
+  "trust": "official",
+  "type": "official_docs",
+  "purpose": "指定indexのalias一覧、RESP2 array / RESP3 set、index未存在error、およびcurrent互換表でRedis Software/Cloud非対応を確認。公開日表示なし。"
+}
