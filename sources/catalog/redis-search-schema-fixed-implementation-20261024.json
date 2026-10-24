@@ -1,0 +1,12 @@
+{
+  "id": "redis-search-schema-fixed-implementation-20261024",
+  "url": "https://github.com/RediSearch/RediSearch/commit/0366684950574be979e1983df35b4f9284f1c1d8",
+  "repository_url": "https://github.com/RediSearch/RediSearch",
+  "commit_sha": "0366684950574be979e1983df35b4f9284f1c1d8",
+  "version": "RediSearch snapshot 0366684950574be979e1983df35b4f9284f1c1d8; commit date 2026-09-16; not a tagged release",
+  "retrieved_at": "2026-10-24",
+  "license": "RSALv2 OR SSPLv1 OR AGPLv3（固定commitのLICENSE.txtおよびsrc/vector_index.c/h・module.c・indexes_scan.c・info/info_command.c・indexes_scanner.c headersを確認）。独自の静的分析のみ、コード転載・module昇格なし",
+  "trust": "primary-source",
+  "type": "github_repository_analysis",
+  "purpose": "src/vector_index.c/hのFieldSpec pointer置換diff、src/module.cのALTER initialScan分岐とsrc/indexes_scan.cの非同期backfill scheduling、src/info/info_command.cとsrc/indexes_scanner.cのprogress計算、LICENSE.txtと対象source headersを静的確認。runtimeおよびupstream testsは未実行。"
+}

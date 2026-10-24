@@ -1,0 +1,12 @@
+{
+  "id": "kubernetes-emptydir-mode-task-20261024",
+  "url": "https://kubernetes.io/docs/tasks/configure-pod-container/configure-emptydir-volume-mode/",
+  "repository_url": "https://github.com/kubernetes/website",
+  "commit_sha": "",
+  "version": "Kubernetes v1.37; EmptyDirVolumeMode alpha, default disabled; page modified 2026-06-30",
+  "retrieved_at": "2026-10-24",
+  "license": "CC-BY-4.0 (Kubernetes contributors; https://github.com/kubernetes/website/blob/main/LICENSE; verified 2026-10-24)",
+  "trust": "official",
+  "type": "official_docs",
+  "purpose": "API serverとkubeletのgate、modeの値域と既定、実directoryの確認方法を確認"
+}

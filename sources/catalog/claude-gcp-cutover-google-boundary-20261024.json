@@ -1,0 +1,12 @@
+{
+  "id": "claude-gcp-cutover-google-boundary-20261024",
+  "url": "https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/partner-models/claude/anthropic-managed",
+  "repository_url": "",
+  "commit_sha": "",
+  "version": "Google Cloud guide last updated 2026-10-22 UTC; verified 2026-10-24 UTC",
+  "retrieved_at": "2026-10-24",
+  "license": "CC-BY-4.0 (documentation); Apache-2.0 (code samples, none copied)",
+  "trust": "official",
+  "type": "official_docs",
+  "purpose": "Google統合層とAnthropic APIの独立data processor、処理境界、workspace/organization URL、Bearer認証を確認。footerの文書・コードlicenseを確認。"
+}

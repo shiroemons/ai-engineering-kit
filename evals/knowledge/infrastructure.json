@@ -2333,6 +2333,83 @@
       "expected_ids": [
         "github-actions-blob-egress-inventory-boundary"
       ]
+    },
+    {
+      "name": "kubernetes-emptydir-mode-nil-zero",
+      "query": "emptyDir.mode nil 明示zero",
+      "expected_ids": [
+        "kubernetes-emptydir-mode-fsgroup-enforcement-boundary"
+      ]
+    },
+    {
+      "name": "kubernetes-emptydir-mode-json-octal",
+      "query": "emptyDir.mode JSON 488 1023",
+      "expected_ids": [
+        "kubernetes-emptydir-mode-fsgroup-enforcement-boundary"
+      ]
+    },
+    {
+      "name": "kubernetes-emptydir-mode-api-drop",
+      "query": "EmptyDirVolumeMode DropDisabledPodFields old",
+      "expected_ids": [
+        "kubernetes-emptydir-mode-fsgroup-enforcement-boundary"
+      ]
+    },
+    {
+      "name": "kubernetes-emptydir-mode-kubelet-fallback",
+      "query": "EmptyDirVolumeMode kubelet 0777 fallback",
+      "expected_ids": [
+        "kubernetes-emptydir-mode-fsgroup-enforcement-boundary"
+      ]
+    },
+    {
+      "name": "kubernetes-emptydir-mode-fsgroup-widen",
+      "query": "emptyDir.mode fsGroup 02770",
+      "expected_ids": [
+        "kubernetes-emptydir-mode-fsgroup-enforcement-boundary"
+      ]
+    },
+    {
+      "name": "kubernetes-emptydir-mode-sticky-setgid",
+      "query": "emptyDir.mode 01777 03777",
+      "expected_ids": [
+        "kubernetes-emptydir-mode-fsgroup-enforcement-boundary"
+      ]
+    },
+    {
+      "name": "kubernetes-emptydir-mode-onrootmismatch",
+      "query": "emptyDir.mode OnRootMismatch nil",
+      "expected_ids": [
+        "kubernetes-emptydir-mode-fsgroup-enforcement-boundary"
+      ]
+    },
+    {
+      "name": "kubernetes-emptydir-mode-ready-no-reapply",
+      "query": "emptyDir.mode ready RequiresRemount",
+      "expected_ids": [
+        "kubernetes-emptydir-mode-fsgroup-enforcement-boundary"
+      ]
+    },
+    {
+      "name": "kubernetes-emptydir-mode-permission-error",
+      "query": "emptyDir.mode Lchown Chmod ログ",
+      "expected_ids": [
+        "kubernetes-emptydir-mode-fsgroup-enforcement-boundary"
+      ]
+    },
+    {
+      "name": "kubernetes-emptydir-mode-sticky-uid-boundary",
+      "query": "emptyDir.mode sticky CAP_FOWNER",
+      "expected_ids": [
+        "kubernetes-emptydir-mode-fsgroup-enforcement-boundary"
+      ]
+    },
+    {
+      "name": "kubernetes-emptydir-mode-scope-not-runtime",
+      "query": "emptyDir.mode default-medium 未検証",
+      "expected_ids": [
+        "kubernetes-emptydir-mode-fsgroup-enforcement-boundary"
+      ]
     }
   ]
 }

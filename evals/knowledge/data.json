@@ -1638,6 +1638,90 @@
       "expected_ids": [
         "redis-preload-source-restart-boundary"
       ]
+    },
+    {
+      "name": "search-redis-schema-rc-not-production",
+      "query": "FT.ALTER 8.12-RC1 production",
+      "expected_ids": [
+        "search-redis-schema-backfill-alias-readiness-boundary"
+      ]
+    },
+    {
+      "name": "search-redis-schema-workers-pointer",
+      "query": "WORKERS FieldSpec parse evaluate",
+      "expected_ids": [
+        "search-redis-schema-backfill-alias-readiness-boundary"
+      ]
+    },
+    {
+      "name": "search-redis-schema-backfill-not-write",
+      "query": "JSON.SET 既存文書 backfill",
+      "expected_ids": [
+        "search-redis-schema-backfill-alias-readiness-boundary"
+      ]
+    },
+    {
+      "name": "search-redis-schema-skip-no-completeness",
+      "query": "SKIPINITIALSCAN percent_indexed 完全性",
+      "expected_ids": [
+        "search-redis-schema-backfill-alias-readiness-boundary"
+      ]
+    },
+    {
+      "name": "search-redis-schema-progress-live-dbsize",
+      "query": "scannedKeys DbSize 進捗",
+      "expected_ids": [
+        "search-redis-schema-backfill-alias-readiness-boundary"
+      ]
+    },
+    {
+      "name": "search-redis-schema-error-gate",
+      "query": "hash_indexing_failures readiness",
+      "expected_ids": [
+        "search-redis-schema-backfill-alias-readiness-boundary"
+      ]
+    },
+    {
+      "name": "search-redis-schema-add-not-replace",
+      "query": "SCHEMA ADD 型変更",
+      "expected_ids": [
+        "search-redis-schema-backfill-alias-readiness-boundary"
+      ]
+    },
+    {
+      "name": "search-redis-schema-maxtextfields",
+      "query": "MAXTEXTFIELDS 32 TEXT",
+      "expected_ids": [
+        "search-redis-schema-backfill-alias-readiness-boundary"
+      ]
+    },
+    {
+      "name": "search-redis-schema-alias-not-ready",
+      "query": "FT.ALIASUPDATE OK 完了",
+      "expected_ids": [
+        "search-redis-schema-backfill-alias-readiness-boundary"
+      ]
+    },
+    {
+      "name": "search-redis-schema-aliaslist-compatibility",
+      "query": "FT.ALIASLIST 8.10.0 Software",
+      "expected_ids": [
+        "search-redis-schema-backfill-alias-readiness-boundary"
+      ]
+    },
+    {
+      "name": "search-redis-schema-cleanup-dd",
+      "query": "DD 共有 key",
+      "expected_ids": [
+        "search-redis-schema-backfill-alias-readiness-boundary"
+      ]
+    },
+    {
+      "name": "search-redis-schema-backport-unknown",
+      "query": "stable backport 未確認",
+      "expected_ids": [
+        "search-redis-schema-backfill-alias-readiness-boundary"
+      ]
     }
   ]
 }

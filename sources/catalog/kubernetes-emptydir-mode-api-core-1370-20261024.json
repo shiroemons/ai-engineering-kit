@@ -1,0 +1,12 @@
+{
+  "id": "kubernetes-emptydir-mode-api-core-1370-20261024",
+  "url": "https://github.com/kubernetes/kubernetes/tree/f54c212e3a2f75d674b717a9b29052b20b60aefc/pkg/api/pod",
+  "repository_url": "https://github.com/kubernetes/kubernetes",
+  "commit_sha": "f54c212e3a2f75d674b717a9b29052b20b60aefc",
+  "version": "Kubernetes v1.37.0 tagged 2026-08-26; fixed commit f54c212e3a2f75d674b717a9b29052b20b60aefc",
+  "retrieved_at": "2026-10-24",
+  "license": "Apache-2.0 (fixed LICENSE and file headers verified; original analysis only, no code copied)",
+  "trust": "primary-source",
+  "type": "github_repository_analysis",
+  "purpose": "util.goのDropDisabledPodFields/emptyDirVolumeModeInUseとutil_test.goのTestDropEmptyDirVolumeModeを静的照合。gate無効時の新規field除去と既存利用field保持を区別。テスト未実行"
+}

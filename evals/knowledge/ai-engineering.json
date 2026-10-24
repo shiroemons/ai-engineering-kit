@@ -2602,6 +2602,90 @@
       "expected_ids": [
         "openai-compaction-approval-replay-boundary"
       ]
+    },
+    {
+      "name": "claude-gcp-cutover-provider-routing",
+      "query": "AnthropicGoogleCloud AnthropicVertex",
+      "expected_ids": [
+        "llm-claude-google-cloud-organization-cutover-boundary"
+      ]
+    },
+    {
+      "name": "claude-gcp-cutover-not-url-only",
+      "query": "organization cutover",
+      "expected_ids": [
+        "llm-claude-google-cloud-organization-cutover-boundary"
+      ]
+    },
+    {
+      "name": "claude-gcp-cutover-resource-identity",
+      "query": "provider resource_id",
+      "expected_ids": [
+        "llm-claude-google-cloud-organization-cutover-boundary"
+      ]
+    },
+    {
+      "name": "claude-gcp-cutover-workspace-admin-route",
+      "query": "claudeOrganization workspace",
+      "expected_ids": [
+        "llm-claude-google-cloud-organization-cutover-boundary"
+      ]
+    },
+    {
+      "name": "claude-gcp-cutover-separate-zdr",
+      "query": "ZDR organization 自動",
+      "expected_ids": [
+        "llm-claude-google-cloud-organization-cutover-boundary"
+      ]
+    },
+    {
+      "name": "claude-gcp-cutover-processor-boundary",
+      "query": "data processor Anthropic-managed",
+      "expected_ids": [
+        "llm-claude-google-cloud-organization-cutover-boundary"
+      ]
+    },
+    {
+      "name": "claude-gcp-cutover-residency-separation",
+      "query": "inference_geo Workspace geo",
+      "expected_ids": [
+        "llm-claude-google-cloud-organization-cutover-boundary"
+      ]
+    },
+    {
+      "name": "claude-gcp-cutover-revoke-background",
+      "query": "IAM 失効 deployment",
+      "expected_ids": [
+        "llm-claude-google-cloud-organization-cutover-boundary"
+      ]
+    },
+    {
+      "name": "claude-gcp-cutover-interrupt-queue",
+      "query": "user.interrupt processed_at",
+      "expected_ids": [
+        "llm-claude-google-cloud-organization-cutover-boundary"
+      ]
+    },
+    {
+      "name": "claude-gcp-cutover-workflow-not-terminal",
+      "query": "workflow run paused",
+      "expected_ids": [
+        "llm-claude-google-cloud-organization-cutover-boundary"
+      ]
+    },
+    {
+      "name": "claude-gcp-cutover-viewer-not-inference",
+      "query": "roles/claude.viewer token",
+      "expected_ids": [
+        "llm-claude-google-cloud-organization-cutover-boundary"
+      ]
+    },
+    {
+      "name": "claude-gcp-cutover-credential-resolution",
+      "query": "ADC project workspace",
+      "expected_ids": [
+        "llm-claude-google-cloud-organization-cutover-boundary"
+      ]
     }
   ]
 }

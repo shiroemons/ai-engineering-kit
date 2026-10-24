@@ -1,0 +1,12 @@
+{
+  "id": "redis-search-schema-json-indexing-20261024",
+  "url": "https://redis.io/docs/latest/develop/ai/search-and-query/indexing/",
+  "repository_url": "https://github.com/redis/docs",
+  "commit_sha": "",
+  "version": "Redis Search current JSON indexing guide checked 2026-10-24 UTC; exact introduction patch unspecified",
+  "retrieved_at": "2026-10-24",
+  "license": "CC-BY-NC-SA-4.0（Redis Website and Documentation: https://github.com/redis/docs/blob/main/LICENSE を2026-10-24 UTCに確認）。旧redis-doc由来部分にはCC-BY-SA-4.0例外があるが当該箇所は未特定。独自要約のみ、コード・図・長文転載なし",
+  "trust": "official",
+  "type": "official_docs",
+  "purpose": "ON JSONの既存文書のbackground indexingと新規・更新文書のsynchronous indexingを区別する。全既存集合のbackfill完了を個別JSON write成功から推論しない。公開日表示なし。"
+}

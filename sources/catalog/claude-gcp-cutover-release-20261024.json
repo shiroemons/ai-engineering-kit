@@ -1,0 +1,12 @@
+{
+  "id": "claude-gcp-cutover-release-20261024",
+  "url": "https://platform.claude.com/docs/en/release-notes/overview",
+  "repository_url": "",
+  "commit_sha": "",
+  "version": "2026-10-22 launch; release notes verified 2026-10-24 UTC",
+  "retrieved_at": "2026-10-24",
+  "license": "unknown (original attributed summary only; no external code copied)",
+  "trust": "official",
+  "type": "release_notes",
+  "purpose": "Anthropic-managed Google Cloud の提供発表日を確認。rolling guideの各機能実装日とは区別。"
+}
