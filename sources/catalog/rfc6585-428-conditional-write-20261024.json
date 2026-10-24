@@ -1,0 +1,12 @@
+{
+  "id": "rfc6585-428-conditional-write-20261024",
+  "url": "https://www.rfc-editor.org/rfc/rfc6585.html",
+  "repository_url": "",
+  "commit_sha": "",
+  "version": "RFC 6585; Standards Track; April 2012",
+  "retrieved_at": "2026-10-24",
+  "license": "IETF Trust Legal Provisions (BCP 78); Code Components: Simplified BSD License",
+  "trust": "official",
+  "type": "official_docs",
+  "purpose": "§1/§3で428 Precondition Requiredの任意採用、条件付き要求必須の意味、再送方法説明のSHOULD、cache保存禁止のMUST NOTを確認。2012年4月公開、2026-10-24 UTCにnative webで実ページとCopyright Noticeを取得。412との運用上の振分けはRFC 9110の条件評価と組み合わせ、独自要約のみを作成。"
+}

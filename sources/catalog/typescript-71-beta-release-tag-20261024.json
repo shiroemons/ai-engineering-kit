@@ -1,0 +1,12 @@
+{
+  "id": "typescript-71-beta-release-tag-20261024",
+  "url": "https://github.com/microsoft/TypeScript/releases/tag/v7.1-beta",
+  "repository_url": "https://github.com/microsoft/TypeScript",
+  "commit_sha": "",
+  "version": "TypeScript 7.1 Beta pre-release, released 2026-10-20; v7.1-beta resolves to 3e9236361fa97a9e6c685f4833ac457ae2d8c50a; retrieved 2026-10-24 UTC",
+  "retrieved_at": "2026-10-24",
+  "license": "unknown",
+  "trust": "official",
+  "type": "release_notes",
+  "purpose": "公式releaseのPre-release表示とtagの40桁commitを確認。release識別にのみ使用し実装解析やAPI実行の証拠としない。 原文コードの転載・module昇格なし。ページ自体の再利用ライセンスは未確認。"
+}

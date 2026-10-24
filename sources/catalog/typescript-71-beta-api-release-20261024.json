@@ -1,0 +1,12 @@
+{
+  "id": "typescript-71-beta-api-release-20261024",
+  "url": "https://devblogs.microsoft.com/typescript/announcing-typescript-7-1-beta/",
+  "repository_url": "https://github.com/microsoft/TypeScript",
+  "commit_sha": "",
+  "version": "TypeScript 7.1 Beta announcement, published 2026-10-20; retrieved 2026-10-24 UTC",
+  "retrieved_at": "2026-10-24",
+  "license": "unknown",
+  "trust": "official",
+  "type": "release_notes",
+  "purpose": "新APIの入口、API・Program・Snapshotの明示解放、snapshot混用禁止、filesystem境界、content mapper実行許可を確認。Betaをstableや旧API互換としない。 原文コードの転載・module昇格なし。ページ自体の再利用ライセンスは未確認。"
+}

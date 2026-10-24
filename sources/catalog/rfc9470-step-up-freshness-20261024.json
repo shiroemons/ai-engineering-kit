@@ -1,0 +1,12 @@
+{
+  "id": "rfc9470-step-up-freshness-20261024",
+  "url": "https://www.rfc-editor.org/rfc/rfc9470.html",
+  "repository_url": "",
+  "commit_sha": "",
+  "version": "RFC 9470, September 2023",
+  "retrieved_at": "2026-10-24",
+  "license": "IETF Trust Legal Provisions (RFC text; code components under Revised BSD License)",
+  "trust": "official",
+  "type": "official_docs",
+  "purpose": "challenge、acr_values と max_age、access token の認証情報、満たせない条件と通知リスクを確認する"
+}

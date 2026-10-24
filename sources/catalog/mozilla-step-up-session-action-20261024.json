@@ -1,0 +1,12 @@
+{
+  "id": "mozilla-step-up-session-action-20261024",
+  "url": "https://mozilla.github.io/ecosystem-platform/relying-parties/how-tos/step-up-authentication",
+  "repository_url": "",
+  "commit_sha": "",
+  "version": "Mozilla accounts rolling documentation; page last updated August 27, 2026; retrieved October 24, 2026",
+  "retrieved_at": "2026-10-24",
+  "license": "unknown",
+  "trust": "official",
+  "type": "official_docs",
+  "purpose": "Mozilla accounts 固有の AAL2、5秒猶予、RP 間で共有する session freshness と操作単位の結び付けの差を確認する"
+}

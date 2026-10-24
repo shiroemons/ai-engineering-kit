@@ -1,0 +1,12 @@
+{
+  "id": "rfc9110-conditional-write-admission-20261024",
+  "url": "https://www.rfc-editor.org/rfc/rfc9110.html",
+  "repository_url": "",
+  "commit_sha": "",
+  "version": "RFC 9110 / STD 97; June 2022",
+  "retrieved_at": "2026-10-24",
+  "license": "IETF Trust Legal Provisions (BCP 78); Code Components: Revised BSD License",
+  "trust": "official",
+  "type": "official_docs",
+  "purpose": "§13.1.1/13.1.2/13.1.4/13.2でIf-Match strong比較、wildcard存在条件、条件偽の実行禁止と適用済み2xx例外、If-None-Match作成条件、通常検査と日付条件の優先順位を確認。§9.3.4で成功PUTの変換後validator制約を確認。2022年6月公開、2026-10-24 UTCにnative webで本文とCopyright Noticeを取得。DB原子性やclient復旧手順は独自設計として分離。"
+}

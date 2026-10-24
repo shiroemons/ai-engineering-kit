@@ -1,0 +1,12 @@
+{
+  "id": "typescript-content-mappers-maintainer-20261024",
+  "url": "https://github.com/microsoft/typescript-go/pull/4712",
+  "repository_url": "https://github.com/microsoft/typescript-go",
+  "commit_sha": "",
+  "version": "Content mappers PR #4712, opened 2026-07-23 and merged 2026-08-19; live edited maintainer write-up retrieved 2026-10-24 UTC",
+  "retrieved_at": "2026-10-24",
+  "license": "unknown",
+  "trust": "maintainer",
+  "type": "maintainer_article",
+  "purpose": "Beta発表が参照する説明でmapper process、診断失敗、JavaScript emit非対象を確認。編集可能なPR本文はbeta固定実装の証拠としない。 原文コードの転載・module昇格なし。ページ自体の再利用ライセンスは未確認。"
+}

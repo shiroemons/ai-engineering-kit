@@ -1,0 +1,12 @@
+{
+  "id": "typescript-71-iteration-plan-20261024",
+  "url": "https://github.com/microsoft/TypeScript/issues/63703",
+  "repository_url": "https://github.com/microsoft/TypeScript",
+  "commit_sha": "",
+  "version": "TypeScript 7.1 Iteration Plan opened 2026-07-31; 2026-10-06 beta and 2026-11-24 stable remain planned dates in body observed 2026-10-24 UTC",
+  "retrieved_at": "2026-10-24",
+  "license": "unknown",
+  "trust": "maintainer",
+  "type": "maintainer_article",
+  "purpose": "旧文書の計画日と実際の2026-10-20 Beta発表を区別。計画本文を出荷証拠やstable確約に使用しない。 原文コードの転載・module昇格なし。ページ自体の再利用ライセンスは未確認。"
+}
