@@ -1,0 +1,12 @@
+{
+  "id": "w3c-csp3-wd20260916-loader-20261024",
+  "url": "https://www.w3.org/TR/2026/WD-CSP3-20260916/",
+  "repository_url": "https://github.com/w3c/webappsec-csp",
+  "commit_sha": "",
+  "version": "Content Security Policy Level 3, W3C Working Draft 2026-09-16; current TR and fixed edition matched on 2026-10-24 UTC",
+  "retrieved_at": "2026-10-24",
+  "license": "W3C Software and Document License 2023; publication copyright link and https://www.w3.org/copyright/software-license-2023/ verified 2026-10-24 UTC; original Japanese summary and design, no copied code or payloads",
+  "trust": "official",
+  "type": "official_docs",
+  "purpose": "§6.7.1 の nonce・integrity metadata・strict-dynamic parser metadata の照合順序、§7.1 の nonce 非再利用、§7.3 の base URL リスクを確認。非規範の §8.2 と §8.5 は導入上の説明・注意として区別し、実行時 URL 入力を信頼しない loader の設計に利用。旧 source record は変更しない。"
+}
