@@ -1,0 +1,12 @@
+{
+  "id": "python-startup-release3151-20261024",
+  "url": "https://www.python.org/downloads/release/python-3151/",
+  "repository_url": "",
+  "commit_sha": "",
+  "retrieved_at": "2026-10-24",
+  "trust": "official",
+  "version": "Python 3.15.1; release date 2026-10-21",
+  "license": "unknown",
+  "type": "release_notes",
+  "purpose": "native webで配布ページを開き、3.15.1の公開日とPEP 829の系列機能掲載を確認。告知ページ自体のlicenseは未確認のため、公開日等の独自要約のみ。コード転載なし。"
+}

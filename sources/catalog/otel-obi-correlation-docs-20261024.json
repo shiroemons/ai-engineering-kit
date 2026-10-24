@@ -1,0 +1,12 @@
+{
+  "id": "otel-obi-correlation-docs-20261024",
+  "url": "https://opentelemetry.io/docs/zero-code/obi/trace-log-correlation/",
+  "repository_url": "https://github.com/open-telemetry/opentelemetry.io",
+  "commit_sha": "4cc5cb830e724c286159bf143639b914f876ab17",
+  "version": "2026-10-21のUpdate OBI documentation for v0.15.2を表示するrolling公式文書、2026-10-24 UTC取得",
+  "retrieved_at": "2026-10-24",
+  "license": "CC-BY-4.0",
+  "trust": "official",
+  "type": "official_docs",
+  "purpose": "native webで全該当節を確認。ログ再出力と配送の分離、既存フィールド保持、SDK検出、multiline、復号後NUL除去、8 KiB上限の根拠。Config v2の掲載例にmatchがない点を固定版実装と対比し、例をそのまま起動可能と主張しない。commitはページの最終更新リンクから確認。サイトLICENSEも同commitで取得。"
+}

@@ -1,0 +1,12 @@
+{
+  "id": "python-startup-cpython3151-20261024",
+  "url": "https://github.com/python/cpython/tree/c37e74cb6bcdadcd5f46f289498f6b3298ddee61",
+  "repository_url": "https://github.com/python/cpython",
+  "commit_sha": "c37e74cb6bcdadcd5f46f289498f6b3298ddee61",
+  "retrieved_at": "2026-10-24",
+  "trust": "official",
+  "version": "CPython v3.15.1; commit c37e74cb6bcdadcd5f46f289498f6b3298ddee61; tag object f379247960123edf69b596041054836115af6f5a",
+  "license": "PSF-2.0; repository LICENSE includes historical license notices; no code copied",
+  "type": "github_repository_analysis",
+  "purpose": "GitHub APIでtagをdereferenceし、connectorで固定SHAのLib/site.py、Lib/pkgutil.py、Lib/test/test_site.py、LICENSEを取得。読取成功後の同名.start登録、空fileと不正UTF-8、完全path照合、path→legacy import→entrypoint順、実行時構文検査、Exception継続をsource読解。上流testは期待値のみ確認し未実行。native webのblob取得失敗はconnectorで補完。"
+}

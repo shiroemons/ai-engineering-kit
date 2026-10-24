@@ -1,0 +1,12 @@
+{
+  "id": "whatwg-fetch-keepalive-source-59afe349-20261024",
+  "url": "https://github.com/whatwg/fetch/blob/59afe349913d56898c947576216f1c2579308be7/fetch.bs",
+  "repository_url": "https://github.com/whatwg/fetch",
+  "commit_sha": "59afe349913d56898c947576216f1c2579308be7",
+  "version": "WHATWG Fetch source commit 59afe349913d56898c947576216f1c2579308be7 (2026-10-19); fetch.bs blob de43f1555228424fd970d4b92c5cc3b865d77a4c; verified 2026-10-24 UTC",
+  "retrieved_at": "2026-10-24",
+  "license": "CC-BY-4.0 text; BSD-3-Clause for portions incorporated into source code; no code copied; LICENSE verified at the same commit",
+  "trust": "official",
+  "type": "github_repository_analysis",
+  "purpose": "native webのcommit snapshot取得失敗を補う固定版確認。GitHub connectorでfetch.bsとLICENSEを読み、inflightKeepaliveBytesとbody抽出の規範算法を照合。browser実装・WPT実行の証拠にはしない。"
+}

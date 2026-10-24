@@ -1,0 +1,12 @@
+{
+  "id": "otel-obi-correlation-devdocs-0152-20261024",
+  "url": "https://github.com/open-telemetry/opentelemetry-ebpf-instrumentation/blob/b28e4e7fe0a01f1961b7c4747a13b8ff486d6fec/devdocs/trace-log-correlation.md",
+  "repository_url": "https://github.com/open-telemetry/opentelemetry-ebpf-instrumentation",
+  "commit_sha": "b28e4e7fe0a01f1961b7c4747a13b8ff486d6fec",
+  "version": "OBI v0.15.2、注釈付きtag 5729d3f3aa93f3559292e8dc8d647b2de2a2a43cから解決したcommit",
+  "retrieved_at": "2026-10-24",
+  "license": "Apache-2.0",
+  "trust": "official",
+  "type": "official_docs",
+  "purpose": "PID/TIDによるwrite時点の文脈、再出力、対象選択、Java virtual threads、.NET背景writer、NUL復号順、上限と権限要件を確認。ブログの旧固定リンク6a9df076223faff5bb94ea75f15a8e24c7a1ca0dはnative webで読み、採用本文はv0.15.2の全本文をGitHub connectorで再取得。184行のNode同期表をNode公式APIと照合し無条件には採用しない。.NET Consoleの既定値は別途未検証と明記。LICENSEも同commitで確認。"
+}

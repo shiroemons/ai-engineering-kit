@@ -1047,6 +1047,62 @@
       "expected_ids": [
         "opentelemetry-security-versioning-configuration-telemetry-boundary"
       ]
+    },
+    {
+      "name": "otel-obi-v2-match-filter-boundary",
+      "query": "OBI log_trace_annotation match",
+      "expected_ids": [
+        "opentelemetry-obi-log-correlation-write-boundary"
+      ]
+    },
+    {
+      "name": "otel-obi-node-pipe-backpressure",
+      "query": "OBI POSIX backpressure",
+      "expected_ids": [
+        "opentelemetry-obi-log-correlation-write-boundary"
+      ]
+    },
+    {
+      "name": "otel-obi-sdk-span-detection",
+      "query": "OBI ExcludeOTelInstrumentedServices span_id",
+      "expected_ids": [
+        "opentelemetry-obi-log-correlation-write-boundary"
+      ]
+    },
+    {
+      "name": "otel-obi-nul-decoded-body",
+      "query": "OBI all-NUL 復号",
+      "expected_ids": [
+        "opentelemetry-obi-log-correlation-write-boundary"
+      ]
+    },
+    {
+      "name": "otel-obi-iovec-byte-segment-cap",
+      "query": "OBI 8192 iovec",
+      "expected_ids": [
+        "opentelemetry-obi-log-correlation-write-boundary"
+      ]
+    },
+    {
+      "name": "otel-obi-multiline-write-boundary",
+      "query": "OBI multiline 複数write",
+      "expected_ids": [
+        "opentelemetry-obi-log-correlation-write-boundary"
+      ]
+    },
+    {
+      "name": "otel-obi-preserve-field-provenance",
+      "query": "OBI 既存フィールド trace-only",
+      "expected_ids": [
+        "opentelemetry-obi-log-correlation-write-boundary"
+      ]
+    },
+    {
+      "name": "otel-obi-privilege-rollout-stop",
+      "query": "OBI CAP_SYS_ADMIN lockdown",
+      "expected_ids": [
+        "opentelemetry-obi-log-correlation-write-boundary"
+      ]
     }
   ]
 }

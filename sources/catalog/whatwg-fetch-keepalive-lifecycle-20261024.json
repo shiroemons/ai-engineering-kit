@@ -1,0 +1,12 @@
+{
+  "id": "whatwg-fetch-keepalive-lifecycle-20261024",
+  "url": "https://fetch.spec.whatwg.org/#http-network-or-cache-fetch",
+  "repository_url": "",
+  "commit_sha": "",
+  "version": "Fetch Living Standard public page last updated 2026-10-19; retrieved 2026-10-24 UTC; fixed source separately checked at 59afe349913d56898c947576216f1c2579308be7",
+  "retrieved_at": "2026-10-24",
+  "license": "CC-BY-4.0 text; BSD-3-Clause for portions incorporated into source code; no code copied",
+  "trust": "official",
+  "type": "official_docs",
+  "purpose": "§2.2.5 keepalive、§4.6の同一fetch group内未完了body合計64 KiB、§5.2のReadableStream/keepalive拒否を確認。request寿命とJS実行寿命を区別。"
+}

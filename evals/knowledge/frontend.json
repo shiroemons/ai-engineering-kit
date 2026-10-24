@@ -1644,6 +1644,62 @@
       "expected_ids": [
         "javascript-worker-transfer-ownership-retry-boundary"
       ]
+    },
+    {
+      "name": "lifecycle-beacon-queue-not-server-receipt",
+      "query": "sendBeacon true 受領",
+      "expected_ids": [
+        "javascript-page-lifecycle-final-delivery-boundary"
+      ]
+    },
+    {
+      "name": "lifecycle-hidden-checkpoint-not-exit",
+      "query": "visibilitychange hidden checkpoint",
+      "expected_ids": [
+        "javascript-page-lifecycle-final-delivery-boundary"
+      ]
+    },
+    {
+      "name": "lifecycle-pagehide-persisted-bfcache",
+      "query": "pagehide persisted bfcache",
+      "expected_ids": [
+        "javascript-page-lifecycle-final-delivery-boundary"
+      ]
+    },
+    {
+      "name": "lifecycle-pageshow-restoration",
+      "query": "pageshow 復元",
+      "expected_ids": [
+        "javascript-page-lifecycle-final-delivery-boundary"
+      ]
+    },
+    {
+      "name": "lifecycle-keepalive-shared-body-quota",
+      "query": "keepalive inflightKeepaliveBytes",
+      "expected_ids": [
+        "javascript-page-lifecycle-final-delivery-boundary"
+      ]
+    },
+    {
+      "name": "lifecycle-beforeunload-not-save-barrier",
+      "query": "beforeunload unload 保存",
+      "expected_ids": [
+        "javascript-page-lifecycle-final-delivery-boundary"
+      ]
+    },
+    {
+      "name": "lifecycle-keepalive-stream-typeerror",
+      "query": "ReadableStream keepalive TypeError",
+      "expected_ids": [
+        "javascript-page-lifecycle-final-delivery-boundary"
+      ]
+    },
+    {
+      "name": "lifecycle-beacon-no-exactly-once",
+      "query": "sendBeacon exactly-once",
+      "expected_ids": [
+        "javascript-page-lifecycle-final-delivery-boundary"
+      ]
     }
   ]
 }

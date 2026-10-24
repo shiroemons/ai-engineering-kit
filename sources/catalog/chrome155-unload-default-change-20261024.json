@@ -1,0 +1,12 @@
+{
+  "id": "chrome155-unload-default-change-20261024",
+  "url": "https://developer.chrome.com/blog/unload-deprecated-in-chrome",
+  "repository_url": "",
+  "commit_sha": "",
+  "version": "Chrome for Developers Unload event deprecated in Chrome; published and updated 2026-10-16; Chrome 155 default behavior statement; verified 2026-10-24 UTC",
+  "retrieved_at": "2026-10-24",
+  "license": "CC-BY-4.0 text; Apache-2.0 code samples; no code copied",
+  "trust": "maintainer",
+  "type": "maintainer_article",
+  "purpose": "Chrome155でのunload既定不発火への移行完了という開発元報告を確認。opt-out・enterprise・iOS/WebKitの例外を保持し、全browser/実機の検証済み主張に拡大しない。"
+}
