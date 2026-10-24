@@ -1,0 +1,12 @@
+{
+  "id": "json-schema-202012-multipart-prefix-20261024",
+  "url": "https://json-schema.org/draft/2020-12/json-schema-core",
+  "repository_url": "https://github.com/json-schema-org/json-schema-spec",
+  "commit_sha": "",
+  "version": "JSON Schema Draft 2020-12 Core; draft-bhutton-json-schema-01, published 2022-06-16, IETF draft expired 2022-12-18",
+  "retrieved_at": "2026-10-24",
+  "license": "IETF Trust Legal Provisions / BCP 78; extracted Code Components subject to Revised BSD terms; original summary and original example only",
+  "trust": "official",
+  "type": "official_docs",
+  "purpose": "§10.3.1 の prefixItems は配列長を制約せず、同じ schema object 内の items が残りへ適用される契約を確認。"
+}

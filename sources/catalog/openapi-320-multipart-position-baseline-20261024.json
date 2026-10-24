@@ -1,0 +1,12 @@
+{
+  "id": "openapi-320-multipart-position-baseline-20261024",
+  "url": "https://spec.openapis.org/oas/v3.2.0.html",
+  "repository_url": "https://github.com/OAI/OpenAPI-Specification",
+  "commit_sha": "",
+  "version": "OpenAPI Specification 3.2.0, published 2025-09-19",
+  "retrieved_at": "2026-10-24",
+  "license": "Apache-2.0 (specification section 1.1)",
+  "trust": "official",
+  "type": "official_docs",
+  "purpose": "3.2.1 と対象節を比較し、short prefixEncoding の許容は既存、form-data array の名前対応などは明確化と区別する。"
+}

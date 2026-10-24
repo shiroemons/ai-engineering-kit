@@ -1,0 +1,12 @@
+{
+  "id": "sqlite-3541-default-auth-implementation-20261024",
+  "url": "https://github.com/sqlite/sqlite/tree/57520227c95396ce39ba6ecaac8d475b78dd3964",
+  "repository_url": "https://github.com/sqlite/sqlite",
+  "commit_sha": "57520227c95396ce39ba6ecaac8d475b78dd3964",
+  "version": "SQLite 3.54.1; version-3.54.1 tag resolved to Git 57520227c95396ce39ba6ecaac8d475b78dd3964; VERSION and manifest.uuid matched release",
+  "retrieved_at": "2026-10-24",
+  "license": "Public domain (SQLite code and documentation; https://www.sqlite.org/copyright.html); pinned LICENSE.md confirms src/ and test/",
+  "trust": "primary-source",
+  "type": "github_repository_analysis",
+  "purpose": "src/build.c・insert.c・resolve.c・auth.c・vdbeaux.c・vdbeapi.c、test/auth2.test、VERSION、manifest.uuid、LICENSE.mdを静的確認。DEFAULTのIGNORE拒否、compile時認可、setterのadvisory expirationを整理。runtimeとupstream testsは未実行"
+}

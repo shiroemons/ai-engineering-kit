@@ -1,0 +1,12 @@
+{
+  "id": "sqlite-354-default-auth-release-20261024",
+  "url": "https://www.sqlite.org/releaselog/3_54_0.html",
+  "repository_url": "https://github.com/sqlite/sqlite",
+  "commit_sha": "",
+  "version": "SQLite 3.54.0 released 2026-10-09; release item 11",
+  "retrieved_at": "2026-10-24",
+  "license": "Public domain (SQLite code and documentation; https://www.sqlite.org/copyright.html)",
+  "trust": "official",
+  "type": "release_notes",
+  "purpose": "DEFAULT内SQL関数のauthorizer追加を導入版と公開日で確認。CREATE TABLE時・default利用経路とschema読込み時の違いを整理"
+}
