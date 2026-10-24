@@ -1,0 +1,12 @@
+{
+  "id": "moby-lazy-pull-retained-snapshot-test-2990-20261023",
+  "url": "https://github.com/moby/moby/blob/a5b58c94d334674eae3a3207d4f05417643a90d0/integration/image/pull_test.go",
+  "repository_url": "https://github.com/moby/moby",
+  "commit_sha": "a5b58c94d334674eae3a3207d4f05417643a90d0",
+  "version": "docker-v29.9.0 at a5b58c94d334674eae3a3207d4f05417643a90d0; TestImagePullWithExistingSnapshot",
+  "retrieved_at": "2026-10-23",
+  "license": "Apache-2.0 (LICENSE at a5b58c94d334674eae3a3207d4f05417643a90d0, retrieved with GitHub connector 2026-10-23)",
+  "trust": "primary-source",
+  "type": "github_repository_analysis",
+  "purpose": "上流regression testのsnapshot保持・layer blob不在の事前条件・再pull前後のarchive layer digest検証を読む。Windows/remote daemon/non-containerdでskipする条件も確認。テストは今回実行していない。"
+}

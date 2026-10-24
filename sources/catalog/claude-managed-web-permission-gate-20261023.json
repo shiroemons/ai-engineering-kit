@@ -1,0 +1,12 @@
+{
+  "id": "claude-managed-web-permission-gate-20261023",
+  "url": "https://platform.claude.com/docs/en/managed-agents/permission-policies",
+  "repository_url": "",
+  "commit_sha": "",
+  "version": "Managed Agents beta managed-agents-2026-04-01; Permission policies guide retrieved 2026-10-23 UTC; separate publication/update date not displayed",
+  "retrieved_at": "2026-10-23",
+  "license": "unknown",
+  "trust": "official",
+  "type": "official_docs",
+  "purpose": "permission policyとtool availabilityを区別し、autoは人の確認ではないこととcustom toolの対象外を確認する。"
+}

@@ -2200,6 +2200,83 @@
       "expected_ids": [
         "linux-systemd-notify-reload-readiness-acceptance-boundary"
       ]
+    },
+    {
+      "name": "docker-lazy-pull-default-snapshotter",
+      "query": "lazy-pull stargz overlayfs",
+      "expected_ids": [
+        "docker-lazy-pull-archive-completeness-boundary"
+      ]
+    },
+    {
+      "name": "docker-lazy-pull-explicit-override",
+      "query": "lazy-pull 明示false",
+      "expected_ids": [
+        "docker-lazy-pull-archive-completeness-boundary"
+      ]
+    },
+    {
+      "name": "docker-lazy-pull-not-remote-detection",
+      "query": "lazy-pull 能力probe",
+      "expected_ids": [
+        "docker-lazy-pull-archive-completeness-boundary"
+      ]
+    },
+    {
+      "name": "docker-lazy-pull-save-silent-incomplete",
+      "query": "lazy-pull save 不完全",
+      "expected_ids": [
+        "docker-lazy-pull-archive-completeness-boundary"
+      ]
+    },
+    {
+      "name": "docker-lazy-pull-snapshot-content-separation",
+      "query": "lazy-pull snapshot content store",
+      "expected_ids": [
+        "docker-lazy-pull-archive-completeness-boundary"
+      ]
+    },
+    {
+      "name": "docker-lazy-pull-run-not-hydration",
+      "query": "lazy-pull cache 修復完了",
+      "expected_ids": [
+        "docker-lazy-pull-archive-completeness-boundary"
+      ]
+    },
+    {
+      "name": "docker-lazy-pull-reload-repull-required",
+      "query": "lazy-pull reload 再pull",
+      "expected_ids": [
+        "docker-lazy-pull-archive-completeness-boundary"
+      ]
+    },
+    {
+      "name": "docker-lazy-pull-platform-not-index",
+      "query": "lazy-pull WithPlatform 全platform",
+      "expected_ids": [
+        "docker-lazy-pull-archive-completeness-boundary"
+      ]
+    },
+    {
+      "name": "docker-lazy-pull-push-mount-not-local",
+      "query": "lazy-pull cross-repo mount",
+      "expected_ids": [
+        "docker-lazy-pull-archive-completeness-boundary"
+      ]
+    },
+    {
+      "name": "docker-lazy-pull-index-fallback",
+      "query": "lazy-pull ManifestPushedInsteadOfIndex",
+      "expected_ids": [
+        "docker-lazy-pull-archive-completeness-boundary"
+      ]
+    },
+    {
+      "name": "docker-lazy-pull-regression-precondition",
+      "query": "TestImagePullWithExistingSnapshot digest",
+      "expected_ids": [
+        "docker-lazy-pull-archive-completeness-boundary"
+      ]
     }
   ]
 }

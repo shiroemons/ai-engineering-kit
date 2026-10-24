@@ -1,0 +1,12 @@
+{
+  "id": "claude-managed-web-policy-composition-20261023",
+  "url": "https://platform.claude.com/docs/en/managed-agents/tools-web-restrictions",
+  "repository_url": "",
+  "commit_sha": "",
+  "version": "Managed Agents beta managed-agents-2026-04-01; rolling Web tool restrictions guide retrieved 2026-10-23 UTC; separate publication/update date not displayed",
+  "retrieved_at": "2026-10-23",
+  "license": "unknown",
+  "trust": "official",
+  "type": "official_docs",
+  "purpose": "組織・親子agentのdomain制限の合成、URL拒否、設定再検証、session内更新の適用時点を確認する。"
+}

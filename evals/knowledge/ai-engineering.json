@@ -2448,6 +2448,90 @@
       "expected_ids": [
         "evals-lm-eval-choice-likelihood-normalization-boundary"
       ]
+    },
+    {
+      "name": "claude-managed-web-organization-intersection",
+      "query": "web_fetch 組織 redirect",
+      "expected_ids": [
+        "agents-claude-managed-web-policy-session-update-boundary"
+      ]
+    },
+    {
+      "name": "claude-managed-web-host-matcher-difference",
+      "query": "allowed_domains allowed_hosts 完全一致",
+      "expected_ids": [
+        "agents-claude-managed-web-policy-session-update-boundary"
+      ]
+    },
+    {
+      "name": "claude-managed-web-package-exceptions-not-web",
+      "query": "allow_package_managers hosted",
+      "expected_ids": [
+        "agents-claude-managed-web-policy-session-update-boundary"
+      ]
+    },
+    {
+      "name": "claude-managed-web-url-origin-not-domain",
+      "query": "url_not_in_prior_context MCP",
+      "expected_ids": [
+        "agents-claude-managed-web-policy-session-update-boundary"
+      ]
+    },
+    {
+      "name": "claude-managed-web-empty-list-not-disable",
+      "query": "空配列 enabled",
+      "expected_ids": [
+        "agents-claude-managed-web-policy-session-update-boundary"
+      ]
+    },
+    {
+      "name": "claude-managed-web-session-full-replacement",
+      "query": "全置換 MCP entry",
+      "expected_ids": [
+        "agents-claude-managed-web-policy-session-update-boundary"
+      ]
+    },
+    {
+      "name": "claude-managed-web-idle-open-run-not-update",
+      "query": "workflow_run_open idle",
+      "expected_ids": [
+        "agents-claude-managed-web-policy-session-update-boundary"
+      ]
+    },
+    {
+      "name": "claude-managed-web-interrupt-does-not-end-run",
+      "query": "user.interrupt 終了しない",
+      "expected_ids": [
+        "agents-claude-managed-web-policy-session-update-boundary"
+      ]
+    },
+    {
+      "name": "claude-managed-web-agent-not-existing-session",
+      "query": "元agent 既存session read-back",
+      "expected_ids": [
+        "agents-claude-managed-web-policy-session-update-boundary"
+      ]
+    },
+    {
+      "name": "claude-managed-web-subagent-not-security-isolation",
+      "query": "vault credentials 共有",
+      "expected_ids": [
+        "agents-claude-managed-web-policy-session-update-boundary"
+      ]
+    },
+    {
+      "name": "claude-managed-web-search-empty-not-absent",
+      "query": "空の検索結果 資料がない",
+      "expected_ids": [
+        "agents-claude-managed-web-policy-session-update-boundary"
+      ]
+    },
+    {
+      "name": "claude-managed-web-initialization-error-not-complete",
+      "query": "session.error 自動retry",
+      "expected_ids": [
+        "agents-claude-managed-web-policy-session-update-boundary"
+      ]
     }
   ]
 }

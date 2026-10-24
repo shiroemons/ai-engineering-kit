@@ -1,0 +1,12 @@
+{
+  "id": "claude-managed-web-shared-sandbox-20261023",
+  "url": "https://platform.claude.com/docs/en/managed-agents/multiagent-orchestration",
+  "repository_url": "",
+  "commit_sha": "",
+  "version": "Managed Agents multiagent_20261001; Multiagent orchestration guide retrieved 2026-10-23 UTC; separate publication/update date not displayed",
+  "retrieved_at": "2026-10-23",
+  "license": "unknown",
+  "trust": "official",
+  "type": "official_docs",
+  "purpose": "subagentのcontext分離とsandbox・filesystem・vault共有を区別し、agent設定変更が既存sessionへ反映しないことを確認する。"
+}

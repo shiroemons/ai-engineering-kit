@@ -1,0 +1,12 @@
+{
+  "id": "docker-lazy-pull-digest-platform-20261023",
+  "url": "https://docs.docker.com/reference/cli/docker/image/pull/",
+  "repository_url": "https://github.com/docker/docs",
+  "commit_sha": "",
+  "version": "docker image pull rolling CLI reference, verified 2026-10-23; --platform API 1.32+",
+  "retrieved_at": "2026-10-23",
+  "license": "Apache-2.0 (docker/docs README and LICENSE verified 2026-10-23; https://github.com/docker/docs/blob/main/LICENSE)",
+  "trust": "official",
+  "type": "official_docs",
+  "purpose": "digest固定とplatform指定の契約、tag更新と同一image再取得を区別する根拠を確認。"
+}
