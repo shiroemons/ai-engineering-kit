@@ -1,0 +1,12 @@
+{
+  "id": "redis-preload-announcement-812rc1-20261024",
+  "url": "https://redis.io/docs/latest/operate/oss_and_stack/stack-with-enterprise/release-notes/redisce/redisos-8.12-release-notes/",
+  "repository_url": "",
+  "commit_sha": "",
+  "version": "Redis Open Source 8.12-RC1 release notes, October 2026; exact publication day and downloadable tag not verified",
+  "retrieved_at": "2026-10-24",
+  "license": "unknown (documentation reuse license not established; original attributed summary only)",
+  "trust": "official",
+  "type": "release_notes",
+  "purpose": "October 2026の8.12-RC1欄に#15916のlegacy AOF preload修正が記載され、RCはproduction不適と明示されることを確認。tag/API取得404から未公開や不存在を断定しない。"
+}

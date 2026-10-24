@@ -1,0 +1,12 @@
+{
+  "id": "redis-preload-installation-20261024",
+  "url": "https://github.com/redis/redis/blob/940a4d72fc7caaed6f853b65b39920ff3fb9ac1f/src/aof.c",
+  "repository_url": "https://github.com/redis/redis",
+  "commit_sha": "940a4d72fc7caaed6f853b65b39920ff3fb9ac1f",
+  "version": "Upstream src/aof.c after #15916 at 940a4d72fc7caaed6f853b65b39920ff3fb9ac1f",
+  "retrieved_at": "2026-10-24",
+  "license": "RSALv2 OR SSPLv1 OR AGPLv3; pinned LICENSE.txt verified; server.c additionally identifies BSD-3-Clause portions in REDISCONTRIBUTIONS; original analysis only, no code copied",
+  "trust": "official",
+  "type": "github_repository_analysis",
+  "purpose": "current-local-manifest例外、同一pathのsource再利用、target置換とhardlink/copy、manifest外fileのcleanup、新しいINCR確保、manifest publishを静的分析。crash時rollbackや任意path aliasの同一判定は保証しない。"
+}

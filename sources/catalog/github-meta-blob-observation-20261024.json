@@ -1,0 +1,12 @@
+{
+  "id": "github-meta-blob-observation-20261024",
+  "url": "https://api.github.com/meta",
+  "repository_url": "",
+  "commit_sha": "",
+  "version": "Public GitHub Meta API response observed 2026-10-24 UTC",
+  "retrieved_at": "2026-10-24",
+  "license": "unknown",
+  "trust": "official",
+  "type": "official_docs",
+  "purpose": "実応答のdomains.actionsに追加120hostが全件存在することを読取のみで確認。top-level actionsはCIDR配列。取得bytesのSHA-256=eef96b429e4f5a6adbc448d3407fdea9ee943920d50e5ae496c23108b49571f6。永続的な全endpoint保証ではない。"
+}

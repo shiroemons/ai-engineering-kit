@@ -1,0 +1,12 @@
+{
+  "id": "openai-agents-compaction-release-0240-20261024",
+  "url": "https://github.com/openai/openai-agents-python/releases/tag/v0.24.0",
+  "repository_url": "https://github.com/openai/openai-agents-python",
+  "commit_sha": "",
+  "version": "openai-agents v0.24.0; released 2026-10-15; release commit 17d994bd3045dae71acda676a4ef4762ed8ecd94",
+  "retrieved_at": "2026-10-24",
+  "license": "unknown (release-page prose license not independently established; original summary only)",
+  "trust": "official",
+  "type": "release_notes",
+  "purpose": "2026-10-15のv0.24.0にpending approvals時のautomatic compaction延期修正が含まれることを確認。release commitの版変更とも照合し、現行最新版であるとは主張しない。"
+}

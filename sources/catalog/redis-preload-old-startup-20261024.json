@@ -1,0 +1,12 @@
+{
+  "id": "redis-preload-old-startup-20261024",
+  "url": "https://github.com/redis/redis/blob/498ecd0d6d007db11ddb3aea9428552598a78622/src/server.c",
+  "repository_url": "https://github.com/redis/redis",
+  "commit_sha": "498ecd0d6d007db11ddb3aea9428552598a78622",
+  "version": "Redis 8.10.2 src/server.c at 498ecd0d6d007db11ddb3aea9428552598a78622",
+  "retrieved_at": "2026-10-24",
+  "license": "RSALv2 OR SSPLv1 OR AGPLv3; pinned LICENSE.txt verified; server.c additionally identifies BSD-3-Clause portions in REDISCONTRIBUTIONS; original analysis only, no code copied",
+  "trust": "official",
+  "type": "github_repository_analysis",
+  "purpose": "loadDataFromDiskのsuccessful preloadかつAOF_ON経路がupgradeAofIfNeededを呼び、後段でaofSetupAfterPreloadFileが呼ばれる順序を静的確認。すべてのrestoreで欠落するという主張には使わない。"
+}

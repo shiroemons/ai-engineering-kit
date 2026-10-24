@@ -1,0 +1,12 @@
+{
+  "id": "redis-preload-old-aof-20261024",
+  "url": "https://github.com/redis/redis/blob/498ecd0d6d007db11ddb3aea9428552598a78622/src/aof.c",
+  "repository_url": "https://github.com/redis/redis",
+  "commit_sha": "498ecd0d6d007db11ddb3aea9428552598a78622",
+  "version": "Redis 8.10.2 src/aof.c at 498ecd0d6d007db11ddb3aea9428552598a78622",
+  "retrieved_at": "2026-10-24",
+  "license": "RSALv2 OR SSPLv1 OR AGPLv3; pinned LICENSE.txt verified; server.c additionally identifies BSD-3-Clause portions in REDISCONTRIBUTIONS; original analysis only, no code copied",
+  "trust": "official",
+  "type": "github_repository_analysis",
+  "purpose": "upgradeAofIfNeededのlocal legacy file検出条件、aofUpgradePrepareのrename、preload installerのtarget unlink後hardlink/copyを静的確認し、具体的なpath/config条件に限定した欠落経路を照合。"
+}

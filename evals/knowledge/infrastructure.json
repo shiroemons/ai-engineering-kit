@@ -2277,6 +2277,62 @@
       "expected_ids": [
         "docker-lazy-pull-archive-completeness-boundary"
       ]
+    },
+    {
+      "name": "github-blob-new-host-ranges",
+      "query": "productionresultssa30 productionresultssa199",
+      "expected_ids": [
+        "github-actions-blob-egress-inventory-boundary"
+      ]
+    },
+    {
+      "name": "github-blob-meta-source-destination",
+      "query": "CIDR domains.actions",
+      "expected_ids": [
+        "github-actions-blob-egress-inventory-boundary"
+      ]
+    },
+    {
+      "name": "github-blob-inventory-not-reachability",
+      "query": "inventory 疎通",
+      "expected_ids": [
+        "github-actions-blob-egress-inventory-boundary"
+      ]
+    },
+    {
+      "name": "github-blob-cname-egress",
+      "query": "CNAME egress",
+      "expected_ids": [
+        "github-actions-blob-egress-inventory-boundary"
+      ]
+    },
+    {
+      "name": "github-blob-job-summary-evidence",
+      "query": "job summary log 経路",
+      "expected_ids": [
+        "github-actions-blob-egress-inventory-boundary"
+      ]
+    },
+    {
+      "name": "github-blob-narrow-wildcard",
+      "query": "productionresultssa* 今回",
+      "expected_ids": [
+        "github-actions-blob-egress-inventory-boundary"
+      ]
+    },
+    {
+      "name": "github-blob-safe-retry",
+      "query": "副作用 再実行 blob",
+      "expected_ids": [
+        "github-actions-blob-egress-inventory-boundary"
+      ]
+    },
+    {
+      "name": "github-blob-meta-failure-not-empty",
+      "query": "API失敗 許可リスト",
+      "expected_ids": [
+        "github-actions-blob-egress-inventory-boundary"
+      ]
     }
   ]
 }

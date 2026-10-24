@@ -1,0 +1,12 @@
+{
+  "id": "redis-preload-release-8102-20261024",
+  "url": "https://github.com/redis/redis/releases/tag/8.10.2",
+  "repository_url": "https://github.com/redis/redis",
+  "commit_sha": "",
+  "version": "Redis Open Source 8.10.2; published 2026-09-17T15:06:56Z",
+  "retrieved_at": "2026-10-24",
+  "license": "unknown (release prose; code license is tracked separately)",
+  "trust": "official",
+  "type": "release_notes",
+  "purpose": "8.10.2公開日時とtagを確認する。修正#15916がこのreleaseに含まれるという根拠にはしない。"
+}

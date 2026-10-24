@@ -1,0 +1,12 @@
+{
+  "id": "openai-agents-hitl-compaction-resume-20261024",
+  "url": "https://openai.github.io/openai-agents-python/human_in_the_loop/",
+  "repository_url": "https://github.com/openai/openai-agents-python",
+  "commit_sha": "",
+  "version": "Rolling Human-in-the-loop guide; verified 2026-10-24 UTC; publication date not shown",
+  "retrieved_at": "2026-10-24",
+  "license": "unknown (deployed guide prose license not independently established; original summary only)",
+  "trust": "official",
+  "type": "official_docs",
+  "purpose": "interruptionsからRunStateへの変換、original top-level agentのresume、stream iterator終了までの消費、同一sessionへの再接続、信頼するserver側snapshotと承認主体の検証、長期pending taskの版識別子保存を確認。"
+}

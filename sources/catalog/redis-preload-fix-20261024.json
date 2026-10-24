@@ -1,0 +1,12 @@
+{
+  "id": "redis-preload-fix-20261024",
+  "url": "https://github.com/redis/redis/commit/940a4d72fc7caaed6f853b65b39920ff3fb9ac1f",
+  "repository_url": "https://github.com/redis/redis",
+  "commit_sha": "940a4d72fc7caaed6f853b65b39920ff3fb9ac1f",
+  "version": "Upstream fix #15916, commit 940a4d72fc7caaed6f853b65b39920ff3fb9ac1f; committed 2026-10-08T13:08:40Z",
+  "retrieved_at": "2026-10-24",
+  "license": "RSALv2 OR SSPLv1 OR AGPLv3; pinned LICENSE.txt verified; server.c additionally identifies BSD-3-Clause portions in REDISCONTRIBUTIONS; original analysis only, no code copied",
+  "trust": "official",
+  "type": "github_repository_analysis",
+  "purpose": "successful preload後のupgrade callを削除し、通常のnon-preload AOF loadを維持する差分と追加regression testを確認。実行成功やstable backportの確認ではない。"
+}

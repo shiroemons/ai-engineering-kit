@@ -1,0 +1,12 @@
+{
+  "id": "github-actions-blob-expansion-20261022",
+  "url": "https://github.blog/changelog/2026-10-22-meta-api-endpoints-updated-for-actions-blob-storage/",
+  "repository_url": "",
+  "commit_sha": "",
+  "version": "GitHub.com Actions blob endpoint additions announced 2026-10-22",
+  "retrieved_at": "2026-10-24",
+  "license": "unknown",
+  "trust": "official",
+  "type": "release_notes",
+  "purpose": "追加hostの閉区間、既存wildcardと個別host指定の差、job summary/logへの影響を確認。記事の公開日は2026-10-22。コード転載なし。"
+}

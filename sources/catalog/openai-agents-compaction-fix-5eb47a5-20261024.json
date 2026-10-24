@@ -1,0 +1,12 @@
+{
+  "id": "openai-agents-compaction-fix-5eb47a5-20261024",
+  "url": "https://github.com/openai/openai-agents-python/commit/5eb47a5bdeab8ba9f6087de288c7e606816c76c6",
+  "repository_url": "https://github.com/openai/openai-agents-python",
+  "commit_sha": "5eb47a5bdeab8ba9f6087de288c7e606816c76c6",
+  "version": "Fix #5363 @ 5eb47a5bdeab8ba9f6087de288c7e606816c76c6; included in v0.24.0",
+  "retrieved_at": "2026-10-24",
+  "license": "MIT; release repository LICENSE checked; original analysis without copied code",
+  "trust": "official",
+  "type": "github_repository_analysis",
+  "purpose": "固定修正commitの実装diffとtests/memory/test_compaction_model_visibility.pyをnative webで開いて確認。complete historyへのtool-group検査拡張、関数toolとhosted MCPの承認・拒否、streaming、serialized resume、後続turnのcompacted replayを静的に照合。upstreamテストは未実行。"
+}

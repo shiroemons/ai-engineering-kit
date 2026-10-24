@@ -1,0 +1,12 @@
+{
+  "id": "github-ip-list-limits-20261024",
+  "url": "https://docs.github.com/en/authentication/keeping-your-account-and-data-secure/about-githubs-ip-addresses",
+  "repository_url": "https://github.com/github/docs",
+  "commit_sha": "",
+  "version": "GitHub.com live documentation retrieved 2026-10-24",
+  "retrieved_at": "2026-10-24",
+  "license": "CC-BY-4.0",
+  "trust": "official",
+  "type": "official_docs",
+  "purpose": "Meta IP一覧の非網羅性、定期監視の必要性、actions/actions_macosがhosted runner IPを表すことを確認。GitHub Docs LICENSEを確認。"
+}

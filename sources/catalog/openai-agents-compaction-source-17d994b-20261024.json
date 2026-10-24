@@ -1,0 +1,12 @@
+{
+  "id": "openai-agents-compaction-source-17d994b-20261024",
+  "url": "https://raw.githubusercontent.com/openai/openai-agents-python/17d994bd3045dae71acda676a4ef4762ed8ecd94/src/agents/memory/openai_responses_compaction_session.py",
+  "repository_url": "https://github.com/openai/openai-agents-python",
+  "commit_sha": "17d994bd3045dae71acda676a4ef4762ed8ecd94",
+  "version": "openai-agents v0.24.0 @ 17d994bd3045dae71acda676a4ef4762ed8ecd94",
+  "retrieved_at": "2026-10-24",
+  "license": "MIT; LICENSE at the same release commit checked; no copied implementation",
+  "trust": "official",
+  "type": "github_repository_analysis",
+  "purpose": "固定版OpenAIResponsesCompactionSessionをnative webで開いて静的分析。automatic分岐のmodel exchange照合、tool group保持、hosted MCP request/response ID照合、manual経路との差を確認。LICENSEも同commitで確認。SDK実行・API呼出しは未実施。"
+}
