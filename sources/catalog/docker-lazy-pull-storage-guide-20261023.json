@@ -1,0 +1,12 @@
+{
+  "id": "docker-lazy-pull-storage-guide-20261023",
+  "url": "https://docs.docker.com/engine/storage/containerd/",
+  "repository_url": "https://github.com/docker/docs",
+  "commit_sha": "",
+  "version": "Docker Engine containerd image store rolling guide, retrieved 2026-10-23; page publication date not shown; lazy-pull introduced in 29.9.0",
+  "retrieved_at": "2026-10-23",
+  "license": "Apache-2.0 (docker/docs README and LICENSE verified 2026-10-23; https://github.com/docker/docs/blob/main/LICENSE)",
+  "trust": "official",
+  "type": "official_docs",
+  "purpose": "lazy-pullのsnapshotter別既定値、eStargzとplain gzip、saveの無警告不完全archive、pushのcross-repo mount、snapshotter cacheとcontent storeの差、false設定・reload・再pullを確認。"
+}

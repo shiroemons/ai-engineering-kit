@@ -1,0 +1,12 @@
+{
+  "id": "claude-managed-web-tool-enable-boundary-20261023",
+  "url": "https://platform.claude.com/docs/en/managed-agents/tools",
+  "repository_url": "",
+  "commit_sha": "",
+  "version": "Managed Agents agent_toolset_20260401; rolling Tools guide retrieved 2026-10-23 UTC; separate publication/update date not displayed",
+  "retrieved_at": "2026-10-23",
+  "license": "unknown",
+  "trust": "official",
+  "type": "official_docs",
+  "purpose": "既定のtool有効化とenabled設定、custom toolの実行責任を確認する。"
+}

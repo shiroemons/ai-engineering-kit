@@ -1,0 +1,12 @@
+{
+  "id": "docker-lazy-pull-daemon-reload-20261023",
+  "url": "https://docs.docker.com/reference/cli/dockerd/",
+  "repository_url": "https://github.com/docker/docs",
+  "commit_sha": "",
+  "version": "dockerd rolling CLI reference, verified 2026-10-23; publication date not shown",
+  "retrieved_at": "2026-10-23",
+  "license": "Apache-2.0 (docker/docs README and LICENSE verified 2026-10-23; https://github.com/docker/docs/blob/main/LICENSE)",
+  "trust": "official",
+  "type": "official_docs",
+  "purpose": "featuresのCLI/file重複、設定validate、Linux SIGHUPによるreload、conflict時は実行を続けるが再設定に失敗する契約を確認。"
+}

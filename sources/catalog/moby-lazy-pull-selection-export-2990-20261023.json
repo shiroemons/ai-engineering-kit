@@ -1,0 +1,12 @@
+{
+  "id": "moby-lazy-pull-selection-export-2990-20261023",
+  "url": "https://github.com/moby/moby/tree/a5b58c94d334674eae3a3207d4f05417643a90d0/daemon/containerd",
+  "repository_url": "https://github.com/moby/moby",
+  "commit_sha": "a5b58c94d334674eae3a3207d4f05417643a90d0",
+  "version": "docker-v29.9.0 at a5b58c94d334674eae3a3207d4f05417643a90d0; annotated tag 007c041bb4308ac5fdf552e03f92d0d9ff5dd41b dereferenced; released 2026-10-08",
+  "retrieved_at": "2026-10-23",
+  "license": "Apache-2.0 (LICENSE at a5b58c94d334674eae3a3207d4f05417643a90d0, retrieved with GitHub connector 2026-10-23)",
+  "trust": "primary-source",
+  "type": "github_repository_analysis",
+  "purpose": "image_pull.goのlazyPull・knownRemoteSnapshotters・WithUnpackFetchAllContent・platform選択、image_pull_test.goのTestLazyPull、service.goのfeaturesProvider、image_exporter.goのWithSkipMissing、image_push.goのmount候補とindex fallbackを固定読解。native webのblob取得が失敗したためGitHub connectorで取得。実行試験なし。"
+}
