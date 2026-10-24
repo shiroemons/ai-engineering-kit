@@ -1,0 +1,12 @@
+{
+  "id": "python-lazy-pep810-20261024",
+  "url": "https://peps.python.org/pep-0810/",
+  "repository_url": "",
+  "commit_sha": "",
+  "version": "PEP 810 Final; created 2025-10-02; last modified 2026-06-27 10:06:25 UTC; retrieved 2026-10-24",
+  "retrieved_at": "2026-10-24",
+  "license": "CC0-1.0 or public domain (Copyright section)",
+  "trust": "official",
+  "type": "official_docs",
+  "purpose": "設計意図、副作用時刻、探索状態、reification、threadと動的importの境界を再確認。PEPのnone記述は3.15.1公開API・固定実装と不一致であり採用しない。PEP FinalとPython配布版公開を区別。"
+}

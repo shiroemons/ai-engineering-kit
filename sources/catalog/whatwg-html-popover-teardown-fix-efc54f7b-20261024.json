@@ -1,0 +1,12 @@
+{
+  "id": "whatwg-html-popover-teardown-fix-efc54f7b-20261024",
+  "url": "https://github.com/whatwg/html/commit/efc54f7b70858d9fcf06d1a5871ae215f448c029",
+  "repository_url": "https://github.com/whatwg/html",
+  "commit_sha": "efc54f7b70858d9fcf06d1a5871ae215f448c029",
+  "version": "HTML PR #13001 merged 2026-10-07T16:46:35Z; commit efc54f7b70858d9fcf06d1a5871ae215f448c029",
+  "retrieved_at": "2026-10-24",
+  "license": "CC-BY-4.0; portions incorporated into source code: BSD-3-Clause; LICENSE verified at efc54f7b70858d9fcf06d1a5871ae215f448c029; commit and PR discussion summarized, not copied",
+  "trust": "primary-source",
+  "type": "github_repository_analysis",
+  "purpose": "非接続・非 fully active 条件を show 側に限定し、hide 後続検査で元 Document を渡し、close watcher の破棄を正常終了経路へ移す修正を commit patch と current main で照合。merge は実装出荷の証明ではない。"
+}

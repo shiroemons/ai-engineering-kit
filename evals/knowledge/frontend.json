@@ -1896,6 +1896,83 @@
       "expected_ids": [
         "javascript-web-locks-admission-lifetime-boundary"
       ]
+    },
+    {
+      "name": "html-popover-oct7-teardown-not-light-dismiss",
+      "query": "2026-10-07 teardown Chrome 154",
+      "expected_ids": [
+        "html-dialog-showmodal-close-popover-distinction"
+      ]
+    },
+    {
+      "name": "html-popover-hide-inactive-asymmetry",
+      "query": "expectedToBeShowing fully active 隠す側",
+      "expected_ids": [
+        "html-dialog-showmodal-close-popover-distinction"
+      ]
+    },
+    {
+      "name": "html-popover-removal-no-new-toggle",
+      "query": "除去 新しい beforetoggle toggle",
+      "expected_ids": [
+        "html-dialog-showmodal-close-popover-distinction"
+      ]
+    },
+    {
+      "name": "html-popover-removal-reinsertion-hidden",
+      "query": "再挿入 非表示",
+      "expected_ids": [
+        "html-dialog-showmodal-close-popover-distinction"
+      ]
+    },
+    {
+      "name": "html-popover-owner-document-not-rollback",
+      "query": "expectedDocument InvalidStateError ロールバック",
+      "expected_ids": [
+        "html-dialog-showmodal-close-popover-distinction"
+      ]
+    },
+    {
+      "name": "html-popover-old-hide-preserves-watcher",
+      "query": "close watcher 早期 return",
+      "expected_ids": [
+        "html-dialog-showmodal-close-popover-distinction"
+      ]
+    },
+    {
+      "name": "html-popover-reentrancy-document-scope",
+      "query": "同じ Document 全ウィンドウ",
+      "expected_ids": [
+        "html-dialog-showmodal-close-popover-distinction"
+      ]
+    },
+    {
+      "name": "html-popover-teardown-not-event-owned",
+      "query": "購読解除 teardown toggle",
+      "expected_ids": [
+        "html-dialog-showmodal-close-popover-distinction"
+      ]
+    },
+    {
+      "name": "html-popover-wpt-read-not-run",
+      "query": "63185 WPT 実行していない",
+      "expected_ids": [
+        "html-dialog-showmodal-close-popover-distinction"
+      ]
+    },
+    {
+      "name": "html-popover-force-false-not-hide-alias",
+      "query": "togglePopover(false) 完全な別名 非表示",
+      "expected_ids": [
+        "html-dialog-showmodal-close-popover-distinction"
+      ]
+    },
+    {
+      "name": "html-popover-detached-hide-versus-toggle",
+      "query": "非接続 hidePopover force=false InvalidStateError",
+      "expected_ids": [
+        "html-dialog-showmodal-close-popover-distinction"
+      ]
     }
   ]
 }

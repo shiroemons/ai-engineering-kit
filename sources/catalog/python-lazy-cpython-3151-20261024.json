@@ -1,0 +1,12 @@
+{
+  "id": "python-lazy-cpython-3151-20261024",
+  "url": "https://github.com/python/cpython/tree/c37e74cb6bcdadcd5f46f289498f6b3298ddee61",
+  "repository_url": "https://github.com/python/cpython",
+  "commit_sha": "c37e74cb6bcdadcd5f46f289498f6b3298ddee61",
+  "version": "CPython v3.15.1; dereferenced commit c37e74cb6bcdadcd5f46f289498f6b3298ddee61",
+  "retrieved_at": "2026-10-24",
+  "license": "PSF-2.0; repository LICENSE contains historical notices; no code copied",
+  "trust": "official",
+  "type": "github_repository_analysis",
+  "purpose": "git ls-remoteと浅いread-only cloneのHEADを照合。Python/sysmodule.c・Python/ceval.c・Python/import.c・Objects/lazyimportobject.c・Lib/test/test_lazy_import・Docの対応章・Misc/NEWS.d/3.15.0b3.rst、3.15.0rc3.rst、3.15.1.rst、LICENSEを調査。none拒否、compatibility、filter決定時刻、path再解決、proxy観測、cause/notes、rc3/3.15.1修正を確認。上流テスト未実行。"
+}

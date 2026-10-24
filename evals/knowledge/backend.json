@@ -2825,6 +2825,69 @@
       "expected_ids": [
         "python-abi3t-wheel-gil-acceptance-boundary"
       ]
+    },
+    {
+      "name": "python-lazy-final-maintenance-3151",
+      "query": "lazy final 2026-10-09 3.15.1",
+      "expected_ids": [
+        "python-lazy-imports-release-readiness-boundary"
+      ]
+    },
+    {
+      "name": "python-lazy-diagnostic-set-not-readiness",
+      "query": "sys.lazy_modules 属性名 readiness",
+      "expected_ids": [
+        "python-lazy-imports-release-readiness-boundary"
+      ]
+    },
+    {
+      "name": "python-lazy-filter-decision-before-first-use",
+      "query": "filter import文 初回利用 policy",
+      "expected_ids": [
+        "python-lazy-imports-release-readiness-boundary"
+      ]
+    },
+    {
+      "name": "python-lazy-pep-none-still-unsupported-3151",
+      "query": "none 3.15.1 ValueError rollback",
+      "expected_ids": [
+        "python-lazy-imports-release-readiness-boundary"
+      ]
+    },
+    {
+      "name": "python-lazy-existing-exception-chain-notes",
+      "query": "lazy __notes__ cause context",
+      "expected_ids": [
+        "python-lazy-imports-release-readiness-boundary"
+      ]
+    },
+    {
+      "name": "python-lazy-getattr-shadowing-maintenance",
+      "query": "3.15.1 __getattr__ shadow",
+      "expected_ids": [
+        "python-lazy-imports-release-readiness-boundary"
+      ]
+    },
+    {
+      "name": "python-lazy-alias-real-submodule",
+      "query": "alias submodule ModuleNotFoundError",
+      "expected_ids": [
+        "python-lazy-imports-release-readiness-boundary"
+      ]
+    },
+    {
+      "name": "python-lazy-maintenance-shutdown-chain",
+      "query": "finalizer RecursionError shutdown",
+      "expected_ids": [
+        "python-lazy-imports-release-readiness-boundary"
+      ]
+    },
+    {
+      "name": "python-lazy-main-thread-boundary",
+      "query": "main-thread import-lock 初回利用",
+      "expected_ids": [
+        "python-lazy-imports-release-readiness-boundary"
+      ]
     }
   ]
 }

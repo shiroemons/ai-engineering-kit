@@ -1,0 +1,12 @@
+{
+  "id": "python-lazy-commandline-3151-20261024",
+  "url": "https://docs.python.org/3.15/using/cmdline.html",
+  "repository_url": "",
+  "commit_sha": "",
+  "version": "Python 3.15.1 rolling documentation; last updated 2026-10-24 11:38 UTC",
+  "retrieved_at": "2026-10-24",
+  "license": "PSF-2.0; documentation examples, recipes and code additionally 0BSD (https://docs.python.org/3.15/license.html); original summary only",
+  "trust": "official",
+  "type": "official_docs",
+  "purpose": "-X lazy_importsおよびPYTHON_LAZY_IMPORTSの指定値normal/allを再確認。PEPに残るnoneをrollback用の対応済み設定と誤認しない。"
+}

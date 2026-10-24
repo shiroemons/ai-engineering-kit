@@ -1,0 +1,12 @@
+{
+  "id": "python-lazy-3151-release-20261024",
+  "url": "https://www.python.org/downloads/release/python-3151/",
+  "repository_url": "",
+  "commit_sha": "",
+  "version": "Python 3.15.1; first maintenance release; released 2026-10-21",
+  "retrieved_at": "2026-10-24",
+  "license": "unknown",
+  "trust": "official",
+  "type": "release_notes",
+  "purpose": "3.15.1の公開日とmaintenance releaseであることを確認。Python配布版の公開確認とアプリのlazy-import互換検証を区別する。転載なし。"
+}

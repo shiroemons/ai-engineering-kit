@@ -1,0 +1,12 @@
+{
+  "id": "python-lazy-3150-release-20261024",
+  "url": "https://www.python.org/downloads/release/python-3150/",
+  "repository_url": "",
+  "commit_sha": "",
+  "version": "Python 3.15.0 stable; released 2026-10-09; superseded by 3.15.1",
+  "retrieved_at": "2026-10-24",
+  "license": "unknown",
+  "trust": "official",
+  "type": "release_notes",
+  "purpose": "finalが2026-10-09に公開済みであることを確認し、旧rc2時点の未公開扱いを訂正。3.15.1へ置換された表示も確認。転載なし。"
+}
