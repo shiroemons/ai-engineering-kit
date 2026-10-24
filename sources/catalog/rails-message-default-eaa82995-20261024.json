@@ -1,0 +1,12 @@
+{
+  "id": "rails-message-default-eaa82995-20261024",
+  "url": "https://github.com/rails/rails/commit/eaa8299527c069c256a695622b90129b15d9aef8",
+  "repository_url": "https://github.com/rails/rails",
+  "commit_sha": "eaa8299527c069c256a695622b90129b15d9aef8",
+  "version": "Rails main 8.2.0.alpha, PR #59156 merge 2026-10-22T06:42:12Z",
+  "retrieved_at": "2026-10-24",
+  "license": "MIT",
+  "trust": "primary-source",
+  "type": "github_repository_analysis",
+  "purpose": "40桁merge commitのdiffとmetadataをGitHub read-only connectorで取得。load_defaults 8.2の:json既定、7.1-8.1の継承、8.2移行template、configuration_testの既定値assertionを確認。native webでPR #59156を実際に読み、commit表示のcache missはconnectorで補完。固定RAILS_VERSIONは8.2.0.alpha、MIT-LICENSEを確認。正式release収録とruntimeは未検証。"
+}

@@ -462,5 +462,15 @@
       "expected_ids": [
         "security-chips-partition-session-logout-boundary"
       ]
-    }
-  ]}
+    },
+{"name":"csp-delegation-host-allowlist","query":"strict-dynamic host allowlist","expected_ids":["security-csp-strict-dynamic-loader-delegation-boundary"]},
+{"name":"csp-delegation-parser-nonce-order","query":"strict-dynamic parser-inserted nonce","expected_ids":["security-csp-strict-dynamic-loader-delegation-boundary"]},
+{"name":"csp-delegation-insertion-apis","query":"strict-dynamic document.write createElement","expected_ids":["security-csp-strict-dynamic-loader-delegation-boundary"]},
+{"name":"csp-delegation-base-relative-url","query":"CSP nonce base-uri 相対URL","expected_ids":["security-csp-strict-dynamic-loader-delegation-boundary"]},
+{"name":"csp-delegation-cache-response","query":"CSP nonce cache hit","expected_ids":["security-csp-strict-dynamic-loader-delegation-boundary"]},
+{"name":"csp-delegation-fixed-map-authority","query":"strict-dynamic 固定マップ 実行権限","expected_ids":["security-csp-strict-dynamic-loader-delegation-boundary"]},
+{"name":"csp-delegation-static-hash-data","query":"CSP hash 静的HTML","expected_ids":["security-csp-strict-dynamic-loader-delegation-boundary"]},
+{"name":"csp-delegation-report-only-allowed","query":"strict-dynamic Report-Only 許可済み","expected_ids":["security-csp-strict-dynamic-loader-delegation-boundary"]},
+{"name":"csp-delegation-nonce-requirement","query":"nonce MUST SHOULD 128","expected_ids":["security-csp-strict-dynamic-loader-delegation-boundary"]}
+  ]
+}

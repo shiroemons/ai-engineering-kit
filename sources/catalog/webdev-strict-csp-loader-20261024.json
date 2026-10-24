@@ -1,0 +1,12 @@
+{
+  "id": "webdev-strict-csp-loader-20261024",
+  "url": "https://web.dev/articles/strict-csp",
+  "repository_url": "",
+  "commit_sha": "",
+  "version": "Mitigate cross-site scripting (XSS) with a strict Content Security Policy (CSP), Lukas Weichselbaum; page last updated 2024-09-13 UTC; read 2026-10-24 UTC",
+  "retrieved_at": "2026-10-24",
+  "license": "CC-BY-4.0 article; Apache-2.0 code samples. Page footer and linked https://creativecommons.org/licenses/by/4.0/ and https://www.apache.org/licenses/LICENSE-2.0 verified 2026-10-24 UTC. No copied code; original attributed Japanese summary and design recommendations.",
+  "trust": "maintainer",
+  "type": "maintainer_article",
+  "purpose": "Chrome 開発元の strict CSP 導入記事として、応答ごとの nonce と静的・cache HTML の hash 方式、nonce 付き script の本文・src および動的 loader の入力に残る危険を確認。規範仕様と導入助言を区別し、browser 対応表を現在の一律保証として引用しない。"
+}

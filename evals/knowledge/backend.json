@@ -2764,6 +2764,11 @@
       "expected_ids": [
         "python-startup-start-pth-suppression-boundary"
       ]
-    }
+    },
+{"name":"rails-message-default-version-marshal-retirement","query":"load_defaults json_allow_marshal Marshal","expected_ids":["rails-message-serializer-marshal-retirement-boundary"]},
+{"name":"rails-message-fallback-zero-primary-rotation","query":"fallback 通知0 rotation","expected_ids":["rails-message-serializer-marshal-retirement-boundary"]},
+{"name":"rails-message-payload-log-exposure","query":"message_serializer serialized deserialized","expected_ids":["rails-message-serializer-marshal-retirement-boundary"]},
+{"name":"rails-message-signature-deserialization-distinction","query":"valid_message? serialization error","expected_ids":["rails-message-serializer-marshal-retirement-boundary"]},
+{"name":"rails-message-json-messagepack-reader-boundary","query":":json MessagePack strict","expected_ids":["rails-message-serializer-marshal-retirement-boundary"]}
   ]
 }

@@ -1,0 +1,12 @@
+{
+  "id": "rails-message-contract-eaa82995-20261024",
+  "url": "https://github.com/rails/rails/tree/eaa8299527c069c256a695622b90129b15d9aef8",
+  "repository_url": "https://github.com/rails/rails",
+  "commit_sha": "eaa8299527c069c256a695622b90129b15d9aef8",
+  "version": "Rails main 8.2.0.alpha @ eaa8299527c069c256a695622b90129b15d9aef8; source review only",
+  "retrieved_at": "2026-10-24",
+  "license": "MIT",
+  "trust": "primary-source",
+  "type": "github_repository_analysis",
+  "purpose": "固定serializer_with_fallback.rb・Codec・Railtie・Rotator・MessageVerifier・serializer/configuration testsをGitHub read-only connectorで読解。JSON writerとMarshal readerの分離、MessagePack fallback、通知payloadとsame-format非通知、constructorでのserializer捕捉、rotation、valid_message?とdeserialize errorの違いを確認。RAILS_VERSIONとMIT-LICENSE確認。native webのblobはcache miss。ruby executableを確認できずruntime試験なし。コード取込みなし。"
+}
